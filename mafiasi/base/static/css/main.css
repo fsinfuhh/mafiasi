@@ -1,0 +1,25 @@
+/*---------- GENERIC ---------*/
+
+body {
+    padding-top: 70px;
+}
+
+button {
+    transition: background-color 0.21s, border-color 0.21s, box-shadow 0.1s;
+}
+
+
+/*------------ DASHBOARD --------*/
+#dashboard .glyphicon {
+    top: -7px;
+    font-size: 80px;
+}
+
+#dashboard .panel h3 {
+    margin-top: 3px;
+}
+
+#dashboard .panel .col-xs-6 {
+    width: auto;
+    padding-right: 0;
+}
