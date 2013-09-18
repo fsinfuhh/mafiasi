@@ -7,22 +7,22 @@
 {% csrf_token %}
 <input type="hidden" name="account" value="{{ account }}" />
 <table>
-	<tr>
-		<td>Account:</td>
-		<td>{{ account }}</td>
-	</tr>
-	<tr>
-		<td>Vorname:</td>
-		<td>{{ info_form.first_name }}</td>
-	</tr>
-	<tr>
-		<td>Nachname:</td>
-		<td>{{ info_form.last_name }}</td>
-	</tr>
-	<tr>
-		<td>Jahrgang</td>
-		<td>{{ info_form.yeargroup }}</td>
-	</tr>
+    <tr>
+        <td>Account:</td>
+        <td>{{ account }}</td>
+    </tr>
+    <tr>
+        <td>Vorname:</td>
+        <td>{{ info_form.first_name }}</td>
+    </tr>
+    <tr>
+        <td>Nachname:</td>
+        <td>{{ info_form.last_name }}</td>
+    </tr>
+    <tr>
+        <td>Jahrgang</td>
+        <td>{{ info_form.yeargroup }}</td>
+    </tr>
 </table>
 <p><input type="submit" value="Account beantragen" /></p>
 </form>
