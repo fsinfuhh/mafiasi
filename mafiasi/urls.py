@@ -1,10 +1,11 @@
 from django.conf.urls import patterns, include, url
+from django.shortcuts import redirect
 
 from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # url(r'^$', 'mafiasi.views.home', name='home'),
+    url(r'^$', lambda req: redirect('dashboard_index'), name='home'),
     url(r'^registration/', include('mafiasi.registration.urls')),
     url(r'^dashboard/', include('mafiasi.dashboard.urls')),
 
