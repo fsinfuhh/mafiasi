@@ -134,9 +134,16 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.admindocs',
+    'mafiasi.base',
+    'mafiasi.registration',
+    'mafiasi.dashboard',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
+
+AUTH_USER_MODEL = 'base.Mafiasi'
+EMAIL_DOMAIN = u'informatik.uni-hamburg.de'
+LOGIN_URL = '/login'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
