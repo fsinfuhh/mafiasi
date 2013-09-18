@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Account anlegen</h2>
+<form method="post" action="">
+{% csrf_token %}
+<table>
+	<tr>
+		<th>Benutzername:</th>
+		<td>{{ username }}</td>
+	</tr>
+	<tr>
+		<th>Passwort:</th>
+		<td>{{ form.password1 }}</td>
+	</tr>
+	<tr>
+		<th>Passwort bestätigen:</th>
+		<td>{{ form.password2 }}</td>
+	</tr>
+</table>
+<p><input type="submit" value="Account anlegen" /></p>
+</form>
+{% endblock content %}

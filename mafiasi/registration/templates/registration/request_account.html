@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Registrierung</h2>
+<p>Bitte gib im folgenden Formular deine Informatik-E-Mail-Adresse ein. Du
+bekommst daraufhin eine E-Mail mit weiteren Anweisungen.</p>
+
+<form method="post" action="">
+{% csrf_token %}
+<p>{{ form.account }}@{{ email_domain }}</p>
+
+<p><input type="submit" value="Account beantragen" /></p>
+</form>
+{% endblock content %}
