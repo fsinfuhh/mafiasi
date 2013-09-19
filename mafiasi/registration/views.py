@@ -53,7 +53,7 @@ def request_successful(request, account):
     })
 
 def create_account(request, info_token):
-    if request.user:
+    if request.user.is_authenticated():
         return redirect('dashboard_index')
 
     try:
