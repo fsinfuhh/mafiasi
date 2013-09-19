@@ -1,23 +1,31 @@
 {% extends "base.html" %}
+{% load widget_tweaks %}
 
 {% block content %}
-<h2>Account anlegen</h2>
-<form method="post" action="">
-{% csrf_token %}
-<table>
-    <tr>
-        <th>Benutzername:</th>
-        <td>{{ username }}</td>
-    </tr>
-    <tr>
-        <th>Passwort:</th>
-        <td>{{ form.password1 }}</td>
-    </tr>
-    <tr>
-        <th>Passwort bestätigen:</th>
-        <td>{{ form.password2 }}</td>
-    </tr>
-</table>
-<p><input type="submit" value="Account anlegen" /></p>
-</form>
+<div class="row">
+        <div class="col-md-4">
+            <h1 class="">Account anlegen</h1>
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label class="control-label">Benutzername</label>
+                    <p class="form-control-static">{{ username }}</p>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Password</label>
+                    {% render_field form.password1 class+="form-control" %}
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Password bestätigen</label>
+                    {% render_field form.password2 class+="form-control" %}
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-default" value="Account anlegen" />
+              </div>
+          </form>
+      </div>
+  </div>
+
+
 {% endblock content %}

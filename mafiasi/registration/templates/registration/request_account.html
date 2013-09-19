@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load widget_tweaks %}
 
 {% block content %}
 
@@ -6,10 +7,10 @@
 <p>Bitte gib im folgenden Formular deine Informatik-E-Mail-Adresse ein. Du
 bekommst daraufhin eine E-Mail mit weiteren Anweisungen.</p>
 
-<form method="post" action="">
+<form method="post" action="" class="form-inline">
 {% csrf_token %}
-<p>{{ form.account }}@{{ email_domain }}</p>
+<p>{% render_field form.account class+="form-control" style="width: 100px;" %}@{{ email_domain }}</p>
 
-<p><input type="submit" value="Account beantragen" /></p>
+<p><input type="submit" class="btn btn-default" value="Account beantragen" /></p>
 </form>
 {% endblock content %}

@@ -137,6 +137,7 @@ INSTALLED_APPS = (
     'mafiasi.base',
     'mafiasi.registration',
     'mafiasi.dashboard',
+    'widget_tweaks'
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
