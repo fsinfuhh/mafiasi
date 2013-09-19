@@ -1,5 +1,8 @@
 from django.core import signing
+from django.core.urlresolvers import reverse
+from django.core.mail import send_mail
 from django.template.response import TemplateResponse
+from django.template.loader import render_to_string
 from django.conf import settings
 from django.shortcuts import redirect
 from django.contrib.auth import login
@@ -18,7 +21,7 @@ def request_account(request):
             if not yeargroup:
                 info_form = AdditionalInfoForm(request.POST, account=account)
                 if info_form.is_valid():
-                    return _finish_account_request({
+                    return _finish_account_request(request, {
                         'action': 'request_account',
                         'account': account,
                         'first_name': info_form.cleaned_data['first_name'],
@@ -30,7 +33,7 @@ def request_account(request):
                     'info_form': info_form
                 })
             else:
-                return _finish_account_request({
+                return _finish_account_request(request, {
                     'action': 'request_account',
                     'account': account,
                     'yeargroup_pk': yeargroup.pk
@@ -95,9 +98,18 @@ def create_account(request, info_token):
 
             
 
-def _finish_account_request(info):
+def _finish_account_request(request, info):
     email = u'{0}@{1}'.format(info['account'], settings.EMAIL_DOMAIN)
     token = signing.dumps(info)
-    url = None
-    # TODO: Send email
+    url_path = reverse('registration_create_account', args=(token,))
+    activation_link = request.build_absolute_uri(url_path)
+    email_content = render_to_string('registration/create_email.html', {
+        'activation_link': activation_link
+    })
+
+    send_mail(u'Accounterstellung auf mafiasi.de',
+              email_content,
+              None,
+              [email])
+
     return redirect('registration_request_successful', info['account'])
