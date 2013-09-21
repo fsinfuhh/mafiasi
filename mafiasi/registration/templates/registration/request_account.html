@@ -7,10 +7,20 @@
 <p>Bitte gib im folgenden Formular deine Informatik-E-Mail-Adresse ein. Du
 bekommst daraufhin eine E-Mail mit weiteren Anweisungen.</p>
 
-<form method="post" action="" class="form-inline">
-{% csrf_token %}
-<p>{% render_field form.account class+="form-control" style="width: 100px;" %}@{{ email_domain }}</p>
+    <form method="post" action="" class="form-inline">
+        {% csrf_token %}
 
-<p><input type="submit" class="btn btn-default" value="Account beantragen" /></p>
-</form>
-{% endblock content %}
+        {% if form.account.errors %}
+        <p>
+            <div class="form-group has-error">
+              {% render_field form.account class+="form-control" style="width: 100px;" %}@{{ email_domain }}
+          </div>
+      </p>
+      {% else %}
+      <p>
+          {% render_field form.account class+="form-control" style="width: 100px;" %}@{{ email_domain }}
+      </p>
+      {% endif %}
+      <p><input type="submit" class="btn btn-default" value="Account beantragen" /></p>
+  </form>
+  {% endblock content %}

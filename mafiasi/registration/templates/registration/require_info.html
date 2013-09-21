@@ -13,15 +13,15 @@
                     <label class="control-label">Benutzername</label>
                     <p class="form-control-static">{{ account }}</p>
                 </div>
-                <div class="form-group">
+                <div class="form-group{% if info_form.first_name.errors %} has-error{% endif %}">
                     <label class="control-label">Vorname</label>
                     {% render_field info_form.first_name class+="form-control" %}
                 </div>
-                <div class="form-group">
+                <div class="form-group{% if info_form.last_name.errors %} has-error{% endif %}">
                     <label class="control-label">Nachname</label>
                     {% render_field info_form.last_name class+="form-control" %}
                 </div>
-                <div class="form-group">
+                <div class="form-group{% if info_form.yeargroup.errors %} has-error{% endif %}">
                     <label class="control-label">Jahrgang</label>
                     {% render_field info_form.yeargroup class+="form-control" %}
                 </div>

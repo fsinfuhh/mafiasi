@@ -7,13 +7,30 @@
             <h1 class="">Login</h1>
             <form method="post">
                 {% csrf_token %}
-                <div class="form-group">
+                {% if form.non_field_errors %}
+                <div class="alert alert-danger">
+                    {% for error in form.non_field_errors %}
+                    {{ error }}
+                    {% endfor %}
+                </div>
+                {% endif %}
+                <div class="form-group{% if form.username.errors %} has-error{% endif %}">
                     <label class="control-label">Benutzername</label>
                     {% render_field form.username class+="form-control" %}
+                    {% if form.username.errors %}
+                    <span class="help-block">
+                        {% for error in form.username.errors %}{{ error }} {% endfor %}
+                    </span>
+                    {% endif %}
                 </div>
-                <div class="form-group">
-                    <label class="control-label">Password</label>
+                <div class="form-group{% if form.password.errors %} has-error{% endif %}">
+                    <label class="control-label">Passwort</label>
                     {% render_field form.password class+="form-control" %}
+                    {% if form.password.errors %}
+                    <span class="help-block">
+                        {% for error in form.password.errors %}{{ error|escape }} {% endfor %}
+                    </span>
+                    {% endif %}
                 </div>
 
                 <div class="form-group">
