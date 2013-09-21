@@ -16,7 +16,7 @@ class YeargroupManager(models.Manager):
 class Yeargroup(models.Model):
     slug = models.SlugField(max_length=16)
     name = models.CharField(max_length=16)
-    gid = models.IntegerField(blank=True, null=True)
+    gid = models.BigIntegerField(blank=True, null=True)
 
     objects = YeargroupManager()
 
@@ -27,7 +27,7 @@ class Yeargroup(models.Model):
 class PasswdEntry(models.Model):
     username = models.CharField(max_length=40, unique=True)
     full_name = models.CharField(max_length=60)
-    gid = models.IntegerField()
+    gid = models.BigIntegerField()
 
     def __unicode__(self):
         return self.username
