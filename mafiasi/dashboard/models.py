@@ -23,3 +23,14 @@ class News(models.Model):
     def render_text(self):
         return mark_safe(text2html(self.text, method='xhtml'))
 
+class Panel(models.Model):
+    title = models.CharField(max_length=120)
+    content = models.TextField()
+    position = models.IntegerField()
+    shown = models.BooleanField()
+
+    def __unicode__(self):
+        return self.title
+
+    def render_content(self):
+        return mark_safe(text2html(self.content, method='xhtml'))

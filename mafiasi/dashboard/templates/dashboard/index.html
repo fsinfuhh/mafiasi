@@ -148,14 +148,17 @@
             </div>
         </div>
         {% endfor %}
+
+        {% for panel in panel_list %}
         <div class="panel panel-default">
             <div class="panel-heading">
-                Nächstes KBS-Thema
+                {{ panel.title }}
             </div>
             <div class="panel-body">
-                Supercool! Mit Keksen! <a href="#">Mehr...</a>
+                {{ panel.render_content }}
             </div>
         </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock content %}
