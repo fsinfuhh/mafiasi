@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<h2>{{ news.title }}</h2>
+
+{% if not news.published %}
+<div class="alert alert-info">Diese Neuigkeit wurde noch nicht veröffentlicht.</div>
+{% endif %}
+
+{% if news.text %}
+{{ news.render_text }}
+{% else %}
+{{ news.render_teaser }}
+{% endif %}
+{% endblock content %}

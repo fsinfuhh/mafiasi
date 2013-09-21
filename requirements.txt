@@ -1,3 +1,4 @@
 django-widget-tweaks
 django-email-log
 nameparser
+creoleparser

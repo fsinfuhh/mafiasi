@@ -134,15 +134,20 @@
         </div>
     </div>
     <div id="news" class="col-md-4">
-        <h2>News</h2>
+        <h2>Aktuelles</h2>
+        {% for news in news_list %}
         <div class="panel panel-info">
             <div class="panel-heading">
-                WICHTIG: VV der Informatikfachschaft
+                {{ news.title }}
             </div>
             <div class="panel-body">
-                Supercool! Mit Keksen! <a href="#">Mehr...</a>
+                {{ news.render_teaser }}
+                {% if news.text %}
+                <a href="{% url 'dashboard_show_news' news.pk %}" class="pull-right">Mehr...</a>
+                {% endif %}
             </div>
         </div>
+        {% endfor %}
         <div class="panel panel-default">
             <div class="panel-heading">
                 Nächstes KBS-Thema
