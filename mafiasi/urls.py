@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     url(r'^registration/', include('mafiasi.registration.urls')),
     url(r'^dashboard/', include('mafiasi.dashboard.urls')),
     url(r'^jabber/', include('mafiasi.jabber.urls')),
+    url(r'^mumble/', include('mafiasi.mumble.urls')),
 
     url(r'^login$', 'django.contrib.auth.views.login', name='login'),
     url(r'^logout$', 'django.contrib.auth.views.logout_then_login',
