@@ -1,3 +1,5 @@
+from nameparser import HumanName
+
 from django.core import signing
 from django.core.urlresolvers import reverse
 from django.core.mail import send_mail
@@ -7,7 +9,7 @@ from django.conf import settings
 from django.shortcuts import redirect
 from django.contrib.auth import login
 
-from mafiasi.base.models import Yeargroup, Mafiasi
+from mafiasi.base.models import Yeargroup, Mafiasi, PasswdEntry
 from mafiasi.registration.forms import RegisterForm, AdditionalInfoForm, PasswordForm
 
 TOKEN_MAX_AGE = 3600 * 24
@@ -83,6 +85,16 @@ def create_account(request, info_token):
             if first_name and last_name:
                 mafiasi.first_name = first_name
                 mafiasi.last_name = last_name
+            else:
+                try:
+                    passwd = PasswdEntry.objects.get(username=info['account'])
+                    name_parsed = HumanName(passwd.full_name)
+                    mafiasi.first_name = name_parsed.first
+                    mafiasi.last_name = name_parsed.last
+                except PasswdEntry.DoesNotExist:
+                    # This happens only when someone removed an entry
+                    # from our passwd database manually
+                    pass
             mafiasi.yeargroup = yeargroup
             mafiasi.save()
             mafiasi.backend='django.contrib.auth.backends.ModelBackend'
