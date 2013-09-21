@@ -16,4 +16,6 @@ class JabberRouter(object):
         return None
     
     def allow_syncdb(self, db, model):
-        return db == 'jabber' and model._meta.app_label == 'jabber'
+        if model._meta.app_label == 'jabber':
+            return db == 'jabber'
+        return None
