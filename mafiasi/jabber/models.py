@@ -136,3 +136,12 @@ class YeargroupSrGroupMapping(models.Model):
 
     def __unicode__(self):
         return u'{0} -> {1}'.format(self.yeargroup, self.sr_group)
+
+def get_account(user):
+    if user.is_authenticated():
+        try:
+            mapping = JabberUserMapping.objects.get(mafiasi_user=user)
+            return mapping.jabber_user
+        except JabberUserMapping.DoesNotExist:
+            return None
+    return None

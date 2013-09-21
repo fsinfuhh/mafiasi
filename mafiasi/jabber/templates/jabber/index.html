@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Jabber</h2>
+
+{% if jabber_user %}
+{% if user.username != jabber_user.username %}
+<div class="alert alert-info">
+Deine Jabber-ID lautet abweichend <strong>{{ jabber_user.username }}</strong>@{{ jabber_domain }}.
+</div>
+{% else %}
+<div class="alert alert-info">
+Deine Jabber-ID lautet <strong>{{ jabber_user.username }}@{{ jabber_domain }}</strong>.
+</div>
+{% endif %}
+{% endif %}
+
+{% if user.is_authenticated %}
+{% if not jabber_user %}
+<p>Du kannst dir jetzt einen <a href="{% url 'jabber_create' %}">Jabber-Account erstellen</a>.</p>
+{% endif %}
+{% else %}
+<p>Du musst dich <a href="{% url 'login' %}">einloggen</a>, um einen Jabber-Account zu erstellen.</p>
+{% endif %}
+
+{% endblock %}

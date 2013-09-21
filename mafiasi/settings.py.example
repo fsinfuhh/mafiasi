@@ -137,6 +137,7 @@ INSTALLED_APPS = (
     'mafiasi.base',
     'mafiasi.registration',
     'mafiasi.dashboard',
+	'mafiasi.jabber',
     'widget_tweaks'
 )
 
