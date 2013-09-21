@@ -23,4 +23,7 @@ Deine Jabber-ID lautet <strong>{{ jabber_user.username }}@{{ jabber_domain }}</s
 <p>Du musst dich <a href="{% url 'login' %}">einloggen</a>, um einen Jabber-Account zu erstellen oder ihn zu verwalten.</p>
 {% endif %}
 
+<p>Der aktuelle Fingerprint für das SSL-Zertifikat lautet:<br />
+<span style="white-space:pre;font-family:monospace;">{{ cert_fingerprint }}</span></p>
+
 {% endblock %}

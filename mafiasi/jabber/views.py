@@ -9,7 +9,8 @@ def index(request):
 
     return TemplateResponse(request, 'jabber/index.html', {
         'jabber_user': jabber_user,
-        'jabber_domain': settings.JABBER_DOMAIN
+        'jabber_domain': settings.JABBER_DOMAIN,
+        'cert_fingerprint': settings.JABBER_CERT_FINGERPRINT
     })
 
 @login_required
