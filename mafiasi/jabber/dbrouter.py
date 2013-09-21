@@ -12,12 +12,8 @@ class JabberRouter(object):
     def allow_relation(self, obj1, obj2, **hints):
         if obj1._meta.app_label == 'jabber' or \
            obj2._meta.app_label == 'jabber':
-           return True
+           return obj1._meta.app_label == obj2._meta.app_label
         return None
-
-    def allow_migrate(self, db, model):
-        if db == 'jabber_db':
-            return model._meta.app_label == 'jabber'
-        elif model._meta.app_label == 'jabber':
-            return False
-        return None
+    
+    def allow_syncdb(self, db, model):
+        return db == 'jabber' and model._meta.app_label == 'jabber'
