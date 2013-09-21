@@ -138,6 +138,7 @@ INSTALLED_APPS = (
     'mafiasi.registration',
     'mafiasi.dashboard',
 	'mafiasi.jabber',
+	'mafiasi.mumble',
     'widget_tweaks'
 )
 
@@ -149,6 +150,15 @@ JABBER_DOMAIN = u'jabber.mafiasi.de'
 LOGIN_URL = '/login'
 LOGIN_REDIRECT_URL = '/dashboard/'
 DATABASE_ROUTERS = ['mafiasi.jabber.dbrouter.JabberRouter']
+
+from django.contrib.messages import constants as message_constants
+MESSAGE_TAGS = {
+	message_constants.DEBUG: 'alert-info',
+	message_constants.INFO: 'alert-info',
+	message_constants.SUCCESS: 'alert-success',
+	message_constants.WARNING: 'alert-warning',
+	message_constants.ERROR: 'alert-danger'
+}
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
