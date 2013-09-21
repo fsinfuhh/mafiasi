@@ -36,4 +36,6 @@ class PasswdEntry(models.Model):
 class Mafiasi(AbstractUser):
     account = models.CharField(max_length=40)
     yeargroup = models.ForeignKey(Yeargroup, blank=True, null=True)
-
+    
+    def is_student(self):
+        return self.account and self.account[0].isdigit()
