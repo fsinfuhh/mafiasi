@@ -80,7 +80,7 @@ class Rosteruser(models.Model):
         return u'{0}: {1} ({2})'.format(self.username, self.nick, self.jid)
 
 class SrGroup(models.Model):
-    name = models.TextField()
+    name = models.TextField(primary_key=True)
     opts = models.TextField()
     created_at = models.DateTimeField()
     class Meta:
