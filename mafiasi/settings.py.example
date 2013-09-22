@@ -151,6 +151,13 @@ JABBER_CERT_FINGERPRINT = u'04:A9:9C:D7:D8:CB:27:01:F7:29:D4:57:53:A2:B8:AA:6C:7
 LOGIN_URL = '/login'
 LOGIN_REDIRECT_URL = '/dashboard/'
 DATABASE_ROUTERS = ['mafiasi.jabber.dbrouter.JabberRouter']
+SERVICE_LINKS = {
+	'etherpad': 'https://ep.mafiasi.de/',
+	'wiki': 'https://wiki.mafiasi.de/',
+	'dudle': 'https://dudle.mafiasi.de/',
+	'gprot': 'https://www2.informatik.uni-hamburg.de/Fachschaft/gprot/',
+}
+
 
 from django.contrib.messages import constants as message_constants
 MESSAGE_TAGS = {

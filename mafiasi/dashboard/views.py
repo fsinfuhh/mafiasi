@@ -1,6 +1,7 @@
 from django.template.response import TemplateResponse
 from django.http import Http404
 from django.shortcuts import get_object_or_404
+from django.conf import settings
 
 from mafiasi.dashboard.models import News, Panel
 
@@ -11,7 +12,8 @@ def index(request):
 
     return TemplateResponse(request, 'dashboard/index.html', {
         'news_list': news_list,
-        'panel_list': panel_list
+        'panel_list': panel_list,
+        'service_links': settings.SERVICE_LINKS
     })
 
 def show_news(request, news_pk):

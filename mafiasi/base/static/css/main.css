@@ -28,6 +28,6 @@ button {
     min-height:160px;
 }
 
-#dashboard button.service-icon {
+#dashboard .service-icon {
     margin-right: 10px;
 }

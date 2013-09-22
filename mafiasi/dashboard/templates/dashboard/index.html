@@ -7,10 +7,10 @@
             <div class="col-sm-6">
                 <div class="panel panel-default service">
                     <div class="panel-body">
-                        <button type="button" class="btn btn-default btn-lg pull-left service-icon">
+                        <a href="{{ service_links.wiki }}" class="btn btn-default btn-lg pull-left service-icon">
                             <span class="glyphicon glyphicon-question-sign"></span>
-                        </button>
-                        <h3><a href="https://wiki.mafiasi.de/">Wiki</a></h3>
+                        </a>
+                        <h3><a href="{{ service_links.wiki }}">Wiki</a></h3>
                         <p>Im Wiki findest du wichtige Informationen
                         zum Studium. Beteiligen erwünscht!</p>
                     </div>
@@ -20,10 +20,10 @@
 			<div class="col-sm-6">
                 <div class="panel panel-default service">
                     <div class="panel-body">
-                        <button type="button" class="btn btn-default btn-lg pull-left service-icon">
+                        <a href="{{ service_links.etherpad }}" class="btn btn-default btn-lg pull-left service-icon">
                             <span class="glyphicon glyphicon-question-sign"></span>
-                        </button>
-                        <h3><a href="https://ep.mafiasi.de/">Etherpad</a></h3>
+                        </a>
+                        <h3><a href="{{ service_links.etherpad }}">Etherpad</a></h3>
                         <p>Das Etherpad erlaubt es dir, mit anderen gemeinsam in Echtzeit an einem Dokument zu arbeiten.</p>
                     </div>
                 </div>
@@ -32,10 +32,10 @@
             <div class="col-sm-6">
                 <div class="panel panel-default service">
                     <div class="panel-body">
-                        <button type="button" class="btn btn-default btn-lg pull-left service-icon">
+                        <a href="{{ service_links.dudle }}" class="btn btn-default btn-lg pull-left service-icon">
                             <span class="glyphicon glyphicon-calendar"></span>
-                        </button>
-                        <h3><a class="nav-link" href="https://dudle.mafiasi.de/">Dudle</a></h3>
+                        </a>
+                        <h3><a href="{{ service_links.dudle }}">Dudle</a></h3>
                         <p>Mit dem Dudle kannst du einfach gemeinsame Termine mit anderen finden.</p>
                     </div>
                 </div>
@@ -44,9 +44,9 @@
             <div class="col-sm-6">
                 <div class="panel panel-default service">
                     <div class="panel-body">
-                        <button type="button" class="btn btn-default btn-lg pull-left service-icon">
+                        <a href="{% url 'jabber_index' %}" class="btn btn-default btn-lg pull-left service-icon">
                             <span class="glyphicon glyphicon-comment"></span>
-                        </button>
+                        </a>
                         <h3><a href="{% url 'jabber_index' %}">Jabber</a></h3>
                         <p>Auf unserem Jabber-Server hast du deine
                             Kommilitonen automatisch in der Kontaktliste und kannst mit
@@ -58,9 +58,9 @@
             <div class="col-sm-6">
                 <div class="panel panel-default service">
                     <div class="panel-body">
-                        <button type="button" class="btn btn-default btn-lg pull-left service-icon">
+                        <a href="{% url 'mumble_index' %}" class="btn btn-default btn-lg pull-left service-icon">
                             <span class="glyphicon glyphicon-headphones"></span>
-                        </button>
+                        </a>
                         <h3><a href="{% url 'mumble_index' %}">Mumble</a></h3>
                         <p>Unser Mumble-Server erlaubt es dir mit anderen Sprachkonferenzen zu führen.</p>
                     </div>
@@ -70,10 +70,10 @@
             <div class="col-sm-6">
                 <div class="panel panel-default service">
                     <div class="panel-body">
-                        <button type="button" class="btn btn-default btn-lg pull-left service-icon">
+                        <a href="{{ service_links.gprot }}" class="btn btn-default btn-lg pull-left service-icon">
                             <span class="glyphicon glyphicon-question-sign"></span>
-                        </button>
-                        <h3><a href="https://www2.informatik.uni-hamburg.de/Fachschaft/gprot/">GProt</a></h3>
+                        </a>
+                        <h3><a href="{{ service_links.gprot }}">GProt</a></h3>
                         <p>Im GProt findest du Gedächtnisprotokolle von Klausuren und mündlichen Prüfungen.</p>
                     </div>
                 </div>
@@ -83,9 +83,9 @@
             <div class="col-sm-6">
                 <div class="panel panel-default service">
                     <div class="panel-body">
-                        <button type="button" class="btn btn-default btn-lg pull-left service-icon">
+                        <a href="#" class="btn btn-default btn-lg pull-left service-icon">
                             <span class="glyphicon glyphicon-cog"></span>
-                        </button>
+                        </a>
                         <h3><a class="nav-link" href="#">Account</a></h3>
                         <p>Hier kannst du dein Passwort ändern und andere
                         Einstellungen vornehmen.</p>
