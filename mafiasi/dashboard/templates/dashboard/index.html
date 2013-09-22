@@ -2,134 +2,97 @@
 {% block content %}
 <div class="row">
     <div id="dashboard" class="col-md-8">
-        <h2>Services</h2>
+        <h2>Dienste</h2>
         <div class="row">
             <div class="col-sm-6">
-                <div class="panel panel-default">
+                <div class="panel panel-default service">
                     <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <button type="button" class="btn btn-default btn-lg">
-                                    <span class="glyphicon glyphicon-question-sign"></span>
-                                </button>
-                            </div>
-                            <div class="col-xs-6">
-                                <h3><a href="https://wiki.mafiasi.de/">Wiki</a></h3>
-                                <p>Im Wiki findest du wichtige Informationen zum Studium. Beteiligen erwünscht!</p>
-                            </div>
-                        </div>
+                        <button type="button" class="btn btn-default btn-lg pull-left service-icon">
+                            <span class="glyphicon glyphicon-question-sign"></span>
+                        </button>
+                        <h3><a href="https://wiki.mafiasi.de/">Wiki</a></h3>
+                        <p>Im Wiki findest du wichtige Informationen
+                        zum Studium. Beteiligen erwünscht!</p>
                     </div>
                 </div>
             </div>
             
 			<div class="col-sm-6">
-                <div class="panel panel-default">
+                <div class="panel panel-default service">
                     <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <button type="button" class="btn btn-default btn-lg">
-                                    <span class="glyphicon glyphicon-question-sign"></span>
-                                </button>
-                            </div>
-                            <div class="col-xs-6">
-                                <h3><a href="https://ep.mafiasi.de/">Etherpad</a></h3>
-                                <p>Das Etherpad erlaubt es dir, mit anderen gemeinsam in Echtzeit an einem Dokument zu arbeiten.</p>
-                            </div>
-                        </div>
+                        <button type="button" class="btn btn-default btn-lg pull-left service-icon">
+                            <span class="glyphicon glyphicon-question-sign"></span>
+                        </button>
+                        <h3><a href="https://ep.mafiasi.de/">Etherpad</a></h3>
+                        <p>Das Etherpad erlaubt es dir, mit anderen gemeinsam in Echtzeit an einem Dokument zu arbeiten.</p>
                     </div>
                 </div>
             </div>
 
             <div class="col-sm-6">
-                <div class="panel panel-default">
+                <div class="panel panel-default service">
                     <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <button type="button" class="btn btn-default btn-lg">
-                                    <span class="glyphicon glyphicon-calendar"></span>
-                                </button>
-                            </div>
-                            <div class="col-xs-6">
-                                <h3><a class="nav-link" href="https://dudle.mafiasi.de/">Dudle</a></h3>
-								<p>Mit dem Dudle kannst du einfach gemeinsame Termine mit anderen finden.</p>
-                            </div>
-                        </div>
+                        <button type="button" class="btn btn-default btn-lg pull-left service-icon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </button>
+                        <h3><a class="nav-link" href="https://dudle.mafiasi.de/">Dudle</a></h3>
+                        <p>Mit dem Dudle kannst du einfach gemeinsame Termine mit anderen finden.</p>
                     </div>
                 </div>
             </div>
 
             <div class="col-sm-6">
-                <div class="panel panel-default">
+                <div class="panel panel-default service">
                     <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <button type="button" class="btn btn-default btn-lg">
-                                    <span class="glyphicon glyphicon-comment"></span>
-                                </button>
-                            </div>
-                            <div class="col-xs-6">
-                                <h3><a href="{% url 'jabber_index' %}">Jabber</a></h3>
-								<p>Auf unserem Jabber-Server kannst du mit anderen chatten. Du hast automatisch alle Kommilitonen in der Kontaktliste.</p>
-                            </div>
-                        </div>
+                        <button type="button" class="btn btn-default btn-lg pull-left service-icon">
+                            <span class="glyphicon glyphicon-comment"></span>
+                        </button>
+                        <h3><a href="{% url 'jabber_index' %}">Jabber</a></h3>
+                        <p>Auf unserem Jabber-Server hast du deine
+                            Kommilitonen automatisch in der Kontaktliste und kannst mit
+                            ihnen chatten.</p>
                     </div>
                 </div>
             </div>
             
-			<div class="col-sm-6">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <button type="button" class="btn btn-default btn-lg">
-                                    <span class="glyphicon glyphicon-headphones"></span>
-                                </button>
-                            </div>
-                            <div class="col-xs-6">
-                                <h3><a href="{% url 'mumble_index' %}">Mumble</a></h3>
-                                <p>Unser Mumble-Server erlaubt es dir mit anderen Sprachkonferenzen zu führen.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-			<div class="col-sm-6">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <button type="button" class="btn btn-default btn-lg">
-                                    <span class="glyphicon glyphicon-question-sign"></span>
-                                </button>
-                            </div>
-                            <div class="col-xs-6">
-                                <h3><a href="https://www2.informatik.uni-hamburg.de/Fachschaft/gprot/">GProt</a></h3>
-                                <p>Im GProt findest du Gedächtnisprotokolle von Klausuren und mündlichen Prüfungen.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-			
-			{% if user.is_authenticated %}
             <div class="col-sm-6">
-                <div class="panel panel-default">
+                <div class="panel panel-default service">
                     <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <button type="button" class="btn btn-default btn-lg">
-                                    <span class="glyphicon glyphicon-cog"></span>
-                                </button>
-                            </div>
-                            <div class="col-xs-6">
-                                <h3><a class="nav-link" href="profile/account.html">Einstellungen</a></h3>
-                            </div>
-                        </div>
+                        <button type="button" class="btn btn-default btn-lg pull-left service-icon">
+                            <span class="glyphicon glyphicon-headphones"></span>
+                        </button>
+                        <h3><a href="{% url 'mumble_index' %}">Mumble</a></h3>
+                        <p>Unser Mumble-Server erlaubt es dir mit anderen Sprachkonferenzen zu führen.</p>
                     </div>
                 </div>
             </div>
-			{% endif %}
+            
+            <div class="col-sm-6">
+                <div class="panel panel-default service">
+                    <div class="panel-body">
+                        <button type="button" class="btn btn-default btn-lg pull-left service-icon">
+                            <span class="glyphicon glyphicon-question-sign"></span>
+                        </button>
+                        <h3><a href="https://www2.informatik.uni-hamburg.de/Fachschaft/gprot/">GProt</a></h3>
+                        <p>Im GProt findest du Gedächtnisprotokolle von Klausuren und mündlichen Prüfungen.</p>
+                    </div>
+                </div>
+            </div>
+
+            {% if user.is_authenticated %}
+            <div class="col-sm-6">
+                <div class="panel panel-default service">
+                    <div class="panel-body">
+                        <button type="button" class="btn btn-default btn-lg pull-left service-icon">
+                            <span class="glyphicon glyphicon-cog"></span>
+                        </button>
+                        <h3><a class="nav-link" href="#">Account</a></h3>
+                        <p>Hier kannst du dein Passwort ändern und andere
+                        Einstellungen vornehmen.</p>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
 
         </div>
     </div>

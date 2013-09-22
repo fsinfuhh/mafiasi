@@ -23,3 +23,11 @@ button {
     width: auto;
     padding-right: 0;
 }
+
+#dashboard .service {
+    min-height:160px;
+}
+
+#dashboard button.service-icon {
+    margin-right: 10px;
+}
