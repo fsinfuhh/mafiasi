@@ -1,8 +1,10 @@
 {% extends "base.html" %}
+{% load i18n %}
+
 {% block content %}
 <div class="row">
     <div id="dashboard" class="col-md-8">
-        <h2>Dienste</h2>
+        <h2>{% trans "Services" %}</h2>
         <div class="row">
             <div class="col-sm-6">
                 <div class="panel panel-default service">
@@ -11,8 +13,7 @@
                             <span class="glyphicon glyphicon-question-sign"></span>
                         </a>
                         <h3><a href="{{ service_links.wiki }}">Wiki</a></h3>
-                        <p>Im Wiki findest du wichtige Informationen
-                        zum Studium. Beteiligen erwünscht!</p>
+                        <p>{% trans "In the wiki you will find important information regarding your studies." %}</p>
                     </div>
                 </div>
             </div>
@@ -24,7 +25,7 @@
                             <span class="glyphicon glyphicon-question-sign"></span>
                         </a>
                         <h3><a href="{{ service_links.etherpad }}">Etherpad</a></h3>
-                        <p>Das Etherpad erlaubt es dir, mit anderen gemeinsam in Echtzeit an einem Dokument zu arbeiten.</p>
+						<p>{% trans "You can use the Etherpad to work together on a document in real time." %}</p>
                     </div>
                 </div>
             </div>
@@ -36,7 +37,7 @@
                             <span class="glyphicon glyphicon-calendar"></span>
                         </a>
                         <h3><a href="{{ service_links.dudle }}">Dudle</a></h3>
-                        <p>Mit dem Dudle kannst du einfach gemeinsame Termine mit anderen finden.</p>
+						<p>{% trans "The Dudle helps you to find common dates for meetings easily." %}</p>
                     </div>
                 </div>
             </div>
@@ -48,9 +49,7 @@
                             <span class="glyphicon glyphicon-comment"></span>
                         </a>
                         <h3><a href="{% url 'jabber_index' %}">Jabber</a></h3>
-                        <p>Auf unserem Jabber-Server hast du deine
-                            Kommilitonen automatisch in der Kontaktliste und kannst mit
-                            ihnen chatten.</p>
+						<p>{% trans "On our Jabber server you can chat with your fellow students, which are already on your contact list." %}</p>
                     </div>
                 </div>
             </div>
@@ -62,7 +61,7 @@
                             <span class="glyphicon glyphicon-headphones"></span>
                         </a>
                         <h3><a href="{% url 'mumble_index' %}">Mumble</a></h3>
-                        <p>Unser Mumble-Server erlaubt es dir mit anderen Sprachkonferenzen zu führen.</p>
+						<p>{% trans "You can use our mumble for voice chat with other fellow students." %}</p>
                     </div>
                 </div>
             </div>
@@ -74,7 +73,7 @@
                             <span class="glyphicon glyphicon-question-sign"></span>
                         </a>
                         <h3><a href="{{ service_links.gprot }}">GProt</a></h3>
-                        <p>Im GProt findest du Gedächtnisprotokolle von Klausuren und mündlichen Prüfungen.</p>
+						<p>{% trans "The GProt contains memory minutes of oral and written exams." %}</p>
                     </div>
                 </div>
             </div>
@@ -87,8 +86,7 @@
                             <span class="glyphicon glyphicon-cog"></span>
                         </a>
                         <h3><a class="nav-link" href="#">Account</a></h3>
-                        <p>Hier kannst du dein Passwort ändern und andere
-                        Einstellungen vornehmen.</p>
+						<p>{% trans "Here you can change your password here and configure your account." %}</p>
                     </div>
                 </div>
             </div>
@@ -97,7 +95,7 @@
         </div>
     </div>
     <div id="news" class="col-md-4">
-        <h2>Aktuelles</h2>
+        <h2>{% trans "News" %}</h2>
         {% for news in news_list %}
         <div class="panel panel-info">
             <div class="panel-heading">

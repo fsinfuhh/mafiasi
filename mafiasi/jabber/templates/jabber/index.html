@@ -1,29 +1,46 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block content %}
 <h2>Jabber</h2>
 
 {% if jabber_user %}
+<div class="alert alert-info">
 {% if user.username != jabber_user.username %}
-<div class="alert alert-info">
-Deine Jabber-ID lautet abweichend <strong>{{ jabber_user.username }}</strong>@{{ jabber_domain }}.
-</div>
+{% blocktrans with username=jabber_user.username %}
+Your Jabber ID is <strong>{{ username }}</strong>@{{ jabber_domain }}. Note: it's different from your username.
+{% endblocktrans %}
 {% else %}
-<div class="alert alert-info">
-Deine Jabber-ID lautet <strong>{{ jabber_user.username }}@{{ jabber_domain }}</strong>.
-</div>
+{% blocktrans with username=jabber_user.username %}
+Your Jabber ID is <strong>{{ username }}@{{ jabber_domain }}</strong>.
+{% endblocktrans %}
 {% endif %}
+</div>
 {% endif %}
 
 {% if user.is_authenticated %}
 {% if not jabber_user %}
-<p>Du kannst dir jetzt einen <a href="{% url 'jabber_create' %}">Jabber-Account erstellen</a>.</p>
+{% url 'jabber_create' as create_url %}
+<p>
+{% blocktrans %}
+You can now <a href="{{ create_url }}">create your Jabber account</a>.
+{% endblocktrans %}
+</p>
 {% endif %}
 {% else %}
-<p>Du musst dich <a href="{% url 'login' %}?next={% url 'jabber_index' %}">einloggen</a>, um einen Jabber-Account zu erstellen oder ihn zu verwalten.</p>
+{% url 'login' as login_url %}
+{% url 'jabber_index' as jabber_index_url %}
+<p>
+{% blocktrans %}
+You have to <a href="{{ login_url }}?next={{ jabber_index_url }}">login</a> to create or manage your Jabber account.
+{% endblocktrans %}
 {% endif %}
 
-<p>Der aktuelle Fingerprint für das SSL-Zertifikat lautet:<br />
+{% if user.is_authenticated and jabber_user %}
+<p><a href="{% url 'jabber_password_reset' %}">{% trans "Did you forget your password?" %}</a></p>
+{% endif %}
+
+<p>{% trans "The fingerprint of the current SSL certificate is:" %}<br />
 <span style="white-space:pre;font-family:monospace;">{{ cert_fingerprint }}</span></p>
 
 {% endblock %}

@@ -1,8 +1,9 @@
 {% extends "base.html" %}
-{% block content %}
-<h2>Anfrage erfolgreich</h2>
+{% load i18n %}
 
-<p>Du solltest einen Link per E-Mail an <strong>{{ email }}</strong> bekommen
-haben, mit dem du den Account erstellen kannst.</p>
+{% block content %}
+<h2>{% trans "Request successful" %}</h2>
+
+<p>{% blocktrans %}You should have received a link via email (to <strong>{{ email }}</strong>) now, which you can use to create your account.{% endblocktrans %}</p>
 
 {% endblock content %}

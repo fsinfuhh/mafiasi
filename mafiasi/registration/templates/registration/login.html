@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load widget_tweaks %}
 
 {% block content %}
@@ -15,16 +16,19 @@
                 </div>
                 {% endif %}
                 <div class="form-group{% if form.username.errors %} has-error{% endif %}">
-                    <label class="control-label">Benutzername</label>
+                    <label class="control-label">{% trans "Username" %}</label>
                     {% render_field form.username class+="form-control" %}
-                    {% if form.username.errors %}
-                    <span class="help-block">
-                        {% for error in form.username.errors %}{{ error }} {% endfor %}
-                    </span>
-                    {% endif %}
+                    <div class="help-block">
+						<p>
+						{% trans "Note: For our account names we use two digits for year (e.g. <strong>13doe</strong> instead of 3doe)" %}
+						</p>
+						{% if form.username.errors %}
+                        <p>{% for error in form.username.errors %}{{ error }} {% endfor %}</p>
+						{% endif %}
+                    </div>
                 </div>
                 <div class="form-group{% if form.password.errors %} has-error{% endif %}">
-                    <label class="control-label">Passwort</label>
+                    <label class="control-label">{% trans "Password" %}</label>
                     {% render_field form.password class+="form-control" %}
                     {% if form.password.errors %}
                     <span class="help-block">
@@ -34,7 +38,7 @@
                 </div>
 
                 <div class="form-group">
-                  <button type="submit" class="btn btn-default">Login</button>
+                  <button type="submit" class="btn btn-default">{% trans "Login" %}</button>
               </div>
           </form>
       </div>

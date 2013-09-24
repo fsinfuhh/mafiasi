@@ -1,33 +1,34 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load widget_tweaks %}
 
 {% block content %}
 <div class="row">
-    <h2>Ooops, wir kennen dich noch nicht :-(</h2>
-            <p>Bitte gib uns doch noch ein paar Informationen.</p>
+    <h2>{% trans "Sorry, but we don't know you yet :-(" %}</h2>
+            <p>{% trans "Please provide us some more information." %}</p>
         <div class="col-md-4">
             <form method="post">
                 {% csrf_token %}
                 <input type="hidden" name="account" value="{{ account }}" />
                 <div class="form-group">
-                    <label class="control-label">Benutzername</label>
+                    <label class="control-label">{% trans "Informatics account" %}</label>
                     <p class="form-control-static">{{ account }}</p>
                 </div>
                 <div class="form-group{% if info_form.first_name.errors %} has-error{% endif %}">
-                    <label class="control-label">Vorname</label>
+                    <label class="control-label">{% trans "First name" %}</label>
                     {% render_field info_form.first_name class+="form-control" %}
                 </div>
                 <div class="form-group{% if info_form.last_name.errors %} has-error{% endif %}">
-                    <label class="control-label">Nachname</label>
+                    <label class="control-label">{% trans "Last name" %}</label>
                     {% render_field info_form.last_name class+="form-control" %}
                 </div>
                 <div class="form-group{% if info_form.yeargroup.errors %} has-error{% endif %}">
-                    <label class="control-label">Jahrgang</label>
+                    <label class="control-label">{% trans "Year of study start" %}</label>
                     {% render_field info_form.yeargroup class+="form-control" %}
                 </div>
 
                 <div class="form-group">
-                    <input type="submit" class="btn btn-default" value="Account anlegen" />
+                    <input type="submit" class="btn btn-default" value="{% trans "Create account" %}" />
               </div>
           </form>
       </div>

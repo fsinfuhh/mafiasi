@@ -1,6 +1,11 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block content %}
 <h2>Mumble</h2>
-<div class="alert alert-danger"><strong>Sorry</strong>, aber Mumble ist leider noch nicht implementiert.</div>
+<div class="alert alert-danger">
+{% blocktrans %}
+<strong>Sorry</strong>, but Mumble registration is not implemented yet.
+{% endblocktrans %}
+</div>
 {% endblock %}

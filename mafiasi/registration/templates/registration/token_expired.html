@@ -1,4 +1,7 @@
 {% extends "base.html" %}
+{% load i18n %}
 
-<h2>Token abgelaufen</h2>
-<p>Tut uns leid, das angegegebene Token ist leider abgelaufen.</p>
+{% block content %}
+<h2>{% trans "Token expired" %}</h2>
+<p>{% trans "Sorry, but the provided token is expired." %}</p>
+{% endblock %}
