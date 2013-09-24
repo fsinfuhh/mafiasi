@@ -45,3 +45,22 @@ class PasswordForm(forms.Form):
                 raise forms.ValidationError(
                     _("The two password fields didn't match."))
         return password2
+
+
+class CheckPasswordForm(forms.Form):
+    def __init__(self, *args, **kwargs):
+        self.user = kwargs.pop('user')
+        super(CheckPasswordForm, self).__init__(*args, **kwargs)
+
+    password = forms.CharField(
+        label=_("Password"),
+        widget=forms.PasswordInput,
+        max_length=MAXIMUM_PASSWORD_LENGTH,
+    )   
+    
+    def clean_password(self):
+        password = self.cleaned_data.get('password')
+        if password:
+            if not self.user.check_password(password):
+                raise forms.ValidationError(_("Wrong password."))
+        return password
