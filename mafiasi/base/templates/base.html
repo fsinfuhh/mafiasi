@@ -1,8 +1,9 @@
+{% load i18n %}
 <!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Mafiasi Hub</title>
+    <title>{% trans "Mafiasi Hub" %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ STATIC_URL }}css/main.css">
@@ -10,7 +11,7 @@
 </head>
 <body>
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <a href="/" class="navbar-brand">Mafiasi Hub</a>
+        <a href="/" class="navbar-brand">{% trans "Mafiasi Hub" %}</a>
         <p class="navbar-text pull-right">
         {% if user.is_authenticated %}
         Logged in as {{ user.username }} | <a href="{% url 'logout' %}">Logout</a>
@@ -18,8 +19,8 @@
         </p>
         <div class="btn-group pull-right">
             {% if not user.is_authenticated %}
-            <a class="btn btn-primary navbar-btn" href="{% url 'registration_request_account' %}">Register</a>
-            <a class="btn btn-default navbar-btn" href="{% url 'login' %}">Login</a>
+            <a class="btn btn-primary navbar-btn" href="{% url 'registration_request_account' %}">{% trans "Register" %}</a>
+            <a class="btn btn-default navbar-btn" href="{% url 'login' %}">{% trans "Login" %}</a>
             {% endif %}
         </div>
     </nav>

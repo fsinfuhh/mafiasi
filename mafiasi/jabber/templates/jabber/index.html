@@ -7,13 +7,9 @@
 {% if jabber_user %}
 <div class="alert alert-info">
 {% if user.username != jabber_user.username %}
-{% blocktrans with username=jabber_user.username %}
-Your Jabber ID is <strong>{{ username }}</strong>@{{ jabber_domain }}. Note: it's different from your username.
-{% endblocktrans %}
+{% blocktrans with username=jabber_user.username %}Your Jabber ID is <strong>{{ username }}</strong>@{{ jabber_domain }}. Note: it's different from your username.{% endblocktrans %}
 {% else %}
-{% blocktrans with username=jabber_user.username %}
-Your Jabber ID is <strong>{{ username }}@{{ jabber_domain }}</strong>.
-{% endblocktrans %}
+{% blocktrans with username=jabber_user.username %}Your Jabber ID is <strong>{{ username }}@{{ jabber_domain }}</strong>.{% endblocktrans %}
 {% endif %}
 </div>
 {% endif %}
@@ -22,18 +18,14 @@ Your Jabber ID is <strong>{{ username }}@{{ jabber_domain }}</strong>.
 {% if not jabber_user %}
 {% url 'jabber_create' as create_url %}
 <p>
-{% blocktrans %}
-You can now <a href="{{ create_url }}">create your Jabber account</a>.
-{% endblocktrans %}
+{% blocktrans %}You can now <a href="{{ create_url }}">create your Jabber account</a>.{% endblocktrans %}
 </p>
 {% endif %}
 {% else %}
 {% url 'login' as login_url %}
 {% url 'jabber_index' as jabber_index_url %}
 <p>
-{% blocktrans %}
-You have to <a href="{{ login_url }}?next={{ jabber_index_url }}">login</a> to create or manage your Jabber account.
-{% endblocktrans %}
+{% blocktrans %}You have to <a href="{{ login_url }}?next={{ jabber_index_url }}">login</a> to create or manage your Jabber account.{% endblocktrans %}
 {% endif %}
 
 {% if user.is_authenticated and jabber_user %}
