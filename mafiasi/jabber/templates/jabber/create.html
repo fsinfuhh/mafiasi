@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+
+{% block content %}
+<h2>Jabber-Account erstellen</h2>
+<p>Um den Jabber-Account zu erstellen, musst du dein aktuelles Passwort eingeben:</p>
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group {% if form.password.errors %} has-error{% endif %}">
+        <label class="control-label">Passwort</label>
+        {% render_field form.password class+="form-control" %}
+        {% if form.password.errors %}
+        <span class="help-block">
+            {% for error in form.password.errors %}{{ error }} {% endfor %}
+        </span>
+        {% endif %}
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-default">Erstellen</button>
+    </div>
+</form>
+{% endblock content %}
