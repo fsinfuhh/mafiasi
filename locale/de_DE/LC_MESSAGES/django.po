@@ -1,0 +1,258 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-09-25 00:01+0200\n"
+"PO-Revision-Date: 2013-09-25 00:02+0100\n"
+"Last-Translator: Henning Pridöhl <8pridoeh@informatik.uni-hamburg.de>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: mafiasi/base/templates/base.html:6
+#: mafiasi/base/templates/base.html:14
+msgid "Mafiasi Hub"
+msgstr "Mafiasi Hub"
+
+#: mafiasi/base/templates/base.html:22
+msgid "Register"
+msgstr "Registrierung"
+
+#: mafiasi/base/templates/base.html:23
+#: mafiasi/registration/templates/registration/login.html:41
+msgid "Login"
+msgstr "Login"
+
+#: mafiasi/dashboard/templates/dashboard/index.html:7
+msgid "Services"
+msgstr "Dienste"
+
+#: mafiasi/dashboard/templates/dashboard/index.html:16
+msgid "In the wiki you will find important information regarding your studies."
+msgstr "Im Wiki findest du wichtige Informationen zum Studium. Beteiligen erwünscht!"
+
+#: mafiasi/dashboard/templates/dashboard/index.html:28
+msgid "You can use the Etherpad to work together on a document in real time."
+msgstr "Das Etherpad erlaubt es dir, mit anderen gemeinsam in Echtzeit an einem Dokument zu arbeiten."
+
+#: mafiasi/dashboard/templates/dashboard/index.html:40
+msgid "The Dudle helps you to find common dates for meetings easily."
+msgstr "Mit dem Dudle kannst du einfach gemeinsame Termine mit anderen finden."
+
+#: mafiasi/dashboard/templates/dashboard/index.html:52
+msgid "On our Jabber server you can chat with your fellow students, which are already on your contact list."
+msgstr "Auf unserem Jabber-Server hast du deine Kommilitonen automatisch in der Kontaktliste und kannst mit ihnen chatten."
+
+#: mafiasi/dashboard/templates/dashboard/index.html:64
+msgid "You can use our mumble for voice chat with other fellow students."
+msgstr "Unser Mumble-Server erlaubt es dir mit anderen Sprachkonferenzen zu führen."
+
+#: mafiasi/dashboard/templates/dashboard/index.html:76
+msgid "The GProt contains memory minutes of oral and written exams."
+msgstr "Im GProt findest du Gedächtnisprotokolle von Klausuren und mündlichen Prüfungen."
+
+#: mafiasi/dashboard/templates/dashboard/index.html:89
+msgid "Here you can change your password here and configure your account."
+msgstr "Hier kannst du dein Passwort ändern und andere Einstellungen vornehmen."
+
+#: mafiasi/dashboard/templates/dashboard/index.html:98
+msgid "News"
+msgstr "Aktuelles"
+
+#: mafiasi/jabber/views.py:31
+msgid "Account was created."
+msgstr "Account wurde erstellt."
+
+#: mafiasi/jabber/views.py:33
+msgid "Account already exists."
+msgstr "Account existiert bereits."
+
+#: mafiasi/jabber/views.py:35
+msgid "Sorry, we had an internal error."
+msgstr "Tut uns leid, es gab einen internen Fehler."
+
+#: mafiasi/jabber/views.py:56
+msgid "Password was changed."
+msgstr "Passwort wurde geändert."
+
+#: mafiasi/jabber/templates/jabber/create.html:6
+msgid "Create Jabber account"
+msgstr "Jabber-Account erstellen"
+
+#: mafiasi/jabber/templates/jabber/create.html:7
+msgid "To create your Jabber account you have to enter your current password:"
+msgstr "Um deinen Jabber-Account zu erstellen, musst du dein aktuelles Passwort eingeben:"
+
+#: mafiasi/jabber/templates/jabber/create.html:11
+#: mafiasi/jabber/templates/jabber/password_reset.html:11
+#: mafiasi/registration/forms.py:30
+#: mafiasi/registration/forms.py:56
+#: mafiasi/registration/templates/registration/create_account.html:16
+#: mafiasi/registration/templates/registration/login.html:31
+msgid "Password"
+msgstr "Passwort"
+
+#: mafiasi/jabber/templates/jabber/create.html:20
+msgid "Create"
+msgstr "Erstellen"
+
+#: mafiasi/jabber/templates/jabber/index.html:10
+#, python-format
+msgid "Your Jabber ID is <strong>%(username)s</strong>@%(jabber_domain)s. Note: it's different from your username."
+msgstr "Deine Jabber-ID lautet abweichend: <strong>%(username)s</strong>@%(jabber_domain)s."
+
+#: mafiasi/jabber/templates/jabber/index.html:12
+#, python-format
+msgid "Your Jabber ID is <strong>%(username)s@%(jabber_domain)s</strong>."
+msgstr "Deine Jabber-ID lautet: <strong>%(username)s@%(jabber_domain)s</strong>."
+
+#: mafiasi/jabber/templates/jabber/index.html:21
+#, python-format
+msgid "You can now <a href=\"%(create_url)s\">create your Jabber account</a>."
+msgstr "Du kannst nun deinen <a href=\"%(create_url)s\">Jabber-Account erstellen</a>."
+
+#: mafiasi/jabber/templates/jabber/index.html:28
+#, python-format
+msgid "You have to <a href=\"%(login_url)s?next=%(jabber_index_url)s\">login</a> to create or manage your Jabber account."
+msgstr "Du musst dich <a href=\"%(login_url)s?next=%(jabber_index_url)s\">einloggen</a>, um deinen Jabber-Account zu erstellen oder zu verwalten."
+
+#: mafiasi/jabber/templates/jabber/index.html:32
+msgid "Did you forget your password?"
+msgstr "gPasswort vergessen?"
+
+#: mafiasi/jabber/templates/jabber/index.html:35
+msgid "The fingerprint of the current SSL certificate is:"
+msgstr "Der Fingerprint des aktuellen SSL-Zertifikats lautet:"
+
+#: mafiasi/jabber/templates/jabber/password_reset.html:6
+msgid "Reset password of your Jabber account"
+msgstr "Jabber-Account-Passwort zurücksetzen"
+
+#: mafiasi/jabber/templates/jabber/password_reset.html:7
+msgid "Enter your current password to set the Jabber password to the entered one."
+msgstr "Gib dein aktuelles Passwort ein, um das Jabber-Passwort auf dieses zurückzusetzen."
+
+#: mafiasi/jabber/templates/jabber/password_reset.html:20
+msgid "Reset password"
+msgstr "Passwort zurücksetzen"
+
+#: mafiasi/mumble/templates/mumble/index.html:7
+msgid "<strong>Sorry</strong>, but Mumble registration is not implemented yet."
+msgstr "<strong>Tut uns leid</strong>, aber die Mumble-Registrierung ist noch nicht implementiert."
+
+#: mafiasi/registration/forms.py:35
+#: mafiasi/registration/templates/registration/create_account.html:25
+msgid "Password confirmation"
+msgstr "Passwort bestätigen"
+
+#: mafiasi/registration/forms.py:46
+msgid "The two password fields didn't match."
+msgstr "Die beiden Passwörter stimmen nicht überein."
+
+#: mafiasi/registration/forms.py:65
+msgid "Wrong password."
+msgstr "Falsches Passwort."
+
+#: mafiasi/registration/templates/registration/create_account.html:8
+#: mafiasi/registration/templates/registration/create_account.html:35
+#: mafiasi/registration/templates/registration/require_info.html:31
+msgid "Create account"
+msgstr "Account erstellen"
+
+#: mafiasi/registration/templates/registration/create_account.html:12
+#: mafiasi/registration/templates/registration/login.html:19
+msgid "Username"
+msgstr "Benutzername"
+
+#: mafiasi/registration/templates/registration/create_email.html:2
+#, python-format
+msgid ""
+"Hi there!\n"
+"\n"
+"Here is your account creation link:\n"
+"%(activation_link)s\n"
+"\n"
+"\n"
+"Your Server-AG"
+msgstr ""
+"Hallo du!\n"
+"\n"
+"Hier ist dein Aktivierungslink:\n"
+"%(activation_link)s\n"
+"\n"
+"\n"
+"Deine Server-AG"
+
+#: mafiasi/registration/templates/registration/login.html:23
+msgid "Note: For our account names we use two digits for year (e.g. <strong>13doe</strong> instead of 3doe)"
+msgstr "Beachte: Die Benutzernamen haben zweistellige Jahreszahlen (<strong>13</strong>musterm statt 3musterm)"
+
+#: mafiasi/registration/templates/registration/request_account.html:7
+msgid "Registration"
+msgstr "Registrierung"
+
+#: mafiasi/registration/templates/registration/request_account.html:8
+msgid "Please enter your Informatics email address into the following field. Afterwards you will receive an email with further instructions."
+msgstr "Bitte gib deine Informatik-E-Mail-Adresse in das folgende Feld ein. Du bekommst daraufhin eine E-Mail mit weiteren Anweisungen."
+
+#: mafiasi/registration/templates/registration/request_account.html:24
+msgid "Request account"
+msgstr "Account beantragen"
+
+#: mafiasi/registration/templates/registration/request_successful.html:5
+msgid "Request successful"
+msgstr "Antrag erfolgreich"
+
+#: mafiasi/registration/templates/registration/request_successful.html:7
+#, python-format
+msgid "You should have received a link via email (to <strong>%(email)s</strong>) now, which you can use to create your account."
+msgstr "Du solltest nun einen Link per E-Mail an <strong>%(email)s</strong> bekommen haben, mit dem du den Account erstellen kannst."
+
+#: mafiasi/registration/templates/registration/require_info.html:7
+msgid "Sorry, but we don't know you yet :-("
+msgstr "Tut uns leid, aber wir kennen dich noch nicht :-("
+
+#: mafiasi/registration/templates/registration/require_info.html:8
+msgid "Please provide us some more information."
+msgstr "Bitte gib uns noch ein paar Informationen."
+
+#: mafiasi/registration/templates/registration/require_info.html:14
+msgid "Informatics account"
+msgstr "RZ-Kennung"
+
+#: mafiasi/registration/templates/registration/require_info.html:18
+msgid "First name"
+msgstr "Vorname"
+
+#: mafiasi/registration/templates/registration/require_info.html:22
+msgid "Last name"
+msgstr "Nachname"
+
+#: mafiasi/registration/templates/registration/require_info.html:26
+msgid "Year of study start"
+msgstr "Jahrgang"
+
+#: mafiasi/registration/templates/registration/token_expired.html:5
+msgid "Token expired"
+msgstr "Token abgelaufen"
+
+#: mafiasi/registration/templates/registration/token_expired.html:6
+msgid "Sorry, but the provided token is expired."
+msgstr "Tut uns leid, aber der angegebene Token ist abgelaufen."
+
+#: mafiasi/registration/templates/registration/token_invalid.html:5
+msgid "Invalid token"
+msgstr "Ungültiger Token"
+
+#: mafiasi/registration/templates/registration/token_invalid.html:6
+msgid "Sorry, but the provided token is invalid."
+msgstr "Tut uns leid, aber der angegebene Token ist ungültig."
+
