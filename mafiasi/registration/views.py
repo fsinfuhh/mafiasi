@@ -95,6 +95,7 @@ def create_account(request, info_token):
                     # This happens only when someone removed an entry
                     # from our passwd database manually
                     pass
+            mafiasi.account = info['account']
             mafiasi.yeargroup = yeargroup
             mafiasi.save()
             mafiasi.backend='django.contrib.auth.backends.ModelBackend'
