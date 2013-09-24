@@ -2,4 +2,5 @@
 *.swp
 *.min.css
 *.min.js
+*.mo
 mafiasi/settings.py
