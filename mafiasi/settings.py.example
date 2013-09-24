@@ -110,6 +110,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
@@ -167,6 +168,13 @@ MESSAGE_TAGS = {
 	message_constants.WARNING: 'alert-warning',
 	message_constants.ERROR: 'alert-danger'
 }
+
+LOCALE_PATHS = (os.path.join(ROOT_DIR, 'locale'), )
+
+LANGUAGES = (
+    ('de', 'Deutsch'),
+    ('en', 'English'),
+)
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
