@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-25 00:01+0200\n"
-"PO-Revision-Date: 2013-09-25 00:04+0100\n"
+"POT-Creation-Date: 2013-09-25 00:21+0200\n"
+"PO-Revision-Date: 2013-09-25 00:21+0100\n"
 "Last-Translator: Henning Pridöhl <8pridoeh@informatik.uni-hamburg.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -21,11 +21,16 @@ msgstr ""
 msgid "Mafiasi Hub"
 msgstr "Mafiasi Hub"
 
-#: mafiasi/base/templates/base.html:22
+#: mafiasi/base/templates/base.html:18
+#, python-format
+msgid "Logged in as %(username)s | <a href=\"%(logout_url)s\">Logout</a>"
+msgstr "Logged in as %(username)s | <a href=\"%(logout_url)s\">Logout</a>"
+
+#: mafiasi/base/templates/base.html:23
 msgid "Register"
 msgstr "Register"
 
-#: mafiasi/base/templates/base.html:23
+#: mafiasi/base/templates/base.html:24
 #: mafiasi/registration/templates/registration/login.html:41
 msgid "Login"
 msgstr "Login"
