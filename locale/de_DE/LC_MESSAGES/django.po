@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-09-25 00:01+0200\n"
-"PO-Revision-Date: 2013-09-25 00:02+0100\n"
+"PO-Revision-Date: 2013-09-25 00:14+0100\n"
 "Last-Translator: Henning Pridöhl <8pridoeh@informatik.uni-hamburg.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -126,7 +126,7 @@ msgstr "Du musst dich <a href=\"%(login_url)s?next=%(jabber_index_url)s\">einlog
 
 #: mafiasi/jabber/templates/jabber/index.html:32
 msgid "Did you forget your password?"
-msgstr "gPasswort vergessen?"
+msgstr "Passwort vergessen?"
 
 #: mafiasi/jabber/templates/jabber/index.html:35
 msgid "The fingerprint of the current SSL certificate is:"
