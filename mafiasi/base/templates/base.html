@@ -14,7 +14,8 @@
         <a href="/" class="navbar-brand">{% trans "Mafiasi Hub" %}</a>
         <p class="navbar-text pull-right">
         {% if user.is_authenticated %}
-        Logged in as {{ user.username }} | <a href="{% url 'logout' %}">Logout</a>
+		{% url 'logout' as logout_url %}
+		{% blocktrans with username=user.username %}Logged in as {{ username }} | <a href="{{ logout_url }}">Logout</a>{% endblocktrans %}
         {% endif %}
         </p>
         <div class="btn-group pull-right">
