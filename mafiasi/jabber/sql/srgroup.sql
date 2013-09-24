@@ -1,0 +1,1 @@
+ALTER TABLE sr_group ADD PRIMARY KEY(name);
