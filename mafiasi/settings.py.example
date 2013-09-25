@@ -159,6 +159,7 @@ SERVICE_LINKS = {
 	'gprot': 'https://www2.informatik.uni-hamburg.de/Fachschaft/gprot/',
 	'planet': 'https://planet.mafiasi.de/'
 }
+INPRINT_URL = 'https://wiki.mafiasi.de/Fachschaft_Informatik:Impressum'
 
 
 from django.contrib.messages import constants as message_constants

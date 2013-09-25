@@ -2,8 +2,8 @@ from django.conf import settings
 from django.http import HttpResponseRedirect
 from django.template.response import TemplateResponse
 
-def inprint(request):
-    return HttpResponseRedirect(settings.INPRINT_URL)
+def imprint(request):
+    return HttpResponseRedirect(settings.IMPRINT_URL)
 
 def technical_info(request):
     return TemplateResponse(request, 'base/technical_info.html')
