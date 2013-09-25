@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<h2>{% trans "Problems?" %}</h2>
+{% blocktrans %}<p>Did you encounter any technical problems using this site? Just write an email to <strong><a href="mailto:{{ team_email }}">{{ team_email }}</a></strong> and describe your problem.</p>{% endblocktrans %}
+{% endblock %}

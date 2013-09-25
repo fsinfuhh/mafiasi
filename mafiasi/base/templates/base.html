@@ -32,6 +32,13 @@
 {% endfor %}
 {% block content %}
 {% endblock content %}
+		<div id="footer">
+			<a href="{% url 'base_inprint' %}">{% trans "Inprint" %}</a>
+			&middot;
+			<a href="{% url 'base_technical_info' %}">{% trans "Technical info" %}</a>
+			&middot;
+			<a href="{% url 'base_problems' %}">{% trans "Problems?" %}</a>
+		</div>
     </div>
 </body>
 </html>

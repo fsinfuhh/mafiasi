@@ -6,6 +6,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^$', lambda req: redirect('dashboard_index'), name='home'),
+    url(r'^base/', include('mafiasi.base.urls')),
     url(r'^registration/', include('mafiasi.registration.urls')),
     url(r'^dashboard/', include('mafiasi.dashboard.urls')),
     url(r'^jabber/', include('mafiasi.jabber.urls')),

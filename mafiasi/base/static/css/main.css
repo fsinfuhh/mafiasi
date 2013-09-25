@@ -8,6 +8,13 @@ button {
     transition: background-color 0.21s, border-color 0.21s, box-shadow 0.1s;
 }
 
+#footer {
+	text-align:center;
+}
+
+#footer a {
+	color:#666;
+}
 
 /*------------ DASHBOARD --------*/
 #dashboard .glyphicon {
