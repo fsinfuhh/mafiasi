@@ -17,6 +17,8 @@ urlpatterns = patterns('',
         'next_page': '/'
     }, name='logout'),
 
+    (r'^i18n/', include('django.conf.urls.i18n')),
+
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )

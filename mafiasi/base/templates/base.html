@@ -10,35 +10,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 </head>
 <body>
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <a href="/" class="navbar-brand">{% trans "Mafiasi Hub" %}</a>
-        <p class="navbar-text pull-right">
-        {% if user.is_authenticated %}
-		{% url 'logout' as logout_url %}
-		{% blocktrans with username=user.username %}Logged in as {{ username }} | <a href="{{ logout_url }}">Logout</a>{% endblocktrans %}
-        {% endif %}
-        </p>
-        <div class="btn-group pull-right">
-            {% if not user.is_authenticated %}
-            <a class="btn btn-primary navbar-btn" href="{% url 'registration_request_account' %}">{% trans "Register" %}</a>
-            <a class="btn btn-default navbar-btn" href="{% url 'login' %}">{% trans "Login" %}</a>
-            {% endif %}
-        </div>
-    </nav>
+    <div id="wrap">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <a href="/" class="navbar-brand">{% trans "Mafiasi Hub" %}</a>
+            <p class="navbar-text pull-right">
+                {% if user.is_authenticated %}
+                {% url 'logout' as logout_url %}
+                {% blocktrans with username=user.username %}Logged in as {{ username }} | <a href="{{ logout_url }}">Logout</a>{% endblocktrans %}
+                {% endif %}
+            </p>
+            <div class="btn-group pull-right">
+                {% if not user.is_authenticated %}
+                <a class="btn btn-primary navbar-btn" href="{% url 'registration_request_account' %}">{% trans "Register" %}</a>
+                <a class="btn btn-default navbar-btn" href="{% url 'login' %}">{% trans "Login" %}</a>
+                {% endif %}
+            </div>
+        </nav>
 
-    <div class="container">
-{% for message in messages %}
-<div class="alert{% if message.tags %} {{ message.tags }}"{% endif %}>{{ message }}</div>
-{% endfor %}
-{% block content %}
-{% endblock content %}
-		<div id="footer">
-			<a href="{% url 'base_imprint' %}">{% trans "Imprint" %}</a>
-			&middot;
-			<a href="{% url 'base_technical_info' %}">{% trans "Technical info" %}</a>
-			&middot;
-			<a href="{% url 'base_problems' %}">{% trans "Problems?" %}</a>
-		</div>
+        <div class="container">
+            {% for message in messages %}
+            <div class="alert{% if message.tags %} {{ message.tags }}"{% endif %}>{{ message }}</div>
+            {% endfor %}
+            {% block content %}
+            {% endblock content %}
+        </div>
+        <div id="push"></div>
     </div>
-</body>
-</html>
+
+    <div id="footer">
+        <div class="container">
+                    <form class="form-inline" action="{% url 'set_language' %}" method="post">
+                        {% csrf_token %}
+                        <p class="muted credit">
+                            <a href="{% url 'base_imprint' %}">{% trans "Imprint" %}</a>
+                            &middot;
+                            <a href="{% url 'base_technical_info' %}">{% trans "Technical info" %}</a>
+                            &middot;
+                            <a href="{% url 'base_problems' %}">{% trans "Problems?" %}</a>
+                            &middot;
+                            <button name="language" value="de" class="btn btn-link" style="padding: 0;" type="submit">Deutsch</button>
+                            &middot;
+                            <button name="language" value="en" class="btn btn-link" style="padding: 0;" type="submit">English</button>
+                        </p>
+                    </form>
+            </div>
+        </div>
+    </body>
+    </html>
