@@ -67,6 +67,8 @@ class Command(NoArgsCommand):
             mafiasi.first_name = first_name
             mafiasi.last_name = last_name
 
+        mafiasi.email = account + u'@informatik.uni-hamburg.de'
+
         mafiasi.set_password(jabber_user.password)
 
         print('Create account', username)
