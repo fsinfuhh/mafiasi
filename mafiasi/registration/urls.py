@@ -8,3 +8,12 @@ urlpatterns = patterns('mafiasi.registration.views',
     url(r'^request_successful/([a-z0-9.]+)$', 'request_successful',
             name='registration_request_successful'),
 )
+
+urlpatterns += patterns('django.contrib.auth.views',
+    url(r'^password_reset/$', 'password_reset', name='password_reset'),
+    url(r'^password_reset/done$', 'password_reset_done'),
+    url(r'^password_reset/confirm/(?P<uidb36>[a-z0-9-]+)/(?P<token>[a-z0-9-]+)$',
+            'password_reset_confirm'),
+    url(r'^password_reset/complete', 'password_reset_complete')
+)
+
