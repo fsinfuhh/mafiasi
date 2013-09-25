@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-25 11:52+0200\n"
-"PO-Revision-Date: 2013-09-25 11:52+0100\n"
+"POT-Creation-Date: 2013-09-25 23:19+0200\n"
+"PO-Revision-Date: 2013-09-25 23:30+0100\n"
 "Last-Translator: Henning Pridöhl <8pridoeh@informatik.uni-hamburg.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -17,23 +17,73 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: mafiasi/base/templates/base.html:6
-#: mafiasi/base/templates/base.html:14
+#: mafiasi/base/templates/base.html:15
 msgid "Mafiasi Hub"
 msgstr "Mafiasi Hub"
 
-#: mafiasi/base/templates/base.html:18
+#: mafiasi/base/templates/base.html:19
 #, python-format
 msgid "Logged in as %(username)s | <a href=\"%(logout_url)s\">Logout</a>"
 msgstr "Logged in as %(username)s | <a href=\"%(logout_url)s\">Logout</a>"
 
-#: mafiasi/base/templates/base.html:23
+#: mafiasi/base/templates/base.html:24
 msgid "Register"
 msgstr "Register"
 
-#: mafiasi/base/templates/base.html:24
+#: mafiasi/base/templates/base.html:25
 #: mafiasi/registration/templates/registration/login.html:41
 msgid "Login"
 msgstr "Login"
+
+#: mafiasi/base/templates/base.html:45
+msgid "Imprint"
+msgstr "Imprint"
+
+#: mafiasi/base/templates/base.html:47
+msgid "Technical info"
+msgstr "Technical info"
+
+#: mafiasi/base/templates/base.html:49
+#: mafiasi/base/templates/base/problems.html:5
+msgid "Problems?"
+msgstr "Problems?"
+
+#: mafiasi/base/templates/base/problems.html:6
+#, python-format
+msgid "<p>Did you encounter any technical problems using this site? Just write an email to <strong><a href=\"mailto:%(team_email)s\">%(team_email)s</a></strong> and describe your problem.</p>"
+msgstr "<p>Did you encounter any technical problems using this site? Just write an email to <strong><a href=\"mailto:%(team_email)s\">%(team_email)s</a></strong> and describe your problem.</p>"
+
+#: mafiasi/base/templates/base/technical_info.html:5
+msgid "Technical Info"
+msgstr "Technical Info"
+
+#: mafiasi/base/templates/base/technical_info.html:7
+msgid ""
+"<p>This site uses the following software/components:</p>\n"
+"<ul>\n"
+"\t<li><a href=\"http://python.org/\">Python</a></li>\n"
+"\t<li><a href=\"https://https://www.djangoproject.com/\">Django</a></li>\n"
+"\t<li><a href=\"http://www.postgresql.org/\">PostgreSQL</a></li>\n"
+"    <li><a href=\"http://getbootstrap.com/\">Bootstrap CSS</a></li>\n"
+"    <li><a href=\"http://glyphicons.com/\">Glyphicons Halflings (icons)</a></li>\n"
+"    <li><a href=\"https://code.google.com/p/creoleparser/\">creoleparser</a></li>\n"
+"    <li><a href=\"http://genshi.edgewall.org/\">Genshi</a></li>\n"
+"    <li><a href=\"https://code.google.com/p/python-nameparser/\">python-nameparser</a></li>\n"
+"\t<li><a href=\"https://pypi.python.org/pypi/django-widget-tweaks\">django-widget-tweaks</a></li>\n"
+"</ul>\n"
+msgstr ""
+"<p>This site uses the following software/components:</p>\n"
+"<ul>\n"
+"\t<li><a href=\"http://python.org/\">Python</a></li>\n"
+"\t<li><a href=\"https://https://www.djangoproject.com/\">Django</a></li>\n"
+"\t<li><a href=\"http://www.postgresql.org/\">PostgreSQL</a></li>\n"
+"    <li><a href=\"http://getbootstrap.com/\">Bootstrap CSS</a></li>\n"
+"    <li><a href=\"http://glyphicons.com/\">Glyphicons Halflings (icons)</a></li>\n"
+"    <li><a href=\"https://code.google.com/p/creoleparser/\">creoleparser</a></li>\n"
+"    <li><a href=\"http://genshi.edgewall.org/\">Genshi</a></li>\n"
+"    <li><a href=\"https://code.google.com/p/python-nameparser/\">python-nameparser</a></li>\n"
+"\t<li><a href=\"https://pypi.python.org/pypi/django-widget-tweaks\">django-widget-tweaks</a></li>\n"
+"</ul>\n"
 
 #: mafiasi/dashboard/templates/dashboard/index.html:7
 msgid "Services"
@@ -88,6 +138,7 @@ msgid "Sorry, we had an internal error."
 msgstr "Sorry, we had an internal error."
 
 #: mafiasi/jabber/views.py:56
+#: mafiasi/registration/views.py:122
 msgid "Password was changed."
 msgstr "Password was changed."
 
@@ -133,6 +184,7 @@ msgid "You have to <a href=\"%(login_url)s?next=%(jabber_index_url)s\">login</a>
 msgstr "You have to <a href=\"%(login_url)s?next=%(jabber_index_url)s\">login</a> to create or manage your Jabber account."
 
 #: mafiasi/jabber/templates/jabber/index.html:32
+#: mafiasi/registration/templates/registration/login.html:44
 msgid "Did you forget your password?"
 msgstr "Did you forget your password?"
 
@@ -169,6 +221,30 @@ msgstr "The two password fields didn't match."
 msgid "Wrong password."
 msgstr "Wrong password."
 
+#: mafiasi/registration/templates/registration/account.html:6
+msgid "Account"
+msgstr "Account"
+
+#: mafiasi/registration/templates/registration/account.html:8
+msgid "Change password"
+msgstr "Change password"
+
+#: mafiasi/registration/templates/registration/account.html:12
+msgid "Old password"
+msgstr "Old password"
+
+#: mafiasi/registration/templates/registration/account.html:21
+msgid "New password"
+msgstr "New password"
+
+#: mafiasi/registration/templates/registration/account.html:30
+msgid "New password confirmation"
+msgstr "New password confirmation"
+
+#: mafiasi/registration/templates/registration/account.html:39
+msgid "Change"
+msgstr "Change"
+
 #: mafiasi/registration/templates/registration/create_account.html:8
 #: mafiasi/registration/templates/registration/create_account.html:35
 #: mafiasi/registration/templates/registration/require_info.html:31
@@ -202,6 +278,96 @@ msgstr ""
 #: mafiasi/registration/templates/registration/login.html:23
 msgid "Note: For our account names we use two digits for year (e.g. <strong>13doe</strong> instead of 3doe)"
 msgstr "Note: For our account names we use two digits for year (e.g. <strong>13doe</strong> instead of 3doe)"
+
+#: mafiasi/registration/templates/registration/password_reset_complete.html:4
+#: mafiasi/registration/templates/registration/password_reset_complete.html:8
+msgid "Password reset complete"
+msgstr "Password reset complete"
+
+#: mafiasi/registration/templates/registration/password_reset_complete.html:10
+msgid "Your password has been set.  You may go ahead and log in now."
+msgstr "Your password has been set.  You may go ahead and log in now."
+
+#: mafiasi/registration/templates/registration/password_reset_complete.html:12
+msgid "Log in"
+msgstr "Log in"
+
+#: mafiasi/registration/templates/registration/password_reset_confirm.html:4
+#: mafiasi/registration/templates/registration/password_reset_form.html:4
+#: mafiasi/registration/templates/registration/password_reset_form.html:8
+msgid "Password reset"
+msgstr "Password reset"
+
+#: mafiasi/registration/templates/registration/password_reset_confirm.html:10
+msgid "Enter new password"
+msgstr "Enter new password"
+
+#: mafiasi/registration/templates/registration/password_reset_confirm.html:12
+msgid "Please enter your new password twice so we can verify you typed it in correctly."
+msgstr "Please enter your new password twice so we can verify you typed it in correctly."
+
+#: mafiasi/registration/templates/registration/password_reset_confirm.html:16
+msgid "New password:"
+msgstr "New password:"
+
+#: mafiasi/registration/templates/registration/password_reset_confirm.html:18
+msgid "Confirm password:"
+msgstr "Confirm password:"
+
+#: mafiasi/registration/templates/registration/password_reset_confirm.html:19
+msgid "Change my password"
+msgstr "Change my password"
+
+#: mafiasi/registration/templates/registration/password_reset_confirm.html:24
+msgid "Password reset unsuccessful"
+msgstr "Password reset unsuccessful"
+
+#: mafiasi/registration/templates/registration/password_reset_confirm.html:26
+msgid "The password reset link was invalid, possibly because it has already been used.  Please request a new password reset."
+msgstr "The password reset link was invalid, possibly because it has already been used.  Please request a new password reset."
+
+#: mafiasi/registration/templates/registration/password_reset_done.html:4
+#: mafiasi/registration/templates/registration/password_reset_done.html:8
+msgid "Password reset successful"
+msgstr "Password reset successful"
+
+#: mafiasi/registration/templates/registration/password_reset_done.html:10
+msgid "We've emailed you instructions for setting your password to the email address you submitted. You should be receiving it shortly."
+msgstr "We've emailed you instructions for setting your password to the email address you submitted. You should be receiving it shortly."
+
+#: mafiasi/registration/templates/registration/password_reset_email.html:2
+#, python-format
+msgid "You're receiving this email because you requested a password reset for your user account at %(site_name)s."
+msgstr "You're receiving this email because you requested a password reset for your user account at %(site_name)s."
+
+#: mafiasi/registration/templates/registration/password_reset_email.html:4
+msgid "Please go to the following page and choose a new password:"
+msgstr "Please go to the following page and choose a new password:"
+
+#: mafiasi/registration/templates/registration/password_reset_email.html:8
+msgid "Your username, in case you've forgotten:"
+msgstr "Your username, in case you've forgotten:"
+
+#: mafiasi/registration/templates/registration/password_reset_email.html:10
+msgid "Thanks for using our site!"
+msgstr "Thanks for using our site!"
+
+#: mafiasi/registration/templates/registration/password_reset_email.html:12
+#, python-format
+msgid "The %(site_name)s team"
+msgstr "The %(site_name)s team"
+
+#: mafiasi/registration/templates/registration/password_reset_form.html:10
+msgid "Forgotten your password? Enter your email address below, and we'll email instructions for setting a new one."
+msgstr "Forgotten your password? Enter your email address below, and we'll email instructions for setting a new one."
+
+#: mafiasi/registration/templates/registration/password_reset_form.html:14
+msgid "Email address:"
+msgstr "Email address:"
+
+#: mafiasi/registration/templates/registration/password_reset_form.html:14
+msgid "Reset my password"
+msgstr "Reset my password"
 
 #: mafiasi/registration/templates/registration/request_account.html:7
 msgid "Registration"
