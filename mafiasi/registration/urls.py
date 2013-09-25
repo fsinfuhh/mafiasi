@@ -7,6 +7,7 @@ urlpatterns = patterns('mafiasi.registration.views',
             name='registration_create_account'),
     url(r'^request_successful/([a-z0-9.]+)$', 'request_successful',
             name='registration_request_successful'),
+    url(r'^account$', 'account_settings', name='registration_account'),
 )
 
 urlpatterns += patterns('django.contrib.auth.views',

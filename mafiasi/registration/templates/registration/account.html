@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load widget_tweaks %}
+
+{% block content %}
+<h2>{% trans "Account" %}</h2>
+
+<h3>{% trans "Change password" %}</h3>
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group{% if password_change_form.old_password.errors %} has-error{% endif %}">
+        <label class="control-label">{% trans "Old password" %}</label>
+        {% render_field password_change_form.old_password class+="form-control" %}
+        {% if password_change_form.old_password.errors %}
+        <div class="help-block">
+        {% for error in password_change_form.old_password.errors %}{{ error }} {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+    <div class="form-group{% if password_change_form.new_password1.errors %} has-error{% endif %}">
+        <label class="control-label">{% trans "New password" %}</label>
+        {% render_field password_change_form.new_password1 class+="form-control" %}
+        {% if password_change_form.new_password1.errors %}
+        <div class="help-block">
+        {% for error in password_change_form.new_password1.errors %}{{ error }} {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+    <div class="form-group{% if password_change_form.new_password2.errors %} has-error{% endif %}">
+        <label class="control-label">{% trans "New password confirmation" %}</label>
+        {% render_field password_change_form.new_password2 class+="form-control" %}
+        {% if password_change_form.new_password2.errors %}
+        <div class="help-block">
+        {% for error in password_change_form.new_password2.errors %}{{ error }} {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-default">{% trans "Change" %}</button>
+    </div>
+</form>
+{% endblock %}

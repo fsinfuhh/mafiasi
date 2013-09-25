@@ -7,7 +7,11 @@ from django.template.response import TemplateResponse
 from django.template.loader import render_to_string
 from django.conf import settings
 from django.shortcuts import redirect
+from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import login
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 from mafiasi.base.models import Yeargroup, Mafiasi, PasswdEntry
 from mafiasi.registration.forms import RegisterForm, AdditionalInfoForm, PasswordForm
@@ -109,7 +113,20 @@ def create_account(request, info_token):
         'username': username
     })
 
-            
+@login_required
+def account_settings(request):
+    if request.method == 'POST':
+        password_change_form = PasswordChangeForm(request.user, request.POST)
+        if password_change_form.is_valid():
+            password_change_form.save()
+            messages.success(request, _("Password was changed."))
+            return redirect('registration_account')
+    else:
+        password_change_form = PasswordChangeForm(request.user)
+    
+    return TemplateResponse(request, 'registration/account.html', {
+        'password_change_form': password_change_form 
+    })
 
 def _finish_account_request(request, info):
     email = u'{0}@{1}'.format(info['account'], settings.EMAIL_DOMAIN)
