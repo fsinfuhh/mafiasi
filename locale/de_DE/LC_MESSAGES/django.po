@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-25 00:21+0200\n"
-"PO-Revision-Date: 2013-09-25 00:21+0100\n"
+"POT-Creation-Date: 2013-09-25 11:52+0200\n"
+"PO-Revision-Date: 2013-09-25 11:53+0100\n"
 "Last-Translator: Henning Pridöhl <8pridoeh@informatik.uni-hamburg.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -64,11 +64,15 @@ msgstr "Unser Mumble-Server erlaubt es dir mit anderen Sprachkonferenzen zu füh
 msgid "The GProt contains memory minutes of oral and written exams."
 msgstr "Im GProt findest du Gedächtnisprotokolle von Klausuren und mündlichen Prüfungen."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:89
+#: mafiasi/dashboard/templates/dashboard/index.html:88
+msgid "Planet is a feed aggregator which collects blog entries from your fellow students."
+msgstr "Der Planet ist ein Feed-Aggregator, der Blogeinträge von aktiven und ehemaligen Mafiasi sammelt."
+
+#: mafiasi/dashboard/templates/dashboard/index.html:101
 msgid "Here you can change your password here and configure your account."
 msgstr "Hier kannst du dein Passwort ändern und andere Einstellungen vornehmen."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:98
+#: mafiasi/dashboard/templates/dashboard/index.html:110
 msgid "News"
 msgstr "Aktuelles"
 
