@@ -4,14 +4,17 @@
 {% block content %}
 <h2>{% trans "Technical Info" %}</h2>
 
-{% blocktrans %}<p>This site uses <a href="http://python.org/">Python</a> with the <a href="http://djangoproject.com/">Django web framework</a></p>{% blocktrans %}
-
-{% blocktrans %}<p>Also the following components are used:</p>
+{% blocktrans %}<p>This site uses the following software/components:</p>
 <ul>
+	<li><a href="http://python.org/">Python</a></li>
+	<li><a href="https://https://www.djangoproject.com/">Django</a></li>
+	<li><a href="http://www.postgresql.org/">PostgreSQL</a></li>
     <li><a href="http://getbootstrap.com/">Bootstrap CSS</a></li>
-    <li><a href="http://glyphicons.com/">Some icons from Glyphicons Halflings</a></li>
+    <li><a href="http://glyphicons.com/">Glyphicons Halflings (icons)</a></li>
     <li><a href="https://code.google.com/p/creoleparser/">creoleparser</a></li>
+    <li><a href="http://genshi.edgewall.org/">Genshi</a></li>
     <li><a href="https://code.google.com/p/python-nameparser/">python-nameparser</a></li>
+	<li><a href="https://pypi.python.org/pypi/django-widget-tweaks">django-widget-tweaks</a></li>
 </ul>
 {% endblocktrans %}
 {% endblock %}
