@@ -77,7 +77,19 @@
                     </div>
                 </div>
             </div>
-
+            
+			<div class="col-sm-6">
+                <div class="panel panel-default service">
+                    <div class="panel-body">
+                        <a href="{{ service_links.planet }}" class="btn btn-default btn-lg pull-left service-icon">
+							<img src="{{ STATIC_URL }}img/services/planet.png" alt="Planet" />
+                        </a>
+                        <h3><a href="{{ service_links.planet }}">Planet</a></h3>
+						<p>{% trans "Planet is a feed aggregator which collects blog entries from your fellow students." %}</p>
+                    </div>
+                </div>
+            </div>
+            
             {% if user.is_authenticated %}
             <div class="col-sm-6">
                 <div class="panel panel-default service">

@@ -157,6 +157,7 @@ SERVICE_LINKS = {
 	'wiki': 'https://wiki.mafiasi.de/',
 	'dudle': 'https://dudle.mafiasi.de/',
 	'gprot': 'https://www2.informatik.uni-hamburg.de/Fachschaft/gprot/',
+	'planet': 'https://planet.mafiasi.de/'
 }
 
 
