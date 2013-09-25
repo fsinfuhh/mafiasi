@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="38.266663"
+   height="38.233334"
+   id="svg4995"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="account.svg"
+   inkscape:export-filename="/home/henning/workspace/mafiasi/mafiasi/dashboard/static/img/services/account.png"
+   inkscape:export-xdpi="188.15331"
+   inkscape:export-ydpi="188.15331">
+  <defs
+     id="defs4997" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.0349609"
+     inkscape:cx="-15.543962"
+     inkscape:cy="-173.95373"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="898"
+     inkscape:window-height="1058"
+     inkscape:window-x="0"
+     inkscape:window-y="18"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata5000">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-390.54396,-320.17512)">
+    <g
+       transform="translate(388.17537,375.81839)"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#333333;fill-opacity:1;stroke:none;font-family:STIXGeneral;-inkscape-font-specification:STIXGeneral"
+       id="text3464">
+      <path
+         inkscape:connector-curvature="0"
+         d="m 17.768592,-22.609933 1.266667,5.033333 c 0.88887,0.111112 1.711092,0.166667 2.466666,0.166667 0.59998,0 1.422201,-0.05556 2.466667,-0.166667 l 1.266667,-5.033333 0.2,-0.06667 c 1.022197,-0.288883 2.055529,-0.722215 3.1,-1.3 l 0.166666,-0.1 4.466667,2.7 c 1.244412,-0.977772 2.399966,-2.144438 3.466667,-3.5 l -2.666667,-4.466667 0.1,-0.166666 c 0.5333,-0.977764 0.966633,-2.011097 1.3,-3.1 l 0.03333,-0.2 5.066667,-1.266667 c 0.111072,-0.888871 0.166628,-1.711092 0.166667,-2.466667 -3.9e-5,-0.622201 -0.05559,-1.433312 -0.166667,-2.433333 l -5.066667,-1.266667 -0.03333,-0.2 c -0.355589,-1.133308 -0.788922,-2.16664 -1.3,-3.1 l -0.1,-0.166666 2.666667,-4.466667 c -0.977812,-1.288856 -2.133367,-2.455522 -3.466667,-3.5 l -4.466667,2.7 -0.166666,-0.1 c -1.000026,-0.555523 -2.033359,-0.988855 -3.1,-1.3 l -0.2,-0.03333 -1.266667,-5.066667 c -0.88891,-0.111072 -1.711132,-0.166628 -2.466667,-0.166667 -0.600019,3.9e-5 -1.42224,0.0556 -2.466666,0.166667 l -1.266667,5.066667 -0.166667,0.03333 c -1.111126,0.311145 -2.155569,0.744477 -3.133333,1.3 l -0.166667,0.1 -4.4333329,-2.7 c -1.3111181,1.044478 -2.4777836,2.211144 -3.5,3.5 l 2.6666667,4.466667 -0.1,0.166666 c -0.5555624,1.044471 -0.9777842,2.077803 -1.2666667,3.1 l -0.066667,0.2 -5.0333334,1.266667 c -0.1333342,1.066688 -0.2000008,1.877798 -0.2,2.433333 -8e-7,0.733353 0.066666,1.555574 0.2,2.466667 l 5.0333334,1.266667 0.066667,0.2 c 0.3111047,1.088903 0.7333265,2.122236 1.2666667,3.1 l 0.1,0.166666 -2.6666667,4.466667 c 0.9999942,1.311118 2.1666597,2.477784 3.5,3.5 l 4.4333329,-2.7 0.166667,0.1 c 0.999986,0.577785 2.04443,1.011117 3.133333,1.3 l 0.166667,0.06667 M 16.435259,-41.5766 c 1.399983,-1.399974 3.088871,-2.099973 5.066666,-2.1 1.977756,2.7e-5 3.666643,0.700026 5.066667,2.1 1.399974,1.400024 2.099973,3.0778 2.1,5.033333 -2.7e-5,1.977796 -0.700026,3.666683 -2.1,5.066667 -1.400024,1.400013 -3.088911,2.100013 -5.066667,2.1 -1.977795,1.3e-5 -3.666683,-0.699987 -5.066666,-2.1 -1.400014,-1.399984 -2.100013,-3.088871 -2.1,-5.066667 -1.3e-5,-1.955533 0.699986,-3.633309 2.1,-5.033333"
+         style="fill:#333333;fill-opacity:1;font-family:GLYPHICONS Halflings;-inkscape-font-specification:GLYPHICONS Halflings"
+         id="path3469" />
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="40"
+   height="40"
+   id="svg6126"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="print.svg"
+   inkscape:export-filename="/home/henning/workspace/mafiasi/mafiasi/dashboard/static/img/services/print.png"
+   inkscape:export-xdpi="180"
+   inkscape:export-ydpi="180">
+  <defs
+     id="defs6128" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.0349609"
+     inkscape:cx="-115.16419"
+     inkscape:cy="86.842805"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="898"
+     inkscape:window-height="1058"
+     inkscape:window-x="0"
+     inkscape:window-y="18"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata6131">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <cc:license
+           rdf:resource="" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-315.27836,-579.20499)">
+    <g
+       transform="translate(271.15931,585.40043)"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#333333;fill-opacity:1;stroke:none;font-family:GLYPHICONS Halflings;-inkscape-font-specification:GLYPHICONS Halflings"
+       id="text3548">
+      <path
+         inkscape:connector-curvature="0"
+         d="M 75.685716,6.1712245 72.552382,-5.3621089 c -0.04447,-0.244405 -0.155583,-0.4444048 -0.333333,-0.6 -0.177806,-0.1555156 -0.377805,-0.2332933 -0.6,-0.2333333 l -15,0 c -0.222234,4e-5 -0.422234,0.077818 -0.6,0.2333333 -0.177789,0.1555952 -0.2889,0.355595 -0.333333,0.6 l -3.133334,11.5333334 1.333334,4.1333335 19.733333,0 2.066667,-4.1333335 m 8.433333,0.9666666 0,23.3333329 -6.666667,0 0,-6.666666 -26.666666,0 0,6.666666 -6.666667,0 0,-23.3333329 6.666667,0 3.333333,6.6666669 20,0 3.333333,-6.6666669 6.666667,0 m -10.633333,20.7999999 1.266666,5.066667 c 0.04441,0.222223 -3e-5,0.411111 -0.133333,0.566666 -0.111141,0.155556 -0.277808,0.233334 -0.5,0.233334 l -20,0 c -0.222232,0 -0.40001,-0.07778 -0.533333,-0.233334 -0.111121,-0.155555 -0.144454,-0.344443 -0.1,-0.566666 l 1.266666,-5.066667 c 0.04443,-0.222216 0.166656,-0.411105 0.366667,-0.566667 0.222211,-0.155548 0.444433,-0.233326 0.666667,-0.233333 l 16.666666,0 c 0.222194,7e-6 0.433305,0.07778 0.633334,0.233333 0.222193,0.155562 0.355526,0.344451 0.4,0.566667"
+         id="path3553"
+         style="fill:#333333;fill-opacity:1" />
+    </g>
+  </g>
+</svg>
