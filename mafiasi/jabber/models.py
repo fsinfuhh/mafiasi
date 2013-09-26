@@ -1,3 +1,5 @@
+from cgi import escape
+
 from django.db import models
 from django.conf import settings
 from django.utils.timezone import now
@@ -115,6 +117,19 @@ class JabberUser(models.Model):
     def get_jid(self):
         return u'{0}@{1}'.format(self.username, settings.JABBER_DOMAIN)
 
+    def set_nickname(self, nickname):
+        Vcard.objects.filter(username=self.username).delete()
+        vcard_tpl = "<vCard xmlns='vcard-temp'><NICKNAME>{nick}</NICKNAME></vCard>"
+        vcard_xml = vcard_tpl.format(nick=escape(nickname, quote=True))
+        try:
+            vcard = Vcard.objects.get(username=self.username)
+            vcard.vcard = vcard_xml
+        except Vcard.DoesNotExist:
+            vcard = Vcard(username=self.username,
+                          vcard=vcard_xml,
+                          created_at=now())
+        vcard.save()
+
 class Vcard(models.Model):
     username = models.TextField(primary_key=True)
     vcard = models.TextField()
@@ -220,6 +235,12 @@ def create_account(mafiasi, password):
     user = JabberUser.objects.create(username=mafiasi.username,
                                      password=password,
                                      created_at=now())
+    
+    if mafiasi.first_name:
+        nickname = u'{0} ({1})'.format(mafiasi.first_name, mafiasi.username)
+    else:
+        nickname = mafiasi.username
+    user.set_nickname(nickname)
     
     JabberUserMapping.objects.create(mafiasi_user_id=mafiasi.pk, jabber_user=user)
     
