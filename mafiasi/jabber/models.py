@@ -141,7 +141,7 @@ class JabberUserMapping(models.Model):
 
     def _get_mafiasi_user(self):
         if not hasattr(self, '_mafiasi_user'):
-            self._mafiasi_user = get_user_model().get(pk=self.mafiasi_user_id)
+            self._mafiasi_user = get_user_model().objects.get(pk=self.mafiasi_user_id)
         return self._mafiasi_user
 
     mafiasi_user = property(_get_mafiasi_user, _set_mafiasi_user)
