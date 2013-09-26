@@ -1,3 +1,7 @@
-from django.db import models
+def get_account(user):
+    if user.is_authenticated():
+        return None
+    return None
 
-# Create your models here.
+def create_account(mafiasi, password):
+    return 'ok', None
