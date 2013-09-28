@@ -162,7 +162,7 @@ SERVICE_LINKS = {
 	'planet': 'https://planet.mafiasi.de/'
 }
 IMPRINT_URL = 'https://wiki.mafiasi.de/Fachschaft_Informatik:Impressum'
-WIKI_API = 'https://www2.informatik.uni-hamburg.de/Fachschaft/wiki/api.php'
+WIKI_URL = 'https://www2.informatik.uni-hamburg.de/Fachschaft/wiki/'
 
 
 from django.contrib.messages import constants as message_constants

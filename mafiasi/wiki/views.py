@@ -13,7 +13,8 @@ def autocomplete(request):
             'action': 'opensearch',
             'search': search_term.encode('utf-8')
         })
-        request_url = '{0}?{1}'.format(settings.WIKI_API, request_data) 
+        request_url = '{0}?{1}'.format(settings.WIKI_URL + 'api.php',
+                                       request_data)
         result = urllib2.urlopen(request_url).read()
     else:
         result = [
