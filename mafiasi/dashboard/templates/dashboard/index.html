@@ -127,9 +127,11 @@
             <div class="panel-body" style="text-align:center;">
 				<form method="post" action="{{ wiki_search_url }}">
 					<input type="hidden" name="title" value="Spezial:Suche" />
-					<input type="text" id="wiki_search" class="form-control pull-left" name="search" style="width:50%;">
-					<button class="btn btn-sm btn-primary" name="go">{% trans "Page" %}</button>
-					<button class="btn btn-sm btn-default" name="fulltext">{% trans "Search" %}</button>
+					<input type="text" id="wiki_search" class="form-control" name="search" style="margin-bottom:5px;">
+					<div class="btn-group">
+						<button class="btn btn-primary" name="go">{% trans "Page" %}</button>
+						<button class="btn btn-default" name="fulltext">{% trans "Search" %}</button>
+					</div>
 				</form>
             </div>
         </div>
