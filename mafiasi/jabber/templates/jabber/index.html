@@ -29,7 +29,8 @@
 {% endif %}
 
 {% if user.is_authenticated and jabber_user %}
-<p><a href="{% url 'jabber_password_reset' %}">{% trans "Did you forget your password?" %}</a></p>
+{% url 'registration_account' as account_url %}
+{% blocktrans %}<p>If you want to change your Jabber password, just change it in your <a href="{{ account_url }}">account settings</a>.</p>{% endblocktrans %}
 {% endif %}
 
 <p>{% trans "The fingerprint of the current SSL certificate is:" %}<br />

@@ -1,11 +1,12 @@
 from cgi import escape
 
 from django.db import models
+from django.db.models.signals import post_save
 from django.conf import settings
 from django.utils.timezone import now
 from django.contrib.auth import get_user_model
 
-from mafiasi.base.models import Yeargroup
+from mafiasi.base.models import Yeargroup, Mafiasi
 
 class PrivacyDefaultList(models.Model):
     username = models.TextField(primary_key=True)
@@ -251,3 +252,12 @@ def create_account(mafiasi, password):
         SrUser.objects.create(jid=jid, grp=sr_group.name, created_at=now())
     
     return 'created', user
+
+def _change_password_cb(sender, instance, created, **kwargs):
+    if created:
+        return
+    account = get_account(instance)
+    if account and instance.new_password:
+        account.password = instance.new_password
+        account.save()
+post_save.connect(_change_password_cb, sender=Mafiasi)
