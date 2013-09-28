@@ -4,3 +4,5 @@
 *.min.js
 *.mo
 mafiasi/settings.py
+_static
+_media
