@@ -38,4 +38,5 @@ class Mafiasi(AbstractUser):
     yeargroup = models.ForeignKey(Yeargroup, blank=True, null=True)
     
     def is_student(self):
-        return self.account and self.account[0].isdigit()
+        return self.account and (self.account[0].isdigit() or
+                                 self.account[0] == u'x')
