@@ -11,6 +11,7 @@ urlpatterns = patterns('',
     url(r'^dashboard/', include('mafiasi.dashboard.urls')),
     url(r'^jabber/', include('mafiasi.jabber.urls')),
     url(r'^mumble/', include('mafiasi.mumble.urls')),
+    url(r'^wiki/', include('mafiasi.wiki.urls')),
 
     url(r'^login$', 'django.contrib.auth.views.login', name='login'),
     url(r'^logout$', 'django.contrib.auth.views.logout', {
