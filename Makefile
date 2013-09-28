@@ -1,6 +1,7 @@
-static_dir = mafiasi/base/static/
+base_static = mafiasi/base/static/
+dashboard_static = mafiasi/dashboard/static/
 
-all: ${static_dir}/css/main.min.css ${static_dir}css/bootstrap.min.css ${static_dir}js/jquery-2.0.3.min.js ${static_dir}/js/jquery-ui-1.10.3.custom.min.js ${static_dir}css/smoothness/jquery-ui-1.10.3.custom.min.css
+all: ${base_static}css/main.min.css ${base_static}css/bootstrap.min.css ${base_static}js/jquery-2.0.3.min.js ${base_static}js/jquery-ui-1.10.3.custom.min.js ${base_static}css/smoothness/jquery-ui-1.10.3.custom.min.css ${dashboard_static}js/dashboard.min.js
 
 
 %.min.css: %.css
@@ -10,5 +11,5 @@ all: ${static_dir}/css/main.min.css ${static_dir}css/bootstrap.min.css ${static_
 	yui-compressor -o $@ --type js --charset utf-8 $<
 
 clean:
-	$(RM) ${static_dir}/css/*.min.css
-	$(RM) ${static_dir}/js/*.min.js
+	find -name '*.min.css' -delete
+	find -name '*.min.js' -delete

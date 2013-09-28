@@ -13,7 +13,8 @@ def index(request):
     return TemplateResponse(request, 'dashboard/index.html', {
         'news_list': news_list,
         'panel_list': panel_list,
-        'service_links': settings.SERVICE_LINKS
+        'service_links': settings.SERVICE_LINKS,
+        'wiki_search_url': settings.WIKI_URL + 'index.php'
     })
 
 def show_news(request, news_pk):
