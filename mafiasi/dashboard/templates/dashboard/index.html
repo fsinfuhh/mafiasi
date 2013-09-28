@@ -10,7 +10,7 @@
                 <div class="panel panel-default service">
                     <div class="panel-body">
                         <a href="{{ service_links.wiki }}" class="btn btn-default btn-lg pull-left service-icon">
-							<img src="{{ STATIC_URL }}img/services/wiki.png" alt="Wiki" />
+                            <img src="{{ STATIC_URL }}img/services/wiki.png" alt="Wiki" />
                         </a>
                         <h3><a href="{{ service_links.wiki }}">Wiki</a></h3>
                         <p>{% trans "In the wiki you will find important information regarding your studies." %}</p>
@@ -18,14 +18,14 @@
                 </div>
             </div>
             
-			<div class="col-sm-6">
+            <div class="col-sm-6">
                 <div class="panel panel-default service">
                     <div class="panel-body">
                         <a href="{{ service_links.etherpad }}" class="btn btn-default btn-lg pull-left service-icon">
-							<img src="{{ STATIC_URL }}img/services/etherpad.png" alt="Etherpad" />
+                            <img src="{{ STATIC_URL }}img/services/etherpad.png" alt="Etherpad" />
                         </a>
                         <h3><a href="{{ service_links.etherpad }}">Etherpad</a></h3>
-						<p>{% trans "You can use the Etherpad to work together on a document in real time." %}</p>
+                        <p>{% trans "You can use the Etherpad to work together on a document in real time." %}</p>
                     </div>
                 </div>
             </div>
@@ -34,10 +34,10 @@
                 <div class="panel panel-default service">
                     <div class="panel-body">
                         <a href="{{ service_links.dudle }}" class="btn btn-default btn-lg pull-left service-icon">
-							<img src="{{ STATIC_URL }}img/services/dudle.png" alt="Dudle" />
+                            <img src="{{ STATIC_URL }}img/services/dudle.png" alt="Dudle" />
                         </a>
                         <h3><a href="{{ service_links.dudle }}">Dudle</a></h3>
-						<p>{% trans "The Dudle helps you to find common dates for meetings easily." %}</p>
+                        <p>{% trans "The Dudle helps you to find common dates for meetings easily." %}</p>
                     </div>
                 </div>
             </div>
@@ -46,10 +46,10 @@
                 <div class="panel panel-default service">
                     <div class="panel-body">
                         <a href="{% url 'jabber_index' %}" class="btn btn-default btn-lg pull-left service-icon">
-							<img src="{{ STATIC_URL }}img/services/jabber.png" alt="Jabber" />
+                            <img src="{{ STATIC_URL }}img/services/jabber.png" alt="Jabber" />
                         </a>
                         <h3><a href="{% url 'jabber_index' %}">Jabber</a></h3>
-						<p>{% trans "On our Jabber server you can chat with your fellow students, which are already on your contact list." %}</p>
+                        <p>{% trans "On our Jabber server you can chat with your fellow students, which are already on your contact list." %}</p>
                     </div>
                 </div>
             </div>
@@ -58,10 +58,10 @@
                 <div class="panel panel-default service">
                     <div class="panel-body">
                         <a href="{% url 'mumble_index' %}" class="btn btn-default btn-lg pull-left service-icon">
-							<img src="{{ STATIC_URL }}img/services/mumble.png" alt="Mumble" />
+                            <img src="{{ STATIC_URL }}img/services/mumble.png" alt="Mumble" />
                         </a>
                         <h3><a href="{% url 'mumble_index' %}">Mumble</a></h3>
-						<p>{% trans "You can use our mumble for voice chat with other fellow students." %}</p>
+                        <p>{% trans "You can use our mumble for voice chat with other fellow students." %}</p>
                     </div>
                 </div>
             </div>
@@ -70,22 +70,22 @@
                 <div class="panel panel-default service">
                     <div class="panel-body">
                         <a href="{{ service_links.gprot }}" class="btn btn-default btn-lg pull-left service-icon">
-							<img src="{{ STATIC_URL }}img/services/gprot.png" alt="GProt" />
+                            <img src="{{ STATIC_URL }}img/services/gprot.png" alt="GProt" />
                         </a>
                         <h3><a href="{{ service_links.gprot }}">GProt</a></h3>
-						<p>{% trans "The GProt contains memory minutes of oral and written exams." %}</p>
+                        <p>{% trans "The GProt contains memory minutes of oral and written exams." %}</p>
                     </div>
                 </div>
             </div>
             
-			<div class="col-sm-6">
+            <div class="col-sm-6">
                 <div class="panel panel-default service">
                     <div class="panel-body">
                         <a href="{{ service_links.planet }}" class="btn btn-default btn-lg pull-left service-icon">
-							<img src="{{ STATIC_URL }}img/services/planet.png" alt="Planet" />
+                            <img src="{{ STATIC_URL }}img/services/planet.png" alt="Planet" />
                         </a>
                         <h3><a href="{{ service_links.planet }}">Planet</a></h3>
-						<p>{% trans "Planet is a feed aggregator which collects blog entries from your fellow students." %}</p>
+                        <p>{% trans "Planet is a feed aggregator which collects blog entries from your fellow students." %}</p>
                     </div>
                 </div>
             </div>
@@ -95,10 +95,10 @@
                 <div class="panel panel-default service">
                     <div class="panel-body">
                         <a href="{% url 'registration_account' %}" class="btn btn-default btn-lg pull-left service-icon">
-							<img src="{{ STATIC_URL }}img/services/account.png" alt="Account" />
+                            <img src="{{ STATIC_URL }}img/services/account.png" alt="Account" />
                         </a>
                         <h3><a class="nav-link" href="{% url 'registration_account' %}">Account</a></h3>
-						<p>{% trans "Here you can change your password here and configure your account." %}</p>
+                        <p>{% trans "Here you can change your password here and configure your account." %}</p>
                     </div>
                 </div>
             </div>
@@ -125,16 +125,16 @@
         <div class="panel panel-default">
             <div class="panel-heading">{% trans "Wiki search" %}</div>
             <div class="panel-body" style="text-align:center;">
-				<form method="post" action="{{ wiki_search_url }}">
-					<input type="hidden" name="title" value="Spezial:Suche" />
-					<div class="input-group">
-						<input type="text" id="wiki_search" class="form-control" name="search">
-						<span class="input-group-btn">
-							<button class="btn btn-primary" name="go">{% trans "Page" %}</button>
-							<button class="btn btn-default" name="fulltext">{% trans "Search" %}</button>
-						</span>
-					</div>
-				</form>
+                <form method="post" action="{{ wiki_search_url }}">
+                    <input type="hidden" name="title" value="Spezial:Suche" />
+                    <div class="input-group">
+                        <input type="text" id="wiki_search" class="form-control" name="search">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" name="go">{% trans "Page" %}</button>
+                            <button class="btn btn-default" name="fulltext">{% trans "Search" %}</button>
+                        </span>
+                    </div>
+                </form>
             </div>
         </div>
 
