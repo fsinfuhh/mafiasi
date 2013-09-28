@@ -20,7 +20,7 @@ def index(request):
 @login_required
 def create(request):
     if get_account(request.user) is not None:
-        return redirect('jabber_password_reset')
+        return redirect('jabber_index')
     
     if request.method == 'POST':
         form = CheckPasswordForm(request.POST, user=request.user)
@@ -38,26 +38,5 @@ def create(request):
         form = CheckPasswordForm(user=request.user)
 
     return TemplateResponse(request, 'jabber/create.html', {
-        'form': form
-    })
-
-@login_required
-def password_reset(request):
-    account = get_account(request.user)
-    if account is None:
-        return redirect('jabber_create')
-
-    if request.method == 'POST':
-        form = CheckPasswordForm(request.POST, user=request.user)
-        if form.is_valid():
-            password = form.cleaned_data['password']
-            account.password = password
-            account.save()
-            messages.success(request, _("Password was changed."))
-            return redirect('jabber_index')
-    else:
-        form = CheckPasswordForm(user=request.user)
-
-    return TemplateResponse(request, 'jabber/password_reset.html', {
         'form': form
     })
