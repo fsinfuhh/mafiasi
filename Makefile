@@ -1,6 +1,6 @@
 static_dir = mafiasi/base/static/
 
-all: ${static_dir}/css/main.min.css ${static_dir}css/bootstrap.min.css ${static_dir}js/jquery-2.0.3.min.js ${static_dir}/js/jquery-ui-1.10.3.custom.min.js
+all: ${static_dir}/css/main.min.css ${static_dir}css/bootstrap.min.css ${static_dir}js/jquery-2.0.3.min.js ${static_dir}/js/jquery-ui-1.10.3.custom.min.js ${static_dir}css/smoothness/jquery-ui-1.10.3.custom.min.css
 
 
 %.min.css: %.css
