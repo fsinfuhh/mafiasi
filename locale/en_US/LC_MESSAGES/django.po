@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-28 14:17+0200\n"
-"PO-Revision-Date: 2013-09-28 14:18+0100\n"
+"POT-Creation-Date: 2013-09-28 20:30+0200\n"
+"PO-Revision-Date: 2013-09-28 20:30+0100\n"
 "Last-Translator: Henning Pridöhl <8pridoeh@informatik.uni-hamburg.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -17,33 +17,33 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: mafiasi/base/templates/base.html:6
-#: mafiasi/base/templates/base.html:15
+#: mafiasi/base/templates/base.html:16
 msgid "Mafiasi Hub"
 msgstr "Mafiasi Hub"
 
-#: mafiasi/base/templates/base.html:19
+#: mafiasi/base/templates/base.html:20
 #, python-format
 msgid "Logged in as %(username)s | <a href=\"%(logout_url)s\">Logout</a>"
 msgstr "Logged in as %(username)s | <a href=\"%(logout_url)s\">Logout</a>"
 
-#: mafiasi/base/templates/base.html:24
+#: mafiasi/base/templates/base.html:25
 msgid "Register"
 msgstr "Register"
 
-#: mafiasi/base/templates/base.html:25
+#: mafiasi/base/templates/base.html:26
 #: mafiasi/registration/templates/registration/login.html:41
 msgid "Login"
 msgstr "Login"
 
-#: mafiasi/base/templates/base.html:45
+#: mafiasi/base/templates/base.html:46
 msgid "Imprint"
 msgstr "Imprint"
 
-#: mafiasi/base/templates/base.html:47
+#: mafiasi/base/templates/base.html:48
 msgid "Technical info"
 msgstr "Technical info"
 
-#: mafiasi/base/templates/base.html:49
+#: mafiasi/base/templates/base.html:50
 #: mafiasi/base/templates/base/problems.html:5
 msgid "Problems?"
 msgstr "Problems?"
@@ -125,6 +125,18 @@ msgstr "Here you can change your password here and configure your account."
 msgid "News"
 msgstr "News"
 
+#: mafiasi/dashboard/templates/dashboard/index.html:126
+msgid "Wiki search"
+msgstr "Wiki search"
+
+#: mafiasi/dashboard/templates/dashboard/index.html:131
+msgid "Page"
+msgstr "Page"
+
+#: mafiasi/dashboard/templates/dashboard/index.html:132
+msgid "Search"
+msgstr "Search"
+
 #: mafiasi/jabber/views.py:31
 msgid "Account was created."
 msgstr "Account was created."
@@ -136,11 +148,6 @@ msgstr "Account already exists."
 #: mafiasi/jabber/views.py:35
 msgid "Sorry, we had an internal error."
 msgstr "Sorry, we had an internal error."
-
-#: mafiasi/jabber/views.py:56
-#: mafiasi/registration/views.py:122
-msgid "Password was changed."
-msgstr "Password was changed."
 
 #: mafiasi/jabber/templates/jabber/create.html:6
 msgid "Create Jabber account"
@@ -207,6 +214,10 @@ msgstr "The two password fields didn't match."
 #: mafiasi/registration/forms.py:65
 msgid "Wrong password."
 msgstr "Wrong password."
+
+#: mafiasi/registration/views.py:122
+msgid "Password was changed."
+msgstr "Password was changed."
 
 #: mafiasi/registration/templates/registration/account.html:6
 msgid "Account"
@@ -287,37 +298,34 @@ msgstr "Your password has been set.  You may go ahead and log in now."
 msgid "Log in"
 msgstr "Log in"
 
-#: mafiasi/registration/templates/registration/password_reset_confirm.html:4
-#: mafiasi/registration/templates/registration/password_reset_form.html:4
-#: mafiasi/registration/templates/registration/password_reset_form.html:8
+#: mafiasi/registration/templates/registration/password_reset_confirm.html:5
+#: mafiasi/registration/templates/registration/password_reset_form.html:5
+#: mafiasi/registration/templates/registration/password_reset_form.html:11
 msgid "Password reset"
 msgstr "Password reset"
 
-#: mafiasi/registration/templates/registration/password_reset_confirm.html:10
+#: mafiasi/registration/templates/registration/password_reset_confirm.html:13
 msgid "Enter new password"
 msgstr "Enter new password"
 
-#: mafiasi/registration/templates/registration/password_reset_confirm.html:12
+#: mafiasi/registration/templates/registration/password_reset_confirm.html:14
 msgid "Please enter your new password twice so we can verify you typed it in correctly."
 msgstr "Please enter your new password twice so we can verify you typed it in correctly."
 
-#: mafiasi/registration/templates/registration/password_reset_confirm.html:16
+#: mafiasi/registration/templates/registration/password_reset_confirm.html:21
+#: mafiasi/registration/templates/registration/password_reset_confirm.html:30
 msgid "New password:"
 msgstr "New password:"
 
-#: mafiasi/registration/templates/registration/password_reset_confirm.html:18
-msgid "Confirm password:"
-msgstr "Confirm password:"
-
-#: mafiasi/registration/templates/registration/password_reset_confirm.html:19
+#: mafiasi/registration/templates/registration/password_reset_confirm.html:38
 msgid "Change my password"
 msgstr "Change my password"
 
-#: mafiasi/registration/templates/registration/password_reset_confirm.html:24
+#: mafiasi/registration/templates/registration/password_reset_confirm.html:45
 msgid "Password reset unsuccessful"
 msgstr "Password reset unsuccessful"
 
-#: mafiasi/registration/templates/registration/password_reset_confirm.html:26
+#: mafiasi/registration/templates/registration/password_reset_confirm.html:47
 msgid "The password reset link was invalid, possibly because it has already been used.  Please request a new password reset."
 msgstr "The password reset link was invalid, possibly because it has already been used.  Please request a new password reset."
 
@@ -352,15 +360,15 @@ msgstr "Thanks for using our site!"
 msgid "The %(site_name)s team"
 msgstr "The %(site_name)s team"
 
-#: mafiasi/registration/templates/registration/password_reset_form.html:10
+#: mafiasi/registration/templates/registration/password_reset_form.html:13
 msgid "Forgotten your password? Enter your email address below, and we'll email instructions for setting a new one."
 msgstr "Forgotten your password? Enter your email address below, and we'll email instructions for setting a new one."
 
-#: mafiasi/registration/templates/registration/password_reset_form.html:14
+#: mafiasi/registration/templates/registration/password_reset_form.html:20
 msgid "Email address:"
 msgstr "Email address:"
 
-#: mafiasi/registration/templates/registration/password_reset_form.html:14
+#: mafiasi/registration/templates/registration/password_reset_form.html:28
 msgid "Reset my password"
 msgstr "Reset my password"
 
@@ -424,6 +432,9 @@ msgstr "Invalid token"
 #: mafiasi/registration/templates/registration/token_invalid.html:6
 msgid "Sorry, but the provided token is invalid."
 msgstr "Sorry, but the provided token is invalid."
+
+#~ msgid "Confirm password:"
+#~ msgstr "Confirm password:"
 
 #~ msgid "Reset password of your Jabber account"
 #~ msgstr "Reset password of your Jabber account"
