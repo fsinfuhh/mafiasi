@@ -6,21 +6,16 @@
 
 <h2>{% trans "Registration" %}</h2>
 <p>{% trans "Please enter your Informatics email address into the following field. Afterwards you will receive an email with further instructions." %}</p>
-
-    <form method="post" action="" class="form-inline">
-        {% csrf_token %}
-
-        {% if form.account.errors %}
-        <p>
-            <div class="form-group has-error">
-              {% render_field form.account class+="form-control" style="width: 100px;" %}@{{ email_domain }}
-          </div>
-      </p>
-      {% else %}
-      <p>
-          {% render_field form.account class+="form-control" style="width: 100px;" %}@{{ email_domain }}
-      </p>
-      {% endif %}
-      <p><input type="submit" class="btn btn-default" value="{% trans "Request account" %}" /></p>
-  </form>
-  {% endblock content %}
+<form method="post" action="" class="form-inline">
+    {% csrf_token %}
+    <p>
+        <div class="form-group{% if form.account.errors %} has-error{% endif %}">
+            <div class="input-group">
+                {% render_field form.account class+="form-control" style="width: 100px;" %}
+                <span class="input-group-addon">@{{ email_domain }}</span>
+            </div>
+        </div>
+    </p>
+    <p><input type="submit" class="btn btn-default" value="{% trans "Request account" %}" /></p>
+</form>
+{% endblock content %}
