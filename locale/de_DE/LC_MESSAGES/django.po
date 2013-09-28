@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-25 23:19+0200\n"
-"PO-Revision-Date: 2013-09-25 23:30+0100\n"
+"POT-Creation-Date: 2013-09-28 14:17+0200\n"
+"PO-Revision-Date: 2013-09-28 14:19+0100\n"
 "Last-Translator: Henning Pridöhl <8pridoeh@informatik.uni-hamburg.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -152,7 +152,6 @@ msgid "To create your Jabber account you have to enter your current password:"
 msgstr "Um deinen Jabber-Account zu erstellen, musst du dein aktuelles Passwort eingeben:"
 
 #: mafiasi/jabber/templates/jabber/create.html:11
-#: mafiasi/jabber/templates/jabber/password_reset.html:11
 #: mafiasi/registration/forms.py:30
 #: mafiasi/registration/forms.py:56
 #: mafiasi/registration/templates/registration/create_account.html:16
@@ -184,26 +183,14 @@ msgstr "Du kannst nun deinen <a href=\"%(create_url)s\">Jabber-Account erstellen
 msgid "You have to <a href=\"%(login_url)s?next=%(jabber_index_url)s\">login</a> to create or manage your Jabber account."
 msgstr "Du musst dich <a href=\"%(login_url)s?next=%(jabber_index_url)s\">einloggen</a>, um deinen Jabber-Account zu erstellen oder zu verwalten."
 
-#: mafiasi/jabber/templates/jabber/index.html:32
-#: mafiasi/registration/templates/registration/login.html:44
-msgid "Did you forget your password?"
-msgstr "Passwort vergessen?"
+#: mafiasi/jabber/templates/jabber/index.html:33
+#, python-format
+msgid "<p>If you want to change your Jabber password, just change it in your <a href=\"%(account_url)s\">account settings</a>.</p>"
+msgstr "<p>Wenn du dein Jabber-Passwort ändern möchtest, ändere einfach dein Passwort in den <a href=\"%(account_url)s\">Account-Einstellungen</a>.</p>"
 
-#: mafiasi/jabber/templates/jabber/index.html:35
+#: mafiasi/jabber/templates/jabber/index.html:36
 msgid "The fingerprint of the current SSL certificate is:"
 msgstr "Der Fingerprint des aktuellen SSL-Zertifikats lautet:"
-
-#: mafiasi/jabber/templates/jabber/password_reset.html:6
-msgid "Reset password of your Jabber account"
-msgstr "Jabber-Account-Passwort zurücksetzen"
-
-#: mafiasi/jabber/templates/jabber/password_reset.html:7
-msgid "Enter your current password to set the Jabber password to the entered one."
-msgstr "Gib dein aktuelles Passwort ein, um das Jabber-Passwort auf dieses zurückzusetzen."
-
-#: mafiasi/jabber/templates/jabber/password_reset.html:20
-msgid "Reset password"
-msgstr "Passwort zurücksetzen"
 
 #: mafiasi/mumble/templates/mumble/index.html:7
 msgid "<strong>Sorry</strong>, but Mumble registration is not implemented yet."
@@ -230,19 +217,23 @@ msgstr "Account"
 msgid "Change password"
 msgstr "Passwort ändern"
 
-#: mafiasi/registration/templates/registration/account.html:12
+#: mafiasi/registration/templates/registration/account.html:9
+msgid "Note: You can \"change\" your password to the current password to synchronize it with other services (e.g. Jabber)"
+msgstr "Hinweis: Du kannst dein Passwört auf das aktuelle Passwort \"ändern\", um es mit anderen Diensten zu synchronisieren (z.B. Jabber)"
+
+#: mafiasi/registration/templates/registration/account.html:13
 msgid "Old password"
 msgstr "Altes Passwort"
 
-#: mafiasi/registration/templates/registration/account.html:21
+#: mafiasi/registration/templates/registration/account.html:22
 msgid "New password"
 msgstr "Neues Passwort"
 
-#: mafiasi/registration/templates/registration/account.html:30
+#: mafiasi/registration/templates/registration/account.html:31
 msgid "New password confirmation"
 msgstr "Neues Passwort bestätigen"
 
-#: mafiasi/registration/templates/registration/account.html:39
+#: mafiasi/registration/templates/registration/account.html:40
 msgid "Change"
 msgstr "Ändern"
 
@@ -279,6 +270,10 @@ msgstr ""
 #: mafiasi/registration/templates/registration/login.html:23
 msgid "Note: For our account names we use two digits for year (e.g. <strong>13doe</strong> instead of 3doe)"
 msgstr "Beachte: Die Benutzernamen haben zweistellige Jahreszahlen (<strong>13</strong>musterm statt 3musterm)"
+
+#: mafiasi/registration/templates/registration/login.html:44
+msgid "Did you forget your password?"
+msgstr "Passwort vergessen?"
 
 #: mafiasi/registration/templates/registration/password_reset_complete.html:4
 #: mafiasi/registration/templates/registration/password_reset_complete.html:8
@@ -431,3 +426,14 @@ msgstr "Ungültiger Token"
 msgid "Sorry, but the provided token is invalid."
 msgstr "Tut uns leid, aber der angegebene Token ist ungültig."
 
+#~ msgid "Reset password of your Jabber account"
+#~ msgstr "Jabber-Account-Passwort zurücksetzen"
+
+#~ msgid ""
+#~ "Enter your current password to set the Jabber password to the entered one."
+#~ msgstr ""
+#~ "Gib dein aktuelles Passwort ein, um das Jabber-Passwort auf dieses "
+#~ "zurückzusetzen."
+
+#~ msgid "Reset password"
+#~ msgstr "Passwort zurücksetzen"
