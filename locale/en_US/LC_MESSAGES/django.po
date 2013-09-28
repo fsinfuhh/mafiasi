@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-28 20:30+0200\n"
-"PO-Revision-Date: 2013-09-28 20:30+0100\n"
+"POT-Creation-Date: 2013-09-28 20:59+0200\n"
+"PO-Revision-Date: 2013-09-28 20:59+0100\n"
 "Last-Translator: Henning Pridöhl <8pridoeh@informatik.uni-hamburg.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -122,18 +122,18 @@ msgid "Here you can change your password here and configure your account."
 msgstr "Here you can change your password here and configure your account."
 
 #: mafiasi/dashboard/templates/dashboard/index.html:110
-msgid "News"
-msgstr "News"
+msgid "News and more"
+msgstr "News and more"
 
 #: mafiasi/dashboard/templates/dashboard/index.html:126
 msgid "Wiki search"
 msgstr "Wiki search"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:131
+#: mafiasi/dashboard/templates/dashboard/index.html:132
 msgid "Page"
 msgstr "Page"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:132
+#: mafiasi/dashboard/templates/dashboard/index.html:133
 msgid "Search"
 msgstr "Search"
 
@@ -432,6 +432,9 @@ msgstr "Invalid token"
 #: mafiasi/registration/templates/registration/token_invalid.html:6
 msgid "Sorry, but the provided token is invalid."
 msgstr "Sorry, but the provided token is invalid."
+
+#~ msgid "News"
+#~ msgstr "News"
 
 #~ msgid "Confirm password:"
 #~ msgstr "Confirm password:"
