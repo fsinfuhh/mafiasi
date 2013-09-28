@@ -13,6 +13,10 @@ class News(models.Model):
     created_by = models.ForeignKey(settings.AUTH_USER_MODEL)
     frontpage = models.BooleanField(db_index=True)
     published = models.BooleanField()
+
+    class Meta(object):
+        verbose_name = 'news'
+        verbose_name_plural = 'news'
     
     def __unicode__(self):
         return u'{0}: {1}'.format(self.created_at, self.title)
