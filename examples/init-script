@@ -1,0 +1,34 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:             mafiasi
+# Required-Start:       memcached postgresql
+# Required-Stop:        memcached postgresql
+# Should-Start:         $local_fs
+# Should-Stop:          $local_fs
+# Default-Start:        2 3 4 5
+# Default-Stop:         0 1 6
+# Short-Description:    Start mafiasi
+# Description:          Start mafiasi
+### END INIT INFO
+
+case "$1" in
+  start)
+    echo "Starting mafiasi"
+    . /opt/mafiasi/.pyenv/bin/activate
+    start-stop-daemon -c mafiasi --start -d /opt/mafiasi --exec /opt/mafiasi/.pyenv/bin/gunicorn -- -w 2 -t 120 -b 127.0.0.1:8996 -D -p /opt/mafiasi/mafiasi.pid --error-logfile /opt/mafiasi/error.log mafiasi.wsgi:application
+    ;;
+  stop)
+    echo "Stopping mafiasi"
+    start-stop-daemon --pidfile /opt/mafiasi/mafiasi.pid --stop
+    ;;
+  restart)
+    /etc/init.d/mafiasi stop
+    /etc/init.d/mafiasi start
+    ;;
+  *)
+    echo "Usage: $0 (start|stop|restart)" >& 2
+    exit 1;
+    ;;
+esac
+
+exit 0
