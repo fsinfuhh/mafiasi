@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-28 20:59+0200\n"
-"PO-Revision-Date: 2013-09-28 20:59+0100\n"
+"POT-Creation-Date: 2013-10-02 22:36+0200\n"
+"PO-Revision-Date: 2013-10-02 23:04+0100\n"
 "Last-Translator: Henning Pridöhl <8pridoeh@informatik.uni-hamburg.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -62,28 +62,28 @@ msgstr "Technik"
 msgid ""
 "<p>This site uses the following software/components:</p>\n"
 "<ul>\n"
-"\t<li><a href=\"http://python.org/\">Python</a></li>\n"
-"\t<li><a href=\"https://www.djangoproject.com/\">Django</a></li>\n"
-"\t<li><a href=\"http://www.postgresql.org/\">PostgreSQL</a></li>\n"
+"    <li><a href=\"http://python.org/\">Python</a></li>\n"
+"    <li><a href=\"https://www.djangoproject.com/\">Django</a></li>\n"
+"    <li><a href=\"http://www.postgresql.org/\">PostgreSQL</a></li>\n"
 "    <li><a href=\"http://getbootstrap.com/\">Bootstrap CSS</a></li>\n"
 "    <li><a href=\"http://glyphicons.com/\">Glyphicons Halflings (icons)</a></li>\n"
 "    <li><a href=\"https://code.google.com/p/creoleparser/\">creoleparser</a></li>\n"
 "    <li><a href=\"http://genshi.edgewall.org/\">Genshi</a></li>\n"
 "    <li><a href=\"https://code.google.com/p/python-nameparser/\">python-nameparser</a></li>\n"
-"\t<li><a href=\"https://pypi.python.org/pypi/django-widget-tweaks\">django-widget-tweaks</a></li>\n"
+"    <li><a href=\"https://pypi.python.org/pypi/django-widget-tweaks\">django-widget-tweaks</a></li>\n"
 "</ul>\n"
 msgstr ""
 "<p>Diese Seite benutzt folgende Software/Komponenten:</p>\n"
 "<ul>\n"
-"\t<li><a href=\"http://python.org/\">Python</a></li>\n"
-"\t<li><a href=\"https://www.djangoproject.com/\">Django</a></li>\n"
-"\t<li><a href=\"http://www.postgresql.org/\">PostgreSQL</a></li>\n"
+"   <li><a href=\"http://python.org/\">Python</a></li>\n"
+"   <li><a href=\"https://www.djangoproject.com/\">Django</a></li>\n"
+"   <li><a href=\"http://www.postgresql.org/\">PostgreSQL</a></li>\n"
 "    <li><a href=\"http://getbootstrap.com/\">Bootstrap CSS</a></li>\n"
 "    <li><a href=\"http://glyphicons.com/\">Glyphicons Halflings (Icons)</a></li>\n"
 "    <li><a href=\"https://code.google.com/p/creoleparser/\">creoleparser</a></li>\n"
 "    <li><a href=\"http://genshi.edgewall.org/\">Genshi</a></li>\n"
 "    <li><a href=\"https://code.google.com/p/python-nameparser/\">python-nameparser</a></li>\n"
-"\t<li><a href=\"https://pypi.python.org/pypi/django-widget-tweaks\">django-widget-tweaks</a></li>\n"
+"    <li><a href=\"https://pypi.python.org/pypi/django-widget-tweaks\">django-widget-tweaks</a></li>\n"
 "</ul>\n"
 
 #: mafiasi/dashboard/templates/dashboard/index.html:7
@@ -118,23 +118,27 @@ msgstr "Im GProt findest du Gedächtnisprotokolle von Klausuren und mündlichen 
 msgid "Planet is a feed aggregator which collects blog entries from your fellow students."
 msgstr "Der Planet ist ein Feed-Aggregator, der Blogeinträge von aktiven und ehemaligen Mafiasi sammelt."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:101
+#: mafiasi/dashboard/templates/dashboard/index.html:100
+msgid "FB18 is our bulletin board, where you can ask about other students experiences. "
+msgstr "FB18 ist unser Forum, wo du zum Beispiel andere Studenten nach ihren Erfahrungen fragen kannst."
+
+#: mafiasi/dashboard/templates/dashboard/index.html:113
 msgid "Here you can change your password here and configure your account."
 msgstr "Hier kannst du dein Passwort ändern und andere Einstellungen vornehmen."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:110
+#: mafiasi/dashboard/templates/dashboard/index.html:122
 msgid "News and more"
 msgstr "Aktuelles und mehr"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:126
+#: mafiasi/dashboard/templates/dashboard/index.html:138
 msgid "Wiki search"
 msgstr "Wiki-Suche"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:132
+#: mafiasi/dashboard/templates/dashboard/index.html:145
 msgid "Page"
 msgstr "Seite"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:133
+#: mafiasi/dashboard/templates/dashboard/index.html:146
 msgid "Search"
 msgstr "Suche"
 
@@ -381,7 +385,7 @@ msgstr "Registrierung"
 msgid "Please enter your Informatics email address into the following field. Afterwards you will receive an email with further instructions."
 msgstr "Bitte gib deine Informatik-E-Mail-Adresse in das folgende Feld ein. Du bekommst daraufhin eine E-Mail mit weiteren Anweisungen."
 
-#: mafiasi/registration/templates/registration/request_account.html:24
+#: mafiasi/registration/templates/registration/request_account.html:19
 msgid "Request account"
 msgstr "Account beantragen"
 
