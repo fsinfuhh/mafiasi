@@ -4,5 +4,5 @@
 {% block content %}
 <h2>{% trans "Email address is invalid" %}</h2>
 
-<p>The mailserver said: {{ error_msg }}</p>
+<p>{% trans "The mailserver said:" %} {{ error_code }}: {{ error_msg }}</p>
 {% endblock content %}

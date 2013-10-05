@@ -145,7 +145,7 @@ def _finish_account_request(request, info):
                   None,
                   [email])
     except SMTPRecipientsRefused as e:
-        wrong_email, error_msg = e.recipients.items()[0]
+        wrong_email, (error_code, error_msg) = e.recipients.items()[0]
         unknown = 'User unknown' in error_msg
         if not unknown:
             error_email_content = u'{0}: {1}'.format(e.__class__.__name__,
@@ -156,6 +156,7 @@ def _finish_account_request(request, info):
                     [settings.TEAM_EMAIL])
         return TemplateResponse(request, 'registration/email_error.html', {
             'unkown': unknown,
+            'error_code': error_code,
             'error_msg': error_msg,
             'recipient': wrong_email
         })
