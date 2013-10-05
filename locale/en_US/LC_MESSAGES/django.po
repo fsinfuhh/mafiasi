@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-02 22:37+0200\n"
-"PO-Revision-Date: 2013-10-02 23:05+0100\n"
+"POT-Creation-Date: 2013-10-06 00:32+0200\n"
+"PO-Revision-Date: 2013-10-06 00:33+0100\n"
 "Last-Translator: Henning Pridöhl <8pridoeh@informatik.uni-hamburg.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -219,9 +219,17 @@ msgstr "The two password fields didn't match."
 msgid "Wrong password."
 msgstr "Wrong password."
 
-#: mafiasi/registration/views.py:122
+#: mafiasi/registration/views.py:124
 msgid "Password was changed."
 msgstr "Password was changed."
+
+#: mafiasi/registration/views.py:143
+msgid "Account creation at mafiasi.de"
+msgstr "Account creation at mafiasi.de"
+
+#: mafiasi/registration/views.py:153
+msgid "Account creation mail failed"
+msgstr "Account creation mail failed"
 
 #: mafiasi/registration/templates/registration/account.html:6
 msgid "Account"
@@ -280,6 +288,14 @@ msgstr ""
 "\n"
 "\n"
 "Your Server-AG"
+
+#: mafiasi/registration/templates/registration/email_error.html:5
+msgid "Email address is invalid"
+msgstr "Email address is invalid"
+
+#: mafiasi/registration/templates/registration/email_error.html:7
+msgid "The mailserver said:"
+msgstr "The mailserver said:"
 
 #: mafiasi/registration/templates/registration/login.html:23
 msgid "Note: For our account names we use two digits for year (e.g. <strong>13doe</strong> instead of 3doe)"

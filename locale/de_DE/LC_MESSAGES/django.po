@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-02 22:36+0200\n"
-"PO-Revision-Date: 2013-10-02 23:04+0100\n"
+"POT-Creation-Date: 2013-10-06 00:32+0200\n"
+"PO-Revision-Date: 2013-10-06 00:34+0100\n"
 "Last-Translator: Henning Pridöhl <8pridoeh@informatik.uni-hamburg.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -220,9 +220,17 @@ msgstr "Die beiden Passwörter stimmen nicht überein."
 msgid "Wrong password."
 msgstr "Falsches Passwort."
 
-#: mafiasi/registration/views.py:122
+#: mafiasi/registration/views.py:124
 msgid "Password was changed."
 msgstr "Passwort wurde geändert."
+
+#: mafiasi/registration/views.py:143
+msgid "Account creation at mafiasi.de"
+msgstr "Accounterstellung für mafiasi.de"
+
+#: mafiasi/registration/views.py:153
+msgid "Account creation mail failed"
+msgstr "Accounterstellungsmail verschicken fehlgeschlagen"
 
 #: mafiasi/registration/templates/registration/account.html:6
 msgid "Account"
@@ -281,6 +289,14 @@ msgstr ""
 "\n"
 "\n"
 "Deine Server-AG"
+
+#: mafiasi/registration/templates/registration/email_error.html:5
+msgid "Email address is invalid"
+msgstr "E-Mail-Adresse ist ungültig"
+
+#: mafiasi/registration/templates/registration/email_error.html:7
+msgid "The mailserver said:"
+msgstr "Der Mailserver sagte:"
 
 #: mafiasi/registration/templates/registration/login.html:23
 msgid "Note: For our account names we use two digits for year (e.g. <strong>13doe</strong> instead of 3doe)"
