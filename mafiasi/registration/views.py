@@ -1,3 +1,5 @@
+from smtplib import SMTPRecipientsRefused
+
 from nameparser import HumanName
 
 from django.core import signing
@@ -136,10 +138,26 @@ def _finish_account_request(request, info):
     email_content = render_to_string('registration/create_email.html', {
         'activation_link': activation_link
     })
-
-    send_mail(u'Accounterstellung auf mafiasi.de',
-              email_content,
-              None,
-              [email])
+    
+    try:
+        send_mail(_('Account creation at mafiasi.de'),
+                  email_content,
+                  None,
+                  [email])
+    except SMTPRecipientsRefused as e:
+        wrong_email, error_msg = e.recipients.items()[0]
+        unknown = 'User unknown' in error_msg
+        if not unknown:
+            error_email_content = u'{0}: {1}'.format(e.__class__.__name__,
+                                                     repr(e.recipients))
+            send_mail(_('Account creation mail failed'),
+                    error_email_content,
+                    None,
+                    [settings.TEAM_EMAIL])
+        return TemplateResponse(request, 'registration/email_error.html', {
+            'unkown': unknown,
+            'error_msg': error_msg,
+            'recipient': wrong_email
+        })
 
     return redirect('registration_request_successful', info['account'])
