@@ -13,6 +13,7 @@ class RegisterForm(forms.Form):
             account, _domain = account.split('@', 1)
         if not account.isalnum():
             raise forms.ValidationError(_('Invalid account name'))
+        return account
 
 
 class AdditionalInfoForm(forms.Form):
