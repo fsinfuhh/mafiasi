@@ -8,7 +8,11 @@ class RegisterForm(forms.Form):
     account = forms.CharField()
 
     def clean_account(self):
-        return self.cleaned_data['account'].lower()
+        account = self.cleaned_data['account'].lower()
+        if u'@' in account:
+            account, _domain = account.split('@', 1)
+        if not account.isalnum():
+            raise forms.ValidationError(_('Invalid account name'))
 
 
 class AdditionalInfoForm(forms.Form):
