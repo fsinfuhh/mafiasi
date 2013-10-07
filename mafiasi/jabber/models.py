@@ -120,7 +120,7 @@ class JabberUser(models.Model):
 
     def set_nickname(self, nickname):
         Vcard.objects.filter(username=self.username).delete()
-        vcard_tpl = "<vCard xmlns='vcard-temp'><NICKNAME>{nick}</NICKNAME></vCard>"
+        vcard_tpl = u"<vCard xmlns='vcard-temp'><NICKNAME>{nick}</NICKNAME></vCard>"
         vcard_xml = vcard_tpl.format(nick=escape(nickname, quote=True))
         try:
             vcard = Vcard.objects.get(username=self.username)
