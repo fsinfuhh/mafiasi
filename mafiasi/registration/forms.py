@@ -7,6 +7,9 @@ from mafiasi.base.models import Yeargroup
 class RegisterForm(forms.Form):
     account = forms.CharField()
 
+    def clean_account(self):
+        return self.cleaned_data['account'].lower()
+
 
 class AdditionalInfoForm(forms.Form):
     def __init__(self, *args, **kwargs):
