@@ -102,6 +102,8 @@ def create_account(request, info_token):
                     # from our passwd database manually
                     pass
             mafiasi.account = info['account']
+            mafiasi.email = u'{0}@{1}'.format(info['account'],
+                                              settings.EMAIL_DOMAIN)
             mafiasi.yeargroup = yeargroup
             mafiasi.save()
             mafiasi.backend='django.contrib.auth.backends.ModelBackend'
