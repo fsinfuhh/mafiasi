@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-14 15:25+0200\n"
+"POT-Creation-Date: 2013-10-14 15:26+0200\n"
 "PO-Revision-Date: 2013-10-06 00:34+0100\n"
 "Last-Translator: Henning Pridöhl <8pridoeh@informatik.uni-hamburg.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -138,10 +138,6 @@ msgid "Wiki search"
 msgstr "Wiki-Suche"
 
 #: mafiasi/dashboard/templates/dashboard/index.html:145
-msgid "Page"
-msgstr "Seite"
-
-#: mafiasi/dashboard/templates/dashboard/index.html:146
 msgid "Search"
 msgstr "Suche"
 
@@ -460,6 +456,9 @@ msgstr "Ungültiger Token"
 #: mafiasi/registration/templates/registration/token_invalid.html:6
 msgid "Sorry, but the provided token is invalid."
 msgstr "Tut uns leid, aber der angegebene Token ist ungültig."
+
+#~ msgid "Page"
+#~ msgstr "Seite"
 
 #~ msgid "Logged in as %(username)s | <a href=\"%(logout_url)s\">Logout</a>"
 #~ msgstr "Eingeloggt als %(username)s | <a href=\"%(logout_url)s\">Logout</a>"
