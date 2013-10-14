@@ -13,17 +13,19 @@
 <body>
     <div id="wrap">
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <a href="/" class="navbar-brand">{% trans "Mafiasi Hub" %}</a>
-            <p class="navbar-text pull-right">
+            <div class="container">
+                <a href="/" class="navbar-brand">{% trans "Mafiasi Hub" %}</a>
                 {% if user.is_authenticated %}
-                {% url 'logout' as logout_url %}
-                {% blocktrans with username=user.username %}Logged in as {{ username }} | <a href="{{ logout_url }}">Logout</a>{% endblocktrans %}
-                {% endif %}
-            </p>
-            <div class="btn-group pull-right">
-                {% if not user.is_authenticated %}
-                <a class="btn btn-primary navbar-btn" href="{% url 'registration_request_account' %}">{% trans "Register" %}</a>
-                <a class="btn btn-default navbar-btn" href="{% url 'login' %}">{% trans "Login" %}</a>
+                <div class="pull-right">
+                    {% url 'logout' as logout_url %}
+                    <p class="navbar-text">{% blocktrans with username=user.username %}Logged in as {{ username }}{% endblocktrans %}</p>
+                    <a class="btn btn-default navbar-btn" href="{{ logout_url }}">{% trans "Logout" %}</a>
+                </div>
+                {% else %}
+                <div class="btn-group pull-right">
+                    <a class="btn btn-primary navbar-btn" href="{% url 'registration_request_account' %}">{% trans "Register" %}</a>
+                    <a class="btn btn-default navbar-btn" href="{% url 'login' %}">{% trans "Login" %}</a>
+                </div>
                 {% endif %}
             </div>
         </nav>

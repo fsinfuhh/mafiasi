@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-06 00:32+0200\n"
+"POT-Creation-Date: 2013-10-14 15:25+0200\n"
 "PO-Revision-Date: 2013-10-06 00:34+0100\n"
 "Last-Translator: Henning Pridöhl <8pridoeh@informatik.uni-hamburg.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,34 +17,37 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: mafiasi/base/templates/base.html:6
-#: mafiasi/base/templates/base.html:16
+#: mafiasi/base/templates/base.html:6 mafiasi/base/templates/base.html:17
 msgid "Mafiasi Hub"
 msgstr "Mafiasi Hub"
 
-#: mafiasi/base/templates/base.html:20
+#: mafiasi/base/templates/base.html:21
 #, python-format
-msgid "Logged in as %(username)s | <a href=\"%(logout_url)s\">Logout</a>"
-msgstr "Eingeloggt als %(username)s | <a href=\"%(logout_url)s\">Logout</a>"
+msgid "Logged in as %(username)s"
+msgstr "Eingeloggt als %(username)s"
 
-#: mafiasi/base/templates/base.html:25
+#: mafiasi/base/templates/base.html:22
+msgid "Logout"
+msgstr "Ausloggen"
+
+#: mafiasi/base/templates/base.html:26
 msgid "Register"
 msgstr "Registrierung"
 
-#: mafiasi/base/templates/base.html:26
+#: mafiasi/base/templates/base.html:27
 #: mafiasi/registration/templates/registration/login.html:41
 msgid "Login"
 msgstr "Login"
 
-#: mafiasi/base/templates/base.html:46
+#: mafiasi/base/templates/base.html:48
 msgid "Imprint"
 msgstr "Impressum"
 
-#: mafiasi/base/templates/base.html:48
+#: mafiasi/base/templates/base.html:50
 msgid "Technical info"
 msgstr "Technik"
 
-#: mafiasi/base/templates/base.html:50
+#: mafiasi/base/templates/base.html:52
 #: mafiasi/base/templates/base/problems.html:5
 msgid "Problems?"
 msgstr "Probleme?"
@@ -163,8 +166,7 @@ msgid "To create your Jabber account you have to enter your current password:"
 msgstr "Um deinen Jabber-Account zu erstellen, musst du dein aktuelles Passwort eingeben:"
 
 #: mafiasi/jabber/templates/jabber/create.html:11
-#: mafiasi/registration/forms.py:30
-#: mafiasi/registration/forms.py:56
+#: mafiasi/registration/forms.py:38 mafiasi/registration/forms.py:64
 #: mafiasi/registration/templates/registration/create_account.html:16
 #: mafiasi/registration/templates/registration/login.html:31
 msgid "Password"
@@ -207,28 +209,33 @@ msgstr "Der Fingerprint des aktuellen SSL-Zertifikats lautet:"
 msgid "<strong>Sorry</strong>, but Mumble registration is not implemented yet."
 msgstr "<strong>Tut uns leid</strong>, aber die Mumble-Registrierung ist noch nicht implementiert."
 
-#: mafiasi/registration/forms.py:35
+#: mafiasi/registration/forms.py:15
+#, fuzzy
+msgid "Invalid account name"
+msgstr "RZ-Kennung"
+
+#: mafiasi/registration/forms.py:43
 #: mafiasi/registration/templates/registration/create_account.html:25
 msgid "Password confirmation"
 msgstr "Passwort bestätigen"
 
-#: mafiasi/registration/forms.py:46
+#: mafiasi/registration/forms.py:54
 msgid "The two password fields didn't match."
 msgstr "Die beiden Passwörter stimmen nicht überein."
 
-#: mafiasi/registration/forms.py:65
+#: mafiasi/registration/forms.py:73
 msgid "Wrong password."
 msgstr "Falsches Passwort."
 
-#: mafiasi/registration/views.py:124
+#: mafiasi/registration/views.py:126
 msgid "Password was changed."
 msgstr "Passwort wurde geändert."
 
-#: mafiasi/registration/views.py:143
+#: mafiasi/registration/views.py:145
 msgid "Account creation at mafiasi.de"
 msgstr "Accounterstellung für mafiasi.de"
 
-#: mafiasi/registration/views.py:153
+#: mafiasi/registration/views.py:155
 msgid "Account creation mail failed"
 msgstr "Accounterstellungsmail verschicken fehlgeschlagen"
 
@@ -454,6 +461,9 @@ msgstr "Ungültiger Token"
 msgid "Sorry, but the provided token is invalid."
 msgstr "Tut uns leid, aber der angegebene Token ist ungültig."
 
+#~ msgid "Logged in as %(username)s | <a href=\"%(logout_url)s\">Logout</a>"
+#~ msgstr "Eingeloggt als %(username)s | <a href=\"%(logout_url)s\">Logout</a>"
+
 #~ msgid "News"
 #~ msgstr "Aktuelles"
 
@@ -463,11 +473,8 @@ msgstr "Tut uns leid, aber der angegebene Token ist ungültig."
 #~ msgid "Reset password of your Jabber account"
 #~ msgstr "Jabber-Account-Passwort zurücksetzen"
 
-#~ msgid ""
-#~ "Enter your current password to set the Jabber password to the entered one."
-#~ msgstr ""
-#~ "Gib dein aktuelles Passwort ein, um das Jabber-Passwort auf dieses "
-#~ "zurückzusetzen."
+#~ msgid "Enter your current password to set the Jabber password to the entered one."
+#~ msgstr "Gib dein aktuelles Passwort ein, um das Jabber-Passwort auf dieses zurückzusetzen."
 
 #~ msgid "Reset password"
 #~ msgstr "Passwort zurücksetzen"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-06 00:32+0200\n"
+"POT-Creation-Date: 2013-10-14 15:25+0200\n"
 "PO-Revision-Date: 2013-10-06 00:33+0100\n"
 "Last-Translator: Henning Pridöhl <8pridoeh@informatik.uni-hamburg.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,34 +16,37 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: mafiasi/base/templates/base.html:6
-#: mafiasi/base/templates/base.html:16
+#: mafiasi/base/templates/base.html:6 mafiasi/base/templates/base.html:17
 msgid "Mafiasi Hub"
 msgstr "Mafiasi Hub"
 
-#: mafiasi/base/templates/base.html:20
+#: mafiasi/base/templates/base.html:21
 #, python-format
-msgid "Logged in as %(username)s | <a href=\"%(logout_url)s\">Logout</a>"
-msgstr "Logged in as %(username)s | <a href=\"%(logout_url)s\">Logout</a>"
+msgid "Logged in as %(username)s"
+msgstr "Logged in as %(username)s"
 
-#: mafiasi/base/templates/base.html:25
+#: mafiasi/base/templates/base.html:22
+msgid "Logout"
+msgstr "Logout"
+
+#: mafiasi/base/templates/base.html:26
 msgid "Register"
 msgstr "Register"
 
-#: mafiasi/base/templates/base.html:26
+#: mafiasi/base/templates/base.html:27
 #: mafiasi/registration/templates/registration/login.html:41
 msgid "Login"
 msgstr "Login"
 
-#: mafiasi/base/templates/base.html:46
+#: mafiasi/base/templates/base.html:48
 msgid "Imprint"
 msgstr "Imprint"
 
-#: mafiasi/base/templates/base.html:48
+#: mafiasi/base/templates/base.html:50
 msgid "Technical info"
 msgstr "Technical info"
 
-#: mafiasi/base/templates/base.html:50
+#: mafiasi/base/templates/base.html:52
 #: mafiasi/base/templates/base/problems.html:5
 msgid "Problems?"
 msgstr "Problems?"
@@ -162,8 +165,7 @@ msgid "To create your Jabber account you have to enter your current password:"
 msgstr "To create your Jabber account you have to enter your current password:"
 
 #: mafiasi/jabber/templates/jabber/create.html:11
-#: mafiasi/registration/forms.py:30
-#: mafiasi/registration/forms.py:56
+#: mafiasi/registration/forms.py:38 mafiasi/registration/forms.py:64
 #: mafiasi/registration/templates/registration/create_account.html:16
 #: mafiasi/registration/templates/registration/login.html:31
 msgid "Password"
@@ -206,28 +208,33 @@ msgstr "The fingerprint of the current SSL certificate is:"
 msgid "<strong>Sorry</strong>, but Mumble registration is not implemented yet."
 msgstr "<strong>Sorry</strong>, but Mumble registration is not implemented yet."
 
-#: mafiasi/registration/forms.py:35
+#: mafiasi/registration/forms.py:15
+#, fuzzy
+msgid "Invalid account name"
+msgstr "Informatics account"
+
+#: mafiasi/registration/forms.py:43
 #: mafiasi/registration/templates/registration/create_account.html:25
 msgid "Password confirmation"
 msgstr "Password confirmation"
 
-#: mafiasi/registration/forms.py:46
+#: mafiasi/registration/forms.py:54
 msgid "The two password fields didn't match."
 msgstr "The two password fields didn't match."
 
-#: mafiasi/registration/forms.py:65
+#: mafiasi/registration/forms.py:73
 msgid "Wrong password."
 msgstr "Wrong password."
 
-#: mafiasi/registration/views.py:124
+#: mafiasi/registration/views.py:126
 msgid "Password was changed."
 msgstr "Password was changed."
 
-#: mafiasi/registration/views.py:143
+#: mafiasi/registration/views.py:145
 msgid "Account creation at mafiasi.de"
 msgstr "Account creation at mafiasi.de"
 
-#: mafiasi/registration/views.py:153
+#: mafiasi/registration/views.py:155
 msgid "Account creation mail failed"
 msgstr "Account creation mail failed"
 
@@ -453,6 +460,9 @@ msgstr "Invalid token"
 msgid "Sorry, but the provided token is invalid."
 msgstr "Sorry, but the provided token is invalid."
 
+#~ msgid "Logged in as %(username)s | <a href=\"%(logout_url)s\">Logout</a>"
+#~ msgstr "Logged in as %(username)s | <a href=\"%(logout_url)s\">Logout</a>"
+
 #~ msgid "News"
 #~ msgstr "News"
 
@@ -462,10 +472,8 @@ msgstr "Sorry, but the provided token is invalid."
 #~ msgid "Reset password of your Jabber account"
 #~ msgstr "Reset password of your Jabber account"
 
-#~ msgid ""
-#~ "Enter your current password to set the Jabber password to the entered one."
-#~ msgstr ""
-#~ "Enter your current password to set the Jabber password to the entered one."
+#~ msgid "Enter your current password to set the Jabber password to the entered one."
+#~ msgstr "Enter your current password to set the Jabber password to the entered one."
 
 #~ msgid "Reset password"
 #~ msgstr "Reset password"
