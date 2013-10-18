@@ -94,16 +94,16 @@ class LdapUser(ldapdb.models.Model):
     
     def set_password(self, password):
         salt = os.urandom(8)
-        digest = hashlib.sha256(password.encode('utf-8') + salt).digest()
-        self.password = '{SSHA256}' + base64.b64encode(digest + salt)
+        digest = hashlib.sha1(password.encode('utf-8') + salt).digest()
+        self.password = '{SSHA}' + base64.b64encode(digest + salt)
 
     def check_password(self, password):
-        if not self.password.startswith('{SSHA256}'):
-            raise ValueError('Only SSHA256 is supported')
-        base64_data = self.password[len('{SSHA256}'):]
-        expected_digest = base64_data[:32]
-        salt = base64_data[32:]
-        given_digest = hashlib.sha256(password + salt).digest()
+        if not self.password.startswith('{SSHA}'):
+            raise ValueError('Only SSHA is supported')
+        base64_data = self.password[len('{SSHA}'):]
+        expected_digest = base64_data[:20]
+        salt = base64_data[20:]
+        given_digest = hashlib.sha1(password + salt).digest()
         return constant_time_compare(given_digest, expected_digest)
 
 
