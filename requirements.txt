@@ -1,4 +1,5 @@
 django-widget-tweaks
 django-email-log
+django-ldapdb
 nameparser
 creoleparser

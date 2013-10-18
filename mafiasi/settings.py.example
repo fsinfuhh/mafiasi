@@ -153,7 +153,7 @@ MUMBLE_DOMAIN = u'mumble.mafiasi.de'
 MUMBLE_CERT_FINGERPRINT = u'EA:51:49:D1:91:63:89:E7:78:29:C9:52:C9:85:C6:8D:AD:C4:2A:3D'
 LOGIN_URL = '/login'
 LOGIN_REDIRECT_URL = '/dashboard/'
-DATABASE_ROUTERS = ['mafiasi.jabber.dbrouter.JabberRouter']
+DATABASE_ROUTERS = ['mafiasi.jabber.dbrouter.JabberRouter', 'ldapdb.router.Router']
 SERVICE_LINKS = {
 	'etherpad': 'https://ep.mafiasi.de/',
 	'wiki': 'https://wiki.mafiasi.de/',
@@ -210,3 +210,5 @@ LOGGING = {
         },
     }
 }
+
+ROOT_DN = 'dc=mafiasi,dc=de'
