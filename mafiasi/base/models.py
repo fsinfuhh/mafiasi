@@ -115,9 +115,15 @@ def _change_user_cb(sender, instance, created, **kwargs):
 
     ldap_user.id = instance.id
     ldap_user.display_name = instance.username
-    ldap_user.first_name = instance.first_name
-    ldap_user.last_name = instance.last_name
-    ldap_user.email = instance.email
+    if instance.first_name:
+        ldap_user.first_name = instance.first_name
+    if instance.last_name:
+        ldap_user.last_name = instance.last_name
+    else:
+        ldap_user.last_name = 'Unknown'
+    if instance.email:
+        ldap_user.email = instance.email
+
 
     if instance.new_password:
         ldap_user.set_password(instance.new_password)
