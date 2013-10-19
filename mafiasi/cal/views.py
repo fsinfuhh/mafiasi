@@ -44,7 +44,9 @@ def _proxy_request(request, username, object_name, object_type):
             raise ValueError('Invalid user/password')
     except (TypeError, ValueError, KeyError, IndexError):
         if obj is None or not obj.is_public:
-            resp = HttpResponse('', status=401)
+            resp = HttpResponse('Unauthorized.',
+                                status=401,
+                                mimetype='text/plain')
             resp['WWW-Authenticate'] = 'Basic realm="Mafiasi"'
             return resp
     
