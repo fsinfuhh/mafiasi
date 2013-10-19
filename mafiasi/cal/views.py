@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from django.core.exceptions import PermissionDenied
 from django.contrib.auth import authenticate
 from django.conf import settings
+from django.views.decorators.csrf import csrf_exempt
 
 from mafiasi.cal.models import DavObject
 
@@ -13,9 +14,11 @@ def index(request):
         'caldav_base_url': settings.CALDAV_BASE_URL
     })
 
+@csrf_exempt
 def proxy_calendar(request, username, calendar_name):
     return _proxy_request(request, username, calendar_name, 'ics')
 
+@csrf_exempt
 def proxy_contactlist(request, username, contactlist_name, auth):
     return _proxy_request(request, username, contactlist_name, 'vcf')
 
