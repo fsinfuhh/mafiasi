@@ -139,6 +139,7 @@ INSTALLED_APPS = (
     'mafiasi.dashboard',
 	'mafiasi.jabber',
 	'mafiasi.mumble',
+	'mafiasi.cal',
     'django.contrib.admin',
     'django.contrib.admindocs',
 )
@@ -212,3 +213,4 @@ LOGGING = {
 }
 
 ROOT_DN = 'dc=mafiasi,dc=de'
+CALDAV_BASE_URL = 'https://mafiasi.de/caldav/'
