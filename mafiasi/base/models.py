@@ -100,9 +100,9 @@ class LdapUser(ldapdb.models.Model):
     def check_password(self, password):
         if not self.password.startswith('{SSHA}'):
             raise ValueError('Only SSHA is supported')
-        base64_data = self.password[len('{SSHA}'):]
-        expected_digest = base64_data[:20]
-        salt = base64_data[20:]
+        password_data = base64.b64decode(self.password[len('{SSHA}'):])
+        expected_digest = password_data[:20]
+        salt = password_data[20:]
         given_digest = hashlib.sha1(password + salt).digest()
         return constant_time_compare(given_digest, expected_digest)
 
