@@ -101,6 +101,18 @@
                     </div>
                 </div>
             </div>
+			
+			<div class="col-sm-6">
+                <div class="panel panel-default service">
+                    <div class="panel-body">
+                        <a href="{{ service_links.redmine }}" class="btn btn-default btn-lg pull-left service-icon">
+                            <img src="{{ STATIC_URL }}img/services/redmine.png" alt="Redmine" />
+                        </a>
+                        <h3><a href="{{ service_links.redmine }}">Redmine</a></h3>
+                        <p>{% trans "Redmine is a project management software. You can create tasks and assign them to people." %}</p>
+                    </div>
+                </div>
+            </div>
 
             {% if user.is_authenticated %}
             <div class="col-sm-6">
