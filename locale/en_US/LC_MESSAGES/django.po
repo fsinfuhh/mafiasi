@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-14 15:26+0200\n"
-"PO-Revision-Date: 2013-10-06 00:33+0100\n"
+"POT-Creation-Date: 2013-10-19 17:29+0200\n"
+"PO-Revision-Date: 2013-10-19 17:32+0100\n"
 "Last-Translator: Henning Pridöhl <8pridoeh@informatik.uni-hamburg.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -16,7 +16,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: mafiasi/base/templates/base.html:6 mafiasi/base/templates/base.html:17
+#: mafiasi/base/templates/base.html:6
+#: mafiasi/base/templates/base.html:17
 msgid "Mafiasi Hub"
 msgstr "Mafiasi Hub"
 
@@ -88,6 +89,23 @@ msgstr ""
 "    <li><a href=\"https://pypi.python.org/pypi/django-widget-tweaks\">django-widget-tweaks</a></li>\n"
 "</ul>\n"
 
+#: mafiasi/cal/models.py:6
+#: mafiasi/cal/templates/cal/index.html:5
+msgid "Calendar"
+msgstr "Calendar"
+
+#: mafiasi/cal/models.py:7
+msgid "Contact list"
+msgstr "Contact list"
+
+#: mafiasi/cal/templates/cal/index.html:6
+msgid "There is no graphical user interface yet, sorry!"
+msgstr "There is no graphical user interface yet, sorry!"
+
+#: mafiasi/cal/templates/cal/index.html:9
+msgid "Access your calendars via CalDAV:"
+msgstr "Access your calendars via CalDAV:"
+
 #: mafiasi/dashboard/templates/dashboard/index.html:7
 msgid "Services"
 msgstr "Services"
@@ -124,19 +142,23 @@ msgstr "Planet is a feed aggregator which collects blog entries from your fellow
 msgid "FB18 is our bulletin board, where you can ask about other students experiences. "
 msgstr "FB18 is our bulletin board, where you can ask about other students experiences. "
 
-#: mafiasi/dashboard/templates/dashboard/index.html:113
+#: mafiasi/dashboard/templates/dashboard/index.html:112
+msgid "Redmine is a project management software. You can create tasks and assign them to people."
+msgstr "Redmine is a project management software. You can create tasks and assign them to people."
+
+#: mafiasi/dashboard/templates/dashboard/index.html:125
 msgid "Here you can change your password here and configure your account."
 msgstr "Here you can change your password here and configure your account."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:122
+#: mafiasi/dashboard/templates/dashboard/index.html:134
 msgid "News and more"
 msgstr "News and more"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:138
+#: mafiasi/dashboard/templates/dashboard/index.html:150
 msgid "Wiki search"
 msgstr "Wiki search"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:145
+#: mafiasi/dashboard/templates/dashboard/index.html:157
 msgid "Search"
 msgstr "Search"
 
@@ -161,7 +183,8 @@ msgid "To create your Jabber account you have to enter your current password:"
 msgstr "To create your Jabber account you have to enter your current password:"
 
 #: mafiasi/jabber/templates/jabber/create.html:11
-#: mafiasi/registration/forms.py:38 mafiasi/registration/forms.py:64
+#: mafiasi/registration/forms.py:38
+#: mafiasi/registration/forms.py:64
 #: mafiasi/registration/templates/registration/create_account.html:16
 #: mafiasi/registration/templates/registration/login.html:31
 msgid "Password"
@@ -205,9 +228,8 @@ msgid "<strong>Sorry</strong>, but Mumble registration is not implemented yet."
 msgstr "<strong>Sorry</strong>, but Mumble registration is not implemented yet."
 
 #: mafiasi/registration/forms.py:15
-#, fuzzy
 msgid "Invalid account name"
-msgstr "Informatics account"
+msgstr "Invalid account name"
 
 #: mafiasi/registration/forms.py:43
 #: mafiasi/registration/templates/registration/create_account.html:25
@@ -471,8 +493,10 @@ msgstr "Sorry, but the provided token is invalid."
 #~ msgid "Reset password of your Jabber account"
 #~ msgstr "Reset password of your Jabber account"
 
-#~ msgid "Enter your current password to set the Jabber password to the entered one."
-#~ msgstr "Enter your current password to set the Jabber password to the entered one."
+#~ msgid ""
+#~ "Enter your current password to set the Jabber password to the entered one."
+#~ msgstr ""
+#~ "Enter your current password to set the Jabber password to the entered one."
 
 #~ msgid "Reset password"
 #~ msgstr "Reset password"
