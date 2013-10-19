@@ -4,11 +4,13 @@ from django.template.response import TemplateResponse
 from django.http import HttpResponse
 from django.core.exceptions import PermissionDenied
 from django.contrib.auth import authenticate
+from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 
 from mafiasi.cal.models import DavObject
 
+@login_required
 def index(request):
     return TemplateResponse(request, 'cal/index.html', {
         'caldav_base_url': settings.CALDAV_BASE_URL
