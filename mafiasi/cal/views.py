@@ -54,7 +54,7 @@ def _proxy_request(request, username, object_name, object_type):
         if obj is None or not obj.has_access(auth_user, requires_write):
             raise PermissionDenied()
 
-    url_path = u'/caldav/{0}/{1}.{2}'.format(username, object_name, type)
+    url_path = u'/_caldav/{0}/{1}.{2}'.format(username, object_name, object_type)
     
     resp = HttpResponse('Server should use nginx as frontend proxy.')
     resp['X-Accel-Redirect'] = url_path
