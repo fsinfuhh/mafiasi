@@ -11,6 +11,11 @@ from django.views.decorators.csrf import csrf_exempt
 
 from mafiasi.cal.models import DavObject
 
+resp_unauthorized = HttpResponse('Unauthorized.',
+                                 status=401,
+                                 mimetype='text/plain')
+resp_unauthorized['WWW-Authenticate'] = 'Basic realm="Mafiasi"'
+
 @login_required
 def index(request):
     return TemplateResponse(request, 'cal/index.html', {
@@ -27,24 +32,14 @@ def proxy_request(request, username, object_name, object_type, object_path):
         obj = None
     
     try:
-        auth = request.META['HTTP_AUTHORIZATION']
-        if not auth.startswith('Basic '):
-            raise ValueError('Invalid auth')
-
-        creds = b64decode(auth.split()[1])
-        auth_username, auth_password = creds.split(':', 1)
-        
+        auth_username, auth_password = _get_auth(request)    
         auth_user = authenticate(username=auth_username,
                                  password=auth_password)
         if not auth_user:
             raise ValueError('Invalid user/password')
     except (TypeError, ValueError, KeyError, IndexError):
         if obj is None or not obj.is_public:
-            resp = HttpResponse('Unauthorized.',
-                                status=401,
-                                mimetype='text/plain')
-            resp['WWW-Authenticate'] = 'Basic realm="Mafiasi"'
-            return resp
+            return resp_unauthorized
     
     # Check permissions for non-owners
     if username != auth_username:
@@ -56,6 +51,37 @@ def proxy_request(request, username, object_name, object_type, object_path):
             username, object_name, object_type, basename(object_path))
     
     resp = HttpResponse('Server should use nginx as frontend proxy.')
-    resp['X-Accel-Redirect'] = url_path
+    resp['X-Accel-Redirect'] = url_path.encode('utf-8')
     resp['X-Accel-Buffering'] = 'no'
     return resp
+
+@csrf_exempt
+def proxy_request_collection(request, username):
+    try:
+        auth_username, auth_password = _get_auth(request)
+        auth_user = authenticate(username=auth_username,
+                                 password=auth_password)
+        if not auth_user:
+            raise ValueError('Invalid user/password')
+
+        if auth_username != username:
+            raise PermissionDenied()
+    except (ValueError, KeyError):
+        return resp_unauthorized
+    
+    url_path = u'/_caldav/{0}/'.format(username) 
+    resp = HttpResponse('Server should use nginx as frontend proxy.')
+    resp['X-Accel-Redirect'] = url_path.encode('utf-8')
+    resp['X-Accel-Buffering'] = 'no'
+    return resp
+
+def _get_auth(request):
+    auth = request.META['HTTP_AUTHORIZATION']
+    if not auth.startswith('Basic '):
+        raise ValueError('Invalid auth')
+
+    creds = b64decode(auth.split()[1])
+    if ':' not in creds:
+        raise ValueError('Invalid auth')
+
+    return creds.split(':', 1)
