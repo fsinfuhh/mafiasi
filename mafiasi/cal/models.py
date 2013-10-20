@@ -17,7 +17,7 @@ class DavObject(models.Model):
         unique_together = ('username', 'name', 'type')
 
     def __unicode__(self):
-        return self.name
+        return u'{0}/{1}.{2}'.format(self.username, self.name, self.type)
 
     def has_access(self, user, write=False):
         q = DavObject.objects.filter(user=user, object=self)
