@@ -1,3 +1,4 @@
+from os.path import basename
 from base64 import b64decode
 
 from django.template.response import TemplateResponse
@@ -17,14 +18,7 @@ def index(request):
     })
 
 @csrf_exempt
-def proxy_calendar(request, username, calendar_name):
-    return _proxy_request(request, username, calendar_name, 'ics')
-
-@csrf_exempt
-def proxy_contactlist(request, username, contactlist_name, auth):
-    return _proxy_request(request, username, contactlist_name, 'vcf')
-
-def _proxy_request(request, username, object_name, object_type):
+def proxy_request(request, username, object_name, object_type, object_path):
     try:
         obj = DavObject.objects.get(username=username,
                                     name=object_name,
@@ -57,8 +51,9 @@ def _proxy_request(request, username, object_name, object_type):
         requires_write = request.method not in ('GET', 'HEAD', 'PROPFIND')
         if obj is None or not obj.has_access(auth_user, requires_write):
             raise PermissionDenied()
-
-    url_path = u'/_caldav/{0}/{1}.{2}'.format(username, object_name, object_type)
+    
+    url_path = u'/_caldav/{0}/{1}.{2}/{3}'.format(
+            username, object_name, object_type, basename(object_path))
     
     resp = HttpResponse('Server should use nginx as frontend proxy.')
     resp['X-Accel-Redirect'] = url_path
