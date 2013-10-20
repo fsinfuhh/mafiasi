@@ -43,7 +43,8 @@ def proxy_request(request, username, object_name, object_type, object_path):
     
     # Check permissions for non-owners
     if username != auth_username:
-        requires_write = request.method not in ('GET', 'HEAD', 'PROPFIND')
+        read_methods = ('GET', 'HEAD', 'PROPFIND', 'OPTIONS', 'REPORT')
+        requires_write = request.method not in read_methods
         if obj is None or not obj.has_access(auth_user, requires_write):
             raise PermissionDenied()
     
