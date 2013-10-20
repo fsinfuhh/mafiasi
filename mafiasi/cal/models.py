@@ -23,7 +23,7 @@ class DavObject(models.Model):
         q = DavObjectPermission.objects.filter(user=user, object=self)
         if write:
             q = q.filter(can_write=True)
-        return q.count() > 1
+        return q.count() >= 1
 
 class DavObjectPermission(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
