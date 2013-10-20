@@ -58,17 +58,19 @@ def proxy_request(request, username, object_name, object_type, object_path):
 
 @csrf_exempt
 def proxy_request_collection(request, username):
+    query_access = request.method == 'OPTIONS'
     try:
         auth_username, auth_password = _get_auth(request)
         auth_user = authenticate(username=auth_username,
                                  password=auth_password)
-        if not auth_user:
+        if not auth_user and not query_access:
             raise ValueError('Invalid user/password')
 
-        if auth_username != username:
+        if auth_username != username and not query_access:
             raise PermissionDenied()
     except (ValueError, KeyError):
-        return resp_unauthorized
+        if not query_access:
+            return resp_unauthorized
     
     url_path = u'/_caldav/{0}/'.format(username) 
     resp = HttpResponse('Server should use nginx as frontend proxy.')
