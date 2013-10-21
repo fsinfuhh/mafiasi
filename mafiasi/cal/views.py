@@ -38,16 +38,18 @@ def proxy_request(request, username, object_name, object_type, object_path):
         if not auth_user:
             raise ValueError('Invalid user/password')
     except (TypeError, ValueError, KeyError, IndexError):
+        auth_username, auth_password = None, None
         if obj is None or not obj.is_public:
             return resp_unauthorized
     
+    read_methods = ('GET', 'HEAD', 'PROPFIND', 'OPTIONS', 'REPORT')
+    requires_write = request.method not in read_methods
+    
     # Check permissions for non-owners
     if username != auth_username:
-        read_methods = ('GET', 'HEAD', 'PROPFIND', 'OPTIONS', 'REPORT')
-        requires_write = request.method not in read_methods
         if obj is None or not obj.has_access(auth_user, requires_write):
             raise PermissionDenied()
-    
+
     url_path = u'/_caldav/{0}/{1}.{2}/{3}'.format(
             username, object_name, object_type, basename(object_path))
     

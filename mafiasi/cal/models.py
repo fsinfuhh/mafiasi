@@ -20,6 +20,8 @@ class DavObject(models.Model):
         return u'{0}/{1}.{2}'.format(self.username, self.name, self.type)
 
     def has_access(self, user, write=False):
+        if not write and self.is_public:
+            return True
         q = DavObjectPermission.objects.filter(user=user, object=self)
         if write:
             q = q.filter(can_write=True)
