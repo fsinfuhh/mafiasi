@@ -39,6 +39,7 @@ def proxy_request(request, username, object_name, object_type, object_path):
             raise ValueError('Invalid user/password')
     except (TypeError, ValueError, KeyError, IndexError):
         auth_username, auth_password = None, None
+        auth_user = None
         if obj is None or not obj.is_public:
             return resp_unauthorized
     
