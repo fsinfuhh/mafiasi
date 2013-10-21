@@ -214,4 +214,4 @@ LOGGING = {
 }
 
 ROOT_DN = 'dc=mafiasi,dc=de'
-CALDAV_BASE_URL = 'https://mafiasi.de/caldav/'
+CALDAV_DISPLAY_URL = 'https://mafiasi.de/caldav/'
