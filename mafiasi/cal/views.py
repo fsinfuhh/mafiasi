@@ -19,7 +19,7 @@ resp_unauthorized['WWW-Authenticate'] = 'Basic realm="Mafiasi"'
 @login_required
 def index(request):
     return TemplateResponse(request, 'cal/index.html', {
-        'caldav_base_url': settings.CALDAV_BASE_URL
+        'caldav_display_url': settings.CALDAV_DISPLAY_URL
     })
 
 @csrf_exempt
