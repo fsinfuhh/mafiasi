@@ -25,7 +25,7 @@ class CalendarManager(models.Manager):
         for calendar in calendars:
             path = calendar.url.path
             try:
-                _user, name = path.strip('/').split('/', 1)
+                _user, name = path.strip('/').split('/')[-2:]
                 if name.endswith('.ics'):
                     name = name[:-4]
             except ValueError:
