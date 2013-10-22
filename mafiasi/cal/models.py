@@ -49,7 +49,6 @@ class CalendarManager(models.Manager):
                 dav_obj.display_name = display_name
                 dav_obj.save()
             dav_objs.append(dav_obj)
-        Calendar.objects.d
 
 class DavObject(models.Model):
     username = models.CharField(max_length=120)
