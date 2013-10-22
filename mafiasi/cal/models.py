@@ -43,7 +43,10 @@ class CalendarManager(models.Manager):
             try:
                 display_name = props[dav.DisplayName().tag]
             except KeyError:
-                display_name = name[:-4] if name.endswith('.ics') else name
+                display_name = name
+
+            if display_name.endswith('.ics'):
+                display_name = display_name[:-4]
 
             if dav_obj.display_name != display_name or created:
                 dav_obj.display_name = display_name
