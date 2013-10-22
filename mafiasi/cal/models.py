@@ -149,7 +149,7 @@ class Calendar(DavObject):
 
     def _handle_event_recurrence(self, start, end, comp, recurr_rruleset,
                                  event_tpl, event_list):
-        is_allday = isinstance(comp.dtstart.value, date)
+        is_allday = not isinstance(comp.dtstart.value, datetime)
         recurr_start = start
         recurr_end = start if end is None else end
         # All-day-events need timezone-naive objects for recurrence
