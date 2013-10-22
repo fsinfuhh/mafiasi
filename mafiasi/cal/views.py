@@ -21,6 +21,7 @@ resp_unauthorized['WWW-Authenticate'] = 'Basic realm="Mafiasi"'
 
 @login_required
 def index(request):
+    Calendar.objects.sync(request.user.username)
     return TemplateResponse(request, 'cal/index.html', {
         'calendars': Calendar.objects.filter(username=request.user.username),
         'caldav_display_url': settings.CALDAV_DISPLAY_URL
