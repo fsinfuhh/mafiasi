@@ -3,3 +3,5 @@ django-email-log
 django-ldapdb
 nameparser
 creoleparser
+pytz
+caldav
