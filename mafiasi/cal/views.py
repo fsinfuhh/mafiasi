@@ -1,15 +1,18 @@
+import json
+import time
+from datetime import datetime
 from os.path import basename
 from base64 import b64decode
 
 from django.template.response import TemplateResponse
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseBadRequest
 from django.core.exceptions import PermissionDenied
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 
-from mafiasi.cal.models import DavObject
+from mafiasi.cal.models import DavObject, Calendar
 
 resp_unauthorized = HttpResponse('Unauthorized.',
                                  status=401,
@@ -19,8 +22,57 @@ resp_unauthorized['WWW-Authenticate'] = 'Basic realm="Mafiasi"'
 @login_required
 def index(request):
     return TemplateResponse(request, 'cal/index.html', {
+        'calendars': Calendar.objects.filter(username=request.user.username),
         'caldav_display_url': settings.CALDAV_DISPLAY_URL
     })
+
+@login_required
+def calendar_data(request):
+    try:
+        start = datetime.fromtimestamp(int(request.GET['start']))
+        end = datetime.fromtimestamp(int(request.GET['end']))
+        calendar_paths = request.GET.getlist('calendars[]')
+    except (ValueError, KeyError):
+        return HttpResponseBadRequest('Invalid or missing start/end/calendars')
+    
+    events_list = []
+    for calendar_path in calendar_paths:
+        events_list += _fetch_calendar_data(
+            start, end, request.user, calendar_path)
+
+    return HttpResponse(json.dumps({'events': events_list}),
+                        mimetype='application/x-json')
+
+def _fetch_calendar_data(start, end, user, calendar_path):
+    try:
+        username, calendar_name = calendar_path.split('/', 1)
+    except ValueError:
+        return []
+    
+    try:
+        calendar  = Calendar.objects.get(username=username,
+                                         name=calendar_name,
+                                         type='ics')
+        if not calendar.has_access(user):
+            return []
+    except Calendar.DoesNotExist:
+        return []
+
+    events = calendar.get_events(start, end)
+    events_list = []
+    for event in events:
+        is_allday = not isinstance(event['dtstart'], datetime)
+        start = int(time.mktime(event['dtstart'].timetuple()))
+        end = int(time.mktime(event['dtend'].timetuple()))
+        events_list.append({
+            'id': event['uid'],
+            'title': event['summary'],
+            'allDay': is_allday,
+            'start': start,
+            'end': end,
+            'calendar': calendar_path
+        })
+    return events_list
 
 @csrf_exempt
 def proxy_request(request, username, object_name, object_type, object_path):

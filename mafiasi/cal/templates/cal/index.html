@@ -3,10 +3,64 @@
 
 {% block content %}
 <h2>{% trans "Calendar" %}</h2>
-<p>{% trans "There is no graphical user interface yet, sorry!" %}</p>
+<p>{% trans "The web interface is read-only. Use CalDAV with your favorite calendar software to add events." %}</p>
 
-<p>
-{% trans "Access your calendars via CalDAV:" %}
-<strong>{{ caldav_display_url }}{{ user.username }}/<em>calendar_name</em>.ics/</strong>
-</p>
+{% if calendars %}
+<ul>
+{% for cal in calendars %}
+    <li>
+    <label><input type="checkbox" checked="checked" name="calendar_path"
+        value="{{ cal.username }}/{{ cal.name }}" /> {{ cal.display_name }}
+    </label>
+    <a href="{{ cal.get_caldav_display_url }}">(caldav)</a>
+    </li>
+{% endfor %}
+</ul>
+{% endif %}
+
+<div id="calendar"></div>
 {% endblock content %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ STATIC_URL }}css/fullcalendar.min.css">
+{% endblock css %}
+
+{% block js %}
+<script src="{{ STATIC_URL }}js/fullcalendar.min.js" type="text/javascript"></script>
+<script>
+
+$(document).ready(function() {
+    function fetch_events(start, end, cb) {
+        var calendar_paths = [];
+        $('input[name="calendar_path"]').each(function() {
+            if(this.checked) {
+                calendar_paths.push(this.value);
+            }
+        });
+
+        var start_timestamp = parseInt(start.getTime() / 1000, 10);
+        var end_timestamp = parseInt(end.getTime() / 1000, 10);
+        $.get('/cal/calendar_data', {
+            'start': start_timestamp,
+            'end': end_timestamp,
+            'calendars': calendar_paths
+        }, function(data) {
+            cb(data['events']);
+        });
+    }
+    
+    $('#calendar').fullCalendar({
+        header: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'month,agendaWeek,agendaDay'
+        },
+        editable: true,
+        events: fetch_events
+    });
+    
+});
+
+</script>
+
+{% endblock js %}
