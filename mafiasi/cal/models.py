@@ -67,7 +67,7 @@ class DavObject(models.Model):
         return u'{0}/{1}.{2}'.format(self.username, self.name, self.type)
 
     def has_access(self, user, write=False):
-        if self.username == user.username:
+        if user is not None and self.username == user.username:
             return True
         if not write and self.is_public:
             return True
