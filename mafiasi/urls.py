@@ -13,7 +13,7 @@ urlpatterns = patterns('',
     url(r'^mumble/', include('mafiasi.mumble.urls')),
     url(r'^wiki/', include('mafiasi.wiki.urls')),
     url(r'^cal/', include('mafiasi.cal.urls')),
-    url(r'^caldav/', include('mafiasi.cal.davurls')),
+    url(r'^dav/', include('mafiasi.cal.davurls')),
 
     url(r'^login$', 'django.contrib.auth.views.login', name='login'),
     url(r'^logout$', 'django.contrib.auth.views.logout', {
