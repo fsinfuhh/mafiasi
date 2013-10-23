@@ -4,7 +4,7 @@ cal_static = mafiasi/cal/static/
 
 all: css js locales
 
-css: ${base_static}css/main.min.css ${base_static}css/bootstrap.min.css ${base_static}css/smoothness/jquery-ui-1.10.3.custom.min.css ${cal_static}css/fullcalendar.min.css
+css: ${base_static}css/main.min.css ${base_static}css/bootstrap.min.css ${base_static}css/smoothness/jquery-ui-1.10.3.custom.min.css ${cal_static}css/fullcalendar.min.css ${cal_static}css/cal.min.css
 
 js: ${base_static}js/jquery-2.0.3.min.js ${base_static}js/jquery-ui-1.10.3.custom.min.js ${dashboard_static}js/dashboard.min.js ${cal_static}js/fullcalendar.min.js
 

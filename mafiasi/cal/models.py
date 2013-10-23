@@ -16,9 +16,7 @@ TYPE_CHOICES = (
     ('vcf', _('Contact list'))
 )
 
-COLORS = ['eeffaa', 'ffeeaa', 'ffddaa', 'ffccaa', 'ffaaaa', 'ffaacc', 'ffaaee',
-          'eeaaff', 'aaffff', 'aaddff', 'aaffff', 'aaffdd', 'aaffaa', 'ddffaa',
-          'ffffaa']
+COLOR_CHOICES = [(x, u'Color {0}'.format(x)) for x in range(15)]
 
 class CalendarManager(models.Manager):
     def sync(self, username):
@@ -62,7 +60,7 @@ class CalendarManager(models.Manager):
                 User = get_user_model()
                 try:
                     user = User.objects.get(username=username)
-                    random_color = random.choice(COLORS)
+                    random_color = random.randint(0, len(COLOR_CHOICES) - 1)
                     ShownCalendar.objects.create(user=user,
                                                  calendar=cal_obj,
                                                  display_name=display_name,
@@ -204,7 +202,7 @@ class ShownCalendar(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
     calendar = models.ForeignKey(Calendar)
     display_name = models.CharField(max_length=120)
-    color = models.CharField(max_length=6)
+    color = models.IntegerField(choices=COLOR_CHOICES)
 
     class Meta:
         unique_together = ('user', 'calendar')
