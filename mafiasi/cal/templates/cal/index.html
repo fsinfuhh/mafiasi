@@ -50,12 +50,84 @@ $(document).ready(function() {
         });
     }
     
+    var month_names = [
+        '{% trans "January" %}',
+        '{% trans "February" %}',
+        '{% trans "March" %}',
+        '{% trans "April" %}',
+        '{% trans "May" %}',
+        '{% trans "June" %}',
+        '{% trans "July" %}',
+        '{% trans "August" %}',
+        '{% trans "September" %}',
+        '{% trans "October" %}',
+        '{% trans "November" %}',
+        '{% trans "December" %}'
+    ];
+    var month_names_short = [
+        '{% trans "Jan" %}',
+        '{% trans "Feb" %}',
+        '{% trans "Mar" %}',
+        '{% trans "Apr" %}',
+        '{% trans "May" %}',
+        '{% trans "Jun" %}',
+        '{% trans "Jul" %}',
+        '{% trans "Aug" %}',
+        '{% trans "Sep" %}',
+        '{% trans "Oct" %}',
+        '{% trans "Nov" %}',
+        '{% trans "Dec" %}'
+    ];
+    var day_names = [
+        '{% trans "Sunday" %}',
+        '{% trans "Monday" %}',
+        '{% trans "Tuesday" %}',
+        '{% trans "Wednesday" %}',
+        '{% trans "Thursday" %}',
+        '{% trans "Friday" %}',
+        '{% trans "Saturday" %}'
+    ];
+    var day_names_short = [
+        '{% trans "Sun" %}',
+        '{% trans "Mon" %}',
+        '{% trans "Tue" %}',
+        '{% trans "Wed" %}',
+        '{% trans "Thu" %}',
+        '{% trans "Fri" %}',
+        '{% trans "Sat" %}'
+    ];
+    
     $('#calendar').fullCalendar({
+        monthNames: month_names,
+        monthNamesShort: month_names_short,
+        dayNames: day_names,
+        dayNamesShort: day_names_short,
+        buttonText: {
+            month: '{% trans "month" %}',
+            week: '{% trans "week" %}',
+            day: '{% trans "day" %}'
+        },
+        firstDay: 1,
+        titleFormat: {
+            month: 'MMMM yyyy',
+            week: "d. [MMM.] [yyyy] {['&#8211;' d.]} MMM. {yyyy}",
+            day: 'dddd, d. MMM. yyyy'
+        },
+        timeFormat: {
+            agenda: 'H:mm{ - H:mm}',
+            '': 'H(:mm)'
+        },
+        columnFormat: {
+            month: 'ddd',
+            week: 'ddd, d.M.',
+            day: 'dddd, d.M.'
+        },
         header: {
             left: 'prev,next today',
             center: 'title',
             right: 'month,agendaWeek,agendaDay'
         },
+
         editable: true,
         events: fetch_events
     });
