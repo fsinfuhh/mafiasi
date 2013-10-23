@@ -1,3 +1,4 @@
+import random
 from datetime import date, datetime, time
 
 import pytz
@@ -8,11 +9,16 @@ from vobject.icalendar import RecurringComponent
 from django.db import models
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
+from django.contrib.auth import get_user_model
 
 TYPE_CHOICES = (
     ('ics', _('Calendar')),
     ('vcf', _('Contact list'))
 )
+
+COLORS = ['eeffaa', 'ffeeaa', 'ffddaa', 'ffccaa', 'ffaaaa', 'ffaacc', 'ffaaee',
+          'eeaaff', 'aaffff', 'aaddff', 'aaffff', 'aaffdd', 'aaffaa', 'ddffaa',
+          'ffffaa']
 
 class CalendarManager(models.Manager):
     def sync(self, username):
@@ -21,7 +27,7 @@ class CalendarManager(models.Manager):
         client = caldav.DAVClient(url)
         principal = caldav.Principal(client, url)
         calendars = principal.calendars()
-        dav_objs = []
+        cal_objs = []
         for calendar in calendars:
             path = calendar.url.path
             try:
@@ -31,12 +37,12 @@ class CalendarManager(models.Manager):
             except ValueError:
                 continue
             try:
-                dav_obj = DavObject.objects.get(username=username,
-                                                name=name,
-                                                type='ics')
+                cal_obj = Calendar.objects.get(username=username,
+                                               name=name,
+                                               type='ics')
                 created = False
             except DavObject.DoesNotExist:
-                dav_obj = DavObject(username=username, name=name, type='ics')
+                cal_obj = Calendar(username=username, name=name, type='ics')
                 created = True
 
             props = calendar.get_properties([dav.DisplayName()])
@@ -48,10 +54,22 @@ class CalendarManager(models.Manager):
             if display_name.endswith('.ics'):
                 display_name = display_name[:-4]
 
-            if dav_obj.display_name != display_name or created:
-                dav_obj.display_name = display_name
-                dav_obj.save()
-            dav_objs.append(dav_obj)
+            if cal_obj.display_name != display_name or created:
+                cal_obj.display_name = display_name
+                cal_obj.save()
+
+            if created:
+                User = get_user_model()
+                try:
+                    user = User.objects.get(username=username)
+                    random_color = random.choice(COLORS)
+                    ShownCalendar.objects.create(user=user,
+                                                 calendar=cal_obj,
+                                                 display_name=display_name,
+                                                 color=random_color)
+                except User.DoesNotExist:
+                    pass
+            cal_objs.append(cal_obj)
 
 class DavObject(models.Model):
     username = models.CharField(max_length=120)
@@ -181,3 +199,15 @@ class DavObjectPermission(models.Model):
     def __unicode__(self):
         mode = 'RW' if self.can_write else 'R'
         return u'{0} on {1} ({2})'.format(self.user, self.object, mode)
+
+class ShownCalendar(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL)
+    calendar = models.ForeignKey(Calendar)
+    display_name = models.CharField(max_length=120)
+    color = models.CharField(max_length=6)
+
+    class Meta:
+        unique_together = ('user', 'calendar')
+
+    def __unicode__(self):
+        return u'{0}: {1} [{2}]'.format(self.user, self.calendar, self.color)
