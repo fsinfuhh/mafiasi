@@ -65,7 +65,7 @@ def _fetch_calendar_data(start, end, user, shown_calendar):
             'start': start,
             'end': end,
             'calendar': shown_calendar.pk,
-            'bgcolor': shown_calendar.color
+            'className': 'cal-color-{0}'.format(shown_calendar.color)
         })
     return events_list
 
