@@ -5,14 +5,14 @@
 <h2>{% trans "Calendar" %}</h2>
 <p>{% trans "The web interface is read-only. Use CalDAV with your favorite calendar software to add events." %}</p>
 
-{% if calendars %}
+{% if shown_calendars %}
 <ul>
-{% for cal in calendars %}
+{% for cal in shown_calendars %}
     <li>
     <label><input type="checkbox" checked="checked" name="calendar_path"
-        value="{{ cal.username }}/{{ cal.name }}" /> {{ cal.display_name }}
+        value="{{ cal.pk }}" /> {{ cal.display_name }}
     </label>
-    <a href="{{ cal.get_caldav_display_url }}">(caldav)</a>
+    <a href="{{ cal.calendar.get_caldav_display_url }}">(caldav)</a>
     </li>
 {% endfor %}
 </ul>
