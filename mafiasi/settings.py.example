@@ -19,7 +19,7 @@ DATABASES = {
         # The following settings are not used with sqlite3:
         'USER': 'mafiasi',
         'PASSWORD': 'mafiasi',
-        'HOST': 'dev-wheezy',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'HOST': '127.0.0.1',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
         'PORT': '',                      # Set to empty string for default.
     },
     'jabber': {
@@ -28,12 +28,12 @@ DATABASES = {
         # The following settings are not used with sqlite3:
         'USER': 'ejabberd',
         'PASSWORD': 'ejabberd',
-        'HOST': 'dev-wheezy',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'HOST': '127.0.0.1',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
         'PORT': '',                      # Set to empty string for default.
     },
 	'ldap': {
         'ENGINE': 'ldapdb.backends.ldap',
-        'NAME': 'ldap://dev-wheezy/',
+        'NAME': 'ldap://127.0.0.1/',
         'USER': 'cn=admin,dc=mafiasi,dc=de',
         'PASSWORD': 'ldap',
     }
