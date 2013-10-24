@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<h2>KSP</h2>
+{% blocktrans %}The next KSP is on {{next_ksp_date}}{% endblocktrans %}
+
+<table border="1px">
+{% for u in ksp_participants %}
+    <tr><td>{{u.user}}</td><td>{{u.key.key_id}}</td><td>{{u.key.fingerprint}}</td></tr>
+{% endfor %}
+</table>
+
+{% endblock %}
