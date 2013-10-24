@@ -1,7 +1,7 @@
 from django.template.response import TemplateResponse
 from django.shortcuts import redirect
 from django.conf import settings
-from mafiasi.ksp.models import Ksp, KspParticipants
+from mafiasi.ksp.models import Ksp, KspParticipants, Key
 
 from django.utils import timezone
 
@@ -16,3 +16,8 @@ def index(request):
         'next_ksp_date': ksp.date,
         'ksp_participants': KspParticipants.objects.filter(ksp=ksp)
     })
+
+def plain_all(request):
+    return TemplateResponse(request, 'ksp/plain.html', {
+        'keys': Key.objects.all()
+     })
