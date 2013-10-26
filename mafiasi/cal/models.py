@@ -68,6 +68,8 @@ class CalendarManager(models.Manager):
                 except User.DoesNotExist:
                     pass
             cal_objs.append(cal_obj)
+        cal_ids = [cal_obj.pk for cal_obj in cal_objs]
+        Calendar.objects.exclude(pk__in=cal_ids).delete()
 
 class DavObject(models.Model):
     username = models.CharField(max_length=120)
