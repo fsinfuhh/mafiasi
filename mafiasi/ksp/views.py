@@ -1,7 +1,7 @@
 from django.template.response import TemplateResponse
 from django.shortcuts import redirect
 from django.conf import settings
-from mafiasi.ksp.models import Ksp, KspParticipants, Key
+#from mafiasi.ksp.models import Ksp, KspParticipants, Key
 from mafiasi.ksp.GPG import GPG
 from mafiasi.ksp.GPGFingerprintParser import GPGFingerprintParser
 from django.http import HttpResponse
@@ -20,7 +20,7 @@ extractId = re.compile('^.*/(........) .*$')
 def get_gpg():
     return GPG(homedir='/var/tmp/keyring', args = ['--armor', '--display-charset', 'utf-8'])
 
-
+"""
 def index(request):
     try:
         ksp = Ksp.objects.filter(date__gte=timezone.now()
@@ -30,12 +30,17 @@ def index(request):
     return TemplateResponse(request, 'ksp/index.html', {
         'next_ksp': ksp,
         'ksp_participants': KspParticipants.objects.filter(ksp=ksp)
+    })"""
+def index(request):
+    return TemplateResponse(request, 'ksp/index.html', {
+        'next_ksp': None,
+        'ksp_participants': None
     })
-
+"""
 def plain_all(request):
     return TemplateResponse(request, 'ksp/plain.html', {
         'keys': Key.objects.all()
-     })
+     })"""
 
 def list_keys(request, party=None):
     gpg = get_gpg()
@@ -66,7 +71,7 @@ def list_keys(request, party=None):
     if data:
         keys.append(data)
     print keys
-    #if request.type == 'html':
+    if request.type == 'html':
     return TemplateResponse(request, 'ksp/list_keys.html', {
         'keys': keys
     })

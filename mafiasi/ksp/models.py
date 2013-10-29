@@ -2,7 +2,7 @@ from django.db import models
 from django.conf import settings
 
 # Create your models here.
-
+"""
 class Ksp(models.Model):
     name = models.CharField(max_length=30)
     date = models.DateField()
@@ -25,3 +25,4 @@ class KspParticipants(models.Model):
 
     def __unicode__(self):
         return str(self.key.key_id) + ' nimmt an ' + str(self.ksp.name) + ' teil (' + str(self.user) + ')'
+"""

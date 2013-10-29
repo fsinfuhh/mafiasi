@@ -2,7 +2,7 @@ from django.conf.urls import patterns, url
 
 urlpatterns = patterns('mafiasi.ksp.views',
     url(r'^$', 'index', name='ksp_index'),
-    url(r'^plain/all$', 'plain_all', name='ksp_plain_all'),
+    #url(r'^plain/all$', 'plain_all', name='ksp_plain_all'),
     url(r'^list_keys$', 'list_keys', name='ksp_list_keys'),
     url(r'^list_keys/(?P<ksp>\w+)$', 'list_keys', name='ksp_list_keys_party'),
     url(r'^show_graph$', 'show_graph', name='ksp_show_graph'),
