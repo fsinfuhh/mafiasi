@@ -3,14 +3,15 @@
 
 {% block content %}
 <h2>KSP</h2>
-{% blocktrans %}The next KSP is on {{next_ksp_date}}{% endblocktrans %}
+{% if next_ksp %}
+    {% blocktrans %}The next KSP is on {{next_ksp.date}}{% endblocktrans %}
+    <a href="{% url 'ksp_list_keys_party' next_ksp.name %}">Liste Aller Teilnehmender Keys mit UIDs</a>
+    <table border="1px">
+    {% for u in ksp_participants %}
+        <tr><td>{{u.user}}</td><td>{{u.key.key_id}}</td><td>{{u.key.fingerprint}}</td></tr>
+    {% endfor %}
+    </table>
+{% endif %}
 
-<table border="1px">
-{% for u in ksp_participants %}
-    <tr><td>{{u.user}}</td><td>{{u.key.key_id}}</td><td>{{u.key.fingerprint}}</td></tr>
-{% endfor %}
-</table>
-
-<img src="/static/ksp_graph.png" />
 
 {% endblock %}

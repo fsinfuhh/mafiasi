@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+ <h1>Key List For The Key Signing Party</h1>
+
+    <table border="1px">
+      <tr><td>info</td><td>uids</td><td>fingerprint</td><td>OK?</td></tr>
+      {% for key in keys %}
+      <tr>
+        <td> {{ key.info }}</td>
+        <td> <span>
+            {%for uid in key.uids %}
+                {{uid}}<br/>
+            {%endfor%}
+            </span></td>
+        <td> {{ key.fingerprint }}</td>
+        <td></td>
+      </tr>
+      {% endfor %}
+    </table>
+{% endblock %}
