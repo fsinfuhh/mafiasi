@@ -42,7 +42,7 @@ def plain_all(request):
         'keys': Key.objects.all()
      })"""
 
-def list_keys(request, party=None):
+def list_keys(request, party=None, plain=False):
     gpg = get_gpg()
     stdout, stderr = gpg.list_keys('--fingerprint')
     #print stdout.split('\n'), stderr
@@ -71,7 +71,7 @@ def list_keys(request, party=None):
     if data:
         keys.append(data)
     #print keys
-    if 'text/html' in request.META.get('HTTP_ACCEPT', ''):
+    if 'text/html' in request.META.get('HTTP_ACCEPT', '') and not plain:
         return TemplateResponse(request, 'ksp/list_keys.html', {
             'keys': keys
         })
