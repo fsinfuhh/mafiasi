@@ -45,7 +45,7 @@ def plain_all(request):
 def list_keys(request, party=None):
     gpg = get_gpg()
     stdout, stderr = gpg.list_keys('--fingerprint')
-    print stdout.split('\n'), stderr
+    #print stdout.split('\n'), stderr
     data = None
     keys = []
     #if party:
@@ -70,15 +70,13 @@ def list_keys(request, party=None):
             continue
     if data:
         keys.append(data)
-    print keys
-    if request.type == 'html':
-    return TemplateResponse(request, 'ksp/list_keys.html', {
-        'keys': keys
-    })
-    #elif request.type == 'plain':
-    #   return ' '.join([k['id'] for k in keys])
-    #else:
-    #    return 'st00p1d user'
+    #print keys
+    if 'text/html' in request.META.get('HTTP_ACCEPT', ''):
+        return TemplateResponse(request, 'ksp/list_keys.html', {
+            'keys': keys
+        })
+    else:
+        return HttpResponse(' '.join([k['id'] for k in keys]))
 
 def show_graph(request):
     return TemplateResponse(request, 'ksp/show_graph.html')
