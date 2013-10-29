@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<h2>KSP</h2>
+<!--
+{% if next_ksp %}
+    {% blocktrans %}The next KSP is on {{next_ksp.date}}{% endblocktrans %}
+    <a href="{% url 'ksp_list_keys_party' next_ksp.name %}">Liste Aller Teilnehmender Keys mit UIDs</a>
+    <table border="1px">
+    {% for u in ksp_participants %}
+        <tr><td>{{u.user}}</td><td>{{u.key.key_id}}</td><td>{{u.key.fingerprint}}</td></tr>
+    {% endfor %}
+    </table>
+{% endif %}
+-->
+<p>
+<a href="{% url 'ksp_list_keys' %}"> Liste allert Keys</a><br />
+<a href="{% url 'ksp_add_key_form'%}">Füge dienen Key hinzu</a><br />
+<a href="{% url 'ksp_show_graph' %}">Graph der Unterschriften</a><br />
+</p>
+
+<p>Dieser Server ist auch über das hkp Protokoll zum Suchen und Hochladen von Keys erreichbar</p>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+    <div id="header">
+      <h1>{{message}}</h1>
+    </div>
+
+    <p>
+        <a href=".">Main menu</a>
+    </p>
+
+    You can also have a look at some technical output:
+    <pre>
+    {{log}}
+    </pre>
+{% endblock %}
