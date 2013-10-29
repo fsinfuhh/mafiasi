@@ -172,7 +172,7 @@ SERVICE_LINKS = {
 }
 IMPRINT_URL = 'https://wiki.mafiasi.de/Fachschaft_Informatik:Impressum'
 WIKI_URL = 'https://www2.informatik.uni-hamburg.de/Fachschaft/wiki/'
-
+GPG_KEYRING='/var/tmp/keyring'
 
 from django.contrib.messages import constants as message_constants
 MESSAGE_TAGS = {

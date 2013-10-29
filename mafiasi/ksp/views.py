@@ -18,7 +18,7 @@ extractNumberOfImportedKeys = re.compile('imported: (\d*)')
 extractId = re.compile('^.*/(........) .*$')
 
 def get_gpg():
-    return GPG(homedir='/var/tmp/keyring', args = ['--armor', '--display-charset', 'utf-8'])
+    return GPG(homedir=settings.GPG_KEYRING, args = ['--armor', '--display-charset', 'utf-8'])
 
 """
 def index(request):
