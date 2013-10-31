@@ -3,7 +3,18 @@ import gpgme
 from django.db import models
 from django.conf import settings
 
-class PGPKey(models.Model):
+class KeyMixin(object):
+    def get_keyobj(self):
+        ctx = gpgme.Context()
+        return ctx.get_key(self.fingerprint)
+    
+class PGPKey(models.Model, KeyMixin):
+    fingerprint = models.CharField(max_length=40)
+    
+    def __unicode__(self):
+        return self.fingerprint
+
+class AssignedKey(models.Model, KeyMixin):
     fingerprint = models.CharField(max_length=40)
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
 
@@ -11,11 +22,7 @@ class PGPKey(models.Model):
         unique_together = ('user', 'fingerprint')
 
     def __unicode__(self):
-        return u'{0} ({1})'.format(self.keyid, self.user)
-
-    def get_keyobj(self):
-        ctx = gpgme.Context()
-        return ctx.get_key(self.fingerprint)
+        return u'{0} ({1})'.format(self.fingerprint, self.user)
 
 class KeysigningParty(models.Model):
     name = models.CharField(max_length=60)
@@ -28,7 +35,7 @@ class KeysigningParty(models.Model):
 class Participant(models.Model):
     party = models.ForeignKey(KeysigningParty)
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
-    keys = models.ManyToManyField(PGPKey)
+    keys = models.ManyToManyField(AssignedKey)
 
     def __unicode__(self):
         key_ids = u', '.join(key.keyid for key in self.keys.all())
