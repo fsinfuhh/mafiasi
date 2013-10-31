@@ -1,0 +1,42 @@
+{% load i18n %}
+{% load pks %}
+{% load emailprotect %}
+<table class="table table-striped table-hover">
+    <tr>
+{% if checkbox %}
+        <th>[&nbsp;]</th>
+{% endif %}
+        <th>{% trans "Key ID" %}</th>
+        <th>{% trans "Size" %}</th>
+        <th>{% trans "Created" %}</th>
+        <th>{% trans "Expires" %}</th>
+        <th>{% trans "User identities" %}</th>
+        <th>{% trans "Fingerprint" %}</th>
+    </tr>
+{% for key in keys %}
+{% with subkey=key.subkeys.0 %}
+    <tr>
+{% if checkbox %}
+        <td><input type="checkbox" name="fingerprint" value="{{ subkey.fpr }}" /></td>
+{% endif %}
+        <td>{{ subkey.keyid }}</td>
+        <td>{{ subkey.length }}</td>
+        <td>{{ subkey|show_created }}</td>
+        <td>{{ subkey|show_expires }}</td>
+        <td>
+        <ul>
+        {% for uid in key.uids %}
+        <li{% if uid.revoked %} class="pgp-uid-revoked"{% endif %}>{{ uid.name }}
+            {% if uid.comment %}
+            <span class="pgp-comment">({{ uid.comment }})</span>
+            {% endif %}
+            &lt;{{ uid.email|emailprotect }}&gt;
+        </li>
+        {% endfor %}
+        </ul>
+        </td>
+        <td>{{ subkey.fpr|format_fingerprint }}</td>
+    </tr>
+{% endwith %}
+{% endfor %}
+</table>

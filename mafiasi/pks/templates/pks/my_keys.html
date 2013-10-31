@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+{% include "pks/menu.html" with tab='my_keys' %}
+<h2>{% trans "My keys" %}</h2>
+{% if keys %}
+<form method="post" action="{% url 'pks_unassign_keys' %}">
+{% csrf_token %}
+{% include "pks/keylist.html" with keys=keys checkbox=True %}
+<p><button class="btn btn-default">{% trans "Unassign" %}</button></p>
+</form>
+{% else %}
+<p>{% trans "You have no keys assigned to you." %}</p>
+{% endif %}
+<p><a href="{% url 'pks_upload_keys' %}">Upload own keys</a></p>
+{% endblock %}

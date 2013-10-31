@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+{% include "pks/menu.html" with tab='all_keys' %}
+<h2>{% trans "All keys on the keyserver" %}</h2>
+{% include "pks/keylist.html" with keys=keys %}
+{% endblock %}

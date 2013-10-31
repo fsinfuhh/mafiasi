@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load widget_tweaks %}
+
+{% block content %}
+<h2>Add own OpenPGP key</h2>
+
+<form method="post" action="">
+{% csrf_token %}
+<div class="form-group {% if form.keys.errors %} has-error{% endif %}">
+<p>{% trans "Insert one or more OpenPGP keys into the following field:" %}</p>
+{% render_field form.keys class+="form-control" %}
+{% if form.keys.errors %}
+<div class="help-block">
+{% for error in form.keys.errors %}{{ error }} {% endfor %}
+</div>
+{% endif %}
+<p><button class="btn btn-default">{% trans "Add keys" %}</button>
+</form>
+
+{% endblock %}
