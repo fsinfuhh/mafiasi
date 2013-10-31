@@ -72,3 +72,7 @@ body {
 .container .credit {
     margin: 18px 0;
 }
+
+.at-sign:before {
+	content:"@";
+}
