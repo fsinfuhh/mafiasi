@@ -47,3 +47,6 @@ def all_keys(request):
     return TemplateResponse(request, 'pks/all_keys.html', {
         'keys': keys
     })
+
+def graph(request):
+    return TemplateResponse(request, 'pks/graph.html')

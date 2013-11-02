@@ -5,4 +5,5 @@ urlpatterns = patterns('mafiasi.pks.views',
     url(r'^my_keys$', 'my_keys', name='pks_my_keys'),
     url(r'^upload_keys$', 'upload_keys', name='pks_upload_keys'),
     url(r'^unassign_keys$', 'unassign_keys', name='pks_unassign_keys'),
+    url(r'^graph$', 'graph', name='pks_graph'),
 )

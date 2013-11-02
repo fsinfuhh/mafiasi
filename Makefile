@@ -7,7 +7,7 @@ all: css js locales
 
 css: ${base_static}css/main.min.css ${base_static}css/bootstrap.min.css ${base_static}css/smoothness/jquery-ui-1.10.3.custom.min.css ${cal_static}css/fullcalendar.min.css ${cal_static}css/cal.min.css ${pks_static}css/pks.min.css
 
-js: ${base_static}js/jquery-2.0.3.min.js ${base_static}js/jquery-ui-1.10.3.custom.min.js ${base_static}js/common.min.js ${dashboard_static}js/dashboard.min.js ${cal_static}js/fullcalendar.min.js
+js: ${base_static}js/jquery-2.0.3.min.js ${base_static}js/jquery-ui-1.10.3.custom.min.js ${base_static}js/common.min.js ${dashboard_static}js/dashboard.min.js ${cal_static}js/fullcalendar.min.js ${pks_static}js/pks-graph.min.js
 
 locales: locale/de_DE/LC_MESSAGES/django.mo locale/en_US/LC_MESSAGES/django.mo
 

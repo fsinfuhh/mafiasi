@@ -10,3 +10,31 @@
 .pks-uid-revoked {
 	text-decoration: line-through;
 }
+
+#pks-graphcontainer {
+	position:relative;
+}
+
+#pks-graphthumbcontainer {
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:10;
+	opacity:0.8;
+	border:1px solid #000;
+}
+
+#pks-graphselector {
+	position:absolute;
+	top:0;
+	left:0;
+	background:#00d;
+	opacity:0.3;
+	z-index:15;
+	cursor:move;
+}
+
+#pks-graphscroll {
+	overflow:scroll;
+	height:600px;
+}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+{% include "pks/menu.html" with tab='graph' %}
+<p>{% trans "You can drag the blue selector at the upper left to scroll. Click on a node to highlight it's connections." %}</p>
+{% endblock content %}
+
+{% block outsidecontent %}
+<div id="pks-graphcontainer">
+    <div id="pks-graphthumbcontainer">
+        <img src="{{ MEDIA_URL }}pks-graphthumb-global.png" id="pks-graph-thumb" />
+        <div id="pks-graphselector"></div>
+    </div>
+
+    <div id="pks-graphscroll">
+        <embed src="{{ MEDIA_URL }}pks-graph-global.svg" type="image/svg+xml" id="pks-graph" />
+    </div>
+</div>
+
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ STATIC_URL }}css/pks.min.css">
+{% endblock css %}
+
+{% block js %}
+<script src="{{ STATIC_URL }}js/pks-graph.min.js" type="text/javascript">
+</script>
+{% endblock %}

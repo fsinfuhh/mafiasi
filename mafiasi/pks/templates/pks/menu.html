@@ -6,4 +6,7 @@
 	<li{% if tab == 'all_keys' %} class="active"{% endif %}>
 		<a href="{% url 'pks_all_keys' %}">{% trans "All keys" %}</a>
 	</li>
+	<li{% if tab == 'graph' %} class="active"{% endif %}>
+		<a href="{% url 'pks_graph' %}">{% trans "Graph" %}</a>
+	</li>
 </ul>
