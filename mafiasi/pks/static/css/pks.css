@@ -1,0 +1,12 @@
+.pks-keylist ul {
+	margin:0;
+	padding:0 0 0 15px;
+}
+
+.pks-comment {
+	color:#888;
+}
+
+.pks-uid-revoked {
+	text-decoration: line-through;
+}

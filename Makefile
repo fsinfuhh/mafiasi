@@ -1,10 +1,11 @@
 base_static = mafiasi/base/static/
 dashboard_static = mafiasi/dashboard/static/
 cal_static = mafiasi/cal/static/
+pks_static = mafiasi/pks/static/
 
 all: css js locales
 
-css: ${base_static}css/main.min.css ${base_static}css/bootstrap.min.css ${base_static}css/smoothness/jquery-ui-1.10.3.custom.min.css ${cal_static}css/fullcalendar.min.css ${cal_static}css/cal.min.css
+css: ${base_static}css/main.min.css ${base_static}css/bootstrap.min.css ${base_static}css/smoothness/jquery-ui-1.10.3.custom.min.css ${cal_static}css/fullcalendar.min.css ${cal_static}css/cal.min.css ${pks_static}css/pks.min.css
 
 js: ${base_static}js/jquery-2.0.3.min.js ${base_static}js/jquery-ui-1.10.3.custom.min.js ${base_static}js/common.min.js ${dashboard_static}js/dashboard.min.js ${cal_static}js/fullcalendar.min.js
 
