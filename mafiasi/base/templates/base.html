@@ -46,26 +46,26 @@
 
     <div id="footer">
         <div class="container">
-                    <form class="form-inline" action="{% url 'set_language' %}" method="post">
-                        {% csrf_token %}
-                        <p class="muted credit">
-                            <a href="{% url 'base_imprint' %}">{% trans "Imprint" %}</a>
-                            &middot;
-                            <a href="{% url 'base_technical_info' %}">{% trans "Technical info" %}</a>
-                            &middot;
-                            <a href="{% url 'base_problems' %}">{% trans "Problems?" %}</a>
-                            &middot;
-                            <button name="language" value="de" class="btn-link" style="padding: 0;" type="submit">Deutsch</button>
-                            &middot;
-                            <button name="language" value="en" class="btn-link" style="padding: 0;" type="submit">English</button>
-                        </p>
-                    </form>
-            </div>
+            <form class="form-inline" action="{% url 'set_language' %}" method="post">
+                {% csrf_token %}
+                <p class="muted credit">
+                    <a href="{% url 'base_imprint' %}">{% trans "Imprint" %}</a>
+                    &middot;
+                    <a href="{% url 'base_technical_info' %}">{% trans "Technical info" %}</a>
+                    &middot;
+                    <a href="{% url 'base_problems' %}">{% trans "Problems?" %}</a>
+                    &middot;
+                    <button name="language" value="de" class="btn-link" style="padding: 0;" type="submit">Deutsch</button>
+                    &middot;
+                    <button name="language" value="en" class="btn-link" style="padding: 0;" type="submit">English</button>
+                </p>
+            </form>
         </div>
-        <script src="{{ STATIC_URL }}js/jquery-2.0.3.min.js" type="text/javascript"></script>
-        <script src="{{ STATIC_URL }}js/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
-        <script src="{{ STATIC_URL }}js/common.min.js" type="text/javascript"></script>
-        {% block js %}
-        {% endblock js %}
-    </body>
-    </html>
+    </div>
+    <script src="{{ STATIC_URL }}js/jquery-2.0.3.min.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}js/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}js/common.min.js" type="text/javascript"></script>
+    {% block js %}
+    {% endblock js %}
+</body>
+</html>
