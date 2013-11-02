@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function() {
             "width": path.getAttribute("stroke-width")
 		};
 	}
-    console.log(edge_backup);
 	
 	var edge_re = /^([A-F0-9]{16})_([A-F0-9]{16})$/
 	var nodes = document.querySelectorAll('g[class="node"]');
