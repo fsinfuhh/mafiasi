@@ -1,12 +1,12 @@
 {% load i18n %}
 <ul class="nav nav-tabs">
-	<li{% if tab == 'my_keys' %} class="active"{% endif %}>
-		<a href="{% url 'pks_my_keys' %}">{% trans "My keys" %}</a>
-	</li>
-	<li{% if tab == 'all_keys' %} class="active"{% endif %}>
-		<a href="{% url 'pks_all_keys' %}">{% trans "All keys" %}</a>
-	</li>
-	<li{% if tab == 'graph' %} class="active"{% endif %}>
-		<a href="{% url 'pks_graph' %}">{% trans "Graph" %}</a>
-	</li>
+    <li{% if tab == 'my_keys' %} class="active"{% endif %}>
+        <a href="{% url 'pks_my_keys' %}">{% trans "My keys" %}</a>
+    </li>
+    <li{% if tab == 'all_keys' %} class="active"{% endif %}>
+        <a href="{% url 'pks_all_keys' %}">{% trans "All keys" %}</a>
+    </li>
+    <li{% if tab == 'graph' %} class="active"{% endif %}>
+        <a href="{% url 'pks_graph' %}">{% trans "Graph" %}</a>
+    </li>
 </ul>
