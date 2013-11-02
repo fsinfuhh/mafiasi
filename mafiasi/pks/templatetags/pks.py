@@ -11,6 +11,9 @@ def format_fingerprint(fingerprint):
 
 @register.filter(name='show_expires')
 def show_expires(subkey):
+    if subkey.revoked:
+        return _('Revoked.')
+    
     if subkey.expires == 0:
         return _('Never.')
     
