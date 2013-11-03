@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-03 03:32+0100\n"
-"PO-Revision-Date: 2013-11-03 04:14+0100\n"
+"POT-Creation-Date: 2013-11-03 15:29+0100\n"
+"PO-Revision-Date: 2013-11-03 15:30+0100\n"
 "Last-Translator: Henning Pridöhl <8pridoeh@informatik.uni-hamburg.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -325,6 +325,9 @@ msgid "Wiki search"
 msgstr "Wiki-Suche"
 
 #: mafiasi/dashboard/templates/dashboard/index.html:169
+#: mafiasi/pks/templates/pks/menu.html:4
+#: mafiasi/pks/templates/pks/search.html:7
+#: mafiasi/pks/templates/pks/search_form.html:7
 msgid "Search"
 msgstr "Suche"
 
@@ -429,16 +432,16 @@ msgstr "Benutzeridentitäten"
 msgid "Fingerprint"
 msgstr "Fingerprint"
 
-#: mafiasi/pks/templates/pks/menu.html:4
+#: mafiasi/pks/templates/pks/menu.html:7
 #: mafiasi/pks/templates/pks/my_keys.html:6
 msgid "My keys"
 msgstr "Meine Schlüssel"
 
-#: mafiasi/pks/templates/pks/menu.html:7
+#: mafiasi/pks/templates/pks/menu.html:10
 msgid "All keys"
 msgstr "Alle Schlüssel"
 
-#: mafiasi/pks/templates/pks/menu.html:10
+#: mafiasi/pks/templates/pks/menu.html:13
 msgid "Graph"
 msgstr "Graph"
 
@@ -449,6 +452,28 @@ msgstr "Zuordnung aufheben"
 #: mafiasi/pks/templates/pks/my_keys.html:14
 msgid "You have no keys assigned to you."
 msgstr "Es sind dir keine Schlüssel zugeordnet."
+
+#: mafiasi/pks/templates/pks/search.html:11
+msgid "You can also search using the HKP interface:"
+msgstr "Du kannst auch die HKP-Schnittstelle nutzen, um nach Schlüsseln zu suchen:"
+
+#: mafiasi/pks/templates/pks/search.html:12
+msgid "search term"
+msgstr "Suchbegriff"
+
+#: mafiasi/pks/templates/pks/search_result.html:6
+#, python-format
+msgid "Search result for \"%(search_term)s\""
+msgstr "Suchergebnis für \"%(search_term)s\""
+
+#: mafiasi/pks/templates/pks/show_key.html:6
+#, python-format
+msgid "Key details for 0x%(keyid)s"
+msgstr "Schlüsseldetails für 0x%(keyid)s"
+
+#: mafiasi/pks/templates/pks/show_key.html:8
+msgid "Show as plain text"
+msgstr "Als Klartext anzeigen"
 
 #: mafiasi/pks/templates/pks/upload_keys.html:11
 msgid "Insert one or more OpenPGP keys into the following field:"

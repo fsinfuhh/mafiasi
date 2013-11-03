@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-03 03:32+0100\n"
-"PO-Revision-Date: 2013-11-03 03:33+0100\n"
+"POT-Creation-Date: 2013-11-03 15:29+0100\n"
+"PO-Revision-Date: 2013-11-03 15:30+0100\n"
 "Last-Translator: Henning Pridöhl <8pridoeh@informatik.uni-hamburg.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -324,6 +324,9 @@ msgid "Wiki search"
 msgstr "Wiki search"
 
 #: mafiasi/dashboard/templates/dashboard/index.html:169
+#: mafiasi/pks/templates/pks/menu.html:4
+#: mafiasi/pks/templates/pks/search.html:7
+#: mafiasi/pks/templates/pks/search_form.html:7
 msgid "Search"
 msgstr "Search"
 
@@ -428,16 +431,16 @@ msgstr "User identities"
 msgid "Fingerprint"
 msgstr "Fingerprint"
 
-#: mafiasi/pks/templates/pks/menu.html:4
+#: mafiasi/pks/templates/pks/menu.html:7
 #: mafiasi/pks/templates/pks/my_keys.html:6
 msgid "My keys"
 msgstr "My keys"
 
-#: mafiasi/pks/templates/pks/menu.html:7
+#: mafiasi/pks/templates/pks/menu.html:10
 msgid "All keys"
 msgstr "All keys"
 
-#: mafiasi/pks/templates/pks/menu.html:10
+#: mafiasi/pks/templates/pks/menu.html:13
 msgid "Graph"
 msgstr "Graph"
 
@@ -448,6 +451,28 @@ msgstr "Unassign"
 #: mafiasi/pks/templates/pks/my_keys.html:14
 msgid "You have no keys assigned to you."
 msgstr "You have no keys assigned to you."
+
+#: mafiasi/pks/templates/pks/search.html:11
+msgid "You can also search using the HKP interface:"
+msgstr "You can also search using the HKP interface:"
+
+#: mafiasi/pks/templates/pks/search.html:12
+msgid "search term"
+msgstr "search term"
+
+#: mafiasi/pks/templates/pks/search_result.html:6
+#, python-format
+msgid "Search result for \"%(search_term)s\""
+msgstr "Search result for \"%(search_term)s\""
+
+#: mafiasi/pks/templates/pks/show_key.html:6
+#, python-format
+msgid "Key details for 0x%(keyid)s"
+msgstr "Key details for 0x%(keyid)s"
+
+#: mafiasi/pks/templates/pks/show_key.html:8
+msgid "Show as plain text"
+msgstr "Show as plain text"
 
 #: mafiasi/pks/templates/pks/upload_keys.html:11
 msgid "Insert one or more OpenPGP keys into the following field:"
