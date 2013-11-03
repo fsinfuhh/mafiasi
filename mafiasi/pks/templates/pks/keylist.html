@@ -19,7 +19,7 @@
 {% if checkbox %}
         <td><input type="checkbox" name="fingerprint" value="{{ subkey.fpr }}" /></td>
 {% endif %}
-        <td>{{ subkey.keyid }}</td>
+        <td><a href="{% url 'pks_show_key' subkey.keyid %}">{{ subkey.keyid }}</a></td>
         <td>{{ subkey.length }}</td>
         <td>{{ subkey|show_created }}</td>
         <td>{{ subkey|show_expires }}</td>

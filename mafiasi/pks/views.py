@@ -4,7 +4,7 @@ from urllib import quote
 import gpgme
 
 from django.template.response import TemplateResponse
-from django.shortcuts import redirect
+from django.shortcuts import redirect, Http404
 from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
@@ -59,6 +59,27 @@ def all_keys(request):
 
 def graph(request):
     return TemplateResponse(request, 'pks/graph.html')
+
+def show_key(request, keyid, raw=False):
+    if raw:
+        return _hkp_op_get(keyid, None)
+
+    ctx = gpgme.Context()
+    ctx.armor = True
+
+    try:
+        key = ctx.get_key(keyid)
+    except gpgme.GpgmeError:
+        raise Http404
+    
+    keydata = StringIO()
+    ctx.export(keyid.encode('utf-8'), keydata)
+
+    return TemplateResponse(request, 'pks/show_key.html', {
+        'keyid': keyid,
+        'key': key,
+        'keydata': keydata.getvalue()
+    })
 
 @csrf_exempt
 def hkp_add_key(request):
