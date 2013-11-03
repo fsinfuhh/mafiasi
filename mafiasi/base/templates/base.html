@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>{% trans "Mafiasi Hub" %}</title>
+    <title>{% block wtitle %}{% endblock %} &middot; {% trans "Mafiasi" %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ STATIC_URL }}css/smoothness/jquery-ui-1.10.3.custom.min.css">
@@ -36,6 +36,11 @@
             {% for message in messages %}
             <div class="alert{% if message.tags %} {{ message.tags }}"{% endif %}>{{ message }}</div>
             {% endfor %}
+			{% block submenu %}
+			{% endblock %}
+			{% block heading %}
+			<h2>{% block ptitle %}{% endblock %}</h2>
+			{% endblock heading %}
             {% block content %}
             {% endblock content %}
         </div>
