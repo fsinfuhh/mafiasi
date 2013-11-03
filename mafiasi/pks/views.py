@@ -14,6 +14,9 @@ from django.http import (HttpResponse, HttpResponseNotFound,
 from mafiasi.pks.forms import ImportForm
 from mafiasi.pks.models import AssignedKey
 
+def index(request):
+    return redirect('pks_graph')
+
 @login_required
 def my_keys(request):
     keys = [key.get_keyobj()
