@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-03 03:32+0100\n"
-"PO-Revision-Date: 2013-11-03 03:47+0100\n"
+"PO-Revision-Date: 2013-11-03 03:50+0100\n"
 "Last-Translator: Henning Pridöhl <8pridoeh@informatik.uni-hamburg.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -448,7 +448,7 @@ msgstr "Zuordnung aufheben"
 
 #: mafiasi/pks/templates/pks/my_keys.html:14
 msgid "You have no keys assigned to you."
-msgstr "Du ha"
+msgstr "Es sind dir keine Schlüssel zugeordnet."
 
 #: mafiasi/pks/templates/pks/upload_keys.html:11
 msgid "Insert one or more OpenPGP keys into the following field:"
