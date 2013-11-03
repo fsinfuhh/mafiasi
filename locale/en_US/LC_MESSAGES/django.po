@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-19 17:29+0200\n"
-"PO-Revision-Date: 2013-10-19 17:32+0100\n"
+"POT-Creation-Date: 2013-11-03 03:32+0100\n"
+"PO-Revision-Date: 2013-11-03 03:33+0100\n"
 "Last-Translator: Henning Pridöhl <8pridoeh@informatik.uni-hamburg.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -17,37 +17,37 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: mafiasi/base/templates/base.html:6
-#: mafiasi/base/templates/base.html:17
+#: mafiasi/base/templates/base.html:19
 msgid "Mafiasi Hub"
 msgstr "Mafiasi Hub"
 
-#: mafiasi/base/templates/base.html:21
+#: mafiasi/base/templates/base.html:23
 #, python-format
 msgid "Logged in as %(username)s"
 msgstr "Logged in as %(username)s"
 
-#: mafiasi/base/templates/base.html:22
+#: mafiasi/base/templates/base.html:24
 msgid "Logout"
 msgstr "Logout"
 
-#: mafiasi/base/templates/base.html:26
+#: mafiasi/base/templates/base.html:28
 msgid "Register"
 msgstr "Register"
 
-#: mafiasi/base/templates/base.html:27
+#: mafiasi/base/templates/base.html:29
 #: mafiasi/registration/templates/registration/login.html:41
 msgid "Login"
 msgstr "Login"
 
-#: mafiasi/base/templates/base.html:48
+#: mafiasi/base/templates/base.html:52
 msgid "Imprint"
 msgstr "Imprint"
 
-#: mafiasi/base/templates/base.html:50
+#: mafiasi/base/templates/base.html:54
 msgid "Technical info"
 msgstr "Technical info"
 
-#: mafiasi/base/templates/base.html:52
+#: mafiasi/base/templates/base.html:56
 #: mafiasi/base/templates/base/problems.html:5
 msgid "Problems?"
 msgstr "Problems?"
@@ -89,22 +89,183 @@ msgstr ""
 "    <li><a href=\"https://pypi.python.org/pypi/django-widget-tweaks\">django-widget-tweaks</a></li>\n"
 "</ul>\n"
 
-#: mafiasi/cal/models.py:6
+#: mafiasi/cal/models.py:15
 #: mafiasi/cal/templates/cal/index.html:5
 msgid "Calendar"
 msgstr "Calendar"
 
-#: mafiasi/cal/models.py:7
+#: mafiasi/cal/models.py:16
 msgid "Contact list"
 msgstr "Contact list"
 
 #: mafiasi/cal/templates/cal/index.html:6
-msgid "There is no graphical user interface yet, sorry!"
-msgstr "There is no graphical user interface yet, sorry!"
+msgid "The web interface is read-only. Use CalDAV with your favorite calendar software to add events."
+msgstr "The web interface is read-only. Use CalDAV with your favorite calendar software to add events."
 
-#: mafiasi/cal/templates/cal/index.html:9
-msgid "Access your calendars via CalDAV:"
-msgstr "Access your calendars via CalDAV:"
+#: mafiasi/cal/templates/cal/index.html:54
+msgid "January"
+msgstr "January"
+
+#: mafiasi/cal/templates/cal/index.html:55
+msgid "February"
+msgstr "February"
+
+#: mafiasi/cal/templates/cal/index.html:56
+msgid "March"
+msgstr "March"
+
+#: mafiasi/cal/templates/cal/index.html:57
+msgid "April"
+msgstr "April"
+
+#: mafiasi/cal/templates/cal/index.html:58
+#: mafiasi/cal/templates/cal/index.html:72
+msgid "May"
+msgstr "May"
+
+#: mafiasi/cal/templates/cal/index.html:59
+msgid "June"
+msgstr "June"
+
+#: mafiasi/cal/templates/cal/index.html:60
+msgid "July"
+msgstr "July"
+
+#: mafiasi/cal/templates/cal/index.html:61
+msgid "August"
+msgstr "August"
+
+#: mafiasi/cal/templates/cal/index.html:62
+msgid "September"
+msgstr "September"
+
+#: mafiasi/cal/templates/cal/index.html:63
+msgid "October"
+msgstr "October"
+
+#: mafiasi/cal/templates/cal/index.html:64
+msgid "November"
+msgstr "November"
+
+#: mafiasi/cal/templates/cal/index.html:65
+msgid "December"
+msgstr "December"
+
+#: mafiasi/cal/templates/cal/index.html:68
+msgid "Jan"
+msgstr "Jan"
+
+#: mafiasi/cal/templates/cal/index.html:69
+msgid "Feb"
+msgstr "Feb"
+
+#: mafiasi/cal/templates/cal/index.html:70
+msgid "Mar"
+msgstr "Mar"
+
+#: mafiasi/cal/templates/cal/index.html:71
+msgid "Apr"
+msgstr "Apr"
+
+#: mafiasi/cal/templates/cal/index.html:73
+msgid "Jun"
+msgstr "Jun"
+
+#: mafiasi/cal/templates/cal/index.html:74
+msgid "Jul"
+msgstr "Jul"
+
+#: mafiasi/cal/templates/cal/index.html:75
+msgid "Aug"
+msgstr "Aug"
+
+#: mafiasi/cal/templates/cal/index.html:76
+msgid "Sep"
+msgstr "Sep"
+
+#: mafiasi/cal/templates/cal/index.html:77
+msgid "Oct"
+msgstr "Oct"
+
+#: mafiasi/cal/templates/cal/index.html:78
+msgid "Nov"
+msgstr "Nov"
+
+#: mafiasi/cal/templates/cal/index.html:79
+msgid "Dec"
+msgstr "Dec"
+
+#: mafiasi/cal/templates/cal/index.html:82
+msgid "Sunday"
+msgstr "Sunday"
+
+#: mafiasi/cal/templates/cal/index.html:83
+msgid "Monday"
+msgstr "Monday"
+
+#: mafiasi/cal/templates/cal/index.html:84
+msgid "Tuesday"
+msgstr "Tuesday"
+
+#: mafiasi/cal/templates/cal/index.html:85
+msgid "Wednesday"
+msgstr "Wednesday"
+
+#: mafiasi/cal/templates/cal/index.html:86
+msgid "Thursday"
+msgstr "Thursday"
+
+#: mafiasi/cal/templates/cal/index.html:87
+msgid "Friday"
+msgstr "Friday"
+
+#: mafiasi/cal/templates/cal/index.html:88
+msgid "Saturday"
+msgstr "Saturday"
+
+#: mafiasi/cal/templates/cal/index.html:91
+msgid "Sun"
+msgstr "Sun"
+
+#: mafiasi/cal/templates/cal/index.html:92
+msgid "Mon"
+msgstr "Mon"
+
+#: mafiasi/cal/templates/cal/index.html:93
+msgid "Tue"
+msgstr "Tue"
+
+#: mafiasi/cal/templates/cal/index.html:94
+msgid "Wed"
+msgstr "Wed"
+
+#: mafiasi/cal/templates/cal/index.html:95
+msgid "Thu"
+msgstr "Thu"
+
+#: mafiasi/cal/templates/cal/index.html:96
+msgid "Fri"
+msgstr "Fri"
+
+#: mafiasi/cal/templates/cal/index.html:97
+msgid "Sat"
+msgstr "Sat"
+
+#: mafiasi/cal/templates/cal/index.html:106
+msgid "month"
+msgstr "month"
+
+#: mafiasi/cal/templates/cal/index.html:107
+msgid "week"
+msgstr "week"
+
+#: mafiasi/cal/templates/cal/index.html:108
+msgid "day"
+msgstr "day"
+
+#: mafiasi/cal/templates/cal/index.html:109
+msgid "today"
+msgstr "today"
 
 #: mafiasi/dashboard/templates/dashboard/index.html:7
 msgid "Services"
@@ -146,19 +307,23 @@ msgstr "FB18 is our bulletin board, where you can ask about other students exper
 msgid "Redmine is a project management software. You can create tasks and assign them to people."
 msgstr "Redmine is a project management software. You can create tasks and assign them to people."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:125
+#: mafiasi/dashboard/templates/dashboard/index.html:124
+msgid "You can find your fellow students' OpenPGP keys on our public keyserver."
+msgstr "You can find your fellow students' OpenPGP keys on our public keyserver."
+
+#: mafiasi/dashboard/templates/dashboard/index.html:137
 msgid "Here you can change your password here and configure your account."
 msgstr "Here you can change your password here and configure your account."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:134
+#: mafiasi/dashboard/templates/dashboard/index.html:146
 msgid "News and more"
 msgstr "News and more"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:150
+#: mafiasi/dashboard/templates/dashboard/index.html:162
 msgid "Wiki search"
 msgstr "Wiki search"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:157
+#: mafiasi/dashboard/templates/dashboard/index.html:169
 msgid "Search"
 msgstr "Search"
 
@@ -226,6 +391,83 @@ msgstr "The fingerprint of the current SSL certificate is:"
 #: mafiasi/mumble/templates/mumble/index.html:7
 msgid "<strong>Sorry</strong>, but Mumble registration is not implemented yet."
 msgstr "<strong>Sorry</strong>, but Mumble registration is not implemented yet."
+
+#: mafiasi/pks/forms.py:17
+msgid "No valid OpenPGP keys."
+msgstr "No valid OpenPGP keys."
+
+#: mafiasi/pks/templates/pks/all_keys.html:6
+msgid "All keys on the keyserver"
+msgstr "All keys on the keyserver"
+
+#: mafiasi/pks/templates/pks/graph.html:6
+msgid "You can drag the blue selector at the upper left to scroll. Click on a node to highlight its connections."
+msgstr "You can drag the blue selector at the upper left to scroll. Click on a node to highlight its connections."
+
+#: mafiasi/pks/templates/pks/keylist.html:9
+msgid "Key ID"
+msgstr "Key ID"
+
+#: mafiasi/pks/templates/pks/keylist.html:10
+msgid "Size"
+msgstr "Size"
+
+#: mafiasi/pks/templates/pks/keylist.html:11
+msgid "Created"
+msgstr "Created"
+
+#: mafiasi/pks/templates/pks/keylist.html:12
+msgid "Expires"
+msgstr "Expires"
+
+#: mafiasi/pks/templates/pks/keylist.html:13
+msgid "User identities"
+msgstr "User identities"
+
+#: mafiasi/pks/templates/pks/keylist.html:14
+msgid "Fingerprint"
+msgstr "Fingerprint"
+
+#: mafiasi/pks/templates/pks/menu.html:4
+#: mafiasi/pks/templates/pks/my_keys.html:6
+msgid "My keys"
+msgstr "My keys"
+
+#: mafiasi/pks/templates/pks/menu.html:7
+msgid "All keys"
+msgstr "All keys"
+
+#: mafiasi/pks/templates/pks/menu.html:10
+msgid "Graph"
+msgstr "Graph"
+
+#: mafiasi/pks/templates/pks/my_keys.html:11
+msgid "Unassign"
+msgstr "Unassign"
+
+#: mafiasi/pks/templates/pks/my_keys.html:14
+msgid "You have no keys assigned to you."
+msgstr "You have no keys assigned to you."
+
+#: mafiasi/pks/templates/pks/upload_keys.html:11
+msgid "Insert one or more OpenPGP keys into the following field:"
+msgstr "Insert one or more OpenPGP keys into the following field:"
+
+#: mafiasi/pks/templates/pks/upload_keys.html:18
+msgid "Add keys"
+msgstr "Add keys"
+
+#: mafiasi/pks/templatetags/pks.py:15
+msgid "Revoked."
+msgstr "Revoked."
+
+#: mafiasi/pks/templatetags/pks.py:18
+msgid "Never."
+msgstr "Never."
+
+#: mafiasi/pks/templatetags/pks.py:22
+msgid "Expired at {0}"
+msgstr "Expired at {0}"
 
 #: mafiasi/registration/forms.py:15
 msgid "Invalid account name"
@@ -477,6 +719,12 @@ msgstr "Invalid token"
 #: mafiasi/registration/templates/registration/token_invalid.html:6
 msgid "Sorry, but the provided token is invalid."
 msgstr "Sorry, but the provided token is invalid."
+
+#~ msgid "There is no graphical user interface yet, sorry!"
+#~ msgstr "There is no graphical user interface yet, sorry!"
+
+#~ msgid "Access your calendars via CalDAV:"
+#~ msgstr "Access your calendars via CalDAV:"
 
 #~ msgid "Page"
 #~ msgstr "Page"
