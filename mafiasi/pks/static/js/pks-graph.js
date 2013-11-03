@@ -62,4 +62,11 @@ $(function() {
         "top": (graphthumb.height() - graphselectorHeight) / 2,
         "left": (graphthumb.width() - graphselectorWidth) / 2
     });
+
+    graphthumb.click(function(ev) {
+        var offset = graphthumb.offset()
+        var posX = ev.clientX - offset.left - (graphselector.width() / 2);
+        var posY = ev.clientY - offset.top - (graphselector.height() / 2);
+        handleGraphthumbAction(posX, posY, true);
+    });
 });
