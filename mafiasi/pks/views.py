@@ -1,9 +1,15 @@
+from StringIO import StringIO
+from urllib import quote
+
 import gpgme
 
 from django.template.response import TemplateResponse
 from django.shortcuts import redirect
 from django.views.decorators.http import require_POST
+from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
+from django.http import (HttpResponse, HttpResponseNotFound,
+        HttpResponseBadRequest)
 
 from mafiasi.pks.forms import ImportForm
 from mafiasi.pks.models import AssignedKey
@@ -50,3 +56,99 @@ def all_keys(request):
 
 def graph(request):
     return TemplateResponse(request, 'pks/graph.html')
+
+@csrf_exempt
+def hkp_add_key(request):
+    try:
+        keytext = request.POST['keytext']
+    except KeyError:
+        return HttpResponseBadRequest("Missing keytext parameter.")
+    
+    ctx = gpgme.Context()
+    result = ctx._import(StringIO(keytext.encode('utf-8')))
+
+    return HttpResponse('OK. {0} keys imported.'.format(result.imported),
+                        mimetype='text/plain')
+
+def hkp_lookup(request):
+    op = request.GET.get('op', '')
+    options = request.GET.get('options', None)
+    search = request.GET.get('search', '')
+    
+    if op not in ('get', 'index'):
+        return HttpResponse('Operation not implemented.',
+                            status=501,
+                            mimetype='text/plain')
+
+    if not search:
+        return HttpResponseBadRequest('Please provide a search term.',
+                                      mimetype='text/plain')
+
+    if op == 'get':
+        return _hkp_op_get(search, options)
+    elif op == 'index':
+        return _hkp_op_index(search, options)
+        
+
+def _hkp_op_get(search, options):
+    ctx = gpgme.Context()
+    ctx.armor = True
+    
+    resp = HttpResponse(mimetype='text/plain')
+    ctx.export(search.encode('utf-8'), resp)
+    
+    if not resp.content:
+        return HttpResponseNotFound('No such key: ' + search,
+                                    mimetype='text/plain')
+    return resp
+
+def _hkp_op_index(search, options):
+    ctx = gpgme.Context()
+    ctx.keylist_mode = gpgme.KEYLIST_MODE_SIGS
+    key_list = list(ctx.keylist(search.encode('utf-8')))
+
+    return _hkp_op_index_mr(key_list)
+
+def _hkp_op_index_mr(key_list):
+    resp = HttpResponse(mimetype='text/plain')
+    resp.write('info:1:{0}\n'.format(len(key_list)))
+    
+    key_tpl = 'pub:{keyid}:{algo}:{keylen}:{created}:{expires}:{flags}\n'
+    uid_tpl = 'uid:{uid}:{created}:{expires}:{flags}\n'
+    for key in key_list:
+        try:
+            subkey = key.subkeys[0]
+        except IndexError:
+            continue
+        resp.write(key_tpl.format(keyid=subkey.fpr,
+                                  algo=subkey.pubkey_algo,
+                                  keylen=subkey.length,
+                                  created=subkey.timestamp,
+                                  expires=subkey.expires,
+                                  flags=_format_flags(subkey)))
+
+        for uid in key.uids:
+            comment = u'({0}) '.format(uid.comment) if uid.comment else ''
+            uid_str = u'{0} {1}<{2}>'.format(uid.name, comment, uid.email)
+            uid_str = quote(uid_str.encode('utf-8'), '<>@()/ ')
+            created = _get_uid_created(uid, subkey.keyid)
+            # The standard allows to leave out expirydate
+            resp.write(uid_tpl.format(uid=uid_str, created=created, expires='',
+                                      flags='r' if uid.revoked else ''))
+    return resp
+
+def _format_flags(subkey):
+    if subkey.revoked and subkey.expired:
+        return 're'
+    elif subkey.revoked:
+        return 'r'
+    elif subkey.expired:
+        return 'e'
+    else:
+        return ''
+
+def _get_uid_created(uid, own_keyid):
+    selfsigs = [sig for sig in uid.signatures if sig.keyid == own_keyid]
+    if not selfsigs:
+        return ''
+    return min(sig.timestamp for sig in selfsigs)
