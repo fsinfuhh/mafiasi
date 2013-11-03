@@ -2,9 +2,9 @@
 {% load i18n %}
 {% load widget_tweaks %}
 
-{% block content %}
+{% block wtitle %}{% block ptitle %}{% trans "Registration" %}{% endblock %}{% endblock %}
 
-<h2>{% trans "Registration" %}</h2>
+{% block content %}
 <p>{% trans "Please enter your Informatics email address into the following field. Afterwards you will receive an email with further instructions." %}</p>
 <form method="post" action="" class="form-inline">
     {% csrf_token %}

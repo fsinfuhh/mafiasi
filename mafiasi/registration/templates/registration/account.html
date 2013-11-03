@@ -2,9 +2,9 @@
 {% load i18n %}
 {% load widget_tweaks %}
 
-{% block content %}
-<h2>{% trans "Account" %}</h2>
+{% block wtitle %}{% block ptitle %}{% trans "Account" %}{% endblock %}{% endblock %}
 
+{% block content %}
 <h3>{% trans "Change password" %}</h3>
 <p>{% trans 'Note: You can "change" your password to the current password to synchronize it with other services (e.g. Jabber)' %}</p>
 <form method="post">

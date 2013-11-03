@@ -2,9 +2,11 @@
 {% load i18n %}
 {% load widget_tweaks %}
 
+{% block wtitle %}{% trans "Registration" %}{% endblock %}
+{% block ptitle %}{% trans "Sorry, but we don't know you yet :-(" %}{% endblock %}
+
 {% block content %}
 <div class="row">
-    <h2>{% trans "Sorry, but we don't know you yet :-(" %}</h2>
             <p>{% trans "Please provide us some more information." %}</p>
         <div class="col-md-4">
             <form method="post">

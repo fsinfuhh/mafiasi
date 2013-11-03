@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 {% load i18n %}
 
+{% block wtitle %}{% block ptitle %}{% trans "Request successful" %}{% endblock %}{% endblock %}
+
 {% block content %}
-<h2>{% trans "Request successful" %}</h2>
 
 <p>{% blocktrans %}You should have received a link via email (to <strong>{{ email }}</strong>) now, which you can use to create your account.{% endblocktrans %}</p>
 
