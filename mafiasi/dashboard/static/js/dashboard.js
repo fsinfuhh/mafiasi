@@ -1,4 +1,5 @@
 $(function() {
+    $('#dashboard .service').equalizeHeights();
     $('#wiki_search').autocomplete({
         'source': function(req, resp_function) {
             console.log(req);
