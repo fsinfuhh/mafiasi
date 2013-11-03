@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-03 18:17+0100\n"
-"PO-Revision-Date: 2013-11-03 18:22+0100\n"
+"PO-Revision-Date: 2013-11-03 22:06+0100\n"
 "Last-Translator: Henning Pridöhl <8pridoeh@informatik.uni-hamburg.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -508,7 +508,7 @@ msgstr "Nie."
 
 #: mafiasi/pks/templatetags/pks.py:22
 msgid "Expired at {0}"
-msgstr "Läuft ab am: {0}"
+msgstr "Abgelaufen am: {0}"
 
 #: mafiasi/registration/forms.py:15
 msgid "Invalid account name"
