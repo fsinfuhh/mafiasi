@@ -95,7 +95,7 @@ def hkp_add_key(request):
         return HttpResponseBadRequest("Missing keytext parameter.")
     
     ctx = gpgme.Context()
-    result = ctx._import(StringIO(keytext.encode('utf-8')))
+    result = ctx.import_(StringIO(keytext.encode('utf-8')))
 
     return HttpResponse('OK. {0} keys imported.'.format(result.imported),
                         mimetype='text/plain')
