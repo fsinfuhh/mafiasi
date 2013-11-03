@@ -1,9 +1,8 @@
 {% extends "base.html" %}
 
+{% block wtitle %}{% block ptitle %}{{ news.title }}{% endblock %}{% endblock %}
 
 {% block content %}
-<h2>{{ news.title }}</h2>
-
 {% if not news.published %}
 <div class="alert alert-info">Diese Neuigkeit wurde noch nicht veröffentlicht.</div>
 {% endif %}
