@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-03 03:32+0100\n"
-"PO-Revision-Date: 2013-11-03 03:50+0100\n"
+"PO-Revision-Date: 2013-11-03 04:14+0100\n"
 "Last-Translator: Henning Pridöhl <8pridoeh@informatik.uni-hamburg.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -419,7 +419,7 @@ msgstr "Erstellt am"
 
 #: mafiasi/pks/templates/pks/keylist.html:12
 msgid "Expires"
-msgstr "gAuslaufsdatum"
+msgstr "Ablauf am"
 
 #: mafiasi/pks/templates/pks/keylist.html:13
 msgid "User identities"
