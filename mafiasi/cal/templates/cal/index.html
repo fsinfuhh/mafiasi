@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 {% load i18n %}
 
+{% block wtitle %}{% block ptitle %}{% trans "Calendar" %}{% endblock %}{% endblock %}
+
 {% block content %}
-<h2>{% trans "Calendar" %}</h2>
 <p>{% trans "The web interface is read-only. Use CalDAV with your favorite calendar software to add events." %}</p>
 
 {% if shown_calendars %}
