@@ -29,3 +29,7 @@
         }
     });
 })();
+
+$(function() {
+    $('span.at-sign').replaceWith('@');
+});
