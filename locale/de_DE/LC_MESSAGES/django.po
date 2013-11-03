@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-03 17:29+0100\n"
-"PO-Revision-Date: 2013-11-03 17:32+0100\n"
+"POT-Creation-Date: 2013-11-03 17:55+0100\n"
+"PO-Revision-Date: 2013-11-03 17:57+0100\n"
 "Last-Translator: Henning Pridöhl <8pridoeh@informatik.uni-hamburg.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -16,6 +16,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: mafiasi/base/templates/500.html:4
+msgid "Internal server error"
+msgstr "Interner Serverfehler"
+
+#: mafiasi/base/templates/500.html:8
+#, python-format
+msgid "We're sorry, but we didn't expect this to happen. Our error reporting tool should have sent an email to us with some technical details. Please try again later. If the problem persists, see our <a href=\"%(problems_url)s\">problem reporting page</a>."
+msgstr "Tut uns leid, dies haben wir nicht erwartet. Wir sollten bereits eine automatisierte E-Mail mit technischen Details des Fehlers bekommen haben. Bitte versuche es später nochmal. Falls das Problem bestehen bleibt, schaue auf unsere <a href=\"%(problems_url)s\">Fehlermeldeseite</a>."
 
 #: mafiasi/base/templates/base.html:6
 msgid "Mafiasi"
