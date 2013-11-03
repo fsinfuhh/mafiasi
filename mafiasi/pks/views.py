@@ -16,7 +16,7 @@ from mafiasi.pks.forms import ImportForm
 from mafiasi.pks.models import AssignedKey
 
 def index(request):
-    return redirect('pks_graph')
+    return redirect('pks_search')
 
 @login_required
 def my_keys(request):
