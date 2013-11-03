@@ -35,15 +35,20 @@ $(function() {
     }
     graphscroll.scroll(handleGraphscroll);
 
-    graphselectorWidth = 0.20 * graphthumb.width();
-    graphselectorHeight = graph.height() / graph.width() * graphselectorWidth;
+    function handleGraphthumbAction(posX, posY) {
+        var maxScrollLeft = graphscroll[0].scrollWidth - graphscroll[0].clientWidth;
+        var maxScrollTop = graphscroll[0].scrollHeight - graphscroll[0].clientHeight;
+        var percLeft = posX / (graphthumb.width() - graphselector.width());
+        var percTop = posY / (graphthumb.height() - graphselector.height());
+        graphscroll.scrollLeft(percLeft * maxScrollLeft);
+        graphscroll.scrollTop(percTop * maxScrollTop);
+    }
+    graphselectorWidth = graphthumb.width() / (graph.width() / graphscroll.innerWidth());
+    graphselectorHeight = graphthumb.height() / (graph.height() / graphscroll.innerHeight());
     graphselector.draggable({
         "containment": "parent",
         "drag": function(ev, ui) {
-            var percLeft = ui.position.left / graphthumb.width();
-            var percTop = ui.position.top / graphthumb.height();
-            graphscroll.scrollLeft(percLeft * graph.width());
-            graphscroll.scrollTop(percTop * graph.height());
+            handleGraphthumbAction(ui.position.left, ui.position.top);
         },
         "start": function(ev, ui) {
             graphscroll.unbind("scroll");
