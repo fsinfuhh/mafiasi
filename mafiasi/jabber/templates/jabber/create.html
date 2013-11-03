@@ -2,8 +2,9 @@
 {% load i18n %}
 {% load widget_tweaks %}
 
+{% block wtitle %}{% block ptitle %}{% trans "Create Jabber account" %}{% endblock %}{% endblock %}
+
 {% block content %}
-<h2>{% trans "Create Jabber account" %}</h2>
 <p>{% trans "To create your Jabber account you have to enter your current password:" %}</p>
 <form method="post">
     {% csrf_token %}

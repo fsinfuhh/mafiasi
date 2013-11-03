@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% load i18n %}
 
-{% block content %}
-<h2>Jabber</h2>
+{% block wtitle %}{% block ptitle %}{% trans "Jabber" %}{% endblock %}{% endblock %}
 
+{% block content %}
 {% if jabber_user %}
 <div class="alert alert-info">
 {% if user.username != jabber_user.username %}
