@@ -63,7 +63,7 @@ def graph(request):
 
 def show_key(request, keyid, raw=False):
     if raw:
-        return _hkp_op_get(keyid, None)
+        return _hkp_op_get(request, keyid, None)
 
     ctx = gpgme.Context()
     ctx.armor = True
