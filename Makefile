@@ -12,7 +12,7 @@ js: ${base_static}js/jquery-2.0.3.min.js ${base_static}js/jquery-ui-1.10.3.custo
 locales: locale/de_DE/LC_MESSAGES/django.mo locale/en_US/LC_MESSAGES/django.mo
 
 static: css js
-	./manage.py collectstatic
+	./manage.py collectstatic --noinput
 
 %.min.css: %.css
 	yui-compressor -o $@ --type css --charset utf-8 $<
