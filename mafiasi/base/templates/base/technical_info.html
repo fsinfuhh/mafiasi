@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% load i18n %}
 
-{% block content %}
-<h2>{% trans "Technical Info" %}</h2>
+{% block wtitle %}{% block ptitle %}{% trans "Technical Info" %}{% endblock %}{% endblock %}
 
+{% block content %}
 {% blocktrans %}<p>This site uses the following software/components:</p>
 <ul>
     <li><a href="http://python.org/">Python</a></li>
