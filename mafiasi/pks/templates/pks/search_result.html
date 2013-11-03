@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+{% include "pks/menu.html" with tab="search" %}
+<h2>{% blocktrans %}Search result for "{{ search_term }}"{% endblocktrans %}</h2>
+{% include "pks/search_form.html" with search_term=search_term %}
+<div style="padding: 10px 0 10px 0">
+{% include "pks/keylist.html" with keys=key_list %}
+</div>
+
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ STATIC_URL }}css/pks.min.css">
+{% endblock %}

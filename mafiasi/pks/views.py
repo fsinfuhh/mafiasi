@@ -10,6 +10,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 from django.http import (HttpResponse, HttpResponseNotFound,
         HttpResponseBadRequest)
+from django.conf import settings
 
 from mafiasi.pks.forms import ImportForm
 from mafiasi.pks.models import AssignedKey
@@ -81,6 +82,11 @@ def show_key(request, keyid, raw=False):
         'keydata': keydata.getvalue()
     })
 
+def search(request):
+    return TemplateResponse(request, 'pks/search.html', {
+        'hkp_url': settings.HKP_URL
+    })
+
 @csrf_exempt
 def hkp_add_key(request):
     try:
@@ -109,12 +115,12 @@ def hkp_lookup(request):
                                       mimetype='text/plain')
 
     if op == 'get':
-        return _hkp_op_get(search, options)
+        return _hkp_op_get(request, search, options)
     elif op == 'index':
-        return _hkp_op_index(search, options)
+        return _hkp_op_index(request, search, options)
         
 
-def _hkp_op_get(search, options):
+def _hkp_op_get(request, search, options):
     ctx = gpgme.Context()
     ctx.armor = True
     
@@ -126,12 +132,21 @@ def _hkp_op_get(search, options):
                                     mimetype='text/plain')
     return resp
 
-def _hkp_op_index(search, options):
+def _hkp_op_index(request, search, options):
     ctx = gpgme.Context()
     ctx.keylist_mode = gpgme.KEYLIST_MODE_SIGS
     key_list = list(ctx.keylist(search.encode('utf-8')))
+    
+    if options == 'mr':
+        return _hkp_op_index_mr(key_list)
+    else:
+        return TemplateResponse(request, 'pks/search_result.html', {
+            'search_term': search,
+            'key_list': key_list
+        })
 
-    return _hkp_op_index_mr(key_list)
+def _hkp_op_index_human(key_list):
+    return 
 
 def _hkp_op_index_mr(key_list):
     resp = HttpResponse(mimetype='text/plain')

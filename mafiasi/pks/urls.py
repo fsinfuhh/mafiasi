@@ -10,6 +10,7 @@ urlpatterns = patterns('mafiasi.pks.views',
     url(r'^key/([A-Fa-f0-9]{16})$', 'show_key', name='pks_show_key'),
     url(r'^key/([A-Fa-f0-9]{16}).asc$', 'show_key', {'raw': True},
             name='pks_show_key_raw'),
+    url(r'^search$', 'search', name='pks_search'),
     url(r'^add$', 'hkp_add_key', name='pks_hkp_add'),
     url(r'^lookup$', 'hkp_lookup', name='pks_hkp_lookup'),
 )

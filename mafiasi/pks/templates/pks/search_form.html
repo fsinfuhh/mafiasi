@@ -1,0 +1,10 @@
+{% load i18n %}
+<form method="get" action="{% url 'pks_hkp_lookup' %}">
+    <input type="hidden" name="op" value="index" />
+    <div class="input-group">
+        <input type="text" class="form-control" name="search" value="{{ search_term }}">
+        <span class="input-group-btn">
+            <button class="btn btn-primary" name="go">{% trans "Search" %}</button>
+        </span>
+    </div>
+</form>

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+{% include "pks/menu.html" with tab="search" %}
+
+<h2>{% trans "Search" %}</h2>
+{% include "pks/search_form.html" %}
+
+<h3>HKP</h3>
+<p>{% trans "You can also search using the HKP interface:" %}</p>
+<code>gpg --keyserver {{ hkp_url }} --search-keys '{% trans "search term" %}'</code>
+
+{% endblock %}
