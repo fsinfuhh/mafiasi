@@ -1,8 +1,14 @@
 {% extends "base.html" %}
 {% load i18n %}
 
-{% block content %}
+{% block wtitle %}{% trans "Trust graph" %}{% endblock wtitle %}
+{% block heading %}{% endblock %}
+
+{% block submenu %}
 {% include "pks/menu.html" with tab='graph' %}
+{% endblock %}
+
+{% block content %}
 <p>{% trans "You can drag the blue selector at the upper left to scroll. Click on a node to highlight its connections." %}</p>
 {% endblock content %}
 

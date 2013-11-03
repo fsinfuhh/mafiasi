@@ -1,10 +1,14 @@
 {% extends "base.html" %}
 {% load i18n %}
 
-{% block content %}
-{% include "pks/menu.html" with tab="search" %}
+{% block wtitle %}{% trans "Key search" %}{% endblock %}
+{% block ptitle %}{% trans "Search" %}{% endblock %}
 
-<h2>{% trans "Search" %}</h2>
+{% block submenu %}
+{% include "pks/menu.html" with tab="search" %}
+{% endblock %}
+
+{% block content %}
 {% include "pks/search_form.html" %}
 
 <h3>HKP</h3>

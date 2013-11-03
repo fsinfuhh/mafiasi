@@ -1,9 +1,13 @@
 {% extends "pks/base.html" %}
 {% load i18n %}
 
-{% block content %}
+{% block wtitle %}{% block ptitle %}{% trans "My keys" %}{% endblock %}{% endblock %}
+
+{% block submenu %}
 {% include "pks/menu.html" with tab='my_keys' %}
-<h2>{% trans "My keys" %}</h2>
+{% endblock %}
+
+{% block content %}
 {% if keys %}
 <form method="post" action="{% url 'pks_unassign_keys' %}">
 {% csrf_token %}
