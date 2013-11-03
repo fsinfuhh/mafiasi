@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+{% include "pks/menu.html" %}
+<h2>{% blocktrans %}Key details for 0x{{ keyid }}{% endblocktrans %}</h2>
+
+<p><a href="{% url 'pks_show_key_raw' keyid %}">Show raw data</a></p>
+<pre style="display:table-cell">
+{{ keydata }}
+</pre>
+{% endblock content %}
