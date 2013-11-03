@@ -1,9 +1,12 @@
 from django.template.response import TemplateResponse
-from django.shortcuts import redirect
+from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
 
 def index(request):
+    config = {
+        'label': _('Student association'),
+    }
+    config.update(settings.MUMBLE_SERVER)
     return TemplateResponse(request, 'mumble/index.html', {
-        'mumble_domain': settings.MUMBLE_DOMAIN,
-        'cert_fingerprint': settings.MUMBLE_CERT_FINGERPRINT
+        'config': config,
     })

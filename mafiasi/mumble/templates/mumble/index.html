@@ -4,7 +4,25 @@
 {% block wtitle %}{% block ptitle %}{% trans "Mumble" %}{% endblock %}{% endblock %}
 
 {% block content %}
-<div class="alert alert-danger">
-{% blocktrans %}<strong>Sorry</strong>, but Mumble registration is not implemented yet.{% endblocktrans %}
+<p>{% trans "Configure mumble as shown in the following image. Your password in Mumble is the same as used here." %}</p>
+
+<div id="mumble-config-img">
+	<div id="mumble-config-label">{{ config.label }}</div>
+	<div id="mumble-config-address">{{ config.address }}</div>
+	<div id="mumble-config-port">{{ config.port }}</div>
+	<div id="mumble-config-username">
+	{% if user.is_authenticated %}
+	{{ user.username }}
+	{% else %}
+	<i>Your username</i>
+	{% endif %}
+	</div>
 </div>
+
+<p>{% trans "The fingerprint of the current SSL certificate is:" %}<br />
+<span style="white-space:pre;font-family:monospace;">{{ config.fingerprint }}</span></p>
 {% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ STATIC_URL }}css/mumble.min.css">
+{% endblock css %}

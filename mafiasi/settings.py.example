@@ -156,8 +156,11 @@ AUTH_USER_MODEL = 'base.Mafiasi'
 EMAIL_DOMAIN = u'informatik.uni-hamburg.de'
 JABBER_DOMAIN = u'jabber.mafiasi.de'
 JABBER_CERT_FINGERPRINT = u'04:A9:9C:D7:D8:CB:27:01:F7:29:D4:57:53:A2:B8:AA:6C:71:36:BB'
-MUMBLE_DOMAIN = u'mumble.mafiasi.de'
-MUMBLE_CERT_FINGERPRINT = u'EA:51:49:D1:91:63:89:E7:78:29:C9:52:C9:85:C6:8D:AD:C4:2A:3D'
+MUMBLE_SERVER = {
+    'address': u'mumble.mafiasi.de',
+    'port': 64738,
+    'fingerprint': u'EA:51:49:D1:91:63:89:E7:78:29:C9:52:C9:85:C6:8D:AD:C4:2A:3D'
+}
 LOGIN_URL = '/login'
 LOGIN_REDIRECT_URL = '/dashboard/'
 DATABASE_ROUTERS = ['mafiasi.jabber.dbrouter.JabberRouter', 'ldapdb.router.Router']
