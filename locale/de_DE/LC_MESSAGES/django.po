@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-03 15:29+0100\n"
-"PO-Revision-Date: 2013-11-03 15:30+0100\n"
+"POT-Creation-Date: 2013-11-03 17:29+0100\n"
+"PO-Revision-Date: 2013-11-03 17:32+0100\n"
 "Last-Translator: Henning Pridöhl <8pridoeh@informatik.uni-hamburg.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -18,6 +18,9 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: mafiasi/base/templates/base.html:6
+msgid "Mafiasi"
+msgstr "Mafiasi"
+
 #: mafiasi/base/templates/base.html:19
 msgid "Mafiasi Hub"
 msgstr "Mafiasi Hub"
@@ -36,19 +39,20 @@ msgid "Register"
 msgstr "Registrierung"
 
 #: mafiasi/base/templates/base.html:29
-#: mafiasi/registration/templates/registration/login.html:41
+#: mafiasi/registration/templates/registration/login.html:5
+#: mafiasi/registration/templates/registration/login.html:42
 msgid "Login"
 msgstr "Login"
 
-#: mafiasi/base/templates/base.html:52
+#: mafiasi/base/templates/base.html:57
 msgid "Imprint"
 msgstr "Impressum"
 
-#: mafiasi/base/templates/base.html:54
+#: mafiasi/base/templates/base.html:59
 msgid "Technical info"
 msgstr "Technik"
 
-#: mafiasi/base/templates/base.html:56
+#: mafiasi/base/templates/base.html:61
 #: mafiasi/base/templates/base/problems.html:5
 msgid "Problems?"
 msgstr "Probleme?"
@@ -91,7 +95,7 @@ msgstr ""
 "</ul>\n"
 
 #: mafiasi/cal/models.py:15
-#: mafiasi/cal/templates/cal/index.html:5
+#: mafiasi/cal/templates/cal/index.html:4
 msgid "Calendar"
 msgstr "Kalender"
 
@@ -99,234 +103,238 @@ msgstr "Kalender"
 msgid "Contact list"
 msgstr "Kontaktliste"
 
-#: mafiasi/cal/templates/cal/index.html:6
+#: mafiasi/cal/templates/cal/index.html:7
 msgid "The web interface is read-only. Use CalDAV with your favorite calendar software to add events."
 msgstr "Das Webinterface erlaubt nur Lesezugriff. Benutze CalDAV mit deiner bevorzugten Kalendersoftware um Termine hinzuzufügen."
 
-#: mafiasi/cal/templates/cal/index.html:54
+#: mafiasi/cal/templates/cal/index.html:55
 msgid "January"
 msgstr "Januar"
 
-#: mafiasi/cal/templates/cal/index.html:55
+#: mafiasi/cal/templates/cal/index.html:56
 msgid "February"
 msgstr "Februar"
 
-#: mafiasi/cal/templates/cal/index.html:56
+#: mafiasi/cal/templates/cal/index.html:57
 msgid "March"
 msgstr "März"
 
-#: mafiasi/cal/templates/cal/index.html:57
+#: mafiasi/cal/templates/cal/index.html:58
 msgid "April"
 msgstr "April"
 
-#: mafiasi/cal/templates/cal/index.html:58
-#: mafiasi/cal/templates/cal/index.html:72
+#: mafiasi/cal/templates/cal/index.html:59
+#: mafiasi/cal/templates/cal/index.html:73
 msgid "May"
 msgstr "Mai"
 
-#: mafiasi/cal/templates/cal/index.html:59
+#: mafiasi/cal/templates/cal/index.html:60
 msgid "June"
 msgstr "Juni"
 
-#: mafiasi/cal/templates/cal/index.html:60
+#: mafiasi/cal/templates/cal/index.html:61
 msgid "July"
 msgstr "July"
 
-#: mafiasi/cal/templates/cal/index.html:61
+#: mafiasi/cal/templates/cal/index.html:62
 msgid "August"
 msgstr "August"
 
-#: mafiasi/cal/templates/cal/index.html:62
+#: mafiasi/cal/templates/cal/index.html:63
 msgid "September"
 msgstr "September"
 
-#: mafiasi/cal/templates/cal/index.html:63
+#: mafiasi/cal/templates/cal/index.html:64
 msgid "October"
 msgstr "Oktober"
 
-#: mafiasi/cal/templates/cal/index.html:64
+#: mafiasi/cal/templates/cal/index.html:65
 msgid "November"
 msgstr "November"
 
-#: mafiasi/cal/templates/cal/index.html:65
+#: mafiasi/cal/templates/cal/index.html:66
 msgid "December"
 msgstr "Dezember"
 
-#: mafiasi/cal/templates/cal/index.html:68
+#: mafiasi/cal/templates/cal/index.html:69
 msgid "Jan"
 msgstr "Jan."
 
-#: mafiasi/cal/templates/cal/index.html:69
+#: mafiasi/cal/templates/cal/index.html:70
 msgid "Feb"
 msgstr "Feb."
 
-#: mafiasi/cal/templates/cal/index.html:70
+#: mafiasi/cal/templates/cal/index.html:71
 msgid "Mar"
 msgstr "März"
 
-#: mafiasi/cal/templates/cal/index.html:71
+#: mafiasi/cal/templates/cal/index.html:72
 msgid "Apr"
 msgstr "Apr."
 
-#: mafiasi/cal/templates/cal/index.html:73
+#: mafiasi/cal/templates/cal/index.html:74
 msgid "Jun"
 msgstr "Juni"
 
-#: mafiasi/cal/templates/cal/index.html:74
+#: mafiasi/cal/templates/cal/index.html:75
 msgid "Jul"
 msgstr "July"
 
-#: mafiasi/cal/templates/cal/index.html:75
+#: mafiasi/cal/templates/cal/index.html:76
 msgid "Aug"
 msgstr "Aug."
 
-#: mafiasi/cal/templates/cal/index.html:76
+#: mafiasi/cal/templates/cal/index.html:77
 msgid "Sep"
 msgstr "Sep."
 
-#: mafiasi/cal/templates/cal/index.html:77
+#: mafiasi/cal/templates/cal/index.html:78
 msgid "Oct"
 msgstr "Okt."
 
-#: mafiasi/cal/templates/cal/index.html:78
+#: mafiasi/cal/templates/cal/index.html:79
 msgid "Nov"
 msgstr "Nov."
 
-#: mafiasi/cal/templates/cal/index.html:79
+#: mafiasi/cal/templates/cal/index.html:80
 msgid "Dec"
 msgstr "Dez."
 
-#: mafiasi/cal/templates/cal/index.html:82
+#: mafiasi/cal/templates/cal/index.html:83
 msgid "Sunday"
 msgstr "Sonntag"
 
-#: mafiasi/cal/templates/cal/index.html:83
+#: mafiasi/cal/templates/cal/index.html:84
 msgid "Monday"
 msgstr "Montag"
 
-#: mafiasi/cal/templates/cal/index.html:84
+#: mafiasi/cal/templates/cal/index.html:85
 msgid "Tuesday"
 msgstr "Dienstag"
 
-#: mafiasi/cal/templates/cal/index.html:85
+#: mafiasi/cal/templates/cal/index.html:86
 msgid "Wednesday"
 msgstr "Mittwoch"
 
-#: mafiasi/cal/templates/cal/index.html:86
+#: mafiasi/cal/templates/cal/index.html:87
 msgid "Thursday"
 msgstr "Donnerstag"
 
-#: mafiasi/cal/templates/cal/index.html:87
+#: mafiasi/cal/templates/cal/index.html:88
 msgid "Friday"
 msgstr "Freitag"
 
-#: mafiasi/cal/templates/cal/index.html:88
+#: mafiasi/cal/templates/cal/index.html:89
 msgid "Saturday"
 msgstr "Samstag"
 
-#: mafiasi/cal/templates/cal/index.html:91
+#: mafiasi/cal/templates/cal/index.html:92
 msgid "Sun"
 msgstr "So."
 
-#: mafiasi/cal/templates/cal/index.html:92
+#: mafiasi/cal/templates/cal/index.html:93
 msgid "Mon"
 msgstr "Mo."
 
-#: mafiasi/cal/templates/cal/index.html:93
+#: mafiasi/cal/templates/cal/index.html:94
 msgid "Tue"
 msgstr "Di."
 
-#: mafiasi/cal/templates/cal/index.html:94
+#: mafiasi/cal/templates/cal/index.html:95
 msgid "Wed"
 msgstr "Mi."
 
-#: mafiasi/cal/templates/cal/index.html:95
+#: mafiasi/cal/templates/cal/index.html:96
 msgid "Thu"
 msgstr "Do."
 
-#: mafiasi/cal/templates/cal/index.html:96
+#: mafiasi/cal/templates/cal/index.html:97
 msgid "Fri"
 msgstr "Fr."
 
-#: mafiasi/cal/templates/cal/index.html:97
+#: mafiasi/cal/templates/cal/index.html:98
 msgid "Sat"
 msgstr "Sa."
 
-#: mafiasi/cal/templates/cal/index.html:106
+#: mafiasi/cal/templates/cal/index.html:107
 msgid "month"
 msgstr "Monat"
 
-#: mafiasi/cal/templates/cal/index.html:107
+#: mafiasi/cal/templates/cal/index.html:108
 msgid "week"
 msgstr "Woche"
 
-#: mafiasi/cal/templates/cal/index.html:108
+#: mafiasi/cal/templates/cal/index.html:109
 msgid "day"
 msgstr "Tag"
 
-#: mafiasi/cal/templates/cal/index.html:109
+#: mafiasi/cal/templates/cal/index.html:110
 msgid "today"
 msgstr "heute"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:7
+#: mafiasi/dashboard/templates/dashboard/index.html:4
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: mafiasi/dashboard/templates/dashboard/index.html:11
 msgid "Services"
 msgstr "Dienste"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:16
+#: mafiasi/dashboard/templates/dashboard/index.html:20
 msgid "In the wiki you will find important information regarding your studies."
 msgstr "Im Wiki findest du wichtige Informationen zum Studium. Beteiligen erwünscht!"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:28
+#: mafiasi/dashboard/templates/dashboard/index.html:32
 msgid "You can use the Etherpad to work together on a document in real time."
 msgstr "Das Etherpad erlaubt es dir, mit anderen gemeinsam in Echtzeit an einem Dokument zu arbeiten."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:40
+#: mafiasi/dashboard/templates/dashboard/index.html:44
 msgid "The Dudle helps you to find common dates for meetings easily."
 msgstr "Mit dem Dudle kannst du einfach gemeinsame Termine mit anderen finden."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:52
+#: mafiasi/dashboard/templates/dashboard/index.html:56
 msgid "On our Jabber server you can chat with your fellow students, which are already on your contact list."
 msgstr "Auf unserem Jabber-Server hast du deine Kommilitonen automatisch in der Kontaktliste und kannst mit ihnen chatten."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:64
+#: mafiasi/dashboard/templates/dashboard/index.html:68
 msgid "You can use our mumble for voice chat with other fellow students."
 msgstr "Unser Mumble-Server erlaubt es dir mit anderen Sprachkonferenzen zu führen."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:76
+#: mafiasi/dashboard/templates/dashboard/index.html:80
 msgid "The GProt contains memory minutes of oral and written exams."
 msgstr "Im GProt findest du Gedächtnisprotokolle von Klausuren und mündlichen Prüfungen."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:88
+#: mafiasi/dashboard/templates/dashboard/index.html:92
 msgid "Planet is a feed aggregator which collects blog entries from your fellow students."
 msgstr "Der Planet ist ein Feed-Aggregator, der Blogeinträge von aktiven und ehemaligen Mafiasi sammelt."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:100
+#: mafiasi/dashboard/templates/dashboard/index.html:104
 msgid "FB18 is our bulletin board, where you can ask about other students experiences. "
 msgstr "FB18 ist unser Forum, wo du zum Beispiel andere Studenten nach ihren Erfahrungen fragen kannst."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:112
+#: mafiasi/dashboard/templates/dashboard/index.html:116
 msgid "Redmine is a project management software. You can create tasks and assign them to people."
 msgstr "Redmine ist eine Software zum Verwalten von Projekten. Du kannst Aufgaben erstellen und zuweisen."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:124
+#: mafiasi/dashboard/templates/dashboard/index.html:128
 msgid "You can find your fellow students' OpenPGP keys on our public keyserver."
 msgstr "Auf unserem Public Keyserver kannst du die OpenPGP-Schlüssel deiner Kommilitonen finden."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:137
+#: mafiasi/dashboard/templates/dashboard/index.html:141
 msgid "Here you can change your password here and configure your account."
 msgstr "Hier kannst du dein Passwort ändern und andere Einstellungen vornehmen."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:146
+#: mafiasi/dashboard/templates/dashboard/index.html:150
 msgid "News and more"
 msgstr "Aktuelles und mehr"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:162
+#: mafiasi/dashboard/templates/dashboard/index.html:166
 msgid "Wiki search"
 msgstr "Wiki-Suche"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:169
+#: mafiasi/dashboard/templates/dashboard/index.html:173
 #: mafiasi/pks/templates/pks/menu.html:4
-#: mafiasi/pks/templates/pks/search.html:7
+#: mafiasi/pks/templates/pks/search.html:5
 #: mafiasi/pks/templates/pks/search_form.html:7
 msgid "Search"
 msgstr "Suche"
@@ -343,25 +351,29 @@ msgstr "Account existiert bereits."
 msgid "Sorry, we had an internal error."
 msgstr "Tut uns leid, es gab einen internen Fehler."
 
-#: mafiasi/jabber/templates/jabber/create.html:6
+#: mafiasi/jabber/templates/jabber/create.html:5
 msgid "Create Jabber account"
 msgstr "Jabber-Account erstellen"
 
-#: mafiasi/jabber/templates/jabber/create.html:7
+#: mafiasi/jabber/templates/jabber/create.html:8
 msgid "To create your Jabber account you have to enter your current password:"
 msgstr "Um deinen Jabber-Account zu erstellen, musst du dein aktuelles Passwort eingeben:"
 
-#: mafiasi/jabber/templates/jabber/create.html:11
+#: mafiasi/jabber/templates/jabber/create.html:12
 #: mafiasi/registration/forms.py:38
 #: mafiasi/registration/forms.py:64
-#: mafiasi/registration/templates/registration/create_account.html:16
-#: mafiasi/registration/templates/registration/login.html:31
+#: mafiasi/registration/templates/registration/create_account.html:17
+#: mafiasi/registration/templates/registration/login.html:32
 msgid "Password"
 msgstr "Passwort"
 
-#: mafiasi/jabber/templates/jabber/create.html:20
+#: mafiasi/jabber/templates/jabber/create.html:21
 msgid "Create"
 msgstr "Erstellen"
+
+#: mafiasi/jabber/templates/jabber/index.html:4
+msgid "Jabber"
+msgstr "Jabber"
 
 #: mafiasi/jabber/templates/jabber/index.html:10
 #, python-format
@@ -389,22 +401,40 @@ msgid "<p>If you want to change your Jabber password, just change it in your <a 
 msgstr "<p>Wenn du dein Jabber-Passwort ändern möchtest, ändere einfach dein Passwort in den <a href=\"%(account_url)s\">Account-Einstellungen</a>.</p>"
 
 #: mafiasi/jabber/templates/jabber/index.html:36
+#: mafiasi/mumble/templates/mumble/index.html:22
 msgid "The fingerprint of the current SSL certificate is:"
 msgstr "Der Fingerprint des aktuellen SSL-Zertifikats lautet:"
 
+#: mafiasi/mumble/views.py:7
+msgid "Student association"
+msgstr "Fachschaft"
+
+#: mafiasi/mumble/templates/mumble/index.html:4
+msgid "Mumble"
+msgstr "Mumble"
+
 #: mafiasi/mumble/templates/mumble/index.html:7
-msgid "<strong>Sorry</strong>, but Mumble registration is not implemented yet."
-msgstr "<strong>Tut uns leid</strong>, aber die Mumble-Registrierung ist noch nicht implementiert."
+msgid "Configure mumble as shown in the following image. Your password in Mumble is the same as used here."
+msgstr "Konfigure Mumble so wie es im folgenden Bild gezeigt wird. Dein Mumble-Passwort ist das gleiche wie hier."
 
 #: mafiasi/pks/forms.py:17
 msgid "No valid OpenPGP keys."
 msgstr "Keine gültigen OpenPGP-Schlüssel."
 
-#: mafiasi/pks/templates/pks/all_keys.html:6
+#: mafiasi/pks/templates/pks/all_keys.html:4
+#: mafiasi/pks/templates/pks/menu.html:10
+msgid "All keys"
+msgstr "Alle Schlüssel"
+
+#: mafiasi/pks/templates/pks/all_keys.html:5
 msgid "All keys on the keyserver"
 msgstr "Alle Schlüssel auf dem Keyserver"
 
-#: mafiasi/pks/templates/pks/graph.html:6
+#: mafiasi/pks/templates/pks/graph.html:4
+msgid "Trust graph"
+msgstr "Vertrauensgraph"
+
+#: mafiasi/pks/templates/pks/graph.html:12
 msgid "You can drag the blue selector at the upper left to scroll. Click on a node to highlight its connections."
 msgstr "Du kannst den blauen Marker in der oberen linken Ecke verwenden um zu scrollen. Klicke auf einen Knoten, um seine Verbindungen hervorzuheben."
 
@@ -433,31 +463,31 @@ msgid "Fingerprint"
 msgstr "Fingerprint"
 
 #: mafiasi/pks/templates/pks/menu.html:7
-#: mafiasi/pks/templates/pks/my_keys.html:6
+#: mafiasi/pks/templates/pks/my_keys.html:4
 msgid "My keys"
 msgstr "Meine Schlüssel"
-
-#: mafiasi/pks/templates/pks/menu.html:10
-msgid "All keys"
-msgstr "Alle Schlüssel"
 
 #: mafiasi/pks/templates/pks/menu.html:13
 msgid "Graph"
 msgstr "Graph"
 
-#: mafiasi/pks/templates/pks/my_keys.html:11
+#: mafiasi/pks/templates/pks/my_keys.html:15
 msgid "Unassign"
 msgstr "Zuordnung aufheben"
 
-#: mafiasi/pks/templates/pks/my_keys.html:14
+#: mafiasi/pks/templates/pks/my_keys.html:18
 msgid "You have no keys assigned to you."
 msgstr "Es sind dir keine Schlüssel zugeordnet."
 
-#: mafiasi/pks/templates/pks/search.html:11
+#: mafiasi/pks/templates/pks/search.html:4
+msgid "Key search"
+msgstr "Schlüsselsuche"
+
+#: mafiasi/pks/templates/pks/search.html:15
 msgid "You can also search using the HKP interface:"
 msgstr "Du kannst auch die HKP-Schnittstelle nutzen, um nach Schlüsseln zu suchen:"
 
-#: mafiasi/pks/templates/pks/search.html:12
+#: mafiasi/pks/templates/pks/search.html:16
 msgid "search term"
 msgstr "Suchbegriff"
 
@@ -500,7 +530,7 @@ msgid "Invalid account name"
 msgstr "Ungültiger Accountname"
 
 #: mafiasi/registration/forms.py:43
-#: mafiasi/registration/templates/registration/create_account.html:25
+#: mafiasi/registration/templates/registration/create_account.html:26
 msgid "Password confirmation"
 msgstr "Passwort bestätigen"
 
@@ -524,7 +554,7 @@ msgstr "Accounterstellung für mafiasi.de"
 msgid "Account creation mail failed"
 msgstr "Accounterstellungsmail verschicken fehlgeschlagen"
 
-#: mafiasi/registration/templates/registration/account.html:6
+#: mafiasi/registration/templates/registration/account.html:5
 msgid "Account"
 msgstr "Account"
 
@@ -552,14 +582,14 @@ msgstr "Neues Passwort bestätigen"
 msgid "Change"
 msgstr "Ändern"
 
-#: mafiasi/registration/templates/registration/create_account.html:8
-#: mafiasi/registration/templates/registration/create_account.html:35
-#: mafiasi/registration/templates/registration/require_info.html:31
+#: mafiasi/registration/templates/registration/create_account.html:5
+#: mafiasi/registration/templates/registration/create_account.html:36
+#: mafiasi/registration/templates/registration/require_info.html:33
 msgid "Create account"
 msgstr "Account erstellen"
 
-#: mafiasi/registration/templates/registration/create_account.html:12
-#: mafiasi/registration/templates/registration/login.html:19
+#: mafiasi/registration/templates/registration/create_account.html:13
+#: mafiasi/registration/templates/registration/login.html:20
 msgid "Username"
 msgstr "Benutzername"
 
@@ -590,64 +620,61 @@ msgstr "E-Mail-Adresse ist ungültig"
 msgid "The mailserver said:"
 msgstr "Der Mailserver sagte:"
 
-#: mafiasi/registration/templates/registration/login.html:23
+#: mafiasi/registration/templates/registration/login.html:24
 msgid "Note: For our account names we use two digits for year (e.g. <strong>13doe</strong> instead of 3doe)"
 msgstr "Beachte: Die Benutzernamen haben zweistellige Jahreszahlen (<strong>13</strong>musterm statt 3musterm)"
 
-#: mafiasi/registration/templates/registration/login.html:44
+#: mafiasi/registration/templates/registration/login.html:45
 msgid "Did you forget your password?"
 msgstr "Passwort vergessen?"
 
 #: mafiasi/registration/templates/registration/password_reset_complete.html:4
-#: mafiasi/registration/templates/registration/password_reset_complete.html:8
 msgid "Password reset complete"
 msgstr "Passwort zurücksetzen erfolgreich"
 
-#: mafiasi/registration/templates/registration/password_reset_complete.html:10
+#: mafiasi/registration/templates/registration/password_reset_complete.html:7
 msgid "Your password has been set.  You may go ahead and log in now."
 msgstr "Dein Passwort wurde gesetzt. Du kannst dich nun damit einloggen."
 
-#: mafiasi/registration/templates/registration/password_reset_complete.html:12
+#: mafiasi/registration/templates/registration/password_reset_complete.html:9
 msgid "Log in"
 msgstr "Einloggen"
 
 #: mafiasi/registration/templates/registration/password_reset_confirm.html:5
 #: mafiasi/registration/templates/registration/password_reset_form.html:5
-#: mafiasi/registration/templates/registration/password_reset_form.html:11
 msgid "Password reset"
 msgstr "Passwort zurücksetzen"
 
-#: mafiasi/registration/templates/registration/password_reset_confirm.html:13
+#: mafiasi/registration/templates/registration/password_reset_confirm.html:14
 msgid "Enter new password"
 msgstr "Gib das neue Passwort ein"
 
-#: mafiasi/registration/templates/registration/password_reset_confirm.html:14
+#: mafiasi/registration/templates/registration/password_reset_confirm.html:15
 msgid "Please enter your new password twice so we can verify you typed it in correctly."
 msgstr "Bitte gib dein neues Passwort zweimal ein, um sicherzustellen, dass du es korrekt eingegeben hast."
 
-#: mafiasi/registration/templates/registration/password_reset_confirm.html:21
-#: mafiasi/registration/templates/registration/password_reset_confirm.html:30
+#: mafiasi/registration/templates/registration/password_reset_confirm.html:22
+#: mafiasi/registration/templates/registration/password_reset_confirm.html:31
 msgid "New password:"
 msgstr "Neues Passwort:"
 
-#: mafiasi/registration/templates/registration/password_reset_confirm.html:38
+#: mafiasi/registration/templates/registration/password_reset_confirm.html:39
 msgid "Change my password"
 msgstr "Mein Passwort ändern"
 
-#: mafiasi/registration/templates/registration/password_reset_confirm.html:45
+#: mafiasi/registration/templates/registration/password_reset_confirm.html:46
 msgid "Password reset unsuccessful"
 msgstr "Passwort konnte nicht zurückgesetzt werden"
 
-#: mafiasi/registration/templates/registration/password_reset_confirm.html:47
+#: mafiasi/registration/templates/registration/password_reset_confirm.html:48
 msgid "The password reset link was invalid, possibly because it has already been used.  Please request a new password reset."
 msgstr "Der Passwort-zurücksetzen-Link ist ungültig, vermutlich weil er bereits benutzt wurde. Bitte beantrage das Zurücksetzen des Passworts erneut."
 
 #: mafiasi/registration/templates/registration/password_reset_done.html:4
-#: mafiasi/registration/templates/registration/password_reset_done.html:8
 msgid "Password reset successful"
 msgstr "Passwort wurde zurückgesetzt"
 
-#: mafiasi/registration/templates/registration/password_reset_done.html:10
+#: mafiasi/registration/templates/registration/password_reset_done.html:7
 msgid "We've emailed you instructions for setting your password to the email address you submitted. You should be receiving it shortly."
 msgstr "Wir haben dir an deine eingetragene E-Mail-Adresse eine E-Mail mit weiteren Anweisungen geschickt. Du solltest sie in Kürze empfangen."
 
@@ -673,19 +700,20 @@ msgstr "Danke, dass du unsere Seite benutzt!"
 msgid "The %(site_name)s team"
 msgstr "Das %(site_name)s-Team"
 
-#: mafiasi/registration/templates/registration/password_reset_form.html:13
+#: mafiasi/registration/templates/registration/password_reset_form.html:10
 msgid "Forgotten your password? Enter your email address below, and we'll email instructions for setting a new one."
 msgstr "Du hast dein Passwort vergessen? Gib deine E-Mail-Adresse ein und wir schicken dir Anweisungen, wie du ein neues setzen kannst."
 
-#: mafiasi/registration/templates/registration/password_reset_form.html:20
+#: mafiasi/registration/templates/registration/password_reset_form.html:17
 msgid "Email address:"
 msgstr "E-Mail-Adresse:"
 
-#: mafiasi/registration/templates/registration/password_reset_form.html:28
+#: mafiasi/registration/templates/registration/password_reset_form.html:25
 msgid "Reset my password"
 msgstr "Mein Passwort zurücksetzen"
 
-#: mafiasi/registration/templates/registration/request_account.html:7
+#: mafiasi/registration/templates/registration/request_account.html:5
+#: mafiasi/registration/templates/registration/require_info.html:5
 msgid "Registration"
 msgstr "Registrierung"
 
@@ -697,54 +725,60 @@ msgstr "Bitte gib deine Informatik-E-Mail-Adresse in das folgende Feld ein. Du b
 msgid "Request account"
 msgstr "Account beantragen"
 
-#: mafiasi/registration/templates/registration/request_successful.html:5
+#: mafiasi/registration/templates/registration/request_successful.html:4
 msgid "Request successful"
 msgstr "Antrag erfolgreich"
 
-#: mafiasi/registration/templates/registration/request_successful.html:7
+#: mafiasi/registration/templates/registration/request_successful.html:8
 #, python-format
 msgid "You should have received a link via email (to <strong>%(email)s</strong>) now, which you can use to create your account."
 msgstr "Du solltest nun einen Link per E-Mail an <strong>%(email)s</strong> bekommen haben, mit dem du den Account erstellen kannst."
 
-#: mafiasi/registration/templates/registration/require_info.html:7
+#: mafiasi/registration/templates/registration/require_info.html:6
 msgid "Sorry, but we don't know you yet :-("
 msgstr "Tut uns leid, aber wir kennen dich noch nicht :-("
 
-#: mafiasi/registration/templates/registration/require_info.html:8
+#: mafiasi/registration/templates/registration/require_info.html:10
 msgid "Please provide us some more information."
 msgstr "Bitte gib uns noch ein paar Informationen."
 
-#: mafiasi/registration/templates/registration/require_info.html:14
+#: mafiasi/registration/templates/registration/require_info.html:16
 msgid "Informatics account"
 msgstr "RZ-Kennung"
 
-#: mafiasi/registration/templates/registration/require_info.html:18
+#: mafiasi/registration/templates/registration/require_info.html:20
 msgid "First name"
 msgstr "Vorname"
 
-#: mafiasi/registration/templates/registration/require_info.html:22
+#: mafiasi/registration/templates/registration/require_info.html:24
 msgid "Last name"
 msgstr "Nachname"
 
-#: mafiasi/registration/templates/registration/require_info.html:26
+#: mafiasi/registration/templates/registration/require_info.html:28
 msgid "Year of study start"
 msgstr "Jahrgang"
 
-#: mafiasi/registration/templates/registration/token_expired.html:5
+#: mafiasi/registration/templates/registration/token_expired.html:4
 msgid "Token expired"
 msgstr "Token abgelaufen"
 
-#: mafiasi/registration/templates/registration/token_expired.html:6
+#: mafiasi/registration/templates/registration/token_expired.html:7
 msgid "Sorry, but the provided token is expired."
 msgstr "Tut uns leid, aber der angegebene Token ist abgelaufen."
 
-#: mafiasi/registration/templates/registration/token_invalid.html:5
+#: mafiasi/registration/templates/registration/token_invalid.html:4
 msgid "Invalid token"
 msgstr "Ungültiger Token"
 
-#: mafiasi/registration/templates/registration/token_invalid.html:6
+#: mafiasi/registration/templates/registration/token_invalid.html:7
 msgid "Sorry, but the provided token is invalid."
 msgstr "Tut uns leid, aber der angegebene Token ist ungültig."
+
+#~ msgid ""
+#~ "<strong>Sorry</strong>, but Mumble registration is not implemented yet."
+#~ msgstr ""
+#~ "<strong>Tut uns leid</strong>, aber die Mumble-Registrierung ist noch "
+#~ "nicht implementiert."
 
 #~ msgid "There is no graphical user interface yet, sorry!"
 #~ msgstr "Tut uns leid, es gibt noch keine grafische Oberfläche!"
