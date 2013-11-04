@@ -1,12 +1,57 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load pks %}
+{% load emailprotect %}
+
+{% block wtitle %}{{ keyid }}{% endblock %}
+{% block ptitle %}{% blocktrans %}Key details for 0x{{ keyid }}{% endblocktrans %}{% endblock %}
+
+{% block submenu %}
+{% include "pks/menu.html" %}
+{% endblock %}
 
 {% block content %}
-{% include "pks/menu.html" %}
-<h2>{% blocktrans %}Key details for 0x{{ keyid }}{% endblocktrans %}</h2>
+<h3>{% trans "Key information" %}</h3>
+{% with subkey=key.subkeys.0 %}
+<table class="table">
+	<tr>
+        <th>{% trans "Size" %}</th>
+		<td>{{ subkey.length }}</td>
+	</tr>
+	<tr>
+        <th>{% trans "Created" %}</th>
+		<td>{{ subkey|show_created }}</td>
+	</tr>
+	<tr>
+        <th>{% trans "Expires" %}</th>
+		<td>{{ subkey|show_expires }}</td>
+	</tr>
+	<tr>
+        <th>{% trans "Fingerprint" %}</th>
+		<td>{{ subkey.fpr|format_fingerprint }}</td>
+	</tr>
+</table>
+{% endwith %}
 
+<h3>{% trans "User identities" %}</h3>
+<ul>
+{% for uid in key.uids %}
+<li{% if uid.revoked %} class="pks-uid-revoked"{% endif %}>{{ uid.name }}
+	{% if uid.comment %}
+	<span class="pks-comment">({{ uid.comment }})</span>
+	{% endif %}
+	&lt;{{ uid.email|emailprotect }}&gt;
+</li>
+{% endfor %}
+</ul>
+
+<h3>{% trans "Key" %}</h3>
 <p><a href="{% url 'pks_show_key_raw' keyid %}">{% trans "Show as plain text" %}</a></p>
 <pre style="display:table-cell">
 {{ keydata }}
 </pre>
 {% endblock content %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ STATIC_URL }}css/pks.css">
+{% endblock %}
