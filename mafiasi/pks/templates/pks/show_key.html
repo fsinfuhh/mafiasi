@@ -34,7 +34,7 @@
 {% endwith %}
 
 <h3>{% trans "User identities" %}</h3>
-<ul>
+<ul class="pks-uids">
 {% for uid in key.uids %}
 <li{% if uid.revoked %} class="pks-uid-revoked"{% endif %}>{{ uid.name }}
 	{% if uid.comment %}

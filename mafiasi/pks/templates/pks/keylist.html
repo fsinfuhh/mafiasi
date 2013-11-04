@@ -24,7 +24,7 @@
         <td>{{ subkey|show_created }}</td>
         <td>{{ subkey|show_expires }}</td>
         <td>
-        <ul>
+        <ul class="pks-uid">
         {% for uid in key.uids %}
         <li{% if uid.revoked %} class="pks-uid-revoked"{% endif %}>{{ uid.name }}
             {% if uid.comment %}
