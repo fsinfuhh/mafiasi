@@ -66,11 +66,13 @@ def generate_graph(filenames, filter_invalid=True, restrict_keys=None,
     g.node_attr['style']='filled'
     
     for keyid in graph_dict:
-        color = _get_color(signature_stats, keyid)
+        red, green, blue = _get_color(signature_stats, keyid)
+        luminance = 0.299 * red + 0.587 * green + 0.114 * blue
         attrs = {
             'id': keyid,
             'label': labels[keyid],
-            'fillcolor': color
+            'fillcolor': _hex_color(red, green, blue),
+            'fontcolor': '#eeeeee' if luminance < 0.55 else '#000000'
         }
         if keyid in clique_map:
             clique_no = clique_map[keyid][0]
@@ -218,6 +220,9 @@ def _get_color(signature_stats, keyid):
     if signedbycount[keyid] and maxsignedbycount != 0:
         blue = (signedbycount[keyid] / maxsignedbycount) * 2/3 + 1/3
     
+    return red, green, blue
+
+def _hex_color(red, green, blue):
     color = ''.join(chr(int(round(x * 255))) for x in (red, green, blue))
     return '#' + hexlify(color)
 
