@@ -4,22 +4,35 @@ $(function() {
     var graphthumb = $('#pks-graph-thumb');
     var graphselector = $('#pks-graphselector');
     
-    var origGraphSize = {
-        "width": graph.width(),
-        "height": graph.height()
-    };
-    graph.css({
-        "width": origGraphSize.width * 0.80,
-        "height": origGraphSize.height * 0.80
-    });
     
     function rescaleElements() { 
         graphscroll.css('height', $(window).height() - graphscroll.offset().top - $('#footer').height());
+        graphselectorWidth = graphthumb.width() / (graph.width() / graphscroll.innerWidth());
+        graphselectorHeight = graphthumb.height() / (graph.height() / graphscroll.innerHeight());
+        graphselector.css({
+            "width": graphselectorWidth,
+            "height": graphselectorHeight,
+            "top": (graphthumb.height() - graphselectorHeight) / 2,
+            "left": (graphthumb.width() - graphselectorWidth) / 2
+        });
     }
-    rescaleElements();
+
+    function initialize() {
+        var origGraphSize = {
+            "width": graph.width(),
+            "height": graph.height()
+        };
+        graph.css({
+            "width": origGraphSize.width * 0.80,
+            "height": origGraphSize.height * 0.80
+        });
+        rescaleElements();
+        graphscroll.scrollTop((graph.height() - graphscroll.height()) / 2);
+        graphscroll.scrollLeft((graph.width() - graphscroll.width()) / 2);
+    }
+    
+    $(window).load(initialize());
     $(window).resize(rescaleElements);
-    graphscroll.scrollTop((graph.height() - graphscroll.height()) / 2);
-    graphscroll.scrollLeft((graph.width() - graphscroll.width()) / 2);
     
     function handleGraphscroll(ev) {
         var maxScrollLeft = graphscroll[0].scrollWidth - graphscroll[0].clientWidth;
@@ -43,8 +56,6 @@ $(function() {
         graphscroll.scrollLeft(percLeft * maxScrollLeft);
         graphscroll.scrollTop(percTop * maxScrollTop);
     }
-    graphselectorWidth = graphthumb.width() / (graph.width() / graphscroll.innerWidth());
-    graphselectorHeight = graphthumb.height() / (graph.height() / graphscroll.innerHeight());
     graphselector.draggable({
         "containment": "parent",
         "drag": function(ev, ui) {
@@ -56,11 +67,6 @@ $(function() {
         "stop": function(ev, ui) {
             graphscroll.scroll(handleGraphscroll);
         }
-    }).css({
-        "width": graphselectorWidth,
-        "height": graphselectorHeight,
-        "top": (graphthumb.height() - graphselectorHeight) / 2,
-        "left": (graphthumb.width() - graphselectorWidth) / 2
     });
 
     graphthumb.click(function(ev) {
