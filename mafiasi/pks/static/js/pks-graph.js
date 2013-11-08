@@ -31,7 +31,7 @@ $(function() {
         graphscroll.scrollLeft((graph.width() - graphscroll.width()) / 2);
     }
     
-    $(window).load(initialize());
+    $(window).load(initialize);
     $(window).resize(rescaleElements);
     
     function handleGraphscroll(ev) {
