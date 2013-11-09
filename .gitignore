@@ -6,3 +6,5 @@
 mafiasi/settings.py
 _static
 _media
+mafiasi/base/static/mathjax
+mafiasi/base/static/MathJax-*
