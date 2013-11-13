@@ -1,6 +1,5 @@
 from django import forms
 from django.utils.translation import gettext_lazy as _
-from django.contrib.auth.hashers import MAXIMUM_PASSWORD_LENGTH
 
 from mafiasi.base.models import Yeargroup
 
@@ -36,13 +35,11 @@ class AdditionalInfoForm(forms.Form):
 class PasswordForm(forms.Form):
     password1 = forms.CharField(
         label=_("Password"),
-        widget=forms.PasswordInput,
-        max_length=MAXIMUM_PASSWORD_LENGTH,
+        widget=forms.PasswordInput
     )   
     password2 = forms.CharField(
         label=_("Password confirmation"),
-        widget=forms.PasswordInput,
-        max_length=MAXIMUM_PASSWORD_LENGTH,
+        widget=forms.PasswordInput
     )   
 
     def clean_password2(self):
@@ -62,8 +59,7 @@ class CheckPasswordForm(forms.Form):
 
     password = forms.CharField(
         label=_("Password"),
-        widget=forms.PasswordInput,
-        max_length=MAXIMUM_PASSWORD_LENGTH,
+        widget=forms.PasswordInput
     )   
     
     def clean_password(self):
