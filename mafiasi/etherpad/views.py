@@ -54,9 +54,9 @@ def create_new_pad(request):
 
 @login_required
 def show_pad(request, group_name, pad_name):
-    # testen obs die Gruppe gibt
+    # test if group exists
     group = get_object_or_404(Group, name=group_name)
-    # Testen ob der User überhaupt an die Gruppe darf
+    # test if user is in group
     if not Group.objects.filter(id = group.id, mafiasi=request.user):
         return TemplateResponse(request, 'etherpad/forbidden.html', {
                     'group_name': group_name,
