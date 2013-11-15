@@ -176,6 +176,9 @@ SERVICE_LINKS = {
 IMPRINT_URL = 'https://wiki.mafiasi.de/Fachschaft_Informatik:Impressum'
 WIKI_URL = 'https://www2.informatik.uni-hamburg.de/Fachschaft/wiki/'
 
+ETHERPAD_API_KEY='Insert API Key here'
+ETHERPAD_PROTOCOLL='https'
+ETHERPAD_DOMAIN='ep.mafiasi.de'
 
 from django.contrib.messages import constants as message_constants
 MESSAGE_TAGS = {

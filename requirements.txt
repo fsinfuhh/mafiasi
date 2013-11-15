@@ -5,3 +5,4 @@ nameparser
 creoleparser
 pytz
 caldav
+etherpad_lite
