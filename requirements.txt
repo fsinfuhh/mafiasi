@@ -10,3 +10,4 @@ psycopg2
 python-ldap
 pillow
 networkx
+etherpad_lite

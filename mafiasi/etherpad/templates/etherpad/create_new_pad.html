@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block ptitle%}
+Etherpad - Create group Pad
+{% endblock %}
+{% block content %}
+
+
+<form action="{% url 'ep_create_new_pad' %}" method="post">{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Submit" />
+</form>
+
+{% endblock %}
