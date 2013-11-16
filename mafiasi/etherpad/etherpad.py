@@ -39,9 +39,17 @@ class Etherpad(object):
         # first we delete old sessions
         activ_sessions = self.api.listSessionsOfGroup(groupID=group)
         if activ_sessions:
-            for session in activ_sessions:
-                if activ_sessions[session]['authorID'] == user_ep:
-                    print self.api.deleteSession(sessionID=session)
+            for sessionID, data in activ_sessions.items():
+                if data['authorID'] == user_ep:
+                    if data['validUntil'] > time.time() + 60*60*6:
+                        # There is a valid session with over 6 hours
+                        # remaining time
+                        return
+                    else:
+                        # we delete the old Session so the user has not two
+                        # on the same group. (technickal no problem,
+                        # but the cookies will have more data
+                        self.api.deleteSession(sessionID=sessionID)
         # we create a new session
         self.api.createSession(
                         groupID = group,
@@ -68,7 +76,6 @@ class Etherpad(object):
             return self.api.listPads(groupID=self.get_group_id(group_name))['padIDs']
         except EtherpadException as e:
             if e.message == "groupID does not exist":
-                print "Gruppe %s nicht im ep gefunden" % group_name
                 # es wurde einfach noch kein Pad in dieser Gruppe angelegt
                 return []
             raise
