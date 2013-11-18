@@ -1,9 +1,8 @@
 {% extends "base.html" %}
 {% load i18n %}
 
-{% block content %}
-<p> Protected Grouppad! (DEBUG: url: {{padURL}} </p>
-<div class="container fill">
-    <iframe width="100%" height="100%" src="{{padURL}}"></iframe>
+{% block outsidecontent %}
+<div class="">
+    <iframe width="100%" height="100%" src="{{pad_url}}"></iframe>
 </div>
 {% endblock %}
