@@ -5,3 +5,8 @@ nameparser
 creoleparser
 pytz
 caldav
+pygraphviz
+psycopg2
+python-ldap
+pillow
+networkx
