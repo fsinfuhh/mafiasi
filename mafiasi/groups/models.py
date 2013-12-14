@@ -63,7 +63,7 @@ class GroupProxy(object):
         if properties.admins.filter(pk=user.pk):
             num_admins = properties.admins.count()
             if num_admins == 1:
-                msg = _('You are the only group admin. Please terminate the '
+                msg = _('You are the sole group admin. Please terminate the '
                         'group or appoint another group admin.')
                 raise GroupError(msg)
 
