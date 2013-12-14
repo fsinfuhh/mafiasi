@@ -51,7 +51,10 @@ def show(request, group_name):
     properties = group.properties
 
     if not properties.public_members:
-        if not group.user_set.filter(pk=request.user.pk):
+        can_see = (group.user_set.filter(pk=request.user.pk) or
+                   GroupInvitation.objects.filter(group=group,
+                                                  invitee=request.user))
+        if not can_see:
             # We redirect to the group overview instead of HTTP 403
             # because a user might get redirected to this pager
             # after he had removed himself from the group
