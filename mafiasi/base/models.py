@@ -13,6 +13,8 @@ from django.conf import settings
 from django.utils.crypto import constant_time_compare
 from django.contrib.auth.models import AbstractUser, Group
 
+LOCK_ID_LDAP_GROUP = -215652734
+
 class YeargroupManager(models.Manager):
     def get_by_account(self, account):
         try:
