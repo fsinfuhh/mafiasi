@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load userformat %}
+
+{% block wtitle %}{% block ptitle %}{% trans "Group" %} "{{ group.name }}"{% endblock %}{% endblock %}
+
+{% block submenu %}
+{% include "groups/menu.html" with tab='group' group_name=group.name %}
+{% endblock %}
+
+{% block content %}
+{% if is_groupadmin %}
+<h3>{% trans "Invitations" %}</h3>
+{% if invitations %}
+<table class="table table-striped">
+    <tr>
+        <th>{% trans "Date" %}</th>
+        <th>{% trans "Invitee" %}</th>
+        <th>{% trans "Invited by" %}</th>
+        <th>{% trans "Actions" %}</th>
+    </tr>
+{% for invitation in invitations %}
+    <tr>
+        <td>{{ invitation.date_invited|date:"SHORT_DATE_FORMAT" }}</td>
+        <td>{% format_user invitation.invitee %}</td>
+        <td>{% format_user invitation.invited_by %}</td>
+        <td>
+        <form method="post" action="{% url 'groups_withdraw_invite' invitation.pk %}">
+        {% csrf_token %}
+        <button class="btn btn-warning">{% trans "Withdraw" %}</button>
+        </form>
+        </td>
+    </tr>
+{% endfor %}
+</table>
+{% else %}
+<p>{% trans "There are no open invitations." %}</p>
+{% endif %}
+
+<a href="{% url 'groups_invite' group.name %}" class="btn btn-primary">{% trans "Invite users to this group" %}</a>
+{% endif %}
+
+<h3>{% trans "Members" %}</h3>
+<table class="table table-striped">
+    <tr>
+        <th>{% trans "Name" %}</th>
+{% if is_groupadmin %}
+        <th>{% trans "Actions" %}<th>
+{% endif %}
+    </tr>
+{% for member in members %}
+    <tr>
+        <td>
+        {% format_user member %}
+        {% if member.is_groupadmin %} <i>({% trans "Group admin" %})</i>{% endif %}
+        </td>
+{% if is_groupadmin %}
+{% if last_admin and member == user %}
+        <td>
+            <p>{% trans "Last group admin can't be removed." %}</p>
+        </td>
+{% else %}
+        <td>
+        <form method="post" action="{% url 'groups_action' group.name member.pk %}">
+            {% csrf_token %}
+            <button class="btn btn-danger" name="kick">{% trans "Remove" %}</button>
+
+            {% if member.is_groupadmin %}
+            <button class="btn btn-warning" name="revoke_admin">{% trans "Revoke admin" %}</button>
+            {% else %}
+            <button class="btn btn-warning" name="grant_admin">{% trans "Grant admin" %}</button>
+            {% endif %}
+        </form>
+        </td>
+{% endif %}
+{% endif %}
+    </tr>
+{% endfor %}
+</table>
+{% endblock %}

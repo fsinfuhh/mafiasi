@@ -1,0 +1,16 @@
+{% load i18n %}
+<ul class="nav nav-tabs">
+    <li{% if tab == 'my_groups' %} class="active"{% endif %}>
+        <a href="{% url 'groups_my_groups' %}">{% trans "My groups" %}</a>
+    </li>
+    <li{% if tab == 'invitations' %} class="active"{% endif %}>
+        <a href="{% url 'groups_invitations' %}">{% trans "Invitations" %}</a>
+    </li>
+    {% if group_name %}
+    <li{% if tab == 'group' %} class="active"{% endif %}>
+        <a href="{% url 'groups_show' group_name %}">
+        {% blocktrans %}Group: {{ group_name }}{% endblocktrans %}
+        </a>
+    </li>
+    {% endif %}
+</ul>
