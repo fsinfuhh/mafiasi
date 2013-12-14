@@ -146,6 +146,7 @@ INSTALLED_APPS = (
 	'mafiasi.jabber',
 	'mafiasi.mumble',
 	'mafiasi.cal',
+	'mafiasi.groups',
     'django.contrib.admin',
     'django.contrib.admindocs',
 )
