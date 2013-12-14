@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-03 18:17+0100\n"
-"PO-Revision-Date: 2013-11-03 22:06+0100\n"
+"POT-Creation-Date: 2013-12-14 23:54+0100\n"
+"PO-Revision-Date: 2013-12-15 00:01+0100\n"
 "Last-Translator: Henning Pridöhl <8pridoeh@informatik.uni-hamburg.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -30,38 +30,38 @@ msgstr "Tut uns leid, dies haben wir nicht erwartet. Wir sollten bereits eine au
 msgid "Mafiasi"
 msgstr "Mafiasi"
 
-#: mafiasi/base/templates/base.html:19
+#: mafiasi/base/templates/base.html:20
 msgid "Mafiasi Hub"
 msgstr "Mafiasi Hub"
 
-#: mafiasi/base/templates/base.html:23
+#: mafiasi/base/templates/base.html:24
 #, python-format
 msgid "Logged in as %(username)s"
 msgstr "Eingeloggt als %(username)s"
 
-#: mafiasi/base/templates/base.html:24
+#: mafiasi/base/templates/base.html:25
 msgid "Logout"
 msgstr "Ausloggen"
 
-#: mafiasi/base/templates/base.html:28
+#: mafiasi/base/templates/base.html:29
 msgid "Register"
 msgstr "Registrierung"
 
-#: mafiasi/base/templates/base.html:29
+#: mafiasi/base/templates/base.html:30
 #: mafiasi/registration/templates/registration/login.html:5
 #: mafiasi/registration/templates/registration/login.html:42
 msgid "Login"
 msgstr "Login"
 
-#: mafiasi/base/templates/base.html:57
+#: mafiasi/base/templates/base.html:58
 msgid "Imprint"
 msgstr "Impressum"
 
-#: mafiasi/base/templates/base.html:59
+#: mafiasi/base/templates/base.html:60
 msgid "Technical info"
 msgstr "Technik"
 
-#: mafiasi/base/templates/base.html:61
+#: mafiasi/base/templates/base.html:62
 #: mafiasi/base/templates/base/problems.html:4
 msgid "Problems?"
 msgstr "Probleme?"
@@ -324,6 +324,194 @@ msgstr "Wiki-Suche"
 msgid "Search"
 msgstr "Suche"
 
+#: mafiasi/groups/forms.py:23
+msgid "No such user."
+msgstr "Der Benutzer existiert nicht."
+
+#: mafiasi/groups/forms.py:29
+msgid "User already has an invitation."
+msgstr "Der Benutzer hat bereits eine Einladung."
+
+#: mafiasi/groups/models.py:66
+msgid "You are the sole group admin. Please terminate the group or appoint another group admin."
+msgstr "Du bist der einzige Gruppenadmin. Bitte schließe die Gruppe oder ernenne einen anderen Gruppenadmin."
+
+#: mafiasi/groups/models.py:92
+msgid "Invalid group name."
+msgstr "Ungültiger Gruppenname."
+
+#: mafiasi/groups/models.py:95
+msgid "Group does already exist."
+msgstr "Gruppe existiert bereits."
+
+#: mafiasi/groups/views.py:38
+msgid "Group \"{0}\" was created."
+msgstr "Gruppe \"{0}\" wurde erstellt."
+
+#: mafiasi/groups/views.py:89
+msgid "You left the group."
+msgstr "Du hast die Gruppe verlassen."
+
+#: mafiasi/groups/views.py:109
+msgid "User was removed from group"
+msgstr "Der Benutzer wurde aus der Gruppe entfernt."
+
+#: mafiasi/groups/views.py:114
+msgid "User was granted group admin."
+msgstr "Der Benutzer wurde zum Gruppenadmin gemacht."
+
+#: mafiasi/groups/views.py:118
+msgid "Revoked group admin rights from user."
+msgstr "Dem Benutzer wurden Gruppenadmin-Rechte entzogen."
+
+#: mafiasi/groups/views.py:134
+msgid "Invitation was sent."
+msgstr "Einladung wurde gesendet."
+
+#: mafiasi/groups/templates/groups/create.html:4
+msgid "Create group"
+msgstr "Gruppe erstellen"
+
+#: mafiasi/groups/templates/groups/create.html:7
+msgid "Please note: The group name can be seen by other users."
+msgstr "Bitte beachte: Der Gruppenname kann von anderen Benutzern eingesehen werden."
+
+#: mafiasi/groups/templates/groups/create.html:11
+#: mafiasi/groups/templates/groups/invitations.html:17
+#: mafiasi/groups/templates/groups/my_groups.html:14
+msgid "Group name"
+msgstr "Gruppenname"
+
+#: mafiasi/groups/templates/groups/create.html:13
+msgid "Only letters, numbers, \"-\" and \"_\" are allowed. Must start with a letter."
+msgstr "Nur Buchstaben, Zahlen, \"-\" und \"_\" sind zugelassen. Muss mit einen Buchstaben beginnen."
+
+#: mafiasi/groups/templates/groups/create.html:17
+#: mafiasi/jabber/templates/jabber/create.html:21
+msgid "Create"
+msgstr "Erstellen"
+
+#: mafiasi/groups/templates/groups/invitations.html:5
+#: mafiasi/groups/templates/groups/menu.html:7
+#: mafiasi/groups/templates/groups/show.html:13
+msgid "Invitations"
+msgstr "Einladungen"
+
+#: mafiasi/groups/templates/groups/invitations.html:16
+#: mafiasi/groups/templates/groups/show.html:17
+msgid "Date"
+msgstr "Datum"
+
+#: mafiasi/groups/templates/groups/invitations.html:18
+msgid "Invited By"
+msgstr "Eingeladen von"
+
+#: mafiasi/groups/templates/groups/invitations.html:19
+#: mafiasi/groups/templates/groups/show.html:20
+#: mafiasi/groups/templates/groups/show.html:48
+msgid "Actions"
+msgstr "Aktionen"
+
+#: mafiasi/groups/templates/groups/invitations.html:31
+msgid "Accept"
+msgstr "Annehmen"
+
+#: mafiasi/groups/templates/groups/invitations.html:32
+msgid "Refuse"
+msgstr "Verweigern"
+
+#: mafiasi/groups/templates/groups/invitations.html:39
+msgid "You have no invitations."
+msgstr "Du hast keine Einladungen."
+
+#: mafiasi/groups/templates/groups/invite.html:5
+#, python-format
+msgid "Invite to %(group_name)s"
+msgstr "In %(group_name)s einladen"
+
+#: mafiasi/groups/templates/groups/invite.html:12
+msgid "Account name"
+msgstr "Accountname"
+
+#: mafiasi/groups/templates/groups/invite.html:20
+msgid "Invite user"
+msgstr "Benutzer einladen"
+
+#: mafiasi/groups/templates/groups/invite.html:21
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: mafiasi/groups/templates/groups/menu.html:4
+#: mafiasi/groups/templates/groups/my_groups.html:4
+msgid "My groups"
+msgstr "Meine Gruppen"
+
+#: mafiasi/groups/templates/groups/menu.html:12
+#, python-format
+msgid "Group: %(group_name)s"
+msgstr "Gruppe: %(group_name)s"
+
+#: mafiasi/groups/templates/groups/my_groups.html:15
+#: mafiasi/groups/templates/groups/my_groups.html:23
+msgid "Leave"
+msgstr "Verlassen"
+
+#: mafiasi/groups/templates/groups/my_groups.html:30
+msgid "Create new group"
+msgstr "Neue Gruppe erstellen"
+
+#: mafiasi/groups/templates/groups/show.html:5
+msgid "Group"
+msgstr "Gruppe"
+
+#: mafiasi/groups/templates/groups/show.html:18
+msgid "Invitee"
+msgstr "Eingeladener"
+
+#: mafiasi/groups/templates/groups/show.html:19
+msgid "Invited by"
+msgstr "Eingeladen von"
+
+#: mafiasi/groups/templates/groups/show.html:30
+msgid "Withdraw"
+msgstr "Zurückziehen"
+
+#: mafiasi/groups/templates/groups/show.html:37
+msgid "There are no open invitations."
+msgstr "Es gibt keine offenen Einladungen."
+
+#: mafiasi/groups/templates/groups/show.html:40
+msgid "Invite users to this group"
+msgstr "Benutzer in die Gruppe einladen"
+
+#: mafiasi/groups/templates/groups/show.html:43
+msgid "Members"
+msgstr "Mitglieder"
+
+#: mafiasi/groups/templates/groups/show.html:46
+msgid "Name"
+msgstr "Name"
+
+#: mafiasi/groups/templates/groups/show.html:55
+msgid "Group admin"
+msgstr "Gruppenadmin"
+
+#: mafiasi/groups/templates/groups/show.html:60
+msgid "Last group admin can't be removed."
+msgstr "Der letzte Gruppenadmin kann nicht entfernt werden."
+
+#: mafiasi/groups/templates/groups/show.html:66
+msgid "Remove"
+msgstr "Entfernen"
+
+#: mafiasi/groups/templates/groups/show.html:69
+msgid "Revoke admin"
+msgstr "Adminrechte entziehen"
+
+#: mafiasi/groups/templates/groups/show.html:71
+msgid "Grant admin"
+msgstr "Adminrechte geben"
+
 #: mafiasi/jabber/views.py:31
 msgid "Account was created."
 msgstr "Account wurde erstellt."
@@ -345,16 +533,12 @@ msgid "To create your Jabber account you have to enter your current password:"
 msgstr "Um deinen Jabber-Account zu erstellen, musst du dein aktuelles Passwort eingeben:"
 
 #: mafiasi/jabber/templates/jabber/create.html:12
-#: mafiasi/registration/forms.py:38
-#: mafiasi/registration/forms.py:64
+#: mafiasi/registration/forms.py:37
+#: mafiasi/registration/forms.py:61
 #: mafiasi/registration/templates/registration/create_account.html:17
 #: mafiasi/registration/templates/registration/login.html:32
 msgid "Password"
 msgstr "Passwort"
-
-#: mafiasi/jabber/templates/jabber/create.html:21
-msgid "Create"
-msgstr "Erstellen"
 
 #: mafiasi/jabber/templates/jabber/index.html:4
 msgid "Jabber"
@@ -416,6 +600,7 @@ msgid "All keys on the keyserver"
 msgstr "Alle Schlüssel auf dem Keyserver"
 
 #: mafiasi/pks/templates/pks/graph.html:4
+#: mafiasi/pks/templates/pks/menu.html:13
 msgid "Trust graph"
 msgstr "Vertrauensgraph"
 
@@ -428,22 +613,27 @@ msgid "Key ID"
 msgstr "Schlüssel-ID"
 
 #: mafiasi/pks/templates/pks/keylist.html:10
+#: mafiasi/pks/templates/pks/show_key.html:18
 msgid "Size"
 msgstr "Länge"
 
 #: mafiasi/pks/templates/pks/keylist.html:11
+#: mafiasi/pks/templates/pks/show_key.html:22
 msgid "Created"
 msgstr "Erstellt am"
 
 #: mafiasi/pks/templates/pks/keylist.html:12
+#: mafiasi/pks/templates/pks/show_key.html:26
 msgid "Expires"
 msgstr "Ablauf am"
 
 #: mafiasi/pks/templates/pks/keylist.html:13
+#: mafiasi/pks/templates/pks/show_key.html:36
 msgid "User identities"
 msgstr "Benutzeridentitäten"
 
 #: mafiasi/pks/templates/pks/keylist.html:14
+#: mafiasi/pks/templates/pks/show_key.html:30
 msgid "Fingerprint"
 msgstr "Fingerprint"
 
@@ -451,10 +641,6 @@ msgstr "Fingerprint"
 #: mafiasi/pks/templates/pks/my_keys.html:4
 msgid "My keys"
 msgstr "Meine Schlüssel"
-
-#: mafiasi/pks/templates/pks/menu.html:13
-msgid "Graph"
-msgstr "Graph"
 
 #: mafiasi/pks/templates/pks/my_keys.html:15
 msgid "Unassign"
@@ -481,12 +667,20 @@ msgstr "Suchbegriff"
 msgid "Search result for \"%(search_term)s\""
 msgstr "Suchergebnis für \"%(search_term)s\""
 
-#: mafiasi/pks/templates/pks/show_key.html:6
+#: mafiasi/pks/templates/pks/show_key.html:7
 #, python-format
 msgid "Key details for 0x%(keyid)s"
 msgstr "Schlüsseldetails für 0x%(keyid)s"
 
-#: mafiasi/pks/templates/pks/show_key.html:8
+#: mafiasi/pks/templates/pks/show_key.html:14
+msgid "Key information"
+msgstr "Schlüsselinformationen"
+
+#: mafiasi/pks/templates/pks/show_key.html:48
+msgid "Key"
+msgstr "Schlüssel"
+
+#: mafiasi/pks/templates/pks/show_key.html:49
 msgid "Show as plain text"
 msgstr "Als Klartext anzeigen"
 
@@ -510,20 +704,20 @@ msgstr "Nie."
 msgid "Expired at {0}"
 msgstr "Abgelaufen am: {0}"
 
-#: mafiasi/registration/forms.py:15
+#: mafiasi/registration/forms.py:14
 msgid "Invalid account name"
 msgstr "Ungültiger Accountname"
 
-#: mafiasi/registration/forms.py:43
+#: mafiasi/registration/forms.py:41
 #: mafiasi/registration/templates/registration/create_account.html:26
 msgid "Password confirmation"
 msgstr "Passwort bestätigen"
 
-#: mafiasi/registration/forms.py:54
+#: mafiasi/registration/forms.py:51
 msgid "The two password fields didn't match."
 msgstr "Die beiden Passwörter stimmen nicht überein."
 
-#: mafiasi/registration/forms.py:73
+#: mafiasi/registration/forms.py:69
 msgid "Wrong password."
 msgstr "Falsches Passwort."
 
@@ -758,6 +952,9 @@ msgstr "Ungültiger Token"
 #: mafiasi/registration/templates/registration/token_invalid.html:7
 msgid "Sorry, but the provided token is invalid."
 msgstr "Tut uns leid, aber der angegebene Token ist ungültig."
+
+#~ msgid "Graph"
+#~ msgstr "Graph"
 
 #~ msgid ""
 #~ "<p>This site uses the following software/components:</p>\n"
