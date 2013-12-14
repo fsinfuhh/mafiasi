@@ -76,3 +76,7 @@ body {
 .at-sign:before {
 	content:"@";
 }
+
+.user-username {
+	color:#888;
+}
