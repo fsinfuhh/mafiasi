@@ -79,5 +79,16 @@ class Etherpad(object):
                 return []
             raise
 
+    def delete_pad(self, pad_name):
+        try:
+            self.api.deletePad(padID=pad_name)
+        except EtherpadException as e:
+            if e.message == "padID does not exist":
+                return
+            raise
+
+    def delete_grop(self, group_name):
+        self.api.deleteGroup(groupID=self.get_group_id(group_name))
+
 
 
