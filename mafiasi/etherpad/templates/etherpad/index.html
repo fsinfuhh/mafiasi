@@ -9,7 +9,7 @@
 
 {% block content %}
 <h3>{% trans "Create new pads" %}</h3>
-{% url 'groups_index' as groups_link %}
+{% url 'groups_my_groups' as groups_link %}
 <p>{% blocktrans %}You can either create public pads, which everybody who knows their URL can access or group pads, which can only be accessed by members of a group. In the <a href="{{ groups_link }}">group management</a> you can create groups and invite others.{% endblocktrans %}
 <p>
 	<a href="{{ etherpad_link }}" class="btn btn-primary">{% trans "Create public pad" %}</a>
