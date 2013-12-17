@@ -1,10 +1,8 @@
 from mafiasi.etherpad.etherpad import Etherpad
 
 from django import forms
-from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
-from django.shortcuts import get_object_or_404
 from django.template.response import TemplateResponse
 from django.conf import settings
 
@@ -16,10 +14,7 @@ class NewEtherpadForm(forms.Form):
 
     def __init__(self, user, *args, **kwargs):
         super(NewEtherpadForm, self).__init__(*args, **kwargs)
-        self.fields['group'] = forms.ModelChoiceField(queryset=Group.objects.filter(mafiasi=user))
-
-    class Meta:
-        model = Group
+        self.fields['group'] = forms.ModelChoiceField(queryset=user.groups)
 
 def index(request):
     pad_list={}
@@ -32,7 +27,6 @@ def index(request):
                 pad_list[group.name].append(pad.split('$')[1])
     return TemplateResponse(request, 'etherpad/index.html', {
         'pad_list': pad_list,
-        'login': request.user.is_authenticated(),
     })
 
 @login_required
@@ -53,7 +47,6 @@ def create_new_pad(request):
 
 @login_required
 def show_pad(request, group_name, pad_name):
-    group = get_object_or_404(Group, name=group_name)
     # test if user is in group
     if not request.user.groups.filter(name=group_name).exists():
         return TemplateResponse(request, 'etherpad/forbidden.html', {
