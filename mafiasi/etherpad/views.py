@@ -27,6 +27,7 @@ def index(request):
                 pad_list[group.name].append(pad.split('$')[1])
     return TemplateResponse(request, 'etherpad/index.html', {
         'pad_list': pad_list,
+        'etherpad_link': settings.SERVICE_LINKS['etherpad']
     })
 
 @login_required
