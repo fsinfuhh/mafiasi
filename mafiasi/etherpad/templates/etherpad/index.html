@@ -1,29 +1,35 @@
 {% extends "base.html" %}
 {% load i18n %}
 
-{% block ptitle%}
-Etherpad - Übersicht
+{% block wtitle %}{% block ptitle %}{% trans "Etherpad overview" %}{% endblock %}{% endblock %}
+
+{% block submenu %}
+{% include "etherpad/menu.html" with tab='overview' %}
 {% endblock %}
 
 {% block content %}
-<p><a href="https://ep.mafiasi.de">Ein Öffentliches Pad anlegen</a></p>
+<h3>{% trans "Create new pads" %}</h3>
+<p>{% blocktrans %}You can either create public pads, which everybody who knows their URL can access or group pads, which can only be accessed by members of a group. In the <a href="{{ groups_link }}">group management</a> you can create groups and invite others.{% endblocktrans %}
+<p>
+	<a href="{{ etherpad_link }}" class="btn btn-primary">{% trans "Create public pad" %}</a>
+	<a href="{% url 'ep_create_new_pad' %}" class="btn btn-primary">{% trans "Create group pad" %}</a>
+</p>
 
-{% if not login %}
-    <div class="alert alert-warning">Geschützte Gruppenpads funktionieren nur wenn du eingelogt bist. Du kannst momentan nur öffentliche Pads benutzen.</div>
+{% if not user.is_authenticated %}
+<div class="alert alert-warning">{% trans "Protected group pads can only be created if you are logged in." %}</div>
 {% else %}
-    <p><a href="{% url 'ep_create_new_pad' %}">ein geschütztes Pad anlegen</a></p>
+<h3>{% trans "Your group pads" %}</h3>
 
-    <h2>Deine Gruppen und Pads:</h2>
-    {% for group, pads in pad_list.items %}
-        {% if pads %}
-            <b>{{group}}</b>
-            <ul>
-            {% for pad in pads %}
-                <li><a href="{% url 'ep_show_pad' group pad %}">{{pad}}</a></li>
-            {%endfor%}
-            </ul>
-        {% endif %}
-    {%endfor%}
+{% for group_name, pads in pad_list.items %}
+{% if pads %}
+<h4>{{ group_name }}</h4>
+<ul>
+{% for pad in pads %}
+    <li><a href="{% url 'ep_show_pad' group_name pad %}">{{ pad }}</a></li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endfor %}
 
 {% endif %}
 {% endblock %}

@@ -1,14 +1,25 @@
 {% extends "base.html" %}
 {% load i18n %}
-{% block ptitle%}
-Etherpad - Create group Pad
+{% load widget_tweaks %}
+
+{% block ptitle%}{% block wtitle %}{% trans "Create group pad" %}{% endblock %}{% endblock %}
+
+{% block submenu %}
+{% include "etherpad/menu.html" with tab='new_pad' %}
 {% endblock %}
+
 {% block content %}
-
-
 <form action="{% url 'ep_create_new_pad' %}" method="post">{% csrf_token %}
-{{ form.as_p }}
-<input type="submit" value="Submit" />
+<div class="form-group">
+	<label for="id_name">{% trans "Name" %}</label>
+	{% render_field form.name class+="form-control" %}
+</div>
+<div class="form-group">
+	<label for="id_group">{% trans "Group" %}</label>
+	{% render_field form.group class+="form-control" %}
+</div>
+
+<button class="btn btn-primary">{% trans "Create group pad" %}</button>
 </form>
 
 {% endblock %}

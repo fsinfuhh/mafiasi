@@ -1,8 +1,40 @@
-{% extends "base.html" %}
+{% extends base_template %}
 {% load i18n %}
 
+{% block submenu %}
+{% if not fullscreen %}
+{% include "etherpad/menu.html" with tab='show_pad' group_name=group_name pad_name=pad_name %}
+{% endif %}
+{% endblock %}
+
 {% block outsidecontent %}
-<div class="">
-    <iframe width="100%" height="100%" src="{{pad_url}}"></iframe>
+<div id="etherpad-container">
+    <iframe width="100%" height="100%" src="{{ pad_url }}"
+        style="border:0;border-top:1px solid #000; border-bottom:1px solid #000;"></iframe>
 </div>
+{% if not fullscreen %}
+<p id="fullscreen-link" style="text-align:center;"><a href="?fullscreen">{% trans "Show this pad in fullscreen mode" %}</a></p>
+{% endif %}
+{% endblock %}
+
+{% block js %}
+<script>
+//<![CDATA[
+$(function() {
+{% if fullscreen %}
+    function adaptEtherpad() {
+        var height = $('body').height() - $('#etherpad-container').offset().top;
+        $('#etherpad-container').css('height', height - 5);
+    }
+{% else %}
+    function adaptEtherpad() {
+        var height = $('#footer').offset().top - $('#etherpad-container').offset().top - $('#fullscreen-link').outerHeight(true);
+        $('#etherpad-container').css('height', height);
+    }
+{% endif %}
+    $(window).resize(adaptEtherpad);
+    adaptEtherpad();
+});
+//]]>
+</script>
 {% endblock %}

@@ -1,0 +1,16 @@
+{% load i18n %}
+<ul class="nav nav-tabs">
+    <li{% if tab == 'overview' %} class="active"{% endif %}>
+        <a href="{% url 'ep_index' %}">{% trans "Overview" %}</a>
+    </li>
+    <li{% if tab == 'new_pad' %} class="active"{% endif %}>
+        <a href="{% url 'ep_create_new_pad' %}">{% trans "New group pad" %}</a>
+    </li>
+{% if tab == 'show_pad' %}
+    <li class="active">
+        <a href="{% url 'ep_show_pad' group_name pad_name %}">
+        {% blocktrans %}Pad: {{ pad_name }}{% endblocktrans %}
+        </a>
+    </li>
+{% endif %}
+</ul>
