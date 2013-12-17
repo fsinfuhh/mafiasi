@@ -16,7 +16,10 @@ urlpatterns = patterns('',
     url(r'^cal/', include('mafiasi.cal.urls')),
     url(r'^dav/', include('mafiasi.cal.davurls')),
     url(r'^pks/', include('mafiasi.pks.urls')),
+<<<<<<< HEAD
     url(r'^groups/', include('mafiasi.groups.urls')),
+=======
+>>>>>>> 6cd126b084cb1156d92c83840372eea65b732f86
     url(r'^etherpad/', include('mafiasi.etherpad.urls')),
 
     url(r'^login$', 'django.contrib.auth.views.login', name='login'),

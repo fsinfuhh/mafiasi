@@ -4,7 +4,7 @@ from django.contrib.auth.models import Group
 
 from mafiasi.etherpad.etherpad import Etherpad
 
-def _delete_group_ep(sender, group, using):
+def _delete_group_ep(sender, group, **kwargs):
     ep = Etherpad()
     pads = ep.get_group_pads(group.name)
     for pad in pads:
