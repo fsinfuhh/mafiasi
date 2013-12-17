@@ -25,10 +25,10 @@
             <div class="col-sm-6">
                 <div class="panel panel-default service">
                     <div class="panel-body">
-                        <a href="{{ service_links.etherpad }}" class="btn btn-default btn-lg pull-left service-icon">
+                        <a href="{% url 'ep_index' %}" class="btn btn-default btn-lg pull-left service-icon">
                             <img src="{{ STATIC_URL }}img/services/etherpad.png" alt="Etherpad" />
                         </a>
-                        <h3><a href="{{ service_links.etherpad }}">Etherpad</a></h3>
+                        <h3><a href="{% url 'ep_index' %}">Etherpad</a></h3>
                         <p>{% trans "You can use the Etherpad to work together on a document in real time." %}</p>
                     </div>
                 </div>
