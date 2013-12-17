@@ -66,9 +66,14 @@ def show_pad(request, group_name, pad_name):
     except URLError:
         return TemplateResponse(request, 'etherpad/server_error.html', {
             }, status=500)
-
+    
+    is_fullscreen = 'fullscreen' in request.GET
     response = TemplateResponse(request, 'etherpad/pad.html', {
         'pad_url':pad_url,
+        'group_name': group_name,
+        'pad_name': pad_name,
+        'fullscreen': is_fullscreen,
+        'base_template': 'base_raw.html' if is_fullscreen else 'base.html'
     })
     response.set_cookie('epSession', cookie, domain=settings.ETHERPAD_DOMAIN)
     return response
