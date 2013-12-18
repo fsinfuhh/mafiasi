@@ -15,6 +15,8 @@ def format_user(user, format='full'):
         result = conditional_escape(user.get_full_name())
     elif format == 'username':
         result = conditional_escape(user.username)
+    elif format == 'email':
+        return u'{0} ({1})'.format(user.get_full_name(), user.username)
     else:
         raise ValueError("Invalid format for format_user")
 
