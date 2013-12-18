@@ -86,7 +86,7 @@ class GroupInvitation(models.Model):
     def refuse(self):
         self.delete()
 
-_group_name_re = re.compile(r'^[a-zA-Z]([a-zA-F0-9_-]*)$')
+_group_name_re = re.compile(r'^[a-zA-Z]([a-zA-Z0-9_-]*)$')
 def create_usergroup(user, name):
     if not _group_name_re.match(name):
         raise GroupError(_('Invalid group name.'))
