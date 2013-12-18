@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-18 17:08+0100\n"
-"PO-Revision-Date: 2013-12-18 17:13+0100\n"
+"POT-Creation-Date: 2013-12-18 17:46+0100\n"
+"PO-Revision-Date: 2013-12-18 17:46+0100\n"
 "Last-Translator: Henning Pridöhl <8pridoeh@informatik.uni-hamburg.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -351,8 +351,8 @@ msgid "Etherpad overview"
 msgstr "Etherpad-Übersicht"
 
 #: mafiasi/etherpad/templates/etherpad/index.html:11
-msgid "Create new pads"
-msgstr "Neues Pads erstellen"
+msgid "Create new pad"
+msgstr "Neues Pad erstellen"
 
 #: mafiasi/etherpad/templates/etherpad/index.html:13
 #, python-format
