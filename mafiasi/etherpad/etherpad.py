@@ -10,9 +10,7 @@ class Etherpad(object):
     def __init__(self):
         self.api = EtherpadLiteClient(
             api_version='1.2.1',
-            base_url="{0}://{1}/api/".format(
-                settings.ETHERPAD_PROTOCOL,
-                settings.ETHERPAD_DOMAIN),
+            base_url='{0}/api/'.format(settings.ETHERPAD_URL),
             base_params={'apikey': settings.ETHERPAD_API_KEY})
 
     def _get_ep_user(self, user):
@@ -62,7 +60,10 @@ class Etherpad(object):
         sessions = self.api.listSessionsOfAuthor(
                         authorID= self._get_ep_user(user)
                         )
-        sessions_cookie = ','.join(sessions.keys())
+        # We have to escape the comma with %2C because otherwise Django's
+        # HttpResponse.set_cookie escapes it, but Etherpad can't read
+        # the escaped value correctly.
+        sessions_cookie = '%2C'.join(sessions.keys())
         return sessions_cookie
 
     def get_group_id(self, group_name):

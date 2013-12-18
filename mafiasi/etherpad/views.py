@@ -58,9 +58,8 @@ def show_pad(request, group_name, pad_name):
     try:
         ep.create_session(request.user, group_name)
         group_id = ep.get_group_id(group_name)
-        pad_url = '{0}://{1}/p/{2}${3}'.format(
-                settings.ETHERPAD_PROTOCOL,
-                settings.ETHERPAD_DOMAIN,
+        pad_url = '{0}/p/{1}${2}'.format(
+                settings.ETHERPAD_URL,
                 group_id,
                 pad_name)
         cookie = ep.get_session_cookie(request.user)
@@ -76,6 +75,7 @@ def show_pad(request, group_name, pad_name):
         'fullscreen': is_fullscreen,
         'base_template': 'base_raw.html' if is_fullscreen else 'base.html'
     })
-    response.set_cookie('epSession', cookie, domain=settings.ETHERPAD_DOMAIN)
+    cookie_domain = '.' + request.get_host()
+    response.set_cookie('sessionID', cookie, domain=cookie_domain)
     return response
 
