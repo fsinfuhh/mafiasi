@@ -165,7 +165,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">{% trans "Wiki search" %}</div>
             <div class="panel-body" style="text-align:center;">
-                <form method="post" action="{{ wiki_search_url }}">
+                <form method="get" action="{{ wiki_search_url }}">
                     <input type="hidden" name="title" value="Spezial:Suche" />
                     <div class="input-group">
                         <input type="text" id="wiki_search" class="form-control" name="search">
