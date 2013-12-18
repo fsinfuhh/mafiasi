@@ -1,4 +1,5 @@
 from django.template.response import TemplateResponse
+from django.template import loader, Context
 from django.shortcuts import get_object_or_404, redirect
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import Group
@@ -6,8 +7,11 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.utils.translation import ugettext_lazy as _
 from django.core.exceptions import PermissionDenied
+from django.core.mail import send_mail
 from django.views.decorators.http import require_POST
 from django.http import Http404
+from django.conf import settings
+from django.contrib.sites.models import get_current_site
 
 from mafiasi.groups.models import (GroupInvitation, GroupProxy, GroupError,
         create_usergroup)
@@ -133,7 +137,10 @@ def invite(request, group_name):
     if request.method == 'POST':
         form = InvitationForm(request.POST, group=group, user=request.user)
         if form.is_valid():
-            form.save()
+            invitation = form.get_invitation()
+            invitation.save()
+            subject = u'Neue Gruppeneinladung / new group invitation'
+            _send_invitation_mail(request, invitation, subject, 'new_invitation')
             messages.success(request, _('Invitation was sent.'))
             return redirect('groups_show', group_name)
     else:
@@ -166,6 +173,23 @@ def withdraw_invite(request, invitation_pk):
     group = invitation.group
     if not group.properties.admins.filter(pk=request.user.pk):
         raise PermissionDenied()
-
+    
     invitation.delete()
+    subject = u'Einladung zur\xfcckgezogen / withdrawn invitation'
+    _send_invitation_mail(request, invitation, subject, 'withdrawn_invitation')
     return redirect('groups_show', group.name)
+
+def _send_invitation_mail(request, invitation, subject, template_name):
+    if not invitation.invitee.email:
+        return
+    template = loader.get_template('groups/mail_{0}.txt'.format(template_name))
+    message = template.render(Context({
+        'invitation': invitation,
+        'site': get_current_site(request)
+    }))
+    send_mail(settings.EMAIL_SUBJECT_PREFIX + subject,
+              message,
+              settings.DEFAULT_FROM_EMAIL,
+              [invitation.invitee.email],
+              fail_silently=True)
+

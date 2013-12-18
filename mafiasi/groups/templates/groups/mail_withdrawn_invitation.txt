@@ -1,0 +1,17 @@
+{% load userformat%}
+Hallo {{ invitation.invitee.get_full_name }},
+
+{% format_user invitation.invited_by 'email' %} hat die Einladung an dich für die Gruppe "{{ invitation.group.name }}" zurückgezogen.
+
+
+Dein
+{{ site.name }}-Team
+--
+
+Hi {{ invitation.invitee.get_full_name }},
+
+{% format_user invitation.invited_by 'email' %} has withdrawn your invitation to the group"{{ invitation.group.name }}".
+
+
+Regards,
+{{ site.name }} team

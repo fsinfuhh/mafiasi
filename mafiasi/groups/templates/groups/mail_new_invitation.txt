@@ -1,0 +1,20 @@
+{% load userformat %}
+Hallo {{ invitation.invitee.get_full_name }},
+
+du hast von {% format_user invitation.invited_by 'email' %} eine Einladung für die Gruppe "{{ invitation.group.name }}" bekommen. Um diese Einladung anzunehmen und der Gruppe beizutreten, besuche:
+
+  https://{{ site.domain }}{% url 'groups_invitations' %}
+
+
+Dein
+{{ site.name }}-Team
+--
+
+Hi {{ invitation.invitee.get_full_name }},
+
+{% format_user invitation.invited_by 'email' %} invited you to join the group "{{ invitation.group.name }}". To accept this invitation and join the group, visit:
+
+  https://{{ site.domain }}{% url 'groups_invitations' %}
+
+Regards,
+{{ site.name }} team
