@@ -45,39 +45,15 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="col-sm-6">
                 <div class="panel panel-default service">
                     <div class="panel-body">
-                        <a href="{% url 'jabber_index' %}" class="btn btn-default btn-lg pull-left service-icon">
-                            <img src="{{ STATIC_URL }}img/services/jabber.png" alt="Jabber" />
+                        <a href="{{ service_links.redmine }}" class="btn btn-default btn-lg pull-left service-icon">
+                            <img src="{{ STATIC_URL }}img/services/redmine.png" alt="Redmine" />
                         </a>
-                        <h3><a href="{% url 'jabber_index' %}">Jabber</a></h3>
-                        <p>{% trans "On our Jabber server you can chat with your fellow students, which are already on your contact list." %}</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6">
-                <div class="panel panel-default service">
-                    <div class="panel-body">
-                        <a href="{% url 'mumble_index' %}" class="btn btn-default btn-lg pull-left service-icon">
-                            <img src="{{ STATIC_URL }}img/services/mumble.png" alt="Mumble" />
-                        </a>
-                        <h3><a href="{% url 'mumble_index' %}">Mumble</a></h3>
-                        <p>{% trans "You can use our mumble for voice chat with other fellow students." %}</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6">
-                <div class="panel panel-default service">
-                    <div class="panel-body">
-                        <a href="{{ service_links.gprot }}" class="btn btn-default btn-lg pull-left service-icon">
-                            <img src="{{ STATIC_URL }}img/services/gprot.png" alt="GProt" />
-                        </a>
-                        <h3><a href="{{ service_links.gprot }}">GProt</a></h3>
-                        <p>{% trans "The GProt contains memory minutes of oral and written exams." %}</p>
+                        <h3><a href="{{ service_links.redmine }}">Redmine</a></h3>
+                        <p>{% trans "Redmine is a project management software. You can create tasks and assign them to people." %}</p>
                     </div>
                 </div>
             </div>
@@ -105,20 +81,20 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-sm-6">
                 <div class="panel panel-default service">
                     <div class="panel-body">
-                        <a href="{{ service_links.redmine }}" class="btn btn-default btn-lg pull-left service-icon">
-                            <img src="{{ STATIC_URL }}img/services/redmine.png" alt="Redmine" />
+                        <a href="{{ service_links.gprot }}" class="btn btn-default btn-lg pull-left service-icon">
+                            <img src="{{ STATIC_URL }}img/services/gprot.png" alt="GProt" />
                         </a>
-                        <h3><a href="{{ service_links.redmine }}">Redmine</a></h3>
-                        <p>{% trans "Redmine is a project management software. You can create tasks and assign them to people." %}</p>
+                        <h3><a href="{{ service_links.gprot }}">GProt</a></h3>
+                        <p>{% trans "The GProt contains memory minutes of oral and written exams." %}</p>
                     </div>
                 </div>
             </div>
             
-			<div class="col-sm-6">
+            <div class="col-sm-6">
                 <div class="panel panel-default service">
                     <div class="panel-body">
                         <a href="{% url 'pks_index' %}" class="btn btn-default btn-lg pull-left service-icon">
@@ -126,6 +102,30 @@
                         </a>
                         <h3><a href="{% url 'pks_index' %}">Keyserver</a></h3>
                         <p>{% trans "You can find your fellow students' OpenPGP keys on our public keyserver." %}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="panel panel-default service">
+                    <div class="panel-body">
+                        <a href="{% url 'mumble_index' %}" class="btn btn-default btn-lg pull-left service-icon">
+                            <img src="{{ STATIC_URL }}img/services/mumble.png" alt="Mumble" />
+                        </a>
+                        <h3><a href="{% url 'mumble_index' %}">Mumble</a></h3>
+                        <p>{% trans "You can use our mumble for voice chat with other fellow students." %}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="panel panel-default service">
+                    <div class="panel-body">
+                        <a href="{% url 'jabber_index' %}" class="btn btn-default btn-lg pull-left service-icon">
+                            <img src="{{ STATIC_URL }}img/services/jabber.png" alt="Jabber" />
+                        </a>
+                        <h3><a href="{% url 'jabber_index' %}">Jabber</a></h3>
+                        <p>{% trans "On our Jabber server you can chat with your fellow students, which are already on your contact list." %}</p>
                     </div>
                 </div>
             </div>
