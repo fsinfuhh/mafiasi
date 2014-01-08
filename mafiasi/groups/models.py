@@ -37,10 +37,10 @@ class GroupProxy(object):
             ldap_group.save()
             group.user_set.add(user)
 
-    def remove_member(self, user, check_admin=False):
+    def remove_member(self, user, check_sole_admin=False):
         with AdvisoryLock(LOCK_ID_LDAP_GROUP, self.group.pk):
             properties = self.group.properties
-            if check_admin:
+            if check_sole_admin:
                 self._raise_if_sole_admin(user)
             properties.admins.remove(user)
             ldap_group = LdapGroup.objects.get(gid=self.group.pk)

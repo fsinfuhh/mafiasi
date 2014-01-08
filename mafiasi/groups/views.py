@@ -92,7 +92,7 @@ def leave(request, group_name):
     group = get_object_or_404(Group, name=group_name)
     group_proxy = GroupProxy(group)
     try:
-        group_proxy.remove_member(request.user, check_admin=True)
+        group_proxy.remove_member(request.user, check_sole_admin=True)
         messages.success(request, _('You left the group.'))
     except GroupError as e:
         messages.error(request, e.message)
@@ -115,7 +115,7 @@ def group_action(request, group_name, member_pk):
 
     if 'kick' in request.POST:
         try:
-            group_proxy.remove_member(member)
+            group_proxy.remove_member(member, check_sole_admin=True)
             messages.success(request, _('User was removed from group'))
         except GroupError as e:
             messages.errror(request, e.message)
