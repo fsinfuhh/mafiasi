@@ -103,6 +103,9 @@ def leave(request, group_name):
 @require_POST
 def group_action(request, group_name, member_pk):
     group = get_object_or_404(Group, name=group_name)
+    if not group.properties.admins.filter(pk=request.user.pk):
+        raise PermissionDenied()
+    
     User = get_user_model()
     try:
         member = group.user_set.get(pk=member_pk)
