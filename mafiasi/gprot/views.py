@@ -60,18 +60,22 @@ def create_gprot(request):
     errors = {}
     course = None
     examiner = None
+    exam_date = None
+    course_name = ''
+    examiner_name = ''
+    exam_date_str = ''
     if request.method == 'POST':
-        if 'course' in request.POST:
+        if 'course' in request.POST and request.POST['course'].isdigit():
             course = get_object_or_404(Course, pk=request.POST['course'])
         else:
-            course_name = request.POST.get('course_name').strip()
+            course_name = request.POST.get('course_name', '').strip()
             if not course_name:
                 errors['course_name'] = True
             course = Course(name=course_name, short_name='')
-        if 'examiner' in request.POST:
+        if 'examiner' in request.POST and request.POST['examiner'].isdigit():
             examiner = get_object_or_404(Teacher, pk=request.POST['examiner'])
         else:
-            examiner_name = HumanName(request.POST.get('examiner_name'))
+            examiner_name = HumanName(request.POST.get('examiner_name', ''))
             if examiner_name.middle:
                 first_name = u'{0} {1}'.format(examiner_name.first,
                                                examiner_name.middle)
@@ -85,21 +89,49 @@ def create_gprot(request):
             else:
                 examiner = Teacher(first_name=first_name, last_name=last_name,
                                    title=examiner_name.title)
+        exam_date_str = request.POST.get('exam_date', '')
         try:
-            exam_date_str = request.POST.get('exam_date', '')
             exam_date_t = time.strptime(exam_date_str, '%Y-%m-%d')
             exam_date = date(exam_date_t.tm_year, exam_date_t.tm_mon,
-                             exam_date_t.tm_mday)
+                                 exam_date_t.tm_mday)
         except ValueError:
-            raise
-            exam_date = None
             errors['exam_date'] = True
         
         if not errors:
-            pass
+            if not course.pk:
+                course.save()
+            if not examiner.pk:
+                examiner.save()
+            gprot = GProt.objects.create(course=course,
+                                         examiner=examiner,
+                                         exam_date=exam_date,
+                                         content='',
+                                         author=request.user)
+            return redirect('gprot_edit', gprot.pk)
+
+    if course and course.pk:
+        course_js = json.dumps({
+            'label': course.name,
+            'objData': {'pk': course.pk}
+        })
+    else:
+        course_js = 'null'
+
+    if examiner and examiner.pk:
+        examiner_js = json.dumps({
+            'label': examiner.get_full_name(),
+            'objData': {'pk': examiner.pk}
+        })
+    else:
+        examiner_js = 'null'
 
     return render(request, 'gprot/create.html', {
         'errors': errors,
+        'course_name': course_name,
+        'examiner_name': examiner_name,
+        'exam_date_str': exam_date_str,
+        'course_js': course_js,
+        'examiner_js': examiner_js,
         'autocomplete_course_json': json.dumps(autocomplete_courses),
         'autocomplete_examiner_json': json.dumps(autocomplete_examiners)
     })

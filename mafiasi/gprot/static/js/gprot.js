@@ -49,7 +49,7 @@ GProt.initSearch = function(autocompleteData, search) {
     renderSearch();
 }
 
-GProt.initCreate = function(autocompleteCourses, autocompleteExaminer) {
+GProt.initCreate = function(autocompleteCourses, autocompleteExaminer, course, examiner) {
     function genericSelectItem(itemType, item) {
         $('#' + itemType + '-input').hide();
         var itemDiv = $('<div class="search-item"></div>').text(item['label']);
@@ -80,5 +80,17 @@ GProt.initCreate = function(autocompleteCourses, autocompleteExaminer) {
         'select': function(event, ui) {
             genericSelectItem('examiner', ui.item);
         }
-    }); 
+    });
+    
+    if (course !== null) {
+        genericSelectItem('course', course);
+    }
+    if (examiner !== null) {
+        genericSelectItem('examiner', examiner);
+    }
+
+    $('#exam-date-input').datepicker({
+        'firstDay': 1,
+        'dateFormat': 'yy-mm-dd'
+    });
 }
