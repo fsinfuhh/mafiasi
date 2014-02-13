@@ -97,11 +97,12 @@ def insert_autocomplete_courses(autocomplete=None):
                 'pk': course.pk
 
             })
-        tokens.append({
-            'token': course.short_name.lower(),
-            'type': 'course',
-            'pk': course.pk
-        })
+        if course.short_name:
+            tokens.append({
+                'token': course.short_name.lower(),
+                'type': 'course',
+                'pk': course.pk
+            })
         for alt_name in course.alternate_names.all():
             for part in re.split(r'[\s+-]', alt_name.name):
                 tokens.append({
