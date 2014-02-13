@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block wtitle %}{% block ptitle %}{% blocktrans with course_name=gprot.course.name %}Memory minutes: {{ course_name }}{% endblocktrans %}{% endblock %}{% endblock %}
+
+{% block content %}
+<h3>{% trans "Meta data" %}</h3>
+<table class="table">
+    <tr>
+        <th>{% trans "Examiner" %}</th>
+        <td>{{ gprot.examiner.get_full_name }}</td>
+    </tr>
+    <tr>
+        <th>{% trans "Exam date" %}</th>
+        <td>{{ gprot.exam_date|date:"Y-d-m" }}</td>
+    </tr>
+</table>
+{% endblock %}

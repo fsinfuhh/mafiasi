@@ -1,0 +1,12 @@
+{% load i18n %}
+<ul class="nav nav-tabs">
+    <li{% if tab == 'search' %} class="active"{% endif %}>
+        <a href="{% url 'gprot_index' %}">{% trans "Search" %}</a>
+    </li>
+    <li{% if tab == 'create' %} class="active"{% endif %}>
+        <a href="{% url 'gprot_create' %}">{% trans "Create new" %}</a>
+    </li>
+    <li{% if tab == 'reminder' %} class="active"{% endif %}>
+        <a href="{% url 'gprot_index' %}">{% trans "Reminder" %}</a>
+    </li>
+</ul>

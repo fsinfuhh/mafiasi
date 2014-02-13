@@ -1,0 +1,18 @@
+#search-items {
+    border:1px solid #ccc;
+    margin-bottom:10px;
+    padding:10px 5px 10px 5px;
+}
+
+.search-item {
+    display:inline;
+    border:1px solid #000;
+    background:#ddf;
+    margin:5px;
+    padding:3px;
+}
+
+.search-item span {
+    cursor:pointer;
+    margin-left:5px;
+}
