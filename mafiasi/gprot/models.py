@@ -9,6 +9,7 @@ class GProt(models.Model):
     examiner = models.ForeignKey(Teacher)
     content = models.TextField()
     author = models.ForeignKey(settings.AUTH_USER_MODEL, blank=True, null=True)
+    published = models.BooleanField(default=False)
 
     def __unicode__(self):
         return u'[{0}] {1}: {2}'.format(self.pk, self.exam_date, self.course)
