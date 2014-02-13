@@ -6,7 +6,7 @@
 {% block ptitle %}{% blocktrans with course_name=gprot.course.name %}Memory minutes: {{ course_name }}{% endblocktrans %} {% if gprot.published %}<span class="label label-success">{% trans "published" %}</span>{% else %}<span class="label label-danger">{% trans "unpublished" %}</span>{% endif %}{% endblock %}
 
 {% block submenu %}
-{% include "gprot/menu.html" with tab='edit' course_name=gprot.course.name %}
+{% include "gprot/menu.html" with tab='edit' gprot=gprot %}
 {% endblock %}
 
 {% block content %}
