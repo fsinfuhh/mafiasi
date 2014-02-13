@@ -3,12 +3,14 @@ import time
 from datetime import date
 
 from nameparser import HumanName
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import PermissionDenied
 
 from mafiasi.teaching.models import (Course, Teacher,
         insert_autocomplete_courses, insert_autocomplete_teachers)
 from mafiasi.gprot.models import GProt
+from mafiasi.gprot.sanitize import clean_html
 
 @login_required
 def index(request):
@@ -142,6 +144,29 @@ def view_gprot(request, gprot_pk):
     return render(request, 'gprot/view.html', {
         'gprot': gprot,
     })
+
+@login_required
+def edit_gprot(request, gprot_pk):
+    gprot = get_object_or_404(GProt, pk=gprot_pk)
+    if gprot.author != request.user:
+        raise PermissionDenied('You are not the owner')
+     
+    if request.method == 'POST':
+        content = request.POST.get('content', '')
+        gprot.content = clean_html(content)
+        gprot.save()
+        print repr(gprot.content)
+        if 'publish' in request.POST:
+            pass
+        else:
+            return redirect('gprot_edit', gprot.pk)
+    return render(request, 'gprot/edit.html', {
+        'gprot': gprot,
+    })
+
+@login_required
+def publish_gprot(request, gprot_pk):
+    pass
 
 @login_required
 def render_preview(request):

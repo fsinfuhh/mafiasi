@@ -9,4 +9,9 @@
     <li{% if tab == 'reminder' %} class="active"{% endif %}>
         <a href="{% url 'gprot_index' %}">{% trans "Reminder" %}</a>
     </li>
+{% if course_name %}
+    <li{% if tab == 'edit' %} class="active"{% endif %}>
+        <a href="{% url 'gprot_index' %}">{% blocktrans %}Edit: {{ course_name }}{% endblocktrans %}</a>
+    </li>
+{% endif %}
 </ul>
