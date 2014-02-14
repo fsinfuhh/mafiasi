@@ -146,6 +146,14 @@ def view_gprot(request, gprot_pk):
     })
 
 @login_required
+def list_own_gprots(request):
+    gprots = (GProt.objects.select_related().filter(author=request.user)
+            .order_by('-exam_date'))
+    return render(request, 'gprot/list_own.html', {
+        'gprots': gprots
+    })
+
+@login_required
 def edit_gprot(request, gprot_pk):
     gprot = get_object_or_404(GProt, pk=gprot_pk)
     if gprot.author != request.user:
@@ -155,9 +163,8 @@ def edit_gprot(request, gprot_pk):
         content = request.POST.get('content', '')
         gprot.content = clean_html(content)
         gprot.save()
-        print repr(gprot.content)
         if 'publish' in request.POST:
-            pass
+            return redirect('gprot_publish', gprot.pk)
         else:
             return redirect('gprot_edit', gprot.pk)
     return render(request, 'gprot/edit.html', {
@@ -166,8 +173,17 @@ def edit_gprot(request, gprot_pk):
 
 @login_required
 def publish_gprot(request, gprot_pk):
-    pass
+    gprot = get_object_or_404(GProt, pk=gprot_pk)
+    if gprot.author != request.user:
+        raise PermissionDenied('You are not the owner')
 
-@login_required
-def render_preview(request):
-    pass
+    if request.method == 'POST' and 'authorship' in request.POST:
+        if request.POST['authorship'] == 'purge':
+            gprot.author = None
+        gprot.published = True
+        gprot.save()
+        return redirect('gprot_view', gprot.pk)
+     
+    return render(request, 'gprot/publish.html', {
+        'gprot': gprot
+    })

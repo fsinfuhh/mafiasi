@@ -3,6 +3,10 @@
 
 {% block wtitle %}{% block ptitle %}{% blocktrans with course_name=gprot.course.name %}Memory minutes: {{ course_name }}{% endblocktrans %}{% endblock %}{% endblock %}
 
+{% block submenu %}
+{% include "gprot/menu.html" with tab='view' gprot=gprot %}
+{% endblock %}
+
 {% block content %}
 <h3>{% trans "Meta data" %}</h3>
 <table class="table">
@@ -15,4 +19,6 @@
         <td>{{ gprot.exam_date|date:"Y-d-m" }}</td>
     </tr>
 </table>
+<h3>{% trans "Content" %}</h3>
+{{ gprot.content|safe }}
 {% endblock %}
