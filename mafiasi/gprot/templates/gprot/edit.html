@@ -29,8 +29,8 @@
 {% if gprot.published %}
 <button class="btn btn-primary">{% trans "Save changes" %}</button>
 {% else %}
-<button class="btn btn-primary">{% trans "Save and publish" %}</button>
-<button class="btn btn-default">{% trans "Save only" %}</button>
+<button class="btn btn-primary" name="publish">{% trans "Save and publish" %}</button>
+<button class="btn btn-default" name="save">{% trans "Save only" %}</button>
 {% endif %}
 </p>
 </form>
