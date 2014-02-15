@@ -12,7 +12,7 @@
 {% csrf_token %}
 <div class="form-group">
     <label for="search">{% trans "Search term" %}</label>
-    <input type="text" id="search" class="form-control" />
+    <input type="text" id="search" name="search" class="form-control" />
     <div class="help-block">
 {% blocktrans %}Just enter the name of the course and/or examiner to see available memory minutes.{% endblocktrans %}
     </div>

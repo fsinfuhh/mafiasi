@@ -21,7 +21,22 @@ def index(request):
     search_json = []
     gprots = []
     if request.method == 'POST':
-        course_pks = request.POST.getlist('courses')
+        course_pks = []
+        teacher_pks = []
+
+        # We have a search term that could not be resolved by
+        # autocompletion on client. Try to search on server side
+        term = request.POST.get('search', '').strip()
+        if term:
+            term_lower = term.lower()
+            for token in autocomplete_json['tokens']:
+                if token['token'].startswith(term_lower):
+                    if token['type'] == 'course':
+                        course_pks.append(token['pk'])
+                    elif token['type'] == 'teacher':
+                        teacher_pks.append(token['pk'])
+        
+        course_pks += request.POST.getlist('courses')
         courses = list(Course.objects.filter(pk__in=course_pks))
         for course in courses:
             search_json.append({
@@ -30,7 +45,7 @@ def index(request):
                 'label': course.name
             })
         
-        teacher_pks = request.POST.getlist('teachers')
+        teacher_pks += request.POST.getlist('teachers')
         teachers = list(Teacher.objects.filter(pk__in=teacher_pks))
         for teacher in teachers:
             search_json.append({
@@ -38,12 +53,16 @@ def index(request):
                 'pk': teacher.pk,
                 'label': teacher.get_full_name()
             })
-
+        
         gprots = GProt.objects.select_related()
         if courses:
             gprots = gprots.filter(course__pk__in=course_pks)
         if teachers:
             gprots = gprots.filter(examiner__pk__in=teacher_pks)
+        
+        # We have a search term with no matching courses/examiners
+        if term and not (course_pks or teacher_pks):
+            gprots = []
 
 
     return render(request, 'gprot/index.html', {
