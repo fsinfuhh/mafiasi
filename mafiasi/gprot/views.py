@@ -54,7 +54,7 @@ def index(request):
                 'label': teacher.get_full_name()
             })
         
-        gprots = GProt.objects.select_related()
+        gprots = GProt.objects.select_related().filter(published=True)
         if courses:
             gprots = gprots.filter(course__pk__in=course_pks)
         if teachers:
@@ -159,7 +159,7 @@ def create_gprot(request):
 
 @login_required
 def view_gprot(request, gprot_pk):
-    gprot = get_object_or_404(GProt, pk=gprot_pk)
+    gprot = get_object_or_404(GProt, pk=gprot_pk, published=True)
     return render(request, 'gprot/view.html', {
         'gprot': gprot,
     })
