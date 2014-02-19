@@ -16,7 +16,7 @@ class Etherpad(object):
     def _get_ep_user(self, user):
         return self.api.createAuthorIfNotExistsFor(
                 authorMapper=user.id,
-                name=user.username,
+                name=user.username.encode('utf-8'),
         )['authorID']
 
     def create_group_pad(self, group_name, pad_name):
@@ -26,7 +26,7 @@ class Etherpad(object):
         try:
             self.api.createGroupPad(
                 groupID=self.get_group_id(group_name),
-                padName=pad_name)
+                padName=pad_name.encode('utf-8'))
         except EtherpadException as e:
             # test if pad was already created, if so it's ok
             if e.message == "padName does already exist":
@@ -68,7 +68,7 @@ class Etherpad(object):
 
     def get_group_id(self, group_name):
         return self.api.createGroupIfNotExistsFor(
-                groupMapper=group_name
+                groupMapper=group_name.encode('utf-8')
                 )["groupID"]
 
     def get_group_pads(self, group_name):
