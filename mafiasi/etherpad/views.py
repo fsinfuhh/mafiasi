@@ -58,7 +58,7 @@ def show_pad(request, group_name, pad_name):
     try:
         ep.create_session(request.user, group_name)
         group_id = ep.get_group_id(group_name)
-        pad_url = '{0}/p/{1}${2}'.format(
+        pad_url = u'{0}/p/{1}${2}'.format(
                 settings.ETHERPAD_URL,
                 group_id,
                 pad_name)
@@ -69,7 +69,7 @@ def show_pad(request, group_name, pad_name):
     
     is_fullscreen = 'fullscreen' in request.GET
     response = TemplateResponse(request, 'etherpad/pad.html', {
-        'pad_url':pad_url,
+        'pad_url': pad_url,
         'group_name': group_name,
         'pad_name': pad_name,
         'fullscreen': is_fullscreen,
