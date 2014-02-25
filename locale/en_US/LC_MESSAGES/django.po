@@ -274,8 +274,8 @@ msgid "You can use the Etherpad to work together on a document in real time."
 msgstr "You can use the Etherpad to work together on a document in real time."
 
 #: mafiasi/dashboard/templates/dashboard/index.html:44
-msgid "The Dudle helps you to find common dates for meetings easily."
-msgstr "The Dudle helps you to find common dates for meetings easily."
+msgid "The Dudel helps you to find common dates for meetings easily."
+msgstr "The Dudel helps you to find common dates for meetings easily."
 
 #: mafiasi/dashboard/templates/dashboard/index.html:56
 msgid "On our Jabber server you can chat with your fellow students, which are already on your contact list."
