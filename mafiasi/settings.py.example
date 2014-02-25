@@ -168,7 +168,7 @@ DATABASE_ROUTERS = ['mafiasi.jabber.dbrouter.JabberRouter', 'ldapdb.router.Route
 SERVICE_LINKS = {
 	'etherpad': 'https://ep.mafiasi.de/',
 	'wiki': 'https://wiki.mafiasi.de/',
-	'dudle': 'https://dudle.mafiasi.de/',
+	'dudel': 'https://dudel.mafiasi.de/',
 	'gprot': 'https://www2.informatik.uni-hamburg.de/Fachschaft/gprot/',
 	'planet': 'https://planet.mafiasi.de/',
 	'fb18': 'https://fb18.de/',
