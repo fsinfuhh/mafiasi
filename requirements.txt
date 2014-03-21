@@ -1,8 +1,10 @@
+bleach
 django-widget-tweaks
 django-email-log
 django-ldapdb
 nameparser
 creoleparser
+pygpgme
 pytz
 caldav
 pygraphviz
@@ -11,3 +13,4 @@ python-ldap
 pillow
 networkx
 etherpad_lite
+raven
