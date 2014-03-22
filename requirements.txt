@@ -1,6 +1,7 @@
 django-widget-tweaks
 django-email-log
 django-ldapdb
+fuzzywuzzy
 nameparser
 creoleparser
 pytz

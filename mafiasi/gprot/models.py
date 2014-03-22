@@ -18,6 +18,23 @@ class Attachment(models.Model):
     gprot = models.ForeignKey(GProt)
     filename = models.CharField(max_length=80)
 
+class GProtNotification(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL)
+    added_date = models.DateField()
+    course = models.ForeignKey(Course, blank=True, null=True)
+    course_query = models.CharField(max_length=100, blank=True, null=True)
+
+    @property
+    def query_or_course_name(self):
+        if self.course:
+            return self.course.name
+        else:
+            return self.course_query
+
+    def __unicode__(self):
+        return u'<Notification#{0}: course={1}, user={2}>'.format(
+            self.pk, self.query_or_course_name, self.user)
+
 class Reminder(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
     exam_date = models.DateField()

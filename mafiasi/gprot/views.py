@@ -3,13 +3,20 @@ import time
 from datetime import date
 
 from nameparser import HumanName
+from fuzzywuzzy import fuzz
 from django.shortcuts import render, get_object_or_404, redirect
+from django.core.urlresolvers import reverse
+from django.template.loader import render_to_string
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
+from django.core.mail import send_mail
+from smtplib import SMTPException
+from django.utils.translation import ugettext
+from raven.contrib.django.raven_compat.models import client
 
 from mafiasi.teaching.models import (Course, Teacher,
         insert_autocomplete_courses, insert_autocomplete_teachers)
-from mafiasi.gprot.models import GProt
+from mafiasi.gprot.models import GProt, GProtNotification
 from mafiasi.gprot.sanitize import clean_html
 
 @login_required
@@ -201,8 +208,89 @@ def publish_gprot(request, gprot_pk):
             gprot.author = None
         gprot.published = True
         gprot.save()
+        notify_users(gprot, request)
         return redirect('gprot_view', gprot.pk)
-     
+
     return render(request, 'gprot/publish.html', {
         'gprot': gprot
     })
+
+def send_notification_email(gprot, notification, request):
+    url = reverse('mafiasi.gprot.views.view_gprot', args=(gprot.pk,))
+    email_content = render_to_string('gprot/notification_email.txt', {
+        'notification': notification,
+        'url': request.build_absolute_uri(url)
+    })
+    try:
+        send_mail(ugettext(u'New memory minutes for "%(coursename)s"'
+            % {'coursename': gprot.course.name}).encode('utf8'),
+                email_content.encode('utf8'),
+                None,
+                [notification.user.email])
+    except SMTPException as e:
+        client.captureException()
+
+def notify_users(gprot, request):
+    """
+    Notify users if a GProt matching one of their queries is published.
+    """
+    notified_users = []
+    for notification in GProtNotification.objects.select_related() \
+                        .filter(course_id__exact=gprot.course.pk):
+        if notification.user not in notified_users:
+            send_notification_email(gprot, notification, request)
+            notified_users.append(notification.user)
+
+    for notification in GProtNotification.objects.select_related() \
+                        .filter(course_id=None):
+        if notification.user not in notified_users and \
+            fuzz.partial_ratio(notification.course_query, gprot.course.name) >= 67:
+                send_notification_email(gprot, notification, request)
+                notified_users.append(notification.user)
+
+
+
+@login_required
+def notifications(request):
+    autocomplete_courses = {'tokens': []}
+    insert_autocomplete_courses(autocomplete_courses)
+
+    error = False
+
+    if request.method == 'POST':
+        notification = GProtNotification(added_date=date.today(),
+                                         user=request.user)
+        if 'course' in request.POST:
+            course_pk = request.POST.get('course')
+            try:
+                course = Course.objects.get(pk=course_pk)
+                notification.course = course
+            except Course.DoesNotExist:
+                error = True
+        elif 'course_name' in request.POST:
+            notification.course_query = request.POST['course_name']
+        else:
+            error = True
+
+        if not error:
+            notification.save()
+
+    notifications = GProtNotification.objects.select_related() \
+        .filter(user=request.user) \
+        .order_by("-added_date")
+
+    return render(request, 'gprot/notifications.html', {
+        'notifications': notifications,
+        'autocomplete_course_json': json.dumps(autocomplete_courses),
+        'error': error
+    })
+
+@login_required
+def delete_notification(request, notification_pk):
+    notification = get_object_or_404(GProtNotification, pk=notification_pk)
+    if request.user != notification.user:
+        raise PermissionDenied('You are not the owner')
+
+    notification.delete()
+
+    return redirect('gprot_notifications')

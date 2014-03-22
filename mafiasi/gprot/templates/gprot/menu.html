@@ -9,6 +9,9 @@
     <li{% if tab == 'create' %} class="active"{% endif %}>
         <a href="{% url 'gprot_create' %}">{% trans "Create new" %}</a>
     </li>
+    <li{% if tab == 'notifications' %} class="active"{% endif %}>
+        <a href="{% url 'gprot_notifications' %}">{% trans "Notifications" %}</a>
+    </li>
     <li{% if tab == 'reminder' %} class="active"{% endif %}>
         <a href="{% url 'gprot_index' %}">{% trans "Reminder" %}</a>
     </li>
