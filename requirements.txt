@@ -9,6 +9,7 @@ caldav
 pygraphviz
 psycopg2
 python-ldap
+python-magic
 pillow
 networkx
 etherpad_lite

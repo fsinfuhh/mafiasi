@@ -1,9 +1,11 @@
 import json
 import time
+import magic
 from datetime import date
 
 from nameparser import HumanName
 from fuzzywuzzy import fuzz
+from django.conf import settings
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.urlresolvers import reverse
 from django.template.loader import render_to_string
@@ -125,7 +127,15 @@ def create_gprot(request):
                                  exam_date_t.tm_mday)
         except ValueError:
             errors['exam_date'] = True
-        
+
+        if 'type' in request.POST:
+            if request.POST['type'] == 'html':
+                is_pdf=False
+            elif request.POST['type'] == 'pdf':
+                is_pdf=True
+            else:
+                errors['type'] = True
+
         if not errors:
             if not course.pk:
                 course.save()
@@ -134,9 +144,11 @@ def create_gprot(request):
             gprot = GProt.objects.create(course=course,
                                          examiner=examiner,
                                          exam_date=exam_date,
+                                         is_pdf=is_pdf,
                                          content='',
                                          author=request.user)
             return redirect('gprot_edit', gprot.pk)
+
 
     if course and course.pk:
         course_js = json.dumps({
@@ -188,17 +200,38 @@ def edit_gprot(request, gprot_pk):
     gprot = get_object_or_404(GProt, pk=gprot_pk)
     if gprot.author != request.user:
         raise PermissionDenied('You are not the owner')
-     
+
+    error = ""
     if request.method == 'POST':
-        content = request.POST.get('content', '')
-        gprot.content = clean_html(content)
-        gprot.save()
-        if 'publish' in request.POST:
-            return redirect('gprot_publish', gprot.pk)
+        if gprot.is_pdf:
+            if "file" in request.FILES:
+                upload = request.FILES['file']
+                if upload.size > settings.GPROT_FILE_MAX_SIZE:
+                    error = ugettext("<b>Error:</b> Only files up to 10 MB are allowed.")
+                if magic.from_buffer(upload.read(1024), mime=True) != 'application/pdf':
+                    error = ugettext("<b>Error:</b> Only PDF files are allowed.")
+            else:
+                error = ugettext("<b>Error:</b> Please select a file to upload.")
+
+            if not error:
+                if gprot.content_pdf:
+                    gprot.content_pdf.delete()
+                gprot.content_pdf = upload
+                gprot.save()
         else:
-            return redirect('gprot_view', gprot.pk)
+            content = request.POST.get('content', '')
+            gprot.content = clean_html(content)
+            gprot.save()
+
+        if not error:
+            if 'publish' in request.POST:
+                return redirect('gprot_publish', gprot.pk)
+            else:
+                return redirect('gprot_view', gprot.pk)
+
     return render(request, 'gprot/edit.html', {
         'gprot': gprot,
+        'error': error
     })
 
 @login_required

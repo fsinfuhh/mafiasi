@@ -21,7 +21,27 @@
     </tr>
 </table>
 <hr/>
+{% if gprot.is_pdf %}
+<div id="pdf">
+    <object type="application/pdf" data="{{ gprot.content_pdf.url }}">
+        <div style="text-align: center;">
+            <a class="btn btn-primary btn-lg" href="{{ gprot.content_pdf.url }}">Download PDF</a>
+        </div>
+    </object>
+</div>
+{% else %}
 {{ gprot.content|safe }}
+{% endif %}
+{% endblock %}
+
+{% block css %}
+<style>
+    #pdf object {
+        width: 100%;
+        height: auto;
+        min-height: 500px;
+    }
+</style>
 {% endblock %}
 
 {% block js %}

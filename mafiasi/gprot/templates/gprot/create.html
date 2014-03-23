@@ -24,7 +24,13 @@
     <label for="exam-date">{% trans "Exam date:" %}</label>
     <input type="text" class="form-control" name="exam_date" id="exam-date-input" value="{{ exam_date }}">
 </div>
-
+<div class="form-group">
+    <label for="type">{% trans 'Type' context 'GProt format' %}</label>
+    <select class="form-control make-button-group" id="type" name="type">
+        <option value="html">Write online</option>
+        <option value="pdf">Upload PDF</option>
+    </select>
+</div>
 <button class="btn btn-primary">{% trans "Continue" %}</button>
 </form>
 {% endblock %}

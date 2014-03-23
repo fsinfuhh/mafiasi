@@ -21,6 +21,29 @@
     </tr>
 </table>
 <hr/>
+{% if gprot.is_pdf %}
+{% if gprot.content_pdf %}
+<div class="alert alert-warning">{% trans '<b>Warning:</b> The current document will be replaced when you upload a new one.' %}</div>
+{% endif %}
+<form method="post" action="" enctype="multipart/form-data">
+    {% if error %}<div class="alert alert-danger">{{ error|safe }}</div>{% endif %}
+    {% csrf_token %}
+    <div class="input-group">
+        <label>{% trans 'Select a file' %}</label>
+        <input id="file" name="file" type="file" accept="application/pdf"/>
+    </div>
+    <div class="pull-right">
+        {% if gprot.published %}
+        <button class="btn btn-primary">{% trans "Upload" %}</button>
+        {% else %}
+        <button class="btn btn-primary" name="publish">
+            {% trans "Upload and publish" %}
+        </button>
+        <button class="btn btn-default" name="save">{% trans "Upload only" %}</button>
+{% endif %}
+    </div>
+</form>
+{% else %}
 <form method="post" action="">
 {% csrf_token %}
 <textarea id="gprot-content" rows="10" cols="40" name="content">{{ gprot.content }}</textarea>
@@ -33,6 +56,7 @@
 {% endif %}
 </p>
 </form>
+{% endif %}
 {% endblock %}
 
 {% block js %}
