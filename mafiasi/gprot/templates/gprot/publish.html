@@ -10,7 +10,6 @@
 {% endblock %}
 
 {% block content %}
-<h3>{% trans "Meta data" %}</h3>
 <table class="table">
     <tr>
         <th>{% trans "Examiner" %}</th>
@@ -21,26 +20,30 @@
         <td>{{ gprot.exam_date|date:"Y-d-m" }}</td>
     </tr>
 </table>
+<hr/>
 <form method="post" action="">
 {% csrf_token %}
 
-<h3>{% trans "Publish" %}</h3>
 <div class="form-group">
 <label style="font-weight:normal;">
     <input type="radio" name="authorship" value="keep">
+    {% blocktrans %}
     <strong>Keep authorship information.</strong> This allows you to edit your
     memory minutes after publishing and may allow other features in future.
     Your authorship will be kept confidential and will never be shown to others.
+    {% endblocktrans %}
 </label>
 </div>
 
 <div class="form-group">
 <label style="font-weight:normal;">
     <input type="radio" name="authorship" value="purge">
+    {% blocktrans %}
     <strong>Purge authorship information.</strong> This will delete your
     association with this memory minutes from the database. This will
     of course disable editing this memory minutes, since we no longer
     know who wrote it.
+    {% endblocktrans %}
 </label>
 </div>
 

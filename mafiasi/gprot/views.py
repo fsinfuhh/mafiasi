@@ -9,6 +9,7 @@ from django.core.urlresolvers import reverse
 from django.template.loader import render_to_string
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
+from django.http import Http404
 from django.core.mail import send_mail
 from smtplib import SMTPException
 from django.utils.translation import ugettext
@@ -166,10 +167,13 @@ def create_gprot(request):
 
 @login_required
 def view_gprot(request, gprot_pk):
-    gprot = get_object_or_404(GProt, pk=gprot_pk, published=True)
-    return render(request, 'gprot/view.html', {
-        'gprot': gprot,
-    })
+    gprot = get_object_or_404(GProt, pk=gprot_pk)
+    if gprot.published or gprot.author == request.user:
+        return render(request, 'gprot/view.html', {
+            'gprot': gprot,
+        })
+    else:
+        raise Http404
 
 @login_required
 def list_own_gprots(request):
@@ -192,7 +196,7 @@ def edit_gprot(request, gprot_pk):
         if 'publish' in request.POST:
             return redirect('gprot_publish', gprot.pk)
         else:
-            return redirect('gprot_edit', gprot.pk)
+            return redirect('gprot_view', gprot.pk)
     return render(request, 'gprot/edit.html', {
         'gprot': gprot,
     })

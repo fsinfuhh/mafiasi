@@ -24,7 +24,7 @@
     <tr>
         <td>{{ notification.query_or_course_name }}</td>
         <td>{{ notification.added_date|date:"Y-m-d" }}</td>
-        <td><a href="delete/{{ notification.pk }}">{% trans "Remove notification" %}</a></td>
+        <td><a class="btn btn-default btn-xs" href="delete/{{ notification.pk }}">{% trans "Remove" %}</a></td>
     </tr>
 {% endfor %}
 {% endif %}

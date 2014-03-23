@@ -34,10 +34,10 @@
     </tr>
 {% for gprot in gprots %}
     <tr>
-        <td>{{ gprot.course.name }}</td>
+        <td><a href="{% url 'gprot_view' gprot.pk %}">{{ gprot.course.name }}</a></td>
         <td>{{ gprot.exam_date|date:"Y-m-d" }}</td>
         <td>{{ gprot.examiner.get_full_name }}</td>
-        <td><a href="{% url 'gprot_view' gprot.pk %}">{% trans "View memory minutes" %}</a></td>
+        <td>{% if gprot.author == user %}<a class="btn btn-xs btn-default" href="{% url 'gprot_edit' gprot.pk %}">{% trans 'Edit' %}</a>{% endif %}</td>
     </tr>
 {% endfor %}
 </table>
