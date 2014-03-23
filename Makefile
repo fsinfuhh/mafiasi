@@ -4,7 +4,7 @@ cal_static = mafiasi/cal/static/
 pks_static = mafiasi/pks/static/
 mumble_static = mafiasi/mumble/static/
 gprot_static = mafiasi/gprot/static/
-mathjax_version = 2.2
+mathjax_version = 2.3
 mathjax_static = ${base_static}MathJax-${mathjax_version}/
 
 all: css js locales mathjax
