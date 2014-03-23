@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load gprot_extras %}
 
 {% block wtitle %}{% blocktrans with course_name=gprot.course.name %}Publish: {{ course_name }}{% endblocktrans %}{% endblock %}
 
@@ -12,8 +13,8 @@
 {% block content %}
 <table class="table">
     <tr>
-        <th>{% trans "Examiner" %}</th>
-        <td>{{ gprot.examiner.get_full_name }}</td>
+        <th>{% trans "Examiners" %}</th>
+        <td>{{ gprot.examiners|format_examiners }}</td>
     </tr>
     <tr>
         <th>{% trans "Exam date" %}</th>

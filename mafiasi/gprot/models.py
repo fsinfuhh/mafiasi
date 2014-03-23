@@ -11,7 +11,7 @@ def make_filename(gprot, filename):
 class GProt(models.Model):
     course = models.ForeignKey(Course)
     exam_date = models.DateField()
-    examiner = models.ForeignKey(Teacher)
+    examiners = models.ManyToManyField(Teacher)
     is_pdf = models.BooleanField(default=False)
     content = models.TextField()
     content_pdf = models.FileField(upload_to=make_filename, null=True, blank=True)

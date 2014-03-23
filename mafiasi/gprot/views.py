@@ -67,13 +67,12 @@ def index(request):
         gprots = GProt.objects.select_related().filter(published=True)
         if courses:
             gprots = gprots.filter(course__pk__in=course_pks)
-        if teachers:
-            gprots = gprots.filter(examiner__pk__in=teacher_pks)
-        
+        for teacher_pk in teacher_pks:
+            gprots = filter(lambda g: teacher in g.examiners.all(), gprots)
+
         # We have a search term with no matching courses/examiners
         if term and not (course_pks or teacher_pks):
             gprots = []
-
 
     return render(request, 'gprot/index.html', {
         'autocomplete_json': json.dumps(autocomplete_json),
@@ -142,11 +141,11 @@ def create_gprot(request):
             if not examiner.pk:
                 examiner.save()
             gprot = GProt.objects.create(course=course,
-                                         examiner=examiner,
                                          exam_date=exam_date,
                                          is_pdf=is_pdf,
                                          content='',
                                          author=request.user)
+            gprot.examiners.add(examiner)
             return redirect('gprot_edit', gprot.pk)
 
 
