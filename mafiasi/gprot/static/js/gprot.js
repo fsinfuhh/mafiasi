@@ -17,14 +17,15 @@ GProt.initSearch = function(autocompleteData, search) {
         }
         for (var i = 0; i < search.length; ++i) {
             var item = search[i];
-            var itemDiv = $('<div class="search-item"></div>').text(item['label']);
+            var itemDiv = $('<div class="btn-group search-item"><div class="btn btn-default btn-sm">' + item['label'] + '</div></div>');
             var itemInput = $('<input type="hidden">').attr({
                 'name': item['what'] + 's',
                 'value': item['pk']
             });
-            itemDiv.append('<span>X</span>').click((function(item) {
-                return function(ev, ui) {
-                    removeSearchItem(item);
+            itemDiv.append('<div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-remove"></span></div>').click(
+                (function(item) {
+                    return function(ev, ui) {
+                        removeSearchItem(item);
                 }
             })(item));
             itemList.append(itemDiv).append(itemInput);
@@ -52,11 +53,11 @@ GProt.initSearch = function(autocompleteData, search) {
 GProt.initCreate = function(autocompleteCourses, autocompleteExaminer, course, examiner) {
     function genericSelectItem(itemType, item) {
         $('#' + itemType + '-input').hide();
-        var itemDiv = $('<div class="search-item"></div>').text(item['label']);
-        itemDiv.append($('<span>X</span>').click(function() {
+        var itemDiv = $('<div class="btn-group search-item"><div class="btn btn-default btn-sm">' + item['label'] + '</div></div>');
+        itemDiv.append('<div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-remove"></span></div>').click(function() {
             $('#' + itemType + '-item').empty().hide();
             $('#' + itemType + '-input').show();
-        }));
+        });
         itemDiv.append($('<input type="hidden">').attr({
             'name': itemType,
             'value': item['objData']['pk']
