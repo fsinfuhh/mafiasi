@@ -4,7 +4,7 @@
 
 {% block wtitle %}{% blocktrans with course_name=gprot.course.name %}Memory minutes: {{ course_name }}{% endblocktrans %}{% endblock %}
 
-{% block ptitle %}{{ gprot.course.name }}{% if gprot.author == user %}<div class="pull-right">{% if not gprot.published %}<a class=" btn btn-primary" href="{% url 'gprot_publish' gprot.pk %}">{% trans 'Publish' %}</a>{% endif %} <a class="btn btn-default" href="{% url 'gprot_edit' gprot.pk %}">{% trans 'Edit' %}</a>{% endif %}</div>{% endblock %}
+{% block ptitle %}{{ gprot.course.name }}{% if gprot.author == user %}<div class="pull-right">{% if not gprot.published %}<a class=" btn btn-primary" href="{% url 'gprot_publish' gprot.pk %}">{% trans 'Publish' %}</a>{% endif %} <a class="btn btn-default" href="{% url 'gprot_edit' gprot.pk %}">{% trans 'Edit' %}</a></div>{% endif %}{% endblock %}
 
 {% block submenu %}
 {% include "gprot/menu.html" with tab='view' gprot=gprot %}
@@ -18,7 +18,7 @@
     </tr>
     <tr>
         <th>{% trans "Exam date" %}</th>
-        <td>{{ gprot.exam_date|date:"Y-d-m" }}</td>
+        <td>{{ gprot.exam_date|date:"Y-m-d" }}</td>
     </tr>
 </table>
 <hr/>
@@ -31,7 +31,9 @@
     </object>
 </div>
 {% else %}
+<div id="content">
 {{ gprot.content|safe }}
+</div>
 {% endif %}
 {% endblock %}
 
@@ -39,7 +41,7 @@
 <style>
     #pdf object {
         width: 100%;
-        height: auto;
+        height: 100%;
         min-height: 500px;
     }
 </style>
