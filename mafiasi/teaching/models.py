@@ -33,7 +33,7 @@ class Teacher(models.Model):
         return self.get_full_name()
 
 class Course(models.Model):
-    name = models.CharField(max_length=60)
+    name = models.CharField(max_length=100)
     short_name = models.CharField(max_length=30)
     
     def __unicode__(self):
@@ -44,7 +44,7 @@ class Course(models.Model):
 
 class AltCourseName(models.Model):
     course = models.ForeignKey(Course, related_name='alternate_names')
-    name = models.CharField(max_length=60)
+    name = models.CharField(max_length=100)
 
     def __unicode__(self):
         return u'{0} ({1})'.format(self.name, self.course)
