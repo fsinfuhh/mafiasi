@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-18 17:46+0100\n"
+"POT-Creation-Date: 2014-03-25 19:05+0100\n"
 "PO-Revision-Date: 2013-12-18 17:46+0100\n"
 "Last-Translator: Henning Pridöhl <8pridoeh@informatik.uni-hamburg.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -391,9 +391,13 @@ msgstr "Show this pad in fullscreen mode"
 msgid "No such user."
 msgstr "No such user."
 
-#: mafiasi/groups/forms.py:29
+#: mafiasi/groups/forms.py:28
 msgid "User already has an invitation."
 msgstr "User already has an invitation."
+
+#: mafiasi/groups/forms.py:34
+msgid "This user is already a member of this group."
+msgstr "This user is already a member of this group."
 
 #: mafiasi/groups/models.py:66
 msgid "You are the sole group admin. Please terminate the group or appoint another group admin."

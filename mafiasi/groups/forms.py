@@ -24,10 +24,15 @@ class InvitationForm(forms.Form):
 
         has_invitation = bool(GroupInvitation.objects.filter(
                 group=self.group, invitee=invitee_user))
-
         if has_invitation:
             raise forms.ValidationError(_('User already has an invitation.'))
-        
+
+        already_member = \
+            invitee_user.groups.filter(name=self.group.name).exists()
+        if already_member:
+            raise forms.ValidationError(
+                _('This user is already a member of this group.'))
+
         return invitee
 
     def get_invitation(self):
