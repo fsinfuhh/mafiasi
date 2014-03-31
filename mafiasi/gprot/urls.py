@@ -9,5 +9,8 @@ urlpatterns = patterns('mafiasi.gprot.views',
     url(r'^publish/(\d+)$', 'publish_gprot', name='gprot_publish'),
     url(r'^notifications/$', 'notifications', name='gprot_notifications'),
     url(r'^notifications/delete/(\d+)$', 'delete_notification',
-        name='gprot_notification_delete')
+        name='gprot_notification_delete'),
+    url(r'^reminders/$', 'reminders', name='gprot_reminders'),
+    url(r'^reminders/delete/(\d+)$', 'delete_reminder',
+        name='gprot_reminder_delete')
 )

@@ -94,4 +94,10 @@ GProt.initCreate = function(autocompleteCourses, autocompleteExaminer, course, e
         'firstDay': 1,
         'dateFormat': 'yy-mm-dd'
     });
+
+    $('#reminder-exam-date-input').datepicker({
+        'firstDay': 1,
+        'dateFormat': 'yy-mm-dd',
+        'minDate': 1
+    });
 }

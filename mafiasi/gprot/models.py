@@ -47,6 +47,7 @@ class GProtNotification(models.Model):
 class Reminder(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
     exam_date = models.DateField()
+    course = models.ForeignKey(Course, blank=True, null=True)
 
     def __unicode__(self):
         return u'Reminder for {0} on {1}'.format(self.user, self.exam_date)

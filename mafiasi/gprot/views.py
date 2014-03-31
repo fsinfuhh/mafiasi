@@ -19,7 +19,7 @@ from raven.contrib.django.raven_compat.models import client
 
 from mafiasi.teaching.models import (Course, Teacher,
         insert_autocomplete_courses, insert_autocomplete_teachers)
-from mafiasi.gprot.models import GProt, GProtNotification
+from mafiasi.gprot.models import GProt, GProtNotification, Reminder
 from mafiasi.gprot.sanitize import clean_html
 
 @login_required
@@ -330,3 +330,54 @@ def delete_notification(request, notification_pk):
     notification.delete()
 
     return redirect('gprot_notifications')
+
+@login_required
+def reminders(request):
+    autocomplete_courses = {'tokens': []}
+    insert_autocomplete_courses(autocomplete_courses)
+
+    error = False
+
+    if request.method == 'POST':
+        reminder = Reminder(user=request.user)
+
+        if 'course' in request.POST and request.POST['course'].isdigit():
+            course = get_object_or_404(Course, pk=request.POST['course'])
+        elif 'course_name' in request.POST:
+            course_name = request.POST.get('course_name', '').strip()
+            course = Course(name=course_name, short_name='')
+        else:
+            course = None
+
+        exam_date_str = request.POST.get('exam_date', '')
+        try:
+            exam_date_t = time.strptime(exam_date_str, '%Y-%m-%d')
+            exam_date = date(exam_date_t.tm_year, exam_date_t.tm_mon,
+                                 exam_date_t.tm_mday)
+        except ValueError:
+            error = True
+
+        if not error:
+            reminder.exam_date = exam_date
+            reminder.course = course
+            reminder.save()
+
+    reminders = Reminder.objects.select_related() \
+        .filter(user=request.user) \
+        .order_by("exam_date")
+
+    return render(request, 'gprot/reminders.html', {
+        'reminders': reminders,
+        'autocomplete_course_json': json.dumps(autocomplete_courses),
+        'error': error
+    })
+
+@login_required
+def delete_reminder(request, reminder_pk):
+    reminder = get_object_or_404(Reminder, pk=reminder_pk)
+    if request.user != reminder.user:
+        raise PermissionDenied('You are not the owner')
+
+    reminder.delete()
+
+    return redirect('gprot_reminders')
