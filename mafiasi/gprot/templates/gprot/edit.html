@@ -27,7 +27,9 @@
 <div class="alert alert-warning">{% trans '<b>Warning:</b> The current document will be replaced when you upload a new one.' %}</div>
 {% endif %}
 <form method="post" action="" enctype="multipart/form-data">
-    {% if error %}<div class="alert alert-danger">{{ error|safe }}</div>{% endif %}
+    {% if error %}<div class="alert alert-danger">
+        <b>{% trans 'Error:' %}</b> {{ error }}
+    </div>{% endif %}
     {% csrf_token %}
     <div class="input-group">
         <label>{% trans 'Select a file' %}</label>

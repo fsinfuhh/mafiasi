@@ -13,7 +13,7 @@ class GProt(models.Model):
     exam_date = models.DateField()
     examiners = models.ManyToManyField(Teacher)
     is_pdf = models.BooleanField(default=False)
-    content = models.TextField()
+    content = models.TextField(blank=True, null=True)
     content_pdf = models.FileField(upload_to=make_filename, null=True, blank=True)
     author = models.ForeignKey(settings.AUTH_USER_MODEL, blank=True, null=True)
     published = models.BooleanField(default=False)
@@ -25,13 +25,19 @@ class GProt(models.Model):
 
 class Attachment(models.Model):
     gprot = models.ForeignKey(GProt)
-    filename = models.CharField(max_length=80)
+    file = models.FileField(upload_to=make_attachment_filename)
 
-class GProtNotification(models.Model):
+    def __unicode__(self):
+        return "Attachment [{0}] of {1}".format(self.gprot.pk, self.file_.url)
+
+class Notification(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
     added_date = models.DateField()
     course = models.ForeignKey(Course, blank=True, null=True)
     course_query = models.CharField(max_length=100, blank=True, null=True)
+
+    class Meta:
+        unique_together = ('user', 'course', 'course_query')
 
     @property
     def query_or_course_name(self):
@@ -41,13 +47,17 @@ class GProtNotification(models.Model):
             return self.course_query
 
     def __unicode__(self):
-        return u'[{0}]: course={1}, user={2}'.format(
-            self.pk, self.query_or_course_name, self.user)
+        return u'Notification for {0} by {1}'.format(
+            self.query_or_course_name, self.user)
 
 class Reminder(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
     exam_date = models.DateField()
     course = models.ForeignKey(Course, blank=True, null=True)
 
+    class Meta:
+        unique_together = ('user', 'exam_date', 'course')
+
     def __unicode__(self):
-        return u'Reminder for {0} on {1}'.format(self.user, self.exam_date)
+        return u'Reminder for {0}, "{1}" on {2}'.format(
+            self.user, self.course.name, self.exam_date)

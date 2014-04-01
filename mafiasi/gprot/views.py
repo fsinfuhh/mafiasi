@@ -14,12 +14,12 @@ from django.core.exceptions import PermissionDenied
 from django.http import Http404
 from django.core.mail import send_mail
 from smtplib import SMTPException
-from django.utils.translation import ugettext
+from django.utils.translation import ugettext as _
 from raven.contrib.django.raven_compat.models import client
 
 from mafiasi.teaching.models import (Course, Teacher,
         insert_autocomplete_courses, insert_autocomplete_teachers)
-from mafiasi.gprot.models import GProt, GProtNotification, Reminder
+from mafiasi.gprot.models import GProt, Notification, Reminder
 from mafiasi.gprot.sanitize import clean_html
 
 @login_required
@@ -200,17 +200,18 @@ def edit_gprot(request, gprot_pk):
     if gprot.author != request.user:
         raise PermissionDenied('You are not the owner')
 
-    error = ""
+    error = ''
     if request.method == 'POST':
         if gprot.is_pdf:
-            if "file" in request.FILES:
+            if 'file' in request.FILES:
                 upload = request.FILES['file']
                 if upload.size > settings.GPROT_FILE_MAX_SIZE:
-                    error = ugettext("<b>Error:</b> Only files up to 10 MB are allowed.")
-                if magic.from_buffer(upload.read(1024), mime=True) != 'application/pdf':
-                    error = ugettext("<b>Error:</b> Only PDF files are allowed.")
+                    error = _('Only files up to 10 MB are allowed.')
+                if magic.from_buffer(upload.read(1024), mime=True) \
+                                                        != 'application/pdf':
+                    error = _('Only PDF files are allowed.')
             else:
-                error = ugettext("<b>Error:</b> Please select a file to upload.")
+                error = _('Please select a file to upload.')
 
             if not error:
                 if gprot.content_pdf:
@@ -258,7 +259,7 @@ def send_notification_email(gprot, notification, request):
         'url': request.build_absolute_uri(url)
     })
     try:
-        send_mail(ugettext(u'New memory minutes for "%(coursename)s"'
+        send_mail(_(u'New memory minutes for "%(coursename)s"'
             % {'coursename': gprot.course.name}).encode('utf8'),
                 email_content.encode('utf8'),
                 None,
@@ -267,20 +268,20 @@ def send_notification_email(gprot, notification, request):
         client.captureException()
 
 def notify_users(gprot, request):
-    """
+    '''
     Notify users if a GProt matching one of their queries is published.
-    """
+    '''
     notified_users = []
-    for notification in GProtNotification.objects.select_related() \
+    for notification in Notification.objects.select_related() \
                         .filter(course_id__exact=gprot.course.pk):
         if notification.user not in notified_users:
             send_notification_email(gprot, notification, request)
             notified_users.append(notification.user)
 
-    for notification in GProtNotification.objects.select_related() \
+    for notification in Notification.objects.select_related() \
                         .filter(course_id=None):
-        if notification.user not in notified_users and \
-            fuzz.partial_ratio(notification.course_query, gprot.course.name) >= 67:
+        if notification.user not in notified_users and fuzz.partial_ratio(
+                        notification.course_query, gprot.course.name) >= 67:
                 send_notification_email(gprot, notification, request)
                 notified_users.append(notification.user)
 
@@ -294,7 +295,7 @@ def notifications(request):
     error = False
 
     if request.method == 'POST':
-        notification = GProtNotification(added_date=date.today(),
+        notification = Notification(added_date=date.today(),
                                          user=request.user)
         if 'course' in request.POST:
             course_pk = request.POST.get('course')
@@ -308,12 +309,17 @@ def notifications(request):
         else:
             error = True
 
+        if Notification.objects.filter(course=notification.course,
+                                       course_query=notification.course_query,
+                                       user=notification.user).exists():
+            error = True
+
         if not error:
             notification.save()
 
-    notifications = GProtNotification.objects.select_related() \
+    notifications = Notification.objects.select_related() \
         .filter(user=request.user) \
-        .order_by("-added_date")
+        .order_by('-added_date')
 
     return render(request, 'gprot/notifications.html', {
         'notifications': notifications,
@@ -323,7 +329,7 @@ def notifications(request):
 
 @login_required
 def delete_notification(request, notification_pk):
-    notification = get_object_or_404(GProtNotification, pk=notification_pk)
+    notification = get_object_or_404(Notification, pk=notification_pk)
     if request.user != notification.user:
         raise PermissionDenied('You are not the owner')
 
@@ -357,6 +363,11 @@ def reminders(request):
         except ValueError:
             error = True
 
+        if Reminder.objects.filter(exam_date=exam_date,
+                                   course=course,
+                                   user=request.user).exists():
+            error = True
+
         if not error:
             reminder.exam_date = exam_date
             reminder.course = course
@@ -364,7 +375,7 @@ def reminders(request):
 
     reminders = Reminder.objects.select_related() \
         .filter(user=request.user) \
-        .order_by("exam_date")
+        .order_by('exam_date')
 
     return render(request, 'gprot/reminders.html', {
         'reminders': reminders,
