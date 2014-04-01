@@ -62,6 +62,7 @@
 {% endif %}
 {% endblock %}
 
+{% if not gprot.is_pdf %}
 {% block js %}
 <script type="text/javascript" src="{{ STATIC_URL }}js/ckeditor/ckeditor.js"></script>
 <script type="text/javascript">
@@ -84,7 +85,9 @@ CKEDITOR.replace('gprot-content', {
         { name: 'about' }
     ],
     'stylesSet': 'default',
-    'linkShowTargetTab': false
+    'linkShowTargetTab': false,
+    'filebrowserUploadUrl': '{% url "attachment_create" gprot.pk %}?csrf_token={{ attachment_csrf_token }}'
 });
 </script>
 {% endblock %}
+{% endif %}

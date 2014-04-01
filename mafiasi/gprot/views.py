@@ -10,16 +10,20 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.core.urlresolvers import reverse
 from django.template.loader import render_to_string
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_POST
 from django.core.exceptions import PermissionDenied
-from django.http import Http404
+from django.http import HttpResponse, Http404
 from django.core.mail import send_mail
 from smtplib import SMTPException
 from django.utils.translation import ugettext as _
+from django.utils.crypto import constant_time_compare
 from raven.contrib.django.raven_compat.models import client
+from django.middleware.csrf import get_token as get_csrf_token
 
 from mafiasi.teaching.models import (Course, Teacher,
         insert_autocomplete_courses, insert_autocomplete_teachers)
-from mafiasi.gprot.models import GProt, Notification, Reminder
+from mafiasi.gprot.models import Attachment, GProt, Notification, Reminder
 from mafiasi.gprot.sanitize import clean_html
 
 @login_required
@@ -205,8 +209,9 @@ def edit_gprot(request, gprot_pk):
         if gprot.is_pdf:
             if 'file' in request.FILES:
                 upload = request.FILES['file']
-                if upload.size > settings.GPROT_FILE_MAX_SIZE:
-                    error = _('Only files up to 10 MB are allowed.')
+                if upload.size > settings.GPROT_PDF_MAX_SIZE / 1000000:
+                    error = _('Only files up to {0} MB are allowed.').format(
+                        settings.GPROT_PDF_MAX_SIZE)
                 if magic.from_buffer(upload.read(1024), mime=True) \
                                                         != 'application/pdf':
                     error = _('Only PDF files are allowed.')
@@ -231,8 +236,53 @@ def edit_gprot(request, gprot_pk):
 
     return render(request, 'gprot/edit.html', {
         'gprot': gprot,
-        'error': error
+        'error': error,
+        'attachment_csrf_token': get_csrf_token(request)
     })
+
+@csrf_exempt
+@login_required
+@require_POST
+def create_attachment(request, gprot_pk):
+    response_str = "<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction({0}, '{1}', '{2}');</script>"
+
+    gprot = get_object_or_404(GProt, pk=gprot_pk)
+    func_num = request.GET.get('CKEditorFuncNum', '')
+
+    error = None
+
+    # HACK: manual CSRF verification because CKEditor does not
+    # support custom POST parameters for image uploads.
+    csrf_cookie = request.COOKIES.get(settings.CSRF_COOKIE_NAME)
+    csrf_token = request.GET.get('csrf_token')
+    if not (csrf_cookie and csrf_token
+            and constant_time_compare(csrf_cookie, csrf_token)):
+        error = _('CSRF verification failed.')
+
+    elif 'upload' in request.FILES:
+        upload = request.FILES['upload']
+
+        if upload.size > settings.GPROT_IMAGE_MAX_SIZE * 1000000:
+            error = _('Only files up to {0} MB are allowed.').format(
+                settings.GPROT_IMAGE_MAX_SIZE)
+
+        mime_type = magic.from_buffer(upload.read(1024), mime=True)
+        if not mime_type in ('image/png', 'image/jpeg', 'image/gif'):
+            error = _('Only PNG, JPEG and GIF files are allowed.')
+    else:
+        error = _('Please select a file to upload.')
+
+    if error:
+        return HttpResponse(
+            response_str.format(func_num, '', error.encode('utf8')),
+            status=400)
+    else:
+        attachment = Attachment(gprot=gprot, mime_type=mime_type)
+        attachment.save() # saved here to set the primary key
+        attachment.file = upload
+        attachment.save()
+        return HttpResponse(
+                    response_str.format(func_num, attachment.file.url, ''))
 
 @login_required
 def publish_gprot(request, gprot_pk):

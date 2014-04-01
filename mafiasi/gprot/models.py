@@ -4,9 +4,17 @@ import hashlib
 
 from mafiasi.teaching.models import Course, Teacher
 
-def make_filename(gprot, filename):
-    return 'gprot/{0}.{1}.pdf'.format(
-        hashlib.md5(unicode(gprot).encode('utf8')).hexdigest(), gprot.pk)
+def make_filename(obj, prefix, ext):
+    return '{0}/{1}-{2}.{3}'.format(
+        prefix, hashlib.md5(unicode(obj).encode('utf8')).hexdigest(),
+        obj.pk, ext)
+
+def make_gprot_filename(gprot, filename):
+    return make_filename(gprot, 'gprot', 'pdf')
+
+def make_attachment_filename(attachment, filename):
+    ext = attachment.mime_type.split('/')[-1]
+    return make_filename(attachment, 'gprot-attachment', ext)
 
 class GProt(models.Model):
     course = models.ForeignKey(Course)
@@ -14,7 +22,8 @@ class GProt(models.Model):
     examiners = models.ManyToManyField(Teacher)
     is_pdf = models.BooleanField(default=False)
     content = models.TextField(blank=True, null=True)
-    content_pdf = models.FileField(upload_to=make_filename, null=True, blank=True)
+    content_pdf = models.FileField(upload_to=make_gprot_filename,
+                                   null=True, blank=True)
     author = models.ForeignKey(settings.AUTH_USER_MODEL, blank=True, null=True)
     published = models.BooleanField(default=False)
 
@@ -26,9 +35,10 @@ class GProt(models.Model):
 class Attachment(models.Model):
     gprot = models.ForeignKey(GProt)
     file = models.FileField(upload_to=make_attachment_filename)
+    mime_type = models.CharField(max_length=16)
 
     def __unicode__(self):
-        return "Attachment [{0}] of {1}".format(self.gprot.pk, self.file_.url)
+        return "Attachment: {0}".format(self.file.name)
 
 class Notification(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
