@@ -209,7 +209,7 @@ def edit_gprot(request, gprot_pk):
         if gprot.is_pdf:
             if 'file' in request.FILES:
                 upload = request.FILES['file']
-                if upload.size > settings.GPROT_PDF_MAX_SIZE / 1000000:
+                if upload.size > settings.GPROT_PDF_MAX_SIZE * 1000000:
                     error = _('Only files up to {0} MB are allowed.').format(
                         settings.GPROT_PDF_MAX_SIZE)
                 if magic.from_buffer(upload.read(1024), mime=True) \
