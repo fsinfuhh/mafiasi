@@ -169,7 +169,6 @@ SERVICE_LINKS = {
 	'etherpad': 'https://ep.mafiasi.de/',
 	'wiki': 'https://wiki.mafiasi.de/',
 	'dudle': 'https://dudle.mafiasi.de/',
-	'gprot': 'https://www2.informatik.uni-hamburg.de/Fachschaft/gprot/',
 	'planet': 'https://planet.mafiasi.de/',
 	'fb18': 'https://fb18.de/',
 	'redmine': 'https://redmine.mafiasi.de/'
