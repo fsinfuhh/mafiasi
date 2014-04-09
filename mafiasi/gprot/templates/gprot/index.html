@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load gprot_extras %}
+
+{% block wtitle %}{% block ptitle %}{% trans "Search for memory minutes" %}{% endblock %}{% endblock %}
+
+{% block submenu %}
+{% include "gprot/menu.html" with tab='search' %}
+{% endblock %}
+
+{% block content %}
+<form method="post" action="">
+{% csrf_token %}
+<div class="form-group">
+    <label for="search">{% trans "Search term" %}</label>
+    <input type="text" id="search" name="search" class="form-control" />
+    <div class="help-block">
+{% blocktrans %}Just enter the name of the course and/or examiner to see available memory minutes.{% endblocktrans %}
+    </div>
+</div>
+<div id="search-items"></div>
+<div style="clear:both;"></div>
+<button class="btn btn-primary">{% trans "Show memory minutes" %}</button>
+</form>
+
+{% if gprots %}
+<h3>{% trans "Results" %}</h3>
+
+<table class="table table-striped">
+    <tr>
+        <th>{% trans "Course" %}</th>
+        <th>{% trans "Exam date" %}</th>
+        <th>{% trans "Examiners" %}</th>
+        <th>{% trans "Actions" %}</th>
+    </tr>
+{% for gprot in gprots %}
+    <tr>
+        <td><a href="{% url 'gprot_view' gprot.pk %}">{{ gprot.course.name }}</a></td>
+        <td>{{ gprot.exam_date|date:"Y-m-d" }}</td>
+        <td>{{ gprot.examiners|format_examiners }}</td>
+        <td>{% if gprot.author == user %}<a class="btn btn-xs btn-default" href="{% url 'gprot_edit' gprot.pk %}">{% trans 'Edit' %}</a>{% endif %}</td>
+    </tr>
+{% endfor %}
+</table>
+
+{% endif %}
+
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/gprot.css" />
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="{{ STATIC_URL }}js/autocomplete.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/gprot.js"></script>
+<script type="text/javascript">
+$(function() {
+    GProt.initSearch({{ autocomplete_json|safe }}, {{ search_json|safe }});
+});
+</script>
+{% endblock %}

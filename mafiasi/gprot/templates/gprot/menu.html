@@ -1,0 +1,33 @@
+{% load i18n %}
+<ul class="nav nav-tabs">
+    <li{% if tab == 'search' %} class="active"{% endif %}>
+        <a href="{% url 'gprot_index' %}">{% trans "Search" %}</a>
+    </li>
+    <li{% if tab == 'own' %} class="active"{% endif %}>
+        <a href="{% url 'gprot_list_own' %}">{% trans "List own" %}</a>
+    </li>
+    <li{% if tab == 'create' %} class="active"{% endif %}>
+        <a href="{% url 'gprot_create' %}">{% trans "Create new" %}</a>
+    </li>
+    <li{% if tab == 'notifications' %} class="active"{% endif %}>
+        <a href="{% url 'gprot_notifications' %}">{% trans "Notifications" %}</a>
+    </li>
+    <li{% if tab == 'reminders' %} class="active"{% endif %}>
+        <a href="{% url 'gprot_reminders' %}">{% trans "Reminders" %}</a>
+    </li>
+{% if tab == 'view' %}
+    <li class="active">
+        <a href="{% url 'gprot_view' gprot.pk %}">{% blocktrans with course_name=gprot.course.name %}View: {{ course_name }}{% endblocktrans %}</a>
+    </li>
+{% endif %}
+{% if tab == 'edit' %}
+    <li class="active">
+        <a href="{% url 'gprot_edit' gprot.pk %}">{% blocktrans with course_name=gprot.course.name %}Edit: {{ course_name }}{% endblocktrans %}</a>
+    </li>
+{% endif %}
+{% if tab == 'publish' %}
+    <li class="active">
+        <a href="{% url 'gprot_publish' gprot.pk %}">{% blocktrans with course_name=gprot.course.name %}Publish: {{ course_name }}{% endblocktrans %}</a>
+    </li>
+{% endif %}
+</ul>

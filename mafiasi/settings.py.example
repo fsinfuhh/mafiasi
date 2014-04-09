@@ -169,7 +169,6 @@ SERVICE_LINKS = {
 	'etherpad': 'https://ep.mafiasi.de/',
 	'wiki': 'https://wiki.mafiasi.de/',
 	'dudel': 'https://dudel.mafiasi.de/',
-	'gprot': 'https://www2.informatik.uni-hamburg.de/Fachschaft/gprot/',
 	'planet': 'https://planet.mafiasi.de/',
 	'fb18': 'https://fb18.de/',
 	'redmine': 'https://redmine.mafiasi.de/'
@@ -179,6 +178,9 @@ WIKI_URL = 'https://www2.informatik.uni-hamburg.de/Fachschaft/wiki/'
 
 ETHERPAD_API_KEY = 'Insert API Key here'
 ETHERPAD_URL = 'https://ep.mafiasi.de'
+
+GPROT_PDF_MAX_SIZE = 10 #MB
+GPROT_IMAGE_MAX_SIZE = 2 #MB
 
 from django.contrib.messages import constants as message_constants
 MESSAGE_TAGS = {

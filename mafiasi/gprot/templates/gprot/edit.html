@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load gprot_extras %}
+
+{% block wtitle %}{% blocktrans with course_name=gprot.course.name %}Memory minutes: {{ course_name }}{% endblocktrans %}{% endblock %}
+
+{% block ptitle %}{{ gprot.course.name }}{% if gprot.published %}<span class="label label-success pull-right">{% trans "published" %}</span>{% else %}<span class="label label-danger pull-right">{% trans "unpublished" %}</span>{% endif %}{% endblock %}
+
+{% block submenu %}
+{% include "gprot/menu.html" with tab='edit' gprot=gprot %}
+{% endblock %}
+
+{% block content %}
+<table class="table">
+    <tr>
+        <th>{% trans "Examiners" %}</th>
+        <td>{{ gprot.examiners|format_examiners }}</td>
+    </tr>
+    <tr>
+        <th>{% trans "Exam date" %}</th>
+        <td>{{ gprot.exam_date|date:"Y-d-m" }}</td>
+    </tr>
+</table>
+<hr/>
+{% if gprot.is_pdf %}
+{% if gprot.content_pdf %}
+<div class="alert alert-warning">{% trans '<b>Warning:</b> The current document will be replaced when you upload a new one.' %}</div>
+{% endif %}
+<form method="post" action="" enctype="multipart/form-data">
+    {% if error %}<div class="alert alert-danger">
+        <b>{% trans 'Error:' %}</b> {{ error }}
+    </div>{% endif %}
+    {% csrf_token %}
+    <div class="input-group">
+        <label>{% trans 'Select a file' %}</label>
+        <input id="file" name="file" type="file" accept="application/pdf"/>
+    </div>
+    <div class="pull-right">
+        {% if gprot.published %}
+        <button class="btn btn-primary">{% trans "Upload" %}</button>
+        {% else %}
+        <button class="btn btn-primary" name="publish">
+            {% trans "Upload and publish" %}
+        </button>
+        <button class="btn btn-default" name="save">{% trans "Upload only" %}</button>
+{% endif %}
+    </div>
+</form>
+{% else %}
+<form method="post" action="">
+{% csrf_token %}
+<textarea id="gprot-content" rows="10" cols="40" name="content">{{ gprot.content }}</textarea>
+<p style="margin-top:5px; text-align:right;">
+{% if gprot.published %}
+<button class="btn btn-primary">{% trans "Save changes" %}</button>
+{% else %}
+<button class="btn btn-primary" name="publish">{% trans "Save and publish" %}</button>
+<button class="btn btn-default" name="save">{% trans "Save only" %}</button>
+{% endif %}
+</p>
+</form>
+{% endif %}
+{% endblock %}
+
+{% if not gprot.is_pdf %}
+{% block js %}
+<script type="text/javascript" src="{{ STATIC_URL }}js/ckeditor/ckeditor.js"></script>
+<script type="text/javascript">
+CKEDITOR.replace('gprot-content', {
+    extraPlugins: 'mathjax',
+    height: 350,
+    toolbarGroups: [
+        { name: 'clipboard',   groups: [ 'clipboard', 'undo' ] },
+        { name: 'editing',     groups: [ 'find', 'selection' ] },
+        { name: 'links' },
+        { name: 'insert' },
+        { name: 'forms' },
+        { name: 'tools' },
+        { name: 'document',    groups: [ 'mode', 'document', 'doctools' ] },
+        { name: 'others' },
+        '/',
+        { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+        { name: 'paragraph',   groups: [ 'list', 'indent', 'blocks', 'align' ] },
+        { name: 'styles',      groups: [ ] },
+        { name: 'about' }
+    ],
+    'stylesSet': 'default',
+    'linkShowTargetTab': false,
+    'filebrowserUploadUrl': '{% url "attachment_create" gprot.pk %}?csrf_token={{ attachment_csrf_token }}'
+});
+</script>
+{% endblock %}
+{% endif %}

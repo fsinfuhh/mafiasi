@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load gprot_extras %}
+
+{% block wtitle %}{% blocktrans with course_name=gprot.course.name %}Publish: {{ course_name }}{% endblocktrans %}{% endblock %}
+
+{% block ptitle %}{% blocktrans with course_name=gprot.course.name %}Publish: {{ course_name }}{% endblocktrans %}{% endblock %}
+
+{% block submenu %}
+{% include "gprot/menu.html" with tab='publish' gprot=gprot %}
+{% endblock %}
+
+{% block content %}
+<table class="table">
+    <tr>
+        <th>{% trans "Examiners" %}</th>
+        <td>{{ gprot.examiners|format_examiners }}</td>
+    </tr>
+    <tr>
+        <th>{% trans "Exam date" %}</th>
+        <td>{{ gprot.exam_date|date:"Y-d-m" }}</td>
+    </tr>
+</table>
+<hr/>
+<form method="post" action="">
+{% csrf_token %}
+
+<div class="form-group">
+<label style="font-weight:normal;">
+    <input type="radio" name="authorship" value="keep">
+    {% blocktrans %}
+    <strong>Keep authorship information.</strong> This allows you to edit your
+    memory minutes after publishing and may allow other features in future.
+    Your authorship will be kept confidential and will never be shown to others.
+    {% endblocktrans %}
+</label>
+</div>
+
+<div class="form-group">
+<label style="font-weight:normal;">
+    <input type="radio" name="authorship" value="purge">
+    {% blocktrans %}
+    <strong>Purge authorship information.</strong> This will delete your
+    association with this memory minutes from the database. This will
+    of course disable editing this memory minutes, since we no longer
+    know who wrote it.
+    {% endblocktrans %}
+</label>
+</div>
+
+<p>
+<button class="btn btn-primary">{% trans "Publish" %}</button>
+<a href="{% url 'gprot_view' gprot.pk %}" class="btn btn-default">{% trans "Cancel" %}</a>
+</p>
+</form>
+{% endblock %}

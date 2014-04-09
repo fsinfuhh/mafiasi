@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load gprot_extras %}
+
+{% block wtitle %}{% blocktrans with course_name=gprot.course.name %}Memory minutes: {{ course_name }}{% endblocktrans %}{% endblock %}
+
+{% block ptitle %}{{ gprot.course.name }}{% if gprot.author == user %}<div class="pull-right">{% if not gprot.published %}<a class=" btn btn-primary" href="{% url 'gprot_publish' gprot.pk %}">{% trans 'Publish' %}</a>{% endif %} <a class="btn btn-default" href="{% url 'gprot_edit' gprot.pk %}">{% trans 'Edit' %}</a></div>{% endif %}{% endblock %}
+
+{% block submenu %}
+{% include "gprot/menu.html" with tab='view' gprot=gprot %}
+{% endblock %}
+
+{% block content %}
+<table class="table">
+    <tr>
+        <th>{% trans "Examiners" %}</th>
+        <td>{{ gprot.examiners|format_examiners }}</td>
+    </tr>
+    <tr>
+        <th>{% trans "Exam date" %}</th>
+        <td>{{ gprot.exam_date|date:"Y-m-d" }}</td>
+    </tr>
+</table>
+<hr/>
+{% if gprot.is_pdf %}
+<div id="pdf">
+    <object type="application/pdf" data="{{ gprot.content_pdf.url }}">
+        <div style="text-align: center;">
+            <a class="btn btn-primary btn-lg" href="{{ gprot.content_pdf.url }}">Download PDF</a>
+        </div>
+    </object>
+</div>
+{% else %}
+<div id="content">
+{{ gprot.content|safe }}
+</div>
+{% endif %}
+{% endblock %}
+
+{% block css %}
+<style>
+    #pdf object {
+        width: 100%;
+        height: 100%;
+        min-height: 500px;
+    }
+</style>
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="{{ STATIC_URL }}mathjax/MathJax.js"></script>
+<script type="text/javascript">
+MathJax.Hub.Config({
+  config: ["MMLorHTML.js"],
+  jax: ["input/TeX","input/MathML","input/AsciiMath","output/HTML-CSS","output/NativeMML"],
+  extensions: ["tex2jax.js","mml2jax.js","asciimath2jax.js","MathMenu.js","MathZoom.js"],
+  TeX: {
+    extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+  }
+});
+</script>
+{% endblock %}
