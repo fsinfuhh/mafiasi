@@ -1,13 +1,14 @@
+import os
+from binascii import hexlify
+
 from django.db import models
 from django.conf import settings
-import hashlib
 
 from mafiasi.teaching.models import Course, Teacher
 
 def make_filename(obj, prefix, ext):
     return '{0}/{1}-{2}.{3}'.format(
-        prefix, hashlib.md5(unicode(obj).encode('utf8')).hexdigest(),
-        obj.pk, ext)
+        prefix, hexlify(os.urandom(16)), obj.pk, ext)
 
 def make_gprot_filename(gprot, filename):
     return make_filename(gprot, 'gprot', 'pdf')
