@@ -37,10 +37,15 @@ class Course(models.Model):
     short_name = models.CharField(max_length=30)
     
     def __unicode__(self):
-        return self.name
+        return self.get_full_name()
 
     def get_full_name(self):
-        return u'{0} ({1})'.format(self.name, self.short_name)
+        if self.name and self.short_name:
+            return u'{0} ({1})'.format(self.name, self.short_name)
+        elif self.short_name:
+            return self.short_name
+        else:
+            return self.name
 
 class AltCourseName(models.Model):
     course = models.ForeignKey(Course, related_name='alternate_names')
@@ -91,12 +96,13 @@ def insert_autocomplete_courses(autocomplete=None):
             'short_name': course.short_name
         }
         for part in re.split(r'[\s+-]', course.name):
-            tokens.append({
-                'token': part.lower(),
-                'type': 'course',
-                'pk': course.pk
+            if part:
+                tokens.append({
+                    'token': part.lower(),
+                    'type': 'course',
+                    'pk': course.pk
 
-            })
+                })
         if course.short_name:
             tokens.append({
                 'token': course.short_name.lower(),
