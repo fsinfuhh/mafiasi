@@ -13,7 +13,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 from django.core.exceptions import PermissionDenied
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, HttpResponseBadRequest, Http404
 from django.core.mail import send_mail
 from smtplib import SMTPException
 from django.utils.translation import ugettext as _
@@ -248,6 +248,8 @@ def create_attachment(request, gprot_pk):
 
     gprot = get_object_or_404(GProt, pk=gprot_pk)
     func_num = request.GET.get('CKEditorFuncNum', '')
+    if not func_num.isdigit():
+        raise HttpResponseBadRequest('Invalid CKEditorFuncNum')
 
     error = None
 
@@ -257,9 +259,9 @@ def create_attachment(request, gprot_pk):
     csrf_token = request.GET.get('csrf_token')
     if not (csrf_cookie and csrf_token
             and constant_time_compare(csrf_cookie, csrf_token)):
-        error = _('CSRF verification failed.')
+        raise PermissionDenied('CSRF verification failed.')
 
-    elif 'upload' in request.FILES:
+    if 'upload' in request.FILES:
         upload = request.FILES['upload']
 
         if upload.size > settings.GPROT_IMAGE_MAX_SIZE * 1000000:
@@ -314,7 +316,7 @@ def send_notification_email(gprot, notification, request):
                 email_content.encode('utf8'),
                 None,
                 [notification.user.email])
-    except SMTPException as e:
+    except SMTPException:
         client.captureException()
 
 def notify_users(gprot, request):
@@ -348,7 +350,7 @@ def notifications(request):
         notification = Notification(added_date=date.today(),
                                          user=request.user)
         if 'course' in request.POST:
-            course_pk = request.POST.get('course')
+            course_pk = request.POST['course']
             try:
                 course = Course.objects.get(pk=course_pk)
                 notification.course = course
@@ -400,12 +402,12 @@ def reminders(request):
         if 'course' in request.POST and request.POST['course'].isdigit():
             course = get_object_or_404(Course, pk=request.POST['course'])
         elif 'course_name' in request.POST:
-            course_name = request.POST.get('course_name', '').strip()
-            course = Course(name=course_name, short_name='')
+            course_name = request.POST.get('course_name', u'').strip()
+            course = Course(name=course_name, short_name=u'')
         else:
             course = None
 
-        exam_date_str = request.POST.get('exam_date', '')
+        exam_date_str = request.POST.get('exam_date', u'')
         try:
             exam_date_t = time.strptime(exam_date_str, '%Y-%m-%d')
             exam_date = date(exam_date_t.tm_year, exam_date_t.tm_mon,
