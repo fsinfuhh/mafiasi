@@ -56,7 +56,7 @@ def index(request):
             search_json.append({
                 'what': 'course',
                 'pk': course.pk,
-                'label': course.name
+                'label': course.get_full_name()
             })
         
         teacher_pks += request.POST.getlist('teachers')

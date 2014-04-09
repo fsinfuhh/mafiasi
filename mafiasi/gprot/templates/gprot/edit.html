@@ -2,9 +2,9 @@
 {% load i18n %}
 {% load gprot_extras %}
 
-{% block wtitle %}{% blocktrans with course_name=gprot.course.name %}Memory minutes: {{ course_name }}{% endblocktrans %}{% endblock %}
+{% block wtitle %}{% blocktrans with course_name=gprot.course.get_full_name %}Memory minutes: {{ course_name }}{% endblocktrans %}{% endblock %}
 
-{% block ptitle %}{{ gprot.course.name }}{% if gprot.published %}<span class="label label-success pull-right">{% trans "published" %}</span>{% else %}<span class="label label-danger pull-right">{% trans "unpublished" %}</span>{% endif %}{% endblock %}
+{% block ptitle %}{{ gprot.course.get_full_name }}{% if gprot.published %}<span class="label label-success pull-right">{% trans "published" %}</span>{% else %}<span class="label label-danger pull-right">{% trans "unpublished" %}</span>{% endif %}{% endblock %}
 
 {% block submenu %}
 {% include "gprot/menu.html" with tab='edit' gprot=gprot %}

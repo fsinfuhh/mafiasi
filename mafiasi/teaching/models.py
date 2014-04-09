@@ -93,7 +93,8 @@ def insert_autocomplete_courses(autocomplete=None):
         autocomplete['course'][course.pk] = {
             'pk': course.pk,
             'name': course.name,
-            'short_name': course.short_name
+            'short_name': course.short_name,
+            'full_name': course.get_full_name()
         }
         for part in re.split(r'[\s+-]', course.name):
             if part:

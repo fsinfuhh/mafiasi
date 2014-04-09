@@ -53,7 +53,7 @@ class Notification(models.Model):
     @property
     def query_or_course_name(self):
         if self.course:
-            return self.course.name
+            return self.course.get_full_name()
         else:
             return self.course_query
 

@@ -33,7 +33,7 @@ GProt.initSearch = function(autocompleteData, search) {
         itemList.show();
     }
     
-    var aTypes = [{'type': 'course', 'label_key': 'name'},
+    var aTypes = [{'type': 'course', 'label_key': 'full_name'},
                   {'type': 'teacher', 'label_key': 'full_name'}];
     $('#search').autocomplete({
         'source': getAutocompleteCb(function(term, fn) { fn(autocompleteData); }, aTypes),
@@ -66,7 +66,7 @@ GProt.initCreate = function(autocompleteCourses, autocompleteExaminer, course, e
 
     }
 
-    var aTypeCourses = [{'type': 'course', 'label_key': 'name'}];
+    var aTypeCourses = [{'type': 'course', 'label_key': 'full_name'}];
     $('#course-input').autocomplete({
         'source': getAutocompleteCb(function(term, fn) { fn(autocompleteCourses); }, aTypeCourses),
         'autoFocus': true,

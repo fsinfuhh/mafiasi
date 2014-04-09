@@ -2,9 +2,9 @@
 {% load i18n %}
 {% load gprot_extras %}
 
-{% block wtitle %}{% blocktrans with course_name=gprot.course.name %}Publish: {{ course_name }}{% endblocktrans %}{% endblock %}
+{% block wtitle %}{% blocktrans with course_name=gprot.course.get_full_name %}Publish: {{ course_name }}{% endblocktrans %}{% endblock %}
 
-{% block ptitle %}{% blocktrans with course_name=gprot.course.name %}Publish: {{ course_name }}{% endblocktrans %}{% endblock %}
+{% block ptitle %}{% blocktrans with course_name=gprot.course.get_full_name %}Publish: {{ course_name }}{% endblocktrans %}{% endblock %}
 
 {% block submenu %}
 {% include "gprot/menu.html" with tab='publish' gprot=gprot %}
