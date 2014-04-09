@@ -68,7 +68,9 @@ def index(request):
                 'label': teacher.get_full_name()
             })
         
-        gprots = GProt.objects.select_related().filter(published=True)
+        gprots = GProt.objects.select_related() \
+            .filter(published=True) \
+            .order_by('-exam_date')
         if courses:
             gprots = gprots.filter(course__pk__in=course_pks)
         for teacher_pk in teacher_pks:
