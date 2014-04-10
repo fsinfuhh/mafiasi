@@ -23,6 +23,7 @@
 </table>
 <hr/>
 {% if gprot.is_pdf %}
+{% if gprot.content_pdf %}
 <div id="pdf">
     <object type="application/pdf" data="{{ gprot.content_pdf.url }}">
         <div style="text-align: center;">
@@ -30,6 +31,9 @@
         </div>
     </object>
 </div>
+{% else %}
+<div class="alert alert-warning">{% trans 'No document has been uploaded yet.' %}</div>
+{% endif %}
 {% else %}
 <div id="content">
 {{ gprot.content|safe }}
