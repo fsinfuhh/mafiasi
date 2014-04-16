@@ -138,12 +138,14 @@ def invite(request, group_name):
         raise PermissionDenied()
 
     if request.method == 'POST':
-        form = InvitationForm(request.POST, group=group, user=request.user)
+        form = InvitationForm(request.POST, group=group,
+                              user=request.user)
         if form.is_valid():
-            invitation = form.get_invitation()
-            invitation.save()
             subject = u'Neue Gruppeneinladung / new group invitation'
-            _send_invitation_mail(request, invitation, subject, 'new_invitation')
+            invitations = form.get_invitations()
+            for invitation in invitations:
+                invitation.save()
+                _send_invitation_mail(request, invitation, subject, 'new_invitation')
             messages.success(request, _('Invitation was sent.'))
             return redirect('groups_show', group_name)
     else:
