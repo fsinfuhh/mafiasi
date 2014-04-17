@@ -32,6 +32,7 @@ Do you really want to delete these memory minutes?
 <form method="POST">
     {% csrf_token %}
     <button class="btn btn-danger" type="submit" name="delete">
+        <span class="glyphicon glyphicon-trash"></span>
         {% trans 'Delete' %}
     </button>
     <a class="btn btn-default" href="{% url 'gprot_view' gprot.pk %}">

@@ -56,7 +56,10 @@ anymore.
 </div>
 
 <p>
-<button class="btn btn-primary">{% trans "Publish" %}</button>
+<button class="btn btn-success">
+    <span class="glyphicon glyphicon-globe"></span>
+    {% trans "Publish" %}
+</button>
 <a href="{% url 'gprot_view' gprot.pk %}" class="btn btn-default">{% trans "Cancel" %}</a>
 </p>
 </form>

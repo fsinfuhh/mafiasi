@@ -32,9 +32,11 @@ def index(request):
     insert_autocomplete_courses(autocomplete_json)
     insert_autocomplete_teachers(autocomplete_json)
 
+    is_query = False
     search_json = []
     gprots = []
     if request.method == 'POST':
+        is_query = True
         course_pks = []
         teacher_pks = []
 
@@ -83,7 +85,8 @@ def index(request):
     return render(request, 'gprot/index.html', {
         'autocomplete_json': json.dumps(autocomplete_json),
         'search_json': json.dumps(search_json),
-        'gprots': gprots
+        'gprots': gprots,
+        'is_query': is_query
     })
 
 @login_required

@@ -31,17 +31,7 @@
         {% endif %}
         </td>
         <td>
-            <a class="btn btn-xs btn-default" href="{% url 'gprot_view' gprot.pk %}">
-                {% trans 'View' %}
-            </a>
-            <a class="btn btn-xs btn-default" href="{% url 'gprot_edit' gprot.pk %}">
-                {% trans 'Edit' %}
-            </a>
-            {% if not gprot.published %}
-                <a class="btn btn-xs btn-default" href="{% url 'gprot_delete' gprot.pk %}">
-                    {% trans 'Delete' %}
-                </a>
-            {% endif %}
+            {% include 'gprot/_action_list.html' %}
         </td>
     </tr>
 {% endfor %}

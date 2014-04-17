@@ -20,12 +20,14 @@
 </div>
 <div id="search-items"></div>
 <div style="clear:both;"></div>
-<button class="btn btn-primary">{% trans "Show memory minutes" %}</button>
+<button class="btn btn-primary">
+    <span class="glyphicon glyphicon-search"></span>
+    {% trans "Show memory minutes" %}
+</button>
 </form>
 
 {% if gprots %}
-<h3>{% trans "Results" %}</h3>
-
+<hr/>
 <table class="table table-striped">
     <tr>
         <th>{% trans "Course" %}</th>
@@ -38,11 +40,23 @@
         <td>{{ gprot.course.get_full_name }}</td>
         <td>{{ gprot.exam_date|date:"Y-m-d" }}</td>
         <td>{{ gprot.examiners|format_examiners }}</td>
-        <td><a class="btn btn-xs btn-default" href="{% url 'gprot_view' gprot.pk %}">{% trans 'View' %}</a> {% if gprot.author == user %}<a class="btn btn-xs btn-default" href="{% url 'gprot_edit' gprot.pk %}">{% trans 'Edit' %}</a>{% endif %}</td>
+        <td>
+            {% include 'gprot/_action_list.html' %}
+        </td>
     </tr>
 {% endfor %}
 </table>
-
+{% elif is_query %}
+<hr/>
+<div class="alert alert-warning">
+{% url 'gprot_notifications' as notifications_url %}
+{% blocktrans %}
+    Sorry, there are currently no published memory minutes matching your search.
+    You may set up a <a href="{{ notifications_url }}">notification</a> if you
+    would like to be informed when new memory minutes matching your query
+    are published.
+{% endblocktrans %}
+</div>
 {% endif %}
 
 {% endblock %}

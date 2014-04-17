@@ -33,9 +33,9 @@ class Teacher(models.Model):
         return self.get_full_name()
 
 class Course(models.Model):
-    name = models.CharField(max_length=100)
-    short_name = models.CharField(max_length=30)
-    
+    name = models.CharField(max_length=100, blank=True)
+    short_name = models.CharField(max_length=30, blank=True)
+
     def __unicode__(self):
         return self.get_full_name()
 

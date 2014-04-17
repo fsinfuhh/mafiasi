@@ -26,7 +26,12 @@ here and we will send you an email right after the exam.</p>
     <tr>
         <td>{{ reminder.exam_date|date:"Y-m-d" }}</td>
         <td>{{ reminder.course.get_full_name }}</td>
-        <td><a class="btn btn-default btn-xs" href="delete/{{ reminder.pk }}">{% trans "Remove" %}</a></td>
+        <td>
+            <a class="btn btn-default btn-xs" href="delete/{{ reminder.pk }}">
+                <span class="glyphicon glyphicon-trash"></span>
+                {% trans "Remove" %}
+            </a>
+        </td>
     </tr>
 {% endfor %}
 {% endif %}

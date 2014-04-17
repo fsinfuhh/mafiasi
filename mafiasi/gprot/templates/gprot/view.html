@@ -13,15 +13,18 @@ Memory minutes: {{ course_name }}
 <div class="pull-right">
 {% if gprot.is_pdf %}
     <a class="btn btn-primary" href="{{ gprot.content_pdf.url }}">
+        <span class="glyphicon glyphicon-download-alt"></span>
         {% trans 'Download PDF' %}
     </a>
 {% endif %}
 {% if gprot.author == user %}
     {% if not gprot.published %}
     <a class=" btn btn-success" href="{% url 'gprot_publish' gprot.pk %}">
+        <span class="glyphicon glyphicon-globe"></span>
         {% trans 'Publish' %}</a>
     {% endif %}
     <a class="btn btn-default" href="{% url 'gprot_edit' gprot.pk %}">
+        <span class="glyphicon glyphicon-pencil"></span>
         {% trans 'Edit' %}
     </a>
 {% endif %}
@@ -48,6 +51,11 @@ Memory minutes: {{ course_name }}
 {% if gprot.content_pdf %}
 <div id="pdf">
     <object type="application/pdf" data="{{ gprot.content_pdf.url }}">
+        <div class="alert alert-info">
+            {% blocktrans %}Sorry, your browser does not support embedding
+            this document. However, you can download the PDF file using the
+            button above.{% endblocktrans %}
+        </div>
     </object>
 </div>
 {% else %}

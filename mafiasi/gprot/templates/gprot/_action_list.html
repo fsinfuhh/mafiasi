@@ -1,0 +1,19 @@
+{% load i18n %}
+{% load gprot_extras %}
+
+<a class="btn btn-xs btn-default" href="{% url 'gprot_view' gprot.pk %}">
+    <span class="glyphicon glyphicon-eye-open"></span>
+    {% trans 'View' %}
+</a>
+<a class="btn btn-xs btn-default" href="{% url 'gprot_edit' gprot.pk %}">
+    <span class="glyphicon glyphicon-pencil"></span>
+    {% trans 'Edit' %}
+</a>
+{% if not gprot.published %}
+<a class="btn btn-xs btn-success" href="{% url 'gprot_publish' gprot.pk %}">
+    <span class="glyphicon glyphicon-globe"></span>
+</a>
+<a class="btn btn-xs btn-danger" href="{% url 'gprot_delete' gprot.pk %}">
+    <span class="glyphicon glyphicon-trash"></span>
+</a>
+{% endif %}

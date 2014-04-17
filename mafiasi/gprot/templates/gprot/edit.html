@@ -52,10 +52,19 @@
 <textarea id="gprot-content" rows="10" cols="40" name="content">{{ gprot.content }}</textarea>
 <p style="margin-top:5px; text-align:right;">
 {% if gprot.published %}
-<button class="btn btn-primary">{% trans "Save changes" %}</button>
+<button class="btn btn-primary">
+    <span class="glyphicon glyphicon-cloud-upload"></span>
+    {% trans "Save changes" %}
+</button>
 {% else %}
-<button class="btn btn-primary" name="publish">{% trans "Save and publish" %}</button>
-<button class="btn btn-default" name="save">{% trans "Save only" %}</button>
+<button class="btn btn-success" name="publish">
+    <span class="glyphicon glyphicon-globe"></span>
+    {% trans "Save and publish" %}
+</button>
+<button class="btn btn-default" name="save">
+    <span class="glyphicon glyphicon-cloud-upload"></span>
+    {% trans "Save only" %}
+</button>
 {% endif %}
 </p>
 </form>
