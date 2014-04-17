@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load gprot_extras %}
+
+{% block wtitle %}{% blocktrans with course_name=gprot.course.get_full_name %}Memory minutes: {{ course_name }}{% endblocktrans %}{% endblock %}
+
+{% block ptitle %}{{ gprot.course.get_full_name }}{% endblock %}
+
+{% block submenu %}
+{% include "gprot/menu.html" with tab='view' gprot=gprot %}
+{% endblock %}
+
+{% block content %}
+<table class="table">
+    <tr>
+        <th>{% trans "Examiners" %}</th>
+        <td>{{ gprot.examiners|format_examiners }}</td>
+    </tr>
+    <tr>
+        <th>{% trans "Exam date" %}</th>
+        <td>{{ gprot.exam_date|date:"Y-m-d" }}</td>
+    </tr>
+</table>
+<hr/>
+
+<div class="alert alert-danger">
+{% blocktrans %}
+Do you really want to delete these memory minutes?
+{% endblocktrans %}
+</div>
+
+<form method="POST">
+    {% csrf_token %}
+    <button class="btn btn-danger" type="submit" name="delete">
+        {% trans 'Delete' %}
+    </button>
+    <a class="btn btn-default" href="{% url 'gprot_view' gprot.pk %}">
+        {% trans 'Cancel' %}
+    </a>
+</form>
+{% endblock %}

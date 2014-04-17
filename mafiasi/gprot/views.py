@@ -242,6 +242,31 @@ def edit_gprot(request, gprot_pk):
         'attachment_csrf_token': get_csrf_token(request)
     })
 
+@login_required
+def delete_gprot(request, gprot_pk):
+    gprot = get_object_or_404(GProt, pk=gprot_pk)
+
+    if request.method == 'POST':
+        if gprot.author != request.user:
+            raise PermissionDenied('You are not the owner')
+        if gprot.published:
+            raise PermissionDenied(
+                'Published memory minutes cannot be deleted')
+
+        if gprot.is_pdf and gprot.content_pdf:
+            gprot.content_pdf.delete()
+        else:
+            attachments = Attachment.objects.filter(gprot=gprot_pk)
+            for attachment in attachments:
+                attachment.file.delete()
+                attachment.delete()
+        gprot.delete()
+        return redirect('gprot_list_own')
+
+    return render(request, 'gprot/delete.html', {
+        'gprot': gprot
+    })
+
 @csrf_exempt
 @login_required
 @require_POST

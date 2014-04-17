@@ -26,6 +26,13 @@
 {% csrf_token %}
 
 <div class="form-group">
+<div class="alert alert-info">
+{% blocktrans %}
+Thank you for writing and publishing these memory minutes! Please note that
+once they are published, you will not be able to delete or unpublish them
+anymore.
+{% endblocktrans %}
+</div>
 <label style="font-weight:normal;">
     <input type="radio" name="authorship" value="keep">
     {% blocktrans %}

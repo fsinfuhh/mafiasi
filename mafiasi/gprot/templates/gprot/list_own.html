@@ -30,7 +30,12 @@
         <span class="label label-danger">{% trans "unpublished" %}</span>
         {% endif %}
         </td>
-        <td><a class="btn btn-xs btn-default" href="{% url 'gprot_edit' gprot.pk %}">{% trans 'Edit' %}</a></td>
+        <td>
+            <a class="btn btn-xs btn-default" href="{% url 'gprot_edit' gprot.pk %}">{% trans 'Edit' %}</a>
+            {% if not gprot.published %}
+            <a class="btn btn-xs btn-default" href="{% url 'gprot_delete' gprot.pk %}">{% trans 'Delete' %}</a>
+            {% endif %}
+        </td>
     </tr>
 {% endfor %}
 </table>
