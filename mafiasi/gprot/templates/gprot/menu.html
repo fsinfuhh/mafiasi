@@ -17,7 +17,7 @@
     </li>
 {% if tab == 'view' %}
     <li class="active">
-        <a href="{% url 'gprot_view' gprot.pk %}">{% blocktrans with course_name=gprot.course.name %}View: {{ course_name }}{% endblocktrans %}</a>
+        <a href="{% url 'gprot_view' gprot.pk %}">{% blocktrans with course_name=gprot.course.get_full_name %}View: {{ course_name }}{% endblocktrans %}</a>
     </li>
 {% endif %}
 {% if tab == 'edit' %}

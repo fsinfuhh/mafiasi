@@ -2,9 +2,31 @@
 {% load i18n %}
 {% load gprot_extras %}
 
-{% block wtitle %}{% blocktrans with course_name=gprot.course.get_full_name %}Memory minutes: {{ course_name }}{% endblocktrans %}{% endblock %}
+{% block wtitle %}
+{% blocktrans with course_name=gprot.course.get_full_name %}
+Memory minutes: {{ course_name }}
+{% endblocktrans %}
+{% endblock %}
 
-{% block ptitle %}{{ gprot.course.get_full_name }}{% if gprot.author == user %}<div class="pull-right">{% if not gprot.published %}<a class=" btn btn-primary" href="{% url 'gprot_publish' gprot.pk %}">{% trans 'Publish' %}</a>{% endif %} <a class="btn btn-default" href="{% url 'gprot_edit' gprot.pk %}">{% trans 'Edit' %}</a></div>{% endif %}{% endblock %}
+{% block ptitle %}
+{{ gprot.course.get_full_name }}
+<div class="pull-right">
+{% if gprot.is_pdf %}
+    <a class="btn btn-primary" href="{{ gprot.content_pdf.url }}">
+        {% trans 'Download PDF' %}
+    </a>
+{% endif %}
+{% if gprot.author == user %}
+    {% if not gprot.published %}
+    <a class=" btn btn-success" href="{% url 'gprot_publish' gprot.pk %}">
+        {% trans 'Publish' %}</a>
+    {% endif %}
+    <a class="btn btn-default" href="{% url 'gprot_edit' gprot.pk %}">
+        {% trans 'Edit' %}
+    </a>
+{% endif %}
+</div>
+{% endblock %}
 
 {% block submenu %}
 {% include "gprot/menu.html" with tab='view' gprot=gprot %}
@@ -26,9 +48,6 @@
 {% if gprot.content_pdf %}
 <div id="pdf">
     <object type="application/pdf" data="{{ gprot.content_pdf.url }}">
-        <div style="text-align: center;">
-            <a class="btn btn-primary btn-lg" href="{{ gprot.content_pdf.url }}">Download PDF</a>
-        </div>
     </object>
 </div>
 {% else %}

@@ -20,7 +20,7 @@
     </tr>
 {% for gprot in gprots %}
     <tr>
-        <td><a href="{% url 'gprot_view' gprot.pk %}" >{{ gprot.course.get_full_name }}</a></td>
+        <td>{{ gprot.course.get_full_name }}</td>
         <td>{{ gprot.exam_date|date:"Y-m-d" }}</td>
         <td>{{ gprot.examiners|format_examiners }}</td>
         <td>
@@ -31,9 +31,16 @@
         {% endif %}
         </td>
         <td>
-            <a class="btn btn-xs btn-default" href="{% url 'gprot_edit' gprot.pk %}">{% trans 'Edit' %}</a>
+            <a class="btn btn-xs btn-default" href="{% url 'gprot_view' gprot.pk %}">
+                {% trans 'View' %}
+            </a>
+            <a class="btn btn-xs btn-default" href="{% url 'gprot_edit' gprot.pk %}">
+                {% trans 'Edit' %}
+            </a>
             {% if not gprot.published %}
-            <a class="btn btn-xs btn-default" href="{% url 'gprot_delete' gprot.pk %}">{% trans 'Delete' %}</a>
+                <a class="btn btn-xs btn-default" href="{% url 'gprot_delete' gprot.pk %}">
+                    {% trans 'Delete' %}
+                </a>
             {% endif %}
         </td>
     </tr>

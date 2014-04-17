@@ -6,10 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-17 20:20+0200\n"
-"PO-Revision-Date: 2014-04-17 20:17+0200\n"
+"POT-Creation-Date: 2014-04-17 20:40+0200\n"
+"PO-Revision-Date: 2014-04-17 20:44+0200\n"
 "Last-Translator: \n"
-"Language-Team: American English <kde-i18n-doc@kde.org>\n"
 "Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -506,7 +505,6 @@ msgstr "Weiter"
 
 #: mafiasi/gprot/templates/gprot/delete.html:5
 #: mafiasi/gprot/templates/gprot/edit.html:5
-#: mafiasi/gprot/templates/gprot/view.html:5
 #, python-format
 msgid "Memory minutes: %(course_name)s"
 msgstr "Gedächtnisprotokoll: %(course_name)s"
@@ -516,7 +514,7 @@ msgstr "Gedächtnisprotokoll: %(course_name)s"
 #: mafiasi/gprot/templates/gprot/index.html:33
 #: mafiasi/gprot/templates/gprot/list_own.html:17
 #: mafiasi/gprot/templates/gprot/publish.html:16
-#: mafiasi/gprot/templates/gprot/view.html:16
+#: mafiasi/gprot/templates/gprot/view.html:38
 msgid "Examiners"
 msgstr "Prüfer"
 
@@ -527,7 +525,7 @@ msgstr "Prüfer"
 #: mafiasi/gprot/templates/gprot/publish.html:20
 #: mafiasi/gprot/templates/gprot/reminders.html:21
 #: mafiasi/gprot/templates/gprot/reminders.html:36
-#: mafiasi/gprot/templates/gprot/view.html:20
+#: mafiasi/gprot/templates/gprot/view.html:42
 msgid "Exam date"
 msgstr "Prüfungsdatum"
 
@@ -649,7 +647,7 @@ msgstr "Anzeigen"
 
 #: mafiasi/gprot/templates/gprot/index.html:41
 #: mafiasi/gprot/templates/gprot/list_own.html:34
-#: mafiasi/gprot/templates/gprot/view.html:7
+#: mafiasi/gprot/templates/gprot/view.html:25
 msgid "Edit"
 msgstr "Bearbeiten"
 
@@ -806,7 +804,7 @@ msgstr ""
 "bearbeiten können, da wir dann nicht mehr wissen, wer es verfasst hat."
 
 #: mafiasi/gprot/templates/gprot/publish.html:59
-#: mafiasi/gprot/templates/gprot/view.html:7
+#: mafiasi/gprot/templates/gprot/view.html:22
 msgid "Publish"
 msgstr "Veröffentlichen"
 
@@ -860,7 +858,20 @@ msgstr ""
 msgid "Add reminder"
 msgstr "Erinnerung hinzufügen"
 
-#: mafiasi/gprot/templates/gprot/view.html:35
+#: mafiasi/gprot/templates/gprot/view.html:6
+#, python-format
+msgid ""
+"\n"
+"Memory minutes: %(course_name)s\n"
+msgstr ""
+"\n"
+"Gedächtnisprotokoll: %(course_name)s\n"
+
+#: mafiasi/gprot/templates/gprot/view.html:16
+msgid "Download PDF"
+msgstr "PDF herunterladen"
+
+#: mafiasi/gprot/templates/gprot/view.html:54
 msgid "No document has been uploaded yet."
 msgstr "Es wurde noch kein Dokument hochgeladen."
 
