@@ -2,7 +2,7 @@
 {% load gprot_extras %}
 
 <a class="btn btn-xs btn-default" href="{% url 'gprot_view' gprot.pk %}">
-    <span class="glyphicon glyphicon-eye-open"></span>
+    <span class="glyphicon glyphicon-file"></span>
     {% trans 'View' %}
 </a>
 {% if gprot.author == user %}
