@@ -230,3 +230,4 @@ LOGGING = {
 ROOT_DN = 'dc=mafiasi,dc=de'
 CALDAV_DISPLAY_URL = 'https://mafiasi.de/dav/'
 HKP_URL = 'hkp://mafiasi.de'
+MATHJAX_ROOT = '/usr/share/javascript/mathjax/'
