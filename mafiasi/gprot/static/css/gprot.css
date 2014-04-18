@@ -14,3 +14,7 @@
 .ui-datepicker {
     z-index: 10 !important;
 }
+
+.gprot-actions {
+    white-space: nowrap;
+}

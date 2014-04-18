@@ -30,6 +30,11 @@
         <a href="{% url 'gprot_publish' gprot.pk %}">{% blocktrans with course_name=gprot.course.name %}Publish: {{ course_name }}{% endblocktrans %}</a>
     </li>
 {% endif %}
+{% if tab == 'delete' %}
+    <li class="active">
+        <a href="{% url 'gprot_publish' gprot.pk %}">{% blocktrans with course_name=gprot.course.name %}Delete: {{ course_name }}{% endblocktrans %}</a>
+    </li>
+{% endif %}
 {% if tab == 'forget' %}
     <li class="active">
         <a href="{% url 'gprot_publish' gprot.pk %}">{% blocktrans with course_name=gprot.course.name %}Forget authorship: {{ course_name }}{% endblocktrans %}</a>

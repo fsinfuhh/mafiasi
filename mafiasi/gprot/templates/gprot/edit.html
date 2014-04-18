@@ -37,12 +37,19 @@
     </div>
     <div class="pull-right">
         {% if gprot.published %}
-        <button class="btn btn-primary">{% trans "Upload" %}</button>
+        <button class="btn btn-primary">
+            <span class="glyphicon glyphicon-cloud-upload"></span>
+            {% trans "Upload" %}
+        </button>
         {% else %}
-        <button class="btn btn-primary" name="publish">
+        <button class="btn btn-success" name="publish">
+            <span class="glyphicon glyphicon-globe"></span>
             {% trans "Upload and publish" %}
         </button>
-        <button class="btn btn-default" name="save">{% trans "Upload only" %}</button>
+        <button class="btn btn-default" name="save">
+            <span class="glyphicon glyphicon-cloud-upload"></span>
+            {% trans "Upload only" %}
+        </button>
 {% endif %}
     </div>
 </form>

@@ -2,12 +2,16 @@
 {% load i18n %}
 {% load gprot_extras %}
 
-{% block wtitle %}{% blocktrans with course_name=gprot.course.get_full_name %}Memory minutes: {{ course_name }}{% endblocktrans %}{% endblock %}
-
-{% block ptitle %}{{ gprot.course.get_full_name }}{% endblock %}
+{% block ptitle %}
+{% block wtitle %}
+{% blocktrans with course_name=gprot.course.get_full_name %}
+Delete: {{ course_name }}
+{% endblocktrans %}
+{% endblock %}
+{% endblock %}
 
 {% block submenu %}
-{% include "gprot/menu.html" with tab='view' gprot=gprot %}
+{% include "gprot/menu.html" with tab='delete' gprot=gprot %}
 {% endblock %}
 
 {% block content %}

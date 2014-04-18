@@ -11,10 +11,12 @@
     {% trans 'Edit' %}
 </a>
 {% if not gprot.published %}
-<a class="btn btn-xs btn-success" href="{% url 'gprot_publish' gprot.pk %}">
+<a class="btn btn-xs btn-success" href="{% url 'gprot_publish' gprot.pk %}"
+   title="{% trans 'Publish' %}">
     <span class="glyphicon glyphicon-globe"></span>
 </a>
-<a class="btn btn-xs btn-danger" href="{% url 'gprot_delete' gprot.pk %}">
+<a class="btn btn-xs btn-danger" href="{% url 'gprot_delete' gprot.pk %}"
+   title="{% trans 'Delete' %}">
     <span class="glyphicon glyphicon-trash"></span>
 </a>
 {% else %}

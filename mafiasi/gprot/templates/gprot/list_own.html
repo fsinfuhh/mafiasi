@@ -30,7 +30,7 @@
         <span class="label label-danger">{% trans "unpublished" %}</span>
         {% endif %}
         </td>
-        <td>
+        <td class="gprot-actions">
             {% include 'gprot/_action_list.html' %}
         </td>
     </tr>
@@ -40,4 +40,8 @@
 <p>{% trans "You have no memory minutes we know of! :-(" %}</p>
 {% endif %}
 <p><a class="btn btn-primary" href="{% url 'gprot_create' %}">{% trans "Create new" %}</a></p>
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/gprot.css" />
 {% endblock %}
