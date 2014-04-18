@@ -270,6 +270,25 @@ def delete_gprot(request, gprot_pk):
         'gprot': gprot
     })
 
+@login_required
+def forget_owner(request, gprot_pk):
+    gprot = get_object_or_404(GProt, pk=gprot_pk)
+
+    if request.method == 'POST':
+        if gprot.author != request.user:
+            raise PermissionDenied('You are not the owner')
+        if not gprot.published:
+            raise PermissionDenied('Unpublished gprots cannot be disowned')
+
+        gprot.author = None
+        gprot.save()
+
+        return redirect('gprot_view', gprot_pk)
+
+    return render(request, 'gprot/forget.html', {
+        'gprot': gprot
+    })
+
 @csrf_exempt
 @login_required
 @require_POST

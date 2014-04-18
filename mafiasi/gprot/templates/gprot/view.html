@@ -18,15 +18,20 @@ Memory minutes: {{ course_name }}
     </a>
 {% endif %}
 {% if gprot.author == user %}
-    {% if not gprot.published %}
-    <a class=" btn btn-success" href="{% url 'gprot_publish' gprot.pk %}">
-        <span class="glyphicon glyphicon-globe"></span>
-        {% trans 'Publish' %}</a>
-    {% endif %}
     <a class="btn btn-default" href="{% url 'gprot_edit' gprot.pk %}">
         <span class="glyphicon glyphicon-pencil"></span>
         {% trans 'Edit' %}
     </a>
+    {% if not gprot.published %}
+    <a class=" btn btn-success" href="{% url 'gprot_publish' gprot.pk %}">
+        <span class="glyphicon glyphicon-globe"></span>
+        {% trans 'Publish' %}</a>
+    {% else %}
+    <a class="btn btn-default" href="{% url 'gprot_forget_owner' gprot.pk %}">
+        <span class="glyphicon glyphicon-eye-close"></span>
+        {% trans 'Forget authorship' %}
+    </a>
+    {% endif %}
 {% endif %}
 </div>
 {% endblock %}
