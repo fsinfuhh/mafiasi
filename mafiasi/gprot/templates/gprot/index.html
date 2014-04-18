@@ -12,21 +12,17 @@
 <form method="post" action="" {% if not is_query %}style="margin-top: 50px;"{% endif %}>
 {% csrf_token %}
 <div class="form-group">
-    <div class="input-group">
-        <input type="text" id="search" name="search" class="form-control" />
-        <span class="input-group-btn">
-            <button class="btn btn-primary">
-                <span class="glyphicon glyphicon-search"></span>
-                {% trans "Show memory minutes" %}
-            </button>
-        </span>
-    </div>
+    <input type="text" id="search" name="search" class="form-control" />
     <div class="help-block">
 {% blocktrans %}Just enter the name of the course and/or examiner to see available memory minutes.{% endblocktrans %}
     </div>
 </div>
 <div id="search-items"></div>
 <div style="clear:both;"></div>
+<button class="btn btn-primary">
+    <span class="glyphicon glyphicon-search"></span>
+    {% trans "Show memory minutes" %}
+</button>
 </form>
 
 {% if gprots %}
