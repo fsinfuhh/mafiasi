@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-18 19:27+0200\n"
-"PO-Revision-Date: 2014-04-18 19:28+0200\n"
+"POT-Creation-Date: 2014-04-18 23:55+0200\n"
+"PO-Revision-Date: 2014-04-18 23:57+0200\n"
 "Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -351,7 +351,6 @@ msgstr "Wiki search"
 #: mafiasi/gprot/templates/gprot/menu.html:4
 #: mafiasi/pks/templates/pks/menu.html:4
 #: mafiasi/pks/templates/pks/search.html:5
-#: mafiasi/pks/templates/pks/search_form.html:7
 msgid "Search"
 msgstr "Search"
 
@@ -447,7 +446,7 @@ msgstr "Please select a file to upload."
 msgid "Only PNG, JPEG and GIF files are allowed."
 msgstr "Only PNG, JPEG and GIF files are allowed."
 
-#: mafiasi/gprot/views.py:363
+#: mafiasi/gprot/views.py:365
 #, python-format
 msgid "New memory minutes for \"%(coursename)s\""
 msgstr "New memory minutes for \"%(coursename)s\""
@@ -461,25 +460,25 @@ msgstr "Reminder: Memory minutes for \"%(coursename)s\""
 msgid "View"
 msgstr "View"
 
-#: mafiasi/gprot/templates/gprot/_action_list.html:10
+#: mafiasi/gprot/templates/gprot/_action_list.html:11
 #: mafiasi/gprot/templates/gprot/view.html:23
 msgid "Edit"
 msgstr "Edit"
 
-#: mafiasi/gprot/templates/gprot/_action_list.html:14
+#: mafiasi/gprot/templates/gprot/_action_list.html:16
 #: mafiasi/gprot/templates/gprot/publish.html:62
-#: mafiasi/gprot/templates/gprot/view.html:28
+#: mafiasi/gprot/templates/gprot/view.html:29
 msgid "Publish"
 msgstr "Publish"
 
-#: mafiasi/gprot/templates/gprot/_action_list.html:18
+#: mafiasi/gprot/templates/gprot/_action_list.html:21
 #: mafiasi/gprot/templates/gprot/delete.html:40
 msgid "Delete"
 msgstr "Delete"
 
-#: mafiasi/gprot/templates/gprot/_action_list.html:23
+#: mafiasi/gprot/templates/gprot/_action_list.html:26
 #: mafiasi/gprot/templates/gprot/forget.html:40
-#: mafiasi/gprot/templates/gprot/view.html:32
+#: mafiasi/gprot/templates/gprot/view.html:33
 msgid "Forget authorship"
 msgstr "Forget authorship"
 
@@ -528,22 +527,22 @@ msgstr ""
 #: mafiasi/gprot/templates/gprot/delete.html:20
 #: mafiasi/gprot/templates/gprot/edit.html:16
 #: mafiasi/gprot/templates/gprot/forget.html:18
-#: mafiasi/gprot/templates/gprot/index.html:38
+#: mafiasi/gprot/templates/gprot/index.html:34
 #: mafiasi/gprot/templates/gprot/list_own.html:17
 #: mafiasi/gprot/templates/gprot/publish.html:16
-#: mafiasi/gprot/templates/gprot/view.html:46
+#: mafiasi/gprot/templates/gprot/view.html:48
 msgid "Examiners"
 msgstr "Examiners"
 
 #: mafiasi/gprot/templates/gprot/delete.html:24
 #: mafiasi/gprot/templates/gprot/edit.html:20
 #: mafiasi/gprot/templates/gprot/forget.html:22
-#: mafiasi/gprot/templates/gprot/index.html:37
+#: mafiasi/gprot/templates/gprot/index.html:33
 #: mafiasi/gprot/templates/gprot/list_own.html:16
 #: mafiasi/gprot/templates/gprot/publish.html:20
 #: mafiasi/gprot/templates/gprot/reminders.html:21
 #: mafiasi/gprot/templates/gprot/reminders.html:41
-#: mafiasi/gprot/templates/gprot/view.html:50
+#: mafiasi/gprot/templates/gprot/view.html:52
 msgid "Exam date"
 msgstr "Exam date"
 
@@ -593,27 +592,27 @@ msgstr "Error:"
 msgid "Select a file"
 msgstr "Select a file"
 
-#: mafiasi/gprot/templates/gprot/edit.html:40
+#: mafiasi/gprot/templates/gprot/edit.html:42
 msgid "Upload"
 msgstr "Upload"
 
-#: mafiasi/gprot/templates/gprot/edit.html:43
+#: mafiasi/gprot/templates/gprot/edit.html:47
 msgid "Upload and publish"
 msgstr "Upload and publish"
 
-#: mafiasi/gprot/templates/gprot/edit.html:45
+#: mafiasi/gprot/templates/gprot/edit.html:51
 msgid "Upload only"
 msgstr "Upload only"
 
-#: mafiasi/gprot/templates/gprot/edit.html:57
+#: mafiasi/gprot/templates/gprot/edit.html:64
 msgid "Save changes"
 msgstr "Save changes"
 
-#: mafiasi/gprot/templates/gprot/edit.html:62
+#: mafiasi/gprot/templates/gprot/edit.html:69
 msgid "Save and publish"
 msgstr "Save and publish"
 
-#: mafiasi/gprot/templates/gprot/edit.html:66
+#: mafiasi/gprot/templates/gprot/edit.html:73
 msgid "Save only"
 msgstr "Save only"
 
@@ -646,11 +645,7 @@ msgstr ""
 msgid "Search for memory minutes"
 msgstr "Search for memory minutes"
 
-#: mafiasi/gprot/templates/gprot/index.html:20
-msgid "Show memory minutes"
-msgstr "Show memory minutes"
-
-#: mafiasi/gprot/templates/gprot/index.html:25
+#: mafiasi/gprot/templates/gprot/index.html:17
 msgid ""
 "Just enter the name of the course and/or examiner to see available memory "
 "minutes."
@@ -658,7 +653,11 @@ msgstr ""
 "Just enter the name of the course and/or examiner to see available memory "
 "minutes."
 
-#: mafiasi/gprot/templates/gprot/index.html:36
+#: mafiasi/gprot/templates/gprot/index.html:24
+msgid "Show memory minutes"
+msgstr "Show memory minutes"
+
+#: mafiasi/gprot/templates/gprot/index.html:32
 #: mafiasi/gprot/templates/gprot/list_own.html:15
 #: mafiasi/gprot/templates/gprot/notifications.html:19
 #: mafiasi/gprot/templates/gprot/notifications.html:39
@@ -667,7 +666,7 @@ msgstr ""
 msgid "Course"
 msgstr "Course"
 
-#: mafiasi/gprot/templates/gprot/index.html:39
+#: mafiasi/gprot/templates/gprot/index.html:35
 #: mafiasi/gprot/templates/gprot/list_own.html:19
 #: mafiasi/gprot/templates/gprot/notifications.html:21
 #: mafiasi/gprot/templates/gprot/reminders.html:23
@@ -677,7 +676,7 @@ msgstr "Course"
 msgid "Actions"
 msgstr "Actions"
 
-#: mafiasi/gprot/templates/gprot/index.html:56
+#: mafiasi/gprot/templates/gprot/index.html:52
 #, python-format
 msgid ""
 "\n"
@@ -921,7 +920,7 @@ msgstr ""
 msgid "Download PDF"
 msgstr "Download PDF"
 
-#: mafiasi/gprot/templates/gprot/view.html:60
+#: mafiasi/gprot/templates/gprot/view.html:62
 msgid ""
 "Sorry, your browser does not support embedding\n"
 "            this document. However, you can download the PDF file using the\n"
@@ -931,7 +930,7 @@ msgstr ""
 "            this document. However, you can download the PDF file using the\n"
 "            button above."
 
-#: mafiasi/gprot/templates/gprot/view.html:67
+#: mafiasi/gprot/templates/gprot/view.html:69
 msgid "No document has been uploaded yet."
 msgstr "No document has been uploaded yet."
 
@@ -1264,6 +1263,16 @@ msgstr "Fingerprint"
 msgid "My keys"
 msgstr "My keys"
 
+#: mafiasi/pks/templates/pks/menu.html:18
+#, python-format
+msgid "Key: %(keyid)s"
+msgstr "Key: %(keyid)s"
+
+#: mafiasi/pks/templates/pks/menu.html:24
+#: mafiasi/pks/templates/pks/my_keys.html:22
+msgid "Upload own keys"
+msgstr "Upload own keys"
+
 #: mafiasi/pks/templates/pks/my_keys.html:15
 msgid "Unassign"
 msgstr "Unassign"
@@ -1283,6 +1292,10 @@ msgstr "You can also search using the HKP interface:"
 #: mafiasi/pks/templates/pks/search.html:16
 msgid "search term"
 msgstr "search term"
+
+#: mafiasi/pks/templates/pks/search_form.html:9
+msgid "Search key"
+msgstr "Search key"
 
 #: mafiasi/pks/templates/pks/search_result.html:6
 #, python-format
@@ -1306,11 +1319,15 @@ msgstr "Key"
 msgid "Show as plain text"
 msgstr "Show as plain text"
 
-#: mafiasi/pks/templates/pks/upload_keys.html:11
+#: mafiasi/pks/templates/pks/upload_keys.html:6
+msgid "Add own OpenPGP key"
+msgstr "Add own OpenPGP key"
+
+#: mafiasi/pks/templates/pks/upload_keys.html:17
 msgid "Insert one or more OpenPGP keys into the following field:"
 msgstr "Insert one or more OpenPGP keys into the following field:"
 
-#: mafiasi/pks/templates/pks/upload_keys.html:18
+#: mafiasi/pks/templates/pks/upload_keys.html:27
 msgid "Add keys"
 msgstr "Add keys"
 
@@ -1634,9 +1651,6 @@ msgstr "winter term {0}"
 #, python-brace-format
 msgid "summer term {0}"
 msgstr "summer term {0}"
-
-#~ msgid "Search term"
-#~ msgstr "Search term"
 
 #~ msgid "Results"
 #~ msgstr "Results"
