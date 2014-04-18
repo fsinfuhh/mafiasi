@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-18 01:03+0200\n"
-"PO-Revision-Date: 2014-04-18 01:07+0200\n"
+"POT-Creation-Date: 2014-04-18 19:27+0200\n"
+"PO-Revision-Date: 2014-04-18 19:32+0200\n"
 "Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -438,7 +438,7 @@ msgstr "Pad: %(pad_name)s"
 msgid "Show this pad in fullscreen mode"
 msgstr "Zeige dieses Pad im Vollbildmodus"
 
-#: mafiasi/gprot/views.py:218 mafiasi/gprot/views.py:298
+#: mafiasi/gprot/views.py:218 mafiasi/gprot/views.py:317
 #, python-brace-format
 msgid "Only files up to {0} MB are allowed."
 msgstr "Es sind nur Dateien kleiner als {0} MB erlaubt."
@@ -447,15 +447,15 @@ msgstr "Es sind nur Dateien kleiner als {0} MB erlaubt."
 msgid "Only PDF files are allowed."
 msgstr "Es sind nur PDF-Dateien erlaubt."
 
-#: mafiasi/gprot/views.py:224 mafiasi/gprot/views.py:305
+#: mafiasi/gprot/views.py:224 mafiasi/gprot/views.py:324
 msgid "Please select a file to upload."
 msgstr "Bitte wähle eine Datei zum Hochladen aus."
 
-#: mafiasi/gprot/views.py:303
+#: mafiasi/gprot/views.py:322
 msgid "Only PNG, JPEG and GIF files are allowed."
 msgstr "Es sind nur Bilder im PNG-, JPEG- oder GIF-Format erlaubt."
 
-#: mafiasi/gprot/views.py:344
+#: mafiasi/gprot/views.py:363
 #, python-format
 msgid "New memory minutes for \"%(coursename)s\""
 msgstr "Neues Gedächtnisprotokoll für \"%(coursename)s\""
@@ -470,9 +470,26 @@ msgid "View"
 msgstr "Anzeigen"
 
 #: mafiasi/gprot/templates/gprot/_action_list.html:10
-#: mafiasi/gprot/templates/gprot/view.html:28
+#: mafiasi/gprot/templates/gprot/view.html:23
 msgid "Edit"
 msgstr "Bearbeiten"
+
+#: mafiasi/gprot/templates/gprot/_action_list.html:14
+#: mafiasi/gprot/templates/gprot/publish.html:62
+#: mafiasi/gprot/templates/gprot/view.html:28
+msgid "Publish"
+msgstr "Veröffentlichen"
+
+#: mafiasi/gprot/templates/gprot/_action_list.html:18
+#: mafiasi/gprot/templates/gprot/delete.html:40
+msgid "Delete"
+msgstr "Löschen"
+
+#: mafiasi/gprot/templates/gprot/_action_list.html:23
+#: mafiasi/gprot/templates/gprot/forget.html:40
+#: mafiasi/gprot/templates/gprot/view.html:32
+msgid "Forget authorship"
+msgstr "Urheberschaft vergessen"
 
 #: mafiasi/gprot/templates/gprot/create.html:4
 msgid "Create memory minutes"
@@ -507,33 +524,38 @@ msgstr "PDF hochladen"
 msgid "Continue"
 msgstr "Weiter"
 
-#: mafiasi/gprot/templates/gprot/delete.html:5
-#: mafiasi/gprot/templates/gprot/edit.html:5
+#: mafiasi/gprot/templates/gprot/delete.html:7
 #, python-format
-msgid "Memory minutes: %(course_name)s"
-msgstr "Gedächtnisprotokoll: %(course_name)s"
+msgid ""
+"\n"
+"Delete: %(course_name)s\n"
+msgstr ""
+"\n"
+"Löschen: %(course_name)s\n"
 
-#: mafiasi/gprot/templates/gprot/delete.html:16
+#: mafiasi/gprot/templates/gprot/delete.html:20
 #: mafiasi/gprot/templates/gprot/edit.html:16
-#: mafiasi/gprot/templates/gprot/index.html:35
+#: mafiasi/gprot/templates/gprot/forget.html:18
+#: mafiasi/gprot/templates/gprot/index.html:38
 #: mafiasi/gprot/templates/gprot/list_own.html:17
 #: mafiasi/gprot/templates/gprot/publish.html:16
-#: mafiasi/gprot/templates/gprot/view.html:41
+#: mafiasi/gprot/templates/gprot/view.html:46
 msgid "Examiners"
 msgstr "Prüfer"
 
-#: mafiasi/gprot/templates/gprot/delete.html:20
+#: mafiasi/gprot/templates/gprot/delete.html:24
 #: mafiasi/gprot/templates/gprot/edit.html:20
-#: mafiasi/gprot/templates/gprot/index.html:34
+#: mafiasi/gprot/templates/gprot/forget.html:22
+#: mafiasi/gprot/templates/gprot/index.html:37
 #: mafiasi/gprot/templates/gprot/list_own.html:16
 #: mafiasi/gprot/templates/gprot/publish.html:20
 #: mafiasi/gprot/templates/gprot/reminders.html:21
 #: mafiasi/gprot/templates/gprot/reminders.html:41
-#: mafiasi/gprot/templates/gprot/view.html:45
+#: mafiasi/gprot/templates/gprot/view.html:50
 msgid "Exam date"
 msgstr "Prüfungsdatum"
 
-#: mafiasi/gprot/templates/gprot/delete.html:27
+#: mafiasi/gprot/templates/gprot/delete.html:31
 msgid ""
 "\n"
 "Do you really want to delete these memory minutes?\n"
@@ -541,15 +563,17 @@ msgstr ""
 "\n"
 "Möchtest du dieses Gedächtnisprotokoll wirklich löschen?\n"
 
-#: mafiasi/gprot/templates/gprot/delete.html:36
-msgid "Delete"
-msgstr "Löschen"
-
-#: mafiasi/gprot/templates/gprot/delete.html:39
-#: mafiasi/gprot/templates/gprot/publish.html:63
+#: mafiasi/gprot/templates/gprot/delete.html:43
+#: mafiasi/gprot/templates/gprot/forget.html:43
+#: mafiasi/gprot/templates/gprot/publish.html:64
 #: mafiasi/groups/templates/groups/invite.html:21
 msgid "Cancel"
 msgstr "Abbrechen"
+
+#: mafiasi/gprot/templates/gprot/edit.html:5
+#, python-format
+msgid "Memory minutes: %(course_name)s"
+msgstr "Gedächtnisprotokoll: %(course_name)s"
 
 #: mafiasi/gprot/templates/gprot/edit.html:7
 #: mafiasi/gprot/templates/gprot/list_own.html:28
@@ -601,15 +625,39 @@ msgstr "Speichern und veröffentlichen"
 msgid "Save only"
 msgstr "Nur speichern"
 
+#: mafiasi/gprot/templates/gprot/forget.html:6
+#, python-format
+msgid ""
+"\n"
+"Forget authorship: %(course_name)s\n"
+msgstr ""
+"\n"
+"Urheberschaft vergessen: %(course_name)s\n"
+
+#: mafiasi/gprot/templates/gprot/forget.html:29
+msgid ""
+"\n"
+"Do you really want to remove your association with these memory minutes "
+"from\n"
+"the database? This will of course disable editing this memory minutes, "
+"since\n"
+"we no longer know who wrote it.\n"
+msgstr ""
+"\n"
+"Möchtest du wirklich deine Urheberschaft für dieses Gedächtnisprotokoll "
+"löschen? "
+"Dadurch wirst du es nicht mehr bearbeiten können, da wir dann nicht mehr "
+"wissen, wer es verfasst hat.\n"
+
 #: mafiasi/gprot/templates/gprot/index.html:5
 msgid "Search for memory minutes"
 msgstr "Nach Gedächtnisprotokollen suchen"
 
-#: mafiasi/gprot/templates/gprot/index.html:15
-msgid "Search term"
-msgstr "Suchbegriff"
+#: mafiasi/gprot/templates/gprot/index.html:20
+msgid "Show memory minutes"
+msgstr "Gedächtnisprotokolle anzeigen"
 
-#: mafiasi/gprot/templates/gprot/index.html:18
+#: mafiasi/gprot/templates/gprot/index.html:25
 msgid ""
 "Just enter the name of the course and/or examiner to see available memory "
 "minutes."
@@ -617,11 +665,7 @@ msgstr ""
 "Gib einfach den Namen des Moduls und/oder Prüfers ein, um die verfügbaren "
 "Gedächtnisprotokolle zu sehen."
 
-#: mafiasi/gprot/templates/gprot/index.html:25
-msgid "Show memory minutes"
-msgstr "Gedächtnisprotokolle anzeigen"
-
-#: mafiasi/gprot/templates/gprot/index.html:33
+#: mafiasi/gprot/templates/gprot/index.html:36
 #: mafiasi/gprot/templates/gprot/list_own.html:15
 #: mafiasi/gprot/templates/gprot/notifications.html:19
 #: mafiasi/gprot/templates/gprot/notifications.html:39
@@ -630,7 +674,7 @@ msgstr "Gedächtnisprotokolle anzeigen"
 msgid "Course"
 msgstr "Modul"
 
-#: mafiasi/gprot/templates/gprot/index.html:36
+#: mafiasi/gprot/templates/gprot/index.html:39
 #: mafiasi/gprot/templates/gprot/list_own.html:19
 #: mafiasi/gprot/templates/gprot/notifications.html:21
 #: mafiasi/gprot/templates/gprot/reminders.html:23
@@ -640,7 +684,7 @@ msgstr "Modul"
 msgid "Actions"
 msgstr "Aktionen"
 
-#: mafiasi/gprot/templates/gprot/index.html:53
+#: mafiasi/gprot/templates/gprot/index.html:56
 #, python-format
 msgid ""
 "\n"
@@ -673,7 +717,7 @@ msgstr "Du hast keine eigenen Gedächtnisprotokolle, von denen wir wissen."
 #: mafiasi/gprot/templates/gprot/list_own.html:42
 #: mafiasi/gprot/templates/gprot/menu.html:10
 msgid "Create new"
-msgstr "Neues Gedächtnisprotokoll erstellen"
+msgstr "Neues erstellen"
 
 #: mafiasi/gprot/templates/gprot/menu.html:7
 msgid "List own"
@@ -706,6 +750,16 @@ msgstr "Bearbeiten: %(course_name)s"
 msgid "Publish: %(course_name)s"
 msgstr "Veröffentlichen: %(course_name)s"
 
+#: mafiasi/gprot/templates/gprot/menu.html:35
+#, python-format
+msgid "Delete: %(course_name)s"
+msgstr "Löschen: %(course_name)s"
+
+#: mafiasi/gprot/templates/gprot/menu.html:40
+#, python-format
+msgid "Forget authorship: %(course_name)s"
+msgstr "Urheberschaft vergessen: %(course_name)s"
+
 #: mafiasi/gprot/templates/gprot/notification_email.txt:2
 #, python-format
 msgid ""
@@ -724,7 +778,7 @@ msgid ""
 msgstr ""
 "Moin,\n"
 "\n"
-"es gibt ein neues Gedächtnisprotokoll, das zu deiner Suche nach\n"
+"ein neues Gedächtnisprotokoll, das zu deiner Suche nach\n"
 "    \"%(query)s\"\n"
 "passt, wurde gerade veröffentlicht.\n"
 "\n"
@@ -733,6 +787,7 @@ msgstr ""
 "ansehen.\n"
 "\n"
 "Viele Grüße\n"
+"\n"
 "Deine Server-AG"
 
 #: mafiasi/gprot/templates/gprot/notifications.html:11
@@ -785,7 +840,8 @@ msgid ""
 "your\n"
 "    memory minutes after publishing and may allow other features in future.\n"
 "    Your authorship will be kept confidential and will never be shown to "
-"others.\n"
+"others\n"
+"    and you may remove the information at any time.\n"
 "    "
 msgstr ""
 "\n"
@@ -794,12 +850,14 @@ msgstr ""
 "könnte noch weitere Features ermöglichen, die wir vielleicht  in Zukunft "
 "noch einbauen.\n"
 "Diese Daten werden vertraulich behandelt und niemals anderen Benutzern "
-"zugänglich gemacht werden."
+"zugänglich gemacht werden.\n"
+"Du kannst die Information über deine Urheberschaft jederzeit löschen.\n"
+" "
 
-#: mafiasi/gprot/templates/gprot/publish.html:49
+#: mafiasi/gprot/templates/gprot/publish.html:50
 msgid ""
 "\n"
-"    <strong>Purge authorship information.</strong> This will delete your\n"
+"    <strong>Forget authorship information.</strong> This will delete your\n"
 "    association with this memory minutes from the database. This will\n"
 "    of course disable editing this memory minutes, since we no longer\n"
 "    know who wrote it.\n"
@@ -808,12 +866,8 @@ msgstr ""
 "\n"
 "<strong>Urheberschaft vergessen.</strong> Diese Option löscht deine "
 "Verbindung mit diesem Gedächtnisprotokoll. Dadurch wirst du es nicht mehr "
-"bearbeiten können, da wir dann nicht mehr wissen, wer es verfasst hat."
-
-#: mafiasi/gprot/templates/gprot/publish.html:61
-#: mafiasi/gprot/templates/gprot/view.html:24
-msgid "Publish"
-msgstr "Veröffentlichen"
+"bearbeiten können, da wir dann nicht mehr wissen, wer es verfasst hat.\n"
+" "
 
 #: mafiasi/gprot/templates/gprot/reminder_email.txt:2
 #, python-format
@@ -878,7 +932,7 @@ msgstr ""
 msgid "Download PDF"
 msgstr "PDF herunterladen"
 
-#: mafiasi/gprot/templates/gprot/view.html:55
+#: mafiasi/gprot/templates/gprot/view.html:60
 msgid ""
 "Sorry, your browser does not support embedding\n"
 "            this document. However, you can download the PDF file using the\n"
@@ -887,7 +941,7 @@ msgstr ""
 "Leider unterstützt dein Browser das Einbetten dieses Dokuments nicht.\n"
 "Du kannst es jedoch über den Button oben rechts als PDF-Datei herunterladen."
 
-#: mafiasi/gprot/templates/gprot/view.html:62
+#: mafiasi/gprot/templates/gprot/view.html:67
 msgid "No document has been uploaded yet."
 msgstr "Es wurde noch kein Dokument hochgeladen."
 
@@ -1597,6 +1651,9 @@ msgstr "Wintersemester {0}"
 #, python-brace-format
 msgid "summer term {0}"
 msgstr "Sommersemester {0}"
+
+#~ msgid "Search term"
+#~ msgstr "Suchbegriff"
 
 #~ msgid "Results"
 #~ msgstr "Ergebnisse"
