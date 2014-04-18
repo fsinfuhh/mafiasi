@@ -17,5 +17,8 @@
 {% else %}
 <p>{% trans "You have no keys assigned to you." %}</p>
 {% endif %}
-<p><a href="{% url 'pks_upload_keys' %}">Upload own keys</a></p>
+<p><a class="btn btn-primary" href="{% url 'pks_upload_keys' %}">
+    <span class="glyphicon glyphicon-plus"></span>
+    {% trans 'Upload own keys' %}
+</a></p>
 {% endblock %}
