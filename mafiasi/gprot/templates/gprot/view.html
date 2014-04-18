@@ -11,7 +11,7 @@ Memory minutes: {{ course_name }}
 {% block ptitle %}
 {{ gprot.course.get_full_name }}
 <div class="pull-right">
-{% if gprot.is_pdf %}
+{% if gprot.is_pdf and gprot.content_pdf %}
     <a class="btn btn-primary" href="{{ gprot.content_pdf.url }}">
         <span class="glyphicon glyphicon-download-alt"></span>
         {% trans 'Download PDF' %}
@@ -23,13 +23,15 @@ Memory minutes: {{ course_name }}
         {% trans 'Edit' %}
     </a>
     {% if not gprot.published %}
+    {% if not gprot.is_pdf or gprot.content_pdf %}
     <a class=" btn btn-success" href="{% url 'gprot_publish' gprot.pk %}">
         <span class="glyphicon glyphicon-globe"></span>
         {% trans 'Publish' %}</a>
+    {% endif %}
     {% else %}
-    <a class="btn btn-default" href="{% url 'gprot_forget_owner' gprot.pk %}">
+    <a class="btn btn-default" href="{% url 'gprot_forget_owner' gprot.pk %}"
+       title="{% trans 'Forget authorship' %}">
         <span class="glyphicon glyphicon-eye-close"></span>
-        {% trans 'Forget authorship' %}
     </a>
     {% endif %}
 {% endif %}

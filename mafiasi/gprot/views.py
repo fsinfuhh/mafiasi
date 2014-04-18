@@ -340,6 +340,8 @@ def publish_gprot(request, gprot_pk):
     gprot = get_object_or_404(GProt, pk=gprot_pk)
     if gprot.author != request.user:
         raise PermissionDenied('You are not the owner')
+    if gprot.is_pdf and not gprot.content_pdf:
+        raise PermissionDenied('No document has been uploaded yet')
 
     if request.method == 'POST' and 'authorship' in request.POST:
         if request.POST['authorship'] == 'purge':
