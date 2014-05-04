@@ -16,17 +16,31 @@ class NewEtherpadForm(forms.Form):
         super(NewEtherpadForm, self).__init__(*args, **kwargs)
         self.fields['group'] = forms.ModelChoiceField(queryset=user.groups)
 
+class DeleteEtherpadForm(forms.Form):
+
+    def __init__(self, user, *args, **kwargs):
+        super(DeleteEtherpadForm, self).__init__(*args, **kwargs)
+
 def index(request):
     pad_list={}
+    groups_admin={}
     if request.user.is_authenticated():
         ep = Etherpad()
         for group in request.user.groups.all():
             pads = ep.get_group_pads(group.name)
+            is_admin = False
+            if group.properties.admins.filter(pk=request.user.pk):
+                is_admin = True
             pad_list[group.name] = []
             for pad in pads:
-                pad_list[group.name].append(pad.split('$')[1])
+                pad_list[group.name].append(
+                    {
+                        "name":pad.split('$')[1],
+                        "admin":is_admin
+                    })
     return TemplateResponse(request, 'etherpad/index.html', {
         'pad_list': pad_list,
+        'groups_admin':groups_admin,
         'etherpad_link': settings.SERVICE_LINKS['etherpad']
     })
 
@@ -44,6 +58,36 @@ def create_new_pad(request):
         form = NewEtherpadForm(request.user)
     return TemplateResponse(request, 'etherpad/create_new_pad.html', {
         'form': form,
+    })
+
+@login_required
+def delete_pad(request, group_name, pad_name):
+    # test if user is in group
+    if not request.user.groups.filter(name=group_name).exists():
+        return TemplateResponse(request, 'etherpad/forbidden.html', {
+            'group_name': group_name,
+        }, status=403)
+    # test if user is admin in the group
+    group = request.user.groups.filter(name=group_name).all()[0]
+    if not group.properties.admins.filter(pk=request.user.pk):
+        return TemplateResponse(request, 'etherpad/forbidden_admin.html', {
+            'group_name': group_name,
+        }, status=403)
+
+    if request.method == 'POST':
+        form = DeleteEtherpadForm(request.user, request.POST)
+        if form.is_valid():
+            ep = Etherpad()
+            ep.delete_pad("{0}${1}".format(
+                ep.get_group_id(group_name),
+                pad_name))
+            return redirect('ep_index')
+
+    form = DeleteEtherpadForm(request.user)
+    return TemplateResponse(request, 'etherpad/delete_pad.html', {
+        'form': form,
+        'group': group_name,
+        'pad': pad_name,
     })
 
 @login_required
@@ -66,7 +110,7 @@ def show_pad(request, group_name, pad_name):
     except URLError:
         return TemplateResponse(request, 'etherpad/server_error.html', {
             }, status=500)
-    
+
     is_fullscreen = 'fullscreen' in request.GET
     response = TemplateResponse(request, 'etherpad/pad.html', {
         'pad_url': pad_url,
