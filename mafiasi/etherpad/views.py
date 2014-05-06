@@ -70,7 +70,7 @@ def delete_pad(request, group_name, pad_name):
     # test if user is admin in the group
     group = request.user.groups.filter(name=group_name).all()[0]
     if not group.properties.admins.filter(pk=request.user.pk):
-        return TemplateResponse(request, 'etherpad/forbidden_admin.html', {
+        return TemplateResponse(request, 'etherpad/forbidden.html', {
             'group_name': group_name,
         }, status=403)
 
