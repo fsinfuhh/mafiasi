@@ -1018,11 +1018,7 @@ msgstr "User was granted group admin."
 msgid "Revoked group admin rights from user."
 msgstr "Revoked group admin rights from user."
 
-<<<<<<< HEAD
 #: mafiasi/groups/views.py:147
-=======
-#: mafiasi/groups/views.py:149
->>>>>>> 3ea621ae16cfbf4263122615c75f6efe46458dcb
 msgid "Invitation was sent."
 msgstr "Invitation was sent."
 
