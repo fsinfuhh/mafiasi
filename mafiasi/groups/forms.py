@@ -10,30 +10,42 @@ class InvitationForm(forms.Form):
         self.user = kwargs.pop('user')
         super(InvitationForm, self).__init__(*args, **kwargs)
 
-    invitee = forms.CharField()
-    invitee_user = None
+    invitees = forms.CharField()
+    invitee_users = []
 
-    def clean_invitee(self):
-        invitee = self.cleaned_data['invitee']
-        User = get_user_model()
-        try:
-            invitee_user = User.objects.get(username=invitee)
-            self.invitee_user = invitee_user
-        except User.DoesNotExist:
-            raise forms.ValidationError(_('No such user.'))
+    def clean_invitees(self):
+        self.invitee_users = []
+        data = self.cleaned_data['invitees']
+        invitees = [s.strip() for s in data.split(',')]
+        for invitee in invitees:
+            User = get_user_model()
+            try:
+                invitee_user = User.objects.get(username=invitee)
+                self.invitee_users.append(invitee_user)
+            except User.DoesNotExist:
+                raise forms.ValidationError(_('There is no user "%s."')
+                                            % invitee)
 
-        has_invitation = bool(GroupInvitation.objects.filter(
-                group=self.group, invitee=invitee_user))
+            has_invitation = bool(GroupInvitation.objects.filter(
+                    group=self.group, invitee=invitee_user))
+            if has_invitation:
+                raise forms.ValidationError(
+                    _('"%s" already has an invitation.') % invitee)
 
-        if has_invitation:
-            raise forms.ValidationError(_('User already has an invitation.'))
-        
-        return invitee
+            already_member = \
+                invitee_user.groups.filter(name=self.group.name).exists()
+            if already_member:
+                raise forms.ValidationError(
+                    _('"%s" is already a member of this group.')
+                    % invitee)
 
-    def get_invitation(self):
-        return GroupInvitation(group=self.group,
-                               invitee=self.invitee_user,
-                               invited_by=self.user)
+    def get_invitations(self):
+        invitations = []
+        for invitee_user in self.invitee_users:
+            invitations.append(GroupInvitation(group=self.group,
+                                invitee=invitee_user,
+                                invited_by=self.user))
+        return invitations
 
     def save(self):
         self.get_invitation().save()

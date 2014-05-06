@@ -8,12 +8,12 @@
 
 <form method="post" action="">
     {% csrf_token %}
-    <div class="form-group{% if form.invitee.errors %} has-error{% endif %}">
+    <div class="form-group{% if form.invitees.errors %} has-error{% endif %}">
         <label for="invitee">{% trans "Account name" %}</label>
-        {% render_field form.invitee class+="form-control" %}
-        {% if form.invitee.errors %}
+        {% render_field form.invitees class+="form-control" %}
+        {% if form.invitees.errors %}
         <div class="help-block">
-        {% for error in form.invitee.errors %}{{ error }} {% endfor %}
+        {% for error in form.invitees.errors %}{{ error }} {% endfor %}
         </div>
         {% endif %}
     </div>

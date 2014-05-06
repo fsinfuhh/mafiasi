@@ -18,6 +18,7 @@ urlpatterns = patterns('',
     url(r'^pks/', include('mafiasi.pks.urls')),
     url(r'^groups/', include('mafiasi.groups.urls')),
     url(r'^etherpad/', include('mafiasi.etherpad.urls')),
+    url(r'^gprot/', include('mafiasi.gprot.urls')),
 
     url(r'^login$', 'django.contrib.auth.views.login', name='login'),
     url(r'^logout$', 'django.contrib.auth.views.logout', {
@@ -34,5 +35,8 @@ if settings.DEBUG:
     urlpatterns += patterns('',
         url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
             'document_root': settings.MEDIA_ROOT
+        }),
+        url(r'^mathjax/(?P<path>.*)$', 'django.views.static.serve', {
+            'document_root': settings.MATHJAX_ROOT
         }),
     )

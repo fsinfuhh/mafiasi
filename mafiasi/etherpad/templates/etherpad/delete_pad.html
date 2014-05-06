@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load widget_tweaks %}
+
+{% block ptitle%}{% block wtitle %}{% trans "Delete group pad" %}{% endblock %}{% endblock %}
+
+{% block submenu %}
+{% include "etherpad/menu.html" with tab='new_pad' %}
+{% endblock %}
+
+{% block content %}
+<form action="{% url 'ep_delete_pad' group pad %}" method="post">{% csrf_token %}
+<div class="form-group">
+	<div class="help-block">
+	{% blocktrans %}Delete the Pad <b>{{ pad }}</b> from group <b>{{ group }}</b>?{% endblocktrans %}
+	</div>
+</div>
+
+<button class="btn btn-primary">{% trans "Delete group pad" %}</button>
+</form>
+
+{% endblock %}

@@ -1,10 +1,16 @@
-{% extends "base.html" %}
+{% extends "pks/base.html" %}
 {% load i18n %}
 {% load widget_tweaks %}
 
-{% block content %}
-<h2>Add own OpenPGP key</h2>
+{% block wtitle %}{% block ptitle %}
+    {% trans 'Add own OpenPGP key' %}
+{% endblock %}{% endblock %}
 
+{% block submenu %}
+{% include "pks/menu.html" with tab='upload_keys' %}
+{% endblock %}
+
+{% block content %}
 <form method="post" action="">
 {% csrf_token %}
 <div class="form-group {% if form.keys.errors %} has-error{% endif %}">
@@ -15,7 +21,11 @@
 {% for error in form.keys.errors %}{{ error }} {% endfor %}
 </div>
 {% endif %}
-<p><button class="btn btn-default">{% trans "Add keys" %}</button>
+</div>
+<p><button class="btn btn-primary">
+    <span class="glyphicon glyphicon-plus"></span>
+    {% trans "Add keys" %}
+</button>
 </form>
 
 {% endblock %}

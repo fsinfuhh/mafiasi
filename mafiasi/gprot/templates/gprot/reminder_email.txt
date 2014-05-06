@@ -1,0 +1,14 @@
+{% load i18n %}
+{% blocktrans %}Hi there!
+
+You requested to be reminded of writing memory minutes
+for your exam in
+    "{{ course_name }}"
+today. Thanks a lot for this! By writing memory minutes yourself
+you will help many other students and contribute to the appeal
+of this repository, increasing the odds that someone else contributes
+memory minutes you may be looking for in the future.
+
+Cheers,
+
+Your Server-AG{% endblocktrans %}

@@ -7,7 +7,7 @@
 {% block ptitle %}{% blocktrans %}Key details for 0x{{ keyid }}{% endblocktrans %}{% endblock %}
 
 {% block submenu %}
-{% include "pks/menu.html" %}
+{% include "pks/menu.html" with tab='show_key' %}
 {% endblock %}
 
 {% block content %}

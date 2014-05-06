@@ -12,4 +12,16 @@
     <li{% if tab == 'graph' %} class="active"{% endif %}>
         <a href="{% url 'pks_graph' %}">{% trans "Trust graph" %}</a>
     </li>
+    {% if tab == 'show_key' %}
+    <li class="active">
+        <a href="{% url 'pks_show_key' keyid %}">
+            {% blocktrans %}Key: {{ keyid }}{% endblocktrans %}
+        </a>
+    </li>
+    {% endif %}
+    {% if tab == 'upload_keys' %}
+    <li class="active">
+        <a href="{% url 'pks_upload_keys' %}">{% trans "Upload own keys" %}</a>
+    </li>
+    {% endif %}
 </ul>

@@ -26,7 +26,11 @@
 <h4>{{ group_name }}</h4>
 <ul>
 {% for pad in pads %}
-    <li><a href="{% url 'ep_show_pad' group_name pad %}">{{ pad }}</a></li>
+    <li><a href="{% url 'ep_show_pad' group_name pad.name %}">{{ pad.name }}</a>
+    {% if pad.name %}
+        &nbsp;&nbsp;-&nbsp;&nbsp;<a href="{% url 'ep_delete_pad' group_name pad.name %}"><span class="glyphicon glyphicon-trash"></span></a>
+    {% endif %}
+    </li>
 {% endfor %}
 </ul>
 {% endif %}
