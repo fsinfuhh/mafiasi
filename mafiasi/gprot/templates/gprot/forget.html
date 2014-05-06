@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load gprot_extras %}
+
+{% block ptitle %}{% block wtitle %}
+{% blocktrans with course_name=gprot.course.get_full_name %}
+Forget authorship: {{ course_name }}
+{% endblocktrans %}
+{% endblock %}{% endblock %}
+
+{% block submenu %}
+{% include "gprot/menu.html" with tab='forget' gprot=gprot %}
+{% endblock %}
+
+{% block content %}
+<table class="table">
+    <tr>
+        <th>{% trans "Examiners" %}</th>
+        <td>{{ gprot.examiners|format_examiners }}</td>
+    </tr>
+    <tr>
+        <th>{% trans "Exam date" %}</th>
+        <td>{{ gprot.exam_date|date:"Y-m-d" }}</td>
+    </tr>
+</table>
+<hr/>
+
+<div class="alert alert-warning">
+{% blocktrans %}
+Do you really want to remove your association with these memory minutes from
+the database? This will of course disable editing this memory minutes, since
+we no longer know who wrote it.
+{% endblocktrans %}
+</div>
+
+<form method="POST">
+    {% csrf_token %}
+    <button class="btn btn-warning" type="submit" name="forget">
+        <span class="glyphicon glyphicon-eye-close"></span>
+        {% trans 'Forget authorship' %}
+    </button>
+    <a class="btn btn-default" href="{% url 'gprot_view' gprot.pk %}">
+        {% trans 'Cancel' %}
+    </a>
+</form>
+{% endblock %}

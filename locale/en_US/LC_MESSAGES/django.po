@@ -1,8 +1,3 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
@@ -354,9 +349,9 @@ msgid "Wiki search"
 msgstr "Wiki search"
 
 #: mafiasi/dashboard/templates/dashboard/index.html:173
+#: mafiasi/gprot/templates/gprot/menu.html:4
 #: mafiasi/pks/templates/pks/menu.html:4
 #: mafiasi/pks/templates/pks/search.html:5
-#: mafiasi/pks/templates/pks/search_form.html:7
 msgid "Search"
 msgstr "Search"
 
@@ -415,6 +410,7 @@ msgstr "Delete group pad"
 msgid "Delete the Pad <b>%(pad)s</b> from group <b>%(group)s</b>?"
 msgstr "Delete the Pad <b>%(pad)s</b> from group <b>%(group)s</b>?"
 
+
 #: mafiasi/etherpad/templates/etherpad/index.html:4
 msgid "Etherpad overview"
 msgstr "Etherpad overview"
@@ -465,13 +461,525 @@ msgstr "Pad: %(pad_name)s"
 msgid "Show this pad in fullscreen mode"
 msgstr "Show this pad in fullscreen mode"
 
-#: mafiasi/groups/forms.py:23
-msgid "No such user."
-msgstr "No such user."
+#: mafiasi/gprot/views.py:218 mafiasi/gprot/views.py:317
+#, python-brace-format
+msgid "Only files up to {0} MB are allowed."
+msgstr "Only files up to {0} MB are allowed."
 
-#: mafiasi/groups/forms.py:29
-msgid "User already has an invitation."
-msgstr "User already has an invitation."
+#: mafiasi/gprot/views.py:222
+msgid "Only PDF files are allowed."
+msgstr "Only PDF files are allowed."
+
+#: mafiasi/gprot/views.py:224 mafiasi/gprot/views.py:324
+msgid "Please select a file to upload."
+msgstr "Please select a file to upload."
+
+#: mafiasi/gprot/views.py:322
+msgid "Only PNG, JPEG and GIF files are allowed."
+msgstr "Only PNG, JPEG and GIF files are allowed."
+
+#: mafiasi/gprot/views.py:365
+#, python-format
+msgid "New memory minutes for \"%(coursename)s\""
+msgstr "New memory minutes for \"%(coursename)s\""
+
+#: mafiasi/gprot/management/commands/send_reminders.py:27
+#, python-format
+msgid "Reminder: Memory minutes for \"%(coursename)s\""
+msgstr "Reminder: Memory minutes for \"%(coursename)s\""
+
+#: mafiasi/gprot/templates/gprot/_action_list.html:6
+msgid "View"
+msgstr "View"
+
+#: mafiasi/gprot/templates/gprot/_action_list.html:11
+#: mafiasi/gprot/templates/gprot/view.html:23
+msgid "Edit"
+msgstr "Edit"
+
+#: mafiasi/gprot/templates/gprot/_action_list.html:16
+#: mafiasi/gprot/templates/gprot/publish.html:62
+#: mafiasi/gprot/templates/gprot/view.html:29
+msgid "Publish"
+msgstr "Publish"
+
+#: mafiasi/gprot/templates/gprot/_action_list.html:21
+#: mafiasi/gprot/templates/gprot/delete.html:40
+msgid "Delete"
+msgstr "Delete"
+
+#: mafiasi/gprot/templates/gprot/_action_list.html:26
+#: mafiasi/gprot/templates/gprot/forget.html:40
+#: mafiasi/gprot/templates/gprot/view.html:33
+msgid "Forget authorship"
+msgstr "Forget authorship"
+
+#: mafiasi/gprot/templates/gprot/create.html:4
+msgid "Create memory minutes"
+msgstr "Create memory minutes"
+
+#: mafiasi/gprot/templates/gprot/create.html:14
+msgid "Course:"
+msgstr "Course:"
+
+#: mafiasi/gprot/templates/gprot/create.html:19
+msgid "Examiner:"
+msgstr "Examiner:"
+
+#: mafiasi/gprot/templates/gprot/create.html:24
+msgid "Exam date:"
+msgstr "Exam date:"
+
+#: mafiasi/gprot/templates/gprot/create.html:28
+msgctxt "GProt format"
+msgid "Type"
+msgstr "Type"
+
+#: mafiasi/gprot/templates/gprot/create.html:30
+msgid "Write online"
+msgstr "Write online"
+
+#: mafiasi/gprot/templates/gprot/create.html:31
+msgid "Upload PDF"
+msgstr "Upload PDF"
+
+#: mafiasi/gprot/templates/gprot/create.html:34
+msgid "Continue"
+msgstr "Continue"
+
+#: mafiasi/gprot/templates/gprot/delete.html:7
+#, python-format
+msgid ""
+"\n"
+"Delete: %(course_name)s\n"
+msgstr ""
+"\n"
+"Delete: %(course_name)s\n"
+
+#: mafiasi/gprot/templates/gprot/delete.html:20
+#: mafiasi/gprot/templates/gprot/edit.html:16
+#: mafiasi/gprot/templates/gprot/forget.html:18
+#: mafiasi/gprot/templates/gprot/index.html:34
+#: mafiasi/gprot/templates/gprot/list_own.html:17
+#: mafiasi/gprot/templates/gprot/publish.html:16
+#: mafiasi/gprot/templates/gprot/view.html:48
+msgid "Examiners"
+msgstr "Examiners"
+
+#: mafiasi/gprot/templates/gprot/delete.html:24
+#: mafiasi/gprot/templates/gprot/edit.html:20
+#: mafiasi/gprot/templates/gprot/forget.html:22
+#: mafiasi/gprot/templates/gprot/index.html:33
+#: mafiasi/gprot/templates/gprot/list_own.html:16
+#: mafiasi/gprot/templates/gprot/publish.html:20
+#: mafiasi/gprot/templates/gprot/reminders.html:21
+#: mafiasi/gprot/templates/gprot/reminders.html:41
+#: mafiasi/gprot/templates/gprot/view.html:52
+msgid "Exam date"
+msgstr "Exam date"
+
+#: mafiasi/gprot/templates/gprot/delete.html:31
+msgid ""
+"\n"
+"Do you really want to delete these memory minutes?\n"
+msgstr ""
+"\n"
+"Do you really want to delete these memory minutes?\n"
+
+#: mafiasi/gprot/templates/gprot/delete.html:43
+#: mafiasi/gprot/templates/gprot/forget.html:43
+#: mafiasi/gprot/templates/gprot/publish.html:64
+#: mafiasi/groups/templates/groups/invite.html:21
+msgid "Cancel"
+msgstr "Cancel"
+
+#: mafiasi/gprot/templates/gprot/edit.html:5
+#, python-format
+msgid "Memory minutes: %(course_name)s"
+msgstr "Memory minutes: %(course_name)s"
+
+#: mafiasi/gprot/templates/gprot/edit.html:7
+#: mafiasi/gprot/templates/gprot/list_own.html:28
+msgid "published"
+msgstr "published"
+
+#: mafiasi/gprot/templates/gprot/edit.html:7
+#: mafiasi/gprot/templates/gprot/list_own.html:30
+msgid "unpublished"
+msgstr "unpublished"
+
+#: mafiasi/gprot/templates/gprot/edit.html:27
+msgid ""
+"<b>Warning:</b> The current document will be replaced when you upload a new "
+"one."
+msgstr ""
+"<b>Warning:</b> The current document will be replaced when you upload a new "
+"one."
+
+#: mafiasi/gprot/templates/gprot/edit.html:31
+msgid "Error:"
+msgstr "Error:"
+
+#: mafiasi/gprot/templates/gprot/edit.html:35
+msgid "Select a file"
+msgstr "Select a file"
+
+#: mafiasi/gprot/templates/gprot/edit.html:42
+msgid "Upload"
+msgstr "Upload"
+
+#: mafiasi/gprot/templates/gprot/edit.html:47
+msgid "Upload and publish"
+msgstr "Upload and publish"
+
+#: mafiasi/gprot/templates/gprot/edit.html:51
+msgid "Upload only"
+msgstr "Upload only"
+
+#: mafiasi/gprot/templates/gprot/edit.html:64
+msgid "Save changes"
+msgstr "Save changes"
+
+#: mafiasi/gprot/templates/gprot/edit.html:69
+msgid "Save and publish"
+msgstr "Save and publish"
+
+#: mafiasi/gprot/templates/gprot/edit.html:73
+msgid "Save only"
+msgstr "Save only"
+
+#: mafiasi/gprot/templates/gprot/forget.html:6
+#, python-format
+msgid ""
+"\n"
+"Forget authorship: %(course_name)s\n"
+msgstr ""
+"\n"
+"Forget authorship: %(course_name)s\n"
+
+#: mafiasi/gprot/templates/gprot/forget.html:29
+msgid ""
+"\n"
+"Do you really want to remove your association with these memory minutes "
+"from\n"
+"the database? This will of course disable editing this memory minutes, "
+"since\n"
+"we no longer know who wrote it.\n"
+msgstr ""
+"\n"
+"Do you really want to remove your association with these memory minutes "
+"from\n"
+"the database? This will of course disable editing this memory minutes, "
+"since\n"
+"we no longer know who wrote it.\n"
+
+#: mafiasi/gprot/templates/gprot/index.html:5
+msgid "Search for memory minutes"
+msgstr "Search for memory minutes"
+
+#: mafiasi/gprot/templates/gprot/index.html:17
+msgid ""
+"Just enter the name of the course and/or examiner to see available memory "
+"minutes."
+msgstr ""
+"Just enter the name of the course and/or examiner to see available memory "
+"minutes."
+
+#: mafiasi/gprot/templates/gprot/index.html:24
+msgid "Show memory minutes"
+msgstr "Show memory minutes"
+
+#: mafiasi/gprot/templates/gprot/index.html:32
+#: mafiasi/gprot/templates/gprot/list_own.html:15
+#: mafiasi/gprot/templates/gprot/notifications.html:19
+#: mafiasi/gprot/templates/gprot/notifications.html:39
+#: mafiasi/gprot/templates/gprot/reminders.html:22
+#: mafiasi/gprot/templates/gprot/reminders.html:46
+msgid "Course"
+msgstr "Course"
+
+#: mafiasi/gprot/templates/gprot/index.html:35
+#: mafiasi/gprot/templates/gprot/list_own.html:19
+#: mafiasi/gprot/templates/gprot/notifications.html:21
+#: mafiasi/gprot/templates/gprot/reminders.html:23
+#: mafiasi/groups/templates/groups/invitations.html:19
+#: mafiasi/groups/templates/groups/show.html:20
+#: mafiasi/groups/templates/groups/show.html:48
+msgid "Actions"
+msgstr "Actions"
+
+#: mafiasi/gprot/templates/gprot/index.html:52
+#, python-format
+msgid ""
+"\n"
+"    Sorry, there are currently no published memory minutes matching your "
+"search.\n"
+"    You may set up a <a href=\"%(notifications_url)s\">notification</a> if "
+"you\n"
+"    would like to be informed when new memory minutes matching your query\n"
+"    are published.\n"
+msgstr ""
+"\n"
+"    Sorry, there are currently no published memory minutes matching your "
+"search.\n"
+"    You may set up a <a href=\"%(notifications_url)s\">notification</a> if "
+"you\n"
+"    would like to be informed when new memory minutes matching your query\n"
+"    are published.\n"
+
+#: mafiasi/gprot/templates/gprot/list_own.html:5
+msgid "List own memory minutes"
+msgstr "List own memory minutes"
+
+#: mafiasi/gprot/templates/gprot/list_own.html:18
+msgid "Status"
+msgstr "Status"
+
+#: mafiasi/gprot/templates/gprot/list_own.html:40
+msgid "You have no memory minutes we know of! :-("
+msgstr "You have no memory minutes we know of! :-("
+
+#: mafiasi/gprot/templates/gprot/list_own.html:42
+#: mafiasi/gprot/templates/gprot/menu.html:10
+msgid "Create new"
+msgstr "Create new"
+
+#: mafiasi/gprot/templates/gprot/menu.html:7
+msgid "List own"
+msgstr "List own"
+
+#: mafiasi/gprot/templates/gprot/menu.html:13
+#: mafiasi/gprot/templates/gprot/notifications.html:4
+msgid "Notifications"
+msgstr "Notifications"
+
+#: mafiasi/gprot/templates/gprot/menu.html:16
+#: mafiasi/gprot/templates/gprot/reminders.html:4
+msgid "Reminders"
+msgstr "Reminders"
+
+#: mafiasi/gprot/templates/gprot/menu.html:20
+#, python-format
+msgid "View: %(course_name)s"
+msgstr "View: %(course_name)s"
+
+#: mafiasi/gprot/templates/gprot/menu.html:25
+#, python-format
+msgid "Edit: %(course_name)s"
+msgstr "Edit: %(course_name)s"
+
+#: mafiasi/gprot/templates/gprot/menu.html:30
+#: mafiasi/gprot/templates/gprot/publish.html:5
+#: mafiasi/gprot/templates/gprot/publish.html:7
+#, python-format
+msgid "Publish: %(course_name)s"
+msgstr "Publish: %(course_name)s"
+
+#: mafiasi/gprot/templates/gprot/menu.html:35
+#, python-format
+msgid "Delete: %(course_name)s"
+msgstr "Delete: %(course_name)s"
+
+#: mafiasi/gprot/templates/gprot/menu.html:40
+#, python-format
+msgid "Forget authorship: %(course_name)s"
+msgstr "Forget authorship: %(course_name)s"
+
+#: mafiasi/gprot/templates/gprot/notification_email.txt:2
+#, python-format
+msgid ""
+"Hi there!\n"
+"\n"
+"A new memory minute matching your search for\n"
+"    \"%(query)s\"\n"
+"has just been uploaded.\n"
+"\n"
+"You can view it at\n"
+"    %(url)s\n"
+"\n"
+"Cheers,\n"
+"\n"
+"Your Server-AG"
+msgstr ""
+"Hi there!\n"
+"\n"
+"A new memory minute matching your search for\n"
+"    \"%(query)s\"\n"
+"has just been uploaded.\n"
+"\n"
+"You can view it at\n"
+"    %(url)s\n"
+"\n"
+"Cheers,\n"
+"\n"
+"Your Server-AG"
+
+#: mafiasi/gprot/templates/gprot/notifications.html:11
+msgid ""
+"\n"
+"<p>Are you looking for memory minutes for a specific course that aren't here "
+"yet? Just add the course below and we will notify you as soon as new memory "
+"minutes matching your search are published. Please consider contributing "
+"memory minutes yourself, to help others in the same position.</p>\n"
+msgstr ""
+"\n"
+"<p>Are you looking for memory minutes for a specific course that aren't here "
+"yet? Just add the course below and we will notify you as soon as new memory "
+"minutes matching your search are published. Please consider contributing "
+"memory minutes yourself, to help others in the same position.</p>\n"
+
+#: mafiasi/gprot/templates/gprot/notifications.html:20
+msgid "Added"
+msgstr "Added"
+
+#: mafiasi/gprot/templates/gprot/notifications.html:30
+#: mafiasi/gprot/templates/gprot/reminders.html:32
+#: mafiasi/groups/templates/groups/show.html:66
+msgid "Remove"
+msgstr "Remove"
+
+#: mafiasi/gprot/templates/gprot/notifications.html:44
+msgid "Add notification"
+msgstr "Add notification"
+
+#: mafiasi/gprot/templates/gprot/publish.html:30
+msgid ""
+"\n"
+"Thank you for writing and publishing these memory minutes! Please note that\n"
+"once they are published, you will not be able to delete or unpublish them\n"
+"anymore.\n"
+msgstr ""
+"\n"
+"Thank you for writing and publishing these memory minutes! Please note that\n"
+"once they are published, you will not be able to delete or unpublish them\n"
+"anymore.\n"
+
+#: mafiasi/gprot/templates/gprot/publish.html:38
+msgid ""
+"\n"
+"    <strong>Keep authorship information.</strong> This allows you to edit "
+"your\n"
+"    memory minutes after publishing and may allow other features in future.\n"
+"    Your authorship will be kept confidential and will never be shown to "
+"others\n"
+"    and you may remove the information at any time.\n"
+"    "
+msgstr ""
+"\n"
+"    <strong>Keep authorship information.</strong> This allows you to edit "
+"your\n"
+"    memory minutes after publishing and may allow other features in future.\n"
+"    Your authorship will be kept confidential and will never be shown to "
+"others\n"
+"    and you may remove the information at any time.\n"
+"    "
+
+#: mafiasi/gprot/templates/gprot/publish.html:50
+msgid ""
+"\n"
+"    <strong>Forget authorship information.</strong> This will delete your\n"
+"    association with this memory minutes from the database. This will\n"
+"    of course disable editing this memory minutes, since we no longer\n"
+"    know who wrote it.\n"
+"    "
+msgstr ""
+"\n"
+"    <strong>Forget authorship information.</strong> This will delete your\n"
+"    association with this memory minutes from the database. This will\n"
+"    of course disable editing this memory minutes, since we no longer\n"
+"    know who wrote it.\n"
+"    "
+
+#: mafiasi/gprot/templates/gprot/reminder_email.txt:2
+#, python-format
+msgid ""
+"Hi there!\n"
+"\n"
+"You requested to be reminded of writing memory minutes\n"
+"for your exam in\n"
+"    \"%(course_name)s\"\n"
+"today. Thanks a lot for this! By writing memory minutes yourself\n"
+"you will help many other students and contribute to the appeal\n"
+"of this repository, increasing the odds that someone else contributes\n"
+"memory minutes you may be looking for in the future.\n"
+"\n"
+"Cheers,\n"
+"\n"
+"Your Server-AG"
+msgstr ""
+"Hi there!\n"
+"\n"
+"You requested to be reminded of writing memory minutes\n"
+"for your exam in\n"
+"    \"%(course_name)s\"\n"
+"today. Thanks a lot for this! By writing memory minutes yourself\n"
+"you will help many other students and contribute to the appeal\n"
+"of this repository, increasing the odds that someone else contributes\n"
+"memory minutes you may be looking for in the future.\n"
+"\n"
+"Cheers,\n"
+"\n"
+"Your Server-AG"
+
+#: mafiasi/gprot/templates/gprot/reminders.html:11
+msgid ""
+"\n"
+"<p>If want to contribute memory minutes yourself (which is great!) but worry "
+"that you\n"
+"might forget writing them after your exam is over, you can add a reminder\n"
+"here and we will send you an email right after the exam.</p>\n"
+msgstr ""
+"\n"
+"<p>If want to contribute memory minutes yourself (which is great!) but worry "
+"that you\n"
+"might forget writing them after your exam is over, you can add a reminder\n"
+"here and we will send you an email right after the exam.</p>\n"
+
+#: mafiasi/gprot/templates/gprot/reminders.html:51
+msgid "Add reminder"
+msgstr "Add reminder"
+
+#: mafiasi/gprot/templates/gprot/view.html:6
+#, python-format
+msgid ""
+"\n"
+"Memory minutes: %(course_name)s\n"
+msgstr ""
+"\n"
+"Memory minutes: %(course_name)s\n"
+
+#: mafiasi/gprot/templates/gprot/view.html:17
+msgid "Download PDF"
+msgstr "Download PDF"
+
+#: mafiasi/gprot/templates/gprot/view.html:62
+msgid ""
+"Sorry, your browser does not support embedding\n"
+"            this document. However, you can download the PDF file using the\n"
+"            button above."
+msgstr ""
+"Sorry, your browser does not support embedding\n"
+"            this document. However, you can download the PDF file using the\n"
+"            button above."
+
+#: mafiasi/gprot/templates/gprot/view.html:69
+msgid "No document has been uploaded yet."
+msgstr "No document has been uploaded yet."
+
+#: mafiasi/groups/forms.py:26
+#, python-format
+msgid "There is no user \"%s.\""
+msgstr "There is no user \"%s.\""
+
+#: mafiasi/groups/forms.py:33
+#, python-format
+msgid "\"%s\" already has an invitation."
+msgstr "\"%s\" already has an invitation."
+
+#: mafiasi/groups/forms.py:39
+#, python-format
+msgid "\"%s\" is already a member of this group."
+msgstr "\"%s\" is already a member of this group."
 
 #: mafiasi/groups/models.py:66
 msgid ""
@@ -510,7 +1018,11 @@ msgstr "User was granted group admin."
 msgid "Revoked group admin rights from user."
 msgstr "Revoked group admin rights from user."
 
+<<<<<<< HEAD
 #: mafiasi/groups/views.py:147
+=======
+#: mafiasi/groups/views.py:149
+>>>>>>> 3ea621ae16cfbf4263122615c75f6efe46458dcb
 msgid "Invitation was sent."
 msgstr "Invitation was sent."
 
@@ -554,12 +1066,6 @@ msgstr "Date"
 msgid "Invited By"
 msgstr "Invited By"
 
-#: mafiasi/groups/templates/groups/invitations.html:19
-#: mafiasi/groups/templates/groups/show.html:20
-#: mafiasi/groups/templates/groups/show.html:48
-msgid "Actions"
-msgstr "Actions"
-
 #: mafiasi/groups/templates/groups/invitations.html:31
 msgid "Accept"
 msgstr "Accept"
@@ -584,10 +1090,6 @@ msgstr "Account name"
 #: mafiasi/groups/templates/groups/invite.html:20
 msgid "Invite user"
 msgstr "Invite user"
-
-#: mafiasi/groups/templates/groups/invite.html:21
-msgid "Cancel"
-msgstr "Cancel"
 
 #: mafiasi/groups/templates/groups/menu.html:4
 #: mafiasi/groups/templates/groups/my_groups.html:4
@@ -639,10 +1141,6 @@ msgstr "Group admin"
 #: mafiasi/groups/templates/groups/show.html:60
 msgid "Last group admin can't be removed."
 msgstr "Last group admin can't be removed."
-
-#: mafiasi/groups/templates/groups/show.html:66
-msgid "Remove"
-msgstr "Remove"
 
 #: mafiasi/groups/templates/groups/show.html:69
 msgid "Revoke admin"
@@ -801,6 +1299,16 @@ msgstr "Fingerprint"
 msgid "My keys"
 msgstr "My keys"
 
+#: mafiasi/pks/templates/pks/menu.html:18
+#, python-format
+msgid "Key: %(keyid)s"
+msgstr "Key: %(keyid)s"
+
+#: mafiasi/pks/templates/pks/menu.html:24
+#: mafiasi/pks/templates/pks/my_keys.html:22
+msgid "Upload own keys"
+msgstr "Upload own keys"
+
 #: mafiasi/pks/templates/pks/my_keys.html:15
 msgid "Unassign"
 msgstr "Unassign"
@@ -820,6 +1328,10 @@ msgstr "You can also search using the HKP interface:"
 #: mafiasi/pks/templates/pks/search.html:16
 msgid "search term"
 msgstr "search term"
+
+#: mafiasi/pks/templates/pks/search_form.html:9
+msgid "Search key"
+msgstr "Search key"
 
 #: mafiasi/pks/templates/pks/search_result.html:6
 #, python-format
@@ -843,11 +1355,15 @@ msgstr "Key"
 msgid "Show as plain text"
 msgstr "Show as plain text"
 
-#: mafiasi/pks/templates/pks/upload_keys.html:11
+#: mafiasi/pks/templates/pks/upload_keys.html:6
+msgid "Add own OpenPGP key"
+msgstr "Add own OpenPGP key"
+
+#: mafiasi/pks/templates/pks/upload_keys.html:17
 msgid "Insert one or more OpenPGP keys into the following field:"
 msgstr "Insert one or more OpenPGP keys into the following field:"
 
-#: mafiasi/pks/templates/pks/upload_keys.html:18
+#: mafiasi/pks/templates/pks/upload_keys.html:27
 msgid "Add keys"
 msgstr "Add keys"
 
@@ -1161,6 +1677,36 @@ msgstr "Invalid token"
 #: mafiasi/registration/templates/registration/token_invalid.html:7
 msgid "Sorry, but the provided token is invalid."
 msgstr "Sorry, but the provided token is invalid."
+
+#: mafiasi/teaching/models.py:17
+#, python-brace-format
+msgid "winter term {0}"
+msgstr "winter term {0}"
+
+#: mafiasi/teaching/models.py:19
+#, python-brace-format
+msgid "summer term {0}"
+msgstr "summer term {0}"
+
+#~ msgid "Results"
+#~ msgstr "Results"
+
+#~ msgid "No such user."
+#~ msgstr "No such user."
+
+#~ msgid "CSRF verification failed."
+#~ msgstr "CSRF verification failed."
+
+#~ msgid ""
+#~ "\n"
+#~ "<p>...</p>\n"
+#~ msgstr ""
+#~ "\n"
+#~ "<p>...</p>\n"
+
+#, fuzzy
+#~ msgid "Remove notification"
+#~ msgstr "You have no invitations."
 
 #~ msgid "Graph"
 #~ msgstr "Graph"

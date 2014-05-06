@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block wtitle %}{% block ptitle %}{% trans "Create memory minutes" %}{% endblock %}{% endblock %}
+
+{% block submenu %}
+{% include "gprot/menu.html" with tab='create' %}
+{% endblock %}
+
+{% block content %}
+<form method="post">
+{% csrf_token %}
+<div class="form-group{% if errors.course_name %} has-error{% endif %}">
+    <label for="course">{% trans "Course:" %}</label>
+    <input type="text" class="form-control" name="course_name" id="course-input" value="{{ course_name }}">
+    <div id="course-item"></div>
+</div>
+<div class="form-group{% if errors.examiner_name %} has-error{% endif %}">
+    <label for="examiner">{% trans "Examiner:" %}</label>
+    <input type="text" class="form-control" name="examiner_name" id="examiner-input" value="{{ examiner_name }}">
+    <div id="examiner-item"></div>
+</div>
+<div class="form-group{% if errors.exam_date %} has-error{% endif %}">
+    <label for="exam-date">{% trans "Exam date:" %}</label>
+    <input type="text" class="form-control" name="exam_date" id="exam-date-input" value="{{ exam_date }}">
+</div>
+<div class="form-group">
+    <label for="type">{% trans 'Type' context 'GProt format' %}</label>
+    <select class="form-control make-button-group" id="type" name="type">
+        <option value="html">{% trans 'Write online' %}</option>
+        <option value="pdf">{% trans 'Upload PDF' %}</option>
+    </select>
+</div>
+<button class="btn btn-primary">{% trans "Continue" %}</button>
+</form>
+{% endblock %}
+
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/gprot.css" />
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="{{ STATIC_URL }}js/autocomplete.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/gprot.js"></script>
+<script type="text/javascript">
+$(function() {
+    GProt.initCreate({{ autocomplete_course_json|safe }}, {{ autocomplete_examiner_json|safe }},
+					 {{ course_js|safe }}, {{ examiner_js|safe }});
+});
+</script>
+{% endblock %}

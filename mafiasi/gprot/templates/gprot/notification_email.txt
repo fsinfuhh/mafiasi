@@ -1,0 +1,13 @@
+{% load i18n %}
+{% blocktrans with query=notification.query_or_course_name %}Hi there!
+
+A new memory minute matching your search for
+    "{{ query }}"
+has just been uploaded.
+
+You can view it at
+    {{ url }}
+
+Cheers,
+
+Your Server-AG{% endblocktrans %}

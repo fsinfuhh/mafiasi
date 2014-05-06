@@ -1,0 +1,20 @@
+#search-items {
+    border:1px solid #ccc;
+    margin-bottom:10px;
+    background-color: #F5F5F5;
+    border-radius: 4px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05) inset;
+}
+
+.search-item {
+    margin: 5px;
+    padding: 3px;
+}
+
+.ui-datepicker {
+    z-index: 10 !important;
+}
+
+.gprot-actions {
+    white-space: nowrap;
+}
