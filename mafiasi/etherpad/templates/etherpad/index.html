@@ -27,7 +27,7 @@
 <ul>
 {% for pad in pads %}
     <li><a href="{% url 'ep_show_pad' group_name pad.name %}">{{ pad.name }}</a>
-    {% if pad.name %}
+    {% if pad.admin %}
         &nbsp;&nbsp;-&nbsp;&nbsp;<a href="{% url 'ep_delete_pad' group_name pad.name %}"><span class="glyphicon glyphicon-trash"></span></a>
     {% endif %}
     </li>

@@ -29,7 +29,7 @@ def index(request):
         for group in request.user.groups.all():
             pads = ep.get_group_pads(group.name)
             is_admin = False
-            if group.properties.admins.filter(pk=request.user.pk):
+            if group.properties.admins.filter(pk=request.user.pk).exists():
                 is_admin = True
             pad_list[group.name] = []
             for pad in pads:
