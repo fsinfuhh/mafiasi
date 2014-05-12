@@ -8,6 +8,7 @@ from django.conf import settings
 
 from urllib2 import URLError
 
+import datetime
 
 class NewEtherpadForm(forms.Form):
     name = forms.RegexField(max_length=30, regex="[a-zA-Z0-9\-_]+")
@@ -33,10 +34,16 @@ def index(request):
                 is_admin = True
             pad_list[group.name] = []
             for pad in pads:
+                edit_time = ep.get_last_edit(pad)
+                if edit_time == 1399920167517:
+                    edit_time_out = "never"
+                else:
+                    edit_time_out = datetime.datetime.fromtimestamp(edit_time)
                 pad_list[group.name].append(
                     {
-                        "name":pad.split('$')[1],
-                        "admin":is_admin
+                        "name": pad.split('$')[1],
+                        "admin": is_admin,
+                        "last_edit": edit_time_out
                     })
     return TemplateResponse(request, 'etherpad/index.html', {
         'pad_list': pad_list,
@@ -122,4 +129,22 @@ def show_pad(request, group_name, pad_name):
     cookie_domain = '.' + request.get_host()
     response.set_cookie('sessionID', cookie, domain=cookie_domain)
     return response
+
+def show_pad_html(request, group_name, pad_name):
+    # test if user is in group
+    if not request.user.groups.filter(name=group_name).exists():
+        return TemplateResponse(request, 'etherpad/forbidden.html', {
+            'group_name': group_name,
+        }, status=403)
+
+    ep = Etherpad()
+    full_pad_name = '{0}${1}'.format(
+                ep.get_group_id(group_name),
+                pad_name)
+    html = ep.get_html(full_pad_name)
+    return TemplateResponse(request, 'etherpad/pad_html.html', {
+        'html': html[27:-14], #  <html> etc weg
+        'pad_name': pad_name,
+        'group_name': group_name
+    })
 

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block wtitle %}Pad: {{ group_name }}/{{ pad_name }}{% endblock %}
+
+{% block submenu %}
+{% if not fullscreen %}
+{% include "etherpad/menu.html" with tab='show_pad' group_name=group_name pad_name=pad_name %}
+{% endif %}
+{% endblock %}
+
+{% block outsidecontent %}
+<div id="etherpad-container">
+    {{ html|safe }}
+</div>
+
+{% endblock %}

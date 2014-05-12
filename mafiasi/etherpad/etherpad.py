@@ -91,5 +91,21 @@ class Etherpad(object):
     def delete_grop(self, group_name):
         self.api.deleteGroup(groupID=self.get_group_id(group_name))
 
+    def get_last_edit(self, pad_name):
+        try:
+            return self.api.getLastEdited(padID=pad_name)['lastEdited']
+        except EtherpadException as e:
+            if e.message == "padID does not exist":
+                return 0
+            raise
+
+    def get_html(self, pad_name):
+        try:
+            return self.api.getHTML(padID=pad_name)['html']
+        except EtherpadException as e:
+            if e.message == "padID does not exist":
+                return ""
+            raise
+
 
 
