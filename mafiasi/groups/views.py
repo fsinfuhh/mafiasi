@@ -180,8 +180,6 @@ def withdraw_invite(request, invitation_pk):
         raise PermissionDenied()
     
     invitation.delete()
-    subject = u'Einladung zur\xfcckgezogen / withdrawn invitation'
-    _send_invitation_mail(request, invitation, subject, 'withdrawn_invitation')
     return redirect('groups_show', group.name)
 
 def _send_invitation_mail(request, invitation, subject, template_name):
