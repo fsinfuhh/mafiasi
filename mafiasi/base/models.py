@@ -122,7 +122,7 @@ def _change_user_cb(sender, instance, created, **kwargs):
     if instance.first_name:
         display_name = u'{} ({})'.format(instance.first_name, instance.id)
     else:
-        display_name = instance.id
+        display_name = instance.username
     ldap_user.display_name = display_name
 
     if instance.first_name:
