@@ -14,9 +14,10 @@ class Etherpad(object):
             base_params={'apikey': settings.ETHERPAD_API_KEY})
 
     def _get_ep_user(self, user):
+        ldap_user = user.get_ldapuser()
         return self.api.createAuthorIfNotExistsFor(
                 authorMapper=user.id,
-                name=user.username.encode('utf-8'),
+                name=ldap_user.display_name.encode('utf-8'),
         )['authorID']
 
     def create_group_pad(self, group_name, pad_name):
