@@ -81,7 +81,7 @@ class NickChangeForm(forms.Form):
         }
         super(NickChangeForm, self).__init__(*args, **kwargs)
     
-    nickname = forms.CharField()
+    nickname = forms.CharField(max_length=20)
     
     def save(self):
         ldap_user = self.user.get_ldapuser()
