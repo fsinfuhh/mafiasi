@@ -16,7 +16,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 from mafiasi.base.models import Yeargroup, Mafiasi, PasswdEntry
-from mafiasi.registration.forms import RegisterForm, AdditionalInfoForm, PasswordForm
+from mafiasi.registration.forms import (RegisterForm, AdditionalInfoForm,
+                                        PasswordForm, NickChangeForm)
 
 TOKEN_MAX_AGE = 3600 * 24
 
@@ -119,17 +120,27 @@ def create_account(request, info_token):
 
 @login_required
 def account_settings(request):
-    if request.method == 'POST':
+    if request.POST.get('form') == 'change_pw':
         password_change_form = PasswordChangeForm(request.user, request.POST)
+        nick_change_form = NickChangeForm(request.user)
         if password_change_form.is_valid():
             password_change_form.save()
             messages.success(request, _("Password was changed."))
             return redirect('registration_account')
+    elif request.POST.get('form') == 'change_nick':
+        password_change_form = PasswordChangeForm(request.user)
+        nick_change_form = NickChangeForm(request.user, request.POST)
+        if nick_change_form.is_valid():
+            nick_change_form.save()
+            return redirect('registration_account')
     else:
         password_change_form = PasswordChangeForm(request.user)
+        nick_change_form = NickChangeForm(request.user)
     
     return TemplateResponse(request, 'registration/account.html', {
-        'password_change_form': password_change_form 
+        'password_change_form': password_change_form,
+        'nick_change_form': nick_change_form,
+        'username': request.user.username
     })
 
 def _finish_account_request(request, info):

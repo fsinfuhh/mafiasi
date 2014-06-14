@@ -1,3 +1,5 @@
+import re
+
 from django import forms
 from django.utils.translation import gettext_lazy as _
 
@@ -68,3 +70,21 @@ class CheckPasswordForm(forms.Form):
             if not self.user.check_password(password):
                 raise forms.ValidationError(_("Wrong password."))
         return password
+
+class NickChangeForm(forms.Form):
+    def __init__(self, user, *args, **kwargs):
+        self.user = user
+        ldap_user = user.get_ldapuser()
+        nickname = re.sub(r'(.+)\s\((.+)\)$', r'\1', ldap_user.display_name)
+        kwargs['initial'] = {
+            'nickname': nickname
+        }
+        super(NickChangeForm, self).__init__(*args, **kwargs)
+    
+    nickname = forms.CharField()
+    
+    def save(self):
+        ldap_user = self.user.get_ldapuser()
+        ldap_user.display_name = u"{} ({})".format(
+                self.cleaned_data['nickname'], self.user.username)
+        ldap_user.save()

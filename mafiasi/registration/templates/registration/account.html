@@ -5,10 +5,32 @@
 {% block wtitle %}{% block ptitle %}{% trans "Account" %}{% endblock %}{% endblock %}
 
 {% block content %}
+<h3>{% trans "Change nickname" %}</h3>
+<p>{% trans 'If you choose a nickname, it will be shown instead of your first name (e.g. when you vote in Dudle)' %}</p>
+<form method="post" class="form-inline">
+    {% csrf_token %}
+    <input type="hidden" name="form" value="change_nick" />
+    <div class="form-group{% if nick_change_form.nickname.errors %} has-error{% endif %}">
+        <label class="control-label">{% trans "Nickname" %}</label>
+        <div class="input-group">
+            {% render_field nick_change_form.nickname class+="form-control" style="width:20em" %}
+            <span class="input-group-addon"> ({{ username }})</span>
+        </div>
+        {% if nick_change_form.nickname.errors %}
+        <div class="help-block">
+        {% for error in nick_change_form.nickname.errors %}{{ error }} {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+    <p></p>
+    <p><button type="submit" class="btn btn-default">{% trans "Change" %}</button></p>
+</form>
+
 <h3>{% trans "Change password" %}</h3>
 <p>{% trans 'Note: You can "change" your password to the current password to synchronize it with other services (e.g. Jabber)' %}</p>
 <form method="post">
     {% csrf_token %}
+    <input type="hidden" name="form" value="change_pw" />
     <div class="form-group{% if password_change_form.old_password.errors %} has-error{% endif %}">
         <label class="control-label">{% trans "Old password" %}</label>
         {% render_field password_change_form.old_password class+="form-control" %}
