@@ -66,6 +66,9 @@ class Mafiasi(AbstractUser):
         super(Mafiasi, self).set_password(new_password)
         self.new_password = new_password
 
+    def get_ldapuser(self):
+        return LdapUser.objects.get(username=self.username)
+
 
 class LdapGroup(ldapdb.models.Model):
     base_dn = 'ou=groups,' + settings.ROOT_DN
