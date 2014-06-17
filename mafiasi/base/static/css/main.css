@@ -80,3 +80,7 @@ body {
 .user-username {
 	color:#888;
 }
+
+.small-input {
+    max-width: 30em;
+}

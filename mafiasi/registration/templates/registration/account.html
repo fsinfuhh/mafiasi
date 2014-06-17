@@ -12,8 +12,8 @@
     <input type="hidden" name="form" value="change_nick" />
     <div class="form-group{% if nick_change_form.nickname.errors %} has-error{% endif %}">
         <label class="control-label">{% trans "Nickname" %}</label>
-        <div class="input-group">
-            {% render_field nick_change_form.nickname class+="form-control" style="width:20em" %}
+        <div class="input-group small-input">
+            {% render_field nick_change_form.nickname class+="form-control" %}
             <span class="input-group-addon"> ({{ username }})</span>
         </div>
         {% if nick_change_form.nickname.errors %}
@@ -33,7 +33,7 @@
     <input type="hidden" name="form" value="change_pw" />
     <div class="form-group{% if password_change_form.old_password.errors %} has-error{% endif %}">
         <label class="control-label">{% trans "Old password" %}</label>
-        {% render_field password_change_form.old_password class+="form-control" %}
+        {% render_field password_change_form.old_password class+="form-control small-input" %}
         {% if password_change_form.old_password.errors %}
         <div class="help-block">
         {% for error in password_change_form.old_password.errors %}{{ error }} {% endfor %}
@@ -42,7 +42,7 @@
     </div>
     <div class="form-group{% if password_change_form.new_password1.errors %} has-error{% endif %}">
         <label class="control-label">{% trans "New password" %}</label>
-        {% render_field password_change_form.new_password1 class+="form-control" %}
+        {% render_field password_change_form.new_password1 class+="form-control small-input" %}
         {% if password_change_form.new_password1.errors %}
         <div class="help-block">
         {% for error in password_change_form.new_password1.errors %}{{ error }} {% endfor %}
@@ -51,7 +51,7 @@
     </div>
     <div class="form-group{% if password_change_form.new_password2.errors %} has-error{% endif %}">
         <label class="control-label">{% trans "New password confirmation" %}</label>
-        {% render_field password_change_form.new_password2 class+="form-control" %}
+        {% render_field password_change_form.new_password2 class+="form-control small-input" %}
         {% if password_change_form.new_password2.errors %}
         <div class="help-block">
         {% for error in password_change_form.new_password2.errors %}{{ error }} {% endfor %}
