@@ -463,12 +463,13 @@ def reminders(request):
             exam_date_t = time.strptime(exam_date_str, '%Y-%m-%d')
             exam_date = date(exam_date_t.tm_year, exam_date_t.tm_mon,
                                  exam_date_t.tm_mday)
-        except ValueError:
-            error = True
 
-        if Reminder.objects.filter(exam_date=exam_date,
-                                   course=course,
-                                   user=request.user).exists():
+            if Reminder.objects.filter(exam_date=exam_date,
+                                       course=course,
+                                       user=request.user).exists():
+                error = True
+
+        except ValueError:
             error = True
 
         if not error:
