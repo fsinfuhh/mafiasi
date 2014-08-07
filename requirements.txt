@@ -1,4 +1,5 @@
 bleach
+django-auth-ldap
 django-widget-tweaks
 django-email-log
 django-ldapdb
