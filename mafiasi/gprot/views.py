@@ -23,6 +23,8 @@ from django.middleware.csrf import get_token as get_csrf_token
 
 from mafiasi.teaching.models import (Course, Teacher,
         insert_autocomplete_courses, insert_autocomplete_teachers)
+from mafiasi.teaching.forms import TeacherForm, CourseForm
+from mafiasi.gprot.forms import GProtCreateForm
 from mafiasi.gprot.models import Attachment, GProt, Notification, Reminder
 from mafiasi.gprot.sanitize import clean_html
 
@@ -91,98 +93,32 @@ def index(request):
 
 @login_required
 def create_gprot(request):
-    autocomplete_courses = {'tokens': []}
-    insert_autocomplete_courses(autocomplete_courses)
-    autocomplete_examiners = {'tokens': []}
-    insert_autocomplete_teachers(autocomplete_examiners)
-    
-    errors = {}
-    course = None
-    examiner = None
-    exam_date = None
-    course_name = ''
-    examiner_name = ''
-    exam_date_str = ''
     if request.method == 'POST':
-        if 'course' in request.POST and request.POST['course'].isdigit():
-            course = get_object_or_404(Course, pk=request.POST['course'])
-        else:
-            course_name = request.POST.get('course_name', '').strip()
-            if not course_name:
-                errors['course_name'] = True
-            course = Course(name=course_name, short_name='')
-        if 'examiner' in request.POST and request.POST['examiner'].isdigit():
-            examiner = get_object_or_404(Teacher, pk=request.POST['examiner'])
-        else:
-            examiner_name = HumanName(request.POST.get('examiner_name', ''))
-            if examiner_name.middle:
-                first_name = u'{0} {1}'.format(examiner_name.first,
-                                               examiner_name.middle)
-            else:
-                first_name = examiner_name.first
-            last_name = examiner_name.last
+        form = GProtCreateForm(request.POST)
+        if form.is_valid():
+            course = form.cleaned_data['course']
+            examiners = form.cleaned_data['examiner']
+            exam_date = form.cleaned_data['exam_date']
+            is_pdf = {'pdf': True,
+                      'html': False}[form.cleaned_data['type']]
 
-            if not last_name:
-                examiner = None
-                errors['examiner_name'] = True
-            else:
-                examiner = Teacher(first_name=first_name, last_name=last_name,
-                                   title=examiner_name.title)
-        exam_date_str = request.POST.get('exam_date', '')
-        try:
-            exam_date_t = time.strptime(exam_date_str, '%Y-%m-%d')
-            exam_date = date(exam_date_t.tm_year, exam_date_t.tm_mon,
-                                 exam_date_t.tm_mday)
-        except ValueError:
-            errors['exam_date'] = True
-
-        if 'type' in request.POST:
-            if request.POST['type'] == 'html':
-                is_pdf=False
-            elif request.POST['type'] == 'pdf':
-                is_pdf=True
-            else:
-                errors['type'] = True
-
-        if not errors:
-            if not course.pk:
-                course.save()
-            if not examiner.pk:
-                examiner.save()
             gprot = GProt.objects.create(course=course,
                                          exam_date=exam_date,
                                          is_pdf=is_pdf,
                                          content='',
                                          author=request.user)
-            gprot.examiners.add(examiner)
+            gprot.examiners = examiners
+            gprot.save()
             return redirect('gprot_edit', gprot.pk)
-
-
-    if course and course.pk:
-        course_js = json.dumps({
-            'label': course.name,
-            'objData': {'pk': course.pk}
-        })
     else:
-        course_js = 'null'
+        form = GProtCreateForm()
 
-    if examiner and examiner.pk:
-        examiner_js = json.dumps({
-            'label': examiner.get_full_name(),
-            'objData': {'pk': examiner.pk}
-        })
-    else:
-        examiner_js = 'null'
-
+    teacher_form = TeacherForm(prefix='teacher')
+    course_form = CourseForm(prefix='course')
     return render(request, 'gprot/create.html', {
-        'errors': errors,
-        'course_name': course_name,
-        'examiner_name': examiner_name,
-        'exam_date_str': exam_date_str,
-        'course_js': course_js,
-        'examiner_js': examiner_js,
-        'autocomplete_course_json': json.dumps(autocomplete_courses),
-        'autocomplete_examiner_json': json.dumps(autocomplete_examiners)
+        'form': form,
+        'teacher_form': teacher_form,
+        'course_form': course_form,
     })
 
 @login_required

@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load set_css %}
+{% load staticfiles %}
 
 {% block wtitle %}{% block ptitle %}{% trans "Create memory minutes" %}{% endblock %}{% endblock %}
 
@@ -10,19 +12,49 @@
 {% block content %}
 <form method="post">
 {% csrf_token %}
-<div class="form-group{% if errors.course_name %} has-error{% endif %}">
+{{ form.non_field_errors }}
+<div class="form-group">
     <label for="course">{% trans "Course:" %}</label>
-    <input type="text" class="form-control" name="course_name" id="course-input" value="{{ course_name }}">
-    <div id="course-item"></div>
+    <div class="input-group">
+        {{ form.course|set_class:"form-control" }}
+        <span class="input-group-btn">
+            <a class="btn btn-default" id="add-course-btn" data-toggle="modal" data-target="#modal-add-course">
+                <span class="glyphicon glyphicon-plus"></span>
+                {% trans 'New' %}
+            </a>
+        </span>
+    </div>
+    {% if form.course.errors %}
+    <div class="alert alert-danger">
+        {{ form.course.errors }}
+    </div>
+    {% endif %}
 </div>
-<div class="form-group{% if errors.examiner_name %} has-error{% endif %}">
-    <label for="examiner">{% trans "Examiner:" %}</label>
-    <input type="text" class="form-control" name="examiner_name" id="examiner-input" value="{{ examiner_name }}">
-    <div id="examiner-item"></div>
+<div class="form-group">
+    <label for="examiner">{% trans "Examiner:" %}</label><br>
+    <div class="input-group">
+        {{ form.examiner|set_class:"form-control" }}
+        <span class="input-group-btn">
+            <a class="btn btn-default" id="add-teacher-btn" data-toggle="modal" data-target="#modal-add-teacher">
+                <span class="glyphicon glyphicon-plus"></span>
+                {% trans 'New' %}
+            </a>
+        </span>
+    </div>
+    {% if form.examiner.errors %}
+    <div class="alert alert-danger">
+        {{ form.examiner.errors }}
+    </div>
+    {% endif %}
 </div>
-<div class="form-group{% if errors.exam_date %} has-error{% endif %}">
+<div class="form-group">
     <label for="exam-date">{% trans "Exam date:" %}</label>
-    <input type="text" class="form-control" name="exam_date" id="exam-date-input" value="{{ exam_date }}">
+    {{ form.exam_date|set_class:"form-control" }}
+    {% if form.exam_date.errors %}
+    <div class="alert alert-danger">
+        {{ form.exam_date.errors }}
+    </div>
+    {% endif %}
 </div>
 <div class="form-group">
     <label for="type">{% trans 'Type' context 'GProt format' %}</label>
@@ -33,20 +65,169 @@
 </div>
 <button class="btn btn-primary">{% trans "Continue" %}</button>
 </form>
+
+<div class="modal fade" id="modal-add-teacher" tabindex="-1" role="dialog" aria-labelledby="modal-add-teacher-label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">{% trans 'Cancel' %}</span></button>
+        <h4 class="modal-title" id="modal-add-teacher-label">{% trans 'Add new teacher' %}</h4>
+      </div>
+      <div class="modal-body">
+        <div id="add-teacher-errors" class="alert alert-danger" style="display: none"><ul/></div>
+        <form id="add-teacher">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_title">{% trans "Title:" %}</label>
+                {{ teacher_form.title|set_class:"form-control" }}
+            </div>
+            <div class="form-group">
+                <label for="id_first_name">{% trans "First Name:" %}</label>
+                {{ teacher_form.first_name|set_class:"form-control" }}
+            </div>
+            <div class="form-group">
+                <label for="id_last_name">{% trans "Last Name:" %}</label>
+                {{ teacher_form.last_name|set_class:"form-control" }}
+            </div>
+            <div class="form-group">
+                <label for="id_department">{% trans "Department:" %}</label>
+                {{ teacher_form.department|set_class:"form-control" }}
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">
+            {% trans 'Cancel' %}
+        </button>
+        <button id="add-teacher-submit" type="button" class="btn btn-primary">
+            {% trans 'Add new teacher' %}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modal-add-course" tabindex="-1" role="dialog" aria-labelledby="modal-add-course-label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">{% trans 'Cancel' %}</span></button>
+        <h4 class="modal-title" id="modal-add-course-label">{% trans 'Add new course' %}</h4>
+      </div>
+      <div class="modal-body">
+        <div id="add-course-errors" class="alert alert-danger" style="display: none"><ul/></div>
+        <form id="add-course">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_name">{% trans "Name:" %}</label>
+                {{ course_form.name|set_class:"form-control" }}
+            </div>
+            <div class="form-group">
+                <label for="id_short_name">{% trans "Short Name:" %}</label>
+                {{ course_form.short_name|set_class:"form-control" }}
+            </div>
+            <div class="form-group">
+                <label for="id_department">{% trans "Department:" %}</label>
+                {{ course_form.department|set_class:"form-control" }}
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">
+            {% trans 'Cancel' %}
+        </button>
+        <button id="add-course-submit" type="button" class="btn btn-primary">
+            {% trans 'Add new course' %}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
 {% endblock %}
 
 
 {% block css %}
-<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/gprot.css" />
+<link rel="stylesheet" type="text/css" href="{% static 'select2/select2.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'select2/select2-bootstrap.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/gprot.css' %}" />
+<style type="text/css">
+    .in {
+        background: rgba(0, 0, 0, 0.3);
+    }
+</style>
 {% endblock %}
 
 {% block js %}
-<script type="text/javascript" src="{{ STATIC_URL }}js/autocomplete.js"></script>
-<script type="text/javascript" src="{{ STATIC_URL }}js/gprot.js"></script>
+<script type="text/javascript" src="{% static 'select2/select2.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
 <script type="text/javascript">
 $(function() {
-    GProt.initCreate({{ autocomplete_course_json|safe }}, {{ autocomplete_examiner_json|safe }},
-					 {{ course_js|safe }}, {{ examiner_js|safe }});
+    $("#id_course").select2({
+        maximumSelectionSize: 1,
+        placeholder: "{% trans 'Select a module' %}",
+    }).select2('open');
+
+    $("#id_examiner").select2({
+        placeholder: "{% trans 'Select the examiners' %}",
+    });
+
+    $("#id_course-department, #id_teacher-department")
+        .select2()
+        .select2('val', 1);
+
+    $('#id_exam_date').datepicker({
+        'firstDay': 1,
+        'dateFormat': 'yy-mm-dd'
+    });
+});
+
+$("#add-teacher-submit").click(function () {
+    $.ajax({
+        type: "POST",
+        url: "{% url 'teaching_api_create_teacher' %}",
+        data: $("#add-teacher").serialize(),
+        success: function(result) {
+            var teacher = result[0];
+            $("#modal-add-teacher").modal('hide');
+            $('#add-teacher').trigger('reset');
+            $("add-teacher-errors").hide().children().replaceWith($("<ul/>"));
+
+            var name = [teacher.fields.title, teacher.fields.first_name, teacher.fields.last_name].join(' ');
+            var option = $('<option/>').val(teacher.pk).text(name);
+            var sel = $("#id_examiner").select2('val');
+            sel.push(teacher.pk);
+            $("#id_examiner").prepend(option).select2('val', sel);
+        },
+        error: function(xhr) {
+            var ul = xhr.responseText;
+            $("#add-teacher-errors").fadeIn().children().replaceWith(ul);
+        },
+    });
+});
+
+$("#add-course-submit").click(function () {
+    $.ajax({
+        type: "POST",
+        url: "{% url 'teaching_api_create_course' %}",
+        data: $("#add-course").serialize(),
+        success: function(result) {
+            var course = result[0];
+            $("#modal-add-course").modal('hide');
+            $('#add-course').trigger('reset');
+            $("add-course-errors").hide().children().replaceWith($("<ul/>"));
+
+            var name = (course.fields.short_name
+                ? course.fields.name + " (" + course.fields.short_name + ")"
+                : course.fields.name);
+            var option = $('<option/>').val(course.pk).text(name);
+            $("#id_course").prepend(option).select2('val', course.pk);
+        },
+        error: function(xhr) {
+            var ul = xhr.responseText;
+            $("#add-course-errors").fadeIn().children().replaceWith(ul);
+        },
+    });
 });
 </script>
 {% endblock %}

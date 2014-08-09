@@ -30,6 +30,7 @@
 <table class="table table-striped">
     <tr>
         <th>{% trans "Course" %}</th>
+        <th>{% trans "Department" %}</th>
         <th>{% trans "Exam date" %}</th>
         <th>{% trans "Examiners" %}</th>
         <th>{% trans "Actions" %}</th>
@@ -37,6 +38,11 @@
 {% for gprot in gprots %}
     <tr>
         <td>{{ gprot.course.get_full_name }}</td>
+        <td>
+            {% if gprot.course.department %}
+            {{ gprot.course.department }}
+            {% endif %}
+        </td>
         <td>{{ gprot.exam_date|date:"Y-m-d" }}</td>
         <td>{{ gprot.examiners|format_examiners }}</td>
         <td class="gprot-actions">
