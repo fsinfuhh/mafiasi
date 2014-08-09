@@ -3,7 +3,6 @@ import time
 import magic
 from datetime import date
 
-from nameparser import HumanName
 from fuzzywuzzy import fuzz
 from django.conf import settings
 from django.shortcuts import render, get_object_or_404, redirect
@@ -24,7 +23,7 @@ from django.middleware.csrf import get_token as get_csrf_token
 from mafiasi.teaching.models import (Course, Teacher,
         insert_autocomplete_courses, insert_autocomplete_teachers)
 from mafiasi.teaching.forms import TeacherForm, CourseForm
-from mafiasi.gprot.forms import GProtCreateForm
+from mafiasi.gprot.forms import GProtBasicForm, GProtCreateForm
 from mafiasi.gprot.models import Attachment, GProt, Notification, Reminder
 from mafiasi.gprot.sanitize import clean_html
 
@@ -137,6 +136,34 @@ def list_own_gprots(request):
             .order_by('-exam_date'))
     return render(request, 'gprot/list_own.html', {
         'gprots': gprots
+    })
+
+
+@login_required
+def edit_metadata(request, gprot_pk):
+    gprot = get_object_or_404(GProt, pk=gprot_pk)
+    if request.method == 'POST':
+        form = GProtBasicForm(request.POST)
+        if form.is_valid():
+            gprot.course = form.cleaned_data['course']
+            gprot.examiners = form.cleaned_data['examiner']
+            gprot.exam_date = form.cleaned_data['exam_date']
+            gprot.save()
+            return redirect('gprot_edit', gprot.pk)
+    else:
+        form = GProtBasicForm({
+            'course': [gprot.course.pk],
+            'examiner': [examiner.pk for examiner in gprot.examiners.all()],
+            'exam_date': gprot.exam_date.strftime('%Y-%m-%d'),
+        })
+
+    teacher_form = TeacherForm(prefix='teacher')
+    course_form = CourseForm(prefix='course')
+    return render(request, 'gprot/edit_metadata.html', {
+        'gprot': gprot,
+        'form': form,
+        'teacher_form': teacher_form,
+        'course_form': course_form,
     })
 
 @login_required

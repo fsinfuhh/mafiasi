@@ -4,7 +4,20 @@
 
 {% block wtitle %}{% blocktrans with course_name=gprot.course.get_full_name %}Memory minutes: {{ course_name }}{% endblocktrans %}{% endblock %}
 
-{% block ptitle %}{{ gprot.course.get_full_name }}{% if gprot.published %}<span class="label label-success pull-right">{% trans "published" %}</span>{% else %}<span class="label label-danger pull-right">{% trans "unpublished" %}</span>{% endif %}{% endblock %}
+{% block ptitle %}
+{{ gprot.course.get_full_name }}
+<div class="pull-right">
+    <a class="btn btn-default" href="{% url 'gprot_edit_metadata' gprot.pk %}">
+        <span class="glyphicon glyphicon-pencil"></span>
+        {% trans 'Edit metadata' %}
+    </a>
+    {% if gprot.published %}
+    <span class="label label-success">{% trans "published" %}</span>
+    {% else %}
+    <span class="label label-danger">{% trans "unpublished" %}</span>
+    {% endif %}
+</div>
+{% endblock %}
 
 {% block submenu %}
 {% include "gprot/menu.html" with tab='edit' gprot=gprot %}

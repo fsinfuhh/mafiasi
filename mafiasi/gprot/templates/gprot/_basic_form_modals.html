@@ -1,0 +1,79 @@
+{% load i18n %}
+{% load set_css %}
+<div class="modal fade" id="modal-add-teacher" tabindex="-1" role="dialog" aria-labelledby="modal-add-teacher-label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">{% trans 'Cancel' %}</span></button>
+        <h4 class="modal-title" id="modal-add-teacher-label">{% trans 'Add new teacher' %}</h4>
+      </div>
+      <div class="modal-body">
+        <div id="add-teacher-errors" class="alert alert-danger" style="display: none"><ul/></div>
+        <form id="add-teacher">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_title">{% trans "Title:" %}</label>
+                {{ teacher_form.title|set_class:"form-control" }}
+            </div>
+            <div class="form-group">
+                <label for="id_first_name">{% trans "First Name:" %}</label>
+                {{ teacher_form.first_name|set_class:"form-control" }}
+            </div>
+            <div class="form-group">
+                <label for="id_last_name">{% trans "Last Name:" %}</label>
+                {{ teacher_form.last_name|set_class:"form-control" }}
+            </div>
+            <div class="form-group">
+                <label for="id_department">{% trans "Department:" %}</label>
+                {{ teacher_form.department|set_class:"form-control" }}
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">
+            {% trans 'Cancel' %}
+        </button>
+        <button id="add-teacher-submit" type="button" class="btn btn-primary">
+            {% trans 'Add new teacher' %}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modal-add-course" tabindex="-1" role="dialog" aria-labelledby="modal-add-course-label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">{% trans 'Cancel' %}</span></button>
+        <h4 class="modal-title" id="modal-add-course-label">{% trans 'Add new course' %}</h4>
+      </div>
+      <div class="modal-body">
+        <div id="add-course-errors" class="alert alert-danger" style="display: none"><ul/></div>
+        <form id="add-course">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_name">{% trans "Name:" %}</label>
+                {{ course_form.name|set_class:"form-control" }}
+            </div>
+            <div class="form-group">
+                <label for="id_short_name">{% trans "Short Name:" %}</label>
+                {{ course_form.short_name|set_class:"form-control" }}
+            </div>
+            <div class="form-group">
+                <label for="id_department">{% trans "Department:" %}</label>
+                {{ course_form.department|set_class:"form-control" }}
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">
+            {% trans 'Cancel' %}
+        </button>
+        <button id="add-course-submit" type="button" class="btn btn-primary">
+            {% trans 'Add new course' %}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

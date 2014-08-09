@@ -3,29 +3,23 @@
 {% load set_css %}
 {% load staticfiles %}
 
-{% block wtitle %}{% block ptitle %}{% trans "Create memory minutes" %}{% endblock %}{% endblock %}
+{% block wtitle %}{% blocktrans with course_name=gprot.course.get_full_name %}Memory minutes: {{ course_name }}{% endblocktrans %}{% endblock %}
+
+{% block ptitle %}{{ gprot.course.get_full_name }}{% if gprot.published %}<span class="label label-success pull-right">{% trans "published" %}</span>{% else %}<span class="label label-danger pull-right">{% trans "unpublished" %}</span>{% endif %}{% endblock %}
 
 {% block submenu %}
-{% include "gprot/menu.html" with tab='create' %}
+{% include "gprot/menu.html" with tab='edit' gprot=gprot %}
 {% endblock %}
 
 {% block content %}
-<form method="post">
+<form method="post" id="metadata-form">
 {% csrf_token %}
 {{ form.non_field_errors }}
 {% include 'gprot/_basic_form.html' %}
-<div class="form-group">
-    <label for="type">{% trans 'Type' context 'GProt format' %}</label>
-    <select class="form-control make-button-group" id="type" name="type">
-        <option value="html">{% trans 'Write online' %}</option>
-        <option value="pdf">{% trans 'Upload PDF' %}</option>
-    </select>
-</div>
-<button class="btn btn-primary">{% trans "Continue" %}</button>
+<button class="btn btn-primary">{% trans "Save" %}</button>
 </form>
 {% include 'gprot/_basic_form_modals.html' %}
 {% endblock %}
-
 
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{% static 'select2/select2.css' %}" />
