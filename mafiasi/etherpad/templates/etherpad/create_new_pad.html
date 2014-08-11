@@ -27,3 +27,16 @@
 </form>
 
 {% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'select2/select2.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'select2/select2-bootstrap.css' %}" />
+{% endblock css %}
+
+{% block js %}
+<script type="text/javascript" src="{% static 'select2/select2.js' %}"></script>
+<script type="text/javascript">
+    $(function() {
+        $("#id_group").select2();
+</script>
+{% endblock js %}
