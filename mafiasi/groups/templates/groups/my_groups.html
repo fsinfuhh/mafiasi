@@ -12,21 +12,45 @@
 <table class="table table-striped">
     <tr>
         <th>{% trans "Group name" %}</th>
-        <th>{% trans "Leave" %}</th>
+        <th>{% trans "Services" %}</th>
+        <th>{% trans "Actions" %}</th>
     </tr>
 {% for group in my_groups %}
     <tr>
-        <td><a href="{% url 'groups_show' group.name %}">{{ group.name }}</a></td>
+        <td><a href="{% url 'groups_show' group.name %}">{{ group.name }}</a></td> 
         <td>
-            <form method="post" action="{% url 'groups_leave' group.name %}">
+            <a class="btn btn-default" href="{% url 'ep_index' %}">
+                <span class="glyphicon glyphicon-file"></span>
+                Etherpad
+            </a>
+            <a class="btn btn-default" href="#">
+                <span class="glyphicon glyphicon-user"></span>
+                Forum
+            </a>
+            <a class="btn btn-default" href="#">
+                <span class="glyphicon glyphicon-calendar"></span>
+                Dudel
+            </a>
+        </td>
+        <td>
+            <form method="post" action="{% url 'groups_leave' group.name %}" class="form-inline">
+            <a class="btn btn-primary" href="{% url 'groups_invite' group %}">
+                Invite
+            </a>
             {% csrf_token %}
-            <button class="btn btn-danger">{% trans "Leave" %}</button>
+            <button class="btn btn-danger">
+                {% trans "Leave" %}</button>
             </form>
         </td>
     </tr>
 {% endfor %}
 </table>
 
-<p><a href="{% url 'groups_create' %}" class="btn btn-primary">{% trans "Create new group" %}</a></p>
+<p>
+    <a href="{% url 'groups_create' %}" class="btn btn-primary">
+        <span class="glyphicon glyphicon-plus-sign"></span>
+        {% trans "Create new group" %}
+    </a>
+</p>
 
 {% endblock %}
