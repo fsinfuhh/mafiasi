@@ -77,10 +77,12 @@ def create_gprot(request):
 
     teacher_form = TeacherForm(prefix='teacher')
     course_form = CourseForm(prefix='course')
+    user_has_gprots = GProt.objects.filter(author=request.user).exists()
     return render(request, 'gprot/create.html', {
         'form': form,
         'teacher_form': teacher_form,
         'course_form': course_form,
+        'user_has_no_gprots': not user_has_gprots,
     })
 
 @login_required

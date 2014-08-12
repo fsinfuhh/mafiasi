@@ -3,7 +3,10 @@ $(function() {
     $("#id_course").select2({
         maximumSelectionSize: 1,
         placeholder: "{% trans 'Select a module' %}",
-    }).select2('open');
+    });
+    {% if user_has_no_gprots %}
+    $("#id_course").select2('open');
+    {% endif %}
 
     $("#id_examiner").select2({
         placeholder: "{% trans 'Select the examiners' %}",
