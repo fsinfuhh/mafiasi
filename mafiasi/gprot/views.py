@@ -20,74 +20,37 @@ from django.utils.crypto import constant_time_compare
 from raven.contrib.django.raven_compat.models import client
 from django.middleware.csrf import get_token as get_csrf_token
 
-from mafiasi.teaching.models import (Course, Teacher,
-        insert_autocomplete_courses, insert_autocomplete_teachers)
+from mafiasi.teaching.models import Course, insert_autocomplete_courses
 from mafiasi.teaching.forms import TeacherForm, CourseForm
-from mafiasi.gprot.forms import GProtBasicForm, GProtCreateForm
+from mafiasi.gprot.forms import \
+        GProtBasicForm, GProtCreateForm, GProtSearchForm
 from mafiasi.gprot.models import Attachment, GProt, Notification, Reminder
 from mafiasi.gprot.sanitize import clean_html
 
 @login_required
 def index(request):
-    autocomplete_json = {'tokens': []}
-    insert_autocomplete_courses(autocomplete_json)
-    insert_autocomplete_teachers(autocomplete_json)
-
     is_query = False
-    search_json = []
     gprots = []
     if request.method == 'POST':
-        is_query = True
-        course_pks = []
-        teacher_pks = []
-
-        # We have a search term that could not be resolved by
-        # autocompletion on client. Try to search on server side
-        term = request.POST.get('search', '').strip()
-        if term:
-            term_lower = term.lower()
-            for token in autocomplete_json['tokens']:
-                if token['token'].startswith(term_lower):
-                    if token['type'] == 'course':
-                        course_pks.append(token['pk'])
-                    elif token['type'] == 'teacher':
-                        teacher_pks.append(token['pk'])
+        form = GProtSearchForm(request.POST)
+        if form.is_valid():
+            is_query = True
+            examiners, courses = form.cleaned_data['search']
         
-        course_pks += request.POST.getlist('courses')
-        courses = list(Course.objects.filter(pk__in=course_pks))
-        for course in courses:
-            search_json.append({
-                'what': 'course',
-                'pk': course.pk,
-                'label': course.get_full_name()
-            })
-        
-        teacher_pks += request.POST.getlist('teachers')
-        teachers = list(Teacher.objects.filter(pk__in=teacher_pks))
-        for teacher in teachers:
-            search_json.append({
-                'what': 'teacher',
-                'pk': teacher.pk,
-                'label': teacher.get_full_name()
-            })
-        
-        gprots = GProt.objects.select_related() \
-            .filter(published=True) \
-            .order_by('-exam_date')
-        if courses:
-            gprots = gprots.filter(course__pk__in=course_pks)
-        for teacher_pk in teacher_pks:
-            gprots = filter(lambda g: teacher in g.examiners.all(), gprots)
-
-        # We have a search term with no matching courses/examiners
-        if term and not (course_pks or teacher_pks):
-            gprots = []
+            gprots = GProt.objects.select_related() \
+                .filter(published=True) \
+                .order_by('-exam_date')
+            if courses:
+                gprots = gprots.filter(course__in=courses)
+            for teacher in examiners:
+                gprots = filter(lambda g: teacher in g.examiners.all(), gprots)
+    else:
+        form = GProtSearchForm()
 
     return render(request, 'gprot/index.html', {
-        'autocomplete_json': json.dumps(autocomplete_json),
-        'search_json': json.dumps(search_json),
         'gprots': gprots,
-        'is_query': is_query
+        'is_query': is_query,
+        'form': form,
     })
 
 @login_required
