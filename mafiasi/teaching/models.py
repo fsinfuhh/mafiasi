@@ -37,6 +37,7 @@ class Department(models.Model):
 
     def __unicode__(self):
         return self.short_name
+    re.compile(r'[a-z0-9.]+@[a-z0-9.]+')
 
 class Term(models.Model):
     term = models.CharField(max_length=8, choices=TERM_CHOICES)

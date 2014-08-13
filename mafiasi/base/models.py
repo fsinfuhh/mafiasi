@@ -26,6 +26,16 @@ class YeargroupManager(models.Manager):
         except PasswdEntry.DoesNotExist:
             return None
 
+    def get_by_domain(self, domain):
+        domain = settings.REGISTER_DOMAIN_MAPPING[domain]
+        try:
+            yeargroup = Yeargroup.objects.get(name=domain)
+        except Yeargroup.DoesNotExist:
+            yeargroup = Yeargroup(slug=domain,
+                                  name=domain)
+            yeargroup.save()
+        return yeargroup
+
 
 class Yeargroup(models.Model):
     slug = models.SlugField(max_length=16, unique=True)

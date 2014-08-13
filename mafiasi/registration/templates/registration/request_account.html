@@ -10,10 +10,11 @@
     {% csrf_token %}
     <p>
         <div class="form-group{% if form.account.errors %} has-error{% endif %}">
-            <div class="input-group">
                 {% render_field form.account class+="form-control" style="width: 100px;" %}
-                <span class="input-group-addon">@{{ email_domain }}</span>
-            </div>
+        </div>
+        @
+        <div class="form-group">
+            {% render_field form.domain class+="form-control" %}
         </div>
     </p>
     <p><input type="submit" class="btn btn-default" value="{% trans "Request account" %}" /></p>

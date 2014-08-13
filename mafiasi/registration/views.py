@@ -14,6 +14,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.views.decorators.http import require_POST
 
 from mafiasi.base.models import Yeargroup, Mafiasi, PasswdEntry
 from mafiasi.registration.forms import (RegisterForm, AdditionalInfoForm,
@@ -26,40 +27,91 @@ def request_account(request):
         form = RegisterForm(request.POST)
         if form.is_valid():
             account = form.cleaned_data['account']
-            yeargroup = Yeargroup.objects.get_by_account(account)
-            if not yeargroup:
-                info_form = AdditionalInfoForm(request.POST, account=account)
-                if info_form.is_valid():
+            domain = form.cleaned_data['domain']
+            if domain == settings.PRIMARY_DOMAIN:
+                yeargroup = Yeargroup.objects.get_by_account(account)
+                if yeargroup:                     
                     return _finish_account_request(request, {
                         'action': 'request_account',
                         'account': account,
-                        'first_name': info_form.cleaned_data['first_name'],
-                        'last_name': info_form.cleaned_data['last_name'],
-                        'yeargroup_pk': info_form.cleaned_data['yeargroup'].pk
+                        'domain': domain,
+                        'yeargroup_pk': yeargroup.pk
                     })
-                return TemplateResponse(request, 'registration/require_info.html', {
-                    'account': account,
-                    'info_form': info_form
-                })
+                else:
+                    info_form = AdditionalInfoForm()
+                    info_form.prefill(account, domain)
+                    return TemplateResponse(request,
+                        'registration/require_info.html', {
+                            'account': account,
+                            'info_form': info_form,
+                    })
             else:
-                return _finish_account_request(request, {
-                    'action': 'request_account',
-                    'account': account,
-                    'yeargroup_pk': yeargroup.pk
-                })
+                info_form = AdditionalInfoForm()
+                info_form.prefill(account, domain)
+                return TemplateResponse(request,
+                    'registration/require_info_other.html', {
+                        'account': account,
+                        'domain': domain,
+                        'info_form': info_form,
+                    })
+
     else:
         form = RegisterForm()
 
     return TemplateResponse(request, 'registration/request_account.html', {
-        'form': form,
-        'email_domain': settings.EMAIL_DOMAIN
+            'form': form,
+        })
+
+
+@require_POST
+def additional_info(request):
+    if request.POST:
+        form = AdditionalInfoForm(request.POST)
+        if form.is_valid():
+            return _finish_account_request(request, {
+                        'action': 'request_account',
+                        'account': form.cleaned_data['account'],
+                        'domain': form.cleaned_data['domain'],
+                        'first_name': form.cleaned_data['first_name'],
+                        'last_name': form.cleaned_data['last_name'],
+                        'yeargroup_pk': form.cleaned_data['yeargroup'].pk
+                    })
+        else:
+            print(form.errors)
+
+    if not 'domain' in form.cleaned_data or not 'account' in form.cleaned_data:
+        return redirect('registration_request_account')
+    else:
+        domain = form.cleaned_data['domain']
+        account = form.cleaned_data['account']
+
+    if domain == settings.PRIMARY_DOMAIN:
+        template = 'registration/require_info.html'
+    else:
+        template = 'registration/require_info_other.html'
+    form.prefill(account, domain)
+
+    return TemplateResponse(request, template, {
+        'account': account,
+        'domain': domain,
+        'info_form': form,
     })
 
-def request_successful(request, account):
-    email = u'{0}@{1}'.format(account, settings.EMAIL_DOMAIN)
+
+def request_successful(request, email):
     return TemplateResponse(request, 'registration/request_successful.html', {
         'email': email
     })
+
+def _create_username(info, yeargroup):
+    if info['account'][0].isdigit():
+        return yeargroup.slug[2] + info['account']
+    elif info['domain'] != settings.PRIMARY_DOMAIN:
+        return "{}@{}".format(
+            info['account'],
+            settings.REGISTER_DOMAIN_MAPPING[info['domain']])
+    else:
+        return info['account']
 
 def create_account(request, info_token):
     if request.user.is_authenticated():
@@ -73,12 +125,9 @@ def create_account(request, info_token):
         return TemplateResponse(request, 'registration/token_invalid.html')
 
     yeargroup = Yeargroup.objects.get(pk=info['yeargroup_pk'])
-    if info['account'][0].isdigit():
-        username = yeargroup.slug[2] + info['account']
-    else:
-        username = info['account']
+    username = _create_username(info, yeargroup)
 
-    if Mafiasi.objects.filter(username=username).count():
+    if Mafiasi.objects.filter(username=username).exists():
         return redirect('login')
 
     if request.method == 'POST':
@@ -93,18 +142,22 @@ def create_account(request, info_token):
                 mafiasi.first_name = first_name
                 mafiasi.last_name = last_name
             else:
-                try:
-                    passwd = PasswdEntry.objects.get(username=info['account'])
-                    name_parsed = HumanName(passwd.full_name)
-                    mafiasi.first_name = name_parsed.first
-                    mafiasi.last_name = name_parsed.last
-                except PasswdEntry.DoesNotExist:
-                    # This happens only when someone removed an entry
-                    # from our passwd database manually
-                    pass
+                if info['domain'] == settings.PRIMARY_DOMAIN:
+                    try:
+                        passwd = PasswdEntry.objects.get(username=info['account'])
+                        name_parsed = HumanName(passwd.full_name)
+                        mafiasi.first_name = name_parsed.first
+                        mafiasi.last_name = name_parsed.last
+                    except PasswdEntry.DoesNotExist:
+                        # This happens only when someone removed an entry
+                        # from our passwd database manually
+                        pass
+                else:
+                    return TemplateResponse(request,
+                                            'registration/token_invalid.html')
             mafiasi.account = info['account']
             mafiasi.email = u'{0}@{1}'.format(info['account'],
-                                              settings.EMAIL_DOMAIN)
+                                              info['domain'])
             mafiasi.yeargroup = yeargroup
             mafiasi.save()
             mafiasi.backend='django.contrib.auth.backends.ModelBackend'
@@ -144,13 +197,14 @@ def account_settings(request):
     })
 
 def _finish_account_request(request, info):
-    email = u'{0}@{1}'.format(info['account'], settings.EMAIL_DOMAIN)
+    email = u'{0}@{1}'.format(info['account'], info['domain'])
     token = signing.dumps(info)
     url_path = reverse('registration_create_account', args=(token,))
     activation_link = request.build_absolute_uri(url_path)
     email_content = render_to_string('registration/create_email.html', {
         'activation_link': activation_link
     })
+    print(email_content)
     
     try:
         send_mail(_('Account creation at mafiasi.de'),
@@ -174,4 +228,5 @@ def _finish_account_request(request, info):
             'recipient': wrong_email
         })
 
-    return redirect('registration_request_successful', info['account'])
+    return redirect('registration_request_successful', "{}@{}".format(
+        info['account'], info['domain']))

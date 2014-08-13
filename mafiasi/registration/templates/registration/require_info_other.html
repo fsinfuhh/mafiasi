@@ -12,10 +12,10 @@
             <form method="post" action="{% url 'registration_additional_info' %}">
                 {% csrf_token %}
                 <input type="hidden" name="account" value="{{ account }}" />
-                <input type="hidden" name="domain" value="informatik.uni-hamburg.de" />
+                <input type="hidden" name="domain" value="{{ domain }}" />
                 <div class="form-group">
-                    <label class="control-label">{% trans "Informatics account" %}</label>
-                    <p class="form-control-static">{{ account }}</p>
+                    <label class="control-label">{% trans "Your Email" %}</label>
+                    <p class="form-control-static">{{ account }}@{{ domain }}</p>
                 </div>
                 <div class="form-group{% if info_form.first_name.errors %} has-error{% endif %}">
                     <label class="control-label">{% trans "First name" %}</label>
@@ -25,11 +25,6 @@
                     <label class="control-label">{% trans "Last name" %}</label>
                     {% render_field info_form.last_name class+="form-control" %}
                 </div>
-                <div class="form-group{% if info_form.yeargroup.errors %} has-error{% endif %}">
-                    <label class="control-label">{% trans "Year of study start" %}</label>
-                    {% render_field info_form.yeargroup class+="form-control" %}
-                </div>
-
                 <div class="form-group">
                     <input type="submit" class="btn btn-default" value="{% trans "Create account" %}" />
               </div>
