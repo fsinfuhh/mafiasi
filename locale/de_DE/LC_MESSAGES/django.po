@@ -1,17 +1,17 @@
+# , 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-06 11:16+0200\n"
-"PO-Revision-Date: 2014-05-06 11:20+0100\n"
-"Last-Translator: Nils Rokita <0rokita@informatik.uni-hamburg.de>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2014-08-12 19:20+0200\n"
+"PO-Revision-Date: 2014-08-12 19:25+0200\n"
+"Last-Translator: \n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.5.4\n"
-"Language: de_DE\n"
+"X-Generator: Lokalize 1.5\n"
 
 #: mafiasi/base/templates/500.html:4
 msgid "Internal server error"
@@ -363,43 +363,23 @@ msgstr "Wiki-Suche"
 msgid "Search"
 msgstr "Suche"
 
-#: mafiasi/django_openid_provider/openid_provider/models.py:16
-#: openid_provider/models.py:16
-msgid "OpenID"
-msgstr ""
-
-#: mafiasi/django_openid_provider/openid_provider/models.py:17
-#: openid_provider/models.py:17
-msgid "OpenIDs"
-msgstr ""
-
-#: mafiasi/django_openid_provider/openid_provider/views.py:161
-#: openid_provider/views.py:161
-msgid "Trust this site?"
-msgstr ""
-
-#: mafiasi/django_openid_provider/openid_provider/views.py:170
-#: openid_provider/views.py:170
-msgid "Error"
-msgstr ""
-
-#: mafiasi/etherpad/templates/etherpad/create_new_pad.html:5
-#: mafiasi/etherpad/templates/etherpad/create_new_pad.html:26
+#: mafiasi/etherpad/templates/etherpad/create_new_pad.html:6
+#: mafiasi/etherpad/templates/etherpad/create_new_pad.html:27
 #: mafiasi/etherpad/templates/etherpad/index.html:16
 msgid "Create group pad"
 msgstr "Gruppenpad erstellen"
 
-#: mafiasi/etherpad/templates/etherpad/create_new_pad.html:14
+#: mafiasi/etherpad/templates/etherpad/create_new_pad.html:15
 #: mafiasi/groups/templates/groups/show.html:46
 msgid "Name"
 msgstr "Name"
 
-#: mafiasi/etherpad/templates/etherpad/create_new_pad.html:18
+#: mafiasi/etherpad/templates/etherpad/create_new_pad.html:19
 #: mafiasi/groups/templates/groups/show.html:5
 msgid "Group"
 msgstr "Gruppe"
 
-#: mafiasi/etherpad/templates/etherpad/create_new_pad.html:22
+#: mafiasi/etherpad/templates/etherpad/create_new_pad.html:23
 #, python-format
 msgid ""
 "You can create a new group in the <a href=\"%(groups_link)s\">group "
@@ -469,24 +449,44 @@ msgstr "Pad: %(pad_name)s"
 msgid "Show this pad in fullscreen mode"
 msgstr "Zeige dieses Pad im Vollbildmodus"
 
-#: mafiasi/gprot/views.py:218 mafiasi/gprot/views.py:317
+#: mafiasi/gprot/forms.py:48 mafiasi/gprot/forms.py:81
+msgid "Selected examiner does not exist"
+msgstr "Ausgewählter Prüfer existiert nicht"
+
+#: mafiasi/gprot/forms.py:51 mafiasi/gprot/forms.py:73
+msgid "Selected course does not exist"
+msgstr "Ausgewähltes Modul existiert nicht"
+
+#: mafiasi/gprot/forms.py:53
+msgid "Invalid selection"
+msgstr "Ungültige Auswahl"
+
+#: mafiasi/gprot/forms.py:86 mafiasi/gprot/templates/gprot/create.html:28
+msgid "Write online"
+msgstr "Online schreiben"
+
+#: mafiasi/gprot/forms.py:87 mafiasi/gprot/templates/gprot/create.html:29
+msgid "Upload PDF"
+msgstr "PDF hochladen"
+
+#: mafiasi/gprot/views.py:146 mafiasi/gprot/views.py:245
 #, python-brace-format
 msgid "Only files up to {0} MB are allowed."
 msgstr "Es sind nur Dateien kleiner als {0} MB erlaubt."
 
-#: mafiasi/gprot/views.py:222
+#: mafiasi/gprot/views.py:150
 msgid "Only PDF files are allowed."
 msgstr "Es sind nur PDF-Dateien erlaubt."
 
-#: mafiasi/gprot/views.py:224 mafiasi/gprot/views.py:324
+#: mafiasi/gprot/views.py:152 mafiasi/gprot/views.py:252
 msgid "Please select a file to upload."
 msgstr "Bitte wähle eine Datei zum Hochladen aus."
 
-#: mafiasi/gprot/views.py:322
+#: mafiasi/gprot/views.py:250
 msgid "Only PNG, JPEG and GIF files are allowed."
 msgstr "Es sind nur Bilder im PNG-, JPEG- oder GIF-Format erlaubt."
 
-#: mafiasi/gprot/views.py:365
+#: mafiasi/gprot/views.py:293
 #, python-format
 msgid "New memory minutes for \"%(coursename)s\""
 msgstr "Neues Gedächtnisprotokoll für \"%(coursename)s\""
@@ -522,36 +522,92 @@ msgstr "Löschen"
 msgid "Forget authorship"
 msgstr "Urheberschaft vergessen"
 
-#: mafiasi/gprot/templates/gprot/create.html:4
-msgid "Create memory minutes"
-msgstr "Gedächtnisprotokoll erstellen"
-
-#: mafiasi/gprot/templates/gprot/create.html:14
+#: mafiasi/gprot/templates/gprot/_basic_form.html:4
 msgid "Course:"
 msgstr "Modul:"
 
-#: mafiasi/gprot/templates/gprot/create.html:19
+#: mafiasi/gprot/templates/gprot/_basic_form.html:10
+#: mafiasi/gprot/templates/gprot/_basic_form.html:27
+msgid "New"
+msgstr "Neu"
+
+#: mafiasi/gprot/templates/gprot/_basic_form.html:21
 msgid "Examiner:"
 msgstr "Prüfer:"
 
-#: mafiasi/gprot/templates/gprot/create.html:24
+#: mafiasi/gprot/templates/gprot/_basic_form.html:38
 msgid "Exam date:"
 msgstr "Prüfungsdatum:"
 
-#: mafiasi/gprot/templates/gprot/create.html:28
+#: mafiasi/gprot/templates/gprot/_basic_form_modals.html:7
+#: mafiasi/gprot/templates/gprot/_basic_form_modals.html:34
+#: mafiasi/gprot/templates/gprot/_basic_form_modals.html:48
+#: mafiasi/gprot/templates/gprot/_basic_form_modals.html:71
+#: mafiasi/gprot/templates/gprot/delete.html:43
+#: mafiasi/gprot/templates/gprot/forget.html:43
+#: mafiasi/gprot/templates/gprot/publish.html:64
+#: mafiasi/groups/templates/groups/invite.html:21
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: mafiasi/gprot/templates/gprot/_basic_form_modals.html:8
+#: mafiasi/gprot/templates/gprot/_basic_form_modals.html:37
+msgid "Add new teacher"
+msgstr "Neuen Dozenten hinzufügen"
+
+#: mafiasi/gprot/templates/gprot/_basic_form_modals.html:15
+msgid "Title:"
+msgstr "Titel:"
+
+#: mafiasi/gprot/templates/gprot/_basic_form_modals.html:19
+msgid "First Name:"
+msgstr "Vorname:"
+
+#: mafiasi/gprot/templates/gprot/_basic_form_modals.html:23
+msgid "Last Name:"
+msgstr "Nachname:"
+
+#: mafiasi/gprot/templates/gprot/_basic_form_modals.html:27
+#: mafiasi/gprot/templates/gprot/_basic_form_modals.html:64
+msgid "Department:"
+msgstr "Fachbereich:"
+
+#: mafiasi/gprot/templates/gprot/_basic_form_modals.html:49
+#: mafiasi/gprot/templates/gprot/_basic_form_modals.html:74
+msgid "Add new course"
+msgstr "Neues Modul hinzufügen"
+
+#: mafiasi/gprot/templates/gprot/_basic_form_modals.html:56
+msgid "Name:"
+msgstr "Name:"
+
+#: mafiasi/gprot/templates/gprot/_basic_form_modals.html:60
+msgid "Short Name:"
+msgstr "Abkürzung:"
+
+#: mafiasi/gprot/templates/gprot/create.html:6
+msgid "Create memory minutes"
+msgstr "Gedächtnisprotokoll erstellen"
+
+#: mafiasi/gprot/templates/gprot/create.html:15
+#: mafiasi/gprot/templates/gprot/edit_metadata.html:17
+msgid ""
+"\n"
+"        This page needs javascript in order to function correctly.\n"
+"        Please activate it before you proceed.\n"
+"        "
+msgstr ""
+"\n"
+"        Diese Seite benötigt JavaScript um richtig zu funktionieren..\n"
+"        Bitte aktiviere es, bevor du fortfährst.\n"
+"        "
+
+#: mafiasi/gprot/templates/gprot/create.html:26
 msgctxt "GProt format"
 msgid "Type"
 msgstr "Typ"
 
-#: mafiasi/gprot/templates/gprot/create.html:30
-msgid "Write online"
-msgstr "Online schreiben"
-
-#: mafiasi/gprot/templates/gprot/create.html:31
-msgid "Upload PDF"
-msgstr "PDF hochladen"
-
-#: mafiasi/gprot/templates/gprot/create.html:34
+#: mafiasi/gprot/templates/gprot/create.html:32
 msgid "Continue"
 msgstr "Weiter"
 
@@ -565,9 +621,9 @@ msgstr ""
 "Löschen: %(course_name)s\n"
 
 #: mafiasi/gprot/templates/gprot/delete.html:20
-#: mafiasi/gprot/templates/gprot/edit.html:16
+#: mafiasi/gprot/templates/gprot/edit.html:29
 #: mafiasi/gprot/templates/gprot/forget.html:18
-#: mafiasi/gprot/templates/gprot/index.html:34
+#: mafiasi/gprot/templates/gprot/index.html:42
 #: mafiasi/gprot/templates/gprot/list_own.html:17
 #: mafiasi/gprot/templates/gprot/publish.html:16
 #: mafiasi/gprot/templates/gprot/view.html:48
@@ -575,9 +631,9 @@ msgid "Examiners"
 msgstr "Prüfer"
 
 #: mafiasi/gprot/templates/gprot/delete.html:24
-#: mafiasi/gprot/templates/gprot/edit.html:20
+#: mafiasi/gprot/templates/gprot/edit.html:33
 #: mafiasi/gprot/templates/gprot/forget.html:22
-#: mafiasi/gprot/templates/gprot/index.html:33
+#: mafiasi/gprot/templates/gprot/index.html:41
 #: mafiasi/gprot/templates/gprot/list_own.html:16
 #: mafiasi/gprot/templates/gprot/publish.html:20
 #: mafiasi/gprot/templates/gprot/reminders.html:21
@@ -594,29 +650,29 @@ msgstr ""
 "\n"
 "Möchtest du dieses Gedächtnisprotokoll wirklich löschen?\n"
 
-#: mafiasi/gprot/templates/gprot/delete.html:43
-#: mafiasi/gprot/templates/gprot/forget.html:43
-#: mafiasi/gprot/templates/gprot/publish.html:64
-#: mafiasi/groups/templates/groups/invite.html:21
-msgid "Cancel"
-msgstr "Abbrechen"
-
 #: mafiasi/gprot/templates/gprot/edit.html:5
+#: mafiasi/gprot/templates/gprot/edit_metadata.html:6
 #, python-format
 msgid "Memory minutes: %(course_name)s"
 msgstr "Gedächtnisprotokoll: %(course_name)s"
 
-#: mafiasi/gprot/templates/gprot/edit.html:7
+#: mafiasi/gprot/templates/gprot/edit.html:12
+msgid "Edit metadata"
+msgstr "Metadaten bearbeiten"
+
+#: mafiasi/gprot/templates/gprot/edit.html:15
+#: mafiasi/gprot/templates/gprot/edit_metadata.html:8
 #: mafiasi/gprot/templates/gprot/list_own.html:28
 msgid "published"
 msgstr "veröffentlicht"
 
-#: mafiasi/gprot/templates/gprot/edit.html:7
+#: mafiasi/gprot/templates/gprot/edit.html:17
+#: mafiasi/gprot/templates/gprot/edit_metadata.html:8
 #: mafiasi/gprot/templates/gprot/list_own.html:30
 msgid "unpublished"
 msgstr "unveröffentlicht"
 
-#: mafiasi/gprot/templates/gprot/edit.html:27
+#: mafiasi/gprot/templates/gprot/edit.html:40
 msgid ""
 "<b>Warning:</b> The current document will be replaced when you upload a new "
 "one."
@@ -624,37 +680,41 @@ msgstr ""
 "<b>Achtung:</b> Das aktuelle Dokument wird ersetzt, wenn du ein neues "
 "hochlädst."
 
-#: mafiasi/gprot/templates/gprot/edit.html:31
+#: mafiasi/gprot/templates/gprot/edit.html:44
 msgid "Error:"
 msgstr "Fehler:"
 
-#: mafiasi/gprot/templates/gprot/edit.html:35
+#: mafiasi/gprot/templates/gprot/edit.html:48
 msgid "Select a file"
 msgstr "Datei auswählen"
 
-#: mafiasi/gprot/templates/gprot/edit.html:42
+#: mafiasi/gprot/templates/gprot/edit.html:55
 msgid "Upload"
 msgstr "Hochladen"
 
-#: mafiasi/gprot/templates/gprot/edit.html:47
+#: mafiasi/gprot/templates/gprot/edit.html:60
 msgid "Upload and publish"
 msgstr "Speichern und veröffentlichen"
 
-#: mafiasi/gprot/templates/gprot/edit.html:51
+#: mafiasi/gprot/templates/gprot/edit.html:64
 msgid "Upload only"
 msgstr "Nur speichern"
 
-#: mafiasi/gprot/templates/gprot/edit.html:64
+#: mafiasi/gprot/templates/gprot/edit.html:77
 msgid "Save changes"
 msgstr "Änderungen speichern"
 
-#: mafiasi/gprot/templates/gprot/edit.html:69
+#: mafiasi/gprot/templates/gprot/edit.html:82
 msgid "Save and publish"
 msgstr "Speichern und veröffentlichen"
 
-#: mafiasi/gprot/templates/gprot/edit.html:73
+#: mafiasi/gprot/templates/gprot/edit.html:86
 msgid "Save only"
 msgstr "Nur speichern"
+
+#: mafiasi/gprot/templates/gprot/edit_metadata.html:27
+msgid "Save"
+msgstr "Speichern"
 
 #: mafiasi/gprot/templates/gprot/forget.html:6
 #, python-format
@@ -679,11 +739,12 @@ msgstr ""
 "löschen? Dadurch wirst du es nicht mehr bearbeiten können, da wir dann nicht "
 "mehr wissen, wer es verfasst hat.\n"
 
-#: mafiasi/gprot/templates/gprot/index.html:5
+#: mafiasi/gprot/templates/gprot/index.html:7
 msgid "Search for memory minutes"
 msgstr "Nach Gedächtnisprotokollen suchen"
 
-#: mafiasi/gprot/templates/gprot/index.html:17
+#: mafiasi/gprot/templates/gprot/index.html:25
+#: mafiasi/gprot/templates/gprot/index.html:88
 msgid ""
 "Just enter the name of the course and/or examiner to see available memory "
 "minutes."
@@ -691,11 +752,11 @@ msgstr ""
 "Gib einfach den Namen des Moduls und/oder Prüfers ein, um die verfügbaren "
 "Gedächtnisprotokolle zu sehen."
 
-#: mafiasi/gprot/templates/gprot/index.html:24
+#: mafiasi/gprot/templates/gprot/index.html:31
 msgid "Show memory minutes"
 msgstr "Gedächtnisprotokolle anzeigen"
 
-#: mafiasi/gprot/templates/gprot/index.html:32
+#: mafiasi/gprot/templates/gprot/index.html:39
 #: mafiasi/gprot/templates/gprot/list_own.html:15
 #: mafiasi/gprot/templates/gprot/notifications.html:19
 #: mafiasi/gprot/templates/gprot/notifications.html:39
@@ -704,17 +765,22 @@ msgstr "Gedächtnisprotokolle anzeigen"
 msgid "Course"
 msgstr "Modul"
 
-#: mafiasi/gprot/templates/gprot/index.html:35
+#: mafiasi/gprot/templates/gprot/index.html:40
+#: mafiasi/gprot/templates/gprot/view.html:57
+msgid "Department"
+msgstr "Fachbereich"
+
+#: mafiasi/gprot/templates/gprot/index.html:43
 #: mafiasi/gprot/templates/gprot/list_own.html:19
 #: mafiasi/gprot/templates/gprot/notifications.html:21
 #: mafiasi/gprot/templates/gprot/reminders.html:23
-#: mafiasi/groups/templates/groups/invitations.html:19
+#: mafiasi/groups/templates/groups/invitations.html:18
 #: mafiasi/groups/templates/groups/show.html:20
 #: mafiasi/groups/templates/groups/show.html:48
 msgid "Actions"
 msgstr "Aktionen"
 
-#: mafiasi/gprot/templates/gprot/index.html:52
+#: mafiasi/gprot/templates/gprot/index.html:65
 #, python-format
 msgid ""
 "\n"
@@ -962,7 +1028,7 @@ msgstr ""
 msgid "Download PDF"
 msgstr "PDF herunterladen"
 
-#: mafiasi/gprot/templates/gprot/view.html:62
+#: mafiasi/gprot/templates/gprot/view.html:67
 msgid ""
 "Sorry, your browser does not support embedding\n"
 "            this document. However, you can download the PDF file using the\n"
@@ -971,7 +1037,7 @@ msgstr ""
 "Leider unterstützt dein Browser das Einbetten dieses Dokuments nicht.\n"
 "Du kannst es jedoch über den Button oben rechts als PDF-Datei herunterladen."
 
-#: mafiasi/gprot/templates/gprot/view.html:69
+#: mafiasi/gprot/templates/gprot/view.html:74
 msgid "No document has been uploaded yet."
 msgstr "Es wurde noch kein Dokument hochgeladen."
 
@@ -1006,28 +1072,28 @@ msgstr "Ungültiger Gruppenname."
 msgid "Group does already exist."
 msgstr "Gruppe existiert bereits."
 
-#: mafiasi/groups/views.py:42
+#: mafiasi/groups/views.py:47
 #, python-brace-format
 msgid "Group \"{0}\" was created."
 msgstr "Gruppe \"{0}\" wurde erstellt."
 
-#: mafiasi/groups/views.py:96
+#: mafiasi/groups/views.py:103
 msgid "You left the group."
 msgstr "Du hast die Gruppe verlassen."
 
-#: mafiasi/groups/views.py:119
+#: mafiasi/groups/views.py:126
 msgid "User was removed from group"
 msgstr "Der Benutzer wurde aus der Gruppe entfernt."
 
-#: mafiasi/groups/views.py:124
+#: mafiasi/groups/views.py:131
 msgid "User was granted group admin."
 msgstr "Der Benutzer wurde zum Gruppenadmin gemacht."
 
-#: mafiasi/groups/views.py:128
+#: mafiasi/groups/views.py:135
 msgid "Revoked group admin rights from user."
 msgstr "Dem Benutzer wurden Gruppenadmin-Rechte entzogen."
 
-#: mafiasi/groups/views.py:147
+#: mafiasi/groups/views.py:156
 msgid "Invitation was sent."
 msgstr "Einladung wurde gesendet."
 
@@ -1041,7 +1107,7 @@ msgstr ""
 "Bitte beachte: Der Gruppenname kann von anderen Benutzern eingesehen werden."
 
 #: mafiasi/groups/templates/groups/create.html:11
-#: mafiasi/groups/templates/groups/invitations.html:17
+#: mafiasi/groups/templates/groups/invitations.html:16
 #: mafiasi/groups/templates/groups/my_groups.html:14
 msgid "Group name"
 msgstr "Gruppenname"
@@ -1059,51 +1125,58 @@ msgid "Create"
 msgstr "Erstellen"
 
 #: mafiasi/groups/templates/groups/invitations.html:5
-#: mafiasi/groups/templates/groups/menu.html:7
 #: mafiasi/groups/templates/groups/show.html:13
 msgid "Invitations"
 msgstr "Einladungen"
 
-#: mafiasi/groups/templates/groups/invitations.html:16
+#: mafiasi/groups/templates/groups/invitations.html:15
 #: mafiasi/groups/templates/groups/show.html:17
 msgid "Date"
 msgstr "Datum"
 
-#: mafiasi/groups/templates/groups/invitations.html:18
+#: mafiasi/groups/templates/groups/invitations.html:17
 msgid "Invited By"
 msgstr "Eingeladen von"
 
-#: mafiasi/groups/templates/groups/invitations.html:31
+#: mafiasi/groups/templates/groups/invitations.html:30
 msgid "Accept"
 msgstr "Annehmen"
 
-#: mafiasi/groups/templates/groups/invitations.html:32
+#: mafiasi/groups/templates/groups/invitations.html:31
 msgid "Refuse"
 msgstr "Verweigern"
 
-#: mafiasi/groups/templates/groups/invitations.html:39
+#: mafiasi/groups/templates/groups/invitations.html:38
 msgid "You have no invitations."
 msgstr "Du hast keine Einladungen."
 
-#: mafiasi/groups/templates/groups/invite.html:5
+#: mafiasi/groups/templates/groups/invite.html:6
 #, python-format
 msgid "Invite to %(group_name)s"
 msgstr "In %(group_name)s einladen"
 
 #: mafiasi/groups/templates/groups/invite.html:12
-msgid "Account name"
-msgstr "Accountname"
+msgid "Account names"
+msgstr "Accountnamen"
 
 #: mafiasi/groups/templates/groups/invite.html:20
 msgid "Invite user"
 msgstr "Benutzer einladen"
+
+#: mafiasi/groups/templates/groups/invite.html:37
+msgid "Please enter the account names of the users you want to invite"
+msgstr "Gib die Accountnamen der Benutzer ein, die du einladen möchtest"
 
 #: mafiasi/groups/templates/groups/menu.html:4
 #: mafiasi/groups/templates/groups/my_groups.html:4
 msgid "My groups"
 msgstr "Meine Gruppen"
 
-#: mafiasi/groups/templates/groups/menu.html:12
+#: mafiasi/groups/templates/groups/menu.html:8
+msgid "My Invitations"
+msgstr "Meine Einladungen"
+
+#: mafiasi/groups/templates/groups/menu.html:17
 #, python-format
 msgid "Group: %(group_name)s"
 msgstr "Gruppe: %(group_name)s"
@@ -1113,7 +1186,7 @@ msgstr "Gruppe: %(group_name)s"
 msgid "Leave"
 msgstr "Verlassen"
 
-#: mafiasi/groups/templates/groups/my_groups.html:30
+#: mafiasi/groups/templates/groups/my_groups.html:35
 msgid "Create new group"
 msgstr "Neue Gruppe erstellen"
 
@@ -1180,7 +1253,7 @@ msgstr ""
 "eingeben:"
 
 #: mafiasi/jabber/templates/jabber/create.html:12
-#: mafiasi/registration/forms.py:37 mafiasi/registration/forms.py:61
+#: mafiasi/registration/forms.py:39 mafiasi/registration/forms.py:63
 #: mafiasi/registration/templates/registration/create_account.html:17
 #: mafiasi/registration/templates/registration/login.html:32
 msgid "Password"
@@ -1392,32 +1465,32 @@ msgstr "Nie."
 msgid "Expired at {0}"
 msgstr "Abgelaufen am: {0}"
 
-#: mafiasi/registration/forms.py:14
+#: mafiasi/registration/forms.py:16
 msgid "Invalid account name"
 msgstr "Ungültiger Accountname"
 
-#: mafiasi/registration/forms.py:41
+#: mafiasi/registration/forms.py:43
 #: mafiasi/registration/templates/registration/create_account.html:26
 msgid "Password confirmation"
 msgstr "Passwort bestätigen"
 
-#: mafiasi/registration/forms.py:51
+#: mafiasi/registration/forms.py:53
 msgid "The two password fields didn't match."
 msgstr "Die beiden Passwörter stimmen nicht überein."
 
-#: mafiasi/registration/forms.py:69
+#: mafiasi/registration/forms.py:71
 msgid "Wrong password."
 msgstr "Falsches Passwort."
 
-#: mafiasi/registration/views.py:126
+#: mafiasi/registration/views.py:128
 msgid "Password was changed."
 msgstr "Passwort wurde geändert."
 
-#: mafiasi/registration/views.py:145
+#: mafiasi/registration/views.py:156
 msgid "Account creation at mafiasi.de"
 msgstr "Accounterstellung für mafiasi.de"
 
-#: mafiasi/registration/views.py:155
+#: mafiasi/registration/views.py:166
 msgid "Account creation mail failed"
 msgstr "Accounterstellungsmail verschicken fehlgeschlagen"
 
@@ -1426,10 +1499,31 @@ msgid "Account"
 msgstr "Account"
 
 #: mafiasi/registration/templates/registration/account.html:8
+msgid "Change nickname"
+msgstr "Spitznamen bearbeiten"
+
+#: mafiasi/registration/templates/registration/account.html:9
+msgid ""
+"If you choose a nickname, it will be shown instead of your first name (e.g. "
+"when you vote in Dudle)"
+msgstr ""
+"Wenn du einen Spitznamen auswählst, wird dieser anstelle deines Vornamens "
+"angezeigt"
+
+#: mafiasi/registration/templates/registration/account.html:14
+msgid "Nickname"
+msgstr "Spitzname"
+
+#: mafiasi/registration/templates/registration/account.html:26
+#: mafiasi/registration/templates/registration/account.html:62
+msgid "Change"
+msgstr "Ändern"
+
+#: mafiasi/registration/templates/registration/account.html:29
 msgid "Change password"
 msgstr "Passwort ändern"
 
-#: mafiasi/registration/templates/registration/account.html:9
+#: mafiasi/registration/templates/registration/account.html:30
 msgid ""
 "Note: You can \"change\" your password to the current password to "
 "synchronize it with other services (e.g. Jabber)"
@@ -1437,27 +1531,23 @@ msgstr ""
 "Hinweis: Du kannst dein Passwört auf das aktuelle Passwort \"ändern\", um es "
 "mit anderen Diensten zu synchronisieren (z.B. Jabber)"
 
-#: mafiasi/registration/templates/registration/account.html:13
+#: mafiasi/registration/templates/registration/account.html:35
 msgid "Old password"
 msgstr "Altes Passwort"
 
-#: mafiasi/registration/templates/registration/account.html:22
+#: mafiasi/registration/templates/registration/account.html:44
 msgid "New password"
 msgstr "Neues Passwort"
 
-#: mafiasi/registration/templates/registration/account.html:31
+#: mafiasi/registration/templates/registration/account.html:53
 msgid "New password confirmation"
 msgstr "Neues Passwort bestätigen"
 
-#: mafiasi/registration/templates/registration/account.html:40
-msgid "Change"
-msgstr "Ändern"
-
-#: mafiasi/registration/templates/registration/account.html:43
+#: mafiasi/registration/templates/registration/account.html:65
 msgid "Manage groups"
 msgstr "Gruppen verwalten"
 
-#: mafiasi/registration/templates/registration/account.html:45
+#: mafiasi/registration/templates/registration/account.html:67
 #, python-format
 msgid ""
 "To manage your groups to go the <a href=\"%(groups_url)s\">group management</"
@@ -1690,12 +1780,12 @@ msgstr "Ungültiger Token"
 msgid "Sorry, but the provided token is invalid."
 msgstr "Tut uns leid, aber der angegebene Token ist ungültig."
 
-#: mafiasi/teaching/models.py:17
+#: mafiasi/teaching/models.py:47
 #, python-brace-format
 msgid "winter term {0}"
 msgstr "Wintersemester {0}"
 
-#: mafiasi/teaching/models.py:19
+#: mafiasi/teaching/models.py:49
 #, python-brace-format
 msgid "summer term {0}"
 msgstr "Sommersemester {0}"
@@ -1708,9 +1798,6 @@ msgstr "Sommersemester {0}"
 
 #~ msgid "CSRF verification failed."
 #~ msgstr "CSRF-Verifikation fehlgeschlagen."
-
-#~ msgid "Meta data"
-#~ msgstr "Metadaten"
 
 #~ msgid "Content"
 #~ msgstr "Inhalt"
@@ -1779,9 +1866,6 @@ msgstr "Sommersemester {0}"
 
 #~ msgid "Logged in as %(username)s | <a href=\"%(logout_url)s\">Logout</a>"
 #~ msgstr "Eingeloggt als %(username)s | <a href=\"%(logout_url)s\">Logout</a>"
-
-#~ msgid "News"
-#~ msgstr "Aktuelles"
 
 #~ msgid "Confirm password:"
 #~ msgstr "Passwort bestätigen:"
