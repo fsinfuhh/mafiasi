@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load staticfiles %}
 {% load widget_tweaks %}
 
 {% block wtitle %}{% trans "Registration" %}{% endblock %}
@@ -11,6 +12,11 @@
         <div class="col-md-4">
             <form method="post" action="{% url 'registration_additional_info' %}">
                 {% csrf_token %}
+                {% if info_form.non_field_errors %}
+                <div class="alert alert-danger">
+                    {{ info_form.non_field_errors }}
+                </div>
+                {% endif %}
                 <input type="hidden" name="account" value="{{ account }}" />
                 <input type="hidden" name="domain" value="informatik.uni-hamburg.de" />
                 <div class="form-group">
@@ -18,14 +24,29 @@
                     <p class="form-control-static">{{ account }}</p>
                 </div>
                 <div class="form-group{% if info_form.first_name.errors %} has-error{% endif %}">
+                    {% if info_form.first_name.errors %}
+                    <div class="alert alert-danger">
+                        {{ info_form.first_name.errors }}
+                    </div>
+                    {% endif %}
                     <label class="control-label">{% trans "First name" %}</label>
                     {% render_field info_form.first_name class+="form-control" %}
                 </div>
                 <div class="form-group{% if info_form.last_name.errors %} has-error{% endif %}">
+                    {% if info_form.last_name.errors %}
+                    <div class="alert alert-danger">
+                        {{ info_form.last_name.errors }}
+                    </div>
+                    {% endif %}
                     <label class="control-label">{% trans "Last name" %}</label>
                     {% render_field info_form.last_name class+="form-control" %}
                 </div>
                 <div class="form-group{% if info_form.yeargroup.errors %} has-error{% endif %}">
+                    {% if info_form.yeargroup.errors %}
+                    <div class="alert alert-danger">
+                        {{ info_form.yeargroup.errors }}
+                    </div>
+                    {% endif %}
                     <label class="control-label">{% trans "Year of study start" %}</label>
                     {% render_field info_form.yeargroup class+="form-control" %}
                 </div>
@@ -37,3 +58,19 @@
       </div>
   </div>
 {% endblock content %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'select2/select2.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'select2/select2-bootstrap.css' %}" />
+{% endblock css %}
+
+{% block js %}
+<script type="text/javascript" src="{% static 'select2/select2.js' %}"></script>
+<script type="text/javascript">
+    $(function() {
+        $("#id_yeargroup").select2({
+            minimumResultsForSearch: 6,
+        });
+    });
+</script>
+{% endblock js %}
