@@ -4,7 +4,12 @@
         <a href="{% url 'groups_my_groups' %}">{% trans "My groups" %}</a>
     </li>
     <li{% if tab == 'invitations' %} class="active"{% endif %}>
-        <a href="{% url 'groups_invitations' %}">{% trans "Invitations" %}</a>
+        <a href="{% url 'groups_invitations' %}">
+            {% trans "My Invitations" %}
+            {% if open_invitations %}
+            <span class="badge">{{ open_invitations }}</span>
+            {% endif %}
+        </a>
     </li>
     {% if group_name %}
     <li{% if tab == 'group' %} class="active"{% endif %}>
