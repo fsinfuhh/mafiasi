@@ -107,7 +107,7 @@ def _create_username(info, yeargroup):
     if info['account'][0].isdigit():
         return yeargroup.slug[2] + info['account']
     elif info['domain'] != settings.PRIMARY_DOMAIN:
-        return "{}@{}".format(
+        return "{}.{}".format(
             info['account'],
             settings.REGISTER_DOMAIN_MAPPING[info['domain']])
     else:
