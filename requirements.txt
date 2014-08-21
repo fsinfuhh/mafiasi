@@ -18,3 +18,5 @@ python-ldap
 python-magic
 pytz
 raven
+requests
+git+git://github.com/tindie/pydiscourse.git@master

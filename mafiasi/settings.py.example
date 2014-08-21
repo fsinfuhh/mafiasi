@@ -269,6 +269,9 @@ RAVEN_CONFIG = {
 ETHERPAD_API_KEY = 'foobar'
 ETHERPAD_URL = 'https://ep.mafiasi.de'
 
+DISCOURSE_URL = 'https://forum.mafiasi.test'
+DISCOURSE_SSO_SECRET = 'secret'
+
 GPROT_IMAGE_MAX_SIZE = 1
 GPROT_PDF_MAX_SIZE = 5
 
