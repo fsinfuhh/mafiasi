@@ -1,9 +1,11 @@
+# -*- coding: utf-8 -*-
 import json
 import time
 import magic
 from datetime import date
 
 from fuzzywuzzy import fuzz
+from PyPDF2 import PdfFileReader, PdfFileWriter
 from django.conf import settings
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.urlresolvers import reverse
@@ -131,6 +133,30 @@ def edit_metadata(request, gprot_pk):
         'course_form': course_form,
     })
 
+def _clean_pdf_metadata(gprot):
+    assert gprot.is_pdf
+
+    title = u"GProt: {} / {}".format(
+        gprot.course.get_full_name(),
+        gprot.exam_date.strftime("%Y-%m-%d"),
+    )
+    writer = PdfFileWriter()
+
+    # Django file fields aren't context managers :/
+    gprot.content_pdf.open('r')
+    reader = PdfFileReader(gprot.content_pdf)
+    for i in range(reader.getNumPages()):
+        writer.addPage(reader.getPage(i))
+    gprot.content_pdf.close()
+
+    writer.addMetadata({
+        '/Title': title,
+    })
+
+    gprot.content_pdf.open('r+')
+    writer.write(gprot.content_pdf)
+    gprot.content_pdf.close()
+
 @login_required
 def edit_gprot(request, gprot_pk):
     gprot = get_object_or_404(GProt, pk=gprot_pk)
@@ -156,6 +182,8 @@ def edit_gprot(request, gprot_pk):
                     gprot.content_pdf.delete()
                 gprot.content_pdf = upload
                 gprot.save()
+                _clean_pdf_metadata(gprot)
+
         else:
             content = request.POST.get('content', '')
             gprot.content = clean_html(content)
