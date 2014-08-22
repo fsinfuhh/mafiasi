@@ -1,0 +1,25 @@
+#jabber-config-img {
+	position: relative;
+	width: 397px;
+	height: 509px;
+	background: url(../img/pidgin-en.png);
+	font-size: 12px;
+}
+
+#jabber-config-username {
+	position: absolute;
+	top: 107px;
+	left: 187px;
+}
+
+#jabber-config-domain {
+	position: absolute;
+	top: 134px;
+	left: 187px;
+}
+
+#jabber-config-alias {
+	position: absolute;
+	top: 273px;
+	left: 187px;
+}
