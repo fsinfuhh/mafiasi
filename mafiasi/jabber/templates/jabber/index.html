@@ -33,24 +33,25 @@
 {% url 'registration_account' as account_url %}
 {% blocktrans %}<p>If you want to change your Jabber password, just change it in your <a href="{{ account_url }}">account settings</a>.</p>{% endblocktrans %}
 
+<p>{% trans "The fingerprint of the current SSL certificate is:" %}<br />
+<span style="white-space:pre;font-family:monospace;">{{ cert_fingerprint }}</span></p>
+
 <h3>{% trans 'Configure your Jabber Client' %}</h3>
 {% blocktrans %}
-In order to use jabber, you need to install a jabber client and
-configure it to connect to the Mafiasi jabber server. We recommend
-<a href="https://pidgin.im" target="_blank">Pidgin</a>. After installing and starting
-Pidgin, add a new account with the settings displayed below.
+In order to use jabber, you need to install a jabber client and configure it
+to connect to the Mafiasi server. One option is <a href="https://pidgin.im"
+target="_blank">Pidgin</a>, which supports multiple protocols, including
+Jabber (also called XMPP there). Below you can see the required configuration
+for Piding.
 {% endblocktrans %}
 <div id="jabber-config-img">
     <div id="jabber-config-username">
-        {{ user.username }}
+        {{ jabber_user.username }}
     </div>
     <div id="jabber-config-domain">{{ jabber_domain }}</div>
     <div id="jabber-config-alias">{{ user_display_name }}</div>
 </div>
 {% endif %}
-
-<p>{% trans "The fingerprint of the current SSL certificate is:" %}<br />
-<span style="white-space:pre;font-family:monospace;">{{ cert_fingerprint }}</span></p>
 
 {% endblock %}
 

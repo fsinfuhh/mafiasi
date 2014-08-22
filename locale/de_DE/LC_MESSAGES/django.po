@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-22 16:12+0200\n"
-"PO-Revision-Date: 2014-08-22 16:12+0200\n"
+"POT-Creation-Date: 2014-08-22 21:15+0200\n"
+"PO-Revision-Date: 2014-08-22 21:18+0200\n"
 "Last-Translator: \n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
@@ -469,24 +469,24 @@ msgstr "Online schreiben"
 msgid "Upload PDF"
 msgstr "PDF hochladen"
 
-#: mafiasi/gprot/views.py:146 mafiasi/gprot/views.py:245
+#: mafiasi/gprot/views.py:172 mafiasi/gprot/views.py:273
 #, python-brace-format
 msgid "Only files up to {0} MB are allowed."
 msgstr "Es sind nur Dateien kleiner als {0} MB erlaubt."
 
-#: mafiasi/gprot/views.py:150
+#: mafiasi/gprot/views.py:176
 msgid "Only PDF files are allowed."
 msgstr "Es sind nur PDF-Dateien erlaubt."
 
-#: mafiasi/gprot/views.py:152 mafiasi/gprot/views.py:252
+#: mafiasi/gprot/views.py:178 mafiasi/gprot/views.py:280
 msgid "Please select a file to upload."
 msgstr "Bitte wähle eine Datei zum Hochladen aus."
 
-#: mafiasi/gprot/views.py:250
+#: mafiasi/gprot/views.py:278
 msgid "Only PNG, JPEG and GIF files are allowed."
 msgstr "Es sind nur Bilder im PNG-, JPEG- oder GIF-Format erlaubt."
 
-#: mafiasi/gprot/views.py:293
+#: mafiasi/gprot/views.py:321
 #, python-format
 msgid "New memory minutes for \"%(coursename)s\""
 msgstr "Neues Gedächtnisprotokoll für \"%(coursename)s\""
@@ -1303,33 +1303,38 @@ msgstr ""
 "Passwort in den <a href=\"%(account_url)s\">Account-Einstellungen</a>.</p>"
 
 #: mafiasi/jabber/templates/jabber/index.html:36
-msgid "Configure your Jabber Client"
-msgstr "Einrichtung deines Jabber-Clients"
-
-#: mafiasi/jabber/templates/jabber/index.html:37
-msgid ""
-"\n"
-"In order to use jabber, you need to install a jabber client and\n"
-"configure it to connect to the Mafiasi jabber server. We recommend\n"
-"<a href=\"https://pidgin.im\" target=\"_blank\">Pidgin</a>. After installing "
-"and starting\n"
-"Pidgin, add a new account with the settings displayed below.\n"
-msgstr ""
-"\n"
-"Um Jabber nutzen zu können, musst du einen Jabber-Client installieren und "
-"dort deinen Mafiasi-Zugang einrichten. Wir empfehlen <a href=\"https://"
-"pidgin.im\" target=\"_blank\">Pidgin</a>. Nachdem du Pidgin installiert und "
-"gestartet hast, "
-"richtest du einen neuen Zugang mit den Einstellungen wie im Bild unten ein.\n"
-"<br>\n"
-"Eine ausführlichere Anleitung (auch für andere Jabber-Clients als Pidgin) "
-"findest du zum Beispiel auf <a href=\"http://www.einfachjabber.de/oslist\" "
-"target=\"_blank\">einfachjabber.de</a>. \n"
-
-#: mafiasi/jabber/templates/jabber/index.html:52
 #: mafiasi/mumble/templates/mumble/index.html:22
 msgid "The fingerprint of the current SSL certificate is:"
 msgstr "Der Fingerprint des aktuellen SSL-Zertifikats lautet:"
+
+#: mafiasi/jabber/templates/jabber/index.html:39
+msgid "Configure your Jabber Client"
+msgstr "Einrichtung deines Jabber-Clients"
+
+#: mafiasi/jabber/templates/jabber/index.html:40
+msgid ""
+"\n"
+"In order to use jabber, you need to install a jabber client and configure "
+"it\n"
+"to connect to the Mafiasi server. One option is <a href=\"https://pidgin.im"
+"\"\n"
+"target=\"_blank\">Pidgin</a>, which supports multiple protocols, including\n"
+"Jabber (also called XMPP there). Below you can see the required "
+"configuration\n"
+"for Piding.\n"
+msgstr ""
+"\n"
+"Um Jabber nutzen zu können, musst du einen Jabber-Client installieren und "
+"dort deinen Mafiasi-Zugang einrichten. Eine Option ist <a href=\"https://"
+"pidgin.im\" target=\"_blank\">Pidgin</a>, das neben Jabber (dort XMPP "
+"genannt) auch "
+"noch andere Protokolle unterstüzt. Unten findest du die nötigen Einstellungen "
+"am "
+"Beispiel von Pidgin.\n"
+"<br>\n"
+"Eine ausführlichere Anleitung (auch für andere Jabber-Clients als Pidgin) "
+"kannst du auf <a href=\"http://www.einfachjabber.de/oslist\" "
+"target=\"_blank\">einfachjabber.de</a> finden. \n"
 
 #: mafiasi/mumble/views.py:7
 msgid "Student association"
