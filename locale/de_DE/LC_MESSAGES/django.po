@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-12 19:20+0200\n"
-"PO-Revision-Date: 2014-08-12 19:25+0200\n"
+"POT-Creation-Date: 2014-08-22 16:12+0200\n"
+"PO-Revision-Date: 2014-08-22 16:12+0200\n"
 "Last-Translator: \n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
@@ -774,7 +774,7 @@ msgstr "Fachbereich"
 #: mafiasi/gprot/templates/gprot/list_own.html:19
 #: mafiasi/gprot/templates/gprot/notifications.html:21
 #: mafiasi/gprot/templates/gprot/reminders.html:23
-#: mafiasi/groups/templates/groups/invitations.html:18
+#: mafiasi/groups/templates/groups/invitations.html:19
 #: mafiasi/groups/templates/groups/show.html:20
 #: mafiasi/groups/templates/groups/show.html:48
 msgid "Actions"
@@ -1107,7 +1107,7 @@ msgstr ""
 "Bitte beachte: Der Gruppenname kann von anderen Benutzern eingesehen werden."
 
 #: mafiasi/groups/templates/groups/create.html:11
-#: mafiasi/groups/templates/groups/invitations.html:16
+#: mafiasi/groups/templates/groups/invitations.html:17
 #: mafiasi/groups/templates/groups/my_groups.html:14
 msgid "Group name"
 msgstr "Gruppenname"
@@ -1129,24 +1129,24 @@ msgstr "Erstellen"
 msgid "Invitations"
 msgstr "Einladungen"
 
-#: mafiasi/groups/templates/groups/invitations.html:15
+#: mafiasi/groups/templates/groups/invitations.html:16
 #: mafiasi/groups/templates/groups/show.html:17
 msgid "Date"
 msgstr "Datum"
 
-#: mafiasi/groups/templates/groups/invitations.html:17
+#: mafiasi/groups/templates/groups/invitations.html:18
 msgid "Invited By"
 msgstr "Eingeladen von"
 
-#: mafiasi/groups/templates/groups/invitations.html:30
+#: mafiasi/groups/templates/groups/invitations.html:31
 msgid "Accept"
 msgstr "Annehmen"
 
-#: mafiasi/groups/templates/groups/invitations.html:31
+#: mafiasi/groups/templates/groups/invitations.html:32
 msgid "Refuse"
 msgstr "Verweigern"
 
-#: mafiasi/groups/templates/groups/invitations.html:38
+#: mafiasi/groups/templates/groups/invitations.html:39
 msgid "You have no invitations."
 msgstr "Du hast keine Einladungen."
 
@@ -1186,7 +1186,7 @@ msgstr "Gruppe: %(group_name)s"
 msgid "Leave"
 msgstr "Verlassen"
 
-#: mafiasi/groups/templates/groups/my_groups.html:35
+#: mafiasi/groups/templates/groups/my_groups.html:30
 msgid "Create new group"
 msgstr "Neue Gruppe erstellen"
 
@@ -1230,15 +1230,15 @@ msgstr "Adminrechte entziehen"
 msgid "Grant admin"
 msgstr "Adminrechte geben"
 
-#: mafiasi/jabber/views.py:31
+#: mafiasi/jabber/views.py:36
 msgid "Account was created."
 msgstr "Account wurde erstellt."
 
-#: mafiasi/jabber/views.py:33
+#: mafiasi/jabber/views.py:38
 msgid "Account already exists."
 msgstr "Account existiert bereits."
 
-#: mafiasi/jabber/views.py:35
+#: mafiasi/jabber/views.py:40
 msgid "Sorry, we had an internal error."
 msgstr "Tut uns leid, es gab einen internen Fehler."
 
@@ -1253,17 +1253,17 @@ msgstr ""
 "eingeben:"
 
 #: mafiasi/jabber/templates/jabber/create.html:12
-#: mafiasi/registration/forms.py:39 mafiasi/registration/forms.py:63
+#: mafiasi/registration/forms.py:66 mafiasi/registration/forms.py:90
 #: mafiasi/registration/templates/registration/create_account.html:17
 #: mafiasi/registration/templates/registration/login.html:32
 msgid "Password"
 msgstr "Passwort"
 
-#: mafiasi/jabber/templates/jabber/index.html:4
+#: mafiasi/jabber/templates/jabber/index.html:5
 msgid "Jabber"
 msgstr "Jabber"
 
-#: mafiasi/jabber/templates/jabber/index.html:10
+#: mafiasi/jabber/templates/jabber/index.html:11
 #, python-format
 msgid ""
 "Your Jabber ID is <strong>%(username)s</strong>@%(jabber_domain)s. Note: "
@@ -1272,19 +1272,19 @@ msgstr ""
 "Deine Jabber-ID lautet abweichend: <strong>%(username)s</strong>@"
 "%(jabber_domain)s."
 
-#: mafiasi/jabber/templates/jabber/index.html:12
+#: mafiasi/jabber/templates/jabber/index.html:13
 #, python-format
 msgid "Your Jabber ID is <strong>%(username)s@%(jabber_domain)s</strong>."
 msgstr ""
 "Deine Jabber-ID lautet: <strong>%(username)s@%(jabber_domain)s</strong>."
 
-#: mafiasi/jabber/templates/jabber/index.html:21
+#: mafiasi/jabber/templates/jabber/index.html:22
 #, python-format
 msgid "You can now <a href=\"%(create_url)s\">create your Jabber account</a>."
 msgstr ""
 "Du kannst nun deinen <a href=\"%(create_url)s\">Jabber-Account erstellen</a>."
 
-#: mafiasi/jabber/templates/jabber/index.html:28
+#: mafiasi/jabber/templates/jabber/index.html:29
 #, python-format
 msgid ""
 "You have to <a href=\"%(login_url)s?next=%(jabber_index_url)s\">login</a> to "
@@ -1293,7 +1293,7 @@ msgstr ""
 "Du musst dich <a href=\"%(login_url)s?next=%(jabber_index_url)s\">einloggen</"
 "a>, um deinen Jabber-Account zu erstellen oder zu verwalten."
 
-#: mafiasi/jabber/templates/jabber/index.html:33
+#: mafiasi/jabber/templates/jabber/index.html:34
 #, python-format
 msgid ""
 "<p>If you want to change your Jabber password, just change it in your <a "
@@ -1303,6 +1303,30 @@ msgstr ""
 "Passwort in den <a href=\"%(account_url)s\">Account-Einstellungen</a>.</p>"
 
 #: mafiasi/jabber/templates/jabber/index.html:36
+msgid "Configure your Jabber Client"
+msgstr "Einrichtung deines Jabber-Clients"
+
+#: mafiasi/jabber/templates/jabber/index.html:37
+msgid ""
+"\n"
+"In order to use jabber, you need to install a jabber client and\n"
+"configure it to connect to the Mafiasi jabber server. We recommend\n"
+"<a href=\"https://pidgin.im\" target=\"_blank\">Pidgin</a>. After installing "
+"and starting\n"
+"Pidgin, add a new account with the settings displayed below.\n"
+msgstr ""
+"\n"
+"Um Jabber nutzen zu können, musst du einen Jabber-Client installieren und "
+"dort deinen Mafiasi-Zugang einrichten. Wir empfehlen <a href=\"https://"
+"pidgin.im\" target=\"_blank\">Pidgin</a>. Nachdem du Pidgin installiert und "
+"gestartet hast, "
+"richtest du einen neuen Zugang mit den Einstellungen wie im Bild unten ein.\n"
+"<br>\n"
+"Eine ausführlichere Anleitung (auch für andere Jabber-Clients als Pidgin) "
+"findest du zum Beispiel auf <a href=\"http://www.einfachjabber.de/oslist\" "
+"target=\"_blank\">einfachjabber.de</a>. \n"
+
+#: mafiasi/jabber/templates/jabber/index.html:52
 #: mafiasi/mumble/templates/mumble/index.html:22
 msgid "The fingerprint of the current SSL certificate is:"
 msgstr "Der Fingerprint des aktuellen SSL-Zertifikats lautet:"
@@ -1465,32 +1489,46 @@ msgstr "Nie."
 msgid "Expired at {0}"
 msgstr "Abgelaufen am: {0}"
 
-#: mafiasi/registration/forms.py:16
+#: mafiasi/registration/forms.py:19
 msgid "Invalid account name"
 msgstr "Ungültiger Accountname"
 
-#: mafiasi/registration/forms.py:43
+#: mafiasi/registration/forms.py:47
+#, fuzzy
+msgid "Invalid domain"
+msgstr "Ungültiger Token"
+
+#: mafiasi/registration/forms.py:50
+msgid "This field is required."
+msgstr "Dieses Feld darf nicht leer sein."
+
+#: mafiasi/registration/forms.py:53
+#, fuzzy
+msgid "Invalid yeargroup selected"
+msgstr "Ungültiger Gruppenname."
+
+#: mafiasi/registration/forms.py:70
 #: mafiasi/registration/templates/registration/create_account.html:26
 msgid "Password confirmation"
 msgstr "Passwort bestätigen"
 
-#: mafiasi/registration/forms.py:53
+#: mafiasi/registration/forms.py:80
 msgid "The two password fields didn't match."
 msgstr "Die beiden Passwörter stimmen nicht überein."
 
-#: mafiasi/registration/forms.py:71
+#: mafiasi/registration/forms.py:98
 msgid "Wrong password."
 msgstr "Falsches Passwort."
 
-#: mafiasi/registration/views.py:128
+#: mafiasi/registration/views.py:181
 msgid "Password was changed."
 msgstr "Passwort wurde geändert."
 
-#: mafiasi/registration/views.py:156
+#: mafiasi/registration/views.py:210
 msgid "Account creation at mafiasi.de"
 msgstr "Accounterstellung für mafiasi.de"
 
-#: mafiasi/registration/views.py:166
+#: mafiasi/registration/views.py:220
 msgid "Account creation mail failed"
 msgstr "Accounterstellungsmail verschicken fehlgeschlagen"
 
@@ -1558,7 +1596,8 @@ msgstr ""
 
 #: mafiasi/registration/templates/registration/create_account.html:5
 #: mafiasi/registration/templates/registration/create_account.html:36
-#: mafiasi/registration/templates/registration/require_info.html:33
+#: mafiasi/registration/templates/registration/require_info.html:55
+#: mafiasi/registration/templates/registration/require_info_other.html:29
 msgid "Create account"
 msgstr "Account erstellen"
 
@@ -1710,12 +1749,13 @@ msgstr "E-Mail-Adresse:"
 msgid "Reset my password"
 msgstr "Mein Passwort zurücksetzen"
 
-#: mafiasi/registration/templates/registration/request_account.html:5
-#: mafiasi/registration/templates/registration/require_info.html:5
+#: mafiasi/registration/templates/registration/request_account.html:6
+#: mafiasi/registration/templates/registration/require_info.html:6
+#: mafiasi/registration/templates/registration/require_info_other.html:5
 msgid "Registration"
 msgstr "Registrierung"
 
-#: mafiasi/registration/templates/registration/request_account.html:8
+#: mafiasi/registration/templates/registration/request_account.html:9
 msgid ""
 "Please enter your Informatics email address into the following field. "
 "Afterwards you will receive an email with further instructions."
@@ -1723,7 +1763,7 @@ msgstr ""
 "Bitte gib deine Informatik-E-Mail-Adresse in das folgende Feld ein. Du "
 "bekommst daraufhin eine E-Mail mit weiteren Anweisungen."
 
-#: mafiasi/registration/templates/registration/request_account.html:19
+#: mafiasi/registration/templates/registration/request_account.html:21
 msgid "Request account"
 msgstr "Account beantragen"
 
@@ -1740,29 +1780,37 @@ msgstr ""
 "Du solltest nun einen Link per E-Mail an <strong>%(email)s</strong> bekommen "
 "haben, mit dem du den Account erstellen kannst."
 
-#: mafiasi/registration/templates/registration/require_info.html:6
+#: mafiasi/registration/templates/registration/require_info.html:7
+#: mafiasi/registration/templates/registration/require_info_other.html:6
 msgid "Sorry, but we don't know you yet :-("
 msgstr "Tut uns leid, aber wir kennen dich noch nicht :-("
 
-#: mafiasi/registration/templates/registration/require_info.html:10
+#: mafiasi/registration/templates/registration/require_info.html:11
+#: mafiasi/registration/templates/registration/require_info_other.html:10
 msgid "Please provide us some more information."
 msgstr "Bitte gib uns noch ein paar Informationen."
 
-#: mafiasi/registration/templates/registration/require_info.html:16
+#: mafiasi/registration/templates/registration/require_info.html:23
 msgid "Informatics account"
 msgstr "RZ-Kennung"
 
-#: mafiasi/registration/templates/registration/require_info.html:20
+#: mafiasi/registration/templates/registration/require_info.html:32
+#: mafiasi/registration/templates/registration/require_info_other.html:21
 msgid "First name"
 msgstr "Vorname"
 
-#: mafiasi/registration/templates/registration/require_info.html:24
+#: mafiasi/registration/templates/registration/require_info.html:41
+#: mafiasi/registration/templates/registration/require_info_other.html:25
 msgid "Last name"
 msgstr "Nachname"
 
-#: mafiasi/registration/templates/registration/require_info.html:28
+#: mafiasi/registration/templates/registration/require_info.html:50
 msgid "Year of study start"
 msgstr "Jahrgang"
+
+#: mafiasi/registration/templates/registration/require_info_other.html:17
+msgid "Your Email"
+msgstr "Deine E-Mail-Addresse"
 
 #: mafiasi/registration/templates/registration/token_expired.html:4
 msgid "Token expired"
@@ -1780,12 +1828,12 @@ msgstr "Ungültiger Token"
 msgid "Sorry, but the provided token is invalid."
 msgstr "Tut uns leid, aber der angegebene Token ist ungültig."
 
-#: mafiasi/teaching/models.py:47
+#: mafiasi/teaching/models.py:48
 #, python-brace-format
 msgid "winter term {0}"
 msgstr "Wintersemester {0}"
 
-#: mafiasi/teaching/models.py:49
+#: mafiasi/teaching/models.py:50
 #, python-brace-format
 msgid "summer term {0}"
 msgstr "Sommersemester {0}"
