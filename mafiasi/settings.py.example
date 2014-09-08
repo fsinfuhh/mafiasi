@@ -145,6 +145,7 @@ INSTALLED_APPS = (
     'mafiasi.base',
     'mafiasi.cal',
     'mafiasi.dashboard',
+    'mafiasi.discourse',
     'mafiasi.etherpad',
     'mafiasi.gprot',
     'mafiasi.groups',
