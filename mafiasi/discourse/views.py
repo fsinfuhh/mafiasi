@@ -11,13 +11,15 @@ def sso(request):
         payload = request.GET.get('sso')
         sig = request.GET.get('sig')
         nonce = sso_validate(payload, sig, settings.DISCOURSE_SSO_SECRET)
-        dn = request.user.get_ldapuser().display_name
+        # FIXME Add nickname to ldap as seperate field
+        nickname = re.sub(r'(.+)\s\((.+)\)$', r'\1',
+                          request.user.get_ldapuser().display_name)
         url = sso_redirect_url(nonce,
                                settings.DISCOURSE_SSO_SECRET,
                                request.user.email,
                                request.user.username,
                                request.user.username,
-                               name=dn)
+                               name=nickname)
 
     except DiscourseError:
         return HttpResponse(status=400)
