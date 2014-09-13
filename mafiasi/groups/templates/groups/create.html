@@ -4,7 +4,7 @@
 {% block wtitle %}{% block ptitle %}{% trans "Create group" %}{% endblock %}{% endblock %}
 
 {% block content %}
-<p>{% trans "Please note: The group name can be seen by other users." %}</p>
+<p class="bg-info">{% trans "Please note: The group name can be seen by other users." %}</p>
 <form method="post" action="">
     {% csrf_token %}
     <div class="form-group{% if error %} has-error{% endif %}">
