@@ -3,16 +3,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-16 21:28+0200\n"
-"PO-Revision-Date: 2014-09-16 21:30+0100\n"
+"POT-Creation-Date: 2014-09-16 22:52+0200\n"
+"PO-Revision-Date: 2014-09-16 22:53+0100\n"
 "Last-Translator: Henning Pridöhl <8pridoeh@informatik.uni-hamburg.de>\n"
+"Language-Team: \n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.5\n"
-"Language-Team: \n"
 
 #: mafiasi/base/templates/500.html:4
 msgid "Internal server error"
@@ -290,38 +290,46 @@ msgid "Redmine is a project management software. You can create tasks and assign
 msgstr "Redmine ist eine Software zum Verwalten von Projekten. Du kannst Aufgaben erstellen und zuweisen."
 
 #: mafiasi/dashboard/templates/dashboard/index.html:68
+msgid "Discourse is our forum for questions and discussions with your fellow students."
+msgstr "Discourse ist unser Forum für Fragen und Diskussionen mit deinen Kommilitonen."
+
+#: mafiasi/dashboard/templates/dashboard/index.html:80
+msgid "Manage and share your calendars and address book, sync them to all your devices."
+msgstr "Verwalte und teile deine Kalender und dein Adressbuch. Synchronisiere sie mit deinen Geräten."
+
+#: mafiasi/dashboard/templates/dashboard/index.html:92
 msgid "Planet is a feed aggregator which collects blog entries from your fellow students."
 msgstr "Der Planet ist ein Feed-Aggregator, der Blogeinträge von aktiven und ehemaligen Mafiasi sammelt."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:80
-msgid "FB18 is our bulletin board, where you can ask about other students experiences. "
-msgstr "FB18 ist unser Forum, wo du zum Beispiel andere Studenten nach ihren Erfahrungen fragen kannst."
-
-#: mafiasi/dashboard/templates/dashboard/index.html:92
+#: mafiasi/dashboard/templates/dashboard/index.html:104
 msgid "The GProt contains memory minutes of oral and written exams."
 msgstr "Im GProt findest du Gedächtnisprotokolle von Klausuren und mündlichen Prüfungen."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:104
+#: mafiasi/dashboard/templates/dashboard/index.html:116
 msgid "You can find your fellow students' OpenPGP keys on our public keyserver."
 msgstr "Auf unserem Public Keyserver kannst du die OpenPGP-Schlüssel deiner Kommilitonen finden."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:116
+#: mafiasi/dashboard/templates/dashboard/index.html:128
 msgid "You can use our mumble for voice chat with other fellow students."
 msgstr "Unser Mumble-Server erlaubt es dir mit anderen Sprachkonferenzen zu führen."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:128
+#: mafiasi/dashboard/templates/dashboard/index.html:140
 msgid "On our Jabber server you can chat with your fellow students, which are already on your contact list."
 msgstr "Auf unserem Jabber-Server hast du deine Kommilitonen automatisch in der Kontaktliste und kannst mit ihnen chatten."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:135
+#: mafiasi/dashboard/templates/dashboard/index.html:152
+msgid "FB18 is our deprecated bulletin board, which is kept here as an archive."
+msgstr "FB18 ist unser veraltetes Forum, das hier als Archiv aufbewahrt wird."
+
+#: mafiasi/dashboard/templates/dashboard/index.html:160
 msgid "News and more"
 msgstr "Aktuelles und mehr"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:151
+#: mafiasi/dashboard/templates/dashboard/index.html:176
 msgid "Wiki search"
 msgstr "Wiki-Suche"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:158
+#: mafiasi/dashboard/templates/dashboard/index.html:183
 #: mafiasi/gprot/templates/gprot/menu.html:4
 #: mafiasi/pks/templates/pks/menu.html:4
 #: mafiasi/pks/templates/pks/search.html:5
@@ -1447,15 +1455,6 @@ msgstr "Neues Passwort"
 msgid "New password confirmation"
 msgstr "Neues Passwort bestätigen"
 
-#: mafiasi/registration/templates/registration/account.html:65
-msgid "Manage groups"
-msgstr "Gruppen verwalten"
-
-#: mafiasi/registration/templates/registration/account.html:67
-#, python-format
-msgid "To manage your groups to go the <a href=\"%(groups_url)s\">group management</a>."
-msgstr "Um deine Gruppen zu verwalten, besuche die <a href=\"%(groups_url)s\">Gruppenverwaltung</a>."
-
 #: mafiasi/registration/templates/registration/create_account.html:5
 #: mafiasi/registration/templates/registration/create_account.html:36
 #: mafiasi/registration/templates/registration/require_info.html:55
@@ -1665,6 +1664,16 @@ msgstr "Wintersemester {0}"
 #: mafiasi/teaching/models.py:50
 msgid "summer term {0}"
 msgstr "Sommersemester {0}"
+
+#~ msgid "Manage groups"
+#~ msgstr "Gruppen verwalten"
+
+#~ msgid ""
+#~ "To manage your groups to go the <a href=\"%(groups_url)s\">group "
+#~ "management</a>."
+#~ msgstr ""
+#~ "Um deine Gruppen zu verwalten, besuche die <a href=\"%(groups_url)s"
+#~ "\">Gruppenverwaltung</a>."
 
 #~ msgid "Here you can change your password here and configure your account."
 #~ msgstr ""
