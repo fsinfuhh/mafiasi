@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-16 22:52+0200\n"
-"PO-Revision-Date: 2014-09-16 22:53+0100\n"
+"POT-Creation-Date: 2014-09-17 00:17+0200\n"
+"PO-Revision-Date: 2014-09-17 00:21+0100\n"
 "Last-Translator: Henning Pridöhl <8pridoeh@informatik.uni-hamburg.de>\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -87,183 +87,9 @@ msgstr "Technik"
 msgid "This site uses the following software/components:"
 msgstr "Diese Seite benutzt folgende Software/Komponenten:"
 
-#: mafiasi/cal/models.py:15
-#: mafiasi/cal/templates/cal/index.html:4
-msgid "Calendar"
-msgstr "Kalender"
-
-#: mafiasi/cal/models.py:16
-msgid "Contact list"
-msgstr "Kontaktliste"
-
-#: mafiasi/cal/templates/cal/index.html:7
-msgid "The web interface is read-only. Use CalDAV with your favorite calendar software to add events."
-msgstr "Das Webinterface erlaubt nur Lesezugriff. Benutze CalDAV mit deiner bevorzugten Kalendersoftware um Termine hinzuzufügen."
-
-#: mafiasi/cal/templates/cal/index.html:55
-msgid "January"
-msgstr "Januar"
-
-#: mafiasi/cal/templates/cal/index.html:56
-msgid "February"
-msgstr "Februar"
-
-#: mafiasi/cal/templates/cal/index.html:57
-msgid "March"
-msgstr "März"
-
-#: mafiasi/cal/templates/cal/index.html:58
-msgid "April"
-msgstr "April"
-
-#: mafiasi/cal/templates/cal/index.html:59
-#: mafiasi/cal/templates/cal/index.html:73
-msgid "May"
-msgstr "Mai"
-
-#: mafiasi/cal/templates/cal/index.html:60
-msgid "June"
-msgstr "Juni"
-
-#: mafiasi/cal/templates/cal/index.html:61
-msgid "July"
-msgstr "July"
-
-#: mafiasi/cal/templates/cal/index.html:62
-msgid "August"
-msgstr "August"
-
-#: mafiasi/cal/templates/cal/index.html:63
-msgid "September"
-msgstr "September"
-
-#: mafiasi/cal/templates/cal/index.html:64
-msgid "October"
-msgstr "Oktober"
-
-#: mafiasi/cal/templates/cal/index.html:65
-msgid "November"
-msgstr "November"
-
-#: mafiasi/cal/templates/cal/index.html:66
-msgid "December"
-msgstr "Dezember"
-
-#: mafiasi/cal/templates/cal/index.html:69
-msgid "Jan"
-msgstr "Jan."
-
-#: mafiasi/cal/templates/cal/index.html:70
-msgid "Feb"
-msgstr "Feb."
-
-#: mafiasi/cal/templates/cal/index.html:71
-msgid "Mar"
-msgstr "März"
-
-#: mafiasi/cal/templates/cal/index.html:72
-msgid "Apr"
-msgstr "Apr."
-
-#: mafiasi/cal/templates/cal/index.html:74
-msgid "Jun"
-msgstr "Juni"
-
-#: mafiasi/cal/templates/cal/index.html:75
-msgid "Jul"
-msgstr "July"
-
-#: mafiasi/cal/templates/cal/index.html:76
-msgid "Aug"
-msgstr "Aug."
-
-#: mafiasi/cal/templates/cal/index.html:77
-msgid "Sep"
-msgstr "Sep."
-
-#: mafiasi/cal/templates/cal/index.html:78
-msgid "Oct"
-msgstr "Okt."
-
-#: mafiasi/cal/templates/cal/index.html:79
-msgid "Nov"
-msgstr "Nov."
-
-#: mafiasi/cal/templates/cal/index.html:80
-msgid "Dec"
-msgstr "Dez."
-
-#: mafiasi/cal/templates/cal/index.html:83
-msgid "Sunday"
-msgstr "Sonntag"
-
-#: mafiasi/cal/templates/cal/index.html:84
-msgid "Monday"
-msgstr "Montag"
-
-#: mafiasi/cal/templates/cal/index.html:85
-msgid "Tuesday"
-msgstr "Dienstag"
-
-#: mafiasi/cal/templates/cal/index.html:86
-msgid "Wednesday"
-msgstr "Mittwoch"
-
-#: mafiasi/cal/templates/cal/index.html:87
-msgid "Thursday"
-msgstr "Donnerstag"
-
-#: mafiasi/cal/templates/cal/index.html:88
-msgid "Friday"
-msgstr "Freitag"
-
-#: mafiasi/cal/templates/cal/index.html:89
-msgid "Saturday"
-msgstr "Samstag"
-
-#: mafiasi/cal/templates/cal/index.html:92
-msgid "Sun"
-msgstr "So."
-
-#: mafiasi/cal/templates/cal/index.html:93
-msgid "Mon"
-msgstr "Mo."
-
-#: mafiasi/cal/templates/cal/index.html:94
-msgid "Tue"
-msgstr "Di."
-
-#: mafiasi/cal/templates/cal/index.html:95
-msgid "Wed"
-msgstr "Mi."
-
-#: mafiasi/cal/templates/cal/index.html:96
-msgid "Thu"
-msgstr "Do."
-
-#: mafiasi/cal/templates/cal/index.html:97
-msgid "Fri"
-msgstr "Fr."
-
-#: mafiasi/cal/templates/cal/index.html:98
-msgid "Sat"
-msgstr "Sa."
-
-#: mafiasi/cal/templates/cal/index.html:107
-msgid "month"
-msgstr "Monat"
-
-#: mafiasi/cal/templates/cal/index.html:108
-msgid "week"
-msgstr "Woche"
-
-#: mafiasi/cal/templates/cal/index.html:109
-msgid "day"
-msgstr "Tag"
-
-#: mafiasi/cal/templates/cal/index.html:110
-msgid "today"
-msgstr "heute"
+#: mafiasi/base/templates/base/technical_info.html:38
+msgid "Listed in no particular order."
+msgstr "In willkürlicher Reihenfolge aufgelistet."
 
 #: mafiasi/dashboard/templates/dashboard/index.html:4
 msgid "Dashboard"
@@ -1664,6 +1490,142 @@ msgstr "Wintersemester {0}"
 #: mafiasi/teaching/models.py:50
 msgid "summer term {0}"
 msgstr "Sommersemester {0}"
+
+#~ msgid "Calendar"
+#~ msgstr "Kalender"
+
+#~ msgid "Contact list"
+#~ msgstr "Kontaktliste"
+
+#~ msgid ""
+#~ "The web interface is read-only. Use CalDAV with your favorite calendar "
+#~ "software to add events."
+#~ msgstr ""
+#~ "Das Webinterface erlaubt nur Lesezugriff. Benutze CalDAV mit deiner "
+#~ "bevorzugten Kalendersoftware um Termine hinzuzufügen."
+
+#~ msgid "January"
+#~ msgstr "Januar"
+
+#~ msgid "February"
+#~ msgstr "Februar"
+
+#~ msgid "March"
+#~ msgstr "März"
+
+#~ msgid "April"
+#~ msgstr "April"
+
+#~ msgid "May"
+#~ msgstr "Mai"
+
+#~ msgid "June"
+#~ msgstr "Juni"
+
+#~ msgid "July"
+#~ msgstr "July"
+
+#~ msgid "August"
+#~ msgstr "August"
+
+#~ msgid "September"
+#~ msgstr "September"
+
+#~ msgid "October"
+#~ msgstr "Oktober"
+
+#~ msgid "November"
+#~ msgstr "November"
+
+#~ msgid "December"
+#~ msgstr "Dezember"
+
+#~ msgid "Jan"
+#~ msgstr "Jan."
+
+#~ msgid "Feb"
+#~ msgstr "Feb."
+
+#~ msgid "Mar"
+#~ msgstr "März"
+
+#~ msgid "Apr"
+#~ msgstr "Apr."
+
+#~ msgid "Jun"
+#~ msgstr "Juni"
+
+#~ msgid "Jul"
+#~ msgstr "July"
+
+#~ msgid "Aug"
+#~ msgstr "Aug."
+
+#~ msgid "Sep"
+#~ msgstr "Sep."
+
+#~ msgid "Oct"
+#~ msgstr "Okt."
+
+#~ msgid "Nov"
+#~ msgstr "Nov."
+
+#~ msgid "Dec"
+#~ msgstr "Dez."
+
+#~ msgid "Sunday"
+#~ msgstr "Sonntag"
+
+#~ msgid "Monday"
+#~ msgstr "Montag"
+
+#~ msgid "Tuesday"
+#~ msgstr "Dienstag"
+
+#~ msgid "Wednesday"
+#~ msgstr "Mittwoch"
+
+#~ msgid "Thursday"
+#~ msgstr "Donnerstag"
+
+#~ msgid "Friday"
+#~ msgstr "Freitag"
+
+#~ msgid "Saturday"
+#~ msgstr "Samstag"
+
+#~ msgid "Sun"
+#~ msgstr "So."
+
+#~ msgid "Mon"
+#~ msgstr "Mo."
+
+#~ msgid "Tue"
+#~ msgstr "Di."
+
+#~ msgid "Wed"
+#~ msgstr "Mi."
+
+#~ msgid "Thu"
+#~ msgstr "Do."
+
+#~ msgid "Fri"
+#~ msgstr "Fr."
+
+#~ msgid "Sat"
+#~ msgstr "Sa."
+
+#~ msgid "month"
+#~ msgstr "Monat"
+
+#~ msgid "week"
+#~ msgstr "Woche"
+
+#~ msgid "day"
+#~ msgstr "Tag"
+
+#~ msgid "today"
+#~ msgstr "heute"
 
 #~ msgid "Manage groups"
 #~ msgstr "Gruppen verwalten"
