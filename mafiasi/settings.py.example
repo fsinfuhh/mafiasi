@@ -185,6 +185,8 @@ SERVICE_LINKS = {
     'planet': 'https://planet.mafiasi.de/',
     'fb18': 'https://fb18.de/',
     'redmine': 'https://redmine.mafiasi.de/',
+	'discourse': 'https://discourse.mafiasi.de/',
+	'sogo': 'https://sogo.mafiasi.de/',
 }
 IMPRINT_URL = 'https://wiki.mafiasi.de/Fachschaft_Informatik:Impressum'
 TEAM_EMAIL = u'ag-server@informatik.uni-hamburg.de'

@@ -57,6 +57,30 @@
                     </div>
                 </div>
             </div>
+            
+			<div class="col-sm-6">
+                <div class="panel panel-default service">
+                    <div class="panel-body">
+                        <a href="{{ service_links.discourse }}" class="btn btn-default btn-lg pull-left service-icon">
+                            <img src="{{ STATIC_URL }}img/services/discourse.png" alt="Discourse" />
+                        </a>
+                        <h3><a href="{{ service_links.discourse }}">Discourse</a></h3>
+                        <p>{% trans "Discourse is our forum for questions and discussions with your fellow students." %}</p>
+                    </div>
+                </div>
+            </div>
+			
+			<div class="col-sm-6">
+                <div class="panel panel-default service">
+                    <div class="panel-body">
+                        <a href="{{ service_links.sogo }}" class="btn btn-default btn-lg pull-left service-icon">
+                            <img src="{{ STATIC_URL }}img/services/sogo.png" alt="SOGo" />
+                        </a>
+                        <h3><a href="{{ service_links.sogo }}">SOGo</a></h3>
+                        <p>{% trans "SOGo is a groupware which provides a calendar and an address book. Both can be shared." %}</p>
+                    </div>
+                </div>
+            </div>
 
             <div class="col-sm-6">
                 <div class="panel panel-default service">
@@ -66,18 +90,6 @@
                         </a>
                         <h3><a href="{{ service_links.planet }}">Planet</a></h3>
                         <p>{% trans "Planet is a feed aggregator which collects blog entries from your fellow students." %}</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6">
-                <div class="panel panel-default service">
-                    <div class="panel-body">
-                        <a href="{{ service_links.fb18 }}" class="btn btn-default btn-lg pull-left service-icon">
-                            <img src="{{ STATIC_URL }}img/services/fb18.png" alt="FB18" />
-                        </a>
-                        <h3><a href="{{ service_links.fb18 }}">FB18</a></h3>
-                        <p>{% trans "FB18 is our bulletin board, where you can ask about other students experiences. " %}</p>
                     </div>
                 </div>
             </div>
@@ -129,6 +141,19 @@
                     </div>
                 </div>
             </div>
+            
+			<div class="col-sm-6">
+                <div class="panel panel-default service">
+                    <div class="panel-body">
+                        <a href="{{ service_links.fb18 }}" class="btn btn-default btn-lg pull-left service-icon">
+                            <img src="{{ STATIC_URL }}img/services/fb18.png" alt="FB18" />
+                        </a>
+                        <h3><a href="{{ service_links.fb18 }}">FB18</a></h3>
+                        <p>{% trans "FB18 is our deprecated bulletin board, which is kept here as an archive." %}</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
     <div id="news" class="col-md-4">
