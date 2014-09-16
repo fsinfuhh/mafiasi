@@ -178,13 +178,13 @@ LOGIN_URL = '/login'
 LOGIN_REDIRECT_URL = '/dashboard/'
 DATABASE_ROUTERS = ['mafiasi.jabber.dbrouter.JabberRouter', 'ldapdb.router.Router']
 SERVICE_LINKS = {
-	'etherpad': 'https://ep.mafiasi.de/',
-	'wiki': 'https://wiki.mafiasi.de/',
-	'dudel': 'https://dudel.mafiasi.de/',
-	'gprot': 'https://www2.informatik.uni-hamburg.de/Fachschaft/gprot/',
-	'planet': 'https://planet.mafiasi.de/',
-	'fb18': 'https://fb18.de/',
-        'redmine': 'https://redmine.mafiasi.de/',
+    'etherpad': 'https://ep.mafiasi.de/',
+    'wiki': 'https://wiki.mafiasi.de/',
+    'dudel': 'https://dudel.mafiasi.de/',
+    'gprot': 'https://www2.informatik.uni-hamburg.de/Fachschaft/gprot/',
+    'planet': 'https://planet.mafiasi.de/',
+    'fb18': 'https://fb18.de/',
+    'redmine': 'https://redmine.mafiasi.de/',
 }
 IMPRINT_URL = 'https://wiki.mafiasi.de/Fachschaft_Informatik:Impressum'
 TEAM_EMAIL = u'ag-server@informatik.uni-hamburg.de'
@@ -193,11 +193,11 @@ GPG_KEYRING='~mafiasi/signing-party-fun/tmp/keyring'
 
 from django.contrib.messages import constants as message_constants
 MESSAGE_TAGS = {
-	message_constants.DEBUG: 'alert-info',
-	message_constants.INFO: 'alert-info',
-	message_constants.SUCCESS: 'alert-success',
-	message_constants.WARNING: 'alert-warning',
-	message_constants.ERROR: 'alert-danger'
+    message_constants.DEBUG: 'alert-info',
+    message_constants.INFO: 'alert-info',
+    message_constants.SUCCESS: 'alert-success',
+    message_constants.WARNING: 'alert-warning',
+    message_constants.ERROR: 'alert-danger'
 }
 
 LOCALE_PATHS = (os.path.join(ROOT_DIR, 'locale'), )
