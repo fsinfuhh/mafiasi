@@ -216,6 +216,10 @@ msgstr "Protected group pads can only be created if you are logged in."
 msgid "Your group pads"
 msgstr "Your group pads"
 
+#: mafiasi/etherpad/templates/etherpad/index.html:31
+msgid "Last changed:"
+msgstr "Lasr changed:"
+
 #: mafiasi/etherpad/templates/etherpad/menu.html:4
 msgid "Overview"
 msgstr "Overview"

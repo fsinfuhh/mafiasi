@@ -218,6 +218,10 @@ msgstr "Geschütze Gruppenpads können nur erstellt werden, wenn du eingeloggt b
 msgid "Your group pads"
 msgstr "Deine Gruppenpads"
 
+#: mafiasi/etherpad/templates/etherpad/index.html:31
+msgid "Last changed:"
+msgstr "Letzte änderung:"
+
 #: mafiasi/etherpad/templates/etherpad/menu.html:4
 msgid "Overview"
 msgstr "Übersicht"
