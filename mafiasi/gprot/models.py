@@ -3,6 +3,7 @@ from binascii import hexlify
 
 from django.db import models
 from django.conf import settings
+from PyPDF2 import PdfFileReader, PdfFileWriter
 
 from mafiasi.teaching.models import Course, Teacher
 
@@ -32,6 +33,31 @@ class GProt(models.Model):
         append = ' (PDF)' if self.content_pdf else ''
         return u'[{0}] {1}: {2}{3}'.format(
             self.pk, self.exam_date, self.course, append)
+
+    def clean_pdf_metadata(self):
+        if not self.is_pdf:
+            return
+
+        title = u"GProt: {} / {}".format(
+            self.course.get_full_name(),
+            self.exam_date.strftime("%Y-%m-%d"),
+        )
+        writer = PdfFileWriter()
+
+        # Django file fields aren't context managers :/
+        self.content_pdf.open('r')
+        reader = PdfFileReader(self.content_pdf)
+        for i in range(reader.getNumPages()):
+            writer.addPage(reader.getPage(i))
+        self.content_pdf.close()
+
+        writer.addMetadata({
+            '/Title': title,
+        })
+
+        self.content_pdf.open('r+')
+        writer.write(self.content_pdf)
+        self.content_pdf.close()
 
 class Attachment(models.Model):
     gprot = models.ForeignKey(GProt)
