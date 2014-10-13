@@ -35,10 +35,7 @@ def index(request):
             pad_list[group.name] = []
             for pad in pads:
                 edit_time = ep.get_last_edit(pad)
-                if edit_time == 1399920167517:
-                    edit_time_out = "never"
-                else:
-                    edit_time_out = datetime.datetime.fromtimestamp(edit_time)
+                edit_time_out = datetime.datetime.fromtimestamp(edit_time)
                 pad_list[group.name].append(
                     {
                         "name": pad.split('$')[1],

@@ -93,7 +93,7 @@ class Etherpad(object):
 
     def get_last_edit(self, pad_name):
         try:
-            return self.api.getLastEdited(padID=pad_name)['lastEdited']
+            return float(self.api.getLastEdited(padID=pad_name)['lastEdited']) / 1000
         except EtherpadException as e:
             if e.message == "padID does not exist":
                 return 0
