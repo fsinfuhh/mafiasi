@@ -37,8 +37,6 @@ def index(request):
                 edit_time = ep.get_last_edit(pad)
                 edit_time_out = datetime.datetime.fromtimestamp(edit_time)
                 edit_time_not_old = True
-                print edit_time_out,  datetime.datetime.now() - datetime.timedelta(days=7)
-                print edit_time_out < datetime.datetime.now() - datetime.timedelta(days=7)
                 if edit_time_out < datetime.datetime.now() - datetime.timedelta(days=7):
                     edit_time_not_old = False
                 pad_list[group.name].append(
@@ -146,7 +144,7 @@ def show_pad_html(request, group_name, pad_name):
                 pad_name)
     html = ep.get_html(full_pad_name)
     return TemplateResponse(request, 'etherpad/pad_html.html', {
-        'html': html[27:-14], #  <html> etc weg
+        'html': html[27:-14], #  strip <html> and head
         'pad_name': pad_name,
         'group_name': group_name
     })
