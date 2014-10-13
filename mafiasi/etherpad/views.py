@@ -36,11 +36,17 @@ def index(request):
             for pad in pads:
                 edit_time = ep.get_last_edit(pad)
                 edit_time_out = datetime.datetime.fromtimestamp(edit_time)
+                edit_time_not_old = True
+                print edit_time_out,  datetime.datetime.now() - datetime.timedelta(days=7)
+                print edit_time_out < datetime.datetime.now() - datetime.timedelta(days=7)
+                if edit_time_out < datetime.datetime.now() - datetime.timedelta(days=7):
+                    edit_time_not_old = False
                 pad_list[group.name].append(
                     {
                         "name": pad.split('$')[1],
                         "admin": is_admin,
-                        "last_edit": edit_time_out
+                        "last_edit": edit_time_out,
+                        "edit_time_not_old": edit_time_not_old
                     })
     return TemplateResponse(request, 'etherpad/index.html', {
         'pad_list': pad_list,

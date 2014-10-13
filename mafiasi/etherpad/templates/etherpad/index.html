@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load humanize %}
 
 {% block wtitle %}{% block ptitle %}{% trans "Etherpad overview" %}{% endblock %}{% endblock %}
 
@@ -27,7 +28,12 @@
 <ul>
 {% for pad in pads %}
     <li><a href="{% url 'ep_show_pad' group_name pad.name %}">{{ pad.name }}</a>
-    &nbsp;&nbsp;-&nbsp;&nbsp;Last changed: {{ pad.last_edit }}
+    &nbsp;&nbsp;-&nbsp;&nbsp;{% trans "Last changed:" %}
+    {% if pad.edit_time_not_old %}
+        {{ pad.last_edit|naturaltime }}
+    {% else %}
+        {{ pad.last_edit|date }}
+    {% endif %}
     &nbsp;&nbsp;-&nbsp;&nbsp;<a href="{% url 'ep_show_pad_html' group_name pad.name %}">HTML</a>
     {% if pad.admin %}
         &nbsp;&nbsp;-&nbsp;&nbsp;<a href="{% url 'ep_delete_pad' group_name pad.name %}"><span class="glyphicon glyphicon-trash"></span></a>
