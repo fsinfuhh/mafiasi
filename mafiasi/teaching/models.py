@@ -8,6 +8,37 @@ TERM_CHOICES = (
     ('summer', 'Summer term')
 )
 
+class Faculty(models.Model):
+    name = models.CharField(max_length=100)
+    short_name = models.CharField(max_length=30)
+
+    def __unicode__(self):
+        return self.short_name
+
+class DepartmentManager(models.Manager):
+    def as_choices(self):
+        for dep in self.all().order_by('name'):
+            yield dep.pk, dep.name
+
+    def as_grouped_choices(self):
+        for dep in self.filter(faculty=None).order_by('name'):
+            yield dep.pk, dep.name
+        for fac in Faculty.objects.select_related().order_by('name'):
+            yield fac.name, [(d.pk, d.name)
+                             for d in fac.departments.all().order_by('name')]
+
+class Department(models.Model):
+    name = models.CharField(max_length=100)
+    faculty = models.ForeignKey(Faculty, related_name='departments',
+                                blank=True, null=True)
+    short_name = models.CharField(max_length=30)
+
+    objects = DepartmentManager()
+
+    def __unicode__(self):
+        return self.short_name
+    re.compile(r'[a-z0-9.]+@[a-z0-9.]+')
+
 class Term(models.Model):
     term = models.CharField(max_length=8, choices=TERM_CHOICES)
     year = models.IntegerField()
@@ -20,21 +51,53 @@ class Term(models.Model):
         else:
             return unicode(self.year)
 
+class TeacherManager(models.Manager):
+    def as_choices(self):
+        for teacher in self.all().order_by('last_name'):
+            yield teacher.pk, unicode(teacher)
+
+    def as_grouped_choices(self):
+        for teacher in self.filter(department=None).order_by('last_name'):
+            yield teacher.pk, unicode(teacher)
+        for dep in Department.objects.select_related().order_by('name'):
+            yield dep.name, [(t.pk, unicode(t)) 
+                             for t in dep.teachers.all().order_by('last_name')]
+
 class Teacher(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     title = models.CharField(max_length=30, blank=True)
+    department = models.ForeignKey(Department, related_name='teachers',
+                                   blank=True, null=True)
+
+    objects = TeacherManager()
 
     def get_full_name(self):
         title = self.title + u' ' if self.title else u''
-        return u'{0} {1} {2}'.format(title, self.first_name, self.last_name)
+        return u'{0}{1} {2}'.format(title, self.first_name, self.last_name)
     
     def __unicode__(self):
         return self.get_full_name()
 
+class CourseManager(models.Manager):
+    def as_choices(self):
+        for course in self.all().order_by('name'):
+            yield course.pk, unicode(course)
+
+    def as_grouped_choices(self):
+        for course in self.filter(department=None).order_by('name'):
+            yield course.pk, unicode(course)
+        for dep in Department.objects.select_related().order_by('name'):
+            yield dep.name, [(c.pk, unicode(c))
+                             for c in dep.courses.all().order_by('name')]
+
 class Course(models.Model):
-    name = models.CharField(max_length=100, blank=True)
+    name = models.CharField(max_length=100)
     short_name = models.CharField(max_length=30, blank=True)
+    department = models.ForeignKey(Department, related_name='courses',
+                                   blank=True, null=True)
+
+    objects = CourseManager()
 
     def __unicode__(self):
         return self.get_full_name()

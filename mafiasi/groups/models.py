@@ -10,6 +10,8 @@ from django.utils.timezone import now
 from mafiasi.base.models import LdapGroup, LOCK_ID_LDAP_GROUP
 from mafiasi.base.utils import AdvisoryLock
 
+MIN_GROUPNAME_LENGTH = 3
+
 class GroupError(Exception):
     pass
 
@@ -90,6 +92,11 @@ _group_name_re = re.compile(r'^[a-zA-Z]([a-zA-Z0-9_-]*)$')
 def create_usergroup(user, name):
     if not _group_name_re.match(name):
         raise GroupError(_('Invalid group name.'))
+
+    if len(name) < MIN_GROUPNAME_LENGTH:
+        err_msg = _('The group name must be at least {} characters').format(
+                MIN_GROUPNAME_LENGTH)
+        raise GroupError(err_msg)
     
     if Group.objects.filter(name__iexact=name).count():
         raise GroupError(_('Group does already exist.'))

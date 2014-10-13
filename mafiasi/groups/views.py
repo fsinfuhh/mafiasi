@@ -17,10 +17,14 @@ from mafiasi.groups.models import (GroupInvitation, GroupProxy, GroupError,
         create_usergroup)
 from mafiasi.groups.forms import InvitationForm
 
+def _get_open_invitations(user):
+    return GroupInvitation.objects.filter(invitee=user).count()
+
 @login_required
 def my_groups(request):
     return TemplateResponse(request, 'groups/my_groups.html', {
-        'my_groups': request.user.groups.all()
+        'my_groups': request.user.groups.all(),
+        'open_invitations': _get_open_invitations(request.user),
     })
 
 @login_required
@@ -28,7 +32,8 @@ def invitations(request):
     invitations = (GroupInvitation.objects.select_related()
                    .filter(invitee=request.user))
     return TemplateResponse(request, 'groups/invitations.html', {
-        'invitations': invitations
+        'invitations': invitations,
+        'open_invitations': len(invitations),
     })
 
 @login_required
@@ -46,7 +51,8 @@ def create(request):
             error = e.message
     return TemplateResponse(request, 'groups/create.html', {
         'error': error,
-        'group_name': group_name
+        'group_name': group_name,
+        'open_invitations': _get_open_invitations(request.user),
     })
 
 @login_required
@@ -83,7 +89,8 @@ def show(request, group_name):
         'members': group_members,
         'invitations': invitations,
         'is_groupadmin': is_groupadmin,
-        'last_admin': num_admins == 1
+        'last_admin': num_admins == 1,
+        'open_invitations': _get_open_invitations(request.user),
     })
 
 @login_required
@@ -180,8 +187,6 @@ def withdraw_invite(request, invitation_pk):
         raise PermissionDenied()
     
     invitation.delete()
-    subject = u'Einladung zur\xfcckgezogen / withdrawn invitation'
-    _send_invitation_mail(request, invitation, subject, 'withdrawn_invitation')
     return redirect('groups_show', group.name)
 
 def _send_invitation_mail(request, invitation, subject, template_name):

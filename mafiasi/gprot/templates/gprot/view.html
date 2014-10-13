@@ -52,8 +52,13 @@ Memory minutes: {{ course_name }}
         <th>{% trans "Exam date" %}</th>
         <td>{{ gprot.exam_date|date:"Y-m-d" }}</td>
     </tr>
+    {% if gprot.course.department %}
+    <tr>
+        <th>{% trans "Department" %}</th>
+        <td>{{ gprot.course.department }}</td>
+    </tr>
+    {% endif %}
 </table>
-<hr/>
 {% if gprot.is_pdf %}
 {% if gprot.content_pdf %}
 <div id="pdf">

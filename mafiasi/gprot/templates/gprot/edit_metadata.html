@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load set_css %}
+{% load staticfiles %}
+
+{% block wtitle %}{% blocktrans with course_name=gprot.course.get_full_name %}Memory minutes: {{ course_name }}{% endblocktrans %}{% endblock %}
+
+{% block ptitle %}{{ gprot.course.get_full_name }}{% if gprot.published %}<span class="label label-success pull-right">{% trans "published" %}</span>{% else %}<span class="label label-danger pull-right">{% trans "unpublished" %}</span>{% endif %}{% endblock %}
+
+{% block submenu %}
+{% include "gprot/menu.html" with tab='edit' gprot=gprot %}
+{% endblock %}
+
+{% block content %}
+<noscript>
+    <div class="alert alert-danger">
+        {% blocktrans %}
+        This page needs javascript in order to function correctly.
+        Please activate it before you proceed.
+        {% endblocktrans %}
+    </div>
+</noscript>
+<form method="post" id="metadata-form">
+{% csrf_token %}
+{{ form.non_field_errors }}
+{% include 'gprot/_basic_form.html' %}
+<button class="btn btn-primary">{% trans "Save" %}</button>
+</form>
+{% include 'gprot/_basic_form_modals.html' %}
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'select2/select2.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'select2/select2-bootstrap.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/gprot.css' %}" />
+<style type="text/css">
+    .in {
+        background: rgba(0, 0, 0, 0.3);
+    }
+</style>
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="{% static 'select2/select2.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+<script>
+{% include 'gprot/_basic_form.js' %}
+</script>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% load i18n %}
+{% load set_css %}
+<div class="form-group">
+    <label for="course">{% trans "Course:" %}</label>
+    <div class="input-group">
+        {{ form.course|set_class:"form-control" }}
+        <span class="input-group-btn">
+            <a class="btn btn-default" id="add-course-btn" data-toggle="modal" data-target="#modal-add-course">
+                <span class="glyphicon glyphicon-plus"></span>
+                {% trans 'New' %}
+            </a>
+        </span>
+    </div>
+    {% if form.course.errors %}
+    <div class="alert alert-danger">
+        {{ form.course.errors }}
+    </div>
+    {% endif %}
+</div>
+<div class="form-group">
+    <label for="examiner">{% trans "Examiner:" %}</label><br>
+    <div class="input-group">
+        {{ form.examiner|set_class:"form-control" }}
+        <span class="input-group-btn">
+            <a class="btn btn-default" id="add-teacher-btn" data-toggle="modal" data-target="#modal-add-teacher">
+                <span class="glyphicon glyphicon-plus"></span>
+                {% trans 'New' %}
+            </a>
+        </span>
+    </div>
+    {% if form.examiner.errors %}
+    <div class="alert alert-danger">
+        {{ form.examiner.errors }}
+    </div>
+    {% endif %}
+</div>
+<div class="form-group">
+    <label for="exam-date">{% trans "Exam date:" %}</label>
+    {{ form.exam_date|set_class:"form-control" }}
+    {% if form.exam_date.errors %}
+    <div class="alert alert-danger">
+        {{ form.exam_date.errors }}
+    </div>
+    {% endif %}
+</div>

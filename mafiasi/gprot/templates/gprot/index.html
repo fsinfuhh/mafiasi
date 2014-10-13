@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% load gprot_extras %}
+{% load staticfiles %}
+{% load widget_tweaks %}
 
 {% block wtitle %}{% block ptitle %}{% trans "Search for memory minutes" %}{% endblock %}{% endblock %}
 
@@ -10,14 +12,19 @@
 
 {% block content %}
 <form method="post" action="" {% if not is_query %}style="margin-top: 50px;"{% endif %}>
+{{ form.non_field_errors }}
 {% csrf_token %}
 <div class="form-group">
-    <input type="text" id="search" name="search" class="form-control" />
+    {% if form.search.errors %}
+    <div class="alert alert-danger">
+        {{ form.search.errors }}
+    </div>
+    {% endif %}
+    {% render_field form.search type="search" id="search" class="form-control" %}
     <div class="help-block">
-{% blocktrans %}Just enter the name of the course and/or examiner to see available memory minutes.{% endblocktrans %}
+{% trans 'Just enter the name of the course and/or examiner to see available memory minutes.' %}
     </div>
 </div>
-<div id="search-items"></div>
 <div style="clear:both;"></div>
 <button class="btn btn-primary">
     <span class="glyphicon glyphicon-search"></span>
@@ -30,6 +37,7 @@
 <table class="table table-striped">
     <tr>
         <th>{% trans "Course" %}</th>
+        <th>{% trans "Department" %}</th>
         <th>{% trans "Exam date" %}</th>
         <th>{% trans "Examiners" %}</th>
         <th>{% trans "Actions" %}</th>
@@ -37,6 +45,11 @@
 {% for gprot in gprots %}
     <tr>
         <td>{{ gprot.course.get_full_name }}</td>
+        <td>
+            {% if gprot.course.department %}
+            {{ gprot.course.department }}
+            {% endif %}
+        </td>
         <td>{{ gprot.exam_date|date:"Y-m-d" }}</td>
         <td>{{ gprot.examiners|format_examiners }}</td>
         <td class="gprot-actions">
@@ -62,14 +75,18 @@
 
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/gprot.css" />
+<link rel="stylesheet" type="text/css" href="{% static 'select2/select2.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'select2/select2-bootstrap.css' %}" />
 {% endblock %}
 
 {% block js %}
-<script type="text/javascript" src="{{ STATIC_URL }}js/autocomplete.js"></script>
-<script type="text/javascript" src="{{ STATIC_URL }}js/gprot.js"></script>
+<script type="text/javascript" src="{% static 'select2/select2.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
 <script type="text/javascript">
-$(function() {
-    GProt.initSearch({{ autocomplete_json|safe }}, {{ search_json|safe }});
-});
+    $("#search").select2({
+        minimumInputLength: 2,
+        placeholder: "{% trans 'Just enter the name of the course and/or examiner to see available memory minutes.' %}",
+    });
+    $(".help-block").remove();
 </script>
 {% endblock %}

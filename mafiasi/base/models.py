@@ -26,6 +26,16 @@ class YeargroupManager(models.Manager):
         except PasswdEntry.DoesNotExist:
             return None
 
+    def get_by_domain(self, domain):
+        domain = settings.REGISTER_DOMAIN_MAPPING[domain]
+        try:
+            yeargroup = Yeargroup.objects.get(name=domain)
+        except Yeargroup.DoesNotExist:
+            yeargroup = Yeargroup(slug=domain,
+                                  name=domain)
+            yeargroup.save()
+        return yeargroup
+
 
 class Yeargroup(models.Model):
     slug = models.SlugField(max_length=16, unique=True)
@@ -66,6 +76,9 @@ class Mafiasi(AbstractUser):
         super(Mafiasi, self).set_password(new_password)
         self.new_password = new_password
 
+    def get_ldapuser(self):
+        return LdapUser.objects.get(username=self.username)
+
 
 class LdapGroup(ldapdb.models.Model):
     base_dn = 'ou=groups,' + settings.ROOT_DN
@@ -85,7 +98,8 @@ class LdapUser(ldapdb.models.Model):
 
     id = ldapIntegerField(db_column='employeeNumber', unique=True)
     username = ldapCharField(db_column='uid', primary_key=True)
-    display_name = ldapCharField(db_column='cn')
+    common_name = ldapCharField(db_column='cn')
+    display_name = ldapCharField(db_column='displayName')
     first_name = ldapCharField(db_column='givenName')
     last_name = ldapCharField(db_column='sn')
     email = ldapCharField(db_column='mail')
@@ -116,7 +130,16 @@ def _change_user_cb(sender, instance, created, **kwargs):
         ldap_user = LdapUser(username=instance.username)
 
     ldap_user.id = instance.id
-    ldap_user.display_name = instance.username
+    ldap_user.common_name = instance.username
+    
+    if created:
+        if instance.first_name:
+            display_name = u'{} ({})'.format(instance.first_name,
+                                             instance.username)
+        else:
+            display_name = instance.username
+        ldap_user.display_name = display_name
+
     if instance.first_name:
         ldap_user.first_name = instance.first_name
     if instance.last_name:

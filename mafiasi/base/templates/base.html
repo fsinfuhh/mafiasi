@@ -21,6 +21,8 @@
                 {% if user.is_authenticated %}
                 <div class="pull-right">
                     {% url 'logout' as logout_url %}
+					<a class="btn btn-primary btn-sm" href="{% url 'registration_account' %}">{% trans "My account" %}</a>
+					<a class="btn btn-primary btn-sm" href="{% url 'groups_my_groups' %}">{% trans "My groups" %}</a>
                     <p class="navbar-text">{% blocktrans with username=user.username %}Logged in as {{ username }}{% endblocktrans %}</p>
                     <a class="btn btn-default navbar-btn" href="{{ logout_url }}">{% trans "Logout" %}</a>
                 </div>
