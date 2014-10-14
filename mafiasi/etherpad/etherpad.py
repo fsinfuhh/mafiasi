@@ -94,7 +94,7 @@ class Etherpad(object):
 
     def get_last_edit(self, pad_name):
         try:
-            return float(self.api.getLastEdited(padID=pad_name)['lastEdited']) / 1000
+            return float(self.api.getLastEdited(padID=pad_name.encode('utf-8'))['lastEdited']) / 1000
         except EtherpadException as e:
             if e.message == "padID does not exist":
                 return 0
@@ -102,7 +102,7 @@ class Etherpad(object):
 
     def get_html(self, pad_name):
         try:
-            return self.api.getHTML(padID=pad_name)['html']
+            return self.api.getHTML(padID=pad_name.encode('utf-8'))['html']
         except EtherpadException as e:
             if e.message == "padID does not exist":
                 return ""
