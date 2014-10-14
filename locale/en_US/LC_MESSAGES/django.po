@@ -218,7 +218,7 @@ msgstr "Your group pads"
 
 #: mafiasi/etherpad/templates/etherpad/index.html:31
 msgid "Last changed:"
-msgstr "Lasr changed:"
+msgstr "Last changed:"
 
 #: mafiasi/etherpad/templates/etherpad/menu.html:4
 msgid "Overview"
