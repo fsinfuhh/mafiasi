@@ -89,7 +89,7 @@ class Etherpad(object):
                 return
             raise
 
-    def delete_grop(self, group_name):
+    def delete_group(self, group_name):
         self.api.deleteGroup(groupID=self.get_group_id(group_name))
 
     def get_last_edit(self, pad_name):

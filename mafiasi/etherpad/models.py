@@ -9,5 +9,5 @@ def _delete_group_ep(sender, group, **kwargs):
     pads = ep.get_group_pads(group.name)
     for pad in pads:
         ep.delete_pad(pad)
-    ep.delete_grop(group.name)
+    ep.delete_group(group.name)
 pre_delete.connect(_delete_group_ep, sender=Group)
