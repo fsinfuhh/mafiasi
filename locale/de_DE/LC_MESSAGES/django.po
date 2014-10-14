@@ -220,7 +220,7 @@ msgstr "Deine Gruppenpads"
 
 #: mafiasi/etherpad/templates/etherpad/index.html:31
 msgid "Last changed:"
-msgstr "Letzte änderung:"
+msgstr "Letzte Änderung:"
 
 #: mafiasi/etherpad/templates/etherpad/menu.html:4
 msgid "Overview"
