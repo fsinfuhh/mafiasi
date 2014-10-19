@@ -17,14 +17,10 @@ from mafiasi.groups.models import (GroupInvitation, GroupProxy, GroupError,
         create_usergroup)
 from mafiasi.groups.forms import InvitationForm
 
-def _get_open_invitations(user):
-    return GroupInvitation.objects.filter(invitee=user).count()
-
 @login_required
 def my_groups(request):
     return TemplateResponse(request, 'groups/my_groups.html', {
         'my_groups': request.user.groups.all(),
-        'open_invitations': _get_open_invitations(request.user),
     })
 
 @login_required
@@ -52,7 +48,6 @@ def create(request):
     return TemplateResponse(request, 'groups/create.html', {
         'error': error,
         'group_name': group_name,
-        'open_invitations': _get_open_invitations(request.user),
     })
 
 @login_required
@@ -90,7 +85,6 @@ def show(request, group_name):
         'invitations': invitations,
         'is_groupadmin': is_groupadmin,
         'last_admin': num_admins == 1,
-        'open_invitations': _get_open_invitations(request.user),
     })
 
 @login_required

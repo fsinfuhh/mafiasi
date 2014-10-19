@@ -1,4 +1,5 @@
 {% load i18n %}
+{% load open_invitations %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +23,13 @@
                 <div class="pull-right">
                     {% url 'logout' as logout_url %}
 					<a class="btn btn-primary btn-sm" href="{% url 'registration_account' %}">{% trans "My account" %}</a>
-					<a class="btn btn-primary btn-sm" href="{% url 'groups_my_groups' %}">{% trans "My groups" %}</a>
+					<a class="btn btn-primary btn-sm" href="{% url 'groups_my_groups' %}">
+                        {% trans "My groups" %}
+                        {% open_invitations as oi %}
+                        {% if oi %}
+                            <span class="important-badge">{{ oi }}</span>
+                        {% endif %}
+                    </a>
                     <p class="navbar-text">{% blocktrans with username=user.username %}Logged in as {{ username }}{% endblocktrans %}</p>
                     <a class="btn btn-default navbar-btn" href="{{ logout_url }}">{% trans "Logout" %}</a>
                 </div>
