@@ -18,7 +18,8 @@ from django.views.decorators.http import require_POST
 
 from mafiasi.base.models import Yeargroup, Mafiasi, PasswdEntry
 from mafiasi.registration.forms import (RegisterForm, AdditionalInfoForm,
-                                        PasswordForm, NickChangeForm)
+                                        PasswordForm, NickChangeForm,
+                                        EmailChangeForm)
 
 TOKEN_MAX_AGE = 3600 * 24
 
@@ -172,10 +173,26 @@ def create_account(request, info_token):
     })
 
 @login_required
+def change_email(request, token):
+    try:
+        data = signing.loads(token, max_age=TOKEN_MAX_AGE)
+    except signing.SignatureExpired:
+        return TemplateResponse(request, 'registration/token_expired.html')
+    except signing.BadSignature:
+        return TemplateResponse(request, 'registration/token_invalid.html')
+
+    if data['username'] == request.user.username:
+        request.user.email = data['email']
+        request.user.save()
+
+    return redirect('registration_account')
+
+@login_required
 def account_settings(request):
     if request.POST.get('form') == 'change_pw':
         password_change_form = PasswordChangeForm(request.user, request.POST)
         nick_change_form = NickChangeForm(request.user)
+        email_change_form = EmailChangeForm({'email': request.user.email})
         if password_change_form.is_valid():
             password_change_form.save()
             messages.success(request, _("Password was changed."))
@@ -183,34 +200,39 @@ def account_settings(request):
     elif request.POST.get('form') == 'change_nick':
         password_change_form = PasswordChangeForm(request.user)
         nick_change_form = NickChangeForm(request.user, request.POST)
+        email_change_form = EmailChangeForm({'email': request.user.email})
         if nick_change_form.is_valid():
             nick_change_form.save()
             return redirect('registration_account')
+    elif request.POST.get('form') == 'change_email':
+        email_change_form = EmailChangeForm(request.POST)
+        password_change_form = PasswordChangeForm(request.user)
+        nick_change_form = NickChangeForm(request.user)
+        if email_change_form.is_valid():
+            email = email_change_form.cleaned_data['email']
+            if email == request.user.get_ldapuser().email:
+                return redirect('registration_account')
+            return _verify_email(request, email)
     else:
         password_change_form = PasswordChangeForm(request.user)
         nick_change_form = NickChangeForm(request.user)
+        email_change_form = EmailChangeForm({
+            'email': request.user.get_ldapuser().email,
+        })
     
     return TemplateResponse(request, 'registration/account.html', {
         'password_change_form': password_change_form,
         'nick_change_form': nick_change_form,
-        'username': request.user.username
+        'email_change_form': email_change_form,
+        'username': request.user.username,
     })
 
-def _finish_account_request(request, info):
-    email = u'{0}@{1}'.format(info['account'], info['domain'])
-    token = signing.dumps(info)
-    url_path = reverse('registration_create_account', args=(token,))
-    activation_link = request.build_absolute_uri(url_path)
-    email_content = render_to_string('registration/create_email.html', {
-        'activation_link': activation_link
-    })
-    print(email_content)
-    
+def _send_verification_mail(request, address, body):
     try:
         send_mail(_('Account creation at mafiasi.de'),
-                  email_content,
+                  body,
                   None,
-                  [email])
+                  [address])
     except SMTPRecipientsRefused as e:
         wrong_email, (error_code, error_msg) = e.recipients.items()[0]
         unknown = 'User unknown' in error_msg
@@ -228,5 +250,32 @@ def _finish_account_request(request, info):
             'recipient': wrong_email
         })
 
-    return redirect('registration_request_successful', "{}@{}".format(
-        info['account'], info['domain']))
+    return redirect('registration_request_successful', address)
+
+# TODO: Refactor this to eliminate duplicate code
+def _verify_email(request, email):
+    token = signing.dumps({
+        'username': request.user.username,
+        'email': email,
+    })
+    url_path = reverse('registration_change_email', args=(token,))
+    verification_link = request.build_absolute_uri(url_path)
+    email_content = render_to_string('registration/verify_email.html', {
+        'verification_link': verification_link,
+        'name': request.user.get_ldapuser().first_name,
+    })
+    print(email_content)
+
+    return _send_verification_mail(request, email, email_content)
+
+def _finish_account_request(request, info):
+    email = u'{0}@{1}'.format(info['account'], info['domain'])
+    token = signing.dumps(info)
+    url_path = reverse('registration_create_account', args=(token,))
+    activation_link = request.build_absolute_uri(url_path)
+    email_content = render_to_string('registration/create_email.html', {
+        'activation_link': activation_link
+    })
+    print(email_content)
+
+    return _send_verification_mail(request, email, email_content)

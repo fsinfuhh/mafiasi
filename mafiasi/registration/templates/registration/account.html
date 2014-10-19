@@ -26,6 +26,24 @@
     <p><button type="submit" class="btn btn-default">{% trans "Change" %}</button></p>
 </form>
 
+<h3>{% trans "Change Email" %}</h3>
+<form method="post">
+    {% csrf_token %}
+    <input type="hidden" name="form" value="change_email"/>
+    {% if email_change_form.email.errors %}
+    <div class="alert alert-danger">
+        {{ email_change_form.email.errors }}
+    </div>
+    {% endif %}
+    <div class="input-group">
+        <label class="control-label"></label>
+        {% render_field email_change_form.email class+="form-control" %}
+        <span class="input-group-btn">
+            <button type="submit" class="btn btn-default">{% trans "Change" %}</button>
+        </span>
+    </div>
+</form>
+
 <h3>{% trans "Change password" %}</h3>
 <p>{% trans 'Note: You can "change" your password to the current password to synchronize it with other services (e.g. Jabber)' %}</p>
 <form method="post">
