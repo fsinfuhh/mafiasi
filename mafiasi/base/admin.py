@@ -11,6 +11,7 @@ class PasswdEntryAdmin(admin.ModelAdmin):
 class MafiasiChangeForm(UserChangeForm):
     class Meta:
         model = Mafiasi
+        fields = '__all__'
 
 class MafiasiAdmin(UserAdmin):
     fieldsets = UserAdmin.fieldsets + (
