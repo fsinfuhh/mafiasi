@@ -161,6 +161,8 @@ INSTALLED_APPS = (
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 
+TEST_RUNNER = 'django.test.runner.DiscoverRunner'
+
 AUTH_USER_MODEL = 'base.Mafiasi'
 EMAIL_DOMAIN = u'informatik.uni-hamburg.de'
 PRIMARY_DOMAIN = u'informatik.uni-hamburg.de'
