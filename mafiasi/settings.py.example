@@ -144,7 +144,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'mafiasi.base',
-    'mafiasi.cal',
     'mafiasi.dashboard',
     'mafiasi.discourse',
     'mafiasi.etherpad',
