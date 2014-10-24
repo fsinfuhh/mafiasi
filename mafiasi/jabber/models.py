@@ -35,11 +35,11 @@ class PrivacyListData(models.Model):
     value = models.TextField()
     action = models.CharField(max_length=1)
     ord = models.DecimalField(max_digits=65535, decimal_places=65535)
-    match_all = models.BooleanField()
-    match_iq = models.BooleanField()
-    match_message = models.BooleanField()
-    match_presence_in = models.BooleanField()
-    match_presence_out = models.BooleanField()
+    match_all = models.BooleanField(default=False)
+    match_iq = models.BooleanField(default=False)
+    match_message = models.BooleanField(default=False)
+    match_presence_in = models.BooleanField(default=False)
+    match_presence_out = models.BooleanField(default=False)
     class Meta:
         db_table = 'privacy_list_data'
 
