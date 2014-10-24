@@ -11,8 +11,8 @@ class News(models.Model):
     text = models.TextField(blank=True)
     created_at = models.DateTimeField(default=now, db_index=True)
     created_by = models.ForeignKey(settings.AUTH_USER_MODEL)
-    frontpage = models.BooleanField(db_index=True)
-    published = models.BooleanField()
+    frontpage = models.BooleanField(db_index=True, default=False)
+    published = models.BooleanField(default=False)
 
     class Meta(object):
         verbose_name = 'news'
@@ -31,7 +31,7 @@ class Panel(models.Model):
     title = models.CharField(max_length=120)
     content = models.TextField()
     position = models.IntegerField()
-    shown = models.BooleanField()
+    shown = models.BooleanField(default=False)
 
     def __unicode__(self):
         return self.title
