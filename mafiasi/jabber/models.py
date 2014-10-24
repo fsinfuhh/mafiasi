@@ -30,7 +30,7 @@ class PrivacyList(models.Model):
 
 class PrivacyListData(models.Model):
     privacy_list = models.ForeignKey(PrivacyList,
-        db_column='id', related_name='data')
+        db_column='id', related_name='data', primary_key=True)
     t = models.CharField(max_length=1)
     value = models.TextField()
     action = models.CharField(max_length=1)
