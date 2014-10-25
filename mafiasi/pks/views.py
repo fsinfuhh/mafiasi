@@ -98,7 +98,7 @@ def hkp_add_key(request):
     result = ctx.import_(StringIO(keytext.encode('utf-8')))
 
     return HttpResponse('OK. {0} keys imported.'.format(result.imported),
-                        mimetype='text/plain')
+                        content_type='text/plain')
 
 def hkp_lookup(request):
     op = request.GET.get('op', '')
@@ -108,11 +108,11 @@ def hkp_lookup(request):
     if op not in ('get', 'index'):
         return HttpResponse('Operation not implemented.',
                             status=501,
-                            mimetype='text/plain')
+                            content_type='text/plain')
 
     if not search:
         return HttpResponseBadRequest('Please provide a search term.',
-                                      mimetype='text/plain')
+                                      content_type='text/plain')
 
     if op == 'get':
         return _hkp_op_get(request, search, options)
@@ -124,12 +124,12 @@ def _hkp_op_get(request, search, options):
     ctx = gpgme.Context()
     ctx.armor = True
     
-    resp = HttpResponse(mimetype='text/plain')
+    resp = HttpResponse(content_type='text/plain')
     ctx.export(search.encode('utf-8'), resp)
     
     if not resp.content:
         return HttpResponseNotFound('No such key: ' + search,
-                                    mimetype='text/plain')
+                                    content_type='text/plain')
     return resp
 
 def _hkp_op_index(request, search, options):
@@ -149,7 +149,7 @@ def _hkp_op_index_human(key_list):
     return 
 
 def _hkp_op_index_mr(key_list):
-    resp = HttpResponse(mimetype='text/plain')
+    resp = HttpResponse(content_type='text/plain')
     resp.write('info:1:{0}\n'.format(len(key_list)))
     
     key_tpl = 'pub:{keyid}:{algo}:{keylen}:{created}:{expires}:{flags}\n'
