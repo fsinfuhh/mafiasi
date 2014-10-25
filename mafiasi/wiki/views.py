@@ -22,4 +22,4 @@ def autocomplete(request):
             ["Please configure your webserver to proxy requests"]
         ]
         result = json.dumps(result)
-    return HttpResponse(result, mimetype='application/x-json')
+    return HttpResponse(result, content_type='application/x-json')
