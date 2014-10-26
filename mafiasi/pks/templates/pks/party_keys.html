@@ -8,6 +8,8 @@
 {% endblock %}
 
 {% block content %}
+<p><a href="{% url 'pks_party_keys_export' party.pk %}">{% trans "Download all participating keys" %}</a></p>
+
 {% for participant in participants %}
 <h3>{{ participant.user.get_full_name }}</h3>
 {% include "pks/keylist.html" with keys=participant.keys %}

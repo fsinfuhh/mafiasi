@@ -170,7 +170,17 @@ def party_keys(request, party_pk):
         'participants': participants
     })
 
-    
+@login_required
+def party_keys_export(request, party_pk):    
+    party = get_object_or_404(KeysigningParty, pk=party_pk)
+
+    ctx = gpgme.Context()
+    ctx.armor = True
+    resp = HttpResponse(content_type='text/plain')
+    for participant in party.participants.select_related():
+        for key in participant.keys.all():
+            ctx.export(key.fingerprint.encode('utf-8'), resp)
+    return resp
 
 @csrf_exempt
 def hkp_add_key(request):
