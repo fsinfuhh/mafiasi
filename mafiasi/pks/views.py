@@ -1,19 +1,23 @@
+from datetime import datetime
 from StringIO import StringIO
 from urllib import quote
 
 import gpgme
+import pytz
 
 from django.template.response import TemplateResponse
-from django.shortcuts import redirect, Http404
+from django.shortcuts import redirect, get_object_or_404, Http404
 from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_exempt
+from django.utils.translation import ugettext as _
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from django.http import (HttpResponse, HttpResponseNotFound,
         HttpResponseBadRequest)
 from django.conf import settings
 
 from mafiasi.pks.forms import ImportForm
-from mafiasi.pks.models import AssignedKey
+from mafiasi.pks.models import AssignedKey, KeysigningParty, Participant
 
 def index(request):
     return redirect('pks_search')
@@ -86,6 +90,87 @@ def search(request):
     return TemplateResponse(request, 'pks/search.html', {
         'hkp_url': settings.HKP_URL
     })
+
+def party_list(request):
+    parties = list(KeysigningParty.objects.order_by('-event_date'))
+
+    # Fetch parties the user participates in
+    user_party_pks = set()
+    if request.user.is_authenticated():
+        for participant in Participant.objects.filter(user=request.user):
+            user_party_pks.add(participant.party.pk)
+    # Mark those parties
+    for party in parties:
+        party.user_participates = party.pk in user_party_pks
+
+    return TemplateResponse(request, 'pks/party_list.html', {
+        'parties': parties
+    })
+
+@login_required
+def party_participate(request, party_pk):
+    party = get_object_or_404(KeysigningParty, pk=party_pk)
+    if party.submission_expired():
+        messages.error(request, _("Sorry, submission period is over."))
+        return redirect('pks_party_list')
+
+    if request.method == 'POST':
+        fingerprints = request.POST.getlist('fingerprint')
+        keys = AssignedKey.objects.filter(fingerprint__in=fingerprints,
+                                          user=request.user)
+        
+        user = request.user
+        try:
+            participant = Participant.objects.get(user=user, party=party)
+            if not keys:
+                participant.delete()
+                participant = None
+        except Participant.DoesNotExist:
+            if keys:
+                participant = Participant.objects.create(user=user, party=party)
+            else:
+                participant = None
+        
+        if participant:
+            participant.keys.clear()
+            for key in keys:
+                participant.keys.add(key)
+        
+            messages.success(request,
+                    _("Successfully submitted keys to party."))
+            return redirect('pks_party_keys', party.pk)
+        else:
+            messages.success(request,
+                    _("Not participating in this keysigning party."))
+            return redirect('pks_party_list')
+    
+    keys = [key.get_keyobj()
+            for key in AssignedKey.objects.filter(user=request.user)]
+    
+    return TemplateResponse(request, 'pks/party_participate.html', {
+        'party': party,
+        'keys': keys
+    })
+
+@login_required
+def party_keys(request, party_pk):
+    party = get_object_or_404(KeysigningParty, pk=party_pk)
+    
+    participants_qs = party.participants.select_related().order_by(
+            'user__first_name')
+    participants = []
+    for participant in participants_qs:
+        participants.append({
+            'user': participant.user,
+            'keys': [key.get_keyobj() for key in participant.keys.all()]
+        })
+
+    return TemplateResponse(request, 'pks/party_keys.html', {
+        'party': party,
+        'participants': participants
+    })
+
+    
 
 @csrf_exempt
 def hkp_add_key(request):

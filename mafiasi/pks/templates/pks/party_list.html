@@ -1,0 +1,35 @@
+{% extends "pks/base.html" %}
+{% load i18n %}
+
+{% block ptitle %}{% block wtitle %}{% trans "Parties" %}{% endblock %}{% endblock %}
+
+{% block submenu %}
+{% include "pks/menu.html" with tab='party_list' %}
+{% endblock %}
+
+{% block content %}
+<table class="table table-striped table-hover">
+<thead>
+    <tr>
+        <th>{% trans "Name" %}</th>
+        <th>{% trans "Date" %}</th>
+        <th>{% trans "Key submission until" %}</th>
+        <th>{% trans "Participate" %}</th>
+    </tr>
+</thead>
+<tbody>
+{% for party in parties %}
+    <tr>
+        <td><a href="{% url 'pks_party_keys' party.pk %}">{{ party.name }}</a></td>
+        <td>{{ party.event_date|date:"Y-m-d" }}</td>
+        <td>{{ party.submit_until|date:"Y-m-d H:i" }}</td>
+        <td>
+        {% if not party.submission_expired %}
+            <a class="btn btn-primary" href="{% url 'pks_party_participate' party.pk %}">{% if party.user_participates %}{% trans "Change keys" %}{% else %}{% trans "Participate" %}{% endif %}</a>
+        {% endif %}
+        </td>
+    </tr>
+{% endfor %}
+</tbody>
+</table>
+{% endblock content %}

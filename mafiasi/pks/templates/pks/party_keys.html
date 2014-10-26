@@ -1,0 +1,15 @@
+{% extends "pks/base.html" %}
+{% load i18n %}
+
+{% block ptitle %}{% block wtitle %}{% trans "Party keys:" %} {{ party.name }}{% endblock %}{% endblock %}
+
+{% block submenu %}
+{% include "pks/menu.html" with tab='party_keys' %}
+{% endblock %}
+
+{% block content %}
+{% for participant in participants %}
+<h3>{{ participant.user.get_full_name }}</h3>
+{% include "pks/keylist.html" with keys=participant.keys %}
+{% endfor %}
+{% endblock %}

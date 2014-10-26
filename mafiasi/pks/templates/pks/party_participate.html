@@ -1,0 +1,20 @@
+
+{% extends "pks/base.html" %}
+{% load i18n %}
+
+{% block ptitle %}{% block wtitle %}{% trans "Participate" %}{% endblock %}{% endblock %}
+
+{% block submenu %}
+{% include "pks/menu.html" with tab='party_participate' party=party %}
+{% endblock %}
+
+{% block content %}
+<p>{% trans "Please select the keys you want to be signed by others." %}</p>
+<form method="post">
+{% csrf_token %}
+{% include "pks/keylist.html" with keys=keys checkbox=True %}
+
+<button class="btn btn-primary">{% trans "Participate" %}</button>
+</form>
+
+{% endblock content %}
