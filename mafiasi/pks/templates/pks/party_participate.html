@@ -13,6 +13,8 @@
 <form method="post">
 {% csrf_token %}
 {% include "pks/keylist.html" with keys=keys checkbox=True %}
+{% url 'pks_my_keys' as my_keys_url %}
+<p>{% blocktrans %}Missing a key? <a href="{{ my_keys_url }}">Manage your keys</a>.{% endblocktrans %}</p>
 
 <button class="btn btn-primary">{% trans "Participate" %}</button>
 </form>
