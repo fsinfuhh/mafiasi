@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-26 18:58+0100\n"
-"PO-Revision-Date: 2014-10-26 18:59+0100\n"
+"POT-Creation-Date: 2014-10-26 19:20+0100\n"
+"PO-Revision-Date: 2014-10-26 19:20+0100\n"
 "Last-Translator: Henning Pridöhl <8pridoeh@informatik.uni-hamburg.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: en\n"
@@ -1170,6 +1170,10 @@ msgstr "You have no keys assigned to you."
 #: mafiasi/pks/templates/pks/party_keys.html:4
 msgid "Party keys:"
 msgstr "Party keys:"
+
+#: mafiasi/pks/templates/pks/party_keys.html:11
+msgid "Download all participating keys"
+msgstr "Download all participating keys"
 
 #: mafiasi/pks/templates/pks/party_list.html:16
 msgid "Key submission until"
