@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-26 17:22+0100\n"
-"PO-Revision-Date: 2014-10-26 17:22+0100\n"
+"POT-Creation-Date: 2014-10-26 18:58+0100\n"
+"PO-Revision-Date: 2014-10-26 18:59+0100\n"
 "Last-Translator: Henning Pridöhl <8pridoeh@informatik.uni-hamburg.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: en\n"
@@ -1168,7 +1168,6 @@ msgid "You have no keys assigned to you."
 msgstr "You have no keys assigned to you."
 
 #: mafiasi/pks/templates/pks/party_keys.html:4
-#| msgid "My keys"
 msgid "Party keys:"
 msgstr "Party keys:"
 
@@ -1179,19 +1178,22 @@ msgstr "Key submission until"
 #: mafiasi/pks/templates/pks/party_list.html:17
 #: mafiasi/pks/templates/pks/party_list.html:28
 #: mafiasi/pks/templates/pks/party_participate.html:5
-#: mafiasi/pks/templates/pks/party_participate.html:17
+#: mafiasi/pks/templates/pks/party_participate.html:19
 msgid "Participate"
 msgstr "Participate"
 
 #: mafiasi/pks/templates/pks/party_list.html:28
-#| msgid "Change"
 msgid "Change keys"
 msgstr "Change keys"
 
 #: mafiasi/pks/templates/pks/party_participate.html:12
-#| msgid "Please note: The group name can be seen by other users."
 msgid "Please select the keys you want to be signed by others."
 msgstr "Please select the keys you want to be signed by others."
+
+#: mafiasi/pks/templates/pks/party_participate.html:17
+#, python-format
+msgid "Missing a key? <a href=\"%(my_keys_url)s\">Manage your keys</a>."
+msgstr "Missing a key? <a href=\"%(my_keys_url)s\">Manage your keys</a>."
 
 #: mafiasi/pks/templates/pks/search.html:4
 msgid "Key search"
