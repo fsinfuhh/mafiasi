@@ -15,11 +15,13 @@ MIN_GROUPNAME_LENGTH = 3
 class GroupError(Exception):
     pass
 
+
 class GroupProperties(models.Model):
     group = models.OneToOneField(Group, related_name='properties')
     admins = models.ManyToManyField(settings.AUTH_USER_MODEL,
             related_name='admin_of')
     public_members = models.BooleanField(default=False)
+    has_mailinglist = models.BooleanField(default=False)
     
     def get_ldap_group(self):
         return LdapGroup.objects.get(gid=self.group.pk)

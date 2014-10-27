@@ -281,3 +281,6 @@ GPROT_IMAGE_MAX_SIZE = 1
 GPROT_PDF_MAX_SIZE = 5
 
 PKS_COMMUNITY_DOMAINS = ['informatik.uni-hamburg.de', 'studium.uni-hamburg.de']
+
+LIST_DOMAIN = 'vereinigte.mafiasi.de'
+VALID_EMAIL_ADDRESSES = ['postmaster@mafiasi.de']
