@@ -8,7 +8,10 @@
 {% endblock %}
 
 {% block content %}
-<p><a href="{% url 'pks_party_keys_export' party.pk %}">{% trans "Download all participating keys" %}</a></p>
+<ul>
+	<li><a href="{% url 'pks_party_keys_export' party.pk %}">{% trans "Download all participating keys" %}</a></li>
+	<li><a href="{% url 'pks_party_graph' party.pk %}">{% trans "Show trust graph for this party" %}</a></li>
+</ul>
 
 {% for participant in participants %}
 <h3>{{ participant.user.get_full_name }}</h3>
