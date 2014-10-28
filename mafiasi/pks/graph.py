@@ -213,7 +213,7 @@ def _get_color(signature_stats, keyid):
     maxsignedbycount = signature_stats['maxsignedbycount']
 
     red, green, blue = 0, 1/3, 1/3
-    red = sigcount[keyid] / maxsigcount
+    red = sigcount[keyid] / maxsigcount if maxsigcount else 0
     if sigcount[keyid] and maxratio != 0:
         green = ((signedbycount[keyid] / sigcount[keyid] / maxratio * 0.75) *
                  2/3 + 1/3)
