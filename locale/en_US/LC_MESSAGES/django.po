@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-26 19:20+0100\n"
-"PO-Revision-Date: 2014-10-26 19:20+0100\n"
+"POT-Creation-Date: 2014-10-28 20:57+0100\n"
+"PO-Revision-Date: 2014-10-28 20:58+0100\n"
 "Last-Translator: Henning Pridöhl <8pridoeh@informatik.uni-hamburg.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: en\n"
@@ -1098,7 +1098,7 @@ msgstr "All keys on the keyserver"
 msgid "Trust graph"
 msgstr "Trust graph"
 
-#: mafiasi/pks/templates/pks/graph.html:12
+#: mafiasi/pks/templates/pks/graph.html:16
 msgid "You can drag the blue selector at the upper left to scroll. Click on a node to highlight its connections."
 msgstr "You can drag the blue selector at the upper left to scroll. Click on a node to highlight its connections."
 
@@ -1159,6 +1159,11 @@ msgstr "Party:"
 msgid "Participate:"
 msgstr "Participate:"
 
+#: mafiasi/pks/templates/pks/menu.html:42
+#| msgid "Trust graph"
+msgid "Trust graph:"
+msgstr "Trust graph:"
+
 #: mafiasi/pks/templates/pks/my_keys.html:15
 msgid "Unassign"
 msgstr "Unassign"
@@ -1171,9 +1176,13 @@ msgstr "You have no keys assigned to you."
 msgid "Party keys:"
 msgstr "Party keys:"
 
-#: mafiasi/pks/templates/pks/party_keys.html:11
+#: mafiasi/pks/templates/pks/party_keys.html:12
 msgid "Download all participating keys"
 msgstr "Download all participating keys"
+
+#: mafiasi/pks/templates/pks/party_keys.html:13
+msgid "Show trust graph for this party"
+msgstr "Show trust graph for this party"
 
 #: mafiasi/pks/templates/pks/party_list.html:16
 msgid "Key submission until"
@@ -1261,15 +1270,15 @@ msgstr "Never."
 msgid "Expired at {0}"
 msgstr "Expired at {0}"
 
-#: mafiasi/pks/views.py:114
+#: mafiasi/pks/views.py:121
 msgid "Sorry, submission period is over."
 msgstr "Sorry, submission period is over."
 
-#: mafiasi/pks/views.py:140
+#: mafiasi/pks/views.py:147
 msgid "Successfully submitted keys to party."
 msgstr "Successfully submitted keys to party."
 
-#: mafiasi/pks/views.py:144
+#: mafiasi/pks/views.py:151
 msgid "Not participating in this keysigning party."
 msgstr "Not participating in this keysigning party."
 
