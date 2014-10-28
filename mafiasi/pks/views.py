@@ -1,3 +1,4 @@
+import json
 from StringIO import StringIO
 from urllib import quote
 
@@ -27,6 +28,32 @@ def my_keys(request):
     return TemplateResponse(request, 'pks/my_keys.html', {
         'keys': keys
     })
+
+@login_required
+def autocomplete_keys(request):
+    term = request.GET.get('term', u'')
+    resp = HttpResponse(content_type='text/plain')
+    if len(term) < 3:
+        json.dump([], resp)
+        return resp
+    
+    ctx = gpgme.Context()
+    keys = ctx.keylist(term.encode('utf-8'))
+    autocomplete_data = []
+    for key in keys:
+        try:
+            uid = key.uids[0]
+            keyid = key.subkeys[0].keyid
+            print repr(uid.name)
+            label = u'{}: {} <{}>'.format(keyid, uid.name, uid.email)
+            autocomplete_data.append({
+                'value': keyid,
+                'label': label
+            })
+        except IndexError:
+            continue
+    json.dump(autocomplete_data, resp)
+    return resp
 
 @login_required
 def upload_keys(request):
