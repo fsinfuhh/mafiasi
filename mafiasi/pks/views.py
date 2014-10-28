@@ -1,9 +1,7 @@
-from datetime import datetime
 from StringIO import StringIO
 from urllib import quote
 
 import gpgme
-import pytz
 
 from django.template.response import TemplateResponse
 from django.shortcuts import redirect, get_object_or_404, Http404
