@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-28 20:57+0100\n"
-"PO-Revision-Date: 2014-10-28 20:58+0100\n"
+"POT-Creation-Date: 2014-10-28 23:09+0100\n"
+"PO-Revision-Date: 2014-10-28 23:10+0100\n"
 "Last-Translator: Henning Pridöhl <8pridoeh@informatik.uni-hamburg.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: en\n"
@@ -1147,7 +1147,7 @@ msgid "Key: %(keyid)s"
 msgstr "Key: %(keyid)s"
 
 #: mafiasi/pks/templates/pks/menu.html:27
-#: mafiasi/pks/templates/pks/my_keys.html:22
+#: mafiasi/pks/templates/pks/my_keys.html:32
 msgid "Upload own keys"
 msgstr "Upload own keys"
 
@@ -1160,7 +1160,6 @@ msgid "Participate:"
 msgstr "Participate:"
 
 #: mafiasi/pks/templates/pks/menu.html:42
-#| msgid "Trust graph"
 msgid "Trust graph:"
 msgstr "Trust graph:"
 
@@ -1171,6 +1170,18 @@ msgstr "Unassign"
 #: mafiasi/pks/templates/pks/my_keys.html:18
 msgid "You have no keys assigned to you."
 msgstr "You have no keys assigned to you."
+
+#: mafiasi/pks/templates/pks/my_keys.html:25
+msgid "Keyid:"
+msgstr "Keyid:"
+
+#: mafiasi/pks/templates/pks/my_keys.html:29
+msgid "Assign key to me"
+msgstr "Assign key to me"
+
+#: mafiasi/pks/templates/pks/my_keys.html:35
+msgid "Tip: You can type your name or email into the keyid field for autocompletion."
+msgstr "Tip: You can type your name or email into the keyid field for autocompletion."
 
 #: mafiasi/pks/templates/pks/party_keys.html:4
 msgid "Party keys:"
@@ -1270,15 +1281,32 @@ msgstr "Never."
 msgid "Expired at {0}"
 msgstr "Expired at {0}"
 
-#: mafiasi/pks/views.py:121
+#: mafiasi/pks/views.py:65
+#| msgid "Could not the given keyid."
+msgid "Could not find the given keyid."
+msgstr "Could not find the given keyid."
+
+#: mafiasi/pks/views.py:68
+msgid "Could not find a valid subkey."
+msgstr "Could not find a valid subkey."
+
+#: mafiasi/pks/views.py:74
+msgid "Key was successfully assigned to you."
+msgstr "Key was successfully assigned to you."
+
+#: mafiasi/pks/views.py:76
+msgid "Key was already assigned to you"
+msgstr "Key was already assigned to you"
+
+#: mafiasi/pks/views.py:168
 msgid "Sorry, submission period is over."
 msgstr "Sorry, submission period is over."
 
-#: mafiasi/pks/views.py:147
+#: mafiasi/pks/views.py:194
 msgid "Successfully submitted keys to party."
 msgstr "Successfully submitted keys to party."
 
-#: mafiasi/pks/views.py:151
+#: mafiasi/pks/views.py:198
 msgid "Not participating in this keysigning party."
 msgstr "Not participating in this keysigning party."
 
