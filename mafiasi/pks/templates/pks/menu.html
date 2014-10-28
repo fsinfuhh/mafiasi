@@ -37,4 +37,9 @@
         <a href="{% url 'pks_party_participate' party.pk %}">{% trans "Participate:" %} {{ party.name }}</a>
     </li>
     {% endif %}
+    {% if tab == 'party_graph' %}
+    <li class="active">
+        <a href="{% url 'pks_party_graph' party.pk %}">{% trans "Trust graph:" %} {{ party.name }}</a>
+    </li>
+    {% endif %}
 </ul>

@@ -62,8 +62,16 @@ def all_keys(request):
         'keys': keys
     })
 
-def graph(request):
-    return TemplateResponse(request, 'pks/graph.html')
+def graph(request, party_pk=None):
+    party = None
+    graph_name = 'global'
+    if party_pk:
+        party = get_object_or_404(KeysigningParty, pk=party_pk)
+        graph_name = 'party{}'.format(party.pk)
+    return TemplateResponse(request, 'pks/graph.html', {
+        'graph_name': graph_name,
+        'party': party
+    })
 
 def show_key(request, keyid, raw=False):
     if raw:

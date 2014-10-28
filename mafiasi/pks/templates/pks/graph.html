@@ -5,7 +5,11 @@
 {% block heading %}{% endblock %}
 
 {% block submenu %}
+{% if party %}
+{% include "pks/menu.html" with tab='party_graph' party=party %}
+{% else %}
 {% include "pks/menu.html" with tab='graph' %}
+{% endif %}
 {% endblock %}
 
 {% block content %}
@@ -15,12 +19,12 @@
 {% block outsidecontent %}
 <div id="pks-graphcontainer">
     <div id="pks-graphthumbcontainer">
-        <img src="{{ MEDIA_URL }}pks-graphthumb-global.png" id="pks-graph-thumb" />
+        <img src="{{ MEDIA_URL }}pks-graphthumb-{{ graph_name }}.png" id="pks-graph-thumb" />
         <div id="pks-graphselector"></div>
     </div>
 
     <div id="pks-graphscroll">
-		<object id="pks-graph" type="image/svg+xml" data="{{ MEDIA_URL }}pks-graph-global.svg"></object>
+		<object id="pks-graph" type="image/svg+xml" data="{{ MEDIA_URL }}pks-graph-{{ graph_name }}.svg"></object>
     </div>
 </div>
 
