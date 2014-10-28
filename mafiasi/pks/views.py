@@ -62,7 +62,7 @@ def assign_keyid(request):
         key = ctx.get_key(request.POST.get('keyid', u'').encode('utf-8'))
         fingerprint = key.subkeys[0].fpr
     except gpgme.GpgmeError:
-        messages.error(request, _('Could not the given keyid.'))
+        messages.error(request, _('Could not find the given keyid.'))
         return redirect('pks_my_keys')
     except IndexError:
         messages.error(request, _('Could not find a valid subkey.'))
