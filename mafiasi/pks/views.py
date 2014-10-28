@@ -17,6 +17,7 @@ from django.conf import settings
 
 from mafiasi.pks.forms import ImportForm
 from mafiasi.pks.models import AssignedKey, KeysigningParty, Participant
+from mafiasi.pks.graph import build_signature_graph
 
 def index(request):
     return redirect('pks_search')
@@ -234,6 +235,25 @@ def party_keys_export(request, party_pk):
         for key in participant.keys.all():
             ctx.export(key.fingerprint.encode('utf-8'), resp)
     return resp
+
+@login_required
+def party_missing_signatures(request, party_pk):
+    party = get_object_or_404(KeysigningParty, pk=party_pk)
+    key_list = []
+    own_keyids = set()
+    for participant in party.participant.select_related():
+        for key in participant.keys.all():
+            key_obj = key.get_keyobj()
+            key_list.append(key_obj)
+            
+            if participant.user == request.user:
+                own_keyids.append(key_obj.keyid)
+
+    # signature_graph: signed_keyid -> []signer_keyid
+    signature_graph = build_signature_graph(key_list)
+
+    missing_myself = None
+    missing_others = None
 
 @csrf_exempt
 def hkp_add_key(request):
