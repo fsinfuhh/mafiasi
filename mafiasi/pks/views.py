@@ -56,6 +56,27 @@ def autocomplete_keys(request):
     return resp
 
 @login_required
+def assign_keyid(request):
+    ctx = gpgme.Context()
+    try:
+        key = ctx.get_key(request.POST.get('keyid', u'').encode('utf-8'))
+        fingerprint = key.subkeys[0].fpr
+    except gpgme.GpgmeError:
+        messages.error(request, _('Could not the given keyid.'))
+        return redirect('pks_my_keys')
+    except IndexError:
+        messages.error(request, _('Could not find a valid subkey.'))
+        return redirect('pks_my_keys')
+
+    _key, created = AssignedKey.objects.get_or_create(fingerprint=fingerprint,
+                                                      user=request.user)
+    if created:
+        messages.success(request, _('Key was successfully assigned to you.'))
+    else:
+        messages.info(request, _('Key was already assigned to you'))
+    return redirect('pks_my_keys')
+
+@login_required
 def upload_keys(request):
     if request.method == 'POST':
         form = ImportForm(request.POST)

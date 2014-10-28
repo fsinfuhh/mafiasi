@@ -17,8 +17,29 @@
 {% else %}
 <p>{% trans "You have no keys assigned to you." %}</p>
 {% endif %}
-<p><a class="btn btn-primary" href="{% url 'pks_upload_keys' %}">
+
+<form class="form-inline" role="form" method="post" action="{% url 'pks_assign_keyid' %}">
+{% csrf_token %}
+<div class="form-group">
+	<div class="input-group">
+		<div class="input-group-addon">{% trans "Keyid:" %}</div>
+		<input class="form-control" id="assign-keyid" name="keyid" />
+	</div>
+</div>
+<button class="btn btn-primary">{% trans "Assign key to me" %}</button>
+<a class="btn btn-primary" href="{% url 'pks_upload_keys' %}">
     <span class="glyphicon glyphicon-plus"></span>
     {% trans 'Upload own keys' %}
-</a></p>
+</a>
+</form>
+<p>{% trans "Tip: You can type your name or email into the keyid field for autocompletion." %}</p>
+
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript">
+$(function() {
+	$('#assign-keyid').autocomplete({'source': "{% url 'pks_autocomplete_keys' %}"});
+});
+</script>
 {% endblock %}
