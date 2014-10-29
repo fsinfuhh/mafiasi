@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-29 22:59+0100\n"
-"PO-Revision-Date: 2014-10-29 23:00+0100\n"
+"POT-Creation-Date: 2014-10-29 23:31+0100\n"
+"PO-Revision-Date: 2014-10-29 23:31+0100\n"
 "Last-Translator: Henning Pridöhl <8pridoeh@informatik.uni-hamburg.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: en\n"
@@ -1099,16 +1099,10 @@ msgid "Trust graph"
 msgstr "Trust graph"
 
 #: mafiasi/pks/templates/pks/graph.html:17
-#| msgid ""
-#| "You can drag the blue selector at the upper left to scroll. Click on a "
-#| "node to highlight its connections."
 msgid "You can drag the blue selector at the upper left to scroll."
 msgstr "You can drag the blue selector at the upper left to scroll."
 
 #: mafiasi/pks/templates/pks/graph.html:18
-#| msgid ""
-#| "You can drag the blue selector at the upper left to scroll. Click on a "
-#| "node to highlight its connections."
 msgid "Click on a node to highlight its connections."
 msgstr "Click on a node to highlight its connections."
 
@@ -1231,9 +1225,13 @@ msgstr "Commands to sign selected keys"
 msgid "Using caff"
 msgstr "Using caff"
 
-#: mafiasi/pks/templates/pks/party_keys.html:32
+#: mafiasi/pks/templates/pks/party_keys.html:33
 msgid "Using only GnuPG"
 msgstr "Using only GnuPG"
+
+#: mafiasi/pks/templates/pks/party_keys.html:34
+msgid "Ask for confirmation for each key."
+msgstr "Ask for confirmation for each key."
 
 #: mafiasi/pks/templates/pks/party_list.html:16
 msgid "Key submission until"
