@@ -229,7 +229,8 @@ def party_keys(request, party_pk):
 
     return TemplateResponse(request, 'pks/party_keys.html', {
         'party': party,
-        'participants': participants
+        'participants': participants,
+        'hkp_url': settings.HKP_URL
     })
 
 @login_required
