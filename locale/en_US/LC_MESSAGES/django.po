@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-28 23:09+0100\n"
-"PO-Revision-Date: 2014-10-28 23:10+0100\n"
+"POT-Creation-Date: 2014-10-29 15:36+0100\n"
+"PO-Revision-Date: 2014-10-29 15:41+0100\n"
 "Last-Translator: Henning Pridöhl <8pridoeh@informatik.uni-hamburg.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: en\n"
@@ -1195,6 +1195,10 @@ msgstr "Download all participating keys"
 msgid "Show trust graph for this party"
 msgstr "Show trust graph for this party"
 
+#: mafiasi/pks/templates/pks/party_keys.html:14
+msgid "Show missing signatures"
+msgstr "Show missing signatures"
+
 #: mafiasi/pks/templates/pks/party_list.html:16
 msgid "Key submission until"
 msgstr "Key submission until"
@@ -1209,6 +1213,47 @@ msgstr "Participate"
 #: mafiasi/pks/templates/pks/party_list.html:28
 msgid "Change keys"
 msgstr "Change keys"
+
+#: mafiasi/pks/templates/pks/party_missing_signatures.html:4
+#: mafiasi/pks/templates/pks/party_missing_signatures.html:5
+msgid "Missing signatures:"
+msgstr "Missing signatures:"
+
+#: mafiasi/pks/templates/pks/party_missing_signatures.html:12
+msgid "Keys missing my signatures"
+msgstr "Keys missing my signatures"
+
+#: mafiasi/pks/templates/pks/party_missing_signatures.html:17
+#: mafiasi/pks/templates/pks/party_missing_signatures.html:45
+#| msgid "Username"
+msgid "User"
+msgstr "User"
+
+#: mafiasi/pks/templates/pks/party_missing_signatures.html:18
+#: mafiasi/pks/templates/pks/party_missing_signatures.html:46
+#| msgid "Key submission until"
+msgid "Key missing signature"
+msgstr "Key missing signature"
+
+#: mafiasi/pks/templates/pks/party_missing_signatures.html:19
+msgid "From my key"
+msgstr "From my key"
+
+#: mafiasi/pks/templates/pks/party_missing_signatures.html:37
+msgid "None! Thank you for signing all other keys."
+msgstr "None! Thank you for signing all other keys."
+
+#: mafiasi/pks/templates/pks/party_missing_signatures.html:40
+msgid "Signatures missing on my key"
+msgstr "Signatures missing on my key"
+
+#: mafiasi/pks/templates/pks/party_missing_signatures.html:47
+msgid "From other key"
+msgstr "From other key"
+
+#: mafiasi/pks/templates/pks/party_missing_signatures.html:65
+msgid "None! Everybody signed your keys."
+msgstr "None! Everybody signed your keys."
 
 #: mafiasi/pks/templates/pks/party_participate.html:12
 msgid "Please select the keys you want to be signed by others."
@@ -1282,7 +1327,6 @@ msgid "Expired at {0}"
 msgstr "Expired at {0}"
 
 #: mafiasi/pks/views.py:65
-#| msgid "Could not the given keyid."
 msgid "Could not find the given keyid."
 msgstr "Could not find the given keyid."
 
