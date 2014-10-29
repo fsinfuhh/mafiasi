@@ -26,8 +26,8 @@
         {% if forloop.first %}
         <td rowspan="{{entry.keys|length}}">{{ entry.user.get_full_name }}</td>
         {% endif %}
-        <td>{{ key.own.fingerprint }}</td>
         <td>{{ key.other.fingerprint }}</td>
+        <td>{{ key.own.fingerprint }}</td>
     </tr>
     {% endfor %}
 {% endfor %}
