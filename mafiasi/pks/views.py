@@ -241,12 +241,14 @@ def party_missing_signatures(request, party_pk):
     party = get_object_or_404(KeysigningParty, pk=party_pk)
     
     # Select all participating keys and partition them into own and others
+    ctx = gpgme.Context()
+    ctx.keylist_mode = gpgme.KEYLIST_MODE_SIGS
     all_keys = {}
     own_keys = {}
     other_keys = {}
     for participant in party.participants.select_related():
         for key in participant.keys.all():
-            key_obj = key.get_keyobj()
+            key_obj = ctx.get_key(key.fingerprint)
             try:
                 keyid = key_obj.subkeys[0].keyid
             except IndexError:
