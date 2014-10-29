@@ -44,7 +44,6 @@ def autocomplete_keys(request):
         try:
             uid = key.uids[0]
             keyid = key.subkeys[0].keyid
-            print repr(uid.name)
             label = u'{}: {} <{}>'.format(keyid, uid.name, uid.email)
             autocomplete_data.append({
                 'value': keyid,
