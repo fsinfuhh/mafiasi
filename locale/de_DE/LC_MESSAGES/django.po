@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-29 15:36+0100\n"
-"PO-Revision-Date: 2014-10-29 15:41+0100\n"
+"POT-Creation-Date: 2014-10-29 20:21+0100\n"
+"PO-Revision-Date: 2014-10-29 20:24+0100\n"
 "Last-Translator: Henning Pridöhl <8pridoeh@informatik.uni-hamburg.de>\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -1087,9 +1087,14 @@ msgstr "Alle Schlüssel auf dem Keyserver"
 msgid "Trust graph"
 msgstr "Vertrauensgraph"
 
-#: mafiasi/pks/templates/pks/graph.html:16
+#: mafiasi/pks/templates/pks/graph.html:17
 msgid "You can drag the blue selector at the upper left to scroll. Click on a node to highlight its connections."
 msgstr "Du kannst den blauen Marker in der oberen linken Ecke verwenden um zu scrollen. Klicke auf einen Knoten, um seine Verbindungen hervorzuheben."
+
+#: mafiasi/pks/templates/pks/graph.html:20
+#, python-format
+msgid "Return to party <a href=\"%(party_url)s\">%(party_name)s</a>."
+msgstr "Zurück zur Keysigning-Party <a href=\"%(party_url)s\">%(party_name)s</a>."
 
 #: mafiasi/pks/templates/pks/keylist.html:9
 msgid "Key ID"
@@ -1188,6 +1193,27 @@ msgstr "Zeige den Vertrauensgraph für diese Keysiging-Party"
 msgid "Show missing signatures"
 msgstr "Zeige fehlende Signaturen"
 
+#: mafiasi/pks/templates/pks/party_keys.html:17
+#| msgid "Participate"
+msgid "Participating keys"
+msgstr "Teilnehmende Schlüssel"
+
+#: mafiasi/pks/templates/pks/party_keys.html:18
+msgid "You can select the keys you have verified and find commands to sign these keys at the bottom of this page."
+msgstr "Du kannst die Schlüssel, die du geprüft hast, auswählen und findest dann am Ende der Seite Befehle um diese zu signieren."
+
+#: mafiasi/pks/templates/pks/party_keys.html:27
+msgid "Commands to sign selected keys"
+msgstr "Befehle um die ausgewählten Schlüssel zu signieren"
+
+#: mafiasi/pks/templates/pks/party_keys.html:28
+msgid "Using caff"
+msgstr "Mit caff"
+
+#: mafiasi/pks/templates/pks/party_keys.html:31
+msgid "Using only GnuPG"
+msgstr "Nur mit GnuPG"
+
 #: mafiasi/pks/templates/pks/party_list.html:16
 msgid "Key submission until"
 msgstr "Schlüssel einreichen bis"
@@ -1214,13 +1240,11 @@ msgstr "Schlüssel ohne meine Signatur"
 
 #: mafiasi/pks/templates/pks/party_missing_signatures.html:17
 #: mafiasi/pks/templates/pks/party_missing_signatures.html:45
-#| msgid "Username"
 msgid "User"
 msgstr "Benutzer"
 
 #: mafiasi/pks/templates/pks/party_missing_signatures.html:18
 #: mafiasi/pks/templates/pks/party_missing_signatures.html:46
-#| msgid "Key submission until"
 msgid "Key missing signature"
 msgstr "Schlüssel ohne Signatur"
 
@@ -1335,11 +1359,11 @@ msgstr "Der Schlüssel wurde dir bereits zugeordnet"
 msgid "Sorry, submission period is over."
 msgstr "Entschuldigung, der Einreichzeitraum für Schlüssel ist vorbei."
 
-#: mafiasi/pks/views.py:194
+#: mafiasi/pks/views.py:201
 msgid "Successfully submitted keys to party."
 msgstr "Schlüssel erfolgreich eingereicht."
 
-#: mafiasi/pks/views.py:198
+#: mafiasi/pks/views.py:205
 msgid "Not participating in this keysigning party."
 msgstr "Teilnahme an der Keysigning-Party abgesagt."
 
