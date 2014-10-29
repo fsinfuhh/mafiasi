@@ -11,6 +11,7 @@
 <ul>
 	<li><a href="{% url 'pks_party_keys_export' party.pk %}">{% trans "Download all participating keys" %}</a></li>
 	<li><a href="{% url 'pks_party_graph' party.pk %}">{% trans "Show trust graph for this party" %}</a></li>
+	<li><a href="{% url 'pks_party_missing_signatures' party.pk %}">{% trans "Show missing signatures" %}</a></li>
 </ul>
 
 {% for participant in participants %}
