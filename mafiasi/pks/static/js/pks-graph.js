@@ -7,14 +7,34 @@ $(function() {
     
     function rescaleElements() { 
         graphscroll.css('height', $(window).height() - graphscroll.offset().top - $('#footer').height());
-        graphselectorWidth = graphthumb.width() / (graph.width() / graphscroll.innerWidth());
-        graphselectorHeight = graphthumb.height() / (graph.height() / graphscroll.innerHeight());
-        graphselector.css({
-            "width": graphselectorWidth,
-            "height": graphselectorHeight,
-            "top": (graphthumb.height() - graphselectorHeight) / 2,
-            "left": (graphthumb.width() - graphselectorWidth) / 2
-        });
+        
+        // Calculate the height and width of the graphselector
+        // Hide it (together with the graphthumb) if you don't have to scroll
+        if (graph.width() <= graphscroll.innerWidth()) {
+            var graphselectorWidth = graphthumb.width();
+        } else {
+            var graphselectorWidth = graphthumb.width() / (graph.width() / graphscroll.innerWidth());
+        }
+        
+        if (graph.height() <= graphscroll.innerHeight()) {
+            graphselectorHeight = graphthumb.height();
+        } else {
+            var graphselectorHeight = graphthumb.height() / (graph.height() / graphscroll.innerHeight());
+        }
+        
+        if (graph.width() <= graphscroll.innerWidth() && graph.height() <= graphscroll.innerHeight()) {
+            graphselector.hide();
+            graphthumb.hide();
+        } else {
+            graphthumb.show();
+            graphselector.show();
+            graphselector.css({
+                "width": graphselectorWidth,
+                "height": graphselectorHeight,
+                "top": (graphthumb.height() - graphselectorHeight) / 2,
+                "left": (graphthumb.width() - graphselectorWidth) / 2
+            });
+        }
     }
 
     function initialize() {

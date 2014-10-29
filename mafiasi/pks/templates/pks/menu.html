@@ -12,6 +12,9 @@
     <li{% if tab == 'graph' %} class="active"{% endif %}>
         <a href="{% url 'pks_graph' %}">{% trans "Trust graph" %}</a>
     </li>
+    <li{% if tab == 'party_list' %} class="active"{% endif %}>
+        <a href="{% url 'pks_party_list' %}">{% trans "Parties" %}</a>
+    </li>
     {% if tab == 'show_key' %}
     <li class="active">
         <a href="{% url 'pks_show_key' keyid %}">
@@ -22,6 +25,21 @@
     {% if tab == 'upload_keys' %}
     <li class="active">
         <a href="{% url 'pks_upload_keys' %}">{% trans "Upload own keys" %}</a>
+    </li>
+    {% endif %}
+    {% if tab == 'party_keys' %}
+    <li class="active">
+        <a href="{% url 'pks_party_keys' party.pk %}">{% trans "Party:" %} {{ party.name }}</a>
+    </li>
+    {% endif %}
+    {% if tab == 'party_participate' %}
+    <li class="active">
+        <a href="{% url 'pks_party_participate' party.pk %}">{% trans "Participate:" %} {{ party.name }}</a>
+    </li>
+    {% endif %}
+    {% if tab == 'party_graph' %}
+    <li class="active">
+        <a href="{% url 'pks_party_graph' party.pk %}">{% trans "Trust graph:" %} {{ party.name }}</a>
     </li>
     {% endif %}
 </ul>

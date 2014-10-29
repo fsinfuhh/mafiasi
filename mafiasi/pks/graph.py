@@ -31,7 +31,7 @@ def generate_graph(filenames, filter_invalid=True, restrict_keys=None,
             continue
         key_list.append(key)
     
-    graph_dict = _build_signature_graph(key_list)
+    graph_dict = build_signature_graph(key_list)
     cliques = _find_max_cliques(graph_dict)
     signature_stats = _build_signature_stats(graph_dict)
     
@@ -123,7 +123,7 @@ def generate_graph(filenames, filter_invalid=True, restrict_keys=None,
         if filename.endswith('.svg'):
             _annotate_svg(filename)
 
-def _build_signature_graph(key_list):
+def build_signature_graph(key_list):
     graph = {}
     for key in key_list:
         try:
@@ -213,7 +213,7 @@ def _get_color(signature_stats, keyid):
     maxsignedbycount = signature_stats['maxsignedbycount']
 
     red, green, blue = 0, 1/3, 1/3
-    red = sigcount[keyid] / maxsigcount
+    red = sigcount[keyid] / maxsigcount if maxsigcount else 0
     if sigcount[keyid] and maxratio != 0:
         green = ((signedbycount[keyid] / sigcount[keyid] / maxratio * 0.75) *
                  2/3 + 1/3)

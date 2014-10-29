@@ -1,0 +1,69 @@
+{% extends "pks/base.html" %}
+{% load i18n %}
+
+{% block ptitle %}{% trans "Keysigning Party:" %} {{ party.name }}{% endblock %}
+{% block wtitle %}{% trans "Party:" %} {{ party.name }}{% endblock %}
+
+{% block submenu %}
+{% include "pks/menu.html" with tab='party_keys' %}
+{% endblock %}
+
+{% block content %}
+<ul>
+	<li><a href="{% url 'pks_party_keys_export' party.pk %}">{% trans "Download all participating keys" %}</a></li>
+	<li><a href="{% url 'pks_party_graph' party.pk %}">{% trans "Show trust graph for this party" %}</a></li>
+	<li><a href="{% url 'pks_party_missing_signatures' party.pk %}">{% trans "Show missing signatures" %}</a></li>
+</ul>
+
+<h3>{% trans "Participating keys" %}</h3>
+<p>{% trans "You can select the keys you have verified and find commands to sign these keys at the bottom of this page." %}</p>
+
+<div id="participating-keys">
+{% for participant in participants %}
+<h4>{{ participant.user.get_full_name }}</h4>
+{% include "pks/keylist.html" with keys=participant.keys checkbox=True %}
+{% endfor %}
+</div>
+<div id="sign-command" style="display:none;">
+<h3>{% trans "Commands to sign selected keys" %}</h3>
+<h4>{% trans "Using caff" %}</h4>
+<pre class="cmd-gnupg-download"></pre>
+<pre class="cmd-caff"></pre>
+<h4>{% trans "Using only GnuPG" %}</h4>
+<pre class="cmd-gnupg-download"></pre>
+<pre class="cmd-gnupg-sign"></pre>
+<pre class="cmd-gnupg-send"></pre>
+
+</div>
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript">
+$(function() {
+	var inputs = $('#participating-keys input[name="fingerprint"]');
+	function show_commands() {
+		var fingerprints = inputs.filter(':checked').map(function() {
+			return '0x' + this.value;
+		}).get();
+		if (fingerprints.length == 0) {
+			$('#sign-command').hide();
+			return;
+		}
+		var download_cmd = 'gpg --keyserver {{ hkp_url }} --recv-keys ' + fingerprints.join(' ');
+		$('.cmd-gnupg-download').text(download_cmd);
+		var caff_cmd = 'caff --no-download --keys-from-gnupg ' + fingerprints.join(' ');
+		$('.cmd-caff').text(caff_cmd);
+		var gnupg_sign_cmds = [];
+		for (var i = 0; i < fingerprints.length; i++) {
+			gnupg_sign_cmds.push('gpg --sign-key ' + fingerprints[i]);
+		}
+		$('.cmd-gnupg-sign').text(gnupg_sign_cmds.join('\n'));
+		var send_cmd = 'gpg --keyserver {{ hkp_url }} --send-keys ' + fingerprints.join(' ');
+		$('.cmd-gnupg-send').text(send_cmd);
+		$('#sign-command').show();
+	};
+	inputs.change(show_commands);
+	show_commands();
+});
+</script>
+{% endblock %}

@@ -1,19 +1,23 @@
+import json
 from StringIO import StringIO
 from urllib import quote
 
 import gpgme
 
 from django.template.response import TemplateResponse
-from django.shortcuts import redirect, Http404
+from django.shortcuts import redirect, get_object_or_404, Http404
 from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_exempt
+from django.utils.translation import ugettext as _
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from django.http import (HttpResponse, HttpResponseNotFound,
         HttpResponseBadRequest)
 from django.conf import settings
 
 from mafiasi.pks.forms import ImportForm
-from mafiasi.pks.models import AssignedKey
+from mafiasi.pks.models import AssignedKey, KeysigningParty, Participant
+from mafiasi.pks.graph import build_signature_graph
 
 def index(request):
     return redirect('pks_search')
@@ -25,6 +29,52 @@ def my_keys(request):
     return TemplateResponse(request, 'pks/my_keys.html', {
         'keys': keys
     })
+
+@login_required
+def autocomplete_keys(request):
+    term = request.GET.get('term', u'')
+    resp = HttpResponse(content_type='text/plain')
+    if len(term) < 3:
+        json.dump([], resp)
+        return resp
+    
+    ctx = gpgme.Context()
+    keys = ctx.keylist(term.encode('utf-8'))
+    autocomplete_data = []
+    for key in keys:
+        try:
+            uid = key.uids[0]
+            keyid = key.subkeys[0].keyid
+            label = u'{}: {} <{}>'.format(keyid, uid.name, uid.email)
+            autocomplete_data.append({
+                'value': keyid,
+                'label': label
+            })
+        except IndexError:
+            continue
+    json.dump(autocomplete_data, resp)
+    return resp
+
+@login_required
+def assign_keyid(request):
+    ctx = gpgme.Context()
+    try:
+        key = ctx.get_key(request.POST.get('keyid', u'').encode('utf-8'))
+        fingerprint = key.subkeys[0].fpr
+    except gpgme.GpgmeError:
+        messages.error(request, _('Could not find the given keyid.'))
+        return redirect('pks_my_keys')
+    except IndexError:
+        messages.error(request, _('Could not find a valid subkey.'))
+        return redirect('pks_my_keys')
+
+    _key, created = AssignedKey.objects.get_or_create(fingerprint=fingerprint,
+                                                      user=request.user)
+    if created:
+        messages.success(request, _('Key was successfully assigned to you.'))
+    else:
+        messages.info(request, _('Key was already assigned to you'))
+    return redirect('pks_my_keys')
 
 @login_required
 def upload_keys(request):
@@ -58,8 +108,16 @@ def all_keys(request):
         'keys': keys
     })
 
-def graph(request):
-    return TemplateResponse(request, 'pks/graph.html')
+def graph(request, party_pk=None):
+    party = None
+    graph_name = 'global'
+    if party_pk:
+        party = get_object_or_404(KeysigningParty, pk=party_pk)
+        graph_name = 'party{}'.format(party.pk)
+    return TemplateResponse(request, 'pks/graph.html', {
+        'graph_name': graph_name,
+        'party': party
+    })
 
 def show_key(request, keyid, raw=False):
     if raw:
@@ -86,6 +144,177 @@ def search(request):
     return TemplateResponse(request, 'pks/search.html', {
         'hkp_url': settings.HKP_URL
     })
+
+def party_list(request):
+    parties = list(KeysigningParty.objects.order_by('-event_date'))
+
+    # Fetch parties the user participates in
+    user_party_pks = set()
+    if request.user.is_authenticated():
+        for participant in Participant.objects.filter(user=request.user):
+            user_party_pks.add(participant.party.pk)
+    # Mark those parties
+    for party in parties:
+        party.user_participates = party.pk in user_party_pks
+
+    return TemplateResponse(request, 'pks/party_list.html', {
+        'parties': parties
+    })
+
+@login_required
+def party_participate(request, party_pk):
+    party = get_object_or_404(KeysigningParty, pk=party_pk)
+    if party.submission_expired():
+        messages.error(request, _("Sorry, submission period is over."))
+        return redirect('pks_party_list')
+
+    try:
+        participant = Participant.objects.get(party=party, user=request.user)
+        checked_fingerprints = set(key.fingerprint
+                                   for key in participant.keys.all())
+    except Participant.DoesNotExist:
+        checked_fingerprints = set()
+
+    if request.method == 'POST':
+        fingerprints = request.POST.getlist('fingerprint')
+        keys = AssignedKey.objects.filter(fingerprint__in=fingerprints,
+                                          user=request.user)
+        
+        user = request.user
+        try:
+            participant = Participant.objects.get(user=user, party=party)
+            if not keys:
+                participant.delete()
+                participant = None
+        except Participant.DoesNotExist:
+            if keys:
+                participant = Participant.objects.create(user=user, party=party)
+            else:
+                participant = None
+        
+        if participant:
+            participant.keys.clear()
+            for key in keys:
+                participant.keys.add(key)
+        
+            messages.success(request,
+                    _("Successfully submitted keys to party."))
+            return redirect('pks_party_keys', party.pk)
+        else:
+            messages.success(request,
+                    _("Not participating in this keysigning party."))
+            return redirect('pks_party_list')
+    
+    keys = [key.get_keyobj()
+            for key in AssignedKey.objects.filter(user=request.user)]
+    
+    return TemplateResponse(request, 'pks/party_participate.html', {
+        'party': party,
+        'keys': keys,
+        'checked_fingerprints': checked_fingerprints
+    })
+
+@login_required
+def party_keys(request, party_pk):
+    party = get_object_or_404(KeysigningParty, pk=party_pk)
+    
+    participants_qs = party.participants.select_related().order_by(
+            'user__first_name')
+    participants = []
+    for participant in participants_qs:
+        participants.append({
+            'user': participant.user,
+            'keys': [key.get_keyobj() for key in participant.keys.all()]
+        })
+
+    return TemplateResponse(request, 'pks/party_keys.html', {
+        'party': party,
+        'participants': participants,
+        'hkp_url': settings.HKP_URL
+    })
+
+@login_required
+def party_keys_export(request, party_pk):    
+    party = get_object_or_404(KeysigningParty, pk=party_pk)
+
+    ctx = gpgme.Context()
+    ctx.armor = True
+    resp = HttpResponse(content_type='text/plain')
+    for participant in party.participants.select_related():
+        for key in participant.keys.all():
+            ctx.export(key.fingerprint.encode('utf-8'), resp)
+    return resp
+
+@login_required
+def party_missing_signatures(request, party_pk):
+    party = get_object_or_404(KeysigningParty, pk=party_pk)
+    
+    # Select all participating keys and partition them into own and others
+    ctx = gpgme.Context()
+    ctx.keylist_mode = gpgme.KEYLIST_MODE_SIGS
+    all_keys = {}
+    own_keys = {}
+    other_keys = {}
+    for participant in party.participants.select_related():
+        for key in participant.keys.all():
+            key_obj = ctx.get_key(key.fingerprint)
+            try:
+                keyid = key_obj.subkeys[0].keyid
+            except IndexError:
+                continue
+            
+            key.keyid = keyid
+            key.key_obj = key_obj
+            all_keys[keyid] = key
+            
+            if participant.user == request.user:
+                own_keys[keyid] = key
+            else:
+                other_keys[keyid] = key
+
+    # signature_graph: signed_keyid -> []signer_keyid
+    keylist = [key.key_obj for key in all_keys.itervalues()]
+    signature_graph = build_signature_graph(keylist)
+
+    # Collect keyids which the user still has to sign
+    missing_my_sigs = {}
+    for signed_keyid, signer_keyids in signature_graph.iteritems():
+        if signed_keyid in own_keys:
+            continue
+        for own_key in own_keys.itervalues():
+            if own_key.keyid in signer_keyids:
+                continue
+            other_key = other_keys[signed_keyid]
+            _fill_missing_sigs(missing_my_sigs, own_key, other_key)
+    
+    # Collect keyids of other users which still have to sign the users keys
+    missing_other_sigs = {}
+    for other_key in other_keys.itervalues():
+        for own_key in own_keys.itervalues():
+            if other_key.keyid not in signature_graph[own_key.keyid]:
+                _fill_missing_sigs(missing_other_sigs, own_key, other_key)
+    
+    sig_key = lambda sig: sig['user'].get_full_name()
+    missing_my_sigs = sorted(missing_my_sigs.itervalues(), key=sig_key)
+    missing_other_sigs = sorted(missing_other_sigs.itervalues(), key=sig_key)
+    return TemplateResponse(request, 'pks/party_missing_signatures.html', {
+        'party': party,
+        'missing_my_sigs': missing_my_sigs,
+        'missing_other_sigs': missing_other_sigs
+    })
+
+def _fill_missing_sigs(missing_sigs, own_key, other_key):
+        other_user = other_key.user
+        if other_user.pk not in missing_sigs:
+            missing_sigs[other_user.pk] = {
+                'user': other_user,
+                'keys': []
+            }
+        missing_sigs[other_user.pk]['keys'].append({
+            'own': own_key,
+            'other': other_key,
+        })
+
 
 @csrf_exempt
 def hkp_add_key(request):

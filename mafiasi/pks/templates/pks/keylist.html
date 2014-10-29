@@ -17,7 +17,7 @@
 {% with subkey=key.subkeys.0 %}
     <tr>
 {% if checkbox %}
-        <td><input type="checkbox" name="fingerprint" value="{{ subkey.fpr }}" /></td>
+        <td><input type="checkbox" name="fingerprint" value="{{ subkey.fpr }}"{% if subkey.fpr in checked_fingerprints %}checked="checked" {% endif %} /></td>
 {% endif %}
         <td><a href="{% url 'pks_show_key' subkey.keyid %}">{{ subkey.keyid }}</a></td>
         <td>{{ subkey.length }}</td>
