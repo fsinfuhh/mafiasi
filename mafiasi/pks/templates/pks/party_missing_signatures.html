@@ -1,0 +1,68 @@
+{% extends "pks/base.html" %}
+{% load i18n %}
+
+{% block ptitle %}{% trans "Missing signatures:" %} <a href="{% url 'pks_party_keys' party.pk %}">{{ party.name }}</a>{% endblock %}
+{% block wtitle %}{% trans "Missing signatures:" %} {{ party.name }}{% endblock %}
+
+{% block submenu %}
+{% include "pks/menu.html" with tab='party_missing_signatures' %}
+{% endblock %}
+
+{% block content %}
+<h3>{% trans "Keys missing my signatures" %}</h3>
+{% if missing_my_sigs %}
+<table class="table table-striped">
+<thead>
+    <tr>
+        <th>{% trans "User" %}</th>
+        <th>{% trans "Key missing signature" %}</th>
+        <th>{% trans "From my key" %}</th>
+    </tr>
+</thead>
+<tbody>
+{% for entry in missing_my_sigs %}
+    {% for key in entry.keys %}
+    <tr>
+        {% if forloop.first %}
+        <td rowspan="{{entry.keys|length}}">{{ entry.user.get_full_name }}</td>
+        {% endif %}
+        <td>{{ key.own.fingerprint }}</td>
+        <td>{{ key.other.fingerprint }}</td>
+    </tr>
+    {% endfor %}
+{% endfor %}
+</tbody>
+</table>
+{% else %}
+<p>{% trans "None! Thank you for signing all other keys." %} ♥</p>
+{% endif %}
+
+<h3>{% trans "Signatures missing on my key" %}</h3>
+{% if missing_other_sigs %}
+<table class="table table-striped">
+<thead>
+    <tr>
+        <th>{% trans "User" %}</th>
+        <th>{% trans "Key missing signature" %}</th>
+        <th>{% trans "From other key" %}</th>
+    </tr>
+</thead>
+<tbody>
+{% for entry in missing_other_sigs %}
+    {% for key in entry.keys %}
+    <tr>
+        {% if forloop.first %}
+        <td rowspan="{{entry.keys|length}}">{{ entry.user.get_full_name }}</td>
+        {% endif %}
+        <td>{{ key.own.fingerprint }}</td>
+        <td>{{ key.other.fingerprint }}</td>
+    </tr>
+    {% endfor %}
+{% endfor %}
+</tbody>
+</table>
+{% else %}
+<p>{% trans "None! Everybody signed your keys." %}</p>
+{% endif %}
+
+{% endblock %}

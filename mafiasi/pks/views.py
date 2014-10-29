@@ -239,21 +239,71 @@ def party_keys_export(request, party_pk):
 @login_required
 def party_missing_signatures(request, party_pk):
     party = get_object_or_404(KeysigningParty, pk=party_pk)
-    key_list = []
-    own_keyids = set()
-    for participant in party.participant.select_related():
+    
+    # Select all participating keys and partition them into own and others
+    all_keys = {}
+    own_keys = {}
+    other_keys = {}
+    for participant in party.participants.select_related():
         for key in participant.keys.all():
             key_obj = key.get_keyobj()
-            key_list.append(key_obj)
+            try:
+                keyid = key_obj.subkeys[0].keyid
+            except IndexError:
+                continue
+            
+            key.keyid = keyid
+            key.key_obj = key_obj
+            all_keys[keyid] = key
             
             if participant.user == request.user:
-                own_keyids.append(key_obj.keyid)
+                own_keys[keyid] = key
+            else:
+                other_keys[keyid] = key
 
     # signature_graph: signed_keyid -> []signer_keyid
-    signature_graph = build_signature_graph(key_list)
+    keylist = [key.key_obj for key in all_keys.itervalues()]
+    signature_graph = build_signature_graph(keylist)
 
-    missing_myself = None
-    missing_others = None
+    # Collect keyids which the user still has to sign
+    missing_my_sigs = {}
+    for signed_keyid, signer_keyids in signature_graph.iteritems():
+        if signed_keyid in own_keys:
+            continue
+        for own_key in own_keys.itervalues():
+            if own_key.keyid in signer_keyids:
+                continue
+            other_key = other_keys[signed_keyid]
+            _fill_missing_sigs(missing_my_sigs, own_key, other_key)
+    
+    # Collect keyids of other users which still have to sign the users keys
+    missing_other_sigs = {}
+    for other_key in other_keys.itervalues():
+        for own_key in own_keys.itervalues():
+            if other_key.keyid not in signature_graph[own_key.keyid]:
+                _fill_missing_sigs(missing_other_sigs, own_key, other_key)
+    
+    sig_key = lambda sig: sig['user'].get_full_name()
+    missing_my_sigs = sorted(missing_my_sigs.itervalues(), key=sig_key)
+    missing_other_sigs = sorted(missing_other_sigs.itervalues(), key=sig_key)
+    return TemplateResponse(request, 'pks/party_missing_signatures.html', {
+        'party': party,
+        'missing_my_sigs': missing_my_sigs,
+        'missing_other_sigs': missing_other_sigs
+    })
+
+def _fill_missing_sigs(missing_sigs, own_key, other_key):
+        other_user = other_key.user
+        if other_user.pk not in missing_sigs:
+            missing_sigs[other_user.pk] = {
+                'user': other_user,
+                'keys': []
+            }
+        missing_sigs[other_user.pk]['keys'].append({
+            'own': own_key,
+            'other': other_key,
+        })
+
 
 @csrf_exempt
 def hkp_add_key(request):
