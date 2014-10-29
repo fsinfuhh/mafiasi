@@ -1,7 +1,8 @@
 {% extends "pks/base.html" %}
 {% load i18n %}
 
-{% block ptitle %}{% block wtitle %}{% trans "Party keys:" %} {{ party.name }}{% endblock %}{% endblock %}
+{% block ptitle %}{% trans "Keysigning Party:" %} {{ party.name }}{% endblock %}
+{% block wtitle %}{% trans "Party:" %} {{ party.name }}{% endblock %}
 
 {% block submenu %}
 {% include "pks/menu.html" with tab='party_keys' %}
