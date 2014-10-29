@@ -168,6 +168,13 @@ def party_participate(request, party_pk):
         messages.error(request, _("Sorry, submission period is over."))
         return redirect('pks_party_list')
 
+    try:
+        participant = Participant.objects.get(party=party, user=request.user)
+        checked_fingerprints = set(key.fingerprint
+                                   for key in participant.keys.all())
+    except Participant.DoesNotExist:
+        checked_fingerprints = set()
+
     if request.method == 'POST':
         fingerprints = request.POST.getlist('fingerprint')
         keys = AssignedKey.objects.filter(fingerprint__in=fingerprints,
@@ -203,7 +210,8 @@ def party_participate(request, party_pk):
     
     return TemplateResponse(request, 'pks/party_participate.html', {
         'party': party,
-        'keys': keys
+        'keys': keys,
+        'checked_fingerprints': checked_fingerprints
     })
 
 @login_required
