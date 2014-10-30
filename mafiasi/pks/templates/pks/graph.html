@@ -14,7 +14,8 @@
 
 {% block content %}
 <p>
-{% trans "You can drag the blue selector at the upper left to scroll. Click on a node to highlight its connections." %}
+<span id="pks-graphselector-help">{% trans "You can drag the blue selector at the upper left to scroll." %}</span>
+{% trans "Click on a node to highlight its connections." %}
 {% if party %}
 {% url 'pks_party_keys' party.pk as party_url %}
 {% blocktrans with party_name=party.name %}Return to party <a href="{{ party_url }}">{{ party_name }}</a>.{% endblocktrans %}

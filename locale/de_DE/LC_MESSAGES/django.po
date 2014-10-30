@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-29 20:21+0100\n"
-"PO-Revision-Date: 2014-10-29 20:24+0100\n"
+"POT-Creation-Date: 2014-10-29 23:31+0100\n"
+"PO-Revision-Date: 2014-10-29 23:33+0100\n"
 "Last-Translator: Henning Pridöhl <8pridoeh@informatik.uni-hamburg.de>\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -1088,10 +1088,14 @@ msgid "Trust graph"
 msgstr "Vertrauensgraph"
 
 #: mafiasi/pks/templates/pks/graph.html:17
-msgid "You can drag the blue selector at the upper left to scroll. Click on a node to highlight its connections."
-msgstr "Du kannst den blauen Marker in der oberen linken Ecke verwenden um zu scrollen. Klicke auf einen Knoten, um seine Verbindungen hervorzuheben."
+msgid "You can drag the blue selector at the upper left to scroll."
+msgstr "Du kannst den blauen Marker in der oberen linken Ecke verwenden um zu scrollen."
 
-#: mafiasi/pks/templates/pks/graph.html:20
+#: mafiasi/pks/templates/pks/graph.html:18
+msgid "Click on a node to highlight its connections."
+msgstr "Klicke auf einen Knoten, um seine Verbindungen hervorzuheben."
+
+#: mafiasi/pks/templates/pks/graph.html:21
 #, python-format
 msgid "Return to party <a href=\"%(party_url)s\">%(party_name)s</a>."
 msgstr "Zurück zur Keysigning-Party <a href=\"%(party_url)s\">%(party_name)s</a>."
@@ -1146,6 +1150,7 @@ msgid "Upload own keys"
 msgstr "Eigene Schlüssel hochladen"
 
 #: mafiasi/pks/templates/pks/menu.html:32
+#: mafiasi/pks/templates/pks/party_keys.html:5
 msgid "Party:"
 msgstr "Party:"
 
@@ -1178,41 +1183,44 @@ msgid "Tip: You can type your name or email into the keyid field for autocomplet
 msgstr "Tipp: Du kannst für die Autovervollständigung deinen Namen oder deine E-Mail in das Schlüssel-ID-Feld schreiben."
 
 #: mafiasi/pks/templates/pks/party_keys.html:4
-msgid "Party keys:"
-msgstr "Party-Schlüssel:"
+msgid "Keysigning Party:"
+msgstr "Keysigning-Party:"
 
-#: mafiasi/pks/templates/pks/party_keys.html:12
+#: mafiasi/pks/templates/pks/party_keys.html:13
 msgid "Download all participating keys"
 msgstr "Lade alle teilnehmenden Schlüssel herunter"
 
-#: mafiasi/pks/templates/pks/party_keys.html:13
+#: mafiasi/pks/templates/pks/party_keys.html:14
 msgid "Show trust graph for this party"
 msgstr "Zeige den Vertrauensgraph für diese Keysiging-Party"
 
-#: mafiasi/pks/templates/pks/party_keys.html:14
+#: mafiasi/pks/templates/pks/party_keys.html:15
 msgid "Show missing signatures"
 msgstr "Zeige fehlende Signaturen"
 
-#: mafiasi/pks/templates/pks/party_keys.html:17
-#| msgid "Participate"
+#: mafiasi/pks/templates/pks/party_keys.html:18
 msgid "Participating keys"
 msgstr "Teilnehmende Schlüssel"
 
-#: mafiasi/pks/templates/pks/party_keys.html:18
+#: mafiasi/pks/templates/pks/party_keys.html:19
 msgid "You can select the keys you have verified and find commands to sign these keys at the bottom of this page."
 msgstr "Du kannst die Schlüssel, die du geprüft hast, auswählen und findest dann am Ende der Seite Befehle um diese zu signieren."
 
-#: mafiasi/pks/templates/pks/party_keys.html:27
+#: mafiasi/pks/templates/pks/party_keys.html:28
 msgid "Commands to sign selected keys"
 msgstr "Befehle um die ausgewählten Schlüssel zu signieren"
 
-#: mafiasi/pks/templates/pks/party_keys.html:28
+#: mafiasi/pks/templates/pks/party_keys.html:29
 msgid "Using caff"
 msgstr "Mit caff"
 
-#: mafiasi/pks/templates/pks/party_keys.html:31
+#: mafiasi/pks/templates/pks/party_keys.html:33
 msgid "Using only GnuPG"
 msgstr "Nur mit GnuPG"
+
+#: mafiasi/pks/templates/pks/party_keys.html:34
+msgid "Ask for confirmation for each key."
+msgstr "Bitte um Bestätigung für jeden Schlüssel."
 
 #: mafiasi/pks/templates/pks/party_list.html:16
 msgid "Key submission until"
@@ -1658,6 +1666,9 @@ msgstr "Wintersemester {0}"
 #: mafiasi/teaching/models.py:50
 msgid "summer term {0}"
 msgstr "Sommersemester {0}"
+
+#~ msgid "Party keys:"
+#~ msgstr "Party-Schlüssel:"
 
 #~ msgid "Calendar"
 #~ msgstr "Kalender"

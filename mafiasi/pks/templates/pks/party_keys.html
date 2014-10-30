@@ -28,9 +28,12 @@
 <h3>{% trans "Commands to sign selected keys" %}</h3>
 <h4>{% trans "Using caff" %}</h4>
 <pre class="cmd-gnupg-download"></pre>
+<pre>eval $(gpg-agent --daemon)</pre>
 <pre class="cmd-caff"></pre>
 <h4>{% trans "Using only GnuPG" %}</h4>
+<p><label><input type="checkbox" id="pks-ask-sign" checked="checked" />{% trans "Ask for confirmation for each key." %}</label></p>
 <pre class="cmd-gnupg-download"></pre>
+<pre>eval $(gpg-agent --daemon)</pre>
 <pre class="cmd-gnupg-sign"></pre>
 <pre class="cmd-gnupg-send"></pre>
 
@@ -54,8 +57,13 @@ $(function() {
 		var caff_cmd = 'caff --no-download --keys-from-gnupg ' + fingerprints.join(' ');
 		$('.cmd-caff').text(caff_cmd);
 		var gnupg_sign_cmds = [];
+		if ($('#pks-ask-sign')[0].checked) {
+			var sign_confirmation = '';
+		} else {
+			var sign_confirmation = ' --batch --yes';
+		}
 		for (var i = 0; i < fingerprints.length; i++) {
-			gnupg_sign_cmds.push('gpg --sign-key ' + fingerprints[i]);
+			gnupg_sign_cmds.push('gpg --use-agent' + sign_confirmation + ' --sign-key ' + fingerprints[i]);
 		}
 		$('.cmd-gnupg-sign').text(gnupg_sign_cmds.join('\n'));
 		var send_cmd = 'gpg --keyserver {{ hkp_url }} --send-keys ' + fingerprints.join(' ');
@@ -63,6 +71,7 @@ $(function() {
 		$('#sign-command').show();
 	};
 	inputs.change(show_commands);
+	$('#pks-ask-sign').change(show_commands);
 	show_commands();
 });
 </script>

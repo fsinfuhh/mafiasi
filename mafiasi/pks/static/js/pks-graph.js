@@ -3,6 +3,7 @@ $(function() {
     var graphscroll = $('#pks-graphscroll');
     var graphthumb = $('#pks-graph-thumb');
     var graphselector = $('#pks-graphselector');
+    var graphselectorHelp = $('#pks-graphselector-help');
     
     
     function rescaleElements() { 
@@ -24,10 +25,12 @@ $(function() {
         
         if (graph.width() <= graphscroll.innerWidth() && graph.height() <= graphscroll.innerHeight()) {
             graphselector.hide();
+            graphselectorHelp.hide();
             graphthumb.hide();
         } else {
             graphthumb.show();
             graphselector.show();
+            graphselectorHelp.show();
             graphselector.css({
                 "width": graphselectorWidth,
                 "height": graphselectorHeight,
