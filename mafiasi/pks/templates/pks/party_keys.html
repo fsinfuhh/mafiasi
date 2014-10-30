@@ -46,13 +46,16 @@ $(function() {
 	var inputs = $('#participating-keys input[name="fingerprint"]');
 	function show_commands() {
 		var fingerprints = inputs.filter(':checked').map(function() {
-			return '0x' + this.value;
+			return this.value;
+		}).get();
+		var fingerprints0x = $(fingerprints).map(function() {
+			return '0x' + this;
 		}).get();
 		if (fingerprints.length == 0) {
 			$('#sign-command').hide();
 			return;
 		}
-		var download_cmd = 'gpg --keyserver {{ hkp_url }} --recv-keys ' + fingerprints.join(' ');
+		var download_cmd = 'gpg --keyserver {{ hkp_url }} --recv-keys ' + fingerprints0x.join(' ');
 		$('.cmd-gnupg-download').text(download_cmd);
 		var caff_cmd = 'caff --no-download --keys-from-gnupg ' + fingerprints.join(' ');
 		$('.cmd-caff').text(caff_cmd);
@@ -63,10 +66,10 @@ $(function() {
 			var sign_confirmation = ' --batch --yes';
 		}
 		for (var i = 0; i < fingerprints.length; i++) {
-			gnupg_sign_cmds.push('gpg --use-agent' + sign_confirmation + ' --sign-key ' + fingerprints[i]);
+			gnupg_sign_cmds.push('gpg --use-agent' + sign_confirmation + ' --sign-key ' + fingerprints0x[i]);
 		}
 		$('.cmd-gnupg-sign').text(gnupg_sign_cmds.join('\n'));
-		var send_cmd = 'gpg --keyserver {{ hkp_url }} --send-keys ' + fingerprints.join(' ');
+		var send_cmd = 'gpg --keyserver {{ hkp_url }} --send-keys ' + fingerprints0x.join(' ');
 		$('.cmd-gnupg-send').text(send_cmd);
 		$('#sign-command').show();
 	};
