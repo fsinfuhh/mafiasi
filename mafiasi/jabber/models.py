@@ -34,7 +34,7 @@ class PrivacyListData(models.Model):
     t = models.CharField(max_length=1)
     value = models.TextField()
     action = models.CharField(max_length=1)
-    ord = models.DecimalField(max_digits=65535, decimal_places=65535)
+    ord = models.IntegerField()
     match_all = models.BooleanField(default=False)
     match_iq = models.BooleanField(default=False)
     match_message = models.BooleanField(default=False)
