@@ -4,7 +4,9 @@ from django.conf import settings
 from django.template.response import HttpResponse
 from django.contrib.auth.models import Group
 
+from mafiasi.base.decorators import require_auth
 
+@require_auth(username='mail', password=settings.EMAIL_ADDRESSES_PASSWORD)
 def mailaddresses(request):
     """Return a list of all valid mailaddresses."""
     addresses = []

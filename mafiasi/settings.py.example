@@ -284,3 +284,4 @@ PKS_COMMUNITY_DOMAINS = ['informatik.uni-hamburg.de', 'studium.uni-hamburg.de']
 
 LIST_DOMAIN = 'vereinigte.mafiasi.de'
 VALID_EMAIL_ADDRESSES = ['postmaster@mafiasi.de']
+EMAIL_ADDRESSES_PASSWORD = 'changeme'
