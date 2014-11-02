@@ -14,6 +14,6 @@ def mailaddresses(request):
     for group in groups:
         addresses.append('{}@{}'.format(group.name, settings.LIST_DOMAIN))
     addresses += settings.VALID_EMAIL_ADDRESSES
-    output = '\n'.join(address + ' OK' for address in addresses)
+    output = '\n'.join(address + ' OK' for address in addresses) + '\n'
     return HttpResponse(output.encode('utf-8'), content_type='text/plain')
 
