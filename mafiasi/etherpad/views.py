@@ -86,7 +86,7 @@ def delete_pad(request, group_name, pad_name):
         form = DeleteEtherpadForm(request.user, request.POST)
         if form.is_valid():
             ep = Etherpad()
-            ep.delete_pad("{0}${1}".format(
+            ep.delete_pad(u'{0}${1}'.format(
                 ep.get_group_id(group_name),
                 pad_name))
             return redirect('ep_index')
