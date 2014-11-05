@@ -83,7 +83,7 @@ class Etherpad(object):
 
     def delete_pad(self, pad_name):
         try:
-            self.api.deletePad(padID=pad_name)
+            self.api.deletePad(padID=pad_name.encode('utf-8'))
         except EtherpadException as e:
             if e.message == "padID does not exist":
                 return
