@@ -61,7 +61,8 @@ class Mafiasi(AbstractUser):
     account = models.CharField(max_length=40)
     yeargroup = models.ForeignKey(Yeargroup, blank=True, null=True)
     new_password = None
-    
+
+    @property
     def is_student(self):
         return self.account and (self.account[0].isdigit() or
                                  self.account[0] == u'x')

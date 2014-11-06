@@ -210,7 +210,7 @@ def create_account(mafiasi, password):
     except JabberUserMapping.DoesNotExist:
         pass
 
-    if mafiasi.is_student():
+    if mafiasi.is_student:
         group_type = 'student'
     else:
         group_type = 'other'
