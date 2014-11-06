@@ -17,6 +17,7 @@ from django.contrib import messages
 from django.views.decorators.http import require_POST
 
 from mafiasi.base.models import Yeargroup, Mafiasi, PasswdEntry
+from mafiasi.registration.models import create_mafiasi_account
 from mafiasi.registration.forms import (RegisterForm, AdditionalInfoForm,
                                         PasswordForm, NickChangeForm)
 
@@ -131,21 +132,15 @@ def create_account(request, info_token):
     if request.method == 'POST':
         form = PasswordForm(request.POST)
         if form.is_valid():
-            mafiasi = Mafiasi(username=username)
-            mafiasi.set_password(form.cleaned_data['password1'])
             first_name = info.get('first_name')
             last_name = info.get('last_name')
-            yeargroup = Yeargroup.objects.get(pk=info['yeargroup_pk'])
-            if first_name and last_name:
-                mafiasi.first_name = first_name
-                mafiasi.last_name = last_name
-            else:
+            if not (first_name and last_name):
                 if info['domain'] == settings.PRIMARY_DOMAIN:
                     try:
                         passwd = PasswdEntry.objects.get(username=info['account'])
                         name_parsed = HumanName(passwd.full_name)
-                        mafiasi.first_name = name_parsed.first
-                        mafiasi.last_name = name_parsed.last
+                        first_name = name_parsed.first
+                        last_name = name_parsed.last
                     except PasswdEntry.DoesNotExist:
                         # This happens only when someone removed an entry
                         # from our passwd database manually
@@ -153,10 +148,15 @@ def create_account(request, info_token):
                 else:
                     return TemplateResponse(request,
                                             'registration/token_invalid.html')
-            mafiasi.account = info['account']
-            mafiasi.email = u'{0}@{1}'.format(info['account'],
-                                              info['domain'])
-            mafiasi.yeargroup = yeargroup
+            email = u'{0}@{1}'.format(info['account'], info['domain'])
+            mafiasi = create_mafiasi_account(username=username,
+                                             email=email,
+                                             first_name=first_name,
+                                             last_name=last_name,
+                                             account=info['account'],
+                                             yeargroup=yeargroup,
+                                             is_student=True)
+            mafiasi.set_password(form.cleaned_data['password1'])
             mafiasi.save()
             mafiasi.backend='django.contrib.auth.backends.ModelBackend'
             login(request, mafiasi)
