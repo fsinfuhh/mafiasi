@@ -279,6 +279,7 @@ DISCOURSE_SSO_SECRET = 'secret'
 
 GPROT_IMAGE_MAX_SIZE = 1
 GPROT_PDF_MAX_SIZE = 5
+MATHJAX_ROOT = '/usr/share/javascript/mathjax/'
 
 PKS_COMMUNITY_DOMAINS = ['informatik.uni-hamburg.de', 'studium.uni-hamburg.de']
 
