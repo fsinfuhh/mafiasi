@@ -76,8 +76,6 @@ def additional_info(request):
                         'last_name': form.cleaned_data['last_name'],
                         'yeargroup_pk': form.cleaned_data['yeargroup'].pk
                     })
-        else:
-            print(form.errors)
 
     if not 'domain' in form.cleaned_data or not 'account' in form.cleaned_data:
         return redirect('registration_request_account')
@@ -204,7 +202,6 @@ def _finish_account_request(request, info):
     email_content = render_to_string('registration/create_email.html', {
         'activation_link': activation_link
     })
-    print(email_content)
     
     try:
         send_mail(_('Account creation at mafiasi.de'),
