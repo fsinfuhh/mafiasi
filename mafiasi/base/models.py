@@ -62,6 +62,7 @@ class PasswdEntry(models.Model):
 class Mafiasi(AbstractUser):
     account = models.CharField(max_length=40)
     yeargroup = models.ForeignKey(Yeargroup, blank=True, null=True)
+    is_guest = models.BooleanField(default=False)
     new_password = None
 
     @property
