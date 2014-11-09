@@ -8,5 +8,6 @@ def create_mafiasi_account(username, email, first_name, last_name, account=None,
         mafiasi.last_name = last_name
     mafiasi.email = email
     mafiasi.yeargroup = yeargroup
+    mafiasi.is_guest = is_guest
 
     return mafiasi

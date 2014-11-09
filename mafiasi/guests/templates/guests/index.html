@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load widget_tweaks %}
+
+{% block wtitle %}{% block ptitle %}{% trans "Invitations" %}{% endblock %}{% endblock %}
+
+{% block content %}
+<h3>{% trans "Open invitations" %}</h3>
+{% if invitations %}
+<table class="table table-striped">
+<thead>
+    <tr>
+        <th>{% trans "Username" %}</th>
+        <th>{% trans "Full name" %}</th>
+        <th>{% trans "Email" %}</td>
+        <th>{% trans "Actions" %}</th>
+    </tr>
+</thead>
+<tbody>
+{% for invitation in invitations %}
+    <tr>
+        <td>{{ invitation.username }}.guest</td>
+        <td>{{ invitation.first_name }} {{ invitation.last_name }}</td>
+        <td>{{ invitation.email }}</td>
+        <td>
+        <form method="post" action="{% url 'guests_invitation_action' %}">
+        {% csrf_token %}
+        <input type="hidden" name="invitation_pk" value="{{ invitation.pk }}" />
+        <button name="resend" class="btn btn-default">{% trans "Resend mail" %}</button>
+        <button name="withdraw" class="btn btn-warning">{% trans "Withdraw" %}</button>
+        </form>
+        </td>
+    </tr>
+{% endfor %}
+</tbody>
+</table>
+{% else %}
+<p>{% trans "You have no open invitations." %}</p>
+{% endif %}
+<p><a href="{% url 'guests_invite' %}" class="btn btn-primary">{% trans "Invite guest" %}</a></p>
+
+<h3>{% trans "Your guests" %}</h3>
+{% if guests %}
+<table class="table table-striped">
+<thead>
+    <tr>
+        <th>{% trans "Username" %}</th>
+        <th>{% trans "Full name" %}</th>
+    </tr>
+</thead>
+<tbody>
+{% for guest in guests %}
+    <tr>
+        <td>{{ guest.guest_user.username }}</td>
+        <td>{{ guest.guest_user.get_full_name }}</td>
+    </tr>
+{% endfor %}
+</tbody>
+</table>
+{% else %}
+{% trans "You have no guests." %}
+{% endif %}
+{% endblock %}

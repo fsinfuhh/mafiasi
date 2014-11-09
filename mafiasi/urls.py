@@ -20,6 +20,7 @@ urlpatterns = patterns('',
     url(r'^gprot/', include('mafiasi.gprot.urls')),
     url(r'^teaching/', include('mafiasi.teaching.urls')),
     url(r'^mail/', include('mafiasi.mail.urls')),
+    url(r'^guests/', include('mafiasi.guests.urls')),
 
     url(r'^login$', 'django.contrib.auth.views.login', name='login'),
     url(r'^logout$', 'django.contrib.auth.views.logout', {

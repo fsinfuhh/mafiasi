@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block wtitle %}{% block ptitle %}{% trans "Invitation withdrawn" %}{% endblock %}{% endblock %}
+
+{% block content %}
+<p>{% trans "This invitation has been withdrawn or is no longer valid." %}</p>
+{% endblock %}

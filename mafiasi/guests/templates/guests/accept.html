@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load widget_tweaks %}
+
+{% block wtitle %}{% block ptitle %}{% trans "Accept invitation" %}{% endblock %}{% endblock %}
+
+{% block content %}
+<form method="post">
+{% csrf_token %}
+<div class="form-group">
+    <label class="control-label">{% trans "Username" %}</label>
+    <input type="text" class="form-control" disabled="disabled"
+        value="{{ invitation.username }}.guest" />
+</div>
+<div class="form-group{% if form.password1.errors %} has-error{% endif %}">
+    <label class="control-label">{% trans "Password" %}</label>
+    {% render_field form.password1 class+="form-control" %}
+    {% if form.password1.errors %}
+    <div class="help-block">
+    {% for error in form.password1.errors %}{{ error }} {% endfor %}
+    </div>
+    {% endif %}
+</div>
+<div class="form-group{% if form.password2.errors %} has-error{% endif %}">
+    <label class="control-label">{% trans "Password confirmation" %}</label>
+    {% render_field form.password2 class+="form-control" %}
+    {% if form.password2.errors %}
+    <div class="help-block">
+    {% for error in form.password2.errors %}{{ error }} {% endfor %}
+    </div>
+    {% endif %}
+</div>
+<div class="form-group">
+<p><button class="btn btn-primary">{% trans "Create account" %}</button></p>
+
+{% endblock %}

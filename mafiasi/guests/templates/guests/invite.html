@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load widget_tweaks %}
+
+{% block wtitle %}{% block ptitle %}{% trans "Invite guest" %}{% endblock %}{% endblock %}
+
+{% block content %}
+<form method="post" style="width:55%;">
+{% csrf_token %}
+<div class="form-group{% if form.username.errors %} has-error{% endif %}">
+    <label class="control-label">{% trans "Username" %}</label>
+    <div class="input-group">
+        {% render_field form.username class+="form-control" %}
+        <span class="input-group-addon">.guest</span>
+    </div>
+    <div class="help-block">
+    {% trans "Must start with a letter and only contain alphanumeric characters. Lowercase only." %}
+    {% if form.username.errors %}
+    <ul>
+    {% for error in form.username.errors %}<li>{{ error }}</li>{% endfor %}
+    </ul>
+    {% endif %}
+    </div>
+</div>
+<div class="form-group{% if form.email.errors %} has-error{% endif %}">
+    <label class="control-label">{% trans "Email" %}</label>
+    {% render_field form.email class+="form-control" %}
+</div>
+<div class="form-group{% if form.first_name.errors %} has-error{% endif %}">
+    <label class="control-label">{% trans "First name" %}</label>
+    {% render_field form.first_name class+="form-control" %}
+</div>
+<div class="form-group{% if form.last_name.errors %} has-error{% endif %}">
+    <label class="control-label">{% trans "Last name" %}</label>
+    {% render_field form.last_name class+="form-control" %}
+</div>
+<p><button class="btn btn-primary">{% trans "Invite guest" %}</button></p>
+</form>
+{% endblock %}
