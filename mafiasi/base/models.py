@@ -13,6 +13,8 @@ from django.conf import settings
 from django.utils.crypto import constant_time_compare
 from django.contrib.auth.models import AbstractUser, Group
 
+from mafiasi.base.tokenbucket import TokenBucket # noqa
+
 LOCK_ID_LDAP_GROUP = -215652734
 
 class YeargroupManager(models.Manager):
