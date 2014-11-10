@@ -68,7 +68,7 @@ class Guest(models.Model):
     date_invited = models.DateTimeField(default=timezone.now)
 
     def __unicode__(self):
-        return self.guest.username
+        return self.guest_user.username
 
 def get_invitation_bucket(user, whatfor):
     return TokenBucket.get(identifier='invitations_sent',
