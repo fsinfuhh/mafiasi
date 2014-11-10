@@ -4,7 +4,6 @@ from smtplib import SMTPRecipientsRefused
 
 from django.db import models
 from django.utils import timezone
-from django.utils.translation import ugettext as _
 from django.core import signing
 from django.core.urlresolvers import reverse
 from django.core.mail import send_mail
