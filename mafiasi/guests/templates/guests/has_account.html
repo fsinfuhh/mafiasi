@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block wtitle %}{% block ptitle %}{% trans "Account already exists" %}{% endblock %}{% endblock %}
+
+{% block content %}
+{% url 'password_reset' as password_reset_url %}
+<p>{% blocktrans with full_name=existing_account.get_full_name username=existing_account.username %}Hello {{ full_name }}, you already have an account here! Its username is {{ username }}. Did you <a href="{{ password_reset_url }}">forget your password?</a>{% endblocktrans %}</p>
+{% endblock %}
