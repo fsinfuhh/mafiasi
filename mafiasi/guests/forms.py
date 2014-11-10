@@ -1,8 +1,12 @@
+from __future__ import unicode_literals
+
 import re
 
 from django import forms
 from django.utils.translation import ugettext as _
+from django.conf import settings
 
+from mafiasi.base.models import Mafiasi
 from mafiasi.guests.models import Invitation, get_invitation_bucket
 
 _username_re = re.compile(r'^[a-z][a-z0-9]+$')
@@ -24,6 +28,21 @@ class InvitationForm(forms.ModelForm):
             raise forms.ValidationError(
                 _('Username must be at least 3 characters long.'))
         return username
+
+    def clean_email(self):
+        email = self.cleaned_data['email'].lower()
+
+        domain = email.rsplit('@', 1)[1]
+        if domain in settings.REGISTER_DOMAINS:
+            raise forms.ValidationError(
+                    _("The guest can use this email address to register a "
+                      "normal user account."))
+        
+        if Mafiasi.objects.filter(email=email).count():
+            raise forms.ValidationError(
+                    _("There is already an account with that email."))
+
+        return email
 
     def clean(self):
         cleaned_data = super(InvitationForm, self).clean()

@@ -8,6 +8,7 @@ from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
+from mafiasi.base.models import Mafiasi
 from mafiasi.registration.forms import PasswordForm
 from mafiasi.guests.models import Invitation, Guest, get_invitation_bucket
 from mafiasi.guests.forms import InvitationForm
@@ -91,6 +92,14 @@ def accept(request, invitation_token):
         invitation = Invitation.objects.get(pk=invitation_pk)
     except Invitation.DoesNotExist:
         return render(request, 'guests/invitation_withdrawn.html')
+    
+    try:
+        existing_account = Mafiasi.objects.get(email=invitation.email)
+        return render(request, 'guests/has_account.html', {
+            'existing_account': existing_account
+        })
+    except Mafiasi.DoesNotExist:
+        pass
     
     if request.method == 'POST':
         form = PasswordForm(request.POST)
