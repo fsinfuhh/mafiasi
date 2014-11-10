@@ -2,6 +2,8 @@ from __future__ import unicode_literals
 
 from datetime import timedelta
 
+import pytz
+
 from django.db import models
 from django.conf import settings
 from django.utils import timezone
@@ -12,12 +14,14 @@ class TokensExceeded(Exception):
         self.time_available = time_available
 
     def get_message(self, what=None):
-        if self.time_available.date() != timezone.now().date():
+        tz = pytz.timezone(settings.TIME_ZONE)
+        time_available = self.time_available.astimezone(tz)
+        if time_available.date() != timezone.now().date():
             time_format = '%Y-%m-%d %H:%M'
         else:
             time_format = '%H:%M:%S'
 
-        time_str = self.time_available.strftime(time_format)
+        time_str = time_available.strftime(time_format)
 
         if what is not None:
             return _('Limit for {} reached. Please wait until {}').format(
