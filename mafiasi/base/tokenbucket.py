@@ -1,12 +1,28 @@
+from __future__ import unicode_literals
+
 from datetime import timedelta
 
 from django.db import models
 from django.conf import settings
 from django.utils import timezone
+from django.utils.translation import ugettext as _
 
 class TokensExceeded(Exception):
     def __init__(self, time_available):
         self.time_available = time_available
+
+    def get_message(self, what=None):
+        if self.time_available.date() != timezone.now().date():
+            time_format = '%Y-%m-%d %H:%M'
+        else:
+            time_format = '%H:%M:%S'
+
+        time_str = self.time_available.strftime(time_format)
+
+        if what is not None:
+            return _('Limit for {} reached. Please wait until {}').format(
+                    what, time_str)
+        return _('Limit reached. Please wait until {}').format(time_str)
 
 class TokenBucket(models.Model):
     identifier = models.CharField(max_length=30)
