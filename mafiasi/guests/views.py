@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 from mafiasi.registration.forms import PasswordForm
-from mafiasi.guests.models import Invitation, Guest
+from mafiasi.guests.models import Invitation, Guest, get_invitation_bucket
 from mafiasi.guests.forms import InvitationForm
 
 @login_required
@@ -32,7 +32,7 @@ def invite(request):
         return redirect('guest_invited_by')
 
     if request.method == 'POST':
-        form = InvitationForm(request.POST)
+        form = InvitationForm(request.POST, user=request.user)
         if form.is_valid():
             invitation = form.save(commit=False)
             invitation.invited_by = request.user
@@ -42,7 +42,7 @@ def invite(request):
             messages.success(request, msg)
             return redirect('guests_index')
     else:
-        form = InvitationForm()
+        form = InvitationForm(user=request.user)
     return render(request, 'guests/invite.html', {
         'form': form
     })
@@ -58,8 +58,14 @@ def invitation_action(request):
             invitation.delete()
             messages.success(request, _('Invitation was withdrawn.'))
         elif 'resend' in request.POST:
-            invitation.send_email()
-            messages.success(request, _('Invitation mail was resent.'))
+            bucket = get_invitation_bucket(request.user, _('invitation mails'))
+            try:
+                bucket.consume(1)
+            except bucket.TokensExceeded as e:
+                messages.error(request, e.get_message())
+            else:
+                invitation.send_email()
+                messages.success(request, _('Invitation mail was resent.'))
     return redirect('guests_index')
 
 @login_required

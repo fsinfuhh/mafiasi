@@ -7,6 +7,9 @@
 {% block content %}
 <form method="post" style="width:55%;">
 {% csrf_token %}
+{% if form.non_field_errors %}
+<div class="alert alert-warning" role="alert">{{ form.non_field_errors }}</div>
+{% endif %}
 <div class="form-group{% if form.username.errors %} has-error{% endif %}">
     <label class="control-label">{% trans "Username" %}</label>
     <div class="input-group">

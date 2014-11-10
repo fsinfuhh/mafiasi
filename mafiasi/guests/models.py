@@ -4,6 +4,7 @@ from smtplib import SMTPRecipientsRefused
 
 from django.db import models
 from django.utils import timezone
+from django.utils.translation import ugettext as _
 from django.core import signing
 from django.core.urlresolvers import reverse
 from django.core.mail import send_mail
@@ -11,7 +12,11 @@ from django.conf import settings
 from django.contrib.sites.models import Site
 from django.template.loader import render_to_string
 
+from mafiasi.base.tokenbucket import TokenBucket
 from mafiasi.registration.models import create_mafiasi_account
+
+INVITATION_MAX_TOKENS = 20
+INVITATION_FILL_RATE = 1.0/(3*60)
 
 class Invitation(models.Model):
     username = models.CharField(max_length=30-len('.guest'), unique=True)
@@ -65,3 +70,10 @@ class Guest(models.Model):
 
     def __unicode__(self):
         return self.guest.username
+
+def get_invitation_bucket(user, whatfor):
+    return TokenBucket.get(identifier='invitations_sent',
+                           user=user,
+                           max_tokens=INVITATION_MAX_TOKENS,
+                           fill_rate=INVITATION_FILL_RATE,
+                           whatfor=whatfor)
