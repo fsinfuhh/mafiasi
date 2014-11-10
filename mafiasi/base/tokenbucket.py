@@ -9,12 +9,14 @@ from django.conf import settings
 from django.utils import timezone
 from django.utils.translation import ugettext as _
 
-class TokensExceeded(Exception):
+class TokensExceededBase(Exception):
+    whatfor = None
     def __init__(self, time_available):
         self.time_available = time_available
 
-    def get_message(self, what=None):
-        tz = pytz.timezone(settings.TIME_ZONE)
+    def get_message(self, tz=None):
+        if tz is None:
+            tz = pytz.timezone(settings.TIME_ZONE)
         time_available = self.time_available.astimezone(tz)
         if time_available.date() != timezone.now().date():
             time_format = '%Y-%m-%d %H:%M'
@@ -23,9 +25,9 @@ class TokensExceeded(Exception):
 
         time_str = time_available.strftime(time_format)
 
-        if what is not None:
-            return _('Limit for {} reached. Please wait until {}').format(
-                    what, time_str)
+        if self.whatfor is not None:
+            return _('Limit for {} reached. Please wait until {}.').format(
+                    self.whatfor, time_str)
         return _('Limit reached. Please wait until {}').format(time_str)
 
 class TokenBucket(models.Model):
@@ -52,7 +54,7 @@ class TokenBucket(models.Model):
         total_tokens = self._calc_tokens(now)
         wait_seconds = self.wait_seconds(num_tokens, total_tokens)
         if wait_seconds != 0:
-            raise TokensExceeded(now + timedelta(seconds=wait_seconds))
+            raise self.TokensExceeded(now + timedelta(seconds=wait_seconds))
         total_tokens -= num_tokens
         self.tokens = total_tokens
         self.last_updated = now
@@ -81,17 +83,23 @@ class TokenBucket(models.Model):
         return min(self.tokens + delta*self.fill_rate, self.max_tokens)
 
     @classmethod
-    def get(cls, identifier, user, max_tokens, fill_rate):
+    def get(cls, identifier, user, max_tokens, fill_rate, whatfor=None):
         """Get a token bucket with specified configuration.
         
         Always use this function to get a bucket!
         """
         try:
-            return cls.objects.get(identifier=identifier, user=user)
+            bucket = cls.objects.get(identifier=identifier, user=user)
         except cls.DoesNotExist:
-            return cls(identifier=identifier,
-                       user=user,
-                       max_tokens=max_tokens,
-                       fill_rate=fill_rate,
-                       tokens=max_tokens,
-                       last_updated=timezone.now())
+            bucket = cls(identifier=identifier,
+                         user=user,
+                         max_tokens=max_tokens,
+                         fill_rate=fill_rate,
+                         tokens=max_tokens,
+                         last_updated=timezone.now())
+        
+        scope_whatfor = whatfor
+        class TokensExceeded(TokensExceededBase):
+            whatfor = scope_whatfor
+        bucket.TokensExceeded = TokensExceeded
+        return bucket
