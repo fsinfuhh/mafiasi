@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-10 22:40+0100\n"
-"PO-Revision-Date: 2014-11-10 22:48+0100\n"
+"POT-Creation-Date: 2014-11-17 15:15+0100\n"
+"PO-Revision-Date: 2014-11-17 15:16+0100\n"
 "Last-Translator: Henning Pridöhl <8pridoeh@informatik.uni-hamburg.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: en\n"
@@ -861,8 +861,11 @@ msgid "Group name"
 msgstr "Group name"
 
 #: mafiasi/groups/templates/groups/create.html:13
-msgid "Only letters, numbers, \"-\" and \"_\" are allowed. Must start with a letter."
-msgstr "Only letters, numbers, \"-\" and \"_\" are allowed. Must start with a letter."
+#| msgid ""
+#| "Only letters, numbers, \"-\" and \"_\" are allowed. Must start with a "
+#| "letter."
+msgid "Only letters, numbers and \"-\" are allowed. Must start with a letter."
+msgstr "Only letters, numbers and \"-\" are allowed. Must start with a letter."
 
 #: mafiasi/groups/templates/groups/create.html:17
 #: mafiasi/jabber/templates/jabber/create.html:21
@@ -1002,7 +1005,6 @@ msgid "Username must be alphanumeric and start with a letter."
 msgstr "Username must be alphanumeric and start with a letter."
 
 #: mafiasi/guests/forms.py:29
-#| msgid "The group name must be at least {} characters"
 msgid "Username must be at least 3 characters long."
 msgstr "Username must be at least 3 characters long."
 
@@ -1015,12 +1017,10 @@ msgid "There is already an account with that email."
 msgstr "There is already an account with that email."
 
 #: mafiasi/guests/forms.py:49
-#| msgid "Invitations"
 msgid "invitations"
 msgstr "invitations"
 
 #: mafiasi/guests/templates/guests/accept.html:5
-#| msgid "My Invitations"
 msgid "Accept invitation"
 msgstr "Accept invitation"
 
@@ -1057,7 +1057,6 @@ msgid "Create account"
 msgstr "Create account"
 
 #: mafiasi/guests/templates/guests/has_account.html:4
-#| msgid "Account already exists."
 msgid "Account already exists"
 msgstr "Account already exists"
 
@@ -1067,19 +1066,16 @@ msgid "Hello %(full_name)s, you already have an account here! Its username is %(
 msgstr "Hello %(full_name)s, you already have an account here! Its username is %(username)s. Did you <a href=\"%(password_reset_url)s\">forget your password?</a>"
 
 #: mafiasi/guests/templates/guests/index.html:8
-#| msgid "Invitations"
 msgid "Open invitations"
 msgstr "Open invitations"
 
 #: mafiasi/guests/templates/guests/index.html:14
 #: mafiasi/guests/templates/guests/index.html:48
-#| msgid "Group name"
 msgid "Full name"
 msgstr "Full name"
 
 #: mafiasi/guests/templates/guests/index.html:15
 #: mafiasi/guests/templates/guests/invite.html:29
-#| msgid "Your Email"
 msgid "Email"
 msgstr "Email"
 
@@ -1088,29 +1084,24 @@ msgid "Resend mail"
 msgstr "Resend mail"
 
 #: mafiasi/guests/templates/guests/index.html:38
-#| msgid "You have no invitations."
 msgid "You have no open invitations."
 msgstr "You have no open invitations."
 
 #: mafiasi/guests/templates/guests/index.html:40
 #: mafiasi/guests/templates/guests/invite.html:5
 #: mafiasi/guests/templates/guests/invite.html:47
-#| msgid "Invite user"
 msgid "Invite guest"
 msgstr "Invite guest"
 
 #: mafiasi/guests/templates/guests/index.html:42
-#| msgid "Your group pads"
 msgid "Your guests"
 msgstr "Your guests"
 
 #: mafiasi/guests/templates/guests/index.html:61
-#| msgid "You have no invitations."
 msgid "You have no guests."
 msgstr "You have no guests."
 
 #: mafiasi/guests/templates/guests/invitation_withdrawn.html:4
-#| msgid "Invitation was sent."
 msgid "Invitation withdrawn"
 msgstr "Invitation withdrawn"
 
@@ -1149,22 +1140,18 @@ msgid "How about visiting <a href=\"%(dashboard_url)s\">the dashboard</a>?"
 msgstr "How about visiting <a href=\"%(dashboard_url)s\">the dashboard</a>?"
 
 #: mafiasi/guests/views.py:42
-#| msgid "Key was successfully assigned to you."
 msgid "{} was successfully invited."
 msgstr "{} was successfully invited."
 
 #: mafiasi/guests/views.py:60
-#| msgid "Invitation was sent."
 msgid "Invitation was withdrawn."
 msgstr "Invitation was withdrawn."
 
 #: mafiasi/guests/views.py:62
-#| msgid "Invitations"
 msgid "invitation mails"
 msgstr "invitation mails"
 
 #: mafiasi/guests/views.py:69
-#| msgid "Invitation was sent."
 msgid "Invitation mail was resent."
 msgstr "Invitation mail was resent."
 
