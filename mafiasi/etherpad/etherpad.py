@@ -99,6 +99,9 @@ class Etherpad(object):
             if e.message == "padID does not exist":
                 return 0
             raise
+        except TypeError:
+            # LastEdited is None
+            return 0
 
     def get_html(self, pad_name):
         try:
