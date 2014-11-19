@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 from mafiasi.etherpad.etherpad import Etherpad
 
 from django import forms
@@ -86,7 +88,7 @@ def delete_pad(request, group_name, pad_name):
         form = DeleteEtherpadForm(request.user, request.POST)
         if form.is_valid():
             ep = Etherpad()
-            ep.delete_pad(u'{0}${1}'.format(
+            ep.delete_pad('{0}${1}'.format(
                 ep.get_group_id(group_name),
                 pad_name))
             return redirect('ep_index')
@@ -110,7 +112,7 @@ def show_pad(request, group_name, pad_name):
     try:
         ep.create_session(request.user, group_name)
         group_id = ep.get_group_id(group_name)
-        pad_url = u'{0}/p/{1}${2}'.format(
+        pad_url = '{0}/p/{1}${2}'.format(
                 settings.ETHERPAD_URL,
                 group_id,
                 pad_name)
