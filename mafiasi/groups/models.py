@@ -62,9 +62,12 @@ class GroupProxy(object):
         self._raise_if_sole_admin(user)
         self.group.properties.admins.remove(user)
 
+    def is_admin(self, user):
+        return bool(self.group.properties.admins.filter(pk=user.pk).count())
+
     def _raise_if_sole_admin(self, user):
         properties = self.group.properties
-        if properties.admins.filter(pk=user.pk):
+        if self.is_admin(user):
             num_admins = properties.admins.count()
             if num_admins == 1:
                 msg = _('You are the sole group admin. Please terminate the '
