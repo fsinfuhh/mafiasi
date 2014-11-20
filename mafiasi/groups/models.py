@@ -65,6 +65,9 @@ class GroupProxy(object):
     def is_admin(self, user):
         return bool(self.group.properties.admins.filter(pk=user.pk).count())
 
+    def is_member(self, user):
+        return bool(self.group.user_set.filter(pk=user.pk).count())
+
     def _raise_if_sole_admin(self, user):
         properties = self.group.properties
         if self.is_admin(user):
