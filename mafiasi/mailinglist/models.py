@@ -90,7 +90,12 @@ class Mailinglist(models.Model):
         email_obj['X-BeenThere'] = list_addr
         subject = email_obj.get('Subject', '')
         del email_obj['Subject']
-        email_obj['Subject'] = '[{}] {}'.format(self.group.name, subject)
+        prefix_lower = '[{}]'.format(self.group.name).lower()
+        add_prefix = prefix_lower not in subject.lower()
+        if add_prefix:
+            email_obj['Subject'] = '[{}] {}'.format(self.group.name, subject)
+        else:
+            email_obj['Subject'] = subject
 
     def _get_excluded_emails(self, email_obj):
         excluded_emails = set()
