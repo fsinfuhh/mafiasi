@@ -285,5 +285,7 @@ PKS_COMMUNITY_DOMAINS = ['informatik.uni-hamburg.de', 'studium.uni-hamburg.de']
 
 MAILINGLIST_DOMAIN = 'group.mafiasi.de'
 MAILINGLIST_SERVER = ('127.0.0.1', 2522)
+MAILCLOAK_DOMAIN = 'cloak.mafiasi.de'
+MAILCLOAK_SERVER = ('127.0.0.1', 2523)
 VALID_EMAIL_ADDRESSES = ['postmaster@mafiasi.de']
 EMAIL_ADDRESSES_PASSWORD = 'changeme'
