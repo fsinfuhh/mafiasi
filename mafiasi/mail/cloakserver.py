@@ -1,7 +1,8 @@
 from __future__ import unicode_literals
 
+import copy
 from email.parser import Parser
-from email.utils import getaddresses
+from email.utils import getaddresses, formataddr
 import logging
 import smtpd
 import smtplib
@@ -21,9 +22,16 @@ class CloakServer(smtpd.SMTPServer):
         rcptto_addresses = [addr[1].lower() for addr in getaddresses(rcpttos)]
         cloaks = self.get_cloaks(rcptto_addresses)
 
-        for rcptto_addresses in rcptto_addresses:
-            rcptto = cloaks.get(rcptto_addresses, rcptto_addresses)
-            self.process_message_single(mailfrom, rcptto, message)
+        for rcptto_address in rcptto_addresses:
+            if rcptto_address in cloaks:
+                rcptmessage = self.uncloak_message(message,
+                                                      rcptto_address,
+                                                      cloaks)
+                rcptto = cloaks[rcptto_address]
+            else:
+                rcptto = rcptto_address
+                rcptmessage = message
+            self.process_message_single(mailfrom, rcptto, rcptmessage)
 
     def process_message_single(self, mailfrom, rcptto, message):
         refused = {}
@@ -53,3 +61,18 @@ class CloakServer(smtpd.SMTPServer):
                                          settings.MAILCLOAK_DOMAIN)
             cloaks[cloak_email] = cloak_user.email
         return cloaks
+
+    def uncloak_message(self, message, rcptto, cloaks):
+        message = copy.deepcopy(message)
+        for field in ('To', 'Cc'):
+            self._uncloak_field(message, rcptto, cloaks, field)
+        return message
+
+    def _uncloak_field(self, message, rcptto, cloaks, field):
+        addresses = getaddresses(message.get_all(field, []))
+        del message[field]
+        for name, address in addresses:
+            address_lower = address.lower()
+            if rcptto == address_lower:
+                address = cloaks.get(address_lower, address)
+            message.add_header(field, formataddr((name, address)))
