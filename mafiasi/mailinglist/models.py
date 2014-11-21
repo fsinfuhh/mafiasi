@@ -119,7 +119,7 @@ class WhitelistedAddress(models.Model):
         return '[{}] {}'.format(self.mailinglist.group.name, self.email)
 
 class ModeratedMail(models.Model):
-    mailinglist = models.ForeignKey(Mailinglist)
+    mailinglist = models.ForeignKey(Mailinglist, related_name='moderated_mails')
     email_content = models.TextField()
 
     def __unicode__(self):
