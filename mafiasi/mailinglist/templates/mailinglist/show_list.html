@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block wtitle %}{% block ptitle %}{% blocktrans with group_name=group.name %}Mailinglist for {{ group_name }}{% endblocktrans %}{% endblock %}{% endblock %}
+
+{% block content %}
+{% if mailinglist %}
+
+{% if moderated_mails %}
+<h3>{% trans "Moderated emails" %}</h3>
+<table class="table table-striped">
+<thead>
+    <tr>
+        <th>{% trans "Sender" %}</th>
+        <th>{% trans "Subject" %}</th>
+        <th>{% trans "Action" %}</th>
+    </tr>
+</thead>
+<tbody>
+{% for mmail in moderated_mails %}
+    <tr>
+        <td>{{ mmail.sender }}</th>
+        <td>{{ mmail.subject }}</th>
+        <td>
+            <form method="post" action="{% url 'mailinglist_mailaction' group.name mmail.pk %}">
+            {% csrf_token %}
+            <button class="btn btn-primary" name="allow">{% trans "Allow" %}</button>
+            <button class="btn btn-warning" name="discard">{% trans "Discard" %}</button>
+            </form>
+        </td>
+    </tr>
+{% endfor %}
+</tbody>
+</table>
+
+<form method="post">
+{% csrf_token %}
+
+</form>
+{% endif %}
+
+{% else %}
+{% if is_admin %}
+<p>{% trans "The mailinglist for this group does not exist yet. Use the magic button to create it." %}</p>
+<form method="post" action="{% url 'mailinglist_create_list' group.name %}">
+{% csrf_token %}
+<p><button class="btn btn-primary">{% trans "Create mailinglist" %}</button></p>
+</form>
+{% else %}
+<p>{% trans "Please ask a group admin to create this mailinglist." %}</p>
+{% endif %}
+{% endif %}
+
+{% endblock content %} 
