@@ -10,8 +10,8 @@
 {% endif %}
 <p>{% blocktrans with address=mailinglist.get_address %}The email address of this mailinglist is <strong>{{ address }}</strong>.{% endblocktrans %}</p>
 
-{% if moderated_mails %}
 <h3>{% trans "Moderated emails" %}</h3>
+{% if moderated_mails %}
 <table class="table table-striped">
 <thead>
     <tr>
@@ -41,6 +41,8 @@
 {% csrf_token %}
 
 </form>
+{% else %}
+<p>{% trans "There are no emails needing moderation." %}</p>
 {% endif %}
 
 {% else %}
