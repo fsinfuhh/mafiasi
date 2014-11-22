@@ -11,7 +11,7 @@ from django.db import models
 from django.contrib.auth.models import Group
 from django.conf import settings
 
-from mafiasi.mail.signals import collect_mailaddresses
+from mafiasi.mail.signals import collect_mailaddresses, mailaddresses_known
 
 logger = logging.getLogger('mailinglist')
 
@@ -167,4 +167,8 @@ def _attach_group_addresses(sender, addresses, **kwargs):
     for mailinglist in Mailinglist.objects.select_related('group'):
         addresses.append(mailinglist.get_address())
 
+def _attach_known_addresses(sender, **kwargs):
+    Mailinglist.objects.filter(is_known=False).update(is_known=True)
+
 collect_mailaddresses.connect(_attach_group_addresses)
+mailaddresses_known.connect(_attach_known_addresses)
