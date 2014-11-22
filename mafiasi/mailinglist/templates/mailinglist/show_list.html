@@ -36,11 +36,6 @@
 {% endfor %}
 </tbody>
 </table>
-
-<form method="post">
-{% csrf_token %}
-
-</form>
 {% else %}
 <p>{% trans "There are no emails needing moderation." %}</p>
 {% endif %}
