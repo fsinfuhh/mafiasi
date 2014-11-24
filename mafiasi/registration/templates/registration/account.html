@@ -5,6 +5,12 @@
 {% block wtitle %}{% block ptitle %}{% trans "Account" %}{% endblock %}{% endblock %}
 
 {% block content %}
+
+{% if not user.is_guest %}
+{% url 'guests_index' as guests_url %}
+{% blocktrans %}You want to use nafiasi.de with your friends? You can <a href="{{ guests_url }}">invite guests</a>.{% endblocktrans %}
+{% endif %}
+
 <h3>{% trans "Change nickname" %}</h3>
 <p>{% trans 'If you choose a nickname, it will be shown instead of your first name (e.g. when you vote in Dudle)' %}</p>
 <form method="post" class="form-inline">
