@@ -6,18 +6,19 @@ import os
 
 from django.core.management.base import BaseCommand, CommandError
 from mafiasi.base.models import Mafiasi
-
+from optparse import make_option
 
 class Command(BaseCommand):
     args = '<name> <email> <first_name> <last_name>'
     help = 'Create a guest account'
 
-    def add_arguments(self, parser):
-        parser.add_argument('--no-guest',
-                            action='store_true',
-                            dest='noguest',
-                            default=False,
-                            help='Do not add .guest to username')
+    option_list = BaseCommand.option_list + (
+        make_option('--no-guest',
+                        action='store_true',
+                        dest='noguest',
+                        default=False,
+                        help='Do not add .guest to username'),
+        )
 
     def handle(self, *args, **options):
         if len(args) < 3:
