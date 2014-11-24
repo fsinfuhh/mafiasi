@@ -7,9 +7,17 @@ import os
 from django.core.management.base import BaseCommand, CommandError
 from mafiasi.base.models import Mafiasi
 
+
 class Command(BaseCommand):
     args = '<name> <email> <first_name> <last_name>'
     help = 'Create a guest account'
+
+    def add_arguments(self, parser):
+        parser.add_argument('--no-guest',
+                            action='store_true',
+                            dest='noguest',
+                            default=False,
+                            help='Do not add .guest to username')
 
     def handle(self, *args, **options):
         if len(args) < 3:
@@ -26,12 +34,17 @@ class Command(BaseCommand):
         except IndexError:
             last_name = None
 
-        if not name.endswith('.guest'):
-            name += '.guest'
+        if not options['noguest']:
+            if not name.endswith('.guest'):
+                name += '.guest'
 
-        if not re.match('^[a-z][a-z0-9]*.guest$', name):
-            raise CommandError(
-                    'Name must be alphanumeric and start with a letter')
+            if not re.match('^[a-z][a-z0-9]*.guest$', name):
+                raise CommandError(
+                        'Name must be alphanumeric and start with a letter')
+        else:  # noguest
+            if not re.match('^[a-z0-9]*$', name):
+                raise CommandError(
+                        'Name must be alphanumeric')
 
         if u'@' not in email:
             raise CommandError('Invalid email')
