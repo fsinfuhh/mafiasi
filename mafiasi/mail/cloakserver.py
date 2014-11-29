@@ -59,7 +59,7 @@ class CloakServer(smtpd.SMTPServer):
         for cloak_user in Mafiasi.objects.filter(username__in=cloak_users):
             cloak_email = '{}@{}'.format(cloak_user.username,
                                          settings.MAILCLOAK_DOMAIN)
-            cloaks[cloak_email] = cloak_user.email
+            cloaks[cloak_email] = cloak_user.real_email
         return cloaks
 
     def uncloak_message(self, message, rcptto, cloaks):
