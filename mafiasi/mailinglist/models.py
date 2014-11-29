@@ -36,7 +36,7 @@ class Mailinglist(models.Model):
         email_address = email_address.lower()
         if self.allow_others:
             return True
-        if self.group.user_set.filter(email=email_address).count():
+        if self.group.user_set.filter(real_email=email_address).count():
             return True
         if self.whitelist.filter(email=email_address).count():
             return True

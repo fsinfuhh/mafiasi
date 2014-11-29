@@ -1,3 +1,7 @@
+from __future__ import unicode_literals
+
+from django.conf import settings
+
 from mafiasi.base.models import Mafiasi
 
 def create_mafiasi_account(username, email, first_name, last_name, account=None,
@@ -6,7 +10,8 @@ def create_mafiasi_account(username, email, first_name, last_name, account=None,
     if first_name and last_name:
         mafiasi.first_name = first_name
         mafiasi.last_name = last_name
-    mafiasi.email = email
+    mafiasi.email = '{}@{}'.format(username, settings.MAILCLOAK_DOMAIN)
+    mafiasi.real_email = email
     mafiasi.yeargroup = yeargroup
     mafiasi.is_guest = is_guest
 

@@ -38,7 +38,7 @@ class InvitationForm(forms.ModelForm):
                     _("The guest can use this email address to register a "
                       "normal user account."))
         
-        if Mafiasi.objects.filter(email=email).count():
+        if Mafiasi.objects.filter(real_email=email).count():
             raise forms.ValidationError(
                     _("There is already an account with that email."))
 

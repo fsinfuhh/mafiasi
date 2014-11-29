@@ -63,6 +63,7 @@ class Mafiasi(AbstractUser):
     account = models.CharField(max_length=40)
     yeargroup = models.ForeignKey(Yeargroup, blank=True, null=True)
     is_guest = models.BooleanField(default=False)
+    real_email = models.EmailField(unique=True, null=True)
     new_password = None
 
     @property
