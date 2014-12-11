@@ -118,6 +118,9 @@ class WhitelistedAddress(models.Model):
     def __unicode__(self):
         return '[{}] {}'.format(self.mailinglist.group.name, self.email)
 
+    class Meta:
+        unique_together = ('mailinglist', 'email')
+
 class ModeratedMail(models.Model):
     mailinglist = models.ForeignKey(Mailinglist, related_name='moderated_mails')
     email_content = models.TextField()
