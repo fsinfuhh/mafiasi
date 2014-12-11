@@ -112,7 +112,7 @@ class Mailinglist(models.Model):
 
 class WhitelistedAddress(models.Model):
     mailinglist = models.ForeignKey(Mailinglist,
-                                    related_name='whitelist')
+                                    related_name='whitelist_addresses')
     email = models.EmailField()
 
     def __unicode__(self):
