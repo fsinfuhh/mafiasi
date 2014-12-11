@@ -6,6 +6,7 @@ from django.contrib import messages
 
 from mafiasi.groups.models import Group, GroupProxy
 from mafiasi.mailinglist.models import Mailinglist, ModeratedMail
+from mafiasi.mailinglist.forms import AddWhitelistForm
 
 @login_required
 def show_list(request, group_name):
@@ -17,15 +18,18 @@ def show_list(request, group_name):
     try:
         mailinglist = Mailinglist.objects.get(group=group)
         moderated_mails = mailinglist.moderated_mails.all()
+        whitelist_count = mailinglist.whitelist_addresses.count()
     except Mailinglist.DoesNotExist:
         mailinglist = None
         moderated_mails = []
+        whitelist_count = 0
 
     is_admin = GroupProxy(group).is_admin(request.user)
     return render(request, 'mailinglist/show_list.html', {
         'group': group,
         'mailinglist': mailinglist,
         'moderated_mails': moderated_mails,
+        'whitelist_count': whitelist_count,
         'is_admin': is_admin
     })
 
@@ -66,3 +70,39 @@ def mailaction(request, group_name, mmail_pk):
             mmail.delete()
 
     return redirect('mailinglist_show_list', group.name)
+
+@login_required
+def manage_whitelist(request, group_name):
+
+
+    group = get_object_or_404(Group, name=group_name)
+    group_proxy = GroupProxy(group)
+    if not group_proxy.is_member(request.user):
+        raise PermissionDenied()
+    is_admin = group_proxy.is_admin(request.user)
+    try:
+        mailinglist = Mailinglist.objects.get(group=group)
+    except Mailinglist.DoesNotExist:
+        return redirect('mailinglist_show_list', group.name)
+
+    if 'add' in request.POST and is_admin:
+        add_form = AddWhitelistForm(request.POST, mailinglist=mailinglist)
+        if add_form.is_valid():
+            add_form.save()
+            return redirect('mailinglist_whitelist', group.name)
+    else:
+        add_form = AddWhitelistForm(mailinglist=mailinglist)
+
+    if 'delete' in request.POST and is_admin:
+        address_pk = request.POST.get('address_pk', 0)
+        mailinglist.whitelist_addresses.filter(pk=address_pk).delete()
+        return redirect('mailinglist_whitelist', group.name)
+
+    entries = mailinglist.whitelist_addresses.order_by('email')
+
+    return render(request, 'mailinglist/whitelist.html', {
+        'mailinglist': mailinglist,
+        'entries': entries,
+        'add_form': add_form,
+        'is_admin': is_admin
+    })

@@ -6,4 +6,6 @@ urlpatterns = patterns('mafiasi.mailinglist.views',
             name='mailinglist_create_list'),
     url(r'^([a-zA-Z0-9-]+)/mailaction/(\d+)$', 'mailaction',
             name='mailinglist_mailaction'),
+    url(r'^([a-zA-Z0-9-]+)/whitelist', 'manage_whitelist',
+            name='mailinglist_whitelist'),
 )

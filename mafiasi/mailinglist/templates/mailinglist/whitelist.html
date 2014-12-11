@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load widget_tweaks %}
+
+{% block wtitle %}{% block ptitle %}{% blocktrans with name=mailinglist.group.name %}Whitelist for {{ name }}{% endblocktrans %}{% endblock %}{% endblock %}
+
+{% block content %}
+{% if entries %}
+<table class="table table-striped">
+<thead>
+    <tr>
+        <th>{% trans "Sender email" %}</th>
+        <th>{% trans "Action" %}</th>
+    </tr>
+</thead>
+<tbody>
+{% for entry in entries %}
+    <tr>
+        <td>{{ entry.email }}</td>
+        <td>
+        <form method="post">
+        {% csrf_token %}
+        <input type="hidden" name="delete" value="" />
+        <input type="hidden" name="address_pk" value="{{ entry.pk }}" />
+        <button class="btn btn-warning">{% trans "Remove" %}</button>
+        </form>
+        </td>
+    </tr>
+{% endfor %}
+</tbody>
+</table>
+{% else %}
+<p>{% trans "There are no senders on the whitelist." %}</p>
+{% endif %}
+<h3>{% trans "Add sender to whitelist" %}</h3>
+<form method="post">
+{% csrf_token %}
+<input type="hidden" name="add" value="" />
+<div class="input-group{% if add_form.email.errors %} has-error{% endif %}">
+    <label>{% trans "Sender email" %}</label>
+    {% render_field add_form.email class+="form-control" %}
+</div>
+<p><button class="btn btn-primary">{% trans "Add to whitelist" %}</button></p>
+</form>
+
+{% endblock %}
