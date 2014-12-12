@@ -4,6 +4,8 @@ from django import forms
 from django.db import IntegrityError
 from django.utils.translation import ugettext_lazy as _
 
+from mafiasi.mailinglist.models import Mailinglist
+
 class AddWhitelistForm(forms.Form):
     email = forms.EmailField()
     
@@ -24,3 +26,8 @@ class AddWhitelistForm(forms.Form):
             self.mailinglist.whitelist_addresses.create(email=email)
         except IntegrityError:
             pass
+
+class SettingsForm(forms.ModelForm):
+    class Meta:
+        model = Mailinglist
+        fields = ('allow_others', )

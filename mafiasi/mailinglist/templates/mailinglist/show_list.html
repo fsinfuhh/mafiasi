@@ -39,10 +39,11 @@
 {% else %}
 <p>{% trans "There are no emails needing moderation." %}</p>
 <h3>{% trans "List settings" %}</h3>
-<p>
-    <a href="{% url 'mailinglist_whitelist' group.name %}">{% trans "Manage whitelist" %}</a>
-    ({% blocktrans %}{{ whitelist_count }} entries{% endblocktrans %})
-</p>
+<ul>
+    <li><a href="{% url 'mailinglist_whitelist' group.name %}">{% trans "Manage whitelist" %}</a>
+    ({% blocktrans %}{{ whitelist_count }} entries{% endblocktrans %})</li>
+    <li><a href="{% url 'mailinglist_settings' group.name %}">{% trans "Settings" %}</a></li>
+</ul>
 {% endif %}
 
 {% else %}

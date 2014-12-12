@@ -6,7 +6,7 @@ from django.contrib import messages
 
 from mafiasi.groups.models import Group, GroupProxy
 from mafiasi.mailinglist.models import Mailinglist, ModeratedMail
-from mafiasi.mailinglist.forms import AddWhitelistForm
+from mafiasi.mailinglist.forms import AddWhitelistForm, SettingsForm
 
 @login_required
 def show_list(request, group_name):
@@ -105,4 +105,29 @@ def manage_whitelist(request, group_name):
         'entries': entries,
         'add_form': add_form,
         'is_admin': is_admin
+    })
+
+@login_required
+def manage_settings(request, group_name):
+    group = get_object_or_404(Group, name=group_name)
+    if not GroupProxy(group).is_admin(request.user):
+        raise PermissionDenied()
+    
+    try:
+        mailinglist = Mailinglist.objects.get(group=group)
+    except Mailinglist.DoesNotExist:
+        return redirect('mailinglist_show_list', group.name)
+    
+    if request.method == 'POST':
+        form = SettingsForm(request.POST, instance=mailinglist)
+        if form.is_valid():
+            form.save()
+            messages.success(request, _('Mailinglist settings saved.'))
+            return redirect('mailinglist_show_list', group.name)
+    else:
+        form = SettingsForm(instance=mailinglist)
+
+    return render(request, 'mailinglist/settings.html', {
+        'mailinglist': mailinglist,
+        'form': form
     })

@@ -8,4 +8,6 @@ urlpatterns = patterns('mafiasi.mailinglist.views',
             name='mailinglist_mailaction'),
     url(r'^([a-zA-Z0-9-]+)/whitelist', 'manage_whitelist',
             name='mailinglist_whitelist'),
+    url(r'^([a-zA-Z0-9-]+)/settings', 'manage_settings',
+            name='mailinglist_settings'),
 )
