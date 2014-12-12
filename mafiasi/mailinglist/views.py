@@ -73,8 +73,6 @@ def mailaction(request, group_name, mmail_pk):
 
 @login_required
 def manage_whitelist(request, group_name):
-
-
     group = get_object_or_404(Group, name=group_name)
     group_proxy = GroupProxy(group)
     if not group_proxy.is_member(request.user):
