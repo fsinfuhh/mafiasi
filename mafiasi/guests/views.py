@@ -18,7 +18,9 @@ def index(request):
     if request.user.is_guest:
         return redirect('guests_invited_by')
 
-    invitations = Invitation.objects.order_by('-date_invited')
+    invitations = (Invitation.objects.select_related()
+                   .filter(invited_by=request.user)
+                   .order_by('-date_invited'))
     guests = (Guest.objects.select_related()
               .filter(invited_by=request.user)
               .order_by('guest_user__username'))
