@@ -218,11 +218,13 @@ def create_account(mafiasi, password):
     default_groups = DefaultGroup.objects.filter(group_type=group_type) 
     sr_groups = [dg.sr_group for dg in default_groups]
     
-    try:
-        m = YeargroupSrGroupMapping.objects.get(yeargroup_id=mafiasi.yeargroup.pk)
-        sr_groups.append(m.sr_group)
-    except YeargroupSrGroupMapping.DoesNotExist:
-        pass
+    if mafiasi.yeargroup:
+        try:
+            m = YeargroupSrGroupMapping.objects.get(
+                    yeargroup_id=mafiasi.yeargroup.pk)
+            sr_groups.append(m.sr_group)
+        except YeargroupSrGroupMapping.DoesNotExist:
+            pass
     
     try:
         # If the user already exists, do some basic cleanup
