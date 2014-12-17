@@ -1,5 +1,7 @@
 from django.conf.urls import patterns, url
 
+from mafiasi.registration.forms import PasswordResetForm
+
 urlpatterns = patterns('mafiasi.registration.views',
     url(r'^request_account$', 'request_account',
             name='registration_request_account'),
@@ -13,7 +15,9 @@ urlpatterns = patterns('mafiasi.registration.views',
 )
 
 urlpatterns += patterns('django.contrib.auth.views',
-    url(r'^password_reset/$', 'password_reset', name='password_reset'),
+    url(r'^password_reset/$', 'password_reset', {
+        'password_reset_form': PasswordResetForm
+    }, name='password_reset'),
     url(r'^password_reset/done$', 'password_reset_done',
             name='password_reset_done'),
     url(r'^password_reset/confirm/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>.+)$',
