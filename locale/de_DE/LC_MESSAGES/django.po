@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-17 15:15+0100\n"
-"PO-Revision-Date: 2014-11-17 15:16+0100\n"
+"POT-Creation-Date: 2014-12-23 22:49+0100\n"
+"PO-Revision-Date: 2014-12-23 22:56+0100\n"
 "Last-Translator: Henning Pridöhl <8pridoeh@informatik.uni-hamburg.de>\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -177,7 +177,7 @@ msgid "Create group pad"
 msgstr "Gruppenpad erstellen"
 
 #: mafiasi/etherpad/templates/etherpad/create_new_pad.html:15
-#: mafiasi/groups/templates/groups/show.html:46
+#: mafiasi/groups/templates/groups/show.html:61
 #: mafiasi/pks/templates/pks/party_list.html:14
 msgid "Name"
 msgstr "Name"
@@ -328,6 +328,7 @@ msgstr "Prüfungsdatum:"
 #: mafiasi/gprot/templates/gprot/forget.html:43
 #: mafiasi/gprot/templates/gprot/publish.html:64
 #: mafiasi/groups/templates/groups/invite.html:21
+#: mafiasi/mailinglist/templates/mailinglist/settings.html:18
 msgid "Cancel"
 msgstr "Abbrechen"
 
@@ -544,8 +545,8 @@ msgstr "Fachbereich"
 #: mafiasi/gprot/templates/gprot/notifications.html:21
 #: mafiasi/gprot/templates/gprot/reminders.html:23
 #: mafiasi/groups/templates/groups/invitations.html:19
-#: mafiasi/groups/templates/groups/show.html:20
-#: mafiasi/groups/templates/groups/show.html:48
+#: mafiasi/groups/templates/groups/show.html:35
+#: mafiasi/groups/templates/groups/show.html:63
 #: mafiasi/guests/templates/guests/index.html:16
 msgid "Actions"
 msgstr "Aktionen"
@@ -665,7 +666,8 @@ msgstr "Hinzugefügt am"
 
 #: mafiasi/gprot/templates/gprot/notifications.html:30
 #: mafiasi/gprot/templates/gprot/reminders.html:32
-#: mafiasi/groups/templates/groups/show.html:66
+#: mafiasi/groups/templates/groups/show.html:81
+#: mafiasi/mailinglist/templates/mailinglist/whitelist.html:25
 msgid "Remove"
 msgstr "Entfernen"
 
@@ -785,6 +787,7 @@ msgstr "Es wurde noch kein Dokument hochgeladen."
 
 #: mafiasi/gprot/views.py:172
 #: mafiasi/gprot/views.py:273
+#, python-brace-format
 msgid "Only files up to {0} MB are allowed."
 msgstr "Es sind nur Dateien kleiner als {0} MB erlaubt."
 
@@ -821,19 +824,19 @@ msgstr "\"%s\" hat bereits eine Einladung."
 msgid "\"%s\" is already a member of this group."
 msgstr "\"%s\" ist bereits Mitglied dieser Gruppe."
 
-#: mafiasi/groups/models.py:70
+#: mafiasi/groups/models.py:76
 msgid "You are the sole group admin. Please terminate the group or appoint another group admin."
 msgstr "Du bist der einzige Gruppenadmin. Bitte schließe die Gruppe oder ernenne einen anderen Gruppenadmin."
 
-#: mafiasi/groups/models.py:96
+#: mafiasi/groups/models.py:102
 msgid "Invalid group name."
 msgstr "Ungültiger Gruppenname."
 
-#: mafiasi/groups/models.py:99
+#: mafiasi/groups/models.py:105
 msgid "The group name must be at least {} characters"
 msgstr "Der Gruppenname muss mindestens {} Zeichen lang sein"
 
-#: mafiasi/groups/models.py:104
+#: mafiasi/groups/models.py:110
 msgid "Group does already exist."
 msgstr "Gruppe existiert bereits."
 
@@ -852,9 +855,6 @@ msgid "Group name"
 msgstr "Gruppenname"
 
 #: mafiasi/groups/templates/groups/create.html:13
-#| msgid ""
-#| "Only letters, numbers, \"-\" and \"_\" are allowed. Must start with a "
-#| "letter."
 msgid "Only letters, numbers and \"-\" are allowed. Must start with a letter."
 msgstr "Nur Buchstaben, Zahlen und \"-\" sind zugelassen. Muss mit einen Buchstaben beginnen."
 
@@ -864,13 +864,13 @@ msgid "Create"
 msgstr "Erstellen"
 
 #: mafiasi/groups/templates/groups/invitations.html:5
-#: mafiasi/groups/templates/groups/show.html:13
+#: mafiasi/groups/templates/groups/show.html:28
 #: mafiasi/guests/templates/guests/index.html:5
 msgid "Invitations"
 msgstr "Einladungen"
 
 #: mafiasi/groups/templates/groups/invitations.html:16
-#: mafiasi/groups/templates/groups/show.html:17
+#: mafiasi/groups/templates/groups/show.html:32
 #: mafiasi/pks/templates/pks/party_list.html:15
 msgid "Date"
 msgstr "Datum"
@@ -926,48 +926,62 @@ msgstr "Verlassen"
 msgid "Create new group"
 msgstr "Neue Gruppe erstellen"
 
-#: mafiasi/groups/templates/groups/show.html:18
+#: mafiasi/groups/templates/groups/show.html:15
+msgid "Mailinglist"
+msgstr "Mailingliste"
+
+#: mafiasi/groups/templates/groups/show.html:19
+#, python-format
+msgid "The mailinglist address is <strong>%(address)s</strong>."
+msgstr "Die Adresse der Mailingliste lautet <strong>%(address)s</strong>."
+
+#: mafiasi/groups/templates/groups/show.html:22
+msgid "Manage mailinglist"
+msgstr "Mailingliste verwalten"
+
+#: mafiasi/groups/templates/groups/show.html:33
 msgid "Invitee"
 msgstr "Eingeladener"
 
-#: mafiasi/groups/templates/groups/show.html:19
+#: mafiasi/groups/templates/groups/show.html:34
 msgid "Invited by"
 msgstr "Eingeladen von"
 
-#: mafiasi/groups/templates/groups/show.html:30
+#: mafiasi/groups/templates/groups/show.html:45
 #: mafiasi/guests/templates/guests/index.html:30
 msgid "Withdraw"
 msgstr "Zurückziehen"
 
-#: mafiasi/groups/templates/groups/show.html:37
+#: mafiasi/groups/templates/groups/show.html:52
 msgid "There are no open invitations."
 msgstr "Es gibt keine offenen Einladungen."
 
-#: mafiasi/groups/templates/groups/show.html:40
+#: mafiasi/groups/templates/groups/show.html:55
 msgid "Invite users to this group"
 msgstr "Benutzer in die Gruppe einladen"
 
-#: mafiasi/groups/templates/groups/show.html:43
+#: mafiasi/groups/templates/groups/show.html:58
 msgid "Members"
 msgstr "Mitglieder"
 
-#: mafiasi/groups/templates/groups/show.html:55
+#: mafiasi/groups/templates/groups/show.html:70
 msgid "Group admin"
 msgstr "Gruppenadmin"
 
-#: mafiasi/groups/templates/groups/show.html:60
+#: mafiasi/groups/templates/groups/show.html:75
 msgid "Last group admin can't be removed."
 msgstr "Der letzte Gruppenadmin kann nicht entfernt werden."
 
-#: mafiasi/groups/templates/groups/show.html:69
+#: mafiasi/groups/templates/groups/show.html:84
 msgid "Revoke admin"
 msgstr "Adminrechte entziehen"
 
-#: mafiasi/groups/templates/groups/show.html:71
+#: mafiasi/groups/templates/groups/show.html:86
 msgid "Grant admin"
 msgstr "Adminrechte geben"
 
 #: mafiasi/groups/views.py:43
+#, python-brace-format
 msgid "Group \"{0}\" was created."
 msgstr "Gruppe \"{0}\" wurde erstellt."
 
@@ -1026,15 +1040,15 @@ msgstr "Benutzername"
 
 #: mafiasi/guests/templates/guests/accept.html:16
 #: mafiasi/jabber/templates/jabber/create.html:12
-#: mafiasi/registration/forms.py:66
-#: mafiasi/registration/forms.py:90
+#: mafiasi/registration/forms.py:72
+#: mafiasi/registration/forms.py:96
 #: mafiasi/registration/templates/registration/create_account.html:17
 #: mafiasi/registration/templates/registration/login.html:32
 msgid "Password"
 msgstr "Passwort"
 
 #: mafiasi/guests/templates/guests/accept.html:25
-#: mafiasi/registration/forms.py:70
+#: mafiasi/registration/forms.py:76
 #: mafiasi/registration/templates/registration/create_account.html:26
 msgid "Password confirmation"
 msgstr "Passwort bestätigen"
@@ -1067,6 +1081,7 @@ msgstr "Voller Name"
 
 #: mafiasi/guests/templates/guests/index.html:15
 #: mafiasi/guests/templates/guests/invite.html:29
+#: mafiasi/registration/forms.py:130
 msgid "Email"
 msgstr "E-Mail"
 
@@ -1130,19 +1145,19 @@ msgstr "Du wurdest von %(full_name)s (%(username)s) eingeladen."
 msgid "How about visiting <a href=\"%(dashboard_url)s\">the dashboard</a>?"
 msgstr "Du könntest <a href=\"%(dashboard_url)s\">das Dashboard</a> besuchen."
 
-#: mafiasi/guests/views.py:42
+#: mafiasi/guests/views.py:44
 msgid "{} was successfully invited."
 msgstr "{} wurde erfolgreich eingeladen."
 
-#: mafiasi/guests/views.py:60
+#: mafiasi/guests/views.py:62
 msgid "Invitation was withdrawn."
 msgstr "Einladung wurde zurückgezogen."
 
-#: mafiasi/guests/views.py:62
+#: mafiasi/guests/views.py:64
 msgid "invitation mails"
 msgstr "Einladungsmails"
 
-#: mafiasi/guests/views.py:69
+#: mafiasi/guests/views.py:71
 msgid "Invitation mail was resent."
 msgstr "Einladungsmail wurde erneut versandt."
 
@@ -1217,6 +1232,144 @@ msgstr "Account existiert bereits."
 #: mafiasi/jabber/views.py:40
 msgid "Sorry, we had an internal error."
 msgstr "Tut uns leid, es gab einen internen Fehler."
+
+#: mafiasi/mailinglist/forms.py:20
+#| msgid "There is already an account with that email."
+msgid "This email is already on the whitelist"
+msgstr "Diese E-Mail-Adresse ist bereits auf der Whitelist"
+
+#: mafiasi/mailinglist/templates/mailinglist/settings.html:5
+#, python-format
+msgid "Settings for %(name)s"
+msgstr "Einstellungen für %(name)s"
+
+#: mafiasi/mailinglist/templates/mailinglist/settings.html:13
+msgid "Allow emails from all senders."
+msgstr "Erlaube E-Mails von allen Absendern."
+
+#: mafiasi/mailinglist/templates/mailinglist/settings.html:17
+#| msgid "Save changes"
+msgid "Save settings"
+msgstr "Einstellungen speichern"
+
+#: mafiasi/mailinglist/templates/mailinglist/show_list.html:4
+#, python-format
+#| msgid "Invite to %(group_name)s"
+msgid "Mailinglist for %(group_name)s"
+msgstr "Mailingliste für %(group_name)s"
+
+#: mafiasi/mailinglist/templates/mailinglist/show_list.html:9
+msgid "The mailinglist is not yet known to the mailserver. Please wait about half an hour."
+msgstr "Die Mailingliste ist dem Mailserver noch nicht bekannt. Bitte warte ungefähr eine halbe Stunde."
+
+#: mafiasi/mailinglist/templates/mailinglist/show_list.html:11
+#, python-format
+msgid "The email address of this mailinglist is <strong>%(address)s</strong>."
+msgstr "Die E-Mail-Adresse dieser Mailingliste lautet <strong>%(address)s</strong>."
+
+#: mafiasi/mailinglist/templates/mailinglist/show_list.html:14
+msgid "Moderated emails"
+msgstr "Moderierte E-Mails"
+
+#: mafiasi/mailinglist/templates/mailinglist/show_list.html:19
+#| msgid "Reminders"
+msgid "Sender"
+msgstr "Absender"
+
+#: mafiasi/mailinglist/templates/mailinglist/show_list.html:20
+msgid "Subject"
+msgstr "Betreff"
+
+#: mafiasi/mailinglist/templates/mailinglist/show_list.html:21
+#: mafiasi/mailinglist/templates/mailinglist/whitelist.html:13
+#| msgid "Actions"
+msgid "Action"
+msgstr "Aktion"
+
+#: mafiasi/mailinglist/templates/mailinglist/show_list.html:32
+msgid "Allow"
+msgstr "Erlauben"
+
+#: mafiasi/mailinglist/templates/mailinglist/show_list.html:33
+msgid "Discard"
+msgstr "Verwerfen"
+
+#: mafiasi/mailinglist/templates/mailinglist/show_list.html:41
+#| msgid "There are no open invitations."
+msgid "There are no emails needing moderation."
+msgstr "Es gibt keine E-Mails, die Moderation benötigen."
+
+#: mafiasi/mailinglist/templates/mailinglist/show_list.html:42
+msgid "List settings"
+msgstr "Listeneinstellungen"
+
+#: mafiasi/mailinglist/templates/mailinglist/show_list.html:44
+msgid "Manage whitelist"
+msgstr "Mailingliste verwalten"
+
+#: mafiasi/mailinglist/templates/mailinglist/show_list.html:45
+#, python-format
+msgid "%(whitelist_count)s entries"
+msgstr "%(whitelist_count)s Einträge"
+
+#: mafiasi/mailinglist/templates/mailinglist/show_list.html:46
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: mafiasi/mailinglist/templates/mailinglist/show_list.html:53
+msgid "The mailinglist for this group does not exist yet. Use the magic button to create it."
+msgstr "Die Mailingliste für diese Gruppe existiert noch icht. Benutze den magischen Knopf, um sie zu erstellen."
+
+#: mafiasi/mailinglist/templates/mailinglist/show_list.html:56
+#| msgid "Create account"
+msgid "Create mailinglist"
+msgstr "Mailingliste erstellen"
+
+#: mafiasi/mailinglist/templates/mailinglist/show_list.html:59
+msgid "Please ask a group admin to create this mailinglist."
+msgstr "Bitte frage einen Gruppenadmin, ob er diese Mailingliste erstellt."
+
+#: mafiasi/mailinglist/templates/mailinglist/whitelist.html:5
+#, python-format
+#| msgid "Invite to %(group_name)s"
+msgid "Whitelist for %(name)s"
+msgstr "Whitelist für %(group_name)s"
+
+#: mafiasi/mailinglist/templates/mailinglist/whitelist.html:12
+#: mafiasi/mailinglist/templates/mailinglist/whitelist.html:40
+#| msgid "Resend mail"
+msgid "Sender email"
+msgstr "Absender-E-Mail"
+
+#: mafiasi/mailinglist/templates/mailinglist/whitelist.html:33
+#| msgid "There are no open invitations."
+msgid "There are no senders on the whitelist."
+msgstr "Es befinden sich keine Absender auf der Whitelist."
+
+#: mafiasi/mailinglist/templates/mailinglist/whitelist.html:35
+msgid "Add sender to whitelist"
+msgstr "Absender zur Whitelist hinzufügen"
+
+#: mafiasi/mailinglist/templates/mailinglist/whitelist.html:43
+msgid "Add to whitelist"
+msgstr "Zur Whitelist hinzufügen"
+
+#: mafiasi/mailinglist/views.py:44
+#, python-brace-format
+msgid "Mailinglist {list_name} was created."
+msgstr "Mailingliste {list_name} wurde erstellt."
+
+#: mafiasi/mailinglist/views.py:67
+msgid "Mail was sent to mailinglist."
+msgstr "E-Mail wurde an die Mailingliste weitergeleitet."
+
+#: mafiasi/mailinglist/views.py:69
+msgid "Mail was discarded."
+msgstr "E-Mail wurde verworfen"
+
+#: mafiasi/mailinglist/views.py:123
+msgid "Mailinglist settings saved."
+msgstr "Mailinglisteneinstellungen gespeichert"
 
 #: mafiasi/mumble/templates/mumble/index.html:4
 msgid "Mumble"
@@ -1505,6 +1658,7 @@ msgid "Never."
 msgstr "Nie."
 
 #: mafiasi/pks/templatetags/pks.py:22
+#, python-brace-format
 msgid "Expired at {0}"
 msgstr "Abgelaufen am: {0}"
 
@@ -1536,27 +1690,27 @@ msgstr "Schlüssel erfolgreich eingereicht."
 msgid "Not participating in this keysigning party."
 msgstr "Teilnahme an der Keysigning-Party abgesagt."
 
-#: mafiasi/registration/forms.py:19
+#: mafiasi/registration/forms.py:25
 msgid "Invalid account name"
 msgstr "Ungültiger Accountname"
 
-#: mafiasi/registration/forms.py:47
+#: mafiasi/registration/forms.py:53
 msgid "Invalid domain"
 msgstr "Ungültige Domain"
 
-#: mafiasi/registration/forms.py:50
+#: mafiasi/registration/forms.py:56
 msgid "This field is required."
 msgstr "Dieses Feld darf nicht leer sein."
 
-#: mafiasi/registration/forms.py:53
+#: mafiasi/registration/forms.py:59
 msgid "Invalid yeargroup selected"
 msgstr "Ungültige Jahrgangsgruppe ausgewählt"
 
-#: mafiasi/registration/forms.py:80
+#: mafiasi/registration/forms.py:86
 msgid "The two password fields didn't match."
 msgstr "Die beiden Passwörter stimmen nicht überein."
 
-#: mafiasi/registration/forms.py:98
+#: mafiasi/registration/forms.py:104
 msgid "Wrong password."
 msgstr "Falsches Passwort."
 
@@ -1564,40 +1718,45 @@ msgstr "Falsches Passwort."
 msgid "Account"
 msgstr "Account"
 
-#: mafiasi/registration/templates/registration/account.html:8
+#: mafiasi/registration/templates/registration/account.html:11
+#, python-format
+msgid "You want to use mafiasi.de with your friends? You can <a href=\"%(guests_url)s\">invite guests</a>."
+msgstr "Du möchtest mafiasi.de mit deinen Freunden nutzen? Du kannst sie als <a href=\"%(guests_url)s\">Gäste einladen</a>."
+
+#: mafiasi/registration/templates/registration/account.html:14
 msgid "Change nickname"
 msgstr "Spitznamen bearbeiten"
 
-#: mafiasi/registration/templates/registration/account.html:9
+#: mafiasi/registration/templates/registration/account.html:15
 msgid "If you choose a nickname, it will be shown instead of your first name (e.g. when you vote in Dudle)"
 msgstr "Wenn du einen Spitznamen auswählst, wird dieser anstelle deines Vornamens angezeigt"
 
-#: mafiasi/registration/templates/registration/account.html:14
+#: mafiasi/registration/templates/registration/account.html:20
 msgid "Nickname"
 msgstr "Spitzname"
 
-#: mafiasi/registration/templates/registration/account.html:26
-#: mafiasi/registration/templates/registration/account.html:62
+#: mafiasi/registration/templates/registration/account.html:32
+#: mafiasi/registration/templates/registration/account.html:68
 msgid "Change"
 msgstr "Ändern"
 
-#: mafiasi/registration/templates/registration/account.html:29
+#: mafiasi/registration/templates/registration/account.html:35
 msgid "Change password"
 msgstr "Passwort ändern"
 
-#: mafiasi/registration/templates/registration/account.html:30
+#: mafiasi/registration/templates/registration/account.html:36
 msgid "Note: You can \"change\" your password to the current password to synchronize it with other services (e.g. Jabber)"
 msgstr "Hinweis: Du kannst dein Passwört auf das aktuelle Passwort \"ändern\", um es mit anderen Diensten zu synchronisieren (z.B. Jabber)"
 
-#: mafiasi/registration/templates/registration/account.html:35
+#: mafiasi/registration/templates/registration/account.html:41
 msgid "Old password"
 msgstr "Altes Passwort"
 
-#: mafiasi/registration/templates/registration/account.html:44
+#: mafiasi/registration/templates/registration/account.html:50
 msgid "New password"
 msgstr "Neues Passwort"
 
-#: mafiasi/registration/templates/registration/account.html:53
+#: mafiasi/registration/templates/registration/account.html:59
 msgid "New password confirmation"
 msgstr "Neues Passwort bestätigen"
 
@@ -1794,10 +1953,12 @@ msgid "Account creation mail failed"
 msgstr "Accounterstellungsmail verschicken fehlgeschlagen"
 
 #: mafiasi/teaching/models.py:48
+#, python-brace-format
 msgid "winter term {0}"
 msgstr "Wintersemester {0}"
 
 #: mafiasi/teaching/models.py:50
+#, python-brace-format
 msgid "summer term {0}"
 msgstr "Sommersemester {0}"
 
