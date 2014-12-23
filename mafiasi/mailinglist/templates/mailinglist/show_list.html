@@ -10,6 +10,7 @@
 {% endif %}
 <p>{% blocktrans with address=mailinglist.get_address %}The email address of this mailinglist is <strong>{{ address }}</strong>.{% endblocktrans %}</p>
 
+{% if is_admin %}
 <h3>{% trans "Moderated emails" %}</h3>
 {% if moderated_mails %}
 <table class="table table-striped">
@@ -44,6 +45,7 @@
     ({% blocktrans %}{{ whitelist_count }} entries{% endblocktrans %})</li>
     <li><a href="{% url 'mailinglist_settings' group.name %}">{% trans "Settings" %}</a></li>
 </ul>
+{% endif %}
 {% endif %}
 
 {% else %}
