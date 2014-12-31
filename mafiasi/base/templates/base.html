@@ -1,5 +1,6 @@
 {% load i18n %}
 {% load group_tags %}
+{% load settings_value %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -86,6 +87,20 @@
     <script src="{{ STATIC_URL }}js/jquery-2.0.3.min.js" type="text/javascript"></script>
     <script src="{{ STATIC_URL }}js/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
     <script src="{{ STATIC_URL }}js/common.min.js" type="text/javascript"></script>
+    {% settings_value "ENABLE_SNOWSTORM" as enable_snowstorm %}
+    {% if enable_snowstorm %}
+    <script src ="{{ STATIC_URL }}js/snowstorm-min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(function() {
+      snowStorm.snowColor = '#99ccff';
+      snowStorm.snowCharacter = '❄';
+      snowStorm.flakeWidth = 16;
+      snowStorm.flakeHeight = 16;
+      snowStorm.vMaxX = 3;
+      snowStorm.vMaxY = 2;
+    });
+    </script>
+    {% endif %}
     {% block js %}
     {% endblock js %}
 </body>
