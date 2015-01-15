@@ -72,5 +72,5 @@ class Reminder(models.Model):
     def __unicode__(self):
         return u'Reminder for {0}, "{1}" on {2}'.format(
             self.user,
-            self.course.name if self.course.name else "",
+            self.course.name if self.course else "",
             self.exam_date)
