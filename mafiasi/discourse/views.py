@@ -13,6 +13,13 @@ def sso(request):
         payload = request.GET.get('sso')
         sig = request.GET.get('sig')
         nonce = sso_validate(payload, sig, settings.DISCOURSE_SSO_SECRET)
+
+        # Workaround for bug in pydiscourse.sso: It creates a nonce which
+        # looks like "6ec2d11456ecba485823f791a468a4cd&return_sso_url",
+        # so just remove the &return_sso_url
+        if '&' in nonce:
+            nonce = nonce.split('&')[0]
+
         # FIXME Add nickname to ldap as seperate field
         nickname = re.sub(r'(.+)\s\((.+)\)$', r'\1',
                           request.user.get_ldapuser().display_name)
