@@ -4,12 +4,12 @@ import copy
 from email.parser import Parser
 from email.utils import getaddresses, formataddr
 import logging
-import smtpd
 import smtplib
 import socket
 
 from django.conf import settings
 
+from mafiasi.mail import smtpd
 from mafiasi.base.models import Mafiasi
 
 logger = logging.getLogger('mailcloak')

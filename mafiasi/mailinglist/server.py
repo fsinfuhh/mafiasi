@@ -3,8 +3,8 @@ from __future__ import unicode_literals
 from email.parser import Parser
 from email.utils import parseaddr
 import logging
-import smtpd
 
+from mafiasi.mail import smtpd
 from mafiasi.mailinglist.models import Mailinglist
 
 logger = logging.getLogger('mailinglist')
