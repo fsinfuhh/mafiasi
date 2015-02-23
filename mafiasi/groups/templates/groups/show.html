@@ -9,6 +9,21 @@
 {% endblock %}
 
 {% block content %}
+
+{% with mailinglist=group.mailinglist %}
+{% if mailinglist or is_groupadmin %}
+<h3>{% trans "Mailinglist" %}</h3>
+{% endif %}
+
+{% if mailinglist %}
+<p>{% blocktrans with address=mailinglist.get_address %}The mailinglist address is <strong>{{ address }}</strong>.{% endblocktrans %}</p>
+{% endif %}
+{% if is_groupadmin %}
+<p><a href="{% url 'mailinglist_show_list' group.name %}">{% trans "Manage mailinglist" %}</a></p>
+{% endif %}
+
+{% endwith %}
+
 {% if is_groupadmin %}
 <h3>{% trans "Invitations" %}</h3>
 {% if invitations %}

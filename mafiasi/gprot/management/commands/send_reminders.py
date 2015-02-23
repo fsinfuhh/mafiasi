@@ -21,11 +21,11 @@ class Command(BaseCommand):
 
         for reminder in reminders:
             email_content = render_to_string('gprot/reminder_email.txt', {
-                'course_name': reminder.course.name,
+                'course_name': reminder.course.name if reminder.course else "",
             })
             try:
                 send_mail((_(u'Reminder: Memory minutes for "%(coursename)s"')
-                            % {'coursename': reminder.course.name}).encode('utf8'),
+                            % {'coursename': reminder.course.name if reminder.course else ""}).encode('utf8'),
                           email_content.encode('utf8'),
                           None,
                           [reminder.user.email])
