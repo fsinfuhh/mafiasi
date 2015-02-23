@@ -10,6 +10,8 @@ import socket
 from django.db import models
 from django.contrib.auth.models import Group
 from django.conf import settings
+from django.core import mail
+from django.template.loader import render_to_string
 
 from mafiasi.mail.signals import collect_mailaddresses, mailaddresses_known
 
@@ -38,14 +40,34 @@ class Mailinglist(models.Model):
             return True
         if self.group.user_set.filter(real_email=email_address).count():
             return True
-        if self.whitelist.filter(email=email_address).count():
+        if self.whitelist_addresses.filter(email=email_address).count():
             return True
         return False
 
     def moderate(self, email_obj):
-        email_content = b64encode(email_obj.as_string())
-        return ModeratedMail.objects.create(mailinglist=self,
-                                            email_content=email_content)
+        if 'From' not in email_obj:
+            return None
+        email_data = email_obj.as_string()
+        email_content = b64encode(email_data)
+        modmail = ModeratedMail.objects.create(mailinglist=self,
+                                               email_content=email_content)
+        modmail._parsed_message = email_obj
+        
+        # Send information about moderation to group admins
+        connection = mail.get_connection()
+        for admin in self.group.properties.admins.all():
+            message = self._build_moderation_mail(
+                    'admin', [admin.email], modmail, email_data, admin)
+            message.connection = connection
+            message.send(fail_silently=True)
+
+        # Inform the sender about moderation
+        message = self._build_moderation_mail(
+                'sender', [email_obj['From']], modmail, email_data, None)
+        message.connection = connection
+        message.send(fail_silently=True)
+
+        return modmail
 
     def send_email(self, email_obj):
         excluded_emails = self._get_excluded_emails(email_obj)
@@ -104,6 +126,27 @@ class Mailinglist(models.Model):
         refused_rcpt = RefusedRecipient.objects.filter(permanent=True)
         excluded_emails.update(rcpt.email for rcpt in refused_rcpt)
         return {parseaddr(x.lower())[1] for x in excluded_emails}
+
+    def _build_moderation_mail(self, template, recipient, modmail, email_data, user):
+        subject = {
+            'admin': ('Email an {list} wartet auf Moderation/'
+                      'Email is awaiting moderation'),
+            'sender': ('Deine Email an {list} wartet auf Genehming/'
+                       'Your email is awaiting approval')
+        }.get(template).format(list=self.get_address())
+        template_file = 'mailinglist/moderated_mail_{}.mail'.format(template)
+        body = render_to_string(template_file, {
+            'mailinglist': self,
+            'moderated_mail': modmail,
+            'user': user
+        })
+        message = mail.EmailMessage(
+                subject=subject,
+                body=body,
+                from_email=self.get_bounce_address(),
+                to=recipient)
+        message.attach('moderated.eml', email_data, 'message/rfc822')
+        return message
 
     @classmethod
     def get_by_address(cls, email_address):

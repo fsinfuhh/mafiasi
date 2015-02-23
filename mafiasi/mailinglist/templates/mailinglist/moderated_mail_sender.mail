@@ -1,0 +1,17 @@
+{% autoescape off %}(english below)
+
+Hallo!
+
+Deine E-Mail an {{ mailinglist.get_address }} ist in der Moderation gelandet und muss von einem Moderator genehmigt werden.
+
+Bye!
+
+----
+
+Hi!
+
+Your email to {{ mailinglist.get_address }} is in the moderation queue. A moderator must approve it.
+
+Bye!
+{% endautoescape %}
+
