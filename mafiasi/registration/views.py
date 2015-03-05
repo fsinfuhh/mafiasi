@@ -9,7 +9,7 @@ from django.template.response import TemplateResponse
 from django.template.loader import render_to_string
 from django.conf import settings
 from django.shortcuts import redirect
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth import login
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.decorators import login_required
@@ -256,7 +256,7 @@ def _send_mail_or_error_page(subject, content, address, request):
     try:
         send_mail(subject, content, None, [address])
         if settings.DEBUG:
-            print("VALIDATION MAIL to {0}\nSubject: {1}\n{2}".format(
+            print(u"VALIDATION MAIL to {0}\nSubject: {1}\n{2}".format(
                 address, subject, content))
     except SMTPRecipientsRefused as e:
         wrong_email, (error_code, error_msg) = e.recipients.items()[0]
