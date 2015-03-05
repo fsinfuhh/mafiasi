@@ -122,6 +122,15 @@ class NickChangeForm(forms.Form):
                 self.cleaned_data['nickname'], self.user.username)
         ldap_user.save()
 
+class EmailChangeForm(forms.Form):
+    email = forms.EmailField()
+
+    def __init__(self, user, *args, **kwargs):
+        kwargs['initial'] = {
+            'email': user.real_email,
+        }
+        super(EmailChangeForm, self).__init__(*args, **kwargs)
+
 class PasswordResetForm(forms.Form):
     """
     This is just copied from django/contrib/auth/forms.py with email
