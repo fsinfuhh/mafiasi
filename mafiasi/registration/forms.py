@@ -10,7 +10,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.sites.shortcuts import get_current_site
 
 from mafiasi import settings
-from mafiasi.base.models import Yeargroup
+from mafiasi.base.models import Mafiasi, Yeargroup
 
 class RegisterForm(forms.Form):
     account = forms.CharField()
@@ -121,6 +121,33 @@ class NickChangeForm(forms.Form):
         ldap_user.display_name = u"{} ({})".format(
                 self.cleaned_data['nickname'], self.user.username)
         ldap_user.save()
+
+
+class EmailChangeForm(forms.Form):
+    email = forms.EmailField()
+
+    def __init__(self, user, *args, **kwargs):
+        kwargs['initial'] = {
+            'email': user.real_email,
+        }
+        super(EmailChangeForm, self).__init__(*args, **kwargs)
+
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+
+        if Mafiasi.objects.filter(real_email=email).count() > 0:
+            raise forms.ValidationError(
+                _('This address is already associated with an account.'))
+
+        if email.endswith(settings.MAILINGLIST_DOMAIN):
+            raise forms.ValidationError(
+                _('Group addresses cannot be used for this purpose.'))
+        elif email.endswith(settings.MAILCLOAK_DOMAIN):
+            raise forms.ValidationError(
+                _('Cloak adresses cannot be used for this purpose.'))
+
+        return email
+
 
 class PasswordResetForm(forms.Form):
     """
