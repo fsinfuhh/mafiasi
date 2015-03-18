@@ -17,20 +17,14 @@ from mafiasi.groups.models import (GroupInvitation, GroupProxy, GroupError,
         create_usergroup)
 from mafiasi.groups.forms import InvitationForm
 
-@login_required
-def my_groups(request):
-    return TemplateResponse(request, 'groups/my_groups.html', {
-        'my_groups': request.user.groups.all(),
-    })
 
 @login_required
-def invitations(request):
-    invitations = (GroupInvitation.objects.select_related()
-                   .filter(invitee=request.user))
-    return TemplateResponse(request, 'groups/invitations.html', {
-        'invitations': invitations,
-        'open_invitations': len(invitations),
-    })
+def index(request):
+    groups = request.user.groups.all()
+    if groups:
+        return redirect('groups_show', groups[0])
+    else:
+        return TemplateResponse(request, 'groups/groups_base.html')
 
 @login_required
 def create(request):
@@ -63,7 +57,7 @@ def show(request, group_name):
             # We redirect to the group overview instead of HTTP 403
             # because a user might get redirected to this pager
             # after he had removed himself from the group
-            return redirect('groups_my_groups')
+            return redirect('groups_index')
 
     group_members = list(group.user_set.order_by('first_name'))
     admin_pks = set(admin.pk for admin in properties.admins.all())
@@ -98,7 +92,7 @@ def leave(request, group_name):
     except GroupError as e:
         messages.error(request, e.message)
     
-    return redirect('groups_my_groups')
+    return redirect('groups_index')
 
 @login_required
 @require_POST
@@ -170,7 +164,7 @@ def invitation_action(request, invitation_pk):
         return redirect('groups_show', group.name)
     elif 'refuse' in request.POST:
         invitation.refuse()
-    return redirect('groups_invitations')
+    return redirect('groups_index')
 
 @login_required
 @require_POST

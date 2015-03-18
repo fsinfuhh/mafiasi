@@ -1,14 +1,16 @@
-{% extends "base.html" %}
+{% extends "groups/groups_base.html" %}
 {% load i18n %}
 {% load userformat %}
 
-{% block wtitle %}{% block ptitle %}{% trans "Group" %} "{{ group.name }}"{% endblock %}{% endblock %}
+{% block wtitle %}{% block group_ptitle %}{{ group.name }}{% endblock %}{% endblock %}
 
-{% block submenu %}
-{% include "groups/menu.html" with tab='group' group_name=group.name %}
+{% block group_list %}
+  {% with group.name as active_group_name %}
+  {{ block.super }}
+  {% endwith %}
 {% endblock %}
 
-{% block content %}
+{% block group_content %}
 
 {% with mailinglist=group.mailinglist %}
 {% if mailinglist or is_groupadmin %}

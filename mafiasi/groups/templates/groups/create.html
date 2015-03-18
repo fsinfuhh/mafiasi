@@ -1,10 +1,10 @@
-{% extends "base.html" %}
+{% extends "groups/groups_base.html" %}
 {% load i18n %}
 
-{% block wtitle %}{% block ptitle %}{% trans "Create group" %}{% endblock %}{% endblock %}
+{% block wtitle %}{% block group_ptitle %}{% trans "Create new group" %}{% endblock %}{% endblock %}
 
-{% block content %}
-<p class="bg-info">{% trans "Please note: The group name can be seen by other users." %}</p>
+{% block group_content %}
+<p class="alert alert-warning">{% trans "Please note: The group name will be visible to other users." %}</p>
 <form method="post" action="">
     {% csrf_token %}
     <div class="form-group{% if error %} has-error{% endif %}">

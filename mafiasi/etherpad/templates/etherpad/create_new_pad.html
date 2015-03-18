@@ -18,7 +18,7 @@
 <div class="form-group">
 	<label for="id_group">{% trans "Group" %}</label>
 	{% render_field form.group class+="form-control" %}
-	{% url 'groups_my_groups' as groups_link %}
+	{% url 'groups_index' as groups_link %}
 	<div class="help-block">
 	{% blocktrans %}You can create a new group in the <a href="{{ groups_link }}">group management</a>.{% endblocktrans %}
 	</div>
