@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-18 18:03+0000\n"
-"PO-Revision-Date: 2015-03-18 18:56+0100\n"
+"POT-Creation-Date: 2015-03-18 19:10+0000\n"
+"PO-Revision-Date: 2015-03-18 20:11+0100\n"
 "Last-Translator: \n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
@@ -38,43 +38,44 @@ msgstr "Mafiasi"
 msgid "Mafiasi Hub"
 msgstr "Mafiasi Hub"
 
-#: mafiasi/base/templates/base.html:25
-msgid "My account"
-msgstr "Mein Account"
-
 #: mafiasi/base/templates/base.html:27
-#: mafiasi/groups/templates/groups/my_groups.html:4
-msgid "My groups"
-msgstr "Meine Gruppen"
+#| msgid "Group"
+msgid "Groups"
+msgstr "Gruppen"
 
-#: mafiasi/base/templates/base.html:33
+#: mafiasi/base/templates/base.html:35
+#: mafiasi/mailinglist/templates/mailinglist/show_list.html:46
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: mafiasi/base/templates/base.html:37
 #, python-format
 msgid "Logged in as %(username)s"
 msgstr "Angemeldet als %(username)s"
 
-#: mafiasi/base/templates/base.html:34
-msgid "Logout"
-msgstr "Ausloggen"
-
 #: mafiasi/base/templates/base.html:38
+msgid "Logout"
+msgstr "Abmelden"
+
+#: mafiasi/base/templates/base.html:42
 msgid "Register"
 msgstr "Registrierung"
 
-#: mafiasi/base/templates/base.html:39
+#: mafiasi/base/templates/base.html:43
 #: mafiasi/registration/templates/registration/login.html:5
 #: mafiasi/registration/templates/registration/login.html:42
 msgid "Login"
 msgstr "Login"
 
-#: mafiasi/base/templates/base.html:67
+#: mafiasi/base/templates/base.html:71
 msgid "Imprint"
 msgstr "Impressum"
 
-#: mafiasi/base/templates/base.html:69
+#: mafiasi/base/templates/base.html:73
 msgid "Technical info"
 msgstr "Technik"
 
-#: mafiasi/base/templates/base.html:71
+#: mafiasi/base/templates/base.html:75
 #: mafiasi/base/templates/base/problems.html:4
 msgid "Problems?"
 msgstr "Probleme?"
@@ -1044,6 +1045,10 @@ msgstr "Benutzer einladen"
 msgid "Please enter the account names of the users you want to invite"
 msgstr "Gib die Accountnamen der Benutzer ein, die du einladen möchtest"
 
+#: mafiasi/groups/templates/groups/my_groups.html:4
+msgid "My groups"
+msgstr "Meine Gruppen"
+
 #: mafiasi/groups/templates/groups/my_groups.html:15
 #: mafiasi/groups/templates/groups/my_groups.html:23
 msgid "Leave"
@@ -1462,10 +1467,6 @@ msgstr "Mailingliste verwalten"
 #, python-format
 msgid "%(whitelist_count)s entries"
 msgstr "%(whitelist_count)s Einträge"
-
-#: mafiasi/mailinglist/templates/mailinglist/show_list.html:46
-msgid "Settings"
-msgstr "Einstellungen"
 
 #: mafiasi/mailinglist/templates/mailinglist/show_list.html:53
 msgid ""
@@ -2233,6 +2234,9 @@ msgstr "Wintersemester {0}"
 #: mafiasi/teaching/models.py:50
 msgid "summer term {0}"
 msgstr "Sommersemester {0}"
+
+#~ msgid "My account"
+#~ msgstr "Mein Account"
 
 #~ msgid "Create group"
 #~ msgstr "Gruppe erstellen"
