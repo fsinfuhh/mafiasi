@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-05 22:17+0000\n"
-"PO-Revision-Date: 2015-03-05 23:17+0100\n"
+"POT-Creation-Date: 2015-03-18 19:10+0000\n"
+"PO-Revision-Date: 2015-03-18 20:11+0100\n"
 "Last-Translator: \n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
@@ -38,44 +38,44 @@ msgstr "Mafiasi"
 msgid "Mafiasi Hub"
 msgstr "Mafiasi Hub"
 
-#: mafiasi/base/templates/base.html:25
-msgid "My account"
-msgstr "Mein Account"
-
 #: mafiasi/base/templates/base.html:27
-#: mafiasi/groups/templates/groups/menu.html:5
-#: mafiasi/groups/templates/groups/my_groups.html:4
-msgid "My groups"
-msgstr "Meine Gruppen"
+#| msgid "Group"
+msgid "Groups"
+msgstr "Gruppen"
 
-#: mafiasi/base/templates/base.html:33
+#: mafiasi/base/templates/base.html:35
+#: mafiasi/mailinglist/templates/mailinglist/show_list.html:46
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: mafiasi/base/templates/base.html:37
 #, python-format
 msgid "Logged in as %(username)s"
-msgstr "Eingeloggt als %(username)s"
-
-#: mafiasi/base/templates/base.html:34
-msgid "Logout"
-msgstr "Ausloggen"
+msgstr "Angemeldet als %(username)s"
 
 #: mafiasi/base/templates/base.html:38
+msgid "Logout"
+msgstr "Abmelden"
+
+#: mafiasi/base/templates/base.html:42
 msgid "Register"
 msgstr "Registrierung"
 
-#: mafiasi/base/templates/base.html:39
+#: mafiasi/base/templates/base.html:43
 #: mafiasi/registration/templates/registration/login.html:5
 #: mafiasi/registration/templates/registration/login.html:42
 msgid "Login"
 msgstr "Login"
 
-#: mafiasi/base/templates/base.html:67
+#: mafiasi/base/templates/base.html:71
 msgid "Imprint"
 msgstr "Impressum"
 
-#: mafiasi/base/templates/base.html:69
+#: mafiasi/base/templates/base.html:73
 msgid "Technical info"
 msgstr "Technik"
 
-#: mafiasi/base/templates/base.html:71
+#: mafiasi/base/templates/base.html:75
 #: mafiasi/base/templates/base/problems.html:4
 msgid "Problems?"
 msgstr "Probleme?"
@@ -99,7 +99,7 @@ msgstr "Technik"
 msgid "This site uses the following software/components:"
 msgstr "Diese Seite benutzt folgende Software/Komponenten:"
 
-#: mafiasi/base/templates/base/technical_info.html:38
+#: mafiasi/base/templates/base/technical_info.html:95
 msgid "Listed in no particular order."
 msgstr "In willkürlicher Reihenfolge aufgelistet."
 
@@ -219,13 +219,12 @@ msgid "Create group pad"
 msgstr "Gruppenpad erstellen"
 
 #: mafiasi/etherpad/templates/etherpad/create_new_pad.html:15
-#: mafiasi/groups/templates/groups/show.html:61
+#: mafiasi/groups/templates/groups/show.html:63
 #: mafiasi/pks/templates/pks/party_list.html:14
 msgid "Name"
 msgstr "Name"
 
 #: mafiasi/etherpad/templates/etherpad/create_new_pad.html:19
-#: mafiasi/groups/templates/groups/show.html:5
 msgid "Group"
 msgstr "Gruppe"
 
@@ -360,6 +359,7 @@ msgstr "Modul:"
 
 #: mafiasi/gprot/templates/gprot/_basic_form.html:10
 #: mafiasi/gprot/templates/gprot/_basic_form.html:27
+#: mafiasi/groups/templates/groups/groups_base.html:44
 msgid "New"
 msgstr "Neu"
 
@@ -608,8 +608,8 @@ msgstr "Fachbereich"
 #: mafiasi/gprot/templates/gprot/notifications.html:21
 #: mafiasi/gprot/templates/gprot/reminders.html:23
 #: mafiasi/groups/templates/groups/invitations.html:19
-#: mafiasi/groups/templates/groups/show.html:35
-#: mafiasi/groups/templates/groups/show.html:63
+#: mafiasi/groups/templates/groups/show.html:37
+#: mafiasi/groups/templates/groups/show.html:65
 #: mafiasi/guests/templates/guests/index.html:16
 msgid "Actions"
 msgstr "Aktionen"
@@ -741,7 +741,7 @@ msgstr "Hinzugefügt am"
 
 #: mafiasi/gprot/templates/gprot/notifications.html:30
 #: mafiasi/gprot/templates/gprot/reminders.html:32
-#: mafiasi/groups/templates/groups/show.html:81
+#: mafiasi/groups/templates/groups/show.html:83
 #: mafiasi/mailinglist/templates/mailinglist/whitelist.html:25
 msgid "Remove"
 msgstr "Entfernen"
@@ -933,11 +933,13 @@ msgid "Group does already exist."
 msgstr "Gruppe existiert bereits."
 
 #: mafiasi/groups/templates/groups/create.html:4
-msgid "Create group"
-msgstr "Gruppe erstellen"
+#: mafiasi/groups/templates/groups/groups_base.html:42
+#: mafiasi/groups/templates/groups/my_groups.html:30
+msgid "Create new group"
+msgstr "Neue Gruppe erstellen"
 
 #: mafiasi/groups/templates/groups/create.html:7
-msgid "Please note: The group name can be seen by other users."
+msgid "Please note: The group name will be visible to other users."
 msgstr ""
 "Bitte beachte: Der Gruppenname kann von anderen Benutzern eingesehen werden."
 
@@ -958,14 +960,54 @@ msgstr ""
 msgid "Create"
 msgstr "Erstellen"
 
+#: mafiasi/groups/templates/groups/groups_base.html:14
 #: mafiasi/groups/templates/groups/invitations.html:5
-#: mafiasi/groups/templates/groups/show.html:28
+#: mafiasi/groups/templates/groups/show.html:30
 #: mafiasi/guests/templates/guests/index.html:5
 msgid "Invitations"
 msgstr "Einladungen"
 
+#: mafiasi/groups/templates/groups/groups_base.html:26
+#: mafiasi/guests/templates/guests/accept.html:5
+msgid "Accept invitation"
+msgstr "Einladung annehmen"
+
+#: mafiasi/groups/templates/groups/groups_base.html:29
+msgid "Decline invitation"
+msgstr "Einladungen ablehnen"
+
+#: mafiasi/groups/templates/groups/groups_base.html:35
+#: mafiasi/groups/templates/groups/show.html:36
+msgid "Invited by"
+msgstr "Eingeladen von"
+
+#: mafiasi/groups/templates/groups/groups_base.html:41
+msgid "My Groups"
+msgstr "Meine Gruppen"
+
+#: mafiasi/groups/templates/groups/groups_base.html:57
+msgid "You are not yet member of any group."
+msgstr "Du bist noch nicht Mitglied einer Gruppe."
+
+#: mafiasi/groups/templates/groups/groups_base.html:62
+msgid "Mafiasi Groups"
+msgstr "Mafiasi-Gruppen"
+
+#: mafiasi/groups/templates/groups/groups_base.html:66
+msgid ""
+"\n"
+"      Accept an invitation or create a new group and invite\n"
+"      others to use Mafiasi features such as private\n"
+"      etherpads, Discourse categories and group mailinglists.\n"
+"      "
+msgstr ""
+"\n"
+"Nimm eine Einladung an oder erstelle eine neue Gruppe und lade Andere ein, "
+"um Mafiasi-Features wie private Etherpads, Discourse-Kategorien und "
+"Gruppenmailinglisten nutzen zu können."
+
 #: mafiasi/groups/templates/groups/invitations.html:16
-#: mafiasi/groups/templates/groups/show.html:32
+#: mafiasi/groups/templates/groups/show.html:34
 #: mafiasi/pks/templates/pks/party_list.html:15
 msgid "Date"
 msgstr "Datum"
@@ -988,7 +1030,7 @@ msgstr "Du hast keine Einladungen."
 
 #: mafiasi/groups/templates/groups/invite.html:6
 #, python-format
-msgid "Invite to %(group_name)s"
+msgid "Invite people to %(group_name)s"
 msgstr "In %(group_name)s einladen"
 
 #: mafiasi/groups/templates/groups/invite.html:12
@@ -1003,99 +1045,86 @@ msgstr "Benutzer einladen"
 msgid "Please enter the account names of the users you want to invite"
 msgstr "Gib die Accountnamen der Benutzer ein, die du einladen möchtest"
 
-#: mafiasi/groups/templates/groups/menu.html:9
-msgid "My Invitations"
-msgstr "Meine Einladungen"
-
-#: mafiasi/groups/templates/groups/menu.html:19
-#, python-format
-msgid "Group: %(group_name)s"
-msgstr "Gruppe: %(group_name)s"
+#: mafiasi/groups/templates/groups/my_groups.html:4
+msgid "My groups"
+msgstr "Meine Gruppen"
 
 #: mafiasi/groups/templates/groups/my_groups.html:15
 #: mafiasi/groups/templates/groups/my_groups.html:23
 msgid "Leave"
 msgstr "Verlassen"
 
-#: mafiasi/groups/templates/groups/my_groups.html:30
-msgid "Create new group"
-msgstr "Neue Gruppe erstellen"
-
-#: mafiasi/groups/templates/groups/show.html:15
+#: mafiasi/groups/templates/groups/show.html:17
 msgid "Mailinglist"
 msgstr "Mailingliste"
 
-#: mafiasi/groups/templates/groups/show.html:19
+#: mafiasi/groups/templates/groups/show.html:21
 #, python-format
 msgid "The mailinglist address is <strong>%(address)s</strong>."
 msgstr "Die Adresse der Mailingliste lautet <strong>%(address)s</strong>."
 
-#: mafiasi/groups/templates/groups/show.html:22
+#: mafiasi/groups/templates/groups/show.html:24
 msgid "Manage mailinglist"
 msgstr "Mailingliste verwalten"
 
-#: mafiasi/groups/templates/groups/show.html:33
+#: mafiasi/groups/templates/groups/show.html:35
 msgid "Invitee"
 msgstr "Eingeladener"
 
-#: mafiasi/groups/templates/groups/show.html:34
-msgid "Invited by"
-msgstr "Eingeladen von"
-
-#: mafiasi/groups/templates/groups/show.html:45
+#: mafiasi/groups/templates/groups/show.html:47
 #: mafiasi/guests/templates/guests/index.html:30
 msgid "Withdraw"
 msgstr "Zurückziehen"
 
-#: mafiasi/groups/templates/groups/show.html:52
+#: mafiasi/groups/templates/groups/show.html:54
 msgid "There are no open invitations."
 msgstr "Es gibt keine offenen Einladungen."
 
-#: mafiasi/groups/templates/groups/show.html:55
+#: mafiasi/groups/templates/groups/show.html:57
 msgid "Invite users to this group"
 msgstr "Benutzer in die Gruppe einladen"
 
-#: mafiasi/groups/templates/groups/show.html:58
+#: mafiasi/groups/templates/groups/show.html:60
 msgid "Members"
 msgstr "Mitglieder"
 
-#: mafiasi/groups/templates/groups/show.html:70
+#: mafiasi/groups/templates/groups/show.html:72
 msgid "Group admin"
 msgstr "Gruppenadmin"
 
-#: mafiasi/groups/templates/groups/show.html:75
+#: mafiasi/groups/templates/groups/show.html:77
 msgid "Last group admin can't be removed."
 msgstr "Der letzte Gruppenadmin kann nicht entfernt werden."
 
-#: mafiasi/groups/templates/groups/show.html:84
+#: mafiasi/groups/templates/groups/show.html:86
 msgid "Revoke admin"
 msgstr "Adminrechte entziehen"
 
-#: mafiasi/groups/templates/groups/show.html:86
+#: mafiasi/groups/templates/groups/show.html:88
 msgid "Grant admin"
 msgstr "Adminrechte geben"
 
-#: mafiasi/groups/views.py:43
+#: mafiasi/groups/views.py:37
 msgid "Group \"{0}\" was created."
 msgstr "Gruppe \"{0}\" wurde erstellt."
 
-#: mafiasi/groups/views.py:97
+#: mafiasi/groups/views.py:91
 msgid "You left the group."
 msgstr "Du hast die Gruppe verlassen."
 
-#: mafiasi/groups/views.py:120
+#: mafiasi/groups/views.py:114
 msgid "User was removed from group"
 msgstr "Der Benutzer wurde aus der Gruppe entfernt."
 
-#: mafiasi/groups/views.py:125
+#: mafiasi/groups/views.py:119
 msgid "User was granted group admin."
 msgstr "Der Benutzer wurde zum Gruppenadmin gemacht."
 
-#: mafiasi/groups/views.py:129
+#: mafiasi/groups/views.py:123
 msgid "Revoked group admin rights from user."
 msgstr "Dem Benutzer wurden Gruppenadmin-Rechte entzogen."
 
-#: mafiasi/groups/views.py:150
+#: mafiasi/groups/views.py:144
 msgid "Invitation was sent."
 msgstr "Einladung wurde gesendet."
 
@@ -1121,10 +1150,6 @@ msgstr "Es existiert bereits ein Account mit dieser E-Mail-Adresse."
 #: mafiasi/guests/forms.py:49
 msgid "invitations"
 msgstr "Einladungen"
-
-#: mafiasi/guests/templates/guests/accept.html:5
-msgid "Accept invitation"
-msgstr "Einladung annehmen"
 
 #: mafiasi/guests/templates/guests/accept.html:11
 #: mafiasi/guests/templates/guests/index.html:13
@@ -1183,7 +1208,7 @@ msgstr "Voller Name"
 
 #: mafiasi/guests/templates/guests/index.html:15
 #: mafiasi/guests/templates/guests/invite.html:29
-#: mafiasi/registration/forms.py:139
+#: mafiasi/registration/forms.py:157
 #: mafiasi/registration/templates/registration/account.html:40
 msgid "Email"
 msgstr "E-Mail"
@@ -1443,17 +1468,13 @@ msgstr "Mailingliste verwalten"
 msgid "%(whitelist_count)s entries"
 msgstr "%(whitelist_count)s Einträge"
 
-#: mafiasi/mailinglist/templates/mailinglist/show_list.html:46
-msgid "Settings"
-msgstr "Einstellungen"
-
 #: mafiasi/mailinglist/templates/mailinglist/show_list.html:53
 msgid ""
-"The mailinglist for this group does not exist yet. Use the magic button to "
-"create it."
+"The mailinglist for this group does not exist yet. Use this magic button to "
+"create it:"
 msgstr ""
-"Die Mailingliste für diese Gruppe existiert noch icht. Benutze den magischen "
-"Knopf, um sie zu erstellen."
+"Für diese Gruppe gibt es noch keine Mailingliste. Benutze diesen magischen "
+"Knopf, um sie zu erstellen:"
 
 #: mafiasi/mailinglist/templates/mailinglist/show_list.html:56
 msgid "Create mailinglist"
@@ -1860,6 +1881,18 @@ msgstr "Die beiden Passwörter stimmen nicht überein."
 msgid "Wrong password."
 msgstr "Falsches Passwort."
 
+#: mafiasi/registration/forms.py:140
+msgid "This address is already associated with an account."
+msgstr "Es existiert bereits ein Account mit dieser E-Mail-Adresse."
+
+#: mafiasi/registration/forms.py:144
+msgid "Group addresses cannot be used for this purpose."
+msgstr "Gruppenadressen können hier nicht verwendet werden."
+
+#: mafiasi/registration/forms.py:147
+msgid "Cloak adresses cannot be used for this purpose."
+msgstr "Cloak-Adressen können hier nicht verwendet werden."
+
 #: mafiasi/registration/templates/registration/account.html:5
 msgid "Account"
 msgstr "Account"
@@ -1955,20 +1988,6 @@ msgstr "Der Mailserver sagte:"
 
 #: mafiasi/registration/templates/registration/email_verify.txt:2
 #, python-format
-#| msgid ""
-#| "Hi,\n"
-#| "\n"
-#| "you requested to associate the email address\n"
-#| "  %(email)s\n"
-#| "with the Mafiasi.de account %(account)s.\n"
-#| "\n"
-#| "If this is correct, please verify the address by following this link:\n"
-#| "  %(link)s\n"
-#| "The link will be valid for 24 hours.\n"
-#| "\n"
-#| "Best regards,\n"
-#| "\n"
-#| "Your Server-AG"
 msgid ""
 "Hi,\n"
 "\n"
@@ -2206,7 +2225,7 @@ msgstr "Accounterstellung für mafiasi.de"
 
 #: mafiasi/registration/views.py:268
 msgid "Registration: Sending mail failed: {}"
-msgstr ""
+msgstr "Registrierung: Senden einer Mail fehlgeschlagen: {}"
 
 #: mafiasi/teaching/models.py:48
 msgid "winter term {0}"
@@ -2215,6 +2234,18 @@ msgstr "Wintersemester {0}"
 #: mafiasi/teaching/models.py:50
 msgid "summer term {0}"
 msgstr "Sommersemester {0}"
+
+#~ msgid "My account"
+#~ msgstr "Mein Account"
+
+#~ msgid "Create group"
+#~ msgstr "Gruppe erstellen"
+
+#~ msgid "My Invitations"
+#~ msgstr "Meine Einladungen"
+
+#~ msgid "Group: %(group_name)s"
+#~ msgstr "Gruppe: %(group_name)s"
 
 #~ msgid "Request successful"
 #~ msgstr "Antrag erfolgreich"

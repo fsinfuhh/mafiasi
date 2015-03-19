@@ -1,11 +1,11 @@
-{% extends "base.html" %}
+{% extends "groups/groups_base.html" %}
 {% load i18n %}
 {% load staticfiles %}
 {% load widget_tweaks %}
 
-{% block wtitle %}{% block ptitle %}{% blocktrans with group_name=group.name %}Invite to {{ group_name }}{% endblocktrans %}{% endblock %}{% endblock %}
+{% block wtitle %}{% block group_ptitle %}{% blocktrans with group_name=group.name %}Invite people to {{ group_name }}{% endblocktrans %}{% endblock %}{% endblock %}
 
-{% block content %}
+{% block group_content %}
 <form method="post" action="">
     {% csrf_token %}
     <div class="form-group{% if form.invitees.errors %} has-error{% endif %}">
@@ -20,7 +20,7 @@
     <button class="btn btn-primary">{% trans "Invite user" %}</button>
     <a href="{% url 'groups_show' group.name %}" class="btn btn-default">{% trans "Cancel" %}</a>
 </form>
-{% endblock content %}
+{% endblock %}
 
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{% static 'select2/select2.css' %}" />

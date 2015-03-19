@@ -1,9 +1,9 @@
-{% extends "base.html" %}
+{% extends "groups/groups_base.html" %}
 {% load i18n %}
 
-{% block wtitle %}{% block ptitle %}{% blocktrans with group_name=group.name %}Mailinglist for {{ group_name }}{% endblocktrans %}{% endblock %}{% endblock %}
+{% block wtitle %}{% block group_ptitle %}{% blocktrans with group_name=group.name %}Mailinglist for {{ group_name }}{% endblocktrans %}{% endblock %}{% endblock %}
 
-{% block content %}
+{% block group_content %}
 {% if mailinglist %}
 {% if not mailinglist.is_known %}
 <div class="alert alert-danger">{% trans "The mailinglist is not yet known to the mailserver. Please wait about half an hour." %}</div>
@@ -50,7 +50,7 @@
 
 {% else %}
 {% if is_admin %}
-<p>{% trans "The mailinglist for this group does not exist yet. Use the magic button to create it." %}</p>
+<p>{% trans "The mailinglist for this group does not exist yet. Use this magic button to create it:" %}</p>
 <form method="post" action="{% url 'mailinglist_create_list' group.name %}">
 {% csrf_token %}
 <p><button class="btn btn-primary">{% trans "Create mailinglist" %}</button></p>
@@ -60,4 +60,4 @@
 {% endif %}
 {% endif %}
 
-{% endblock content %} 
+{% endblock group_content %} 

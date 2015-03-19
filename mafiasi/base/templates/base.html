@@ -1,5 +1,5 @@
 {% load i18n %}
-{% load open_invitations %}
+{% load group_tags %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,21 +22,25 @@
                 {% if user.is_authenticated %}
                 <div class="pull-right">
                     {% url 'logout' as logout_url %}
-					<a class="btn btn-primary btn-sm" href="{% url 'registration_account' %}">{% trans "My account" %}</a>
-					<a class="btn btn-primary btn-sm" href="{% url 'groups_my_groups' %}">
-                        {% trans "My groups" %}
+                    <a class="btn btn-primary btn-sm" href="{% url 'groups_index' %}">
+                        <span class="glyphicon glyphicon-user"></span>
+                        {% trans "Groups" %}
                         {% open_invitations as oi %}
                         {% if oi %}
-                            <span class="important-badge">{{ oi }}</span>
+                            <span class="badge">{{ oi }}</span>
                         {% endif %}
                     </a>
+					<a class="btn btn-default btn-sm" href="{% url 'registration_account' %}">
+                        <span class="glyphicon glyphicon-cog"></span>
+                        {% trans "Settings" %}
+                    </a>
                     <p class="navbar-text">{% blocktrans with username=user.username %}Logged in as {{ username }}{% endblocktrans %}</p>
-                    <a class="btn btn-default navbar-btn" href="{{ logout_url }}">{% trans "Logout" %}</a>
+                    <a class="btn btn-default btn-sm navbar-btn" href="{{ logout_url }}">{% trans "Logout" %}</a>
                 </div>
                 {% else %}
                 <div class="btn-group pull-right">
-                    <a class="btn btn-primary navbar-btn" href="{% url 'registration_request_account' %}">{% trans "Register" %}</a>
-                    <a class="btn btn-default navbar-btn" href="{% url 'login' %}">{% trans "Login" %}</a>
+                    <a class="btn btn-default navbar-btn" href="{% url 'registration_request_account' %}">{% trans "Register" %}</a>
+                    <a class="btn btn-primary navbar-btn" href="{% url 'login' %}">{% trans "Login" %}</a>
                 </div>
                 {% endif %}
             </div>
