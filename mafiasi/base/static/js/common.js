@@ -66,3 +66,42 @@ $("select.make-button-group").each(function() {
     group.find(".btn[value='" + select.val() + "']").addClass("active");
 });
 
+$(function () {
+    var collapseSelector = ".panel-body, .panel-footer, table";
+    $('.panel-heading span.clickable').on("click", function (e) {
+        if ($(this).hasClass('panel-collapsed')) {
+            // expand the panel
+            var panel = $(this).parents('.panel');
+            panel.find(collapseSelector).show();
+            if(typeof(Storage) !== "undefined") {
+                localStorage.setItem("panelstate-" + panel.attr("id"), "expanded");
+            }
+            $(this).removeClass('panel-collapsed');
+            $(this).find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+        }
+        else {
+            // collapse the panel
+            var panel = $(this).parents('.panel');
+            panel.find(collapseSelector).hide();
+            if(typeof(Storage) !== "undefined") {
+                localStorage.setItem("panelstate-" + panel.attr("id"), "collapsed");
+            }
+            $(this).addClass('panel-collapsed');
+            $(this).find('i').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+        }
+    });
+    if(typeof(Storage) !== "undefined") {
+        for(var i = 0; i < localStorage.length; i++)
+        {
+            var key = localStorage.key(i);
+            if(key.lastIndexOf("panelstate-", 0) === 0)
+            {
+                if(localStorage.getItem(key) === "collapsed")
+                {
+                    var id = key.substring(11);
+                    $("#" + id).find(".clickable").click();
+                }
+            }
+        }
+    }
+});
