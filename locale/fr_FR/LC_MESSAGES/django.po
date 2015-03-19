@@ -294,7 +294,7 @@ msgstr "Télécharger le PDF"
 #: mafiasi/gprot/management/commands/send_reminders.py:27
 #, python-format
 msgid "Reminder: Memory minutes for \"%(coursename)s\""
-msgstr "Rappel: Mémoire minutes pour \"%(coursname)s\""
+msgstr "Rappel: Mémoire minutes pour \"%(coursename)s\""
 
 #: mafiasi/gprot/templates/gprot/_action_list.html:6
 msgid "View"
@@ -649,7 +649,7 @@ msgid ""
 "Cheers,\n"
 "\n"
 "Your Server-AG"
-msgstr "Hi there!\n\nA nouvelle minute de mémoire correspondant à votre recherche \n \"% (query)s\"\nhas viennent d'être téléchargés.\n\nVous peuvent le consulter au \n %(url)s\n\nCheers, \n\nVotre Server AG"
+msgstr "Hi there!\n\nA nouvelle minute de mémoire correspondant à votre recherche \n \"%(query)s\"\nhas viennent d'être téléchargés.\n\nVous peuvent le consulter au \n %(url)s\n\nCheers, \n\nVotre Server AG"
 
 #: mafiasi/gprot/templates/gprot/notifications.html:11
 msgid ""
@@ -681,7 +681,7 @@ msgid ""
 "Thank you for writing and publishing these memory minutes! Please note that\n"
 "once they are published, you will not be able to delete or unpublish them\n"
 "anymore.\n"
-msgstr "\nMerci pour l'écriture et la publication de ces minutes de mémoire! Se il vous plaît noter que \ nonce qu'ils sont publiés, vous ne serez pas en mesure de supprimer ou dépublier les \nanymore.\n"
+msgstr "\nMerci pour l'écriture et la publication de ces minutes de mémoire! Se il vous plaît noter que \n once qu'ils sont publiés, vous ne serez pas en mesure de supprimer ou dépublier les \nanymore.\n"
 
 #: mafiasi/gprot/templates/gprot/publish.html:38
 msgid ""
@@ -721,7 +721,7 @@ msgid ""
 "Cheers,\n"
 "\n"
 "Your Server-AG"
-msgstr "Salut à tous! \n \n Vous a demandé à être rappelé de la rédaction de minutes de mémoire \n for votre examen dans \n \"% (course_name)s\" \naujourd'hui. Merci beaucoup pour cela! En écrivant minutes de mémoire vous \nde aidera beaucoup d'autres étudiants et de contribuer à l'appel \nof ce référentiel, ce qui augmente les chances que quelqu'un d'autre contribue minutes \nmemory vous cherchez peut-être à l'avenir. \n \nCheers, \n \nVotre Serveur-AG"
+msgstr "Salut à tous! \n \n Vous a demandé à être rappelé de la rédaction de minutes de mémoire \n for votre examen dans \n \"%(course_name)s\" \naujourd'hui. Merci beaucoup pour cela! En écrivant minutes de mémoire vous \nde aidera beaucoup d'autres étudiants et de contribuer à l'appel \nof ce référentiel, ce qui augmente les chances que quelqu'un d'autre contribue minutes \nmemory vous cherchez peut-être à l'avenir. \n \nCheers, \n \nVotre Serveur-AG"
 
 #: mafiasi/gprot/templates/gprot/reminders.html:11
 msgid ""
@@ -741,7 +741,7 @@ msgstr "Ajouter un rappel"
 msgid ""
 "\n"
 "Memory minutes: %(course_name)s\n"
-msgstr "\n Minutes de mémoire: %(course_name)s\n "
+msgstr "\n Minutes de mémoire: %(course_name)s\n"
 
 #: mafiasi/gprot/templates/gprot/view.html:17
 msgid "Download PDF"
@@ -906,7 +906,7 @@ msgstr "Mailinglist"
 #: mafiasi/groups/templates/groups/show.html:19
 #, python-format
 msgid "The mailinglist address is <strong>%(address)s</strong>."
-msgstr "L'adresse de liste de diffusion est <strong>%(adresse)s</strong>."
+msgstr "L'adresse de liste de diffusion est <strong>%(address)s</strong>."
 
 #: mafiasi/groups/templates/groups/show.html:22
 msgid "Manage mailinglist"
@@ -1160,7 +1160,7 @@ msgstr "Votre Jabber ID est <strong>%(username)s</strong>@%(jabber_domain)s. Rem
 #: mafiasi/jabber/templates/jabber/index.html:13
 #, python-format
 msgid "Your Jabber ID is <strong>%(username)s@%(jabber_domain)s</strong>."
-msgstr "Votre identifiant Jabber est <strong>%(nom d'utilisateur)s@%(jabber_domain)s</strong>."
+msgstr "Votre identifiant Jabber est <strong>%(username)s@%(jabber_domain)s</strong>."
 
 #: mafiasi/jabber/templates/jabber/index.html:22
 #, python-format
@@ -1235,7 +1235,7 @@ msgstr "Enregistrer les paramètres"
 #: mafiasi/mailinglist/templates/mailinglist/show_list.html:4
 #, python-format
 msgid "Mailinglist for %(group_name)s"
-msgstr "Liste de diffusion pour %(nom_groupe)s"
+msgstr "Liste de diffusion pour %(group_name)s"
 
 #: mafiasi/mailinglist/templates/mailinglist/show_list.html:9
 msgid ""
@@ -1246,7 +1246,7 @@ msgstr "La liste de diffusion ne est pas encore connu du serveur de messagerie. 
 #: mafiasi/mailinglist/templates/mailinglist/show_list.html:11
 #, python-format
 msgid "The email address of this mailinglist is <strong>%(address)s</strong>."
-msgstr "L'adresse e-mail de cette liste de diffusion est <strong>%(adresse)s</strong>."
+msgstr "L'adresse e-mail de cette liste de diffusion est <strong>%(address)s</strong>."
 
 #: mafiasi/mailinglist/templates/mailinglist/show_list.html:14
 msgid "Moderated emails"
@@ -1311,7 +1311,7 @@ msgstr "S'il vous plaît demander à un administrateur de groupe pour créer cet
 #: mafiasi/mailinglist/templates/mailinglist/whitelist.html:5
 #, python-format
 msgid "Whitelist for %(name)s"
-msgstr "Liste blanche pour %(nom)s"
+msgstr "Liste blanche pour %(name)s"
 
 #: mafiasi/mailinglist/templates/mailinglist/whitelist.html:12
 #: mafiasi/mailinglist/templates/mailinglist/whitelist.html:40
@@ -1838,7 +1838,7 @@ msgstr "Nous vous avons envoyé un courriel à suivre pour configurer votre mot 
 msgid ""
 "You're receiving this email because you requested a password reset for your "
 "user account at %(site_name)s."
-msgstr "Vous recevez cet email car vous avez demandé une réinitialisation de mot de passe pour votre compte d'utilisateur à %(nom_site)s."
+msgstr "Vous recevez cet email car vous avez demandé une réinitialisation de mot de passe pour votre compte d'utilisateur à %(site_name)s."
 
 #: mafiasi/registration/templates/registration/password_reset_email.html:4
 msgid "Please go to the following page and choose a new password:"
@@ -1855,7 +1855,7 @@ msgstr "Merci pour avoir utilisé notre site!"
 #: mafiasi/registration/templates/registration/password_reset_email.html:12
 #, python-format
 msgid "The %(site_name)s team"
-msgstr "Le %(nom_site)s équipe"
+msgstr "Le %(site_name)s équipe"
 
 #: mafiasi/registration/templates/registration/password_reset_form.html:10
 msgid ""
