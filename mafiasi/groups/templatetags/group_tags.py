@@ -19,4 +19,4 @@ def get_invitations(context):
 def get_user_groups(context):
     user = context['user']
     if user.is_authenticated():
-        return user.groups.all()
+        return user.groups.all().order_by('name')

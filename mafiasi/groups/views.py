@@ -20,9 +20,9 @@ from mafiasi.groups.forms import InvitationForm
 
 @login_required
 def index(request):
-    groups = request.user.groups.all()
-    if groups:
-        return redirect('groups_show', groups[0])
+    group = request.user.groups.order_by('name').first()
+    if group:
+        return redirect('groups_show', group.name)
     else:
         return TemplateResponse(request, 'groups/groups_base.html')
 
