@@ -117,7 +117,12 @@
                 <tr>
                     <td>
                     {% format_user member %}
-                    {% if member.is_groupadmin %} <i>({% trans "Group admin" %})</i>{% endif %}
+                    {% if member.is_groupadmin %}
+                        <span class="label label-default">
+                            <span class="glyphicon glyphicon-bishop"></span>
+                            {% trans "Group admin" %}
+                        </span>
+                    {% endif %}
                     </td>
                     {% if is_groupadmin %}
                     {% if last_admin and member == user %}
