@@ -29,7 +29,7 @@ class PrivacyList(models.Model):
         return u'{0}: {1}'.format(self.username, self.name)
 
 class PrivacyListData(models.Model):
-    privacy_list = models.ForeignKey(PrivacyList,
+    privacy_list = models.OneToOneField(PrivacyList,
         db_column='id', related_name='data', primary_key=True)
     t = models.CharField(max_length=1)
     value = models.TextField()
