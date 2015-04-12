@@ -40,6 +40,14 @@ DATABASES = {
 
 }
 
+LDAP_SERVERS = {
+    'default': {
+        'URI': 'ldap://127.0.0.1/',
+        'BIND_DN': 'cn=admin,dc=mafiasi,dc=de',
+        'BIND_PASSWORD': 'foobar',
+    }
+}
+
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = ['mafiasi.de', '134.100.9.222:11371', '134.100.9.222']

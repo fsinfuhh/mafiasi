@@ -24,7 +24,7 @@ class GroupProperties(models.Model):
     has_mailinglist = models.BooleanField(default=False)
     
     def get_ldap_group(self):
-        return LdapGroup.objects.get(gid=self.group.pk)
+        return LdapGroup.lookup(self.group.name)
 
     def __unicode__(self):
         return unicode(self.group)
@@ -36,7 +36,7 @@ class GroupProxy(object):
     def add_member(self, user):
         group = self.group
         with AdvisoryLock(LOCK_ID_LDAP_GROUP, group.pk):
-            ldap_group = LdapGroup.objects.get(gid=group.pk)
+            ldap_group = LdapGroup.lookup(group.name)
             ldap_group.members.append(user.username)
             ldap_group.save()
             group.user_set.add(user)
@@ -47,7 +47,7 @@ class GroupProxy(object):
             if check_sole_admin:
                 self._raise_if_sole_admin(user)
             properties.admins.remove(user)
-            ldap_group = LdapGroup.objects.get(gid=self.group.pk)
+            ldap_group = LdapGroup.lookup(self.group.name)
             try:
                 ldap_group.members.remove(user.username)
                 ldap_group.save()

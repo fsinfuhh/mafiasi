@@ -2,11 +2,6 @@ import os
 import base64
 import hashlib
 
-from ldapdb.models.fields import CharField as ldapCharField, \
-                                 IntegerField as ldapIntegerField, \
-                                 ListField as ldapListField
-import ldapdb.models
-
 from django.db import models
 from django.db.models.signals import post_save
 from django.conf import settings
@@ -14,6 +9,7 @@ from django.utils.crypto import constant_time_compare
 from django.contrib.auth.models import AbstractUser, Group
 
 from mafiasi.base.tokenbucket import TokenBucket # noqa
+from mafiasi.utils.ldapmodel import LdapModel, LdapAttr, LdapNotFound
 
 LOCK_ID_LDAP_GROUP = -215652734
 
@@ -82,33 +78,39 @@ class Mafiasi(AbstractUser):
         self.new_password = new_password
 
     def get_ldapuser(self):
-        return LdapUser.objects.get(username=self.username)
+        return LdapUser.lookup(self.username)
 
 
-class LdapGroup(ldapdb.models.Model):
+class LdapGroup(LdapModel):
     base_dn = 'ou=groups,' + settings.ROOT_DN
+    lookup_dn = 'cn={},' + base_dn
+    primary_key = 'name'
     object_classes = ['posixGroup']
-
-    gid = ldapIntegerField(db_column='gidNumber', unique=True)
-    name = ldapCharField(db_column='cn', primary_key=True)
-    members = ldapListField(db_column='memberUid')
+    attrs = {
+        'gid': LdapAttr('gidNumber'),
+        'name': LdapAttr('cn'),
+        'members': LdapAttr('memberUid', multi=True)
+    }
 
     def __unicode__(self):
         return self.name
 
 
-class LdapUser(ldapdb.models.Model):
+class LdapUser(LdapModel):
     base_dn = 'ou=People,' + settings.ROOT_DN
+    lookup_dn = 'uid={},' + base_dn
+    primary_key = 'username'
     object_classes = ['person', 'inetOrgPerson']
-
-    id = ldapIntegerField(db_column='employeeNumber', unique=True)
-    username = ldapCharField(db_column='uid', primary_key=True)
-    common_name = ldapCharField(db_column='cn')
-    display_name = ldapCharField(db_column='displayName')
-    first_name = ldapCharField(db_column='givenName')
-    last_name = ldapCharField(db_column='sn')
-    email = ldapCharField(db_column='mail')
-    password = ldapCharField(db_column='userPassword')
+    attrs = {
+        'id': LdapAttr('employeeNumber'),
+        'username': LdapAttr('uid'),
+        'common_name': LdapAttr('cn'),
+        'display_name': LdapAttr('displayName'),
+        'first_name': LdapAttr('givenName'),
+        'last_name': LdapAttr('sn'),
+        'email': LdapAttr('mail'),
+        'password': LdapAttr('userPassword')
+    }
 
     def __unicode__(self):
         return self.username
@@ -130,11 +132,12 @@ class LdapUser(ldapdb.models.Model):
 
 def _change_user_cb(sender, instance, created, **kwargs):
     try:
-        ldap_user = LdapUser.objects.get(pk=instance.username)
-    except LdapUser.DoesNotExist:
-        ldap_user = LdapUser(username=instance.username)
+        ldap_user = LdapUser.lookup(instance.username)
+    except LdapNotFound:
+        ldap_user = LdapUser()
+        ldap_user.username = instance.username
 
-    ldap_user.id = instance.id
+    ldap_user.id = unicode(instance.id)
     ldap_user.common_name = instance.username
     
     if created:
@@ -163,9 +166,11 @@ post_save.connect(_change_user_cb, sender=Mafiasi)
 
 def _change_group_cb(sender, instance, created, **kwargs):
     try:
-        ldap_group = LdapGroup.objects.get(pk=instance.name)
-    except LdapGroup.DoesNotExist:
-        ldap_group = LdapGroup(name=instance.name)
-    ldap_group.gid = instance.id
+        ldap_group = LdapGroup.lookup(instance.name)
+    except LdapNotFound:
+        ldap_group = LdapGroup()
+        ldap_group.name = instance.name
+
+    ldap_group.gid = unicode(instance.id)
     ldap_group.save()
 post_save.connect(_change_group_cb, sender=Group)

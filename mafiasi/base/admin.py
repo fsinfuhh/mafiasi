@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from mafiasi.base.models import Yeargroup, PasswdEntry, Mafiasi, LdapUser, LdapGroup
+from mafiasi.base.models import Yeargroup, PasswdEntry, Mafiasi
 
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.forms import UserChangeForm
@@ -25,5 +25,3 @@ class MafiasiAdmin(UserAdmin):
 admin.site.register(Yeargroup)
 admin.site.register(PasswdEntry, PasswdEntryAdmin)
 admin.site.register(Mafiasi, MafiasiAdmin)
-admin.site.register(LdapUser)
-admin.site.register(LdapGroup)
