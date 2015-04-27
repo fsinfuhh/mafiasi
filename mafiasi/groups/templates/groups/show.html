@@ -12,6 +12,14 @@
 
 {% block group_content %}
 <div class="row">
+    {% for panel in extra_panels %}
+    <div class="col-sm-12">
+        <div class="panel panel-default" id="panel-{{ panel.identifier }}-{{ group.name }}">
+{{ panel.content|safe }}
+        </div>
+    </div>
+    {% endfor %}
+            
     {% with mailinglist=group.mailinglist %}
     {% if mailinglist or is_groupadmin %}
     {% url 'mailinglist_show_list' group.name as mailinglist_url %}

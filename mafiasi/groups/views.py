@@ -13,9 +13,11 @@ from django.http import Http404
 from django.conf import settings
 from django.contrib.sites.models import get_current_site
 
+from mafiasi.base.models import LdapGroup
 from mafiasi.groups.models import (GroupInvitation, GroupProxy, GroupError,
         create_usergroup)
 from mafiasi.groups.forms import InvitationForm
+from mafiasi.groups.signals import GroupOverview, show_group_overview
 
 
 @login_required
@@ -73,12 +75,25 @@ def show(request, group_name):
     else:
         invitations = []
 
+    group_dn = LdapGroup.lookup_dn.format(group.name)
+    panel_responses = show_group_overview.send(
+        GroupOverview,
+        group=group,
+        members=group_members,
+        group_dn=group_dn,
+        is_admin=is_groupadmin,
+        is_member=request.user in group_members)
+    extra_panels = [response[1] for response in panel_responses
+                    if response[1] is not None and
+                       not isinstance(response[1], Exception)]
+
     return TemplateResponse(request, 'groups/show.html', {
         'group': group,
         'members': group_members,
         'invitations': invitations,
         'is_groupadmin': is_groupadmin,
         'last_admin': num_admins == 1,
+        'extra_panels': extra_panels
     })
 
 @login_required
