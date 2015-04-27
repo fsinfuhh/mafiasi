@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 
-from mafiasi.etherpad.etherpad import Etherpad
+import datetime
+from urllib2 import URLError
 
 from django import forms
 from django.contrib.auth.decorators import login_required
@@ -8,9 +9,7 @@ from django.shortcuts import redirect
 from django.template.response import TemplateResponse
 from django.conf import settings
 
-from urllib2 import URLError
-
-import datetime
+from mafiasi.etherpad.etherpad import Etherpad
 
 class NewEtherpadForm(forms.Form):
     name = forms.RegexField(max_length=30, regex="[a-zA-Z0-9\-_]+")
