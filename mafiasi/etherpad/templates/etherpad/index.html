@@ -22,21 +22,21 @@
 {% else %}
 <h3>{% trans "Your group pads" %}</h3>
 
-{% for group_name, pads in pad_list.items %}
-{% if pads %}
-<h4>{{ group_name }}</h4>
+{% for group_entry in group_pad_list %}
+{% if group_entry.pads %}
+<h4>{{ group_entry.group_name }}</h4>
 <ul>
-{% for pad in pads %}
-    <li><a href="{% url 'ep_show_pad' group_name pad.name %}">{{ pad.name }}</a>
+{% for pad in group_entry.pads %}
+    <li><a href="{% url 'ep_show_pad' group_entry.group_name pad.name %}">{{ pad.name }}</a>
     &nbsp;&nbsp;-&nbsp;&nbsp;{% trans "Last changed:" %}
     {% if pad.edit_time_not_old %}
         {{ pad.last_edit|naturaltime }}
     {% else %}
         {{ pad.last_edit|date }}
     {% endif %}
-    &nbsp;&nbsp;-&nbsp;&nbsp;<a href="{% url 'ep_show_pad_html' group_name pad.name %}">HTML</a>
+    &nbsp;&nbsp;-&nbsp;&nbsp;<a href="{% url 'ep_show_pad_html' group_entry.group_name pad.name %}">HTML</a>
     {% if pad.admin %}
-        &nbsp;&nbsp;-&nbsp;&nbsp;<a href="{% url 'ep_delete_pad' group_name pad.name %}"><span class="glyphicon glyphicon-trash"></span></a>
+        &nbsp;&nbsp;-&nbsp;&nbsp;<a href="{% url 'ep_delete_pad' group_entry.group_name pad.name %}"><span class="glyphicon glyphicon-trash"></span></a>
     {% endif %}
     </li>
 {% endfor %}

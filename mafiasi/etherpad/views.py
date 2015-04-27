@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 
 import datetime
+from operator import itemgetter
 from urllib2 import URLError
 
 from django import forms
@@ -9,7 +10,9 @@ from django.shortcuts import redirect
 from django.template.response import TemplateResponse
 from django.conf import settings
 
+from mafiasi.groups.models import GroupProxy
 from mafiasi.etherpad.etherpad import Etherpad
+from mafiasi.etherpad.dbview import get_group_pads
 
 class NewEtherpadForm(forms.Form):
     name = forms.RegexField(max_length=30, regex="[a-zA-Z0-9\-_]+")
@@ -24,32 +27,29 @@ class DeleteEtherpadForm(forms.Form):
         super(DeleteEtherpadForm, self).__init__(*args, **kwargs)
 
 def index(request):
-    pad_list={}
-    groups_admin={}
+    group_pad_list = []
     if request.user.is_authenticated():
-        ep = Etherpad()
-        for group in request.user.groups.all():
-            pads = ep.get_group_pads(group.name)
-            is_admin = False
-            if group.properties.admins.filter(pk=request.user.pk).exists():
-                is_admin = True
-            pad_list[group.name] = []
+        pad_dict = {}
+        groups = request.user.groups.all().order_by('name')
+        group_names = [group.name for group in groups]
+        pad_dict = get_group_pads(group_names)
+        old_time = datetime.datetime.now() - datetime.timedelta(days=7)
+        for group_name in group_names:
+            is_admin = GroupProxy(group).is_admin(request.user)
+            pads = pad_dict[group_name]
             for pad in pads:
-                edit_time = ep.get_last_edit(pad)
-                edit_time_out = datetime.datetime.fromtimestamp(edit_time)
-                edit_time_not_old = True
-                if edit_time_out < datetime.datetime.now() - datetime.timedelta(days=7):
-                    edit_time_not_old = False
-                pad_list[group.name].append(
-                    {
-                        "name": pad.split('$')[1],
-                        "admin": is_admin,
-                        "last_edit": edit_time_out,
-                        "edit_time_not_old": edit_time_not_old
-                    })
+                edit_time = datetime.datetime.fromtimestamp(pad['timestamp'])
+                edit_time_not_old = edit_time >= old_time
+                pad['admin'] = is_admin
+                pad['last_edit'] = edit_time
+                pad['edit_time_not_old'] = edit_time_not_old
+            pads.sort(key=itemgetter('last_edit'), reverse=True)
+            group_pad_list.append({
+                'group_name': group_name,
+                'pads': pads
+            })
     return TemplateResponse(request, 'etherpad/index.html', {
-        'pad_list': pad_list,
-        'groups_admin':groups_admin,
+        'group_pad_list': group_pad_list,
         'etherpad_link': settings.SERVICE_LINKS['etherpad']
     })
 
