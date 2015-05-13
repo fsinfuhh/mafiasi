@@ -18,6 +18,9 @@ def get_group_pads(group_names):
             ], ...
        }
     """
+    if not group_names:
+        return {}
+
     group_pads = {group_name: [] for group_name in group_names}
     conn = connections['etherpad']
     
