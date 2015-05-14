@@ -1,6 +1,5 @@
 from mafiasi.base.models import Mafiasi
 
-SIMILARTIY_THRESHOLD = 0.3
 RESULT_LIMIT = 10
 
 def autocomplete_users(term):
@@ -8,33 +7,32 @@ def autocomplete_users(term):
     if len(terms) == 0:
         return []
 
-    table_name = Mafiasi._meta.db_table
-    base_query = 'SELECT * FROM {} WHERE '.format(table_name)
-    
     if len(terms) == 1:
-        cond = ('similarity(username, %s) > %s OR '
-                'similarity(first_name, %s) > %s OR '
-                'similarity(last_name, %s) > %s')
-        params = [term, SIMILARTIY_THRESHOLD,
-                  term, SIMILARTIY_THRESHOLD,
-                  term, SIMILARTIY_THRESHOLD]
+        users_username = list(Mafiasi.objects.filter(
+                username__istartswith=terms[0])[:RESULT_LIMIT+1])
+        users_first_name = list(Mafiasi.objects.filter(
+                first_name__istartswith=terms[0])[:RESULT_LIMIT+1])
+        users_last_name = list(Mafiasi.objects.filter(
+                last_name__istartswith=terms[0])[:RESULT_LIMIT+1])
+
+        users = []
+        dups = set()
+        _add_nodup(users, users_username, dups)
+        _add_nodup(users, users_first_name, dups)
+        _add_nodup(users, users_last_name, dups)
     else:
-        # If a user enters two terms, both should match somehow
-        cond = ('(similarity(username, %s) > %s AND similarity(first_name, %s) > %s) OR '
-                '(similarity(username, %s) > %s AND similarity(last_name, %s) > %s) OR '
-                '(similarity(first_name, %s) > %s AND similarity(last_name, %s) > %s)')
-        params = [terms[0], SIMILARTIY_THRESHOLD, terms[1], SIMILARTIY_THRESHOLD,
-                  terms[0], SIMILARTIY_THRESHOLD, terms[1], SIMILARTIY_THRESHOLD,
-                  terms[0], SIMILARTIY_THRESHOLD, terms[1], SIMILARTIY_THRESHOLD]
-    
-    limit = ' LIMIT %s'
-    params.append(RESULT_LIMIT+1)
+        users = list(Mafiasi.objects.filter(
+                first_name__iexact=terms[0],
+                last_name__istartswith=terms[1])[:RESULT_LIMIT+1])
+        if len(users) > RESULT_LIMIT:
+            users = []
 
-    sql_query = base_query + cond + limit
-    users = list(Mafiasi.objects.raw(sql_query, params))
-
-    # We only want to show results of the users search term restricted
-    # the results enough, so that it is more difficult to fetch all users
-    if len(users) > RESULT_LIMIT:
-        return []
     return users
+
+def _add_nodup(users, special_users, dups):
+    if len(special_users) <= RESULT_LIMIT:
+        for user in special_users:
+            if user.pk in dups:
+                continue
+            users.append(user)
+            dups.add(user.pk)
