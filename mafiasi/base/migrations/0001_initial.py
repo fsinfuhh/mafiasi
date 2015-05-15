@@ -40,37 +40,6 @@ class Migration(migrations.Migration):
             bases=(models.Model,),
         ),
         migrations.CreateModel(
-            name='LdapGroup',
-            fields=[
-                ('dn', models.CharField(max_length=200)),
-                ('gid', ldapdb.models.fields.IntegerField(unique=True, db_column=b'gidNumber')),
-                ('name', ldapdb.models.fields.CharField(max_length=200, serialize=False, primary_key=True, db_column=b'cn')),
-                ('members', ldapdb.models.fields.ListField(db_column=b'memberUid')),
-            ],
-            options={
-                'abstract': False,
-            },
-            bases=(models.Model,),
-        ),
-        migrations.CreateModel(
-            name='LdapUser',
-            fields=[
-                ('dn', models.CharField(max_length=200)),
-                ('id', ldapdb.models.fields.IntegerField(unique=True, db_column=b'employeeNumber')),
-                ('username', ldapdb.models.fields.CharField(max_length=200, serialize=False, primary_key=True, db_column=b'uid')),
-                ('common_name', ldapdb.models.fields.CharField(max_length=200, db_column=b'cn')),
-                ('display_name', ldapdb.models.fields.CharField(max_length=200, db_column=b'displayName')),
-                ('first_name', ldapdb.models.fields.CharField(max_length=200, db_column=b'givenName')),
-                ('last_name', ldapdb.models.fields.CharField(max_length=200, db_column=b'sn')),
-                ('email', ldapdb.models.fields.CharField(max_length=200, db_column=b'mail')),
-                ('password', ldapdb.models.fields.CharField(max_length=200, db_column=b'userPassword')),
-            ],
-            options={
-                'abstract': False,
-            },
-            bases=(models.Model,),
-        ),
-        migrations.CreateModel(
             name='PasswdEntry',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
