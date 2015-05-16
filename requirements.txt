@@ -1,9 +1,7 @@
 bleach
-caldav
 creoleparser
 django-auth-ldap
 django-email-log
-django-ldapdb
 django-widget-tweaks
 etherpad_lite
 fuzzywuzzy
