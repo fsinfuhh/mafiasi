@@ -97,10 +97,10 @@
             <div class="col-sm-6">
                 <div class="panel panel-default service">
                     <div class="panel-body">
-                        <a href="{% service_links.owncloud %}" class="btn btn-default btn-lg pull-left service-icon">
+                        <a href="{{ service_links.owncloud }}" class="btn btn-default btn-lg pull-left service-icon">
                             <img src="{{ STATIC_URL }}img/services/owncloud.png" alt="OwnCloud" />
                         </a>
-                        <h3><a href="{% service_links.owncloud %}">OwnCloud</a></h3>
+                        <h3><a href="{{ service_links.owncloud }}">OwnCloud</a></h3>
                         <p>{% trans "OwnCloud enables you to sync and share your documents." %}</p>
                     </div>
                 </div>
