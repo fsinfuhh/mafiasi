@@ -39,7 +39,7 @@ class CloakServer(customsmtpd.RaisingSMTPServer):
             s = smtplib.SMTP()
             s.connect(settings.EMAIL_HOST, settings.EMAIL_PORT)
             refused = s.sendmail(mailfrom, [rcptto], message.as_string())
-        except smtplib.SMTPRecipientRefused as e:
+        except smtplib.SMTPRecipientsRefused as e:
             refused = e.recipients
         except (socket.error, smtplib.SMTPException) as e:
             logger.exception(e)
