@@ -6,7 +6,7 @@ from email.utils import getaddresses, formataddr
 import logging
 import smtplib
 import socket
-import smtpd
+import customsmtpd
 
 from django.conf import settings
 
@@ -14,7 +14,7 @@ from mafiasi.base.models import Mafiasi
 
 logger = logging.getLogger('mailcloak')
 
-class CloakServer(smtpd.SMTPServer):
+class CloakServer(customsmtpd.RaisingSMTPServer):
     def process_message(self, peer, mailfrom, rcpttos, data):
         parser = Parser()
         message = parser.parsestr(data)
@@ -39,7 +39,7 @@ class CloakServer(smtpd.SMTPServer):
             s = smtplib.SMTP()
             s.connect(settings.EMAIL_HOST, settings.EMAIL_PORT)
             refused = s.sendmail(mailfrom, [rcptto], message.as_string())
-        except smtplib.SMTPRecipientRefused as e:
+        except smtplib.SMTPRecipientsRefused as e:
             refused = e.recipients
         except (socket.error, smtplib.SMTPException) as e:
             logger.exception(e)

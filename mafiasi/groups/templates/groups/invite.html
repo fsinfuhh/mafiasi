@@ -34,7 +34,31 @@
         $("#invitees").select2({
             tags: [],
             tokenSeparators: [",", " "],
-            formatNoMatches: "{% trans 'Please enter the account names of the users you want to invite' %}"
+            formatNoMatches: "{% trans 'Please enter the account names of the users you want to invite' %}",
+			ajax: {
+				url: "/base/autocomplete",
+				dataType: "json",
+				delay: 250,
+				data: function(term) {
+					return {
+						term: term
+					};
+				},
+				results: function(data, page) {
+					var results = [];
+					for (var i = 0; i < data.users.length; i++) {
+						var user = data.users[i];
+						results.push({
+							id: user.username,
+							text: user.first_name + " " + user.last_name + " (" + user.username + ")"
+						});
+					}
+					return {
+						results: results
+					};
+				}
+			},
+			minimumInputLength: 2
         });
     });
 </script>

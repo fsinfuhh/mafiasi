@@ -4,12 +4,12 @@ from email.parser import Parser
 from email.utils import parseaddr
 import logging
 
-from mafiasi.mail import smtpd
+from mafiasi.mail import customsmtpd
 from mafiasi.mailinglist.models import Mailinglist
 
 logger = logging.getLogger('mailinglist')
 
-class MailinglistServer(smtpd.SMTPServer):
+class MailinglistServer(customsmtpd.RaisingSMTPServer):
     def process_message(self, peer, mailfrom, rcpttos, data):
         parser = Parser()
         message = parser.parsestr(data)
