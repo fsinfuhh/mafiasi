@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block wtitle %}{% block ptitle %}Set quota for {{ username }}{% endblock %}{% endblock %}
+
+{% block content %}
+<p>Valid quota inputs are for example "2GB" or "100MB".</p>
+<form method="post" action="">
+{% csrf_token %}
+<table>
+{{ form }}
+</table>
+<p><input type="submit" value="Set quota" /></p>
+</form>
+{% endblock %}

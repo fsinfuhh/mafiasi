@@ -162,6 +162,7 @@ INSTALLED_APPS = (
     'mafiasi.pks',
     'mafiasi.registration',
     'mafiasi.teaching',
+	'mafiasi.owncloud',
     'raven.contrib.django.raven_compat',
     'widget_tweaks',
 )

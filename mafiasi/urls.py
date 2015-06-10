@@ -22,6 +22,7 @@ urlpatterns = patterns('',
     url(r'^mail/', include('mafiasi.mail.urls')),
     url(r'^mailinglist/', include('mafiasi.mailinglist.urls')),
     url(r'^guests/', include('mafiasi.guests.urls')),
+    url(r'^owncloud/', include('mafiasi.owncloud.urls')),
 
     url(r'^login$', 'django.contrib.auth.views.login', name='login'),
     url(r'^logout$', 'django.contrib.auth.views.logout', {
