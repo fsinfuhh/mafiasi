@@ -100,7 +100,7 @@ class LdapUser(LdapModel):
     base_dn = 'ou=People,' + settings.ROOT_DN
     lookup_dn = 'uid={},' + base_dn
     primary_key = 'username'
-    object_classes = ['person', 'inetOrgPerson']
+    object_classes = ['person', 'inetOrgPerson', 'ownCloud']
     attrs = {
         'id': LdapAttr('employeeNumber'),
         'username': LdapAttr('uid'),
@@ -109,7 +109,8 @@ class LdapUser(LdapModel):
         'first_name': LdapAttr('givenName'),
         'last_name': LdapAttr('sn'),
         'email': LdapAttr('mail'),
-        'password': LdapAttr('userPassword')
+        'password': LdapAttr('userPassword'),
+        'owncloud_quota': LdapAttr('ownCloudQuota')
     }
 
     def __unicode__(self):
