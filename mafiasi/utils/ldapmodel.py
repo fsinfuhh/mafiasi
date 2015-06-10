@@ -143,7 +143,6 @@ class LdapModel(object):
         conn = connections[connection]
         if self._fetched:
             if self._old_values is None:
-                assert False, "Oh noez!"
                 # Nothing was changed
                 return
             mod_list = modifyModlist(self._old_values, self._values)
