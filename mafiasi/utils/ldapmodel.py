@@ -142,6 +142,7 @@ class LdapModel(object):
         dn = self.get_dn()
         conn = connections[connection]
         if self._fetched:
+            self._values['objectClass'] = self.object_classes
             if self._old_values is None:
                 # Nothing was changed
                 return
