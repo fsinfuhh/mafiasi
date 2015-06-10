@@ -115,6 +115,12 @@ class LdapModelMeta(type):
         for attr, attr_obj in namespace['attrs'].iteritems():
             namespace[attr] = property(_make_getter(attr, attr_obj),
                                        _make_setter(attr, attr_obj))
+
+        class DoesNotExist(LdapNotFound):
+            pass
+
+        namespace['DoesNotExist'] = DoesNotExist
+
         return type.__new__(cls, name, bases, namespace)
 
 
@@ -172,7 +178,7 @@ class LdapModel(object):
         try:
             result = conn.search_s(dn, ldap.SCOPE_BASE)[0][1]
         except ldap.NO_SUCH_OBJECT:
-            raise LdapNotFound(dn)
+            raise cls.DoesNotExist(dn)
         instance = cls(result)
         instance._fetched = True
         return instance
