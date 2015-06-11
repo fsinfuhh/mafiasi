@@ -148,10 +148,12 @@ class LdapModel(object):
         dn = self.get_dn()
         conn = connections[connection]
         if self._fetched:
-            self._values['objectClass'] = self.object_classes
             if self._old_values is None:
                 # Nothing was changed
                 return
+            for object_class in self.object_classes:
+                if object_class not in self._values['objectClass']:
+                    self._values['objectClass'].append(object_class)
             mod_list = modifyModlist(self._old_values, self._values)
             try:
                 conn.modify_s(dn, mod_list)
