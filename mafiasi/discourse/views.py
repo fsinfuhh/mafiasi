@@ -28,7 +28,7 @@ def sso(request):
                                request.user.email,
                                request.user.username,
                                request.user.username,
-                               name=nickname)
+                               name=nickname.encode('utf-8'))
 
     except DiscourseError:
         return HttpResponse(status=400)
