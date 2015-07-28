@@ -15,6 +15,9 @@ def imprint(request):
 def technical_info(request):
     return TemplateResponse(request, 'base/technical_info.html')
 
+def licenses(request):
+    return TemplateResponse(request, 'base/licenses.html')
+
 def problems(request):
     team_email = settings.TEAM_EMAIL
     if not request.user.is_authenticated():

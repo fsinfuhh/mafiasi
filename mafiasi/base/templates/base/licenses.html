@@ -1,0 +1,182 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block wtitle %}{% block ptitle %}{% trans "License information" %}{% endblock %}{% endblock %}
+
+{% block content %}
+<h2>Mafiasi.de</h2>
+<p>
+The mafiasi.de project is free software and released under the 
+<a href="https://tldrlegal.com/license/gnu-general-public-license-v3-%28gpl-3%29">
+GNU General Public License in version 3</a> or later. You can obtain a copy of the source
+code at our <a href="https://github.com/fsinfuhh/mafiasi">GitHub project</a>.
+</p>
+<p>Authors:</p>
+<ul>
+	<li>Henning Pridöhl</li>
+	<li>Nils Rokita</li>
+	<li>Damian Hofmann</li>
+	<li>Felix Favre</li>
+	<li>Rafael Epplee</li>
+</ul>
+
+<h3>Third party libraries</h3>
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Library/component</th>
+			<th>Author/owner</th>
+			<th>License</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><a href="https://www.djangoproject.com/">Django</a></td>
+			<td>Django Software Foundation and individual contributors</td>
+			<td><a href="https://www.tldrlegal.com/l/bsd3">BSD License (3-clause)</a></td>
+		</tr>
+		<tr>
+			<td><a href="http://jquery.com/">jQuery</a></td>
+			<td>jQuery Foundation, Inc. and other contributors</td>
+			<td><a href="https://tldrlegal.com/license/mit-license">MIT License</a></td>
+		</tr>
+		<tr>
+			<td><a href="http://jqueryui.com/">jQuery UI</a></td>
+			<td>jQuery Foundation, Inc. and other contributors</td>
+			<td><a href="https://tldrlegal.com/license/mit-license">MIT License</a></td>
+		</tr>
+		<tr>
+			<td><a href="http://getbootstrap.com/">Bootstrap CSS</a></td>
+			<td>Twitter Inc.</td>
+			<td><a href="https://tldrlegal.com/license/mit-license">MIT License</a></td>
+		</tr>
+		<tr>
+			<td><a href="http://www.python-ldap.org/">python-ldap</a></td>
+			<td>python-ldap project</td>
+			<td><a href="https://tldrlegal.com/license/python-license-2.0">Python</a> style</td>
+		</tr>
+		<tr>
+			<td><a href="https://code.google.com/p/creoleparser/">creoleparser</a></td>
+			<td>Stephen Day</td>
+			<td><a href="https://tldrlegal.com/license/mit-license">MIT License</a></td>
+		</tr>
+		<tr>
+			<td><a href="http://genshi.edgewall.org/">Genshi</a></td>
+			<td>Edgewall Software</td>
+			<td><a href="https://www.tldrlegal.com/l/bsd3">BSD License (3-clause)</a></td>
+		</tr>
+		<tr>
+			<td><a href="https://github.com/derek73/python-nameparser">python-nameparser</a></td>
+			<td>Derek Gulbranso</td>
+			<td><a href="https://tldrlegal.com/license/gnu-lesser-general-public-license-v2.1-%28lgpl-2.1%29">LGPL 2.1 or later</a></td>
+		</tr>
+		<tr>
+			<td><a href="https://github.com/kmike/django-widget-tweaks">django-widget-tweaks</a></td>
+			<td>Mikhail Korobov</td>
+			<td><a href="https://tldrlegal.com/license/mit-license">MIT License</a></td>
+		</tr>
+		<tr>
+			<td><a href="https://launchpad.net/pygpgme">PyGPGME</a></td>
+			<td>James Henstridge</td>
+			<td><a href="https://tldrlegal.com/license/gnu-lesser-general-public-license-v2.1-%28lgpl-2.1%29">LGPL 2.1 or later</a></td>
+		</tr>
+		<tr>
+			<td><a href="http://pygraphviz.github.io/">PyGraphviz</a></td>
+			<td>Aric Hagberg, Dan Schult, Manos Renieris</td>
+			<td><a href="https://www.tldrlegal.com/l/bsd3">BSD License (3-clause)</a></td>
+		</tr>
+		<tr>
+			<td><a href="http://networkx.github.io/">NetworkX</a></td>
+			<td>Aric Hagberg, Dan Schult, Pieter Swart</td>
+			<td><a href="https://www.tldrlegal.com/l/bsd3">BSD License (3-clause)</a></td>
+		</tr>
+		<tr>
+			<td><a href="http://python-pillow.github.io/">Pillow</a></td>
+			<td>Secret Labs AB, Fredrik Lundh</td>
+			<td><a href="http://www.pythonware.com/products/pil/license.htm">PIL Software License</a></td>
+		</tr>
+		<tr>
+			<td><a href="https://github.com/Changaco/python-etherpad_lite">python-etherpad_lite</a></td>
+			<td>Charly Coste</td>
+			<td><a href="https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-%28lgpl-3%29">LGPL 3 or later</a></td>
+		</tr>
+		<tr>
+			<td><a href="https://github.com/getsentry/raven-python">Raven</a></td>
+			<td>Functional Software, Inc and <a href="https://github.com/getsentry/raven-python/graphs/contributors">individual contributors</a></td>
+			<td><a href="https://www.tldrlegal.com/l/bsd3">BSD License (3-clause)</a></td>
+		</tr>
+		<tr>
+			<td><a href="https://github.com/tindie/pydiscourse">pydiscourse</a></td>
+			<td>tindie</td>
+			<td><a href="https://tldrlegal.com/license/mit-license">MIT License</a></td>
+		</tr>
+		<tr>
+			<td><a href="https://mstamy2.github.io/PyPDF2/">PyPDF2</a></td>
+			<td>Mathieu Fenniak, Ashish Kulkarni, Steve Witham</td>
+			<td><a href="https://www.tldrlegal.com/l/bsd3">BSD License (3-clause)</a></td>
+		</tr>
+		<tr>
+			<td><a href="https://pythonhosted.org/pytz/">pytz</a></td>
+			<td>Stuart Bishop</td>
+			<td><a href="https://tldrlegal.com/license/mit-license">MIT License</a></td>
+		</tr>
+		<tr>
+			<td><a href="https://github.com/ahupp/python-magic">python-magic</a></td>
+			<td>Adam Hupp</td>
+			<td><a href="https://tldrlegal.com/license/mit-license">MIT License</a></td>
+		</tr>
+		<tr>
+			<td><a href="https://github.com/jsocol/bleach">bleach</a></td>
+			<td>Mozilla Foundation</td>
+			<td><a href="https://tldrlegal.com/license/apache-license-2.0-%28apache-2.0%29">Apache License 2.0</a></td>
+		</tr>
+		<tr>
+			<td><a href="https://github.com/seatgeek/fuzzywuzzy">fuzzywuzzy</a></td>
+			<td>SeatGeek, Inc.</td>
+			<td><a href="https://tldrlegal.com/license/mit-license">MIT License</a></td>
+		</tr>
+		<tr>
+			<td><a href="https://github.com/kennethreitz/requests">requests</a></td>
+			<td>Kenneth Reitz</td>
+			<td><a href="https://tldrlegal.com/license/apache-license-2.0-%28apache-2.0%29">Apache License 2.0</a></td>
+		</tr>
+		<tr>
+			<td><a href="https://www.mathjax.org/">mathjax</a></td>
+			<td>The MathJax Consortium</td>
+			<td><a href="https://tldrlegal.com/license/apache-license-2.0-%28apache-2.0%29">Apache License 2.0</a></td>
+		</tr>
+		<tr>
+			<td><a href="http://ckeditor.com/">ckeditor</a></td>
+			<td>CKSource - Frederico Knabben</td>
+			<td><a href="https://tldrlegal.com/license/gnu-lesser-general-public-license-v2.1-%28lgpl-2.1%29">LGPL 2.1 or later</a></td>
+		</tr>
+	</tbody>
+</table>
+
+<h3>Third-party assets</h3>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Asset</th>
+			<th>Author/owner</th>
+			<th>License</th>
+			<th>Remarks</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><a href="http://glyphicons.com/">Glyphicons Halflings</a> (as part of Bootstrap)</td>
+			<td>Jan Kovařík</td>
+			<td>See bootstrap license</td>
+			<td>Dashboard icons for "Dudel", "Mumble", "Jabber"; some icons in buttons</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.redmine.org/projects/redmine/wiki/Logo">Redmine logo</a></td>
+			<td>Martin Herr</td>
+			<td><a href="http://creativecommons.org/licenses/by-sa/2.5/">Creative Commons Attribution-ShareAlike 2.5 Generic</a></td>
+			<td>A modified version is used for the "Redmine" dashboard icon</td>
+		</tr>
+	</tbody>
+</table>
+{% endblock %}

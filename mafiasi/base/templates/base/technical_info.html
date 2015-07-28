@@ -4,6 +4,10 @@
 {% block wtitle %}{% block ptitle %}{% trans "Technical Info" %}{% endblock %}{% endblock %}
 
 {% block content %}
+<p>
+	<a href="{% url 'base_licenses' %}">{% trans "License overview of third-party components" %}</a>
+</p>
+
 <p>{% trans "This site uses the following software/components:" %}</p>
 <ul>
     <li><a href="http://debian.org">Debian</a></li>
