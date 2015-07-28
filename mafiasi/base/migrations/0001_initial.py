@@ -4,7 +4,6 @@ from __future__ import unicode_literals
 from django.db import models, migrations
 import django.utils.timezone
 import django.core.validators
-import ldapdb.models.fields
 
 
 class Migration(migrations.Migration):
