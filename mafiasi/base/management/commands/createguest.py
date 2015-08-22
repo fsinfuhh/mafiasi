@@ -43,7 +43,7 @@ class Command(BaseCommand):
                 raise CommandError(
                         'Name must be alphanumeric and start with a letter')
         else:  # noguest
-            if not re.match('^[a-z0-9]*$', name):
+            if not re.match('^[a-z0-9.]*$', name):
                 raise CommandError(
                         'Name must be alphanumeric')
 
