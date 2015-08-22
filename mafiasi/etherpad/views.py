@@ -130,6 +130,7 @@ def show_pad(request, group_name, pad_name):
     })
     cookie_domain = '.' + request.get_host()
     response.set_cookie('sessionID', cookie, domain=cookie_domain)
+    response['Access-Control-Allow-Origin'] = "https://ep.mafiasi.de"
     return response
 
 def show_pad_html(request, group_name, pad_name):
