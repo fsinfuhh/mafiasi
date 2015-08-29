@@ -43,7 +43,7 @@ class Command(BaseCommand):
                 raise CommandError(
                         'Name must be alphanumeric and start with a letter')
         else:  # noguest
-            if not re.match('^[a-z0-9.]*$', name):
+            if not re.match('^[a-z0-9\.]*$', name):
                 raise CommandError(
                         'Name must be alphanumeric')
 
@@ -54,7 +54,8 @@ class Command(BaseCommand):
         password = password.replace('/', '').replace('+', '')[:10]
 
         mafiasi = Mafiasi.objects.create(username=name,
-                                         email=email,
+                                         email='{}@cloak.mafiasi.de'.format(name),
+                                         real_email=email,
                                          first_name=first_name,
                                          last_name=last_name,
                                          account='')
