@@ -223,8 +223,8 @@ def _get_color(signature_stats, keyid):
     return red, green, blue
 
 def _hex_color(red, green, blue):
-    color = ''.join(chr(int(round(x * 255))) for x in (red, green, blue))
-    return '#' + hexlify(color)
+    # red, green and blue are colors from [0, 1]
+    return '#' + ''.join(map(lambda x: format(int(round(x*255)), 'x'), (red, green, blue)))
 
 def _annotate_svg(filename):
     ET.register_namespace('', 'http://www.w3.org/2000/svg')
