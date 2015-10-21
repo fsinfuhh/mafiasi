@@ -1,7 +1,6 @@
 from __future__ import division
 
 import os
-from binascii import hexlify
 from cgi import escape as escape_html
 import xml.etree.ElementTree as ET
 
