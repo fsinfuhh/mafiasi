@@ -2,16 +2,56 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-23 22:49+0100\n"
+"POT-Creation-Date: 2015-11-23 17:17+0100\n"
 "PO-Revision-Date: 2015-03-16 18:16+0100\n"
 "Last-Translator: Marc Bestmann <0bestman@informatik.uni-hamburg.de>\n"
 "Language-Team: \n"
+"Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.6.10\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"Language: fr_FR\n"
+
+#: lib/python2.7/site-packages/email_log/models.py:13
+#, fuzzy
+#| msgid "Sender email"
+msgid "from e-mail"
+msgstr "Sender émail"
+
+#: lib/python2.7/site-packages/email_log/models.py:14
+msgid "recipients"
+msgstr ""
+
+#: lib/python2.7/site-packages/email_log/models.py:15
+#, fuzzy
+#| msgid "Subject"
+msgid "subject"
+msgstr "Sujet"
+
+#: lib/python2.7/site-packages/email_log/models.py:16
+msgid "body"
+msgstr ""
+
+#: lib/python2.7/site-packages/email_log/models.py:17
+msgid "ok"
+msgstr ""
+
+#: lib/python2.7/site-packages/email_log/models.py:18
+msgid "date sent"
+msgstr ""
+
+#: lib/python2.7/site-packages/email_log/models.py:25
+#, fuzzy
+#| msgid "Email"
+msgid "e-mail"
+msgstr "Èmail"
+
+#: lib/python2.7/site-packages/email_log/models.py:26
+#, fuzzy
+#| msgid "Email"
+msgid "e-mails"
+msgstr "Èmail"
 
 #: mafiasi/base/templates/500.html:4
 msgid "Internal server error"
@@ -24,7 +64,12 @@ msgid ""
 "should have sent an email to us with some technical details. Please try "
 "again later. If the problem persists, see our <a href=\"%(problems_url)s"
 "\">problem reporting page</a>."
-msgstr "Nous sommes désolés, mais nous ne nous attendions pas que cela se produise. Notre outil de reporting d'erreur aurait dû envoyer un email à nous avec quelques détails techniques. S'il vous plaît réessayer plus tard. Si le problème persiste, consultez notre <a href=\"%(problems_url)s\"> page de rapports d'incidents </a>."
+msgstr ""
+"Nous sommes désolés, mais nous ne nous attendions pas que cela se produise. "
+"Notre outil de reporting d'erreur aurait dû envoyer un email à nous avec "
+"quelques détails techniques. S'il vous plaît réessayer plus tard. Si le "
+"problème persiste, consultez notre <a href=\"%(problems_url)s\"> page de "
+"rapports d'incidents </a>."
 
 #: mafiasi/base/templates/base.html:7 mafiasi/base/templates/base_raw.html:6
 msgid "Mafiasi"
@@ -34,47 +79,54 @@ msgstr "Mafiasi"
 msgid "Mafiasi Hub"
 msgstr "Mafiasi Hub"
 
-#: mafiasi/base/templates/base.html:25
-msgid "My account"
-msgstr "Mon compte"
-
 #: mafiasi/base/templates/base.html:27
-#: mafiasi/groups/templates/groups/menu.html:5
-#: mafiasi/groups/templates/groups/my_groups.html:4
-msgid "My groups"
-msgstr "Mes groupes"
+#, fuzzy
+#| msgid "Group"
+msgid "Groups"
+msgstr "Groupe"
 
-#: mafiasi/base/templates/base.html:33
+#: mafiasi/base/templates/base.html:35
+#: mafiasi/mailinglist/templates/mailinglist/show_list.html:46
+msgid "Settings"
+msgstr "Paramètres"
+
+#: mafiasi/base/templates/base.html:37
 #, python-format
 msgid "Logged in as %(username)s"
 msgstr "Connecté en tant que %(username)s"
 
-#: mafiasi/base/templates/base.html:34
+#: mafiasi/base/templates/base.html:38
 msgid "Logout"
 msgstr "Déconnecter"
 
-#: mafiasi/base/templates/base.html:38
+#: mafiasi/base/templates/base.html:42
 msgid "Register"
 msgstr "Enregistrez-Vous"
 
-#: mafiasi/base/templates/base.html:39
+#: mafiasi/base/templates/base.html:43
 #: mafiasi/registration/templates/registration/login.html:5
 #: mafiasi/registration/templates/registration/login.html:42
 msgid "Login"
 msgstr "Connectez-Vouz"
 
-#: mafiasi/base/templates/base.html:67
+#: mafiasi/base/templates/base.html:71
 msgid "Imprint"
 msgstr "Empreinte"
 
-#: mafiasi/base/templates/base.html:69
+#: mafiasi/base/templates/base.html:73
 msgid "Technical info"
 msgstr "Information technique"
 
-#: mafiasi/base/templates/base.html:71
+#: mafiasi/base/templates/base.html:75
 #: mafiasi/base/templates/base/problems.html:4
 msgid "Problems?"
 msgstr "Problèmes?"
+
+#: mafiasi/base/templates/base/licenses.html:4
+#, fuzzy
+#| msgid "Key information"
+msgid "License information"
+msgstr "Informations clés"
 
 #: mafiasi/base/templates/base/problems.html:7
 #, python-format
@@ -82,17 +134,24 @@ msgid ""
 "<p>Did you encounter any technical problems using this site? Just write an "
 "email to <strong><a href=\"mailto:%(team_email)s\">%(team_email)s</a></"
 "strong> and describe your problem.</p>"
-msgstr "<p>Avez-vous rencontrez des problèmes techniques en utilisant de ce site? Il suffit d'écrire un courriel à <strong><a href=\"mailto:%(team_email)s\">%(team_email)s </a></strong> et décrire votre problème.</p>"
+msgstr ""
+"<p>Avez-vous rencontrez des problèmes techniques en utilisant de ce site? Il "
+"suffit d'écrire un courriel à <strong><a href=\"mailto:%(team_email)s\">"
+"%(team_email)s </a></strong> et décrire votre problème.</p>"
 
 #: mafiasi/base/templates/base/technical_info.html:4
 msgid "Technical Info"
 msgstr "Infos techniques"
 
-#: mafiasi/base/templates/base/technical_info.html:7
+#: mafiasi/base/templates/base/technical_info.html:8
+msgid "License overview of third-party components"
+msgstr ""
+
+#: mafiasi/base/templates/base/technical_info.html:11
 msgid "This site uses the following software/components:"
 msgstr "Ce site utilise les logiciels / composants suivants:"
 
-#: mafiasi/base/templates/base/technical_info.html:38
+#: mafiasi/base/templates/base/technical_info.html:99
 msgid "Listed in no particular order."
 msgstr "Inscrite dans aucun ordre particulier."
 
@@ -114,73 +173,97 @@ msgstr "Services"
 
 #: mafiasi/dashboard/templates/dashboard/index.html:20
 msgid "In the wiki you will find important information regarding your studies."
-msgstr "Dans le wiki, vous trouverez des informations importantes concernant vos études."
+msgstr ""
+"Dans le wiki, vous trouverez des informations importantes concernant vos "
+"études."
 
 #: mafiasi/dashboard/templates/dashboard/index.html:32
 msgid "You can use the Etherpad to work together on a document in real time."
-msgstr "Vous pouvez utiliser le Etherpad de travailler ensemble sur un document en temps réel."
+msgstr ""
+"Vous pouvez utiliser le Etherpad de travailler ensemble sur un document en "
+"temps réel."
 
 #: mafiasi/dashboard/templates/dashboard/index.html:44
 msgid "The Dudel helps you to find common dates for meetings easily."
-msgstr "Le Dudel vous aide à trouver des dates communes pour les réunions facilement."
+msgstr ""
+"Le Dudel vous aide à trouver des dates communes pour les réunions facilement."
 
 #: mafiasi/dashboard/templates/dashboard/index.html:56
 msgid ""
 "Redmine is a project management software. You can create tasks and assign "
 "them to people."
-msgstr "Redmine est un logiciel de managment de projet. Vous pouvez créer des tâches et de les affecter à des gens."
+msgstr ""
+"Redmine est un logiciel de managment de projet. Vous pouvez créer des tâches "
+"et de les affecter à des gens."
 
 #: mafiasi/dashboard/templates/dashboard/index.html:68
 msgid ""
 "Discourse is our forum for questions and discussions with your fellow "
 "students."
-msgstr "Le discours est notre forum pour les questions et discussions avec vos collègues étudiants."
+msgstr ""
+"Le discours est notre forum pour les questions et discussions avec vos "
+"collègues étudiants."
 
 #: mafiasi/dashboard/templates/dashboard/index.html:80
 msgid ""
 "Manage and share your calendars and address book, sync them to all your "
 "devices."
-msgstr "Gérez et partagez vos calendriers et carnet d'adresses, les synchroniser sur tous vos appareils."
+msgstr ""
+"Gérez et partagez vos calendriers et carnet d'adresses, les synchroniser sur "
+"tous vos appareils."
 
 #: mafiasi/dashboard/templates/dashboard/index.html:92
 msgid ""
 "Planet is a feed aggregator which collects blog entries from your fellow "
 "students."
-msgstr "Planet est un agrégateur de flux qui recueille les entrées du blog de vos camarades."
+msgstr ""
+"Planet est un agrégateur de flux qui recueille les entrées du blog de vos "
+"camarades."
 
 #: mafiasi/dashboard/templates/dashboard/index.html:104
+msgid "OwnCloud enables you to sync and share your documents."
+msgstr ""
+
+#: mafiasi/dashboard/templates/dashboard/index.html:117
 msgid "The GProt contains memory minutes of oral and written exams."
 msgstr "La mémoire contient GProt minutes d'examens oraux et écrits."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:116
+#: mafiasi/dashboard/templates/dashboard/index.html:129
 msgid ""
 "You can find your fellow students' OpenPGP keys on our public keyserver."
-msgstr "Vous pouvez trouver les clés OpenPGP de vos camarades sur notre serveur de clés publiques."
+msgstr ""
+"Vous pouvez trouver les clés OpenPGP de vos camarades sur notre serveur de "
+"clés publiques."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:128
+#: mafiasi/dashboard/templates/dashboard/index.html:141
 msgid "You can use our mumble for voice chat with other fellow students."
-msgstr "Vous pouvez utiliser notre mumble pour le chat vocal avec d'autres étudiants d'autres."
+msgstr ""
+"Vous pouvez utiliser notre mumble pour le chat vocal avec d'autres étudiants "
+"d'autres."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:140
+#: mafiasi/dashboard/templates/dashboard/index.html:153
 msgid ""
 "On our Jabber server you can chat with your fellow students, which are "
 "already on your contact list."
-msgstr "Sur notre serveur Jabber vous pouvez discuter avec vos collègues étudiants, qui sont déjà sur votre liste de contacts."
+msgstr ""
+"Sur notre serveur Jabber vous pouvez discuter avec vos collègues étudiants, "
+"qui sont déjà sur votre liste de contacts."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:152
+#: mafiasi/dashboard/templates/dashboard/index.html:165
 msgid ""
 "FB18 is our deprecated bulletin board, which is kept here as an archive."
-msgstr "FB18 est notre babillard obsolète, qui est conservé ici comme une archive."
+msgstr ""
+"FB18 est notre babillard obsolète, qui est conservé ici comme une archive."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:160
+#: mafiasi/dashboard/templates/dashboard/index.html:173
 msgid "News and more"
 msgstr "Les nouvelles et plus"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:176
+#: mafiasi/dashboard/templates/dashboard/index.html:189
 msgid "Wiki search"
 msgstr "Recherche Wiki"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:183
+#: mafiasi/dashboard/templates/dashboard/index.html:196
 #: mafiasi/gprot/templates/gprot/menu.html:4
 #: mafiasi/pks/templates/pks/menu.html:4
 #: mafiasi/pks/templates/pks/search.html:5
@@ -194,13 +277,12 @@ msgid "Create group pad"
 msgstr "Créer pad de groupe"
 
 #: mafiasi/etherpad/templates/etherpad/create_new_pad.html:15
-#: mafiasi/groups/templates/groups/show.html:61
+#: mafiasi/groups/templates/groups/show.html:120
 #: mafiasi/pks/templates/pks/party_list.html:14
 msgid "Name"
 msgstr "Nom"
 
 #: mafiasi/etherpad/templates/etherpad/create_new_pad.html:19
-#: mafiasi/groups/templates/groups/show.html:5
 msgid "Group"
 msgstr "Groupe"
 
@@ -209,7 +291,9 @@ msgstr "Groupe"
 msgid ""
 "You can create a new group in the <a href=\"%(groups_link)s\">group "
 "management</a>."
-msgstr "Vous pouvez créer un nouveau groupe dans le <a href=\"%(groups_link)s\"> management de groupe</a>."
+msgstr ""
+"Vous pouvez créer un nouveau groupe dans le <a href=\"%(groups_link)s\"> "
+"management de groupe</a>."
 
 #: mafiasi/etherpad/templates/etherpad/delete_pad.html:5
 #: mafiasi/etherpad/templates/etherpad/delete_pad.html:19
@@ -220,6 +304,13 @@ msgstr "Supprimer pad de groupe"
 #, python-format
 msgid "Delete the Pad <b>%(pad)s</b> from group <b>%(group)s</b>?"
 msgstr "Supprimez le Pad <b>%(pad)s</b> du groupe <b>%(group)s</b>?"
+
+#: mafiasi/etherpad/templates/etherpad/forbidden.html:8
+#, python-format
+msgid ""
+"You tried to access the group <b>%(group_name)s</b>. You aren't in this "
+"group!"
+msgstr ""
 
 #: mafiasi/etherpad/templates/etherpad/index.html:5
 msgid "Etherpad overview"
@@ -236,7 +327,11 @@ msgid ""
 "access or group pads, which can only be accessed by members of a group. In "
 "the <a href=\"%(groups_link)s\">group management</a> you can create groups "
 "and invite others."
-msgstr "Vous pouvez soit créer plaquettes publics, que tout le monde qui connaît leur URL peut accéder ou plaquettes de groupe, qui ne sont accessibles que par les membres d'un groupe. Dans le <a href=\"%(groups_link)s\"> gestion de groupe </a> vous pouvez créer des groupes et inviter d'autres personnes."
+msgstr ""
+"Vous pouvez soit créer plaquettes publics, que tout le monde qui connaît "
+"leur URL peut accéder ou plaquettes de groupe, qui ne sont accessibles que "
+"par les membres d'un groupe. Dans le <a href=\"%(groups_link)s\"> gestion de "
+"groupe </a> vous pouvez créer des groupes et inviter d'autres personnes."
 
 #: mafiasi/etherpad/templates/etherpad/index.html:16
 msgid "Create public pad"
@@ -244,7 +339,8 @@ msgstr "Créer pad publique"
 
 #: mafiasi/etherpad/templates/etherpad/index.html:21
 msgid "Protected group pads can only be created if you are logged in."
-msgstr "Coussinets de groupes protégés ne peuvent être créés si vous êtes connecté."
+msgstr ""
+"Coussinets de groupes protégés ne peuvent être créés si vous êtes connecté."
 
 #: mafiasi/etherpad/templates/etherpad/index.html:23
 msgid "Your group pads"
@@ -328,6 +424,7 @@ msgstr "Cours:"
 
 #: mafiasi/gprot/templates/gprot/_basic_form.html:10
 #: mafiasi/gprot/templates/gprot/_basic_form.html:27
+#: mafiasi/groups/templates/groups/groups_base.html:44
 msgid "New"
 msgstr "Nouveau"
 
@@ -397,7 +494,11 @@ msgid ""
 "        This page needs javascript in order to function correctly.\n"
 "        Please activate it before you proceed.\n"
 "        "
-msgstr "\n         Cette page a besoin de javascript pour fonctionner correctement. \n S'il vous plaît l'activer avant de continuer. \n        "
+msgstr ""
+"\n"
+"         Cette page a besoin de javascript pour fonctionner correctement. \n"
+" S'il vous plaît l'activer avant de continuer. \n"
+"        "
 
 #: mafiasi/gprot/templates/gprot/create.html:26
 msgctxt "GProt format"
@@ -413,7 +514,9 @@ msgstr "Continuer"
 msgid ""
 "\n"
 "Delete: %(course_name)s\n"
-msgstr "\n Supprimer: %(course_name)s\n"
+msgstr ""
+"\n"
+" Supprimer: %(course_name)s\n"
 
 #: mafiasi/gprot/templates/gprot/delete.html:20
 #: mafiasi/gprot/templates/gprot/edit.html:29
@@ -441,7 +544,9 @@ msgstr "Date d'examen"
 msgid ""
 "\n"
 "Do you really want to delete these memory minutes?\n"
-msgstr "\n Voulez-vous vraiment supprimer ces minutes de mémoire? \n"
+msgstr ""
+"\n"
+" Voulez-vous vraiment supprimer ces minutes de mémoire? \n"
 
 #: mafiasi/gprot/templates/gprot/edit.html:5
 #: mafiasi/gprot/templates/gprot/edit_metadata.html:6
@@ -469,7 +574,9 @@ msgstr "non publié"
 msgid ""
 "<b>Warning:</b> The current document will be replaced when you upload a new "
 "one."
-msgstr "<b> Attention: </b> Le document actuel sera remplacé lorsque vous téléchargez un nouveau."
+msgstr ""
+"<b> Attention: </b> Le document actuel sera remplacé lorsque vous "
+"téléchargez un nouveau."
 
 #: mafiasi/gprot/templates/gprot/edit.html:44
 msgid "Error:"
@@ -512,7 +619,9 @@ msgstr "Enregistrer"
 msgid ""
 "\n"
 "Forget authorship: %(course_name)s\n"
-msgstr "\nForget auteur: %(course_name)s\n"
+msgstr ""
+"\n"
+"Forget auteur: %(course_name)s\n"
 
 #: mafiasi/gprot/templates/gprot/forget.html:29
 msgid ""
@@ -522,7 +631,13 @@ msgid ""
 "the database? This will of course disable editing this memory minutes, "
 "since\n"
 "we no longer know who wrote it.\n"
-msgstr "\n Voulez-vous vraiment supprimer votre association avec ces mémoire minutes de \nle base de données? Ce sera bien sûr désactiver l'édition de cette mémoire minutes, depuis \nwe ne sais plus qui l'a écrit. \n"
+msgstr ""
+"\n"
+" Voulez-vous vraiment supprimer votre association avec ces mémoire minutes "
+"de \n"
+"le base de données? Ce sera bien sûr désactiver l'édition de cette mémoire "
+"minutes, depuis \n"
+"we ne sais plus qui l'a écrit. \n"
 
 #: mafiasi/gprot/templates/gprot/index.html:7
 msgid "Search for memory minutes"
@@ -533,7 +648,9 @@ msgstr "Rechercher minutes de mémoire"
 msgid ""
 "Just enter the name of the course and/or examiner to see available memory "
 "minutes."
-msgstr "Il suffit d'entrer le nom du cours et / ou de l'examinateur de voir disponibles minutes de mémoire."
+msgstr ""
+"Il suffit d'entrer le nom du cours et / ou de l'examinateur de voir "
+"disponibles minutes de mémoire."
 
 #: mafiasi/gprot/templates/gprot/index.html:31
 msgid "Show memory minutes"
@@ -558,8 +675,7 @@ msgstr "Département"
 #: mafiasi/gprot/templates/gprot/notifications.html:21
 #: mafiasi/gprot/templates/gprot/reminders.html:23
 #: mafiasi/groups/templates/groups/invitations.html:19
-#: mafiasi/groups/templates/groups/show.html:35
-#: mafiasi/groups/templates/groups/show.html:63
+#: mafiasi/groups/templates/groups/show.html:122
 #: mafiasi/guests/templates/guests/index.html:16
 msgid "Actions"
 msgstr "Actes"
@@ -574,7 +690,15 @@ msgid ""
 "you\n"
 "    would like to be informed when new memory minutes matching your query\n"
 "    are published.\n"
-msgstr "\n Désolé, il n'y a aucun publiés minutes de mémoire correspondant à votre recherche. \n Vous pouvez configurer une <a href=\"%(notifications_url)s\">notification</a> si vous\n    aurait souhaitez être tenu informé lorsque de nouvelles minutes de mémoire à votre requête \n sont publiés. \n"
+msgstr ""
+"\n"
+" Désolé, il n'y a aucun publiés minutes de mémoire correspondant à votre "
+"recherche. \n"
+" Vous pouvez configurer une <a href=\"%(notifications_url)s\">notification</"
+"a> si vous\n"
+"    aurait souhaitez être tenu informé lorsque de nouvelles minutes de "
+"mémoire à votre requête \n"
+" sont publiés. \n"
 
 #: mafiasi/gprot/templates/gprot/list_own.html:5
 msgid "List own memory minutes"
@@ -649,7 +773,19 @@ msgid ""
 "Cheers,\n"
 "\n"
 "Your Server-AG"
-msgstr "Hi there!\n\nA nouvelle minute de mémoire correspondant à votre recherche \n \"%(query)s\"\nhas viennent d'être téléchargés.\n\nVous peuvent le consulter au \n %(url)s\n\nCheers, \n\nVotre Server AG"
+msgstr ""
+"Hi there!\n"
+"\n"
+"A nouvelle minute de mémoire correspondant à votre recherche \n"
+" \"%(query)s\"\n"
+"has viennent d'être téléchargés.\n"
+"\n"
+"Vous peuvent le consulter au \n"
+" %(url)s\n"
+"\n"
+"Cheers, \n"
+"\n"
+"Votre Server AG"
 
 #: mafiasi/gprot/templates/gprot/notifications.html:11
 msgid ""
@@ -658,7 +794,13 @@ msgid ""
 "yet? Just add the course below and we will notify you as soon as new memory "
 "minutes matching your search are published. Please consider contributing "
 "memory minutes yourself, to help others in the same position.</p>\n"
-msgstr "\n<p> Vous cherchez minutes de mémoire pour un cours spécifique qui ne sont pas encore là? Il suffit d'ajouter le cours ci-dessous et nous vous informerons dès que de nouvelles minutes de mémoire correspondant à votre recherche sont publiés. Se il vous plaît envisager de contribuer minutes de mémoire vous-même, d'aider les autres dans la même position. </p>\n"
+msgstr ""
+"\n"
+"<p> Vous cherchez minutes de mémoire pour un cours spécifique qui ne sont "
+"pas encore là? Il suffit d'ajouter le cours ci-dessous et nous vous "
+"informerons dès que de nouvelles minutes de mémoire correspondant à votre "
+"recherche sont publiés. Se il vous plaît envisager de contribuer minutes de "
+"mémoire vous-même, d'aider les autres dans la même position. </p>\n"
 
 #: mafiasi/gprot/templates/gprot/notifications.html:20
 msgid "Added"
@@ -666,7 +808,7 @@ msgstr "Ajouté"
 
 #: mafiasi/gprot/templates/gprot/notifications.html:30
 #: mafiasi/gprot/templates/gprot/reminders.html:32
-#: mafiasi/groups/templates/groups/show.html:81
+#: mafiasi/groups/templates/groups/show.html:147
 #: mafiasi/mailinglist/templates/mailinglist/whitelist.html:25
 msgid "Remove"
 msgstr "Supprimer"
@@ -681,7 +823,13 @@ msgid ""
 "Thank you for writing and publishing these memory minutes! Please note that\n"
 "once they are published, you will not be able to delete or unpublish them\n"
 "anymore.\n"
-msgstr "\nMerci pour l'écriture et la publication de ces minutes de mémoire! Se il vous plaît noter que \n once qu'ils sont publiés, vous ne serez pas en mesure de supprimer ou dépublier les \nanymore.\n"
+msgstr ""
+"\n"
+"Merci pour l'écriture et la publication de ces minutes de mémoire! Se il "
+"vous plaît noter que \n"
+" once qu'ils sont publiés, vous ne serez pas en mesure de supprimer ou "
+"dépublier les \n"
+"anymore.\n"
 
 #: mafiasi/gprot/templates/gprot/publish.html:38
 msgid ""
@@ -693,7 +841,16 @@ msgid ""
 "others\n"
 "    and you may remove the information at any time.\n"
 "    "
-msgstr "\n <strong> Gardez l'information de l'auteur. </strong> Cela vous permet d'éditer vos \n minutes de mémoire après l'édition et peut permettre à d'autres fonctions à l'avenir. \n Votre auteur sera gardée confidentielle et ne sera jamais montré à d'autres \n et vous pouvez supprimer les informations à tout moment. \n    "
+msgstr ""
+"\n"
+" <strong> Gardez l'information de l'auteur. </strong> Cela vous permet "
+"d'éditer vos \n"
+" minutes de mémoire après l'édition et peut permettre à d'autres fonctions à "
+"l'avenir. \n"
+" Votre auteur sera gardée confidentielle et ne sera jamais montré à "
+"d'autres \n"
+" et vous pouvez supprimer les informations à tout moment. \n"
+"    "
 
 #: mafiasi/gprot/templates/gprot/publish.html:50
 msgid ""
@@ -703,7 +860,15 @@ msgid ""
 "    of course disable editing this memory minutes, since we no longer\n"
 "    know who wrote it.\n"
 "    "
-msgstr "\n <strong> Forget informations de l'auteur. </strong> Ce sera supprimer votre \n association avec cette mémoire minutes de la base de données. Cela \n Bien sûr désactiver l'édition de ce mémoire minutes, puisque nous ne sommes plus \n savons qui l'a écrit. \n    "
+msgstr ""
+"\n"
+" <strong> Forget informations de l'auteur. </strong> Ce sera supprimer "
+"votre \n"
+" association avec cette mémoire minutes de la base de données. Cela \n"
+" Bien sûr désactiver l'édition de ce mémoire minutes, puisque nous ne sommes "
+"plus \n"
+" savons qui l'a écrit. \n"
+"    "
 
 #: mafiasi/gprot/templates/gprot/reminder_email.txt:2
 #, python-format
@@ -721,7 +886,21 @@ msgid ""
 "Cheers,\n"
 "\n"
 "Your Server-AG"
-msgstr "Salut à tous! \n \n Vous a demandé à être rappelé de la rédaction de minutes de mémoire \n for votre examen dans \n \"%(course_name)s\" \naujourd'hui. Merci beaucoup pour cela! En écrivant minutes de mémoire vous \nde aidera beaucoup d'autres étudiants et de contribuer à l'appel \nof ce référentiel, ce qui augmente les chances que quelqu'un d'autre contribue minutes \nmemory vous cherchez peut-être à l'avenir. \n \nCheers, \n \nVotre Serveur-AG"
+msgstr ""
+"Salut à tous! \n"
+" \n"
+" Vous a demandé à être rappelé de la rédaction de minutes de mémoire \n"
+" for votre examen dans \n"
+" \"%(course_name)s\" \n"
+"aujourd'hui. Merci beaucoup pour cela! En écrivant minutes de mémoire vous \n"
+"de aidera beaucoup d'autres étudiants et de contribuer à l'appel \n"
+"of ce référentiel, ce qui augmente les chances que quelqu'un d'autre "
+"contribue minutes \n"
+"memory vous cherchez peut-être à l'avenir. \n"
+" \n"
+"Cheers, \n"
+" \n"
+"Votre Serveur-AG"
 
 #: mafiasi/gprot/templates/gprot/reminders.html:11
 msgid ""
@@ -730,7 +909,13 @@ msgid ""
 "that you\n"
 "might forget writing them after your exam is over, you can add a reminder\n"
 "here and we will send you an email right after the exam.</p>\n"
-msgstr "\n <p> Si voulez contribuer mémoire minutes vous-même (ce qui est excellent!), Mais que vous vous inquiétez \nmight oublier les écrire après votre examen est terminé, vous pouvez ajouter un rappel \nhere et nous vous enverrons un e-mail à droite après le examen. </p> \n"
+msgstr ""
+"\n"
+" <p> Si voulez contribuer mémoire minutes vous-même (ce qui est excellent!), "
+"Mais que vous vous inquiétez \n"
+"might oublier les écrire après votre examen est terminé, vous pouvez ajouter "
+"un rappel \n"
+"here et nous vous enverrons un e-mail à droite après le examen. </p> \n"
 
 #: mafiasi/gprot/templates/gprot/reminders.html:51
 msgid "Add reminder"
@@ -741,7 +926,9 @@ msgstr "Ajouter un rappel"
 msgid ""
 "\n"
 "Memory minutes: %(course_name)s\n"
-msgstr "\n Minutes de mémoire: %(course_name)s\n"
+msgstr ""
+"\n"
+" Minutes de mémoire: %(course_name)s\n"
 
 #: mafiasi/gprot/templates/gprot/view.html:17
 msgid "Download PDF"
@@ -752,7 +939,11 @@ msgid ""
 "Sorry, your browser does not support embedding\n"
 "            this document. However, you can download the PDF file using the\n"
 "            button above."
-msgstr "Désolé, votre navigateur ne supporte pas les intégrant \n ce document. Cependant, vous pouvez télécharger le fichier PDF en utilisant la touche de \n ci-dessus."
+msgstr ""
+"Désolé, votre navigateur ne supporte pas les intégrant \n"
+" ce document. Cependant, vous pouvez télécharger le fichier PDF en utilisant "
+"la touche de \n"
+" ci-dessus."
 
 #: mafiasi/gprot/templates/gprot/view.html:74
 msgid "No document has been uploaded yet."
@@ -799,7 +990,9 @@ msgstr "\"%s\" est déjà membre de ce groupe."
 msgid ""
 "You are the sole group admin. Please terminate the group or appoint another "
 "group admin."
-msgstr "Vous êtes le seul administrateur du groupe. Se il vous plaît résilier le groupe ou nommer un autre administrateur du groupe."
+msgstr ""
+"Vous êtes le seul administrateur du groupe. Se il vous plaît résilier le "
+"groupe ou nommer un autre administrateur du groupe."
 
 #: mafiasi/groups/models.py:102
 msgid "Invalid group name."
@@ -814,12 +1007,18 @@ msgid "Group does already exist."
 msgstr "Ce groupe déjà existe."
 
 #: mafiasi/groups/templates/groups/create.html:4
-msgid "Create group"
-msgstr "Créer un groupe"
+#: mafiasi/groups/templates/groups/groups_base.html:42
+#: mafiasi/groups/templates/groups/my_groups.html:30
+msgid "Create new group"
+msgstr "Créer un nouveau groupe"
 
 #: mafiasi/groups/templates/groups/create.html:7
-msgid "Please note: The group name can be seen by other users."
-msgstr "S'il vous plaît noter: Le nom du groupe peut être vu par d'autres utilisateurs."
+#, fuzzy
+#| msgid "Please note: The group name can be seen by other users."
+msgid "Please note: The group name will be visible to other users."
+msgstr ""
+"S'il vous plaît noter: Le nom du groupe peut être vu par d'autres "
+"utilisateurs."
 
 #: mafiasi/groups/templates/groups/create.html:11
 #: mafiasi/groups/templates/groups/invitations.html:17
@@ -829,21 +1028,67 @@ msgstr "Nom du groupe"
 
 #: mafiasi/groups/templates/groups/create.html:13
 msgid "Only letters, numbers and \"-\" are allowed. Must start with a letter."
-msgstr "Seuls les lettres, les chiffres et les \"-\" sont autorisés. Doit commencer par une lettre."
+msgstr ""
+"Seuls les lettres, les chiffres et les \"-\" sont autorisés. Doit commencer "
+"par une lettre."
 
 #: mafiasi/groups/templates/groups/create.html:17
 #: mafiasi/jabber/templates/jabber/create.html:21
 msgid "Create"
 msgstr "Créer"
 
+#: mafiasi/groups/templates/groups/groups_base.html:14
 #: mafiasi/groups/templates/groups/invitations.html:5
-#: mafiasi/groups/templates/groups/show.html:28
+#: mafiasi/groups/templates/groups/show.html:67
 #: mafiasi/guests/templates/guests/index.html:5
 msgid "Invitations"
 msgstr "Invitations"
 
+#: mafiasi/groups/templates/groups/groups_base.html:26
+#: mafiasi/guests/templates/guests/accept.html:5
+msgid "Accept invitation"
+msgstr "Accepter l'invitation"
+
+#: mafiasi/groups/templates/groups/groups_base.html:29
+#, fuzzy
+#| msgid "Open invitations"
+msgid "Decline invitation"
+msgstr "Des invitations ouvertes"
+
+#: mafiasi/groups/templates/groups/groups_base.html:35
+#: mafiasi/groups/templates/groups/show.html:76
+msgid "Invited by"
+msgstr "Invité par"
+
+#: mafiasi/groups/templates/groups/groups_base.html:41
+#, fuzzy
+#| msgid "My groups"
+msgid "My Groups"
+msgstr "Mes groupes"
+
+#: mafiasi/groups/templates/groups/groups_base.html:57
+#, fuzzy
+#| msgid "\"%s\" is already a member of this group."
+msgid "You are not yet member of any group."
+msgstr "\"%s\" est déjà membre de ce groupe."
+
+#: mafiasi/groups/templates/groups/groups_base.html:62
+#, fuzzy
+#| msgid "Mafiasi Hub"
+msgid "Mafiasi Groups"
+msgstr "Mafiasi Hub"
+
+#: mafiasi/groups/templates/groups/groups_base.html:66
+msgid ""
+"\n"
+"      Accept an invitation or create a new group and invite\n"
+"      others to use Mafiasi features such as private\n"
+"      etherpads, Discourse categories and group mailinglists.\n"
+"      "
+msgstr ""
+
 #: mafiasi/groups/templates/groups/invitations.html:16
-#: mafiasi/groups/templates/groups/show.html:32
+#: mafiasi/groups/templates/groups/show.html:74
 #: mafiasi/pks/templates/pks/party_list.html:15
 msgid "Date"
 msgstr "Date"
@@ -865,8 +1110,9 @@ msgid "You have no invitations."
 msgstr "Vous n'avez pas d'invitations."
 
 #: mafiasi/groups/templates/groups/invite.html:6
-#, python-format
-msgid "Invite to %(group_name)s"
+#, fuzzy, python-format
+#| msgid "Invite to %(group_name)s"
+msgid "Invite people to %(group_name)s"
 msgstr "Inviter à %(group_name)s"
 
 #: mafiasi/groups/templates/groups/invite.html:12
@@ -879,108 +1125,115 @@ msgstr "Inviter l'utilisateur"
 
 #: mafiasi/groups/templates/groups/invite.html:37
 msgid "Please enter the account names of the users you want to invite"
-msgstr "S'il vous plaît entrer les noms de compte des utilisateurs que vous souhaitez inviter"
+msgstr ""
+"S'il vous plaît entrer les noms de compte des utilisateurs que vous "
+"souhaitez inviter"
 
-#: mafiasi/groups/templates/groups/menu.html:9
-msgid "My Invitations"
-msgstr "Mes invitations"
-
-#: mafiasi/groups/templates/groups/menu.html:19
-#, python-format
-msgid "Group: %(group_name)s"
-msgstr "Groupe: %(group_name)s"
+#: mafiasi/groups/templates/groups/my_groups.html:4
+msgid "My groups"
+msgstr "Mes groupes"
 
 #: mafiasi/groups/templates/groups/my_groups.html:15
 #: mafiasi/groups/templates/groups/my_groups.html:23
 msgid "Leave"
 msgstr "Laisser"
 
-#: mafiasi/groups/templates/groups/my_groups.html:30
-msgid "Create new group"
-msgstr "Créer un nouveau groupe"
-
-#: mafiasi/groups/templates/groups/show.html:15
+#: mafiasi/groups/templates/groups/show.html:30
 msgid "Mailinglist"
 msgstr "Mailinglist"
 
-#: mafiasi/groups/templates/groups/show.html:19
-#, python-format
-msgid "The mailinglist address is <strong>%(address)s</strong>."
+#: mafiasi/groups/templates/groups/show.html:36
+#, fuzzy, python-format
+#| msgid "The mailinglist address is <strong>%(address)s</strong>."
+msgid ""
+"The mailinglist address is <a href=\"mailto:%(address)s\">%(address)s</a>."
 msgstr "L'adresse de liste de diffusion est <strong>%(address)s</strong>."
 
-#: mafiasi/groups/templates/groups/show.html:22
-msgid "Manage mailinglist"
-msgstr "Gérer liste de diffusion"
+#: mafiasi/groups/templates/groups/show.html:47
+#, fuzzy
+#| msgid "Manage groups"
+msgid "Manage"
+msgstr "Gérer les groupes"
 
-#: mafiasi/groups/templates/groups/show.html:33
+#: mafiasi/groups/templates/groups/show.html:52
+#: mafiasi/mailinglist/templates/mailinglist/show_list.html:56
+msgid "Create mailinglist"
+msgstr "Créer liste de diffusion"
+
+#: mafiasi/groups/templates/groups/show.html:75
 msgid "Invitee"
 msgstr "Invité"
 
-#: mafiasi/groups/templates/groups/show.html:34
-msgid "Invited by"
-msgstr "Invité par"
-
-#: mafiasi/groups/templates/groups/show.html:45
+#: mafiasi/groups/templates/groups/show.html:87
 #: mafiasi/guests/templates/guests/index.html:30
 msgid "Withdraw"
 msgstr "Retirer"
 
-#: mafiasi/groups/templates/groups/show.html:52
+#: mafiasi/groups/templates/groups/show.html:95
 msgid "There are no open invitations."
 msgstr "Il n'y a pas des invitations ouvertes."
 
-#: mafiasi/groups/templates/groups/show.html:55
-msgid "Invite users to this group"
-msgstr "Inviter des utilisateurs à ce groupe"
+#: mafiasi/groups/templates/groups/show.html:102
+#, fuzzy
+#| msgid "Invite user"
+msgid "Invite users"
+msgstr "Inviter l'utilisateur"
 
-#: mafiasi/groups/templates/groups/show.html:58
+#: mafiasi/groups/templates/groups/show.html:113
 msgid "Members"
 msgstr "Membres"
 
-#: mafiasi/groups/templates/groups/show.html:70
+#: mafiasi/groups/templates/groups/show.html:134
 msgid "Group admin"
 msgstr "Admin du groupe"
 
-#: mafiasi/groups/templates/groups/show.html:75
+#: mafiasi/groups/templates/groups/show.html:141
 msgid "Last group admin can't be removed."
 msgstr "Dernier admin du groupe ne peut pas être enlevé."
 
-#: mafiasi/groups/templates/groups/show.html:84
+#: mafiasi/groups/templates/groups/show.html:150
 msgid "Revoke admin"
 msgstr "Révoquer administrateur"
 
-#: mafiasi/groups/templates/groups/show.html:86
+#: mafiasi/groups/templates/groups/show.html:152
 msgid "Grant admin"
 msgstr "Grant administrateur"
 
-#: mafiasi/groups/views.py:43
+#: mafiasi/groups/templates/groups/show.html:162
+#, fuzzy
+#| msgid "Create group"
+msgid "Leave group"
+msgstr "Créer un groupe"
+
+#: mafiasi/groups/views.py:39
 #, python-brace-format
 msgid "Group \"{0}\" was created."
 msgstr "Groupe \"{0}\" a été créé."
 
-#: mafiasi/groups/views.py:97
+#: mafiasi/groups/views.py:106
 msgid "You left the group."
 msgstr "Vous avez quitté le groupe."
 
-#: mafiasi/groups/views.py:120
+#: mafiasi/groups/views.py:129
 msgid "User was removed from group"
 msgstr "Utilisateur a été supprimé du groupe"
 
-#: mafiasi/groups/views.py:125
+#: mafiasi/groups/views.py:134
 msgid "User was granted group admin."
 msgstr "L'utilisateur a été accordée groupe administrateur."
 
-#: mafiasi/groups/views.py:129
+#: mafiasi/groups/views.py:138
 msgid "Revoked group admin rights from user."
 msgstr "Révocation droits groupe d'administration de l'utilisateur."
 
-#: mafiasi/groups/views.py:150
+#: mafiasi/groups/views.py:159
 msgid "Invitation was sent."
 msgstr "L'invitation a été envoyée."
 
 #: mafiasi/guests/forms.py:26
 msgid "Username must be alphanumeric and start with a letter."
-msgstr "Nom d'utilisateur doit être alphanumérique et commencer par une lettre."
+msgstr ""
+"Nom d'utilisateur doit être alphanumérique et commencer par une lettre."
 
 #: mafiasi/guests/forms.py:29
 msgid "Username must be at least 3 characters long."
@@ -988,7 +1241,9 @@ msgstr "Nom d'utilisateur doit être au moins trois caractères."
 
 #: mafiasi/guests/forms.py:38
 msgid "The guest can use this email address to register a normal user account."
-msgstr "Le client peut utiliser cette adresse e-mail pour enregistrer un compte utilisateur normal."
+msgstr ""
+"Le client peut utiliser cette adresse e-mail pour enregistrer un compte "
+"utilisateur normal."
 
 #: mafiasi/guests/forms.py:43
 msgid "There is already an account with that email."
@@ -997,10 +1252,6 @@ msgstr "Il existe déjà un compte avec cet e-mail."
 #: mafiasi/guests/forms.py:49
 msgid "invitations"
 msgstr "invitations"
-
-#: mafiasi/guests/templates/guests/accept.html:5
-msgid "Accept invitation"
-msgstr "Accepter l'invitation"
 
 #: mafiasi/guests/templates/guests/accept.html:11
 #: mafiasi/guests/templates/guests/index.html:13
@@ -1014,6 +1265,7 @@ msgstr "Nom d'utilisateur"
 #: mafiasi/guests/templates/guests/accept.html:16
 #: mafiasi/jabber/templates/jabber/create.html:12
 #: mafiasi/registration/forms.py:72 mafiasi/registration/forms.py:96
+#: mafiasi/registration/templates/registration/account.html:86
 #: mafiasi/registration/templates/registration/create_account.html:17
 #: mafiasi/registration/templates/registration/login.html:32
 msgid "Password"
@@ -1043,7 +1295,10 @@ msgid ""
 "Hello %(full_name)s, you already have an account here! Its username is "
 "%(username)s. Did you <a href=\"%(password_reset_url)s\">forget your "
 "password?</a>"
-msgstr "Bonjour %(full_name)s, vous avez déjà un compte ici! Son nom est %(username)s. Avez-vous <a href=\"%(password_reset_url)s\"> oublié votre mot de passe? </a>"
+msgstr ""
+"Bonjour %(full_name)s, vous avez déjà un compte ici! Son nom est "
+"%(username)s. Avez-vous <a href=\"%(password_reset_url)s\"> oublié votre mot "
+"de passe? </a>"
 
 #: mafiasi/guests/templates/guests/index.html:8
 msgid "Open invitations"
@@ -1056,7 +1311,8 @@ msgstr "Nom et prénom"
 
 #: mafiasi/guests/templates/guests/index.html:15
 #: mafiasi/guests/templates/guests/invite.html:29
-#: mafiasi/registration/forms.py:130
+#: mafiasi/registration/forms.py:157
+#: mafiasi/registration/templates/registration/account.html:57
 msgid "Email"
 msgstr "Èmail"
 
@@ -1094,7 +1350,9 @@ msgstr "Cette invitation a été retirée ou ne est plus valide."
 msgid ""
 "Must start with a letter and only contain alphanumeric characters. Lowercase "
 "only."
-msgstr "Doit commencer par une lettre et ne contenir que des caractères alphanumériques. Minuscules seulement."
+msgstr ""
+"Doit commencer par une lettre et ne contenir que des caractères "
+"alphanumériques. Minuscules seulement."
 
 #: mafiasi/guests/templates/guests/invite.html:40
 #: mafiasi/registration/templates/registration/require_info.html:32
@@ -1120,7 +1378,9 @@ msgstr "Vous avez été invité par %(full_name)s (%(username)s)."
 #: mafiasi/guests/templates/guests/invited_by.html:10
 #, python-format
 msgid "How about visiting <a href=\"%(dashboard_url)s\">the dashboard</a>?"
-msgstr "Que diriez-vous de visite <a href=\"%(dashboard_url)s\"> tableau de bord </a>?"
+msgstr ""
+"Que diriez-vous de visite <a href=\"%(dashboard_url)s\"> tableau de bord </"
+"a>?"
 
 #: mafiasi/guests/views.py:44
 msgid "{} was successfully invited."
@@ -1144,7 +1404,8 @@ msgstr "Créez un compte Jabber"
 
 #: mafiasi/jabber/templates/jabber/create.html:8
 msgid "To create your Jabber account you have to enter your current password:"
-msgstr "Pour créer votre compte Jabber, vous devez entrer votre mot de passe actuel:"
+msgstr ""
+"Pour créer votre compte Jabber, vous devez entrer votre mot de passe actuel:"
 
 #: mafiasi/jabber/templates/jabber/index.html:5
 msgid "Jabber"
@@ -1155,31 +1416,41 @@ msgstr "Jabber"
 msgid ""
 "Your Jabber ID is <strong>%(username)s</strong>@%(jabber_domain)s. Note: "
 "it's different from your username."
-msgstr "Votre Jabber ID est <strong>%(username)s</strong>@%(jabber_domain)s. Remarque: il est différent de votre nom d'utilisateur."
+msgstr ""
+"Votre Jabber ID est <strong>%(username)s</strong>@%(jabber_domain)s. "
+"Remarque: il est différent de votre nom d'utilisateur."
 
 #: mafiasi/jabber/templates/jabber/index.html:13
 #, python-format
 msgid "Your Jabber ID is <strong>%(username)s@%(jabber_domain)s</strong>."
-msgstr "Votre identifiant Jabber est <strong>%(username)s@%(jabber_domain)s</strong>."
+msgstr ""
+"Votre identifiant Jabber est <strong>%(username)s@%(jabber_domain)s</strong>."
 
 #: mafiasi/jabber/templates/jabber/index.html:22
 #, python-format
 msgid "You can now <a href=\"%(create_url)s\">create your Jabber account</a>."
-msgstr "Vous pouvez maintenant <a href=\"%(create_url)s\"> créer votre compte </a> Jabber."
+msgstr ""
+"Vous pouvez maintenant <a href=\"%(create_url)s\"> créer votre compte </a> "
+"Jabber."
 
 #: mafiasi/jabber/templates/jabber/index.html:29
 #, python-format
 msgid ""
 "You have to <a href=\"%(login_url)s?next=%(jabber_index_url)s\">login</a> to "
 "create or manage your Jabber account."
-msgstr "Vous devez vous identifier <a href=\"%(login_url)s?next=%(jabber_index_url)s\"> </a> pour créer ou gérer votre compte Jabber."
+msgstr ""
+"Vous devez vous identifier <a href=\"%(login_url)s?next=%(jabber_index_url)s"
+"\"> </a> pour créer ou gérer votre compte Jabber."
 
 #: mafiasi/jabber/templates/jabber/index.html:34
 #, python-format
 msgid ""
 "<p>If you want to change your Jabber password, just change it in your <a "
 "href=\"%(account_url)s\">account settings</a>.</p>"
-msgstr "<p> Si vous souhaitez modifier votre mot de passe Jabber, il suffit de changer dans votre <a href=\"%(account_url)s\"> paramètres de compte </a>. </p>"
+msgstr ""
+"<p> Si vous souhaitez modifier votre mot de passe Jabber, il suffit de "
+"changer dans votre <a href=\"%(account_url)s\"> paramètres de compte </a>. </"
+"p>"
 
 #: mafiasi/jabber/templates/jabber/index.html:36
 #: mafiasi/mumble/templates/mumble/index.html:22
@@ -1201,7 +1472,17 @@ msgid ""
 "Jabber (also called XMPP there). Below you can see the required "
 "configuration\n"
 "for Piding.\n"
-msgstr "\nEn afin d'utiliser Jabber, vous devez installer un client jabber et le configurer \nto se connecter au serveur Mafiasi. Une option est <a href=\"https://pidgin.im\"\ntarget=\"_blank\"> Pidgin </a>, qui prend en charge plusieurs protocoles, y compris \nJabber (également appelé XMPP là). Ci-dessous vous pouvez voir la configuration \nfor Piding nécessaire. \n"
+msgstr ""
+"\n"
+"En afin d'utiliser Jabber, vous devez installer un client jabber et le "
+"configurer \n"
+"to se connecter au serveur Mafiasi. Une option est <a href=\"https://pidgin."
+"im\"\n"
+"target=\"_blank\"> Pidgin </a>, qui prend en charge plusieurs protocoles, y "
+"compris \n"
+"Jabber (également appelé XMPP là). Ci-dessous vous pouvez voir la "
+"configuration \n"
+"for Piding nécessaire. \n"
 
 #: mafiasi/jabber/views.py:36
 msgid "Account was created."
@@ -1241,12 +1522,16 @@ msgstr "Liste de diffusion pour %(group_name)s"
 msgid ""
 "The mailinglist is not yet known to the mailserver. Please wait about half "
 "an hour."
-msgstr "La liste de diffusion ne est pas encore connu du serveur de messagerie. S'il vous plaît attendre environ une demi-heure."
+msgstr ""
+"La liste de diffusion ne est pas encore connu du serveur de messagerie. S'il "
+"vous plaît attendre environ une demi-heure."
 
 #: mafiasi/mailinglist/templates/mailinglist/show_list.html:11
 #, python-format
 msgid "The email address of this mailinglist is <strong>%(address)s</strong>."
-msgstr "L'adresse e-mail de cette liste de diffusion est <strong>%(address)s</strong>."
+msgstr ""
+"L'adresse e-mail de cette liste de diffusion est <strong>%(address)s</"
+"strong>."
 
 #: mafiasi/mailinglist/templates/mailinglist/show_list.html:14
 msgid "Moderated emails"
@@ -1290,23 +1575,23 @@ msgstr "Gérer la liste blanche"
 msgid "%(whitelist_count)s entries"
 msgstr "%(whitelist_count)s entrées"
 
-#: mafiasi/mailinglist/templates/mailinglist/show_list.html:46
-msgid "Settings"
-msgstr "Paramètres"
-
 #: mafiasi/mailinglist/templates/mailinglist/show_list.html:53
+#, fuzzy
+#| msgid ""
+#| "The mailinglist for this group does not exist yet. Use the magic button "
+#| "to create it."
 msgid ""
-"The mailinglist for this group does not exist yet. Use the magic button to "
-"create it."
-msgstr "La liste de diffusion pour ce groupe ne existe pas encore. Utilisez le bouton magique pour le créer."
-
-#: mafiasi/mailinglist/templates/mailinglist/show_list.html:56
-msgid "Create mailinglist"
-msgstr "Créer liste de diffusion"
+"The mailinglist for this group does not exist yet. Use this magic button to "
+"create it:"
+msgstr ""
+"La liste de diffusion pour ce groupe ne existe pas encore. Utilisez le "
+"bouton magique pour le créer."
 
 #: mafiasi/mailinglist/templates/mailinglist/show_list.html:59
 msgid "Please ask a group admin to create this mailinglist."
-msgstr "S'il vous plaît demander à un administrateur de groupe pour créer cette liste de diffusion."
+msgstr ""
+"S'il vous plaît demander à un administrateur de groupe pour créer cette "
+"liste de diffusion."
 
 #: mafiasi/mailinglist/templates/mailinglist/whitelist.html:5
 #, python-format
@@ -1355,7 +1640,9 @@ msgstr "Marmonner"
 msgid ""
 "Configure mumble as shown in the following image. Your password in Mumble is "
 "the same as used here."
-msgstr "Configurez mumble comme indiqué dans l'image suivante. Votre mot de passe dans Mumble est le même que celui utilisé ici."
+msgstr ""
+"Configurez mumble comme indiqué dans l'image suivante. Votre mot de passe "
+"dans Mumble est le même que celui utilisé ici."
 
 #: mafiasi/mumble/views.py:7
 msgid "Student association"
@@ -1381,7 +1668,9 @@ msgstr "Graphe de fiducie"
 
 #: mafiasi/pks/templates/pks/graph.html:17
 msgid "You can drag the blue selector at the upper left to scroll."
-msgstr "Vous pouvez faire glisser le sélecteur bleu en haut à gauche pour faire défiler."
+msgstr ""
+"Vous pouvez faire glisser le sélecteur bleu en haut à gauche pour faire "
+"défiler."
 
 #: mafiasi/pks/templates/pks/graph.html:18
 msgid "Click on a node to highlight its connections."
@@ -1473,7 +1762,9 @@ msgstr "Attribuer clé pour moi"
 #: mafiasi/pks/templates/pks/my_keys.html:35
 msgid ""
 "Tip: You can type your name or email into the keyid field for autocompletion."
-msgstr "Indication: Vous pouvez taper votre nom ou email dans le champ keyid pour l'auto-complétion."
+msgstr ""
+"Indication: Vous pouvez taper votre nom ou email dans le champ keyid pour "
+"l'auto-complétion."
 
 #: mafiasi/pks/templates/pks/party_keys.html:4
 msgid "Keysigning Party:"
@@ -1499,7 +1790,9 @@ msgstr "Touches participants"
 msgid ""
 "You can select the keys you have verified and find commands to sign these "
 "keys at the bottom of this page."
-msgstr "Vous pouvez sélectionner les touches que vous avez vérifié et trouver des commandes à signer ces touches au bas de cette page."
+msgstr ""
+"Vous pouvez sélectionner les touches que vous avez vérifié et trouver des "
+"commandes à signer ces touches au bas de cette page."
 
 #: mafiasi/pks/templates/pks/party_keys.html:28
 msgid "Commands to sign selected keys"
@@ -1573,7 +1866,9 @@ msgstr "Aucun! Tout le monde a signé vos clés."
 
 #: mafiasi/pks/templates/pks/party_participate.html:12
 msgid "Please select the keys you want to be signed by others."
-msgstr "S'il vous plaît sélectionner les touches que vous souhaitez être signé par d'autres."
+msgstr ""
+"S'il vous plaît sélectionner les touches que vous souhaitez être signé par "
+"d'autres."
 
 #: mafiasi/pks/templates/pks/party_participate.html:17
 #, python-format
@@ -1695,57 +1990,87 @@ msgstr "Les deux case de mot de passe ne correspondent pas."
 msgid "Wrong password."
 msgstr "Mot de passe incorrect."
 
+#: mafiasi/registration/forms.py:140
+#, fuzzy
+#| msgid "There is already an account with that email."
+msgid "This address is already associated with an account."
+msgstr "Il existe déjà un compte avec cet e-mail."
+
+#: mafiasi/registration/forms.py:144
+msgid "Group addresses cannot be used for this purpose."
+msgstr ""
+
+#: mafiasi/registration/forms.py:147
+msgid "Cloak adresses cannot be used for this purpose."
+msgstr ""
+
 #: mafiasi/registration/templates/registration/account.html:5
+#: mafiasi/registration/templates/registration/account.html:10
 msgid "Account"
 msgstr "Compte"
 
-#: mafiasi/registration/templates/registration/account.html:11
+#: mafiasi/registration/templates/registration/account.html:16
 #, python-format
 msgid ""
 "You want to use mafiasi.de with your friends? You can <a href="
 "\"%(guests_url)s\">invite guests</a>."
-msgstr "Vous souhaitez utiliser mafiasi.de avec vos amis? Vous pouvez <a href=\"%(guests_url)s\"> invitent invités </a>."
+msgstr ""
+"Vous souhaitez utiliser mafiasi.de avec vos amis? Vous pouvez <a href="
+"\"%(guests_url)s\"> invitent invités </a>."
 
-#: mafiasi/registration/templates/registration/account.html:14
-msgid "Change nickname"
-msgstr "Change de nom"
-
-#: mafiasi/registration/templates/registration/account.html:15
-msgid ""
-"If you choose a nickname, it will be shown instead of your first name (e.g. "
-"when you vote in Dudle)"
-msgstr "Si vous choisissez un pseudonyme, il sera affiché à la place de votre prénom (par exemple, lorsque vous votez dans Dudle)"
-
-#: mafiasi/registration/templates/registration/account.html:20
+#: mafiasi/registration/templates/registration/account.html:25
 msgid "Nickname"
 msgstr "Surnom"
 
-#: mafiasi/registration/templates/registration/account.html:32
-#: mafiasi/registration/templates/registration/account.html:68
-msgid "Change"
+#: mafiasi/registration/templates/registration/account.html:29
+msgid ""
+"If you choose a nickname, it will be shown instead of your first name (e.g. "
+"when you vote in Dudle)"
+msgstr ""
+"Si vous choisissez un pseudonyme, il sera affiché à la place de votre prénom "
+"(par exemple, lorsque vous votez dans Dudle)"
+
+#: mafiasi/registration/templates/registration/account.html:46
+#, fuzzy
+#| msgid "Change nickname"
+msgid "Change Nickname"
+msgstr "Change de nom"
+
+#: mafiasi/registration/templates/registration/account.html:64
+#, fuzzy
+#| msgid "Email address:"
+msgid "New Email Address"
+msgstr "Adresse émail:"
+
+#: mafiasi/registration/templates/registration/account.html:75
+#, fuzzy
+#| msgid "Change"
+msgid "Change Email"
 msgstr "Changement"
 
-#: mafiasi/registration/templates/registration/account.html:35
-msgid "Change password"
-msgstr "Changer le mot de passe"
-
-#: mafiasi/registration/templates/registration/account.html:36
+#: mafiasi/registration/templates/registration/account.html:90
 msgid ""
 "Note: You can \"change\" your password to the current password to "
 "synchronize it with other services (e.g. Jabber)"
-msgstr "Remarque: Vous pouvez \"changement\" votre mot de passe le mot de passe en cours pour le synchroniser avec d'autres services (par exemple, Jabber)"
+msgstr ""
+"Remarque: Vous pouvez \"changement\" votre mot de passe le mot de passe en "
+"cours pour le synchroniser avec d'autres services (par exemple, Jabber)"
 
-#: mafiasi/registration/templates/registration/account.html:41
+#: mafiasi/registration/templates/registration/account.html:94
 msgid "Old password"
 msgstr "Ancien mot de passe"
 
-#: mafiasi/registration/templates/registration/account.html:50
+#: mafiasi/registration/templates/registration/account.html:103
 msgid "New password"
 msgstr "Nouveau mot de passe"
 
-#: mafiasi/registration/templates/registration/account.html:59
+#: mafiasi/registration/templates/registration/account.html:112
 msgid "New password confirmation"
 msgstr "Nouvelle confirmation de mot de passe"
+
+#: mafiasi/registration/templates/registration/account.html:123
+msgid "Change password"
+msgstr "Changer le mot de passe"
 
 #: mafiasi/registration/templates/registration/create_email.html:2
 #, python-format
@@ -1757,7 +2082,14 @@ msgid ""
 "\n"
 "\n"
 "Your Server-AG"
-msgstr "Salut \n\nVoici est votre lien de création de compte: \n%(activation_link)s\n\n\nVotre Server AG"
+msgstr ""
+"Salut \n"
+"\n"
+"Voici est votre lien de création de compte: \n"
+"%(activation_link)s\n"
+"\n"
+"\n"
+"Votre Server AG"
 
 #: mafiasi/registration/templates/registration/email_error.html:5
 msgid "Email address is invalid"
@@ -1767,11 +2099,31 @@ msgstr "Adresse é-mail ne est pas valide"
 msgid "The mailserver said:"
 msgstr "Le serveur de courrier dit:"
 
+#: mafiasi/registration/templates/registration/email_verify.txt:2
+#, python-format
+msgid ""
+"Hi,\n"
+"\n"
+"you requested to associate the email address\n"
+"  %(email)s\n"
+"with the Mafiasi.de account %(username)s.\n"
+"\n"
+"If this is correct, please verify the address by following this link:\n"
+"  %(link)s\n"
+"The link will be valid for 24 hours.\n"
+"\n"
+"Best regards,\n"
+"\n"
+"Your Server-AG"
+msgstr ""
+
 #: mafiasi/registration/templates/registration/login.html:24
 msgid ""
 "Note: For our account names we use two digits for year (e.g. <strong>13doe</"
 "strong> instead of 3doe)"
-msgstr "Remarque: Pour nos noms de compte, nous utilisons deux chiffres pour l'année (par exemple <strong> 13doe </strong> au lieu de 3doe)"
+msgstr ""
+"Remarque: Pour nos noms de compte, nous utilisons deux chiffres pour l'année "
+"(par exemple <strong> 13doe </strong> au lieu de 3doe)"
 
 #: mafiasi/registration/templates/registration/login.html:45
 msgid "Did you forget your password?"
@@ -1783,7 +2135,9 @@ msgstr "Mot de passe réinitialiser complète"
 
 #: mafiasi/registration/templates/registration/password_reset_complete.html:7
 msgid "Your password has been set.  You may go ahead and log in now."
-msgstr "Votre mot de passe a été défini. Vous pouvez aller de l'avant et ouvrir une session maintenant."
+msgstr ""
+"Votre mot de passe a été défini. Vous pouvez aller de l'avant et ouvrir une "
+"session maintenant."
 
 #: mafiasi/registration/templates/registration/password_reset_complete.html:9
 msgid "Log in"
@@ -1802,7 +2156,9 @@ msgstr "Entrez nouveau mot de passe"
 msgid ""
 "Please enter your new password twice so we can verify you typed it in "
 "correctly."
-msgstr "S'il vous plaît entrez votre nouveau mot de passe deux fois afin que nous puissions vérifier que vous tapé correctement."
+msgstr ""
+"S'il vous plaît entrez votre nouveau mot de passe deux fois afin que nous "
+"puissions vérifier que vous tapé correctement."
 
 #: mafiasi/registration/templates/registration/password_reset_confirm.html:22
 #: mafiasi/registration/templates/registration/password_reset_confirm.html:31
@@ -1821,7 +2177,10 @@ msgstr "Mot de passe réinitialiser infructueuse"
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
 "used.  Please request a new password reset."
-msgstr "Le lien de réinitialisation de mot ne était pas valide, peut-être parce qu'il a déjà été utilisé. Se il vous plaît demander un nouveau mot de passe réinitialisé."
+msgstr ""
+"Le lien de réinitialisation de mot ne était pas valide, peut-être parce "
+"qu'il a déjà été utilisé. Se il vous plaît demander un nouveau mot de passe "
+"réinitialisé."
 
 #: mafiasi/registration/templates/registration/password_reset_done.html:4
 msgid "Password reset successful"
@@ -1831,18 +2190,24 @@ msgstr "Mot de passe réinitialiser succès"
 msgid ""
 "We've emailed you instructions for setting your password to the email "
 "address you submitted. You should be receiving it shortly."
-msgstr "Nous vous avons envoyé un courriel à suivre pour configurer votre mot de passe à l'adresse e-mail que vous avez soumis. Vous devriez recevoir sous peu."
+msgstr ""
+"Nous vous avons envoyé un courriel à suivre pour configurer votre mot de "
+"passe à l'adresse e-mail que vous avez soumis. Vous devriez recevoir sous "
+"peu."
 
 #: mafiasi/registration/templates/registration/password_reset_email.html:2
 #, python-format
 msgid ""
 "You're receiving this email because you requested a password reset for your "
 "user account at %(site_name)s."
-msgstr "Vous recevez cet email car vous avez demandé une réinitialisation de mot de passe pour votre compte d'utilisateur à %(site_name)s."
+msgstr ""
+"Vous recevez cet email car vous avez demandé une réinitialisation de mot de "
+"passe pour votre compte d'utilisateur à %(site_name)s."
 
 #: mafiasi/registration/templates/registration/password_reset_email.html:4
 msgid "Please go to the following page and choose a new password:"
-msgstr "S'il vous plaît aller à la page suivante et choisir un nouveau mot de passe:"
+msgstr ""
+"S'il vous plaît aller à la page suivante et choisir un nouveau mot de passe:"
 
 #: mafiasi/registration/templates/registration/password_reset_email.html:8
 msgid "Your username, in case you've forgotten:"
@@ -1861,7 +2226,9 @@ msgstr "Le %(site_name)s équipe"
 msgid ""
 "Forgotten your password? Enter your email address below, and we'll email "
 "instructions for setting a new one."
-msgstr "Vous avez oublié votre mot de passe? Entrez votre adresse émail ci-dessous, et nous vous enverrons des instructions pour installer un nouveau."
+msgstr ""
+"Vous avez oublié votre mot de passe? Entrez votre adresse émail ci-dessous, "
+"et nous vous enverrons des instructions pour installer un nouveau."
 
 #: mafiasi/registration/templates/registration/password_reset_form.html:17
 msgid "Email address:"
@@ -1881,22 +2248,30 @@ msgstr "Inscription"
 msgid ""
 "Please enter your Informatics email address into the following field. "
 "Afterwards you will receive an email with further instructions."
-msgstr "S'il vous plaît entrez votre adresse e-mail de l'informatique dans le champ suivant. Ensuite, vous recevrez un courriel avec des instructions supplémentaires."
+msgstr ""
+"S'il vous plaît entrez votre adresse e-mail de l'informatique dans le champ "
+"suivant. Ensuite, vous recevrez un courriel avec des instructions "
+"supplémentaires."
 
 #: mafiasi/registration/templates/registration/request_account.html:21
 msgid "Request account"
 msgstr "Demande compte"
 
 #: mafiasi/registration/templates/registration/request_successful.html:4
-msgid "Request successful"
-msgstr "Demande succès"
+msgid "Verify your address to continue"
+msgstr ""
 
 #: mafiasi/registration/templates/registration/request_successful.html:8
-#, python-format
+#, fuzzy, python-format
+#| msgid ""
+#| "You should have received a link via email (to <strong>%(email)s</strong>) "
+#| "now, which you can use to create your account."
 msgid ""
 "You should have received a link via email (to <strong>%(email)s</strong>) "
-"now, which you can use to create your account."
-msgstr "Vous devriez avoir reçu un lien par e-mail (à <strong>%(email)s</strong>) maintenant, que vous pouvez utiliser pour créer votre compte."
+"now, which you can use to verify your address."
+msgstr ""
+"Vous devriez avoir reçu un lien par e-mail (à <strong>%(email)s</strong>) "
+"maintenant, que vous pouvez utiliser pour créer votre compte."
 
 #: mafiasi/registration/templates/registration/require_info.html:7
 #: mafiasi/registration/templates/registration/require_info_other.html:6
@@ -1936,17 +2311,31 @@ msgstr "Jeton non valide"
 msgid "Sorry, but the provided token is invalid."
 msgstr "Désolé, mais le jeton fourni ne est pas valide."
 
-#: mafiasi/registration/views.py:179
+#: mafiasi/registration/views.py:186
 msgid "Password was changed."
 msgstr "Mot de passe a été changé."
 
-#: mafiasi/registration/views.py:207
+#: mafiasi/registration/views.py:192
+msgid "Your nickname is now {}."
+msgstr ""
+
+#: mafiasi/registration/views.py:226
+#, fuzzy
+#| msgid "Email address is invalid"
+msgid "Your email address has been changed."
+msgstr "Adresse é-mail ne est pas valide"
+
+#: mafiasi/registration/views.py:241
+msgid "Verify this address for mafiasi.de"
+msgstr ""
+
+#: mafiasi/registration/views.py:252
 msgid "Account creation at mafiasi.de"
 msgstr "Création de compte au mafiasi.de"
 
-#: mafiasi/registration/views.py:217
-msgid "Account creation mail failed"
-msgstr "Création de compte électronique échoué"
+#: mafiasi/registration/views.py:268
+msgid "Registration: Sending mail failed: {}"
+msgstr ""
 
 #: mafiasi/teaching/models.py:48
 #, python-brace-format
@@ -1958,171 +2347,195 @@ msgstr "semestre d'hiver {0}"
 msgid "summer term {0}"
 msgstr "session d'été {0}"
 
-msgid "Party keys:"
-msgstr "Parti clés:"
+#~ msgid "My account"
+#~ msgstr "Mon compte"
 
-msgid "Calendar"
-msgstr "Calendrier"
+#~ msgid "My Invitations"
+#~ msgstr "Mes invitations"
 
-msgid "Contact list"
-msgstr "Liste de contacts"
+#~ msgid "Group: %(group_name)s"
+#~ msgstr "Groupe: %(group_name)s"
 
-msgid ""
-"The web interface is read-only. Use CalDAV with your favorite calendar "
-"software to add events."
-msgstr "L'interface web est en lecture seule. Utilisez CalDAV avec votre logiciel de calendrier préférée pour ajouter des évènements."
+#~ msgid "Manage mailinglist"
+#~ msgstr "Gérer liste de diffusion"
 
-msgid "January"
-msgstr "Janvier"
+#~ msgid "Invite users to this group"
+#~ msgstr "Inviter des utilisateurs à ce groupe"
 
-msgid "February"
-msgstr "Février"
+#~ msgid "Request successful"
+#~ msgstr "Demande succès"
 
-msgid "March"
-msgstr "Mars"
+#~ msgid "Account creation mail failed"
+#~ msgstr "Création de compte électronique échoué"
 
-msgid "April"
-msgstr "Avril"
+#~ msgid "Party keys:"
+#~ msgstr "Parti clés:"
 
-msgid "May"
-msgstr "Mai"
+#~ msgid "Calendar"
+#~ msgstr "Calendrier"
 
-msgid "June"
-msgstr "Juin"
+#~ msgid "Contact list"
+#~ msgstr "Liste de contacts"
 
-msgid "July"
-msgstr "Juillet"
+#~ msgid ""
+#~ "The web interface is read-only. Use CalDAV with your favorite calendar "
+#~ "software to add events."
+#~ msgstr ""
+#~ "L'interface web est en lecture seule. Utilisez CalDAV avec votre logiciel "
+#~ "de calendrier préférée pour ajouter des évènements."
 
-msgid "August"
-msgstr "Août"
+#~ msgid "January"
+#~ msgstr "Janvier"
 
-msgid "September"
-msgstr "Septembre"
+#~ msgid "February"
+#~ msgstr "Février"
 
-msgid "October"
-msgstr "Octobre"
+#~ msgid "March"
+#~ msgstr "Mars"
 
-msgid "November"
-msgstr "Novembre"
+#~ msgid "April"
+#~ msgstr "Avril"
 
-msgid "December"
-msgstr "Décembre"
+#~ msgid "May"
+#~ msgstr "Mai"
 
-msgid "Jan"
-msgstr "Jan"
+#~ msgid "June"
+#~ msgstr "Juin"
 
-msgid "Feb"
-msgstr "Fév"
+#~ msgid "July"
+#~ msgstr "Juillet"
 
-msgid "Mar"
-msgstr "Mar"
+#~ msgid "August"
+#~ msgstr "Août"
 
-msgid "Apr"
-msgstr "Avr"
+#~ msgid "September"
+#~ msgstr "Septembre"
 
-msgid "Jun"
-msgstr "Juin"
+#~ msgid "October"
+#~ msgstr "Octobre"
 
-msgid "Jul"
-msgstr "Juil"
+#~ msgid "November"
+#~ msgstr "Novembre"
 
-msgid "Aug"
-msgstr "Août"
+#~ msgid "December"
+#~ msgstr "Décembre"
 
-msgid "Sep"
-msgstr "Sep"
+#~ msgid "Jan"
+#~ msgstr "Jan"
 
-msgid "Oct"
-msgstr "Oct"
+#~ msgid "Feb"
+#~ msgstr "Fév"
 
-msgid "Nov"
-msgstr "Nov"
+#~ msgid "Mar"
+#~ msgstr "Mar"
 
-msgid "Dec"
-msgstr "Déc"
+#~ msgid "Apr"
+#~ msgstr "Avr"
 
-msgid "Sunday"
-msgstr "Dimanche"
+#~ msgid "Jun"
+#~ msgstr "Juin"
 
-msgid "Monday"
-msgstr "Lundi"
+#~ msgid "Jul"
+#~ msgstr "Juil"
 
-msgid "Tuesday"
-msgstr "Mardi"
+#~ msgid "Aug"
+#~ msgstr "Août"
 
-msgid "Wednesday"
-msgstr "Mercredi"
+#~ msgid "Sep"
+#~ msgstr "Sep"
 
-msgid "Thursday"
-msgstr "Jeudi"
+#~ msgid "Oct"
+#~ msgstr "Oct"
 
-msgid "Friday"
-msgstr "Vendredi"
+#~ msgid "Nov"
+#~ msgstr "Nov"
 
-msgid "Saturday"
-msgstr "Samedi"
+#~ msgid "Dec"
+#~ msgstr "Déc"
 
-msgid "Sun"
-msgstr "Dim"
+#~ msgid "Sunday"
+#~ msgstr "Dimanche"
 
-msgid "Mon"
-msgstr "Lun"
+#~ msgid "Monday"
+#~ msgstr "Lundi"
 
-msgid "Tue"
-msgstr "Mar"
+#~ msgid "Tuesday"
+#~ msgstr "Mardi"
 
-msgid "Wed"
-msgstr "Mer"
+#~ msgid "Wednesday"
+#~ msgstr "Mercredi"
 
-msgid "Thu"
-msgstr "Jeu"
+#~ msgid "Thursday"
+#~ msgstr "Jeudi"
 
-msgid "Fri"
-msgstr "Ven"
+#~ msgid "Friday"
+#~ msgstr "Vendredi"
 
-msgid "Sat"
-msgstr "Sam"
+#~ msgid "Saturday"
+#~ msgstr "Samedi"
 
-msgid "month"
-msgstr "mois"
+#~ msgid "Sun"
+#~ msgstr "Dim"
 
-msgid "week"
-msgstr "semaine"
+#~ msgid "Mon"
+#~ msgstr "Lun"
 
-msgid "day"
-msgstr "jour"
+#~ msgid "Tue"
+#~ msgstr "Mar"
 
-msgid "today"
-msgstr "aujourd'hui"
+#~ msgid "Wed"
+#~ msgstr "Mer"
 
-msgid "Manage groups"
-msgstr "Gérer les groupes"
+#~ msgid "Thu"
+#~ msgstr "Jeu"
 
-msgid ""
-"To manage your groups to go the <a href=\"%(groups_url)s\">group management</"
-"a>."
-msgstr "Pour gérer vos groupes à aller le <a href=\"%(groups_url)s\"> gestion de groupe </a>."
+#~ msgid "Fri"
+#~ msgstr "Ven"
 
-msgid "Here you can change your password here and configure your account."
-msgstr "Ici vous pouvez changer votre mot de passe ici et configurer votre compte."
+#~ msgid "Sat"
+#~ msgstr "Sam"
 
-msgid "Results"
-msgstr "Résultats"
+#~ msgid "month"
+#~ msgstr "mois"
 
-msgid "No such user."
-msgstr "Aucune utilisateur."
+#~ msgid "week"
+#~ msgstr "semaine"
 
-msgid "CSRF verification failed."
-msgstr "Vérification CSRF a échoué."
+#~ msgid "day"
+#~ msgstr "jour"
 
-msgid ""
-"\n"
-"<p>...</p>\n"
-msgstr "\n<p>...</p>\n"
+#~ msgid "today"
+#~ msgstr "aujourd'hui"
 
-msgid "Remove notification"
-msgstr "Retirer la notification"
+#~ msgid ""
+#~ "To manage your groups to go the <a href=\"%(groups_url)s\">group "
+#~ "management</a>."
+#~ msgstr ""
+#~ "Pour gérer vos groupes à aller le <a href=\"%(groups_url)s\"> gestion de "
+#~ "groupe </a>."
 
-msgid "Graph"
-msgstr "Graphique"
+#~ msgid "Here you can change your password here and configure your account."
+#~ msgstr ""
+#~ "Ici vous pouvez changer votre mot de passe ici et configurer votre compte."
 
+#~ msgid "Results"
+#~ msgstr "Résultats"
+
+#~ msgid "No such user."
+#~ msgstr "Aucune utilisateur."
+
+#~ msgid "CSRF verification failed."
+#~ msgstr "Vérification CSRF a échoué."
+
+#~ msgid ""
+#~ "\n"
+#~ "<p>...</p>\n"
+#~ msgstr ""
+#~ "\n"
+#~ "<p>...</p>\n"
+
+#~ msgid "Remove notification"
+#~ msgstr "Retirer la notification"
+
+#~ msgid "Graph"
+#~ msgstr "Graphique"
