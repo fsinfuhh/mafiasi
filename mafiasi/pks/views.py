@@ -367,6 +367,9 @@ def _hkp_op_index(request, search, options):
     key_list = list(ctx.keylist(search.encode('utf-8')))
     
     if options == 'mr':
+        if not key_list:
+            return HttpResponseNotFound('Search returned no keys.',
+                                        content_type='text/plain')
         return _hkp_op_index_mr(key_list)
     else:
         return TemplateResponse(request, 'pks/search_result.html', {
