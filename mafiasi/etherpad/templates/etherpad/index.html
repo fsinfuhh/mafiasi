@@ -24,7 +24,12 @@
 
 {% for group_entry in group_pad_list %}
 {% if group_entry.pads %}
-<h4>{{ group_entry.group_name }}</h4>
+<div class="panel panel-default" id="panel-ep-group-{{ group_entry.group_name }}">
+<div class="panel-heading"><h4 class="panel-title">
+{{ group_entry.group_name }}
+<span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+</h4></div>
+<div style="display: block;" class="panel-body">
 <ul>
 {% for pad in group_entry.pads %}
     <li><a href="{% url 'ep_show_pad' group_entry.group_name pad.name %}">{{ pad.name }}</a>
@@ -41,6 +46,8 @@
     </li>
 {% endfor %}
 </ul>
+</div>
+</div>
 {% endif %}
 {% endfor %}
 
