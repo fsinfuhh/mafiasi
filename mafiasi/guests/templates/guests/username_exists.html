@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block wtitle %}{% block ptitle %}{% trans "Account already exists" %}{% endblock %}{% endblock %}
+
+{% block content %}
+{% url 'password_reset' as password_reset_url %}
+<p>{% blocktrans %}Sorry, an account with username {{ username }} already exists. If this is not your account, please request another invitation with a different username.</a>{% endblocktrans %}</p>
+{% endblock %}
