@@ -94,7 +94,12 @@ def accept(request, invitation_token):
         invitation = Invitation.objects.get(pk=invitation_pk)
     except Invitation.DoesNotExist:
         return render(request, 'guests/invitation_withdrawn.html')
-    
+
+    if Mafiasi.objects.filter(username=invitation.username).count():
+        return render(request, 'guests/username_exists.html', {
+            'username': invitation.username,
+        })
+
     try:
         existing_account = Mafiasi.objects.get(email=invitation.email)
         return render(request, 'guests/has_account.html', {

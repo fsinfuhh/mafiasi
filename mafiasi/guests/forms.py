@@ -24,9 +24,15 @@ class InvitationForm(forms.ModelForm):
         if _username_re.match(username) is None:
             raise forms.ValidationError(
                 _('Username must be alphanumeric and start with a letter.'))
+
         if len(username) < 3:
             raise forms.ValidationError(
                 _('Username must be at least 3 characters long.'))
+
+        if Mafiasi.objects.filter(username=username+'.guest').count():
+            raise forms.ValidationError(
+                _('This name is not available.'))
+
         return username
 
     def clean_email(self):
