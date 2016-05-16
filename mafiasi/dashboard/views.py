@@ -14,7 +14,8 @@ def index(request):
         'news_list': news_list,
         'panel_list': panel_list,
         'service_links': settings.SERVICE_LINKS,
-        'wiki_search_url': settings.WIKI_URL + 'index.php'
+        'wiki_search_url': settings.WIKI_URL + 'index.php',
+        'activated_services': settings.DASHBOARD_SERVICES
     })
 
 def show_news(request, news_pk):

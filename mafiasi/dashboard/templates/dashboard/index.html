@@ -10,6 +10,7 @@
     <div id="dashboard" class="col-md-8">
         <h2>{% trans "Services" %}</h2>
         <div class="row">
+            {% if 'wiki' in activated_services %}
             <div class="col-sm-6">
                 <div class="panel panel-default service">
                     <div class="panel-body">
@@ -21,7 +22,8 @@
                     </div>
                 </div>
             </div>
-
+            {% endif %}
+            {% if 'etherpad' in activated_services %}
             <div class="col-sm-6">
                 <div class="panel panel-default service">
                     <div class="panel-body">
@@ -33,7 +35,8 @@
                     </div>
                 </div>
             </div>
-
+            {% endif %}
+            {% if 'dudel' in activated_services %}
             <div class="col-sm-6">
                 <div class="panel panel-default service">
                     <div class="panel-body">
@@ -45,7 +48,8 @@
                     </div>
                 </div>
             </div>
-
+            {% endif %}
+            {% if 'redmine' in activated_services %}
             <div class="col-sm-6">
                 <div class="panel panel-default service">
                     <div class="panel-body">
@@ -57,7 +61,8 @@
                     </div>
                 </div>
             </div>
-            
+            {% endif %}
+            {% if 'discourse' in activated_services %}
 			<div class="col-sm-6">
                 <div class="panel panel-default service">
                     <div class="panel-body">
@@ -69,7 +74,8 @@
                     </div>
                 </div>
             </div>
-			
+			 {% endif %}
+            {% if 'sogo' in activated_services %}
 			<div class="col-sm-6">
                 <div class="panel panel-default service">
                     <div class="panel-body">
@@ -94,6 +100,8 @@
                 </div>
             </div>
 -->
+            {% endif %}
+            {% if 'owncloud' in activated_services %}
             <div class="col-sm-6">
                 <div class="panel panel-default service">
                     <div class="panel-body">
@@ -105,8 +113,8 @@
                     </div>
                 </div>
             </div>
-
-
+            {% endif %}
+            {% if 'gprot' in activated_services %}
             <div class="col-sm-6">
                 <div class="panel panel-default service">
                     <div class="panel-body">
@@ -118,7 +126,8 @@
                     </div>
                 </div>
             </div>
-
+            {% endif %}
+            {% if 'pks' in activated_services %}
             <div class="col-sm-6">
                 <div class="panel panel-default service">
                     <div class="panel-body">
@@ -130,7 +139,8 @@
                     </div>
                 </div>
             </div>
-
+            {% endif %}
+            {% if 'mumble' in activated_services %}
             <div class="col-sm-6">
                 <div class="panel panel-default service">
                     <div class="panel-body">
@@ -142,7 +152,8 @@
                     </div>
                 </div>
             </div>
-
+            {% endif %}
+            {% if 'jabber' in activated_services %}
             <div class="col-sm-6">
                 <div class="panel panel-default service">
                     <div class="panel-body">
@@ -154,7 +165,8 @@
                     </div>
                 </div>
             </div>
-            
+            {% endif %}
+            {% if 'fb18' in activated_services %}
 			<div class="col-sm-6">
                 <div class="panel panel-default service">
                     <div class="panel-body">
@@ -166,7 +178,7 @@
                     </div>
                 </div>
             </div>
-
+            {% endif %}
         </div>
     </div>
     <div id="news" class="col-md-4">

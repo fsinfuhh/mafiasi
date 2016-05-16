@@ -298,3 +298,18 @@ MAILCLOAK_DOMAIN = 'cloak.mafiasi.de'
 MAILCLOAK_SERVER = ('127.0.0.1', 2523)
 VALID_EMAIL_ADDRESSES = ['postmaster@mafiasi.de']
 EMAIL_ADDRESSES_PASSWORD = 'changeme'
+
+DASHBOARD_SERVICES = [
+    'wiki',
+    'etherpad',
+    'dudel',
+    'redmine',
+    'discourse',
+    'sogo',
+    'owncloud',
+    'gprod',
+    'pks',
+    'mumble',
+    'jabber',
+    'fb18',
+]
