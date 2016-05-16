@@ -1,3 +1,5 @@
+django
+django-ldapdb
 bleach
 creoleparser
 django-auth-ldap
