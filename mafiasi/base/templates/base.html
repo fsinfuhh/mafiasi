@@ -1,5 +1,6 @@
 {% load i18n %}
 {% load group_tags %}
+{% load settings_value %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,7 +40,10 @@
                 </div>
                 {% else %}
                 <div class="btn-group pull-right">
-                    <a class="btn btn-default navbar-btn" href="{% url 'registration_request_account' %}">{% trans "Register" %}</a>
+                    {% value_from_settings REGISTER_ENABLED as  REGISTER_ENABLED %}
+                    {% if REGISTER_ENABLED %}
+                        <a class="btn btn-default navbar-btn" href="{% url 'registration_request_account' %}">{% trans "Register" %}</a>
+                    {% endif %}
                     <a class="btn btn-primary navbar-btn" href="{% url 'login' %}">{% trans "Login" %}</a>
                 </div>
                 {% endif %}
