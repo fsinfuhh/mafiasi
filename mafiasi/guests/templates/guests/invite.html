@@ -14,7 +14,9 @@
     <label class="control-label">{% trans "Username" %}</label>
     <div class="input-group">
         {% render_field form.username class+="form-control" %}
-        <span class="input-group-addon">.guest</span>
+        {% if guest_extension %}
+            <span class="input-group-addon">{{ guest_extension }}</span>
+        {% endif %}
     </div>
     <div class="help-block">
     {% trans "Must start with a letter and only contain alphanumeric characters. Lowercase only." %}

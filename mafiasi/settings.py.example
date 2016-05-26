@@ -313,3 +313,8 @@ DASHBOARD_SERVICES = [
     'jabber',
     'fb18',
 ]
+
+REGISTER_ENABLED = True
+GUEST_EXTENTION = ".guest"
+MAIL_SIGNATURE = "mafiasi.de-Team"
+PROJECT_NAME = "mafiasi.de"

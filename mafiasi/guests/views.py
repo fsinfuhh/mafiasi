@@ -5,6 +5,7 @@ from django.core.exceptions import PermissionDenied
 from django.utils.translation import ugettext_lazy as _
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login
+from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
@@ -47,7 +48,8 @@ def invite(request):
     else:
         form = InvitationForm(user=request.user)
     return render(request, 'guests/invite.html', {
-        'form': form
+        'form': form,
+        'guest_extension': settings.GUEST_EXTENSION,
     })
 
 @login_required
@@ -121,5 +123,6 @@ def accept(request, invitation_token):
 
     return render(request, 'guests/accept.html', {
         'invitation': invitation,
-        'form': form
+        'form': form,
+        'guest_extension': settings.GUEST_EXTENTION,
     })
