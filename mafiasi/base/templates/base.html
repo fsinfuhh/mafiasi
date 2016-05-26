@@ -19,7 +19,7 @@
     <div id="wrap">
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
-                <a href="/" class="navbar-brand">{% trans "Mafiasi Hub" %}</a>
+                <a href="/" class="navbar-brand">{% value_from_settings PROJECT_BANNER %}</a>
                 {% if user.is_authenticated %}
                 <div class="pull-right">
                     {% url 'logout' as logout_url %}
