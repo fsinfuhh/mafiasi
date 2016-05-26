@@ -196,21 +196,22 @@
             </div>
         </div>
         {% endfor %}
-
-        <div class="panel panel-default">
-            <div class="panel-heading">{% trans "Wiki search" %}</div>
-            <div class="panel-body" style="text-align:center;">
-                <form method="get" action="{{ wiki_search_url }}">
-                    <input type="hidden" name="title" value="Spezial:Suche" />
-                    <div class="input-group">
-                        <input type="text" id="wiki_search" class="form-control" name="search">
-                        <span class="input-group-btn">
-                            <button class="btn btn-primary" name="go">{% trans "Search" %}</button>
-                        </span>
-                    </div>
-                </form>
+        {% if 'wiki' in activated_services %}
+            <div class="panel panel-default">
+                <div class="panel-heading">{% trans "Wiki search" %}</div>
+                <div class="panel-body" style="text-align:center;">
+                    <form method="get" action="{{ wiki_search_url }}">
+                        <input type="hidden" name="title" value="Spezial:Suche" />
+                        <div class="input-group">
+                            <input type="text" id="wiki_search" class="form-control" name="search">
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary" name="go">{% trans "Search" %}</button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </div>
+        {% endif %}
 
         {% for panel in panel_list %}
         <div class="panel panel-default">
