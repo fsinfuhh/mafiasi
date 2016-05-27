@@ -1,6 +1,8 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import url
 
-urlpatterns = patterns('mafiasi.dashboard.views',
-    url(r'^$', 'index', name='dashboard_index'),
-    url(r'^news/(\d+)$', 'show_news', name='dashboard_show_news'),
-)
+from .views import index, show_news
+
+urlpatterns = [
+    url(r'^$', index, name='dashboard_index'),
+    url(r'^news/(\d+)$', show_news, name='dashboard_show_news'),
+]

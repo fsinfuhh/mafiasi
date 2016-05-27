@@ -1,5 +1,7 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import url
 
-urlpatterns = patterns('mafiasi.discourse.views',
-    url(r'^sso$', 'sso', name='discourse_sso'),
-)
+from .views import sso
+
+urlpatterns = [
+    url(r'^sso$', sso, name='discourse_sso'),
+]

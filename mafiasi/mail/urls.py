@@ -1,5 +1,7 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import url
 
-urlpatterns = patterns('mafiasi.mail.views',
-    url(r'^mailaddresses$', 'mailaddresses', name='mail_mailaddesses'),
-)
+from .views import mailaddresses
+
+urlpatterns = [
+    url(r'^mailaddresses$', mailaddresses, name='mail_mailaddesses'),
+]
