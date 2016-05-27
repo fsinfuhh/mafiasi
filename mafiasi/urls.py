@@ -11,7 +11,6 @@ urlpatterns = patterns('',
     url(r'^registration/', include('mafiasi.registration.urls')),
     url(r'^dashboard/', include('mafiasi.dashboard.urls')),
     url(r'^discourse/', include('mafiasi.discourse.urls')),
-    url(r'^jabber/', include('mafiasi.jabber.urls')),
     url(r'^mumble/', include('mafiasi.mumble.urls')),
     url(r'^wiki/', include('mafiasi.wiki.urls')),
     url(r'^pks/', include('mafiasi.pks.urls')),
@@ -34,6 +33,12 @@ urlpatterns = patterns('',
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )
+
+if 'mafiasi.jabber' in settings.INSTALLED_APPS:
+    urlpatterns += patterns('',
+    url(r'^jabber/', include('mafiasi.jabber.urls')),
+)
+
 
 if settings.DEBUG:
     urlpatterns += patterns('',
