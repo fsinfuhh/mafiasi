@@ -124,5 +124,5 @@ def accept(request, invitation_token):
     return render(request, 'guests/accept.html', {
         'invitation': invitation,
         'form': form,
-        'guest_extension': settings.GUEST_EXTENTION,
+        'guest_extension': settings.GUEST_EXTENSION,
     })

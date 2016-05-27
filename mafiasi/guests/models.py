@@ -18,7 +18,7 @@ INVITATION_MAX_TOKENS = 20
 INVITATION_FILL_RATE = 1.0/(3*60)
 
 class Invitation(models.Model):
-    username = models.CharField(max_length=30-len(settings.GUEST_EXTENTION), unique=True)
+    username = models.CharField(max_length=30-len(settings.GUEST_EXTENSION), unique=True)
     email = models.EmailField()
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
@@ -30,7 +30,7 @@ class Invitation(models.Model):
         return self.username
 
     def accept_with_password(self, password):
-        username = self.username + settings.GUEST_EXTENTION
+        username = self.username + settings.GUEST_EXTENSION
         mafiasi = create_mafiasi_account(username=username,
                                          email=self.email,
                                          first_name=self.first_name,
