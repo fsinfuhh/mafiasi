@@ -157,6 +157,7 @@ INSTALLED_APPS = (
     'mafiasi.etherpad',
     'mafiasi.gprot',
     'mafiasi.groups',
+    'mafiasi.guests',
     'mafiasi.jabber',
     'mafiasi.mumble',
     'mafiasi.pks',
