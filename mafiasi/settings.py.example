@@ -283,6 +283,7 @@ RAVEN_CONFIG = {
 
 ETHERPAD_API_KEY = 'foobar'
 ETHERPAD_URL = 'https://ep.mafiasi.de'
+EP_COOKIE_DOMAIN = '.mafiasi.de'
 
 DISCOURSE_URL = 'https://forum.mafiasi.test'
 DISCOURSE_SSO_SECRET = 'secret'
