@@ -55,7 +55,7 @@ class Etherpad(object):
         self.api.createSession(
                 groupID = group,
                 authorID = user_ep,
-                validUntil = time.time() + SESSION_DURATION)
+                validUntil = str(time.time() + SESSION_DURATION))
 
     def get_session_cookie(self, user):
         sessions = self.api.listSessionsOfAuthor(
