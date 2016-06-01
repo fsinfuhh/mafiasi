@@ -29,7 +29,7 @@ class InvitationForm(forms.ModelForm):
             raise forms.ValidationError(
                 _('Username must be at least 3 characters long.'))
 
-        if Mafiasi.objects.filter(username=username+'.guest').count():
+        if Mafiasi.objects.filter(username=username+settings.GUEST_EXTENSION).count():
             raise forms.ValidationError(
                 _('This name is not available.'))
 

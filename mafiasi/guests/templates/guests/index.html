@@ -19,7 +19,7 @@
 <tbody>
 {% for invitation in invitations %}
     <tr>
-        <td>{{ invitation.username }}.guest</td>
+        <td>{{ invitation.username }}{{ guest_extension }}</td>
         <td>{{ invitation.first_name }} {{ invitation.last_name }}</td>
         <td>{{ invitation.email }}</td>
         <td>

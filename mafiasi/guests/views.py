@@ -27,7 +27,8 @@ def index(request):
               .order_by('guest_user__username'))
     return render(request, 'guests/index.html', {
         'invitations': invitations,
-        'guests': guests
+        'guests': guests,
+        'guest_extension': settings.GUEST_EXTENSION
     })
 
 @login_required
