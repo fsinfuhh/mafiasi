@@ -19,7 +19,7 @@
         </div>
     </div>
     {% endfor %}
-            
+    {% if module_mailinglist %}
     {% with mailinglist=group.mailinglist %}
     {% if mailinglist or is_groupadmin %}
     {% url 'mailinglist_show_list' group.name as mailinglist_url %}
@@ -58,7 +58,7 @@
     </div>
     {% endif %}
     {% endwith %}
-
+    {% endif %}
     {% if is_groupadmin %}
     <div class="col-sm-12">
         <div class="panel panel-default" id="panel-invitations-{{ group.name }}">

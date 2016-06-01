@@ -93,7 +93,8 @@ def show(request, group_name):
         'invitations': invitations,
         'is_groupadmin': is_groupadmin,
         'last_admin': num_admins == 1,
-        'extra_panels': extra_panels
+        'extra_panels': extra_panels,
+        'module_mailinglist': 'mafiasi.mailinglist' in settings.INSTALLED_APPS,
     })
 
 @login_required
