@@ -9,6 +9,10 @@ ALLOWABLE_VALUES = (
     "MAIL_SIGNATURE",
     "PROJECT_NAME",
     "PROJECT_BANNER",
+    "MAIL_GREETING",
+    "MAIL_INCLUDE_GERMAN",
+    "MAIL_GREETING_DE",
+    "MAIL_GREETING_EN",
 )
 
 register = Library()

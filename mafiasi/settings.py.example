@@ -1,3 +1,4 @@
+#-*- coding:utf-8 -*-
 import os
 ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 
@@ -321,3 +322,15 @@ GUEST_EXTENSION = ".guest"
 MAIL_SIGNATURE = "mafiasi.de-Team"
 PROJECT_NAME = "mafiasi.de"
 PROJECT_BANNER = "Mafiasi Hub"
+
+MAIL_GREETING_EN = """
+Best regards,
+
+Your Server-AG"""
+
+MAIL_GREETING_DE = """
+Grüße,
+
+Deine Server-AG"""
+
+MAIL_INCLUDE_GERMAN = True

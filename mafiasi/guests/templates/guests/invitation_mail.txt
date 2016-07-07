@@ -1,22 +1,29 @@
-{% autoescape off %}Hallo {{ invitation.first_name }} {{ invitation.last_name }}!
+{% extends "base.html" %}
+{% load i18n %}
+{% load settings_value %}
+{% autoescape off %}
 
-{{ invitation.invited_by.get_full_name }} ({{ invitation.invited_by.username }}) hat dich zu mafiasi.de eingeladen!
+
+{% block content_de %}
+Hallo {{ invitation.first_name }} {{ invitation.last_name }}!
+
+{{ invitation.invited_by.get_full_name }} ({{ invitation.invited_by.username }}) hat dich zu {% value_from_settings PROJECT_NAME %} eingeladen!
 
 Benutze den folgenden Link um einen Account zu erstellen:
 {{ activation_link }}
 
-Dein
-mafiasi.de-Team
 
---
+{% endblock %}
 
+
+{% block content_en %}
 Hi {{ invitation.first_name }} {{ invitation.last_name }}!
 
-{{ invitation.invited_by.get_full_name }} ({{ invitation.invited_by.username }}) invited you to use the services at mafiasi.de!
+{{ invitation.invited_by.get_full_name }} ({{ invitation.invited_by.username }}) invited you to use the services at {% value_from_settings PROJECT_NAME %}!
 
 Use the following link to create your account:
 {{ activation_link }}
 
-Regards,
-mafiasi.de team
+
+{% endblock %}
 {% endautoescape %}
