@@ -53,8 +53,8 @@ class Invitation(models.Model):
             'invitation': self,
             'activation_link': activation_link
         })
-        subject = (settings.EMAIL_SUBJECT_PREFIX + 
-                   'Einladung zu mafiasi.de/Invitation to mafiasi.de')
+        subject_de = 'Einladung zu ' + settings.PROJECT_NAME + ' / ' if settings.MAIL_INCLUDE_GERMAN else ""
+        subject = (settings.EMAIL_SUBJECT_PREFIX + subject_de + "Invitation to " + settings.PROJECT_NAME)
         try:
             send_mail(subject, email_content, None, [self.email])
         except SMTPRecipientsRefused:
