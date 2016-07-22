@@ -1,8 +1,30 @@
+{% extends "base_email.html" %}
 {% load i18n %}
-{% blocktrans %}Hi there!
+{% load settings_value %}
+{% autoescape off %}
+
+
+{% block content_de %}
+    Hallo,
+
+    Hier ist dein Registrierungs Link:
+    {{ activation_link }}
+
+{% value_from_settings MAIL_GREETING_DE %}
+
+--
+{% endblock %}
+
+
+{% block content_en %}
+Hi,
 
 Here is your account creation link:
 {{ activation_link }}
 
 
-Your Server-AG{% endblocktrans %}
+{% value_from_settings MAIL_GREETING_EN %}
+
+
+{% endblock %}
+{% endautoescape %}
