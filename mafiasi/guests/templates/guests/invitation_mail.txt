@@ -11,10 +11,6 @@ Hallo {{ invitation.first_name }} {{ invitation.last_name }}!
 
 Benutze den folgenden Link um einen Account zu erstellen:
 {{ activation_link }}
-
-{% value_from_settings MAIL_GREETING_DE %}
-
---
 {% endblock %}
 
 
@@ -25,8 +21,5 @@ Hi {{ invitation.first_name }} {{ invitation.last_name }}!
 
 Use the following link to create your account:
 {{ activation_link }}
-
-{% value_from_settings MAIL_GREETING_EN %}
-
 {% endblock %}
 {% endautoescape %}

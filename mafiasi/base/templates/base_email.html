@@ -1,12 +1,8 @@
 {% load i18n %}
 {% load settings_value %}
 
-{% block greeting %}
-    _(Hello You,)
-
-{% endblock %}
 {%  value_from_settings MAIL_INCLUDE_GERMAN as german%}
-{% if german%}
+{% if german %}
     {% block content_de %}
 
     {% endblock %}
@@ -14,8 +10,7 @@
 
     ======================
 {% endif %}
-
-{% block content %}
+{% block content_en %}
 
 {% endblock %}
 
