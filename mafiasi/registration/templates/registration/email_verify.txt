@@ -20,3 +20,4 @@ The link will be valid for 24 hours.
 {% else %}
     {% value_from_settings MAIL_GREETING_EN %}
 {% endif %}
+{% endautoescape %}

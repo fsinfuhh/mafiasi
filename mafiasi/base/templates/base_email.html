@@ -1,7 +1,4 @@
-{% load i18n %}
-{% load settings_value %}
-
-{%  value_from_settings MAIL_INCLUDE_GERMAN as german%}
+{% load i18n %}{% load settings_value %}{%  value_from_settings MAIL_INCLUDE_GERMAN as german%}
 {% if german %}
     {% block content_de %}
 

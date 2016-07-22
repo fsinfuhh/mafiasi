@@ -238,7 +238,7 @@ def _verify_email(request, email):
         'email': email,
         'link': link,
     })
-    return _send_mail_or_error_page(_('Verify this address for mafiasi.de'),
+    return _send_mail_or_error_page(_('Verify this address for %s' % settings.PROJECT_NAME),
                                     email_content, email, request)
 
 def _finish_account_request(request, info):
@@ -249,7 +249,7 @@ def _finish_account_request(request, info):
     email_content = render_to_string('registration/create_email.html', {
         'activation_link': activation_link
     })
-    return _send_mail_or_error_page(_('Account creation at mafiasi.de'),
+    return _send_mail_or_error_page(_('Account creation at %s' % settings.PROJECT_NAME),
                                     email_content, email, request)
     
 def _send_mail_or_error_page(subject, content, address, request):
