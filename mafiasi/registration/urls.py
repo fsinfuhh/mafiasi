@@ -12,7 +12,7 @@ from .views import *
 urlpatterns = [
     url(r'^change_email/([a-zA-Z0-9:_-]+)$', change_email,
             name='registration_change_email'),
-    url(r'^request_successful/([a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+)$', request_successful,
+    url(r'^request_successful/([a-zA-Z0-9.\-_+]+@[a-zA-Z0-9.\-_]+)$', request_successful,
             name='registration_request_successful'),
     url(r'^account$', account_settings, name='registration_account'),
 

@@ -13,7 +13,8 @@
 {% if not user.is_guest %}
 {% url 'guests_index' as guests_url %}
 <p>
-{% blocktrans %}You want to use mafiasi.de with your friends? You can <a href="{{ guests_url }}">invite guests</a>.{% endblocktrans %}
+{% value_from_settings PROJECT_NAME as project_name%}
+{% blocktrans %}You want to use {{ project_name }} with your friends? You can <a href="{{ guests_url }}">invite guests</a>.{% endblocktrans %}
 </p>
 {% endif %}
 <div class="row">
