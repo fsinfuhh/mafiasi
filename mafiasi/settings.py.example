@@ -127,6 +127,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.locale.LocaleMiddleware',
+    'corsheaders.middleware.CorsMiddleware',  # for OAuth
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
@@ -165,6 +166,10 @@ INSTALLED_APPS = (
     'mafiasi.registration',
     'mafiasi.teaching',
 	'mafiasi.owncloud',
+    'mafiasi.mattermost', # needs mafiasi.oauth
+    'mafiasi.oauth',
+    'oauth2_provider', # used by mafiasi.oauth
+    'corsheaders',  # used by mafiasi.oauth
     'raven.contrib.django.raven_compat',
     'widget_tweaks',
 )
@@ -340,3 +345,5 @@ Grüße,
 Deine Server-AG"""
 
 MAIL_INCLUDE_GERMAN = True
+
+CORS_ORIGIN_ALLOW_ALL = True
