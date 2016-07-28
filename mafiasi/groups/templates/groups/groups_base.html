@@ -3,6 +3,7 @@
 {% load humanize %}
 {% load i18n %}
 {% load userformat %}
+{% load settings_value %}
 
 {% block content %}
 {% get_invitations as user_invitations %}
@@ -65,9 +66,9 @@
     <p class="alert alert-info">
       {% blocktrans %}
       Accept an invitation or create a new group and invite
-      others to use Mafiasi features such as private
-      etherpads, Discourse categories and group mailinglists.
-      {% endblocktrans %}
+      others to use {% value_from_settings PROJECT_NAME %} features such as private
+      etherpads, owncloud sharing, group calendars and group dudels. Please check for existing groups.
+      {% endblocktrans %} {# TODO: dynamic feature list from activated services? #}
     </p>
     {% endblock %}
   </div>
