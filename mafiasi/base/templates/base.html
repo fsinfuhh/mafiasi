@@ -2,6 +2,7 @@
 {% load group_tags %}
 {% load settings_value %}
 {% load static %}
+{% value_from_settings BANNER_IMG as banner_img %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +16,13 @@
     {% block css %}
     {% endblock css %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    {% if banner_img %} {# TODO: das ist etwas unschön das so statisch zu machen #}
+        <style type="text/css">
+        #wrap > .container {
+            padding-top: 114px;
+        }
+        </style>
+    {% endif %}
 </head>
 <body>
     <div id="wrap">
@@ -22,7 +30,7 @@
             {% value_from_settings BANNER_IMG as banner_img %}
             {% if banner_img %}
                 <div class="container">
-                    <img src="{% static banner_img %}">
+                    <img src="{% static banner_img %}" style="width: 100%">
                 </div>
             {% endif %}
             <div class="container">
