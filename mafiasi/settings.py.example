@@ -200,7 +200,10 @@ SERVICE_LINKS = {
     'redmine': 'https://redmine.mafiasi.de/',
 	'discourse': 'https://discourse.mafiasi.de/',
 	'sogo': 'https://sogo.mafiasi.de/',
+	'gogs': 'https://gogs.mafiasi.de/',
+	'mattermost': https://mattermost.mafiasi.de/',
 }
+
 IMPRINT_URL = 'https://wiki.mafiasi.de/Fachschaft_Informatik:Impressum'
 TEAM_EMAIL = u'ag-server@informatik.uni-hamburg.de'
 WIKI_URL = 'https://www2.informatik.uni-hamburg.de/Fachschaft/wiki/'
@@ -220,6 +223,7 @@ LOCALE_PATHS = (os.path.join(ROOT_DIR, 'locale'), )
 LANGUAGES = (
     ('de', 'Deutsch'),
     ('en', 'English'),
+    ('fr', 'Français'),
 )
 
 # A sample logging configuration. The only tangible logging
@@ -315,6 +319,8 @@ DASHBOARD_SERVICES = [
     'mumble',
     'jabber',
     'fb18',
+    'gogs',
+    'mattermost',
 ]
 
 REGISTER_ENABLED = True

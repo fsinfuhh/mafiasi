@@ -49,6 +49,32 @@
                 </div>
             </div>
             {% endif %}
+            {% if 'gogs' in activated_services %}
+            <div class="col-sm-6">
+                <div class="panel panel-default service">
+                    <div class="panel-body">
+                        <a href="{{ service_links.gogs }}" class="btn btn-default btn-lg pull-left service-icon">
+                            <img src="{{ STATIC_URL }}img/services/gogs.png" alt="Gogs" />
+                        </a>
+                        <h3><a href="{{ service_links.gogs }}">Repositories</a></h3>
+                        <p>{% trans "The Github like repository service" %}</p>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% if 'mattermost' in activated_services %}
+            <div class="col-sm-6">
+                <div class="panel panel-default service">
+                    <div class="panel-body">
+                        <a href="{{ service_links.mattermost }}" class="btn btn-default btn-lg pull-left service-icon">
+                            <img src="{{ STATIC_URL }}img/services/mattermost.png" alt="mattermost" />
+                        </a>
+                        <h3><a href="{{ service_links.mattermost }}">Chat</a></h3>
+                        <p>{% trans "An online team chat service" %}</p>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
             {% if 'redmine' in activated_services %}
             <div class="col-sm-6">
                 <div class="panel panel-default service">
@@ -82,7 +108,7 @@
                         <a href="{{ service_links.sogo }}" class="btn btn-default btn-lg pull-left service-icon">
                             <img src="{{ STATIC_URL }}img/services/sogo.png" alt="SOGo" />
                         </a>
-                        <h3><a href="{{ service_links.sogo }}">SOGo</a></h3>
+                        <h3><a href="{{ service_links.sogo }}">Calendar</a></h3>
                         <p>{% trans "Manage and share your calendars and address book, sync them to all your devices." %}</p>
                     </div>
                 </div>
