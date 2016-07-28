@@ -51,6 +51,18 @@ if 'mafiasi.jabber' in settings.INSTALLED_APPS:
         url(r'^jabber/', include(mafiasi.jabber.urls)),
     ]
 
+if 'mafiasi.oauth' in settings.INSTALLED_APPS:
+    import oauth2_provider.urls
+    urlpatterns += [
+        url(r'^oauth/', include(oauth2_provider.urls, namespace='oauth2_provider')),
+    ]
+
+if 'mafiasi.mattermost' in settings.INSTALLED_APPS:
+    import mafiasi.mattermost.urls
+    urlpatterns += [
+        url(r'^mattermost/', include(mafiasi.mattermost.urls)),
+    ]
+
 
 if settings.DEBUG:
     urlpatterns += [
