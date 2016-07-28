@@ -9,7 +9,7 @@ from django.conf import settings
 from mafiasi.base.models import Mafiasi
 from mafiasi.guests.models import Invitation, get_invitation_bucket
 
-_username_re = re.compile(r'^[a-z][a-z0-9]+$')
+_username_re = re.compile(r'^[a-z][a-z0-9.\-]+$')
 class InvitationForm(forms.ModelForm):
     class Meta:
         model = Invitation
