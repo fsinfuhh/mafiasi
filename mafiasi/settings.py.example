@@ -347,3 +347,5 @@ Deine Server-AG"""
 MAIL_INCLUDE_GERMAN = True
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+BANNER_IMG="banner_cml.png"

@@ -13,6 +13,7 @@ ALLOWABLE_VALUES = (
     "MAIL_INCLUDE_GERMAN",
     "MAIL_GREETING_DE",
     "MAIL_GREETING_EN",
+    "BANNER_IMG",
 )
 
 register = Library()
