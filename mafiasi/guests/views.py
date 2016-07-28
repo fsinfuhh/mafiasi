@@ -1,5 +1,6 @@
 from __future__ import unicode_literals
 
+from django.contrib.auth.models import Group
 from django.core import signing
 from django.core.exceptions import PermissionDenied
 from django.utils.translation import ugettext_lazy as _
@@ -10,6 +11,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 from mafiasi.base.models import Mafiasi
+from mafiasi.groups.models import GroupProxy
 from mafiasi.registration.forms import PasswordForm
 from mafiasi.guests.models import Invitation, Guest, get_invitation_bucket
 from mafiasi.guests.forms import InvitationForm
@@ -117,6 +119,10 @@ def accept(request, invitation_token):
             password = form.cleaned_data['password1']
             mafiasi = invitation.accept_with_password(password)
             mafiasi.backend = 'django.contrib.auth.backends.ModelBackend'
+            if settings.DEFAULT_GUEST_GROUP:
+                group = get_object_or_404(Group, name=settings.DEFAULT_GUEST_GROUP)
+                group_proxy = GroupProxy(group)
+                group_proxy.add_member(mafiasi)
             login(request, mafiasi)
             return redirect('guests_invited_by')
     else:
