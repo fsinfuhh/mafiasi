@@ -201,7 +201,7 @@ SERVICE_LINKS = {
 	'discourse': 'https://discourse.mafiasi.de/',
 	'sogo': 'https://sogo.mafiasi.de/',
 	'gogs': 'https://gogs.mafiasi.de/',
-	'mattermost': https://mattermost.mafiasi.de/',
+	'mattermost': 'https://mattermost.mafiasi.de/',
 }
 
 IMPRINT_URL = 'https://wiki.mafiasi.de/Fachschaft_Informatik:Impressum'
