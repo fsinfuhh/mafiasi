@@ -83,7 +83,8 @@ def show_invited_by(request):
 
     guest = Guest.objects.get(guest_user=request.user)
     return render(request, 'guests/invited_by.html', {
-        'guest': guest
+        'guest': guest,
+        'user': request.user,
     })
 
 def accept(request, invitation_token):
