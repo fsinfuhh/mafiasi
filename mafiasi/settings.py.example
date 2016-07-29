@@ -350,3 +350,6 @@ CORS_ORIGIN_ALLOW_ALL = True
 BANNER_IMG="banner_cml.png"
 
 DEFAULT_GUEST_GROUP = ""
+
+GUEST_INVITE_HINT = "Must start with a letter and only contain alphanumeric characters. Lowercase only."
+USER_LOGIN_HINT = "Note: For our account names we use two digits for year (e.g. <strong>13doe</strong> instead of 3doe)"

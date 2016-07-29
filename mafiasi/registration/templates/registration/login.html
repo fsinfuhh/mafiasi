@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% load widget_tweaks %}
-
+{% load settings_value %}
 {% block wtitle %}{% block ptitle %}{% trans "Login" %}{% endblock %}{% endblock %}
 
 {% block content %}
@@ -21,7 +21,10 @@
                     {% render_field form.username class+="form-control" %}
                     <div class="help-block">
                         <p>
-                        {% trans "Note: For our account names we use two digits for year (e.g. <strong>13doe</strong> instead of 3doe)" %}
+                            {% value_from_settings USER_LOGIN_HINT as login_hint %}
+                            {% if login_hint %}
+                                {% trans login_hint %}
+                            {% endif %}
                         </p>
                         {% if form.username.errors %}
                         <p>{% for error in form.username.errors %}{{ error }} {% endfor %}</p>

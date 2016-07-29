@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% load widget_tweaks %}
+{% load settings_value %}
 
 {% block wtitle %}{% block ptitle %}{% trans "Invite guest" %}{% endblock %}{% endblock %}
 
@@ -19,7 +20,10 @@
         {% endif %}
     </div>
     <div class="help-block">
-    {% trans "Must start with a letter and only contain alphanumeric characters. Lowercase only." %}
+    {% value_from_settings GUEST_INVITE_HINT as guest_hint %}
+    {% if guest_hint %}
+        {% trans guest_hint %}
+    {% endif %}
     {% if form.username.errors %}
     <ul>
     {% for error in form.username.errors %}<li>{{ error }}</li>{% endfor %}
