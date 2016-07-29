@@ -353,3 +353,17 @@ DEFAULT_GUEST_GROUP = ""
 
 GUEST_INVITE_HINT = "Must start with a letter and only contain alphanumeric characters. Lowercase only."
 USER_LOGIN_HINT = "Note: For our account names we use two digits for year (e.g. <strong>13doe</strong> instead of 3doe)"
+
+TEMPLATE_ALLOWABLE_SETTINGS_VALUES = (
+    "REGISTER_ENABLED",
+    "MAIL_SIGNATURE",
+    "PROJECT_NAME",
+    "PROJECT_BANNER",
+    "MAIL_GREETING",
+    "MAIL_INCLUDE_GERMAN",
+    "MAIL_GREETING_DE",
+    "MAIL_GREETING_EN",
+    "BANNER_IMG",
+    "GUEST_INVITE_HINT",
+    "USER_LOGIN_HINT",
+)

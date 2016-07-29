@@ -4,17 +4,6 @@ from django.conf import settings
 from django.template import TemplateSyntaxError, Variable, Node, Variable, Library
 register = template.Library()
 
-ALLOWABLE_VALUES = (
-    "REGISTER_ENABLED",
-    "MAIL_SIGNATURE",
-    "PROJECT_NAME",
-    "PROJECT_BANNER",
-    "MAIL_GREETING",
-    "MAIL_INCLUDE_GERMAN",
-    "MAIL_GREETING_DE",
-    "MAIL_GREETING_EN",
-    "BANNER_IMG",
-)
 
 register = Library()
 # I found some tricks in URLNode and url from defaulttags.py:
@@ -35,7 +24,7 @@ def value_from_settings(parser, token):
   if len(bits):
     raise TemplateSyntaxError("'value_from_settings' didn't recognise " \
       "the arguments '%s'" % ", ".join(bits))
-  if settingsvar not in ALLOWABLE_VALUES:
+  if settingsvar not in settings.TEMPLATE_ALLOWABLE_SETTINGS_VALUES:
       raise TemplateSyntaxError("The settings Variable %s is not allowed to be acessed" % settingsvar)
   return ValueFromSettings(settingsvar, asvar)
 
