@@ -353,6 +353,7 @@ DEFAULT_GUEST_GROUP = ""
 
 GUEST_INVITE_HINT = "Must start with a letter and only contain alphanumeric characters. Lowercase only."
 USER_LOGIN_HINT = "Note: For our account names we use two digits for year (e.g. <strong>13doe</strong> instead of 3doe)"
+GUEST_INVITE_INSTRUCTION_LINK = "https://dash.crossmodal-learning.org/static_redir/instruction"
 
 TEMPLATE_ALLOWABLE_SETTINGS_VALUES = (
     "REGISTER_ENABLED",
@@ -366,4 +367,5 @@ TEMPLATE_ALLOWABLE_SETTINGS_VALUES = (
     "BANNER_IMG",
     "GUEST_INVITE_HINT",
     "USER_LOGIN_HINT",
+    "GUEST_INVITE_INSTRUCTION_LINK",
 )
