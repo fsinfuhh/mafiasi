@@ -18,7 +18,7 @@ INVITATION_MAX_TOKENS = 20
 INVITATION_FILL_RATE = 1.0/(3*60)
 
 class Invitation(models.Model):
-    username = models.CharField(max_length=30-len('.guest'), unique=True)
+    username = models.CharField(max_length=30-len(settings.GUEST_EXTENSION), unique=True)
     email = models.EmailField()
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
@@ -30,7 +30,7 @@ class Invitation(models.Model):
         return self.username
 
     def accept_with_password(self, password):
-        username = self.username + '.guest'
+        username = self.username + settings.GUEST_EXTENSION
         mafiasi = create_mafiasi_account(username=username,
                                          email=self.email,
                                          first_name=self.first_name,
@@ -53,8 +53,8 @@ class Invitation(models.Model):
             'invitation': self,
             'activation_link': activation_link
         })
-        subject = (settings.EMAIL_SUBJECT_PREFIX + 
-                   'Einladung zu mafiasi.de/Invitation to mafiasi.de')
+        subject_de = 'Einladung zu ' + settings.PROJECT_NAME + ' / ' if settings.MAIL_INCLUDE_GERMAN else ""
+        subject = (settings.EMAIL_SUBJECT_PREFIX + subject_de + "Invitation to " + settings.PROJECT_NAME)
         try:
             send_mail(subject, email_content, None, [self.email])
         except SMTPRecipientsRefused:

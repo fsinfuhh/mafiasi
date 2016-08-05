@@ -1,3 +1,5 @@
+django
+django-ldapdb
 bleach
 creoleparser
 django-auth-ldap
@@ -18,3 +20,5 @@ pytz
 raven
 requests
 git+git://github.com/tindie/pydiscourse.git@master
+django-oauth-toolkit
+django-cors-headers

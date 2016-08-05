@@ -1,3 +1,4 @@
+#-*- coding:utf-8 -*-
 import os
 ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 
@@ -126,6 +127,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.locale.LocaleMiddleware',
+    'corsheaders.middleware.CorsMiddleware',  # for OAuth
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
@@ -157,12 +159,16 @@ INSTALLED_APPS = (
     'mafiasi.etherpad',
     'mafiasi.gprot',
     'mafiasi.groups',
+    'mafiasi.guests',
     'mafiasi.jabber',
     'mafiasi.mumble',
     'mafiasi.pks',
     'mafiasi.registration',
     'mafiasi.teaching',
 	'mafiasi.owncloud',
+    'mafiasi.mattermost',
+    'oauth2_provider', # used by mattermost SSO
+    'corsheaders',  # used by mattermost SSO
     'raven.contrib.django.raven_compat',
     'widget_tweaks',
 )
@@ -198,7 +204,10 @@ SERVICE_LINKS = {
     'redmine': 'https://redmine.mafiasi.de/',
 	'discourse': 'https://discourse.mafiasi.de/',
 	'sogo': 'https://sogo.mafiasi.de/',
+	'gogs': 'https://gogs.mafiasi.de/',
+	'mattermost': 'https://mattermost.mafiasi.de/',
 }
+
 IMPRINT_URL = 'https://wiki.mafiasi.de/Fachschaft_Informatik:Impressum'
 TEAM_EMAIL = u'ag-server@informatik.uni-hamburg.de'
 WIKI_URL = 'https://www2.informatik.uni-hamburg.de/Fachschaft/wiki/'
@@ -218,6 +227,7 @@ LOCALE_PATHS = (os.path.join(ROOT_DIR, 'locale'), )
 LANGUAGES = (
     ('de', 'Deutsch'),
     ('en', 'English'),
+    ('fr', 'Français'),
 )
 
 # A sample logging configuration. The only tangible logging
@@ -282,6 +292,7 @@ RAVEN_CONFIG = {
 
 ETHERPAD_API_KEY = 'foobar'
 ETHERPAD_URL = 'https://ep.mafiasi.de'
+EP_COOKIE_DOMAIN = '.mafiasi.de'
 
 DISCOURSE_URL = 'https://forum.mafiasi.test'
 DISCOURSE_SSO_SECRET = 'secret'
@@ -298,3 +309,63 @@ MAILCLOAK_DOMAIN = 'cloak.mafiasi.de'
 MAILCLOAK_SERVER = ('127.0.0.1', 2523)
 VALID_EMAIL_ADDRESSES = ['postmaster@mafiasi.de']
 EMAIL_ADDRESSES_PASSWORD = 'changeme'
+
+DASHBOARD_SERVICES = [
+    'wiki',
+    'etherpad',
+    'dudel',
+    'redmine',
+    'discourse',
+    'sogo',
+    'owncloud',
+    'gprod',
+    'pks',
+    'mumble',
+    'jabber',
+    'fb18',
+    'gogs',
+    'mattermost',
+]
+
+REGISTER_ENABLED = True
+GUEST_EXTENSION = ".guest"
+MAIL_SIGNATURE = "mafiasi.de-Team"
+PROJECT_NAME = "mafiasi.de"
+PROJECT_BANNER = "Mafiasi Hub"
+
+MAIL_GREETING_EN = """
+Best regards,
+
+Your Server-AG"""
+
+MAIL_GREETING_DE = """
+Grüße,
+
+Deine Server-AG"""
+
+MAIL_INCLUDE_GERMAN = True
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+BANNER_IMG="banner_cml.png"
+
+DEFAULT_GUEST_GROUP = ""
+
+GUEST_INVITE_HINT = "Must start with a letter and only contain alphanumeric characters. Lowercase only."
+USER_LOGIN_HINT = "Note: For our account names we use two digits for year (e.g. <strong>13doe</strong> instead of 3doe)"
+GUEST_INVITE_INSTRUCTION_LINK = "https://dash.crossmodal-learning.org/static_redir/instruction"
+
+TEMPLATE_ALLOWABLE_SETTINGS_VALUES = (
+    "REGISTER_ENABLED",
+    "MAIL_SIGNATURE",
+    "PROJECT_NAME",
+    "PROJECT_BANNER",
+    "MAIL_GREETING",
+    "MAIL_INCLUDE_GERMAN",
+    "MAIL_GREETING_DE",
+    "MAIL_GREETING_EN",
+    "BANNER_IMG",
+    "GUEST_INVITE_HINT",
+    "USER_LOGIN_HINT",
+    "GUEST_INVITE_INSTRUCTION_LINK",
+)

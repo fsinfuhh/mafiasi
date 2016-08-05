@@ -9,7 +9,7 @@ from django.conf import settings
 from mafiasi.base.models import Mafiasi
 from mafiasi.guests.models import Invitation, get_invitation_bucket
 
-_username_re = re.compile(r'^[a-z][a-z0-9]+$')
+_username_re = re.compile(r'^[a-z][a-z0-9.\-]+$')
 class InvitationForm(forms.ModelForm):
     class Meta:
         model = Invitation
@@ -29,7 +29,7 @@ class InvitationForm(forms.ModelForm):
             raise forms.ValidationError(
                 _('Username must be at least 3 characters long.'))
 
-        if Mafiasi.objects.filter(username=username+'.guest').count():
+        if Mafiasi.objects.filter(username=username+settings.GUEST_EXTENSION).count():
             raise forms.ValidationError(
                 _('This name is not available.'))
 

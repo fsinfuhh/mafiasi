@@ -16,7 +16,7 @@ class Etherpad(object):
     def _get_ep_user(self, user):
         ldap_user = user.get_ldapuser()
         return self.api.createAuthorIfNotExistsFor(
-                authorMapper=user.id,
+                authorMapper=str(user.id),
                 name=ldap_user.display_name.encode('utf-8'),
         )['authorID']
 
@@ -55,7 +55,7 @@ class Etherpad(object):
         self.api.createSession(
                 groupID = group,
                 authorID = user_ep,
-                validUntil = time.time() + SESSION_DURATION)
+                validUntil = str(time.time() + SESSION_DURATION))
 
     def get_session_cookie(self, user):
         sessions = self.api.listSessionsOfAuthor(

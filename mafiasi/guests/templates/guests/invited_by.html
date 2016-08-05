@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
 
-{% block wtitle %}{% block ptitle %}{% trans "Hello guest" %}{% endblock %}{% endblock %}
+{% block wtitle %}{% block ptitle %}{% trans "Hello " %}{{ user.username }}{% endblock %}{% endblock %}
 
 {% block content %}
 <p>{% blocktrans with full_name=guest.invited_by.get_full_name username=guest.invited_by.username %}You were invited by {{ full_name }} ({{ username }}).{% endblocktrans %}</p>

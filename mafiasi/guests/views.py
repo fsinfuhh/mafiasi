@@ -1,14 +1,17 @@
 from __future__ import unicode_literals
 
+from django.contrib.auth.models import Group
 from django.core import signing
 from django.core.exceptions import PermissionDenied
 from django.utils.translation import ugettext_lazy as _
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login
+from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 from mafiasi.base.models import Mafiasi
+from mafiasi.groups.models import GroupProxy
 from mafiasi.registration.forms import PasswordForm
 from mafiasi.guests.models import Invitation, Guest, get_invitation_bucket
 from mafiasi.guests.forms import InvitationForm
@@ -26,7 +29,8 @@ def index(request):
               .order_by('guest_user__username'))
     return render(request, 'guests/index.html', {
         'invitations': invitations,
-        'guests': guests
+        'guests': guests,
+        'guest_extension': settings.GUEST_EXTENSION
     })
 
 @login_required
@@ -47,7 +51,8 @@ def invite(request):
     else:
         form = InvitationForm(user=request.user)
     return render(request, 'guests/invite.html', {
-        'form': form
+        'form': form,
+        'guest_extension': settings.GUEST_EXTENSION,
     })
 
 @login_required
@@ -78,7 +83,8 @@ def show_invited_by(request):
 
     guest = Guest.objects.get(guest_user=request.user)
     return render(request, 'guests/invited_by.html', {
-        'guest': guest
+        'guest': guest,
+        'user': request.user,
     })
 
 def accept(request, invitation_token):
@@ -114,6 +120,10 @@ def accept(request, invitation_token):
             password = form.cleaned_data['password1']
             mafiasi = invitation.accept_with_password(password)
             mafiasi.backend = 'django.contrib.auth.backends.ModelBackend'
+            if settings.DEFAULT_GUEST_GROUP:
+                group = get_object_or_404(Group, name=settings.DEFAULT_GUEST_GROUP)
+                group_proxy = GroupProxy(group)
+                group_proxy.add_member(mafiasi)
             login(request, mafiasi)
             return redirect('guests_invited_by')
     else:
@@ -121,5 +131,6 @@ def accept(request, invitation_token):
 
     return render(request, 'guests/accept.html', {
         'invitation': invitation,
-        'form': form
+        'form': form,
+        'guest_extension': settings.GUEST_EXTENSION,
     })

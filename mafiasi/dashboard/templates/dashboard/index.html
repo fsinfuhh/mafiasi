@@ -10,6 +10,7 @@
     <div id="dashboard" class="col-md-8">
         <h2>{% trans "Services" %}</h2>
         <div class="row">
+            {% if 'wiki' in activated_services %}
             <div class="col-sm-6">
                 <div class="panel panel-default service">
                     <div class="panel-body">
@@ -21,7 +22,8 @@
                     </div>
                 </div>
             </div>
-
+            {% endif %}
+            {% if 'etherpad' in activated_services %}
             <div class="col-sm-6">
                 <div class="panel panel-default service">
                     <div class="panel-body">
@@ -33,7 +35,8 @@
                     </div>
                 </div>
             </div>
-
+            {% endif %}
+            {% if 'dudel' in activated_services %}
             <div class="col-sm-6">
                 <div class="panel panel-default service">
                     <div class="panel-body">
@@ -45,7 +48,34 @@
                     </div>
                 </div>
             </div>
-
+            {% endif %}
+            {% if 'gogs' in activated_services %}
+            <div class="col-sm-6">
+                <div class="panel panel-default service">
+                    <div class="panel-body">
+                        <a href="{{ service_links.gogs }}" class="btn btn-default btn-lg pull-left service-icon">
+                            <img src="{{ STATIC_URL }}img/services/gogs.png" alt="Gogs" />
+                        </a>
+                        <h3><a href="{{ service_links.gogs }}">Repositories</a></h3>
+                        <p>{% trans "The Github like repository service" %}</p>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% if 'mattermost' in activated_services %}
+            <div class="col-sm-6">
+                <div class="panel panel-default service">
+                    <div class="panel-body">
+                        <a href="{{ service_links.mattermost }}" class="btn btn-default btn-lg pull-left service-icon">
+                            <img src="{{ STATIC_URL }}img/services/mattermost.png" alt="mattermost" />
+                        </a>
+                        <h3><a href="{{ service_links.mattermost }}">Chat</a></h3>
+                        <p>{% trans "An online team chat service" %}</p>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% if 'redmine' in activated_services %}
             <div class="col-sm-6">
                 <div class="panel panel-default service">
                     <div class="panel-body">
@@ -57,7 +87,8 @@
                     </div>
                 </div>
             </div>
-            
+            {% endif %}
+            {% if 'discourse' in activated_services %}
 			<div class="col-sm-6">
                 <div class="panel panel-default service">
                     <div class="panel-body">
@@ -69,14 +100,15 @@
                     </div>
                 </div>
             </div>
-			
+			 {% endif %}
+            {% if 'sogo' in activated_services %}
 			<div class="col-sm-6">
                 <div class="panel panel-default service">
                     <div class="panel-body">
                         <a href="{{ service_links.sogo }}" class="btn btn-default btn-lg pull-left service-icon">
                             <img src="{{ STATIC_URL }}img/services/sogo.png" alt="SOGo" />
                         </a>
-                        <h3><a href="{{ service_links.sogo }}">SOGo</a></h3>
+                        <h3><a href="{{ service_links.sogo }}">Calendar</a></h3>
                         <p>{% trans "Manage and share your calendars and address book, sync them to all your devices." %}</p>
                     </div>
                 </div>
@@ -94,6 +126,8 @@
                 </div>
             </div>
 -->
+            {% endif %}
+            {% if 'owncloud' in activated_services %}
             <div class="col-sm-6">
                 <div class="panel panel-default service">
                     <div class="panel-body">
@@ -105,8 +139,8 @@
                     </div>
                 </div>
             </div>
-
-
+            {% endif %}
+            {% if 'gprot' in activated_services %}
             <div class="col-sm-6">
                 <div class="panel panel-default service">
                     <div class="panel-body">
@@ -118,7 +152,8 @@
                     </div>
                 </div>
             </div>
-
+            {% endif %}
+            {% if 'pks' in activated_services %}
             <div class="col-sm-6">
                 <div class="panel panel-default service">
                     <div class="panel-body">
@@ -130,7 +165,8 @@
                     </div>
                 </div>
             </div>
-
+            {% endif %}
+            {% if 'mumble' in activated_services %}
             <div class="col-sm-6">
                 <div class="panel panel-default service">
                     <div class="panel-body">
@@ -142,7 +178,8 @@
                     </div>
                 </div>
             </div>
-
+            {% endif %}
+            {% if 'jabber' in activated_services %}
             <div class="col-sm-6">
                 <div class="panel panel-default service">
                     <div class="panel-body">
@@ -154,7 +191,8 @@
                     </div>
                 </div>
             </div>
-            
+            {% endif %}
+            {% if 'fb18' in activated_services %}
 			<div class="col-sm-6">
                 <div class="panel panel-default service">
                     <div class="panel-body">
@@ -166,7 +204,7 @@
                     </div>
                 </div>
             </div>
-
+            {% endif %}
         </div>
     </div>
     <div id="news" class="col-md-4">
@@ -184,21 +222,22 @@
             </div>
         </div>
         {% endfor %}
-
-        <div class="panel panel-default">
-            <div class="panel-heading">{% trans "Wiki search" %}</div>
-            <div class="panel-body" style="text-align:center;">
-                <form method="get" action="{{ wiki_search_url }}">
-                    <input type="hidden" name="title" value="Spezial:Suche" />
-                    <div class="input-group">
-                        <input type="text" id="wiki_search" class="form-control" name="search">
-                        <span class="input-group-btn">
-                            <button class="btn btn-primary" name="go">{% trans "Search" %}</button>
-                        </span>
-                    </div>
-                </form>
+        {% if 'wiki' in activated_services %}
+            <div class="panel panel-default">
+                <div class="panel-heading">{% trans "Wiki search" %}</div>
+                <div class="panel-body" style="text-align:center;">
+                    <form method="get" action="{{ wiki_search_url }}">
+                        <input type="hidden" name="title" value="Spezial:Suche" />
+                        <div class="input-group">
+                            <input type="text" id="wiki_search" class="form-control" name="search">
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary" name="go">{% trans "Search" %}</button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </div>
+        {% endif %}
 
         {% for panel in panel_list %}
         <div class="panel panel-default">

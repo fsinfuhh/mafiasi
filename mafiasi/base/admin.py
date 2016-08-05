@@ -15,10 +15,10 @@ class MafiasiChangeForm(UserChangeForm):
 
 class MafiasiAdmin(UserAdmin):
     fieldsets = UserAdmin.fieldsets + (
-        ('Additional info', {'fields': ('account', 'yeargroup', 'real_email')}),
+        ('Additional info', {'fields': ('account', 'yeargroup', 'real_email', 'is_guest')}),
     )
     add_fieldsets = UserAdmin.add_fieldsets + (
-        ('Additional info', {'fields': ('account', 'yeargroup', 'real_email')}),
+        ('Additional info', {'fields': ('account', 'yeargroup', 'real_email', 'is_guest')}),
     )
     form = MafiasiChangeForm
 

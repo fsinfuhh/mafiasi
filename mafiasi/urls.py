@@ -5,7 +5,7 @@ from django.conf import settings
 
 
 import mafiasi.base.urls, mafiasi.registration.urls, mafiasi.dashboard.urls, mafiasi.discourse.urls,\
-    mafiasi.jabber.urls, mafiasi.mumble.urls, mafiasi.wiki.urls, mafiasi.pks.urls, mafiasi.groups.urls,\
+    mafiasi.mumble.urls, mafiasi.wiki.urls, mafiasi.pks.urls, mafiasi.groups.urls,\
     mafiasi.etherpad.urls, mafiasi.gprot.urls, mafiasi.teaching.urls, mafiasi.mail.urls, mafiasi.mailinglist.urls,\
     mafiasi.guests.urls, mafiasi.owncloud.urls
 
@@ -22,7 +22,6 @@ urlpatterns = [
     url(r'^registration/', include(mafiasi.registration.urls)),
     url(r'^dashboard/', include(mafiasi.dashboard.urls)),
     url(r'^discourse/', include(mafiasi.discourse.urls)),
-    url(r'^jabber/', include(mafiasi.jabber.urls)),
     url(r'^mumble/', include(mafiasi.mumble.urls)),
     url(r'^wiki/', include(mafiasi.wiki.urls)),
     url(r'^pks/', include(mafiasi.pks.urls)),
@@ -44,7 +43,33 @@ urlpatterns = [
 
     url(r'^admin/doc/', include(django.contrib.admindocs.urls)),
     url(r'^admin/', include(admin.site.urls)),
+]
 
-] + \
-    static('media/', document_root=settings.MEDIA_ROOT) + \
-    static('mathjax/', document_root=settings.MATHJAX_ROOT)
+if 'mafiasi.jabber' in settings.INSTALLED_APPS:
+    import mafiasi.jabber.urls
+    urlpatterns += [
+        url(r'^jabber/', include(mafiasi.jabber.urls)),
+    ]
+
+if 'oauth2_provider' in settings.INSTALLED_APPS:
+    import oauth2_provider.urls
+    urlpatterns += [
+        url(r'^oauth/', include(oauth2_provider.urls, namespace='oauth2_provider')),
+    ]
+
+if 'mafiasi.mattermost' in settings.INSTALLED_APPS:
+    import mafiasi.mattermost.urls
+    urlpatterns += [
+        url(r'^mattermost/', include(mafiasi.mattermost.urls)),
+    ]
+
+
+if settings.DEBUG:
+    urlpatterns += [
+        url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
+            'document_root': settings.MEDIA_ROOT
+        }),
+        url(r'^mathjax/(?P<path>.*)$', 'django.views.static.serve', {
+            'document_root': settings.MATHJAX_ROOT
+        }),
+    ]
