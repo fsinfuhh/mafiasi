@@ -29,10 +29,10 @@ urlpatterns = [
 
 if settings.REGISTER_ENABLED:
     urlpatterns += [
-        url(r'^request_account$', 'request_account',
+        url(r'^request_account$', request_account,
                 name='registration_request_account'),
-        url(r'^additional_info$', 'additional_info',
+        url(r'^additional_info$', additional_info,
                 name='registration_additional_info'),
-        url(r'^create_account/([a-zA-Z0-9:_-]+)$', 'create_account',
+        url(r'^create_account/([a-zA-Z0-9:_-]+)$', create_account,
                 name='registration_create_account'),
     ]
