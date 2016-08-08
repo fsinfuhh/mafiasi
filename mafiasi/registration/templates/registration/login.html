@@ -23,7 +23,9 @@
                         <p>
                             {% value_from_settings USER_LOGIN_HINT as login_hint %}
                             {% if login_hint %}
-                                {% trans login_hint %}
+                                {% autoescape off %}
+                                    {% trans login_hint %}
+                                {% endautoescape %}
                             {% endif %}
                         </p>
                         {% if form.username.errors %}
