@@ -1,0 +1,11 @@
+{% extends "base_email.html" %}
+{% load i18n %}
+{% load settings_value %}
+{% autoescape off %}
+{% block content_de %}
+Deine einladung zu  {% value_from_settings PROJECT_NAME %} wurde von {{ invitation.first_name }} {{ invitation.last_name }} angenommen!
+{% endblock %}
+{% block content_en %}
+Your invitation to {% value_from_settings PROJECT_NAME %} was accepted by {{ invitation.first_name }} {{ invitation.last_name }}!
+{% endblock %}
+{% endautoescape %}

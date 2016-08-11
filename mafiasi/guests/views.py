@@ -1,4 +1,7 @@
+# coding=utf-8
 from __future__ import unicode_literals
+
+from smtplib import SMTPRecipientsRefused
 
 from django.contrib.auth.models import Group
 from django.core import signing
@@ -9,6 +12,8 @@ from django.contrib.auth import login
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.template.loader import render_to_string
+from django.core.mail import send_mail
 
 from mafiasi.base.models import Mafiasi
 from mafiasi.groups.models import GroupProxy
@@ -124,6 +129,16 @@ def accept(request, invitation_token):
                 group = get_object_or_404(Group, name=settings.DEFAULT_GUEST_GROUP)
                 group_proxy = GroupProxy(group)
                 group_proxy.add_member(mafiasi)
+            if settings.GUEST_ACCEPT_INVITATION_MAIL:
+                email_content = render_to_string('guests/invitation_accepted_mail.txt', {
+                'invitation': invitation,
+                    })
+                subject_de = 'Angenommen: Einladung zu ' + settings.PROJECT_NAME + ' / ' if settings.MAIL_INCLUDE_GERMAN else ""
+                subject = (settings.EMAIL_SUBJECT_PREFIX + subject_de + "Accepted: Invitation to " + settings.PROJECT_NAME)
+                try:
+                    send_mail(subject, email_content, None, [invitation.invited_by.email])
+                except SMTPRecipientsRefused:
+                    pass  # bestätigungsmail ist nicht so wichtig
             login(request, mafiasi)
             return redirect('guests_invited_by')
     else:
