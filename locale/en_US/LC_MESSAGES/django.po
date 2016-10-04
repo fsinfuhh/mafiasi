@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-23 17:17+0100\n"
+"POT-Creation-Date: 2016-10-05 14:15+0200\n"
 "PO-Revision-Date: 2014-12-23 22:56+0100\n"
 "Last-Translator: Henning Pridöhl <8pridoeh@informatik.uni-hamburg.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -11,6 +11,1192 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.4\n"
+
+#: lib/python2.7/site-packages/django/contrib/messages/apps.py:7
+msgid "Messages"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/contrib/sitemaps/apps.py:7
+msgid "Site Maps"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/contrib/staticfiles/apps.py:7
+msgid "Static Files"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/contrib/syndication/apps.py:7
+#, fuzzy
+#| msgid "My Invitations"
+msgid "Syndication"
+msgstr "My Invitations"
+
+#: lib/python2.7/site-packages/django/core/validators.py:33
+msgid "Enter a valid value."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/core/validators.py:106
+#: lib/python2.7/site-packages/django/forms/fields.py:663
+msgid "Enter a valid URL."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/core/validators.py:159
+msgid "Enter a valid integer."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/core/validators.py:170
+#, fuzzy
+#| msgid "Email address:"
+msgid "Enter a valid email address."
+msgstr "Email address:"
+
+#: lib/python2.7/site-packages/django/core/validators.py:243
+msgid ""
+"Enter a valid 'slug' consisting of letters, numbers, underscores or hyphens."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/core/validators.py:250
+msgid ""
+"Enter a valid 'slug' consisting of Unicode letters, numbers, underscores, or "
+"hyphens."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/core/validators.py:255
+#: lib/python2.7/site-packages/django/core/validators.py:274
+msgid "Enter a valid IPv4 address."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/core/validators.py:260
+#: lib/python2.7/site-packages/django/core/validators.py:275
+msgid "Enter a valid IPv6 address."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/core/validators.py:270
+#: lib/python2.7/site-packages/django/core/validators.py:273
+msgid "Enter a valid IPv4 or IPv6 address."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/core/validators.py:305
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:1110
+msgid "Enter only digits separated by commas."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/core/validators.py:311
+#, python-format
+msgid "Ensure this value is %(limit_value)s (it is %(show_value)s)."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/core/validators.py:342
+#, python-format
+msgid "Ensure this value is less than or equal to %(limit_value)s."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/core/validators.py:351
+#, python-format
+msgid "Ensure this value is greater than or equal to %(limit_value)s."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/core/validators.py:361
+#, python-format
+msgid ""
+"Ensure this value has at least %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at least %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/python2.7/site-packages/django/core/validators.py:376
+#, python-format
+msgid ""
+"Ensure this value has at most %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at most %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/python2.7/site-packages/django/core/validators.py:396
+#, python-format
+msgid "Ensure that there are no more than %(max)s digit in total."
+msgid_plural "Ensure that there are no more than %(max)s digits in total."
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/python2.7/site-packages/django/core/validators.py:401
+#, python-format
+msgid "Ensure that there are no more than %(max)s decimal place."
+msgid_plural "Ensure that there are no more than %(max)s decimal places."
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/python2.7/site-packages/django/core/validators.py:406
+#, python-format
+msgid ""
+"Ensure that there are no more than %(max)s digit before the decimal point."
+msgid_plural ""
+"Ensure that there are no more than %(max)s digits before the decimal point."
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/python2.7/site-packages/django/db/models/base.py:1191
+#: lib/python2.7/site-packages/django/forms/models.py:734
+#, fuzzy
+#| msgid "Jan"
+msgid "and"
+msgstr "Jan"
+
+#: lib/python2.7/site-packages/django/db/models/base.py:1193
+#, python-format
+msgid "%(model_name)s with this %(field_labels)s already exists."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:110
+#, python-format
+msgid "Value %(value)r is not a valid choice."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:111
+#, fuzzy
+#| msgid "This field is required."
+msgid "This field cannot be null."
+msgstr "This field is required."
+
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:112
+msgid "This field cannot be blank."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:113
+#, python-format
+msgid "%(model_name)s with this %(field_label)s already exists."
+msgstr ""
+
+#. Translators: The 'lookup_type' is one of 'date', 'year' or 'month'.
+#. Eg: "Title must be unique for pub_date year"
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:117
+#, python-format
+msgid ""
+"%(field_label)s must be unique for %(date_field_label)s %(lookup_type)s."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:134
+#, python-format
+msgid "Field of type: %(field_type)s"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:881
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:1788
+msgid "Integer"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:885
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:1786
+#, python-format
+msgid "'%(value)s' value must be an integer."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:960
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:1857
+msgid "Big (8 byte) integer"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:972
+#, python-format
+msgid "'%(value)s' value must be either True or False."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:974
+msgid "Boolean (Either True or False)"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:1040
+#, python-format
+msgid "String (up to %(max_length)s)"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:1094
+msgid "Comma-separated integers"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:1151
+#, python-format
+msgid ""
+"'%(value)s' value has an invalid date format. It must be in YYYY-MM-DD "
+"format."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:1153
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:1298
+#, python-format
+msgid ""
+"'%(value)s' value has the correct format (YYYY-MM-DD) but it is an invalid "
+"date."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:1156
+msgid "Date (without time)"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:1296
+#, python-format
+msgid ""
+"'%(value)s' value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[."
+"uuuuuu]][TZ] format."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:1300
+#, python-format
+msgid ""
+"'%(value)s' value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
+"[TZ]) but it is an invalid date/time."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:1304
+msgid "Date (with time)"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:1454
+#, python-format
+msgid "'%(value)s' value must be a decimal number."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:1456
+#, fuzzy
+#| msgid "December"
+msgid "Decimal number"
+msgstr "December"
+
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:1607
+#, python-format
+msgid ""
+"'%(value)s' value has an invalid format. It must be in [DD] [HH:[MM:]]ss[."
+"uuuuuu] format."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:1610
+#, fuzzy
+#| msgid "Registration"
+msgid "Duration"
+msgstr "Registration"
+
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:1662
+#, fuzzy
+#| msgid "Email address:"
+msgid "Email address"
+msgstr "Email address:"
+
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:1686
+msgid "File path"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:1752
+#, python-format
+msgid "'%(value)s' value must be a float."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:1754
+msgid "Floating point number"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:1872
+#, fuzzy
+#| msgid "Email address:"
+msgid "IPv4 address"
+msgstr "Email address:"
+
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:1903
+#, fuzzy
+#| msgid "Email address:"
+msgid "IP address"
+msgstr "Email address:"
+
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:1985
+#, python-format
+msgid "'%(value)s' value must be either None, True or False."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:1987
+msgid "Boolean (Either True, False or None)"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:2054
+msgid "Positive integer"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:2066
+msgid "Positive small integer"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:2079
+#, python-format
+msgid "Slug (up to %(max_length)s)"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:2113
+msgid "Small integer"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:2120
+msgid "Text"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:2146
+#, python-format
+msgid ""
+"'%(value)s' value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] "
+"format."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:2148
+#, python-format
+msgid ""
+"'%(value)s' value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is an "
+"invalid time."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:2151
+msgid "Time"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:2279
+msgid "URL"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:2302
+msgid "Raw binary data"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/__init__.py:2349
+#, python-format
+msgid "'%(value)s' is not a valid UUID."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/files.py:225
+msgid "File"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/files.py:387
+msgid "Image"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/related.py:734
+#, python-format
+msgid "%(model)s instance with %(field)s %(value)r does not exist."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/related.py:736
+msgid "Foreign Key (type determined by related field)"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/related.py:974
+msgid "One-to-one relationship"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/related.py:1049
+#, python-format
+msgid "%(from)s-%(to)s relationship"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/related.py:1050
+#, python-format
+msgid "%(from)s-%(to)s relationships"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/db/models/fields/related.py:1092
+msgid "Many-to-many relationship"
+msgstr ""
+
+#. Translators: If found as last label character, these punctuation
+#. characters will prevent the default label_suffix to be appended to the label
+#: lib/python2.7/site-packages/django/forms/boundfield.py:156
+msgid ":?.!"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/forms/fields.py:56
+#: mafiasi/registration/forms.py:56
+msgid "This field is required."
+msgstr "This field is required."
+
+#: lib/python2.7/site-packages/django/forms/fields.py:250
+msgid "Enter a whole number."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/forms/fields.py:295
+#: lib/python2.7/site-packages/django/forms/fields.py:332
+msgid "Enter a number."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/forms/fields.py:410
+#: lib/python2.7/site-packages/django/forms/fields.py:1136
+msgid "Enter a valid date."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/forms/fields.py:434
+#: lib/python2.7/site-packages/django/forms/fields.py:1137
+msgid "Enter a valid time."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/forms/fields.py:456
+msgid "Enter a valid date/time."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/forms/fields.py:485
+msgid "Enter a valid duration."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/forms/fields.py:542
+msgid "No file was submitted. Check the encoding type on the form."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/forms/fields.py:543
+msgid "No file was submitted."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/forms/fields.py:544
+msgid "The submitted file is empty."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/forms/fields.py:546
+#, python-format
+msgid "Ensure this filename has at most %(max)d character (it has %(length)d)."
+msgid_plural ""
+"Ensure this filename has at most %(max)d characters (it has %(length)d)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/python2.7/site-packages/django/forms/fields.py:549
+msgid "Please either submit a file or check the clear checkbox, not both."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/forms/fields.py:611
+msgid ""
+"Upload a valid image. The file you uploaded was either not an image or a "
+"corrupted image."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/forms/fields.py:767
+#: lib/python2.7/site-packages/django/forms/fields.py:863
+#: lib/python2.7/site-packages/django/forms/models.py:1240
+#, python-format
+msgid "Select a valid choice. %(value)s is not one of the available choices."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/forms/fields.py:864
+#: lib/python2.7/site-packages/django/forms/fields.py:979
+#: lib/python2.7/site-packages/django/forms/models.py:1239
+msgid "Enter a list of values."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/forms/fields.py:980
+msgid "Enter a complete value."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/forms/fields.py:1195
+msgid "Enter a valid UUID."
+msgstr ""
+
+#. Translators: This is the default suffix added to form field labels
+#: lib/python2.7/site-packages/django/forms/forms.py:84
+msgid ":"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/forms/forms.py:199
+#, python-format
+msgid "(Hidden field %(name)s) %(error)s"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/forms/formsets.py:97
+msgid "ManagementForm data is missing or has been tampered with"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/forms/formsets.py:350
+#, python-format
+msgid "Please submit %d or fewer forms."
+msgid_plural "Please submit %d or fewer forms."
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/python2.7/site-packages/django/forms/formsets.py:357
+#, fuzzy, python-format
+#| msgid "Please provide us some more information."
+msgid "Please submit %d or more forms."
+msgid_plural "Please submit %d or more forms."
+msgstr[0] "Please provide us some more information."
+msgstr[1] "Please provide us some more information."
+
+#: lib/python2.7/site-packages/django/forms/formsets.py:385
+#: lib/python2.7/site-packages/django/forms/formsets.py:387
+msgid "Order"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/forms/formsets.py:389
+#: mafiasi/gprot/templates/gprot/_action_list.html:21
+#: mafiasi/gprot/templates/gprot/delete.html:40
+msgid "Delete"
+msgstr "Delete"
+
+#: lib/python2.7/site-packages/django/forms/models.py:729
+#, python-format
+msgid "Please correct the duplicate data for %(field)s."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/forms/models.py:733
+#, python-format
+msgid "Please correct the duplicate data for %(field)s, which must be unique."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/forms/models.py:739
+#, python-format
+msgid ""
+"Please correct the duplicate data for %(field_name)s which must be unique "
+"for the %(lookup)s in %(date_field)s."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/forms/models.py:748
+msgid "Please correct the duplicate values below."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/forms/models.py:1072
+msgid "The inline foreign key did not match the parent instance primary key."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/forms/models.py:1133
+msgid "Select a valid choice. That choice is not one of the available choices."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/forms/models.py:1242
+#, python-format
+msgid "\"%(pk)s\" is not a valid value for a primary key."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/forms/utils.py:172
+#, python-format
+msgid ""
+"%(datetime)s couldn't be interpreted in time zone %(current_timezone)s; it "
+"may be ambiguous or it may not exist."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/forms/widgets.py:364
+msgid "Currently"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/forms/widgets.py:365
+#, fuzzy
+#| msgid "Change keys"
+msgid "Change"
+msgstr "Change keys"
+
+#: lib/python2.7/site-packages/django/forms/widgets.py:366
+msgid "Clear"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/forms/widgets.py:584
+msgid "Unknown"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/forms/widgets.py:585
+msgid "Yes"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/forms/widgets.py:586
+#, fuzzy
+#| msgid "Nov"
+msgid "No"
+msgstr "Nov"
+
+#: lib/python2.7/site-packages/django/template/defaultfilters.py:848
+msgid "yes,no,maybe"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/template/defaultfilters.py:877
+#: lib/python2.7/site-packages/django/template/defaultfilters.py:894
+#, python-format
+msgid "%(size)d byte"
+msgid_plural "%(size)d bytes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/python2.7/site-packages/django/template/defaultfilters.py:896
+#, python-format
+msgid "%s KB"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/template/defaultfilters.py:898
+#, python-format
+msgid "%s MB"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/template/defaultfilters.py:900
+#, python-format
+msgid "%s GB"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/template/defaultfilters.py:902
+#, python-format
+msgid "%s TB"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/template/defaultfilters.py:904
+#, python-format
+msgid "%s PB"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/utils/dateformat.py:66
+msgid "p.m."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/utils/dateformat.py:67
+msgid "a.m."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/utils/dateformat.py:72
+msgid "PM"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/utils/dateformat.py:73
+msgid "AM"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/utils/dateformat.py:158
+msgid "midnight"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/utils/dateformat.py:160
+msgid "noon"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/utils/dates.py:6
+msgid "Monday"
+msgstr "Monday"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:6
+msgid "Tuesday"
+msgstr "Tuesday"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:6
+msgid "Wednesday"
+msgstr "Wednesday"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:6
+msgid "Thursday"
+msgstr "Thursday"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:6
+msgid "Friday"
+msgstr "Friday"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:7
+msgid "Saturday"
+msgstr "Saturday"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:7
+msgid "Sunday"
+msgstr "Sunday"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:10
+msgid "Mon"
+msgstr "Mon"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:10
+msgid "Tue"
+msgstr "Tue"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:10
+msgid "Wed"
+msgstr "Wed"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:10
+msgid "Thu"
+msgstr "Thu"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:10
+msgid "Fri"
+msgstr "Fri"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:11
+msgid "Sat"
+msgstr "Sat"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:11
+msgid "Sun"
+msgstr "Sun"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:18
+msgid "January"
+msgstr "January"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:18
+msgid "February"
+msgstr "February"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:18
+msgid "March"
+msgstr "March"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:18
+msgid "April"
+msgstr "April"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:18
+msgid "May"
+msgstr "May"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:18
+msgid "June"
+msgstr "June"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:19
+msgid "July"
+msgstr "July"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:19
+msgid "August"
+msgstr "August"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:19
+msgid "September"
+msgstr "September"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:19
+msgid "October"
+msgstr "October"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:19
+msgid "November"
+msgstr "November"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:20
+msgid "December"
+msgstr "December"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:23
+#, fuzzy
+#| msgid "Jan"
+msgid "jan"
+msgstr "Jan"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:23
+#, fuzzy
+#| msgid "Feb"
+msgid "feb"
+msgstr "Feb"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:23
+#, fuzzy
+#| msgid "Mar"
+msgid "mar"
+msgstr "Mar"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:23
+#, fuzzy
+#| msgid "Mar"
+msgid "apr"
+msgstr "Mar"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:23
+#, fuzzy
+#| msgid "May"
+msgid "may"
+msgstr "May"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:23
+#, fuzzy
+#| msgid "Jun"
+msgid "jun"
+msgstr "Jun"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:24
+#, fuzzy
+#| msgid "Jul"
+msgid "jul"
+msgstr "Jul"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:24
+#, fuzzy
+#| msgid "Aug"
+msgid "aug"
+msgstr "Aug"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:24
+#, fuzzy
+#| msgid "Sep"
+msgid "sep"
+msgstr "Sep"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:24
+#, fuzzy
+#| msgid "Oct"
+msgid "oct"
+msgstr "Oct"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:24
+#, fuzzy
+#| msgid "Nov"
+msgid "nov"
+msgstr "Nov"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:24
+#, fuzzy
+#| msgid "Dec"
+msgid "dec"
+msgstr "Dec"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:31
+msgctxt "abbrev. month"
+msgid "Jan."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/utils/dates.py:32
+msgctxt "abbrev. month"
+msgid "Feb."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/utils/dates.py:33
+#, fuzzy
+#| msgid "March"
+msgctxt "abbrev. month"
+msgid "March"
+msgstr "March"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:34
+#, fuzzy
+#| msgid "April"
+msgctxt "abbrev. month"
+msgid "April"
+msgstr "April"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:35
+#, fuzzy
+#| msgid "May"
+msgctxt "abbrev. month"
+msgid "May"
+msgstr "May"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:36
+#, fuzzy
+#| msgid "June"
+msgctxt "abbrev. month"
+msgid "June"
+msgstr "June"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:37
+#, fuzzy
+#| msgid "July"
+msgctxt "abbrev. month"
+msgid "July"
+msgstr "July"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:38
+msgctxt "abbrev. month"
+msgid "Aug."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/utils/dates.py:39
+msgctxt "abbrev. month"
+msgid "Sept."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/utils/dates.py:40
+msgctxt "abbrev. month"
+msgid "Oct."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/utils/dates.py:41
+msgctxt "abbrev. month"
+msgid "Nov."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/utils/dates.py:42
+msgctxt "abbrev. month"
+msgid "Dec."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/utils/dates.py:45
+#, fuzzy
+#| msgid "January"
+msgctxt "alt. month"
+msgid "January"
+msgstr "January"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:46
+#, fuzzy
+#| msgid "February"
+msgctxt "alt. month"
+msgid "February"
+msgstr "February"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:47
+#, fuzzy
+#| msgid "March"
+msgctxt "alt. month"
+msgid "March"
+msgstr "March"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:48
+#, fuzzy
+#| msgid "April"
+msgctxt "alt. month"
+msgid "April"
+msgstr "April"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:49
+#, fuzzy
+#| msgid "May"
+msgctxt "alt. month"
+msgid "May"
+msgstr "May"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:50
+#, fuzzy
+#| msgid "June"
+msgctxt "alt. month"
+msgid "June"
+msgstr "June"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:51
+#, fuzzy
+#| msgid "July"
+msgctxt "alt. month"
+msgid "July"
+msgstr "July"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:52
+#, fuzzy
+#| msgid "August"
+msgctxt "alt. month"
+msgid "August"
+msgstr "August"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:53
+#, fuzzy
+#| msgid "September"
+msgctxt "alt. month"
+msgid "September"
+msgstr "September"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:54
+#, fuzzy
+#| msgid "October"
+msgctxt "alt. month"
+msgid "October"
+msgstr "October"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:55
+#, fuzzy
+#| msgid "November"
+msgctxt "alt. month"
+msgid "November"
+msgstr "November"
+
+#: lib/python2.7/site-packages/django/utils/dates.py:56
+#, fuzzy
+#| msgid "December"
+msgctxt "alt. month"
+msgid "December"
+msgstr "December"
+
+#: lib/python2.7/site-packages/django/utils/ipv6.py:12
+msgid "This is not a valid IPv6 address."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/utils/text.py:78
+#, python-format
+msgctxt "String to return when truncating text"
+msgid "%(truncated_text)s..."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/utils/text.py:248
+msgid "or"
+msgstr ""
+
+#. Translators: This string is used as a separator between list elements
+#: lib/python2.7/site-packages/django/utils/text.py:267
+#: lib/python2.7/site-packages/django/utils/timesince.py:63
+msgid ", "
+msgstr ""
+
+#: lib/python2.7/site-packages/django/utils/timesince.py:11
+#, python-format
+msgid "%d year"
+msgid_plural "%d years"
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/python2.7/site-packages/django/utils/timesince.py:12
+#, fuzzy, python-format
+#| msgid "month"
+msgid "%d month"
+msgid_plural "%d months"
+msgstr[0] "month"
+msgstr[1] "month"
+
+#: lib/python2.7/site-packages/django/utils/timesince.py:13
+#, fuzzy, python-format
+#| msgid "week"
+msgid "%d week"
+msgid_plural "%d weeks"
+msgstr[0] "week"
+msgstr[1] "week"
+
+#: lib/python2.7/site-packages/django/utils/timesince.py:14
+#, python-format
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/python2.7/site-packages/django/utils/timesince.py:15
+#, python-format
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/python2.7/site-packages/django/utils/timesince.py:16
+#, python-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/python2.7/site-packages/django/utils/timesince.py:52
+msgid "0 minutes"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/views/csrf.py:109
+msgid "Forbidden"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/views/csrf.py:110
+#, fuzzy
+#| msgid "CSRF verification failed."
+msgid "CSRF verification failed. Request aborted."
+msgstr "CSRF verification failed."
+
+#: lib/python2.7/site-packages/django/views/csrf.py:114
+msgid ""
+"You are seeing this message because this HTTPS site requires a 'Referer "
+"header' to be sent by your Web browser, but none was sent. This header is "
+"required for security reasons, to ensure that your browser is not being "
+"hijacked by third parties."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/views/csrf.py:119
+msgid ""
+"If you have configured your browser to disable 'Referer' headers, please re-"
+"enable them, at least for this site, or for HTTPS connections, or for 'same-"
+"origin' requests."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/views/csrf.py:124
+msgid ""
+"You are seeing this message because this site requires a CSRF cookie when "
+"submitting forms. This cookie is required for security reasons, to ensure "
+"that your browser is not being hijacked by third parties."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/views/csrf.py:129
+msgid ""
+"If you have configured your browser to disable cookies, please re-enable "
+"them, at least for this site, or for 'same-origin' requests."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/views/csrf.py:134
+msgid "More information is available with DEBUG=True."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/views/debug.py:509
+msgid "Welcome to Django"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/views/debug.py:510
+msgid "It worked!"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/views/debug.py:511
+msgid "Congratulations on your first Django-powered page."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/views/debug.py:513
+msgid ""
+"Of course, you haven't actually done any work yet. Next, start your first "
+"app by running <code>python manage.py startapp [app_label]</code>."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/views/debug.py:517
+msgid ""
+"You're seeing this message because you have <code>DEBUG = True</code> in "
+"your Django settings file and you haven't configured any URLs. Get to work!"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/views/generic/dates.py:48
+msgid "No year specified"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/views/generic/dates.py:104
+msgid "No month specified"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/views/generic/dates.py:163
+msgid "No day specified"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/views/generic/dates.py:219
+msgid "No week specified"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/views/generic/dates.py:378
+#: lib/python2.7/site-packages/django/views/generic/dates.py:406
+#, python-format
+msgid "No %(verbose_name_plural)s available"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/views/generic/dates.py:660
+#, python-format
+msgid ""
+"Future %(verbose_name_plural)s not available because %(class_name)s."
+"allow_future is False."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/views/generic/dates.py:694
+#, python-format
+msgid "Invalid date string '%(datestr)s' given format '%(format)s'"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/views/generic/detail.py:55
+#, python-format
+msgid "No %(verbose_name)s found matching the query"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/views/generic/list.py:76
+msgid "Page is not 'last', nor can it be converted to an int."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/views/generic/list.py:81
+#, python-format
+msgid "Invalid page (%(page_number)s): %(message)s"
+msgstr ""
+
+#: lib/python2.7/site-packages/django/views/generic/list.py:171
+#, python-format
+msgid "Empty list and '%(class_name)s.allow_empty' is False."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/views/static.py:58
+msgid "Directory indexes are not allowed here."
+msgstr ""
+
+#: lib/python2.7/site-packages/django/views/static.py:60
+#, fuzzy, python-format
+#| msgid "Selected course does not exist"
+msgid "\"%(path)s\" does not exist"
+msgstr "Selected course does not exist"
+
+#: lib/python2.7/site-packages/django/views/static.py:100
+#, python-format
+msgid "Index of %(directory)s"
+msgstr ""
 
 #: lib/python2.7/site-packages/email_log/models.py:13
 #, fuzzy
@@ -69,53 +1255,45 @@ msgstr ""
 "again later. If the problem persists, see our <a href=\"%(problems_url)s"
 "\">problem reporting page</a>."
 
-#: mafiasi/base/templates/base.html:7 mafiasi/base/templates/base_raw.html:6
-msgid "Mafiasi"
-msgstr "Mafiasi"
-
-#: mafiasi/base/templates/base.html:21
-msgid "Mafiasi Hub"
-msgstr "Mafiasi Hub"
-
-#: mafiasi/base/templates/base.html:27
+#: mafiasi/base/templates/base.html:43
 #, fuzzy
 #| msgid "Group"
 msgid "Groups"
 msgstr "Group"
 
-#: mafiasi/base/templates/base.html:35
+#: mafiasi/base/templates/base.html:51
 #: mafiasi/mailinglist/templates/mailinglist/show_list.html:46
 msgid "Settings"
 msgstr "Settings"
 
-#: mafiasi/base/templates/base.html:37
+#: mafiasi/base/templates/base.html:53
 #, python-format
 msgid "Logged in as %(username)s"
 msgstr "Logged in as %(username)s"
 
-#: mafiasi/base/templates/base.html:38
+#: mafiasi/base/templates/base.html:54
 msgid "Logout"
 msgstr "Logout"
 
-#: mafiasi/base/templates/base.html:42
+#: mafiasi/base/templates/base.html:60
 msgid "Register"
 msgstr "Register"
 
-#: mafiasi/base/templates/base.html:43
+#: mafiasi/base/templates/base.html:62
 #: mafiasi/registration/templates/registration/login.html:5
-#: mafiasi/registration/templates/registration/login.html:42
+#: mafiasi/registration/templates/registration/login.html:47
 msgid "Login"
 msgstr "Login"
 
-#: mafiasi/base/templates/base.html:71
+#: mafiasi/base/templates/base.html:90
 msgid "Imprint"
 msgstr "Imprint"
 
-#: mafiasi/base/templates/base.html:73
+#: mafiasi/base/templates/base.html:92
 msgid "Technical info"
 msgstr "Technical info"
 
-#: mafiasi/base/templates/base.html:75
+#: mafiasi/base/templates/base.html:94
 #: mafiasi/base/templates/base/problems.html:4
 msgid "Problems?"
 msgstr "Problems?"
@@ -153,6 +1331,10 @@ msgstr "This site uses the following software/components:"
 msgid "Listed in no particular order."
 msgstr "Listed in no particular order."
 
+#: mafiasi/base/templates/base_raw.html:6
+msgid "Mafiasi"
+msgstr "Mafiasi"
+
 #: mafiasi/base/tokenbucket.py:29
 msgid "Limit for {} reached. Please wait until {}."
 msgstr "Limit for {} reached. Please wait until {}."
@@ -169,20 +1351,28 @@ msgstr "Dashboard"
 msgid "Services"
 msgstr "Services"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:20
+#: mafiasi/dashboard/templates/dashboard/index.html:21
 msgid "In the wiki you will find important information regarding your studies."
 msgstr ""
 "In the wiki you will find important information regarding your studies."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:32
+#: mafiasi/dashboard/templates/dashboard/index.html:34
 msgid "You can use the Etherpad to work together on a document in real time."
 msgstr "You can use the Etherpad to work together on a document in real time."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:44
+#: mafiasi/dashboard/templates/dashboard/index.html:47
 msgid "The Dudel helps you to find common dates for meetings easily."
 msgstr "The Dudel helps you to find common dates for meetings easily."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:56
+#: mafiasi/dashboard/templates/dashboard/index.html:60
+msgid "The Github like repository service"
+msgstr ""
+
+#: mafiasi/dashboard/templates/dashboard/index.html:73
+msgid "An online team chat service"
+msgstr ""
+
+#: mafiasi/dashboard/templates/dashboard/index.html:86
 msgid ""
 "Redmine is a project management software. You can create tasks and assign "
 "them to people."
@@ -190,7 +1380,7 @@ msgstr ""
 "Redmine is a project management software. You can create tasks and assign "
 "them to people."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:68
+#: mafiasi/dashboard/templates/dashboard/index.html:99
 msgid ""
 "Discourse is our forum for questions and discussions with your fellow "
 "students."
@@ -198,7 +1388,7 @@ msgstr ""
 "Discourse is our forum for questions and discussions with your fellow "
 "students."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:80
+#: mafiasi/dashboard/templates/dashboard/index.html:112
 msgid ""
 "Manage and share your calendars and address book, sync them to all your "
 "devices."
@@ -206,7 +1396,7 @@ msgstr ""
 "Manage and share your calendars and address book, sync them to all your "
 "devices."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:92
+#: mafiasi/dashboard/templates/dashboard/index.html:124
 msgid ""
 "Planet is a feed aggregator which collects blog entries from your fellow "
 "students."
@@ -214,25 +1404,25 @@ msgstr ""
 "Planet is a feed aggregator which collects blog entries from your fellow "
 "students."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:104
+#: mafiasi/dashboard/templates/dashboard/index.html:138
 msgid "OwnCloud enables you to sync and share your documents."
 msgstr ""
 
-#: mafiasi/dashboard/templates/dashboard/index.html:117
+#: mafiasi/dashboard/templates/dashboard/index.html:151
 msgid "The GProt contains memory minutes of oral and written exams."
 msgstr "The GProt contains memory minutes of oral and written exams."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:129
+#: mafiasi/dashboard/templates/dashboard/index.html:164
 msgid ""
 "You can find your fellow students' OpenPGP keys on our public keyserver."
 msgstr ""
 "You can find your fellow students' OpenPGP keys on our public keyserver."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:141
+#: mafiasi/dashboard/templates/dashboard/index.html:177
 msgid "You can use our mumble for voice chat with other fellow students."
 msgstr "You can use our mumble for voice chat with other fellow students."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:153
+#: mafiasi/dashboard/templates/dashboard/index.html:190
 msgid ""
 "On our Jabber server you can chat with your fellow students, which are "
 "already on your contact list."
@@ -240,21 +1430,21 @@ msgstr ""
 "On our Jabber server you can chat with your fellow students, which are "
 "already on your contact list."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:165
+#: mafiasi/dashboard/templates/dashboard/index.html:203
 msgid ""
 "FB18 is our deprecated bulletin board, which is kept here as an archive."
 msgstr ""
 "FB18 is our deprecated bulletin board, which is kept here as an archive."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:173
+#: mafiasi/dashboard/templates/dashboard/index.html:211
 msgid "News and more"
 msgstr "News and more"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:189
+#: mafiasi/dashboard/templates/dashboard/index.html:227
 msgid "Wiki search"
 msgstr "Wiki search"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:196
+#: mafiasi/dashboard/templates/dashboard/index.html:234
 #: mafiasi/gprot/templates/gprot/menu.html:4
 #: mafiasi/pks/templates/pks/menu.html:4
 #: mafiasi/pks/templates/pks/search.html:5
@@ -336,7 +1526,7 @@ msgstr "Protected group pads can only be created if you are logged in."
 msgid "Your group pads"
 msgstr "Your group pads"
 
-#: mafiasi/etherpad/templates/etherpad/index.html:31
+#: mafiasi/etherpad/templates/etherpad/index.html:36
 msgid "Last changed:"
 msgstr "Last changed:"
 
@@ -397,11 +1587,6 @@ msgstr "Edit"
 msgid "Publish"
 msgstr "Publish"
 
-#: mafiasi/gprot/templates/gprot/_action_list.html:21
-#: mafiasi/gprot/templates/gprot/delete.html:40
-msgid "Delete"
-msgstr "Delete"
-
 #: mafiasi/gprot/templates/gprot/_action_list.html:26
 #: mafiasi/gprot/templates/gprot/forget.html:40
 #: mafiasi/gprot/templates/gprot/view.html:33
@@ -414,7 +1599,7 @@ msgstr "Course:"
 
 #: mafiasi/gprot/templates/gprot/_basic_form.html:10
 #: mafiasi/gprot/templates/gprot/_basic_form.html:27
-#: mafiasi/groups/templates/groups/groups_base.html:44
+#: mafiasi/groups/templates/groups/groups_base.html:45
 msgid "New"
 msgstr "New"
 
@@ -987,7 +2172,7 @@ msgid "Group does already exist."
 msgstr "Group does already exist."
 
 #: mafiasi/groups/templates/groups/create.html:4
-#: mafiasi/groups/templates/groups/groups_base.html:42
+#: mafiasi/groups/templates/groups/groups_base.html:43
 #: mafiasi/groups/templates/groups/my_groups.html:30
 msgid "Create new group"
 msgstr "Create new group"
@@ -1005,61 +2190,66 @@ msgid "Group name"
 msgstr "Group name"
 
 #: mafiasi/groups/templates/groups/create.html:13
-msgid "Only letters, numbers and \"-\" are allowed. Must start with a letter."
+#, fuzzy
+#| msgid ""
+#| "Only letters, numbers and \"-\" are allowed. Must start with a letter."
+msgid ""
+"Only letters, numbers \".\" and \"-\" are allowed. Must start with a letter."
 msgstr "Only letters, numbers and \"-\" are allowed. Must start with a letter."
 
 #: mafiasi/groups/templates/groups/create.html:17
-#: mafiasi/jabber/templates/jabber/create.html:21
 msgid "Create"
 msgstr "Create"
 
-#: mafiasi/groups/templates/groups/groups_base.html:14
+#: mafiasi/groups/templates/groups/groups_base.html:15
 #: mafiasi/groups/templates/groups/invitations.html:5
 #: mafiasi/groups/templates/groups/show.html:67
 #: mafiasi/guests/templates/guests/index.html:5
 msgid "Invitations"
 msgstr "Invitations"
 
-#: mafiasi/groups/templates/groups/groups_base.html:26
+#: mafiasi/groups/templates/groups/groups_base.html:27
 #: mafiasi/guests/templates/guests/accept.html:5
 msgid "Accept invitation"
 msgstr "Accept invitation"
 
-#: mafiasi/groups/templates/groups/groups_base.html:29
+#: mafiasi/groups/templates/groups/groups_base.html:30
 #, fuzzy
 #| msgid "Open invitations"
 msgid "Decline invitation"
 msgstr "Open invitations"
 
-#: mafiasi/groups/templates/groups/groups_base.html:35
+#: mafiasi/groups/templates/groups/groups_base.html:36
 #: mafiasi/groups/templates/groups/show.html:76
 msgid "Invited by"
 msgstr "Invited by"
 
-#: mafiasi/groups/templates/groups/groups_base.html:41
+#: mafiasi/groups/templates/groups/groups_base.html:42
 #, fuzzy
 #| msgid "My groups"
 msgid "My Groups"
 msgstr "My groups"
 
-#: mafiasi/groups/templates/groups/groups_base.html:57
+#: mafiasi/groups/templates/groups/groups_base.html:58
 #, fuzzy
 #| msgid "\"%s\" is already a member of this group."
 msgid "You are not yet member of any group."
 msgstr "\"%s\" is already a member of this group."
 
-#: mafiasi/groups/templates/groups/groups_base.html:62
+#: mafiasi/groups/templates/groups/groups_base.html:63
 #, fuzzy
 #| msgid "Mafiasi Hub"
 msgid "Mafiasi Groups"
 msgstr "Mafiasi Hub"
 
-#: mafiasi/groups/templates/groups/groups_base.html:66
+#: mafiasi/groups/templates/groups/groups_base.html:68
+#, python-format
 msgid ""
 "\n"
 "      Accept an invitation or create a new group and invite\n"
-"      others to use Mafiasi features such as private\n"
-"      etherpads, Discourse categories and group mailinglists.\n"
+"      others to use %(project_name)s features such as private\n"
+"      etherpads, owncloud sharing, group calendars and group dudels. Please "
+"check for existing groups.\n"
 "      "
 msgstr ""
 
@@ -1184,23 +2374,23 @@ msgstr "Create group"
 msgid "Group \"{0}\" was created."
 msgstr "Group \"{0}\" was created."
 
-#: mafiasi/groups/views.py:106
+#: mafiasi/groups/views.py:107
 msgid "You left the group."
 msgstr "You left the group."
 
-#: mafiasi/groups/views.py:129
+#: mafiasi/groups/views.py:130
 msgid "User was removed from group"
 msgstr "User was removed from group"
 
-#: mafiasi/groups/views.py:134
+#: mafiasi/groups/views.py:135
 msgid "User was granted group admin."
 msgstr "User was granted group admin."
 
-#: mafiasi/groups/views.py:138
+#: mafiasi/groups/views.py:139
 msgid "Revoked group admin rights from user."
 msgstr "Revoked group admin rights from user."
 
-#: mafiasi/groups/views.py:159
+#: mafiasi/groups/views.py:160
 msgid "Invitation was sent."
 msgstr "Invitation was sent."
 
@@ -1208,38 +2398,41 @@ msgstr "Invitation was sent."
 msgid "Username must be alphanumeric and start with a letter."
 msgstr "Username must be alphanumeric and start with a letter."
 
-#: mafiasi/guests/forms.py:29
+#: mafiasi/guests/forms.py:30
 msgid "Username must be at least 3 characters long."
 msgstr "Username must be at least 3 characters long."
 
-#: mafiasi/guests/forms.py:38
+#: mafiasi/guests/forms.py:34
+msgid "This name is not available."
+msgstr ""
+
+#: mafiasi/guests/forms.py:44
 msgid "The guest can use this email address to register a normal user account."
 msgstr ""
 "The guest can use this email address to register a normal user account."
 
-#: mafiasi/guests/forms.py:43
+#: mafiasi/guests/forms.py:49
 msgid "There is already an account with that email."
 msgstr "There is already an account with that email."
 
-#: mafiasi/guests/forms.py:49
+#: mafiasi/guests/forms.py:55
 msgid "invitations"
 msgstr "invitations"
 
 #: mafiasi/guests/templates/guests/accept.html:11
 #: mafiasi/guests/templates/guests/index.html:13
 #: mafiasi/guests/templates/guests/index.html:47
-#: mafiasi/guests/templates/guests/invite.html:14
+#: mafiasi/guests/templates/guests/invite.html:15
 #: mafiasi/registration/templates/registration/create_account.html:13
 #: mafiasi/registration/templates/registration/login.html:20
 msgid "Username"
 msgstr "Username"
 
 #: mafiasi/guests/templates/guests/accept.html:16
-#: mafiasi/jabber/templates/jabber/create.html:12
 #: mafiasi/registration/forms.py:72 mafiasi/registration/forms.py:96
-#: mafiasi/registration/templates/registration/account.html:86
+#: mafiasi/registration/templates/registration/account.html:88
 #: mafiasi/registration/templates/registration/create_account.html:17
-#: mafiasi/registration/templates/registration/login.html:32
+#: mafiasi/registration/templates/registration/login.html:37
 msgid "Password"
 msgstr "Password"
 
@@ -1258,6 +2451,7 @@ msgid "Create account"
 msgstr "Create account"
 
 #: mafiasi/guests/templates/guests/has_account.html:4
+#: mafiasi/guests/templates/guests/username_exists.html:4
 msgid "Account already exists"
 msgstr "Account already exists"
 
@@ -1282,9 +2476,9 @@ msgid "Full name"
 msgstr "Full name"
 
 #: mafiasi/guests/templates/guests/index.html:15
-#: mafiasi/guests/templates/guests/invite.html:29
+#: mafiasi/guests/templates/guests/invite.html:35
 #: mafiasi/registration/forms.py:157
-#: mafiasi/registration/templates/registration/account.html:57
+#: mafiasi/registration/templates/registration/account.html:59
 msgid "Email"
 msgstr "Email"
 
@@ -1297,8 +2491,8 @@ msgid "You have no open invitations."
 msgstr "You have no open invitations."
 
 #: mafiasi/guests/templates/guests/index.html:40
-#: mafiasi/guests/templates/guests/invite.html:5
-#: mafiasi/guests/templates/guests/invite.html:47
+#: mafiasi/guests/templates/guests/invite.html:6
+#: mafiasi/guests/templates/guests/invite.html:53
 msgid "Invite guest"
 msgstr "Invite guest"
 
@@ -1318,28 +2512,22 @@ msgstr "Invitation withdrawn"
 msgid "This invitation has been withdrawn or is no longer valid."
 msgstr "This invitation has been withdrawn or is no longer valid."
 
-#: mafiasi/guests/templates/guests/invite.html:20
-msgid ""
-"Must start with a letter and only contain alphanumeric characters. Lowercase "
-"only."
-msgstr ""
-"Must start with a letter and only contain alphanumeric characters. Lowercase "
-"only."
-
-#: mafiasi/guests/templates/guests/invite.html:40
+#: mafiasi/guests/templates/guests/invite.html:46
 #: mafiasi/registration/templates/registration/require_info.html:32
 #: mafiasi/registration/templates/registration/require_info_other.html:21
 msgid "First name"
 msgstr "First name"
 
-#: mafiasi/guests/templates/guests/invite.html:44
+#: mafiasi/guests/templates/guests/invite.html:50
 #: mafiasi/registration/templates/registration/require_info.html:41
 #: mafiasi/registration/templates/registration/require_info_other.html:25
 msgid "Last name"
 msgstr "Last name"
 
 #: mafiasi/guests/templates/guests/invited_by.html:4
-msgid "Hello guest"
+#, fuzzy
+#| msgid "Hello guest"
+msgid "Hello "
 msgstr "Hello guest"
 
 #: mafiasi/guests/templates/guests/invited_by.html:7
@@ -1352,35 +2540,35 @@ msgstr "You were invited by %(full_name)s (%(username)s)."
 msgid "How about visiting <a href=\"%(dashboard_url)s\">the dashboard</a>?"
 msgstr "How about visiting <a href=\"%(dashboard_url)s\">the dashboard</a>?"
 
-#: mafiasi/guests/views.py:44
+#: mafiasi/guests/templates/guests/username_exists.html:8
+#, python-format
+msgid ""
+"Sorry, an account with username %(username)s already exists. If this is not "
+"your account, please request another invitation with a different username.</"
+"a>"
+msgstr ""
+
+#: mafiasi/guests/views.py:48
 msgid "{} was successfully invited."
 msgstr "{} was successfully invited."
 
-#: mafiasi/guests/views.py:62
+#: mafiasi/guests/views.py:67
 msgid "Invitation was withdrawn."
 msgstr "Invitation was withdrawn."
 
-#: mafiasi/guests/views.py:64
+#: mafiasi/guests/views.py:69
 msgid "invitation mails"
 msgstr "invitation mails"
 
-#: mafiasi/guests/views.py:71
+#: mafiasi/guests/views.py:76
 msgid "Invitation mail was resent."
 msgstr "Invitation mail was resent."
-
-#: mafiasi/jabber/templates/jabber/create.html:5
-msgid "Create Jabber account"
-msgstr "Create Jabber account"
-
-#: mafiasi/jabber/templates/jabber/create.html:8
-msgid "To create your Jabber account you have to enter your current password:"
-msgstr "To create your Jabber account you have to enter your current password:"
 
 #: mafiasi/jabber/templates/jabber/index.html:5
 msgid "Jabber"
 msgstr "Jabber"
 
-#: mafiasi/jabber/templates/jabber/index.html:11
+#: mafiasi/jabber/templates/jabber/index.html:10
 #, python-format
 msgid ""
 "Your Jabber ID is <strong>%(username)s</strong>@%(jabber_domain)s. Note: "
@@ -1389,26 +2577,12 @@ msgstr ""
 "Your Jabber ID is <strong>%(username)s</strong>@%(jabber_domain)s. Note: "
 "it's different from your username."
 
-#: mafiasi/jabber/templates/jabber/index.html:13
+#: mafiasi/jabber/templates/jabber/index.html:12
 #, python-format
 msgid "Your Jabber ID is <strong>%(username)s@%(jabber_domain)s</strong>."
 msgstr "Your Jabber ID is <strong>%(username)s@%(jabber_domain)s</strong>."
 
-#: mafiasi/jabber/templates/jabber/index.html:22
-#, python-format
-msgid "You can now <a href=\"%(create_url)s\">create your Jabber account</a>."
-msgstr "You can now <a href=\"%(create_url)s\">create your Jabber account</a>."
-
-#: mafiasi/jabber/templates/jabber/index.html:29
-#, python-format
-msgid ""
-"You have to <a href=\"%(login_url)s?next=%(jabber_index_url)s\">login</a> to "
-"create or manage your Jabber account."
-msgstr ""
-"You have to <a href=\"%(login_url)s?next=%(jabber_index_url)s\">login</a> to "
-"create or manage your Jabber account."
-
-#: mafiasi/jabber/templates/jabber/index.html:34
+#: mafiasi/jabber/templates/jabber/index.html:17
 #, python-format
 msgid ""
 "<p>If you want to change your Jabber password, just change it in your <a "
@@ -1417,16 +2591,16 @@ msgstr ""
 "<p>If you want to change your Jabber password, just change it in your <a "
 "href=\"%(account_url)s\">account settings</a>.</p>"
 
-#: mafiasi/jabber/templates/jabber/index.html:36
+#: mafiasi/jabber/templates/jabber/index.html:19
 #: mafiasi/mumble/templates/mumble/index.html:22
 msgid "The fingerprint of the current SSL certificate is:"
 msgstr "The fingerprint of the current SSL certificate is:"
 
-#: mafiasi/jabber/templates/jabber/index.html:39
+#: mafiasi/jabber/templates/jabber/index.html:22
 msgid "Configure your Jabber Client"
 msgstr "Configure your Jabber Client"
 
-#: mafiasi/jabber/templates/jabber/index.html:40
+#: mafiasi/jabber/templates/jabber/index.html:23
 msgid ""
 "\n"
 "In order to use jabber, you need to install a jabber client and configure "
@@ -1447,18 +2621,6 @@ msgstr ""
 "Jabber (also called XMPP there). Below you can see the required "
 "configuration\n"
 "for Piding.\n"
-
-#: mafiasi/jabber/views.py:36
-msgid "Account was created."
-msgstr "Account was created."
-
-#: mafiasi/jabber/views.py:38
-msgid "Account already exists."
-msgstr "Account already exists."
-
-#: mafiasi/jabber/views.py:40
-msgid "Sorry, we had an internal error."
-msgstr "Sorry, we had an internal error."
 
 #: mafiasi/mailinglist/forms.py:20
 msgid "This email is already on the whitelist"
@@ -1929,10 +3091,6 @@ msgstr "Invalid account name"
 msgid "Invalid domain"
 msgstr "Invalid domain"
 
-#: mafiasi/registration/forms.py:56
-msgid "This field is required."
-msgstr "This field is required."
-
 #: mafiasi/registration/forms.py:59
 msgid "Invalid yeargroup selected"
 msgstr "Invalid yeargroup selected"
@@ -1959,25 +3117,28 @@ msgstr ""
 msgid "Cloak adresses cannot be used for this purpose."
 msgstr ""
 
-#: mafiasi/registration/templates/registration/account.html:5
-#: mafiasi/registration/templates/registration/account.html:10
+#: mafiasi/registration/templates/registration/account.html:6
+#: mafiasi/registration/templates/registration/account.html:11
 msgid "Account"
 msgstr "Account"
 
-#: mafiasi/registration/templates/registration/account.html:16
-#, python-format
+#: mafiasi/registration/templates/registration/account.html:18
+#, fuzzy, python-format
+#| msgid ""
+#| "You want to use mafiasi.de with your friends? You can <a href="
+#| "\"%(guests_url)s\">invite guests</a>."
 msgid ""
-"You want to use mafiasi.de with your friends? You can <a href="
+"You want to use %(project_name)s with your friends? You can <a href="
 "\"%(guests_url)s\">invite guests</a>."
 msgstr ""
 "You want to use mafiasi.de with your friends? You can <a href="
 "\"%(guests_url)s\">invite guests</a>."
 
-#: mafiasi/registration/templates/registration/account.html:25
+#: mafiasi/registration/templates/registration/account.html:27
 msgid "Nickname"
 msgstr "Nickname"
 
-#: mafiasi/registration/templates/registration/account.html:29
+#: mafiasi/registration/templates/registration/account.html:31
 msgid ""
 "If you choose a nickname, it will be shown instead of your first name (e.g. "
 "when you vote in Dudle)"
@@ -1985,25 +3146,25 @@ msgstr ""
 "If you choose a nickname, it will be shown instead of your first name (e.g. "
 "when you vote in Dudle)"
 
-#: mafiasi/registration/templates/registration/account.html:46
+#: mafiasi/registration/templates/registration/account.html:48
 #, fuzzy
 #| msgid "Change nickname"
 msgid "Change Nickname"
 msgstr "Change nickname"
 
-#: mafiasi/registration/templates/registration/account.html:64
+#: mafiasi/registration/templates/registration/account.html:66
 #, fuzzy
 #| msgid "Email address:"
 msgid "New Email Address"
 msgstr "Email address:"
 
-#: mafiasi/registration/templates/registration/account.html:75
+#: mafiasi/registration/templates/registration/account.html:77
 #, fuzzy
 #| msgid "Change"
 msgid "Change Email"
 msgstr "Change"
 
-#: mafiasi/registration/templates/registration/account.html:90
+#: mafiasi/registration/templates/registration/account.html:92
 msgid ""
 "Note: You can \"change\" your password to the current password to "
 "synchronize it with other services (e.g. Jabber)"
@@ -2011,40 +3172,21 @@ msgstr ""
 "Note: You can \"change\" your password to the current password to "
 "synchronize it with other services (e.g. Jabber)"
 
-#: mafiasi/registration/templates/registration/account.html:94
+#: mafiasi/registration/templates/registration/account.html:96
 msgid "Old password"
 msgstr "Old password"
 
-#: mafiasi/registration/templates/registration/account.html:103
+#: mafiasi/registration/templates/registration/account.html:105
 msgid "New password"
 msgstr "New password"
 
-#: mafiasi/registration/templates/registration/account.html:112
+#: mafiasi/registration/templates/registration/account.html:114
 msgid "New password confirmation"
 msgstr "New password confirmation"
 
-#: mafiasi/registration/templates/registration/account.html:123
+#: mafiasi/registration/templates/registration/account.html:125
 msgid "Change password"
 msgstr "Change password"
-
-#: mafiasi/registration/templates/registration/create_email.html:2
-#, python-format
-msgid ""
-"Hi there!\n"
-"\n"
-"Here is your account creation link:\n"
-"%(activation_link)s\n"
-"\n"
-"\n"
-"Your Server-AG"
-msgstr ""
-"Hi there!\n"
-"\n"
-"Here is your account creation link:\n"
-"%(activation_link)s\n"
-"\n"
-"\n"
-"Your Server-AG"
 
 #: mafiasi/registration/templates/registration/email_error.html:5
 msgid "Email address is invalid"
@@ -2054,33 +3196,22 @@ msgstr "Email address is invalid"
 msgid "The mailserver said:"
 msgstr "The mailserver said:"
 
-#: mafiasi/registration/templates/registration/email_verify.txt:2
+#: mafiasi/registration/templates/registration/email_verify.txt:6
 #, python-format
 msgid ""
 "Hi,\n"
 "\n"
 "you requested to associate the email address\n"
 "  %(email)s\n"
-"with the Mafiasi.de account %(username)s.\n"
+"with the %(project_name)s account %(username)s.\n"
 "\n"
 "If this is correct, please verify the address by following this link:\n"
 "  %(link)s\n"
 "The link will be valid for 24 hours.\n"
 "\n"
-"Best regards,\n"
-"\n"
-"Your Server-AG"
 msgstr ""
 
-#: mafiasi/registration/templates/registration/login.html:24
-msgid ""
-"Note: For our account names we use two digits for year (e.g. <strong>13doe</"
-"strong> instead of 3doe)"
-msgstr ""
-"Note: For our account names we use two digits for year (e.g. <strong>13doe</"
-"strong> instead of 3doe)"
-
-#: mafiasi/registration/templates/registration/login.html:45
+#: mafiasi/registration/templates/registration/login.html:50
 msgid "Did you forget your password?"
 msgstr "Did you forget your password?"
 
@@ -2146,7 +3277,7 @@ msgstr ""
 "We've emailed you instructions for setting your password to the email "
 "address you submitted. You should be receiving it shortly."
 
-#: mafiasi/registration/templates/registration/password_reset_email.html:2
+#: mafiasi/registration/templates/registration/password_reset_email.html:5
 #, python-format
 msgid ""
 "You're receiving this email because you requested a password reset for your "
@@ -2155,22 +3286,17 @@ msgstr ""
 "You're receiving this email because you requested a password reset for your "
 "user account at %(site_name)s."
 
-#: mafiasi/registration/templates/registration/password_reset_email.html:4
+#: mafiasi/registration/templates/registration/password_reset_email.html:7
 msgid "Please go to the following page and choose a new password:"
 msgstr "Please go to the following page and choose a new password:"
 
-#: mafiasi/registration/templates/registration/password_reset_email.html:8
+#: mafiasi/registration/templates/registration/password_reset_email.html:11
 msgid "Your username, in case you've forgotten:"
 msgstr "Your username, in case you've forgotten:"
 
-#: mafiasi/registration/templates/registration/password_reset_email.html:10
+#: mafiasi/registration/templates/registration/password_reset_email.html:13
 msgid "Thanks for using our site!"
 msgstr "Thanks for using our site!"
-
-#: mafiasi/registration/templates/registration/password_reset_email.html:12
-#, python-format
-msgid "The %(site_name)s team"
-msgstr "The %(site_name)s team"
 
 #: mafiasi/registration/templates/registration/password_reset_form.html:10
 msgid ""
@@ -2260,29 +3386,32 @@ msgstr "Invalid token"
 msgid "Sorry, but the provided token is invalid."
 msgstr "Sorry, but the provided token is invalid."
 
-#: mafiasi/registration/views.py:186
+#: mafiasi/registration/views.py:192
 msgid "Password was changed."
 msgstr "Password was changed."
 
-#: mafiasi/registration/views.py:192
+#: mafiasi/registration/views.py:198
 msgid "Your nickname is now {}."
 msgstr ""
 
-#: mafiasi/registration/views.py:226
+#: mafiasi/registration/views.py:234
 #, fuzzy
 #| msgid "Email address is invalid"
 msgid "Your email address has been changed."
 msgstr "Email address is invalid"
 
-#: mafiasi/registration/views.py:241
-msgid "Verify this address for mafiasi.de"
+#: mafiasi/registration/views.py:249
+#, python-format
+msgid "Verify this address for %s"
 msgstr ""
 
-#: mafiasi/registration/views.py:252
-msgid "Account creation at mafiasi.de"
+#: mafiasi/registration/views.py:260
+#, fuzzy, python-format
+#| msgid "Account creation at mafiasi.de"
+msgid "Account creation at %s"
 msgstr "Account creation at mafiasi.de"
 
-#: mafiasi/registration/views.py:268
+#: mafiasi/registration/views.py:276
 msgid "Registration: Sending mail failed: {}"
 msgstr ""
 
@@ -2296,11 +3425,78 @@ msgstr "winter term {0}"
 msgid "summer term {0}"
 msgstr "summer term {0}"
 
+#, fuzzy
+#~| msgid ""
+#~| "You have to <a href=\"%(login_url)s?next=%(jabber_index_url)s\">login</"
+#~| "a> to create or manage your Jabber account."
+#~ msgid ""
+#~ "You have to <a href=\"%(login_url)s?next=%(jabber_index_url)s\">login</a> "
+#~ "to see your Jabber account data."
+#~ msgstr ""
+#~ "You have to <a href=\"%(login_url)s?next=%(jabber_index_url)s\">login</a> "
+#~ "to create or manage your Jabber account."
+
+#~ msgid "Mafiasi Hub"
+#~ msgstr "Mafiasi Hub"
+
+#~ msgid ""
+#~ "Must start with a letter and only contain alphanumeric characters. "
+#~ "Lowercase only."
+#~ msgstr ""
+#~ "Must start with a letter and only contain alphanumeric characters. "
+#~ "Lowercase only."
+
+#~ msgid "Create Jabber account"
+#~ msgstr "Create Jabber account"
+
+#~ msgid ""
+#~ "To create your Jabber account you have to enter your current password:"
+#~ msgstr ""
+#~ "To create your Jabber account you have to enter your current password:"
+
+#~ msgid ""
+#~ "You can now <a href=\"%(create_url)s\">create your Jabber account</a>."
+#~ msgstr ""
+#~ "You can now <a href=\"%(create_url)s\">create your Jabber account</a>."
+
+#~ msgid "Account was created."
+#~ msgstr "Account was created."
+
+#~ msgid "Account already exists."
+#~ msgstr "Account already exists."
+
+#~ msgid "Sorry, we had an internal error."
+#~ msgstr "Sorry, we had an internal error."
+
+#~ msgid ""
+#~ "Hi there!\n"
+#~ "\n"
+#~ "Here is your account creation link:\n"
+#~ "%(activation_link)s\n"
+#~ "\n"
+#~ "\n"
+#~ "Your Server-AG"
+#~ msgstr ""
+#~ "Hi there!\n"
+#~ "\n"
+#~ "Here is your account creation link:\n"
+#~ "%(activation_link)s\n"
+#~ "\n"
+#~ "\n"
+#~ "Your Server-AG"
+
+#~ msgid ""
+#~ "Note: For our account names we use two digits for year (e.g. "
+#~ "<strong>13doe</strong> instead of 3doe)"
+#~ msgstr ""
+#~ "Note: For our account names we use two digits for year (e.g. "
+#~ "<strong>13doe</strong> instead of 3doe)"
+
+#~ msgid "The %(site_name)s team"
+#~ msgstr "The %(site_name)s team"
+
 #~ msgid "My account"
 #~ msgstr "My account"
-
-#~ msgid "My Invitations"
-#~ msgstr "My Invitations"
 
 #~ msgid "Group: %(group_name)s"
 #~ msgstr "Group: %(group_name)s"
@@ -2333,122 +3529,8 @@ msgstr "summer term {0}"
 #~ "The web interface is read-only. Use CalDAV with your favorite calendar "
 #~ "software to add events."
 
-#~ msgid "January"
-#~ msgstr "January"
-
-#~ msgid "February"
-#~ msgstr "February"
-
-#~ msgid "March"
-#~ msgstr "March"
-
-#~ msgid "April"
-#~ msgstr "April"
-
-#~ msgid "May"
-#~ msgstr "May"
-
-#~ msgid "June"
-#~ msgstr "June"
-
-#~ msgid "July"
-#~ msgstr "July"
-
-#~ msgid "August"
-#~ msgstr "August"
-
-#~ msgid "September"
-#~ msgstr "September"
-
-#~ msgid "October"
-#~ msgstr "October"
-
-#~ msgid "November"
-#~ msgstr "November"
-
-#~ msgid "December"
-#~ msgstr "December"
-
-#~ msgid "Jan"
-#~ msgstr "Jan"
-
-#~ msgid "Feb"
-#~ msgstr "Feb"
-
-#~ msgid "Mar"
-#~ msgstr "Mar"
-
 #~ msgid "Apr"
 #~ msgstr "Apr"
-
-#~ msgid "Jun"
-#~ msgstr "Jun"
-
-#~ msgid "Jul"
-#~ msgstr "Jul"
-
-#~ msgid "Aug"
-#~ msgstr "Aug"
-
-#~ msgid "Sep"
-#~ msgstr "Sep"
-
-#~ msgid "Oct"
-#~ msgstr "Oct"
-
-#~ msgid "Nov"
-#~ msgstr "Nov"
-
-#~ msgid "Dec"
-#~ msgstr "Dec"
-
-#~ msgid "Sunday"
-#~ msgstr "Sunday"
-
-#~ msgid "Monday"
-#~ msgstr "Monday"
-
-#~ msgid "Tuesday"
-#~ msgstr "Tuesday"
-
-#~ msgid "Wednesday"
-#~ msgstr "Wednesday"
-
-#~ msgid "Thursday"
-#~ msgstr "Thursday"
-
-#~ msgid "Friday"
-#~ msgstr "Friday"
-
-#~ msgid "Saturday"
-#~ msgstr "Saturday"
-
-#~ msgid "Sun"
-#~ msgstr "Sun"
-
-#~ msgid "Mon"
-#~ msgstr "Mon"
-
-#~ msgid "Tue"
-#~ msgstr "Tue"
-
-#~ msgid "Wed"
-#~ msgstr "Wed"
-
-#~ msgid "Thu"
-#~ msgstr "Thu"
-
-#~ msgid "Fri"
-#~ msgstr "Fri"
-
-#~ msgid "Sat"
-#~ msgstr "Sat"
-
-#~ msgid "month"
-#~ msgstr "month"
-
-#~ msgid "week"
-#~ msgstr "week"
 
 #~ msgid "day"
 #~ msgstr "day"
@@ -2471,9 +3553,6 @@ msgstr "summer term {0}"
 
 #~ msgid "No such user."
 #~ msgstr "No such user."
-
-#~ msgid "CSRF verification failed."
-#~ msgstr "CSRF verification failed."
 
 #~ msgid ""
 #~ "\n"

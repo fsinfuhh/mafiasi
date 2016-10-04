@@ -94,12 +94,12 @@ class SrGroup(models.Model):
     def __unicode__(self):
         return self.name
 
-class SrUser(models.Model):
+class SrInactiveUser(models.Model):
     jid = models.TextField()
     grp = models.TextField()
     created_at = models.DateTimeField()
     class Meta:
-        db_table = 'sr_user'
+        db_table = 'sr_inactive_user'
         unique_together = ('jid', 'grp')
 
     def __unicode__(self):
@@ -107,7 +107,7 @@ class SrUser(models.Model):
 
 class JabberUser(models.Model):
     username = models.TextField(primary_key=True)
-    password = models.TextField()
+    password = models.TextField(default='NO_PASSWORDS_IN_DB_ZYYJN53N3M5QMHNQKLOAQD7E')
     created_at = models.DateTimeField()
     class Meta:
         db_table = 'users'
@@ -194,22 +194,14 @@ class DefaultGroup(models.Model):
     def __unicode__(self):
         return u'{0}: {1}'.format(self.get_group_type_display(), self.sr_group)
 
-def get_account(user):
-    if user.is_authenticated():
-        try:
-            mapping = JabberUserMapping.objects.get(mafiasi_user_id=user.pk)
-            return mapping.jabber_user
-        except JabberUserMapping.DoesNotExist:
-            return None
-    return None
-
-def create_account(mafiasi, password):
+def get_or_create_account(user):
     try:
-        m = JabberUserMapping.objects.get(mafiasi_user_id=mafiasi.pk)
-        return 'exists', m.jabber_user
+        mapping = JabberUserMapping.objects.get(mafiasi_user_id=user.pk)
+        return mapping.jabber_user
     except JabberUserMapping.DoesNotExist:
-        pass
+        return create_jabber_account(user)
 
+def create_jabber_account(mafiasi):
     if mafiasi.is_student:
         group_type = 'student'
     else:
@@ -226,17 +218,7 @@ def create_account(mafiasi, password):
         except YeargroupSrGroupMapping.DoesNotExist:
             pass
     
-    try:
-        # If the user already exists, do some basic cleanup
-        # This is only the case when the database is inconsistent
-        user = JabberUser.objects.get(username=mafiasi.username)
-        JabberUserMapping.objects.filter(jabber_user=user).delete()
-        user.delete()
-    except JabberUser.DoesNotExist:
-        pass
-    
     user = JabberUser.objects.create(username=mafiasi.username,
-                                     password=password,
                                      created_at=now())
     
     if mafiasi.first_name:
@@ -248,18 +230,7 @@ def create_account(mafiasi, password):
     JabberUserMapping.objects.create(mafiasi_user_id=mafiasi.pk, jabber_user=user)
     
     jid = user.get_jid()
-    # Delete old shared roster group associations if the user had an account
-    SrUser.objects.filter(jid=jid).delete()
     for sr_group in sr_groups:
-        SrUser.objects.create(jid=jid, grp=sr_group.name, created_at=now())
-    
-    return 'created', user
+        SrInactiveUser.objects.create(jid=jid, grp=sr_group.name, created_at=now())
 
-def _change_password_cb(sender, instance, created, **kwargs):
-    if created:
-        return
-    account = get_account(instance)
-    if account and instance.new_password:
-        account.password = instance.new_password
-        account.save()
-post_save.connect(_change_password_cb, sender=Mafiasi)
+    return user

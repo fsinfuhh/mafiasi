@@ -1,8 +1,7 @@
 from django.conf.urls import url
 
-from .views import index, create
+from .views import index
 
 urlpatterns = [
     url(r'^$', index, name='jabber_index'),
-    url(r'^create$', create, name='jabber_create'),
 ]

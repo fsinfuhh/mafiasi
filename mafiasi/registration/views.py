@@ -23,6 +23,8 @@ from mafiasi.registration.models import create_mafiasi_account
 from mafiasi.registration.forms import (RegisterForm, AdditionalInfoForm,
                                         PasswordForm, NickChangeForm,
                                         EmailChangeForm)
+if "mafiasi.jabber" in settings.INSTALLED_APPS:
+    from mafiasi.jabber.models import create_jabber_account
 
 TOKEN_MAX_AGE = 3600 * 24
 
@@ -162,6 +164,10 @@ def create_account(request, info_token):
             mafiasi.set_password(form.cleaned_data['password1'])
             mafiasi.save()
             mafiasi.backend='django.contrib.auth.backends.ModelBackend'
+
+            if "mafiasi.jabber" in settings.INSTALLED_APPS:
+                create_jabber_account(mafiasi)
+
             login(request, mafiasi)
             return redirect('dashboard_index')
     else:
