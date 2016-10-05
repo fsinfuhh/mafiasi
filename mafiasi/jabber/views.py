@@ -13,9 +13,12 @@ def index(request):
     jabber_user = get_or_create_account(request.user)
     user_display_name = request.user.get_ldapuser().display_name
 
+    with open(settings.JABBER_CERT_FINGERPRINT_FILE) as file:
+        cert_fingerprint = file.read()
+
     return TemplateResponse(request, 'jabber/index.html', {
         'jabber_user': jabber_user,
         'user_display_name': user_display_name,
         'jabber_domain': settings.JABBER_DOMAIN,
-        'cert_fingerprint': settings.JABBER_CERT_FINGERPRINT
+        'cert_fingerprint': cert_fingerprint
     })

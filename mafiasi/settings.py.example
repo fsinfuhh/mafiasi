@@ -190,7 +190,7 @@ REGISTER_DOMAIN_MAPPING = {
     u'physnet.uni-hamburg.de': 'physnet',
 }
 JABBER_DOMAIN = u'jabber.mafiasi.de'
-JABBER_CERT_FINGERPRINT = u'04:A9:9C:D7:D8:CB:27:01:F7:29:D4:57:53:A2:B8:AA:6C:71:36:BB'
+JABBER_CERT_FINGERPRINT_FILE = u'/opt/mafiasi/jabber_cert_fingerprint'
 MUMBLE_SERVER = {
     'address': u'mumble.mafiasi.de',
     'port': 64738,
