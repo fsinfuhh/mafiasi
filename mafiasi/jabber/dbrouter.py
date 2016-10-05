@@ -15,10 +15,10 @@ class JabberRouter(object):
            return obj1._meta.app_label == obj2._meta.app_label
         return None
     
-    def allow_migrate(self, db, model):
+    def allow_migrate(self, db, app_label, model_name=None, **hints):
         if db == 'jabber':
-            return model._meta.app_label == 'jabber'
+            return app_label == 'jabber'
         else:
-            if model._meta.app_label == 'jabber':
+            if app_label == 'jabber':
                 return False
         return None
