@@ -4,6 +4,8 @@
 	height: 220px;
 	background: url(../img/gajim-en.png);
 	font-size: 12px;
+
+  margin: 1em;
 }
 
 #gajim-jabber-config-username {
@@ -12,12 +14,20 @@
 	left: 105px;
 }
 
+#gajim-jabber-config-server {
+	position: absolute;
+	top: 60px;
+	left: 315px;
+}
+
 #pidgin-jabber-config-img {
 	position: relative;
 	width: 397px;
 	height: 509px;
 	background: url(../img/pidgin-en.png);
 	font-size: 12px;
+
+  margin: 1em;
 }
 
 #pidgin-jabber-config-username {
@@ -44,6 +54,8 @@
 	height: 445px;
 	background: url(../img/conversations-en.png);
 	font-size: 12px;
+
+  margin: 1em;
 }
 
 #conversations-jabber-config-username {
