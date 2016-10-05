@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load static %}
 
 {% block content %}
 {% include "pks/menu.html" with tab="search" %}
@@ -12,5 +13,5 @@
 {% endblock %}
 
 {% block css %}
-<link rel="stylesheet" href="{{ STATIC_URL }}css/pks.min.css">
+<link rel="stylesheet" href="{% static 'css/pks.min.css' %}">
 {% endblock %}

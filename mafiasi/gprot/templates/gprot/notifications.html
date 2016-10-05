@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load static %}
 
 {% block wtitle %}{% block ptitle %}{% trans "Notifications" %}{% endblock %}{% endblock %}
 
@@ -49,12 +50,12 @@
 {% endblock %}
 
 {% block css %}
-<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/gprot.css" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/gprot.css' %}" />
 {% endblock %}
 
 {% block js %}
-<script type="text/javascript" src="{{ STATIC_URL }}js/autocomplete.js"></script>
-<script type="text/javascript" src="{{ STATIC_URL }}js/gprot.js"></script>
+<script type="text/javascript" src="{% static 'js/autocomplete.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/gprot.js' %}"></script>
 <script type="text/javascript">
 $(function() {
     GProt.initCreate({{ autocomplete_course_json|safe }},null,null,null);

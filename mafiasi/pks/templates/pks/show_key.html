@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load static %}
 {% load pks %}
 {% load emailprotect %}
 
@@ -53,5 +54,5 @@
 {% endblock content %}
 
 {% block css %}
-<link rel="stylesheet" href="{{ STATIC_URL }}css/pks.css">
+<link rel="stylesheet" href="{% static 'css/pks.css' %}">
 {% endblock %}

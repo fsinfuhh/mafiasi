@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load static %}
 {% load gprot_extras %}
 
 {% block wtitle %}{% block ptitle %}{% trans "List own memory minutes" %}{% endblock %}{% endblock %}
@@ -43,5 +44,5 @@
 {% endblock %}
 
 {% block css %}
-<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/gprot.css" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/gprot.css' %}" />
 {% endblock %}

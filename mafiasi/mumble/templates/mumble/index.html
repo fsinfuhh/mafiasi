@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load static %}
 
 {% block wtitle %}{% block ptitle %}{% trans "Mumble" %}{% endblock %}{% endblock %}
 
@@ -24,5 +25,5 @@
 {% endblock %}
 
 {% block css %}
-<link rel="stylesheet" href="{{ STATIC_URL }}css/mumble.min.css">
+<link rel="stylesheet" href="{% static 'css/mumble.min.css' %}">
 {% endblock css %}

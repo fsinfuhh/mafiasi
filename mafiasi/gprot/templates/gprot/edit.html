@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load static %}
 {% load gprot_extras %}
 
 {% block wtitle %}{% blocktrans with course_name=gprot.course.get_full_name %}Memory minutes: {{ course_name }}{% endblocktrans %}{% endblock %}
@@ -93,7 +94,7 @@
 
 {% if not gprot.is_pdf %}
 {% block js %}
-<script type="text/javascript" src="{{ STATIC_URL }}js/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="{% static 'js/ckeditor/ckeditor.js' %}"></script>
 <script type="text/javascript">
 CKEDITOR.replace('gprot-content', {
     extraPlugins: 'mathjax',

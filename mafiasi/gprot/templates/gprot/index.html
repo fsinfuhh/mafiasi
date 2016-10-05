@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load static %}
 {% load gprot_extras %}
-{% load staticfiles %}
 {% load widget_tweaks %}
 
 {% block wtitle %}{% block ptitle %}{% trans "Search for memory minutes" %}{% endblock %}{% endblock %}
@@ -74,7 +74,7 @@
 {% endblock %}
 
 {% block css %}
-<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/gprot.css" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/gprot.css' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'select2/select2.css' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'select2/select2-bootstrap.css' %}" />
 {% endblock %}
