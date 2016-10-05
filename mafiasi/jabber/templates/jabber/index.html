@@ -22,17 +22,45 @@
 <h3>{% trans 'Configure your Jabber Client' %}</h3>
 {% blocktrans %}
 In order to use jabber, you need to install a jabber client and configure it
-to connect to the Mafiasi server. One option is <a href="https://pidgin.im"
-target="_blank">Pidgin</a>, which supports multiple protocols, including
-Jabber (also called XMPP there). Below you can see the required configuration
-for Piding.
+to connect to the Mafiasi server. One option is <a href="https://gajim.org"
+target="_blank">Gajim</a>, which supports multiple protocols, including
+Jabber (also called XMPP). Below you can see the required configuration
+for Gajim.
 {% endblocktrans %}
-<div id="jabber-config-img">
-    <div id="jabber-config-username">
-        {{ jabber_user.username }}
+
+
+<div id="jabber-screenshot-tabs">
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#gajim" aria-controls="home" role="tab" data-toggle="tab">Gajim</a></li>
+    <li role="presentation"><a href="#pidgin" aria-controls="profile" role="tab" data-toggle="tab">Pidgin</a></li>
+    <li role="presentation"><a href="#conversations" aria-controls="messages" role="tab" data-toggle="tab">Conversations</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="gajim">
+      <div id="gajim-jabber-config-img">
+        <div id="gajim-jabber-config-username">
+          {{ jabber_user.username }}
+        </div>
+      </div>
     </div>
-    <div id="jabber-config-domain">{{ jabber_domain }}</div>
-    <div id="jabber-config-alias">{{ user_display_name }}</div>
+    <div role="tabpanel" class="tab-pane" id="pidgin">
+      <div id="pidgin-jabber-config-img">
+        <div id="pidgin-jabber-config-username">
+          {{ jabber_user.username }}
+        </div>
+        <div id="pidgin-jabber-config-domain">{{ jabber_domain }}</div>
+        <div id="pidgin-jabber-config-alias">{{ user_display_name }}</div>
+      </div>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="conversations">
+      <div id="conversations-jabber-config-img">
+        <div id="conversations-jabber-config-username">
+          {{ jabber_user.username }}@jabber.mafiasi.de
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 {% endblock %}
@@ -40,3 +68,7 @@ for Piding.
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/jabber.css' %}"/>
 {% endblock %}
+{% block js %}
+<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jabber.js' %}"></script>
+{% endblock js %}

@@ -1,4 +1,18 @@
-#jabber-config-img {
+#gajim-jabber-config-img {
+	position: relative;
+	width: 531px;
+	height: 220px;
+	background: url(../img/gajim-en.png);
+	font-size: 12px;
+}
+
+#gajim-jabber-config-username {
+	position: absolute;
+	top: 60px;
+	left: 105px;
+}
+
+#pidgin-jabber-config-img {
 	position: relative;
 	width: 397px;
 	height: 509px;
@@ -6,20 +20,35 @@
 	font-size: 12px;
 }
 
-#jabber-config-username {
+#pidgin-jabber-config-username {
 	position: absolute;
 	top: 105px;
 	left: 190px;
 }
 
-#jabber-config-domain {
+#pidgin-jabber-config-domain {
 	position: absolute;
 	top: 132px;
 	left: 190px;
 }
 
-#jabber-config-alias {
+#pidgin-jabber-config-alias {
 	position: absolute;
 	top: 272px;
 	left: 190px;
 }
+
+#conversations-jabber-config-img {
+	position: relative;
+	width: 400px;
+	height: 445px;
+	background: url(../img/conversations-en.png);
+	font-size: 12px;
+}
+
+#conversations-jabber-config-username {
+	position: absolute;
+	top: 143px;
+	left: 40px;
+}
+
