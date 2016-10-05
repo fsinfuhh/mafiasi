@@ -191,10 +191,10 @@ REGISTER_DOMAIN_MAPPING = {
 }
 JABBER_DOMAIN = u'jabber.mafiasi.de'
 JABBER_CERT_FINGERPRINT_FILE = u'/opt/mafiasi/jabber_cert_fingerprint'
+MUMBLE_CERT_FINGERPRINT_FILE = u'/opt/mumble_cert_fingerprint'
 MUMBLE_SERVER = {
     'address': u'mumble.mafiasi.de',
     'port': 64738,
-    'fingerprint': u'EA:51:49:D1:91:63:89:E7:78:29:C9:52:C9:85:C6:8D:AD:C4:2A:3D'
 }
 LOGIN_URL = '/login'
 LOGIN_REDIRECT_URL = '/dashboard/'
