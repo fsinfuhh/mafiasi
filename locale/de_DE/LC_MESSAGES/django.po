@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-05 19:04+0200\n"
-"PO-Revision-Date: 2016-10-05 19:07+0200\n"
+"POT-Creation-Date: 2016-10-05 21:23+0200\n"
+"PO-Revision-Date: 2016-10-05 21:30+0200\n"
 "Last-Translator: Pascal Wichmann <wichmannpas@gmail.com>\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -140,11 +140,11 @@ msgstr "Mit dem Dudel kannst du einfach gemeinsame Termine mit anderen finden."
 
 #: mafiasi/dashboard/templates/dashboard/index.html:61
 msgid "The Github like repository service"
-msgstr ""
+msgstr "Der Github-artige Repository-Dienst"
 
 #: mafiasi/dashboard/templates/dashboard/index.html:74
 msgid "An online team chat service"
-msgstr ""
+msgstr "Ein Online-Chatservice für Teams"
 
 #: mafiasi/dashboard/templates/dashboard/index.html:87
 msgid ""
@@ -977,14 +977,11 @@ msgid "Group name"
 msgstr "Gruppenname"
 
 #: mafiasi/groups/templates/groups/create.html:13
-#, fuzzy
-#| msgid ""
-#| "Only letters, numbers and \"-\" are allowed. Must start with a letter."
 msgid ""
 "Only letters, numbers \".\" and \"-\" are allowed. Must start with a letter."
 msgstr ""
-"Nur Buchstaben, Zahlen und \"-\" sind zugelassen. Muss mit einen Buchstaben "
-"beginnen."
+"Nur Buchstaben, Zahlen, \".\" und \"-\" sind zugelassen. Muss mit einen "
+"Buchstaben beginnen."
 
 #: mafiasi/groups/templates/groups/create.html:17
 msgid "Create"
@@ -1024,13 +1021,7 @@ msgid "Mafiasi Groups"
 msgstr "Mafiasi-Gruppen"
 
 #: mafiasi/groups/templates/groups/groups_base.html:68
-#, fuzzy, python-format
-#| msgid ""
-#| "\n"
-#| "      Accept an invitation or create a new group and invite\n"
-#| "      others to use Mafiasi features such as private\n"
-#| "      etherpads, Discourse categories and group mailinglists.\n"
-#| "      "
+#, python-format
 msgid ""
 "\n"
 "      Accept an invitation or create a new group and invite\n"
@@ -1041,8 +1032,8 @@ msgid ""
 msgstr ""
 "\n"
 "Nimm eine Einladung an oder erstelle eine neue Gruppe und lade Andere ein, "
-"um Mafiasi-Features wie private Etherpads, Discourse-Kategorien und "
-"Gruppenmailinglisten nutzen zu können."
+"um %(project_name)s-Features wie private Etherpads, Discourse-Kategorien und "
+"Gruppenmailinglisten nutzen zu können. Bitte auf existierende Gruppen prüfen."
 
 #: mafiasi/groups/templates/groups/invitations.html:16
 #: mafiasi/groups/templates/groups/show.html:74
@@ -1190,7 +1181,7 @@ msgstr "Der Benutzername muss mindestens 3 Zeichen lang sein."
 
 #: mafiasi/guests/forms.py:34
 msgid "This name is not available."
-msgstr ""
+msgstr "Dieser Name ist nicht verfügbar."
 
 #: mafiasi/guests/forms.py:44
 msgid "The guest can use this email address to register a normal user account."
@@ -1312,10 +1303,8 @@ msgid "Last name"
 msgstr "Nachname"
 
 #: mafiasi/guests/templates/guests/invited_by.html:4
-#, fuzzy
-#| msgid "Hello guest"
 msgid "Hello "
-msgstr "Hallo Gast"
+msgstr "Hallo "
 
 #: mafiasi/guests/templates/guests/invited_by.html:7
 #, python-format
@@ -1334,6 +1323,9 @@ msgid ""
 "your account, please request another invitation with a different username.</"
 "a>"
 msgstr ""
+"Ein Account mit dem Nutzernamen %(username)s existiert bereits. Wenn dies "
+"nicht dein Account ist, kannst du mit einem anderen Nutzernamen eine erneute "
+"Einladung anfordern."
 
 #: mafiasi/guests/views.py:53
 msgid "{} was successfully invited."
@@ -1388,27 +1380,52 @@ msgstr "Der Fingerprint des aktuellen SSL-Zertifikats lautet:"
 msgid "Configure your Jabber Client"
 msgstr "Einrichtung deines Jabber-Clients"
 
-#: mafiasi/jabber/templates/jabber/index.html:23
+#: mafiasi/jabber/templates/jabber/index.html:24
 msgid ""
 "\n"
-"In order to use jabber, you need to install a jabber client and configure "
-"it\n"
-"to connect to the Mafiasi server. One option is <a href=\"https://gajim.org"
-"\"\n"
-"target=\"_blank\">Gajim</a>, which supports multiple protocols, including\n"
-"Jabber (also called XMPP). Below you can see the required configuration\n"
-"for Gajim.\n"
+"    In order to use Jabber, you need to install a Jabber client and "
+"configure it\n"
+"    to connect to the Mafiasi server. One option is <a href=\"https://gajim."
+"org\"\n"
+"    target=\"_blank\">Gajim</a>, which is recommended by us.\n"
+"  "
 msgstr ""
 "\n"
 "Um Jabber nutzen zu können, musst du einen Jabber-Client installieren und "
-"dort deinen Mafiasi-Zugang einrichten. Eine Option ist <a href=\"https://"
-"gajim.org\" target=\"_blank\">Gajim</a>, das neben Jabber (auch XMPP "
-"genannt) auch noch andere Protokolle unterstützt. Unten findest du die "
-"nötigen Einstellungen am Beispiel von Gajim.\n"
-"<br>\n"
-"Eine ausführlichere Anleitung (auch für andere Jabber-Clients als Gajim) "
-"kannst du auf <a href=\"http://www.einfachjabber.de/oslist\" target=\"_blank"
-"\">einfachjabber.de</a> finden. \n"
+"dort deinen Mafiasi-Zugang einrichten. Die von uns empfohlene Option ist <a "
+"href=\"https://gajim.org\" target=\"_blank\">Gajim</a>."
+
+#: mafiasi/jabber/templates/jabber/index.html:32
+msgid ""
+"\n"
+"    For Android systems, we recommend using\n"
+"    <a href=\"https://conversations.im\" target=\"_blank\">Conversations</"
+"a>, which is\n"
+"    an open source Jabber client. It is available for free on F-Droid or "
+"paid on the\n"
+"    Play Store.\n"
+"  "
+msgstr ""
+"\n"
+"    Für Android-Systeme empfehlen wir\n"
+"    <a href=\"https://conversations.im\" target=\"_blank\">Conversations</"
+"a>, ein\n"
+"    quelloffenere Jabber-Client, der kostenlos über F-Droid und "
+"kostenpflichtig\n"
+"    im Play Store bezogen werden kann.\n"
+"\n"
+"  "
+
+#: mafiasi/jabber/templates/jabber/index.html:41
+msgid ""
+"\n"
+"    Below you can see the required configuration for Gajim, Pidgin and "
+"Conversations.\n"
+"  "
+msgstr ""
+"\n"
+"Unten findest du die nötigen Einstellungen für Gajim, Conversations und "
+"Pidgin."
 
 #: mafiasi/mailinglist/forms.py:20
 msgid "This email is already on the whitelist"
@@ -1917,16 +1934,13 @@ msgid "Account"
 msgstr "Account"
 
 #: mafiasi/registration/templates/registration/account.html:18
-#, fuzzy, python-format
-#| msgid ""
-#| "You want to use mafiasi.de with your friends? You can <a href="
-#| "\"%(guests_url)s\">invite guests</a>."
+#, python-format
 msgid ""
 "You want to use %(project_name)s with your friends? You can <a href="
 "\"%(guests_url)s\">invite guests</a>."
 msgstr ""
-"Du möchtest mafiasi.de mit deinen Freunden nutzen? Du kannst sie als <a href="
-"\"%(guests_url)s\">Gäste einladen</a>."
+"Du möchtest %(project_name)s mit deinen Freunden nutzen? Du kannst sie als "
+"<a href=\"%(guests_url)s\">Gäste einladen</a>."
 
 #: mafiasi/registration/templates/registration/account.html:27
 msgid "Nickname"
@@ -1985,21 +1999,7 @@ msgid "The mailserver said:"
 msgstr "Der Mailserver sagte:"
 
 #: mafiasi/registration/templates/registration/email_verify.txt:6
-#, fuzzy, python-format
-#| msgid ""
-#| "Hi,\n"
-#| "\n"
-#| "you requested to associate the email address\n"
-#| "  %(email)s\n"
-#| "with the Mafiasi.de account %(username)s.\n"
-#| "\n"
-#| "If this is correct, please verify the address by following this link:\n"
-#| "  %(link)s\n"
-#| "The link will be valid for 24 hours.\n"
-#| "\n"
-#| "Best regards,\n"
-#| "\n"
-#| "Your Server-AG"
+#, python-format
 msgid ""
 "Hi,\n"
 "\n"
@@ -2014,18 +2014,16 @@ msgid ""
 msgstr ""
 "Hallo,\n"
 "\n"
-"du möchtest die E-Mailadresse des Mafiasi.de-Accounts %(username)s auf\n"
+"du möchtest die E-Mailadresse des %(project_name)s-Accounts %(username)s "
+"auf\n"
 "  %(email)s\n"
 "setzen.\n"
 "\n"
-"Wenn das korrekt ist, bestätige bitte die Adresse indem du folgenden Link "
+"Wenn das korrekt ist, bestätige bitte die Adresse, indem du folgenden Link "
 "aufrufst:\n"
 "  %(link)s\n"
 "Dieser Link ist für 24 Stunden gültig.\n"
 "\n"
-"Viele Grüße\n"
-"\n"
-"Deine Server-AG"
 
 #: mafiasi/registration/templates/registration/login.html:50
 msgid "Did you forget your password?"
@@ -2212,16 +2210,14 @@ msgid "Your email address has been changed."
 msgstr "Deine E-Mailadresse wurde geändert."
 
 #: mafiasi/registration/views.py:249
-#, fuzzy, python-format
-#| msgid "Verify this address for mafiasi.de"
+#, python-format
 msgid "Verify this address for %s"
-msgstr "Bestätige diese E-Mailadresse für mafiasi.de"
+msgstr "Bestätige diese E-Mailadresse für %s"
 
 #: mafiasi/registration/views.py:260
-#, fuzzy, python-format
-#| msgid "Account creation at mafiasi.de"
+#, python-format
 msgid "Account creation at %s"
-msgstr "Accounterstellung für mafiasi.de"
+msgstr "Accounterstellung um %s"
 
 #: mafiasi/registration/views.py:276
 msgid "Registration: Sending mail failed: {}"
