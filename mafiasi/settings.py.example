@@ -290,6 +290,8 @@ RAVEN_CONFIG = {
     'dsn': 'https://xxx:yyy@sentry.mafiasi.de/2',
 }
 
+RAVEN_PUBLIC_DSN = 'https://xxx@sentry.mafiasi.de/2'
+
 ETHERPAD_API_KEY = 'foobar'
 ETHERPAD_URL = 'https://ep.mafiasi.de'
 EP_COOKIE_DOMAIN = '.mafiasi.de'
@@ -311,7 +313,7 @@ VALID_EMAIL_ADDRESSES = ['postmaster@mafiasi.de']
 EMAIL_ADDRESSES_PASSWORD = 'changeme'
 
 DASHBOARD_SERVICES = [
-    'wiki',
+    'wiki'
     'etherpad',
     'dudel',
     'redmine',
@@ -368,4 +370,7 @@ TEMPLATE_ALLOWABLE_SETTINGS_VALUES = (
     "GUEST_INVITE_HINT",
     "USER_LOGIN_HINT",
     "GUEST_INVITE_INSTRUCTION_LINK",
+    "RAVEN_PUBLIC_DSN",
 )
+
+GUEST_ACCEPT_INVITATION_MAIL = False
