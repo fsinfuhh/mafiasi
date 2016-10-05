@@ -20,13 +20,28 @@
 <span style="white-space:pre;font-family:monospace;">{{ cert_fingerprint }}</span></p>
 
 <h3>{% trans 'Configure your Jabber Client' %}</h3>
-{% blocktrans %}
-In order to use jabber, you need to install a jabber client and configure it
-to connect to the Mafiasi server. One option is <a href="https://gajim.org"
-target="_blank">Gajim</a>, which supports multiple protocols, including
-Jabber (also called XMPP). Below you can see the required configuration
-for Gajim.
-{% endblocktrans %}
+<p>
+  {% blocktrans %}
+    In order to use Jabber, you need to install a Jabber client and configure it
+    to connect to the Mafiasi server. One option is <a href="https://gajim.org"
+    target="_blank">Gajim</a>, which is recommended by us.
+  {% endblocktrans %}
+<p>
+
+<p>
+  {% blocktrans %}
+    For Android systems, we recommend using
+    <a href="https://conversations.im" target="_blank">Conversations</a>, which is
+    an open source Jabber client. It is available for free on F-Droid or paid on the
+    Play Store.
+  {% endblocktrans %}
+</p>
+
+<p>
+  {% blocktrans %}
+    Below you can see the required configuration for Gajim, Pidgin and Conversations.
+  {% endblocktrans %}
+</p>
 
 
 <div id="jabber-screenshot-tabs">
