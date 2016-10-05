@@ -50,7 +50,7 @@
                         <span class="glyphicon glyphicon-cog"></span>
                         {% trans "Settings" %}
                     </a>
-                    <p class="navbar-text">{% blocktrans with username=user.username %}Logged in as {{ username }}{% endblocktrans %}</p>
+                    <span class="navbar-text">{% blocktrans with username=user.username %}Logged in as {{ username }}{% endblocktrans %}</span>
                     <a class="btn btn-default btn-sm navbar-btn" href="{{ logout_url }}">{% trans "Logout" %}</a>
                 </div>
                 {% else %}
