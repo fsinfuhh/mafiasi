@@ -58,7 +58,7 @@
           {{ jabber_user.username }}
         </div>
         <div id="gajim-jabber-config-server">
-          jabber.mafiasi.de
+          {{ jabber_domain }}
         </div>
       </div>
     </div>
@@ -74,7 +74,7 @@
     <div role="tabpanel" class="tab-pane" id="conversations">
       <div id="conversations-jabber-config-img">
         <div id="conversations-jabber-config-username">
-          {{ jabber_user.username }}@jabber.mafiasi.de
+          {{ jabber_user.username }}@{{ jabber_domain }}
         </div>
       </div>
     </div>
