@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-05 21:44+0200\n"
-"PO-Revision-Date: 2016-10-05 21:44+0200\n"
+"POT-Creation-Date: 2016-10-07 09:58+0200\n"
+"PO-Revision-Date: 2016-10-07 08:51+0200\n"
 "Last-Translator: Pascal Wichmann <wichmannpas@gmail.com>\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -64,10 +64,14 @@ msgid "Imprint"
 msgstr "Impressum"
 
 #: mafiasi/base/templates/base.html:92
+msgid "Data privacy statement"
+msgstr "Datenschutzerklärung"
+
+#: mafiasi/base/templates/base.html:94
 msgid "Technical info"
 msgstr "Technik"
 
-#: mafiasi/base/templates/base.html:94
+#: mafiasi/base/templates/base.html:96
 #: mafiasi/base/templates/base/problems.html:4
 msgid "Problems?"
 msgstr "Probleme?"
@@ -2239,7 +2243,37 @@ msgstr "Sommersemester {0}"
 
 #, fuzzy
 #~| msgid "Email address:"
+#~ msgid "Enter a valid value."
+#~ msgstr "E-Mail-Adresse:"
+
+#, fuzzy
+#~| msgid "Email address:"
+#~ msgid "Enter a valid URL."
+#~ msgstr "E-Mail-Adresse:"
+
+#, fuzzy
+#~| msgid "Email address:"
+#~ msgid "Enter a valid integer."
+#~ msgstr "E-Mail-Adresse:"
+
+#, fuzzy
+#~| msgid "Email address:"
 #~ msgid "Enter a valid email address."
+#~ msgstr "E-Mail-Adresse:"
+
+#, fuzzy
+#~| msgid "Email address:"
+#~ msgid "Enter a valid IPv4 address."
+#~ msgstr "E-Mail-Adresse:"
+
+#, fuzzy
+#~| msgid "Email address:"
+#~ msgid "Enter a valid IPv6 address."
+#~ msgstr "E-Mail-Adresse:"
+
+#, fuzzy
+#~| msgid "Email address:"
+#~ msgid "Enter a valid IPv4 or IPv6 address."
 #~ msgstr "E-Mail-Adresse:"
 
 #, fuzzy
@@ -2250,6 +2284,11 @@ msgstr "Sommersemester {0}"
 #, fuzzy
 #~| msgid "This field is required."
 #~ msgid "This field cannot be null."
+#~ msgstr "Dieses Feld darf nicht leer sein."
+
+#, fuzzy
+#~| msgid "This field is required."
+#~ msgid "This field cannot be blank."
 #~ msgstr "Dieses Feld darf nicht leer sein."
 
 #, fuzzy
@@ -2276,6 +2315,48 @@ msgstr "Sommersemester {0}"
 #~| msgid "Email address:"
 #~ msgid "IP address"
 #~ msgstr "E-Mail-Adresse:"
+
+#, fuzzy
+#~| msgid "December"
+#~ msgid "Enter a number."
+#~ msgstr "Dezember"
+
+#, fuzzy
+#~| msgid "Email address:"
+#~ msgid "Enter a valid date."
+#~ msgstr "E-Mail-Adresse:"
+
+#, fuzzy
+#~| msgid "Email address:"
+#~ msgid "Enter a valid time."
+#~ msgstr "E-Mail-Adresse:"
+
+#, fuzzy
+#~| msgid "Email address:"
+#~ msgid "Enter a valid date/time."
+#~ msgstr "E-Mail-Adresse:"
+
+#, fuzzy
+#~| msgid "Email address:"
+#~ msgid "Enter a valid duration."
+#~ msgstr "E-Mail-Adresse:"
+
+#, fuzzy
+#~| msgid "Email address:"
+#~ msgid "Enter a list of values."
+#~ msgstr "E-Mail-Adresse:"
+
+#, fuzzy
+#~| msgid "Email address:"
+#~ msgid "Enter a valid UUID."
+#~ msgstr "E-Mail-Adresse:"
+
+#, fuzzy
+#~| msgid "Please provide us some more information."
+#~ msgid "Please submit %d or fewer forms."
+#~ msgid_plural "Please submit %d or fewer forms."
+#~ msgstr[0] "Bitte gib uns noch ein paar Informationen."
+#~ msgstr[1] "Bitte gib uns noch ein paar Informationen."
 
 #, fuzzy
 #~| msgid "Please provide us some more information."
@@ -2533,6 +2614,11 @@ msgstr "Sommersemester {0}"
 #~ msgstr "Dezember"
 
 #, fuzzy
+#~| msgid "Email address:"
+#~ msgid "This is not a valid IPv6 address."
+#~ msgstr "E-Mail-Adresse:"
+
+#, fuzzy
 #~| msgid "month"
 #~ msgid "%d month"
 #~ msgid_plural "%d months"
@@ -2545,6 +2631,13 @@ msgstr "Sommersemester {0}"
 #~ msgid_plural "%d weeks"
 #~ msgstr[0] "Woche"
 #~ msgstr[1] "Woche"
+
+#, fuzzy
+#~| msgid "month"
+#~ msgid "%d minute"
+#~ msgid_plural "%d minutes"
+#~ msgstr[0] "Monat"
+#~ msgstr[1] "Monat"
 
 #, fuzzy
 #~| msgid "CSRF verification failed."

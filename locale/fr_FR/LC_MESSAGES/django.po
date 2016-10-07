@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-05 17:24+0200\n"
+"POT-Creation-Date: 2016-10-07 09:58+0200\n"
 "PO-Revision-Date: 2015-03-16 18:16+0100\n"
 "Last-Translator: Marc Bestmann <0bestman@informatik.uni-hamburg.de>\n"
 "Language-Team: \n"
@@ -66,10 +66,14 @@ msgid "Imprint"
 msgstr "Empreinte"
 
 #: mafiasi/base/templates/base.html:92
+msgid "Data privacy statement"
+msgstr ""
+
+#: mafiasi/base/templates/base.html:94
 msgid "Technical info"
 msgstr "Information technique"
 
-#: mafiasi/base/templates/base.html:94
+#: mafiasi/base/templates/base.html:96
 #: mafiasi/base/templates/base/problems.html:4
 msgid "Problems?"
 msgstr "Problèmes?"
@@ -1411,7 +1415,7 @@ msgstr "L'empreinte du certificat SSL actuel est:"
 msgid "Configure your Jabber Client"
 msgstr "Configurez votre client Jabber"
 
-#: mafiasi/jabber/templates/jabber/index.html:23
+#: mafiasi/jabber/templates/jabber/index.html:24
 #, fuzzy
 #| msgid ""
 #| "\n"
@@ -1426,13 +1430,12 @@ msgstr "Configurez votre client Jabber"
 #| "for Piding.\n"
 msgid ""
 "\n"
-"In order to use jabber, you need to install a jabber client and configure "
-"it\n"
-"to connect to the Mafiasi server. One option is <a href=\"https://gajim.org"
-"\"\n"
-"target=\"_blank\">Gajim</a>, which supports multiple protocols, including\n"
-"Jabber (also called XMPP). Below you can see the required configuration\n"
-"for Gajim.\n"
+"    In order to use Jabber, you need to install a Jabber client and "
+"configure it\n"
+"    to connect to the Mafiasi server. One option is <a href=\"https://gajim."
+"org\"\n"
+"    target=\"_blank\">Gajim</a>, which is recommended by us.\n"
+"  "
 msgstr ""
 "\n"
 "En afin d'utiliser Jabber, vous devez installer un client jabber et le "
@@ -1444,6 +1447,26 @@ msgstr ""
 "Jabber (également appelé XMPP là). Ci-dessous vous pouvez voir la "
 "configuration \n"
 "for Piding nécessaire. \n"
+
+#: mafiasi/jabber/templates/jabber/index.html:32
+msgid ""
+"\n"
+"    For Android systems, we recommend using\n"
+"    <a href=\"https://conversations.im\" target=\"_blank\">Conversations</"
+"a>, which is\n"
+"    a free Jabber client. It is available for free on F-Droid or paid on "
+"the\n"
+"    Play Store.\n"
+"  "
+msgstr ""
+
+#: mafiasi/jabber/templates/jabber/index.html:41
+msgid ""
+"\n"
+"    Below you can see the required configuration for Gajim, Pidgin and "
+"Conversations.\n"
+"  "
+msgstr ""
 
 #: mafiasi/mailinglist/forms.py:20
 msgid "This email is already on the whitelist"
@@ -2274,7 +2297,37 @@ msgstr "session d'été {0}"
 
 #, fuzzy
 #~| msgid "Email address:"
+#~ msgid "Enter a valid value."
+#~ msgstr "Adresse émail:"
+
+#, fuzzy
+#~| msgid "Email address:"
+#~ msgid "Enter a valid URL."
+#~ msgstr "Adresse émail:"
+
+#, fuzzy
+#~| msgid "Email address:"
+#~ msgid "Enter a valid integer."
+#~ msgstr "Adresse émail:"
+
+#, fuzzy
+#~| msgid "Email address:"
 #~ msgid "Enter a valid email address."
+#~ msgstr "Adresse émail:"
+
+#, fuzzy
+#~| msgid "Email address:"
+#~ msgid "Enter a valid IPv4 address."
+#~ msgstr "Adresse émail:"
+
+#, fuzzy
+#~| msgid "Email address:"
+#~ msgid "Enter a valid IPv6 address."
+#~ msgstr "Adresse émail:"
+
+#, fuzzy
+#~| msgid "Email address:"
+#~ msgid "Enter a valid IPv4 or IPv6 address."
 #~ msgstr "Adresse émail:"
 
 #, fuzzy
@@ -2285,6 +2338,11 @@ msgstr "session d'été {0}"
 #, fuzzy
 #~| msgid "This field is required."
 #~ msgid "This field cannot be null."
+#~ msgstr "Ce case est obligatoire."
+
+#, fuzzy
+#~| msgid "This field is required."
+#~ msgid "This field cannot be blank."
 #~ msgstr "Ce case est obligatoire."
 
 #, fuzzy
@@ -2311,6 +2369,48 @@ msgstr "session d'été {0}"
 #~| msgid "Email address:"
 #~ msgid "IP address"
 #~ msgstr "Adresse émail:"
+
+#, fuzzy
+#~| msgid "December"
+#~ msgid "Enter a number."
+#~ msgstr "Décembre"
+
+#, fuzzy
+#~| msgid "Email address:"
+#~ msgid "Enter a valid date."
+#~ msgstr "Adresse émail:"
+
+#, fuzzy
+#~| msgid "Email address:"
+#~ msgid "Enter a valid time."
+#~ msgstr "Adresse émail:"
+
+#, fuzzy
+#~| msgid "Email address:"
+#~ msgid "Enter a valid date/time."
+#~ msgstr "Adresse émail:"
+
+#, fuzzy
+#~| msgid "Email address:"
+#~ msgid "Enter a valid duration."
+#~ msgstr "Adresse émail:"
+
+#, fuzzy
+#~| msgid "Email address:"
+#~ msgid "Enter a list of values."
+#~ msgstr "Adresse émail:"
+
+#, fuzzy
+#~| msgid "Email address:"
+#~ msgid "Enter a valid UUID."
+#~ msgstr "Adresse émail:"
+
+#, fuzzy
+#~| msgid "Please provide us some more information."
+#~ msgid "Please submit %d or fewer forms."
+#~ msgid_plural "Please submit %d or fewer forms."
+#~ msgstr[0] "S'il vous plaît nous fournir quelques informations."
+#~ msgstr[1] "S'il vous plaît nous fournir quelques informations."
 
 #, fuzzy
 #~| msgid "Please provide us some more information."
@@ -2570,6 +2670,11 @@ msgstr "session d'été {0}"
 #~ msgstr "Décembre"
 
 #, fuzzy
+#~| msgid "Email address:"
+#~ msgid "This is not a valid IPv6 address."
+#~ msgstr "Adresse émail:"
+
+#, fuzzy
 #~| msgid "month"
 #~ msgid "%d month"
 #~ msgid_plural "%d months"
@@ -2582,6 +2687,13 @@ msgstr "session d'été {0}"
 #~ msgid_plural "%d weeks"
 #~ msgstr[0] "semaine"
 #~ msgstr[1] "semaine"
+
+#, fuzzy
+#~| msgid "month"
+#~ msgid "%d minute"
+#~ msgid_plural "%d minutes"
+#~ msgstr[0] "mois"
+#~ msgstr[1] "mois"
 
 #, fuzzy
 #~| msgid "CSRF verification failed."

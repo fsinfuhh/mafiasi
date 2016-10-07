@@ -12,6 +12,9 @@ from mafiasi.base.autocomplete import autocomplete_users
 def imprint(request):
     return HttpResponseRedirect(settings.IMPRINT_URL)
 
+def data_privacy_statement(request):
+    return TemplateResponse(request, 'base/data_privacy_statement.html')
+
 def technical_info(request):
     return TemplateResponse(request, 'base/technical_info.html')
 

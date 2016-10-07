@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+
+{% block wtitle %}{% block ptitle %}Datenschutz bei mafiasi.de{% endblock %}{% endblock %}
+
+{% block content %}
+
+<style>
+#content {
+    counter-reset: section;
+    max-width: 50em;
+    margin: 0 auto;
+}
+h4::before {
+    counter-increment: section;
+    content: "§" counter(section) " ";
+}
+</style>
+<p>
+Immer mehr Daten werden nicht nur lokal gespeichert, sondern auch bei
+Diensteanbietern. Man spricht häufig von der Speicherung &bdquo;in der Cloud&ldquo;.
+Dabei ist ein vernünftiger Datenschutz besonders wichtig. Die Fachschaft
+Informatik der Universität Hamburg möchte hier mit gutem Beispiel vorangehen.
+Es ist daher ein besonderes Anliegen der Fachschaft Informatik, offen zu
+kommunizieren, wie bei mafiasi.de mit Daten umgegangen wird.
+</p>
+
+<h4>Server-AG</h4>
+
+<p>
+Die Server-AG, im Folgenden auch als &bdquo;wir&ldquo; bezeichnet, ist eine Arbeitsgruppe
+der Fachschaft Informatik der Universität Hamburg, die sich um die
+Bereitstellung und Administration der unter mafiasi.de angebotenen Dienste
+kümmert. Eine aktuelle Auflistung der Mitglieder findet sich in der
+<a href="https://wiki.mafiasi.de/GremienMitgliederListe#Server-AG">Gremienvertreterliste</a>
+im Fachschaftswiki. Neue Mitglieder der Server-AG werden durch die
+Vollversammlung der Fachschaft Informatik der Universität Hamburg bestätigt. 
+</p>
+
+<h4>(Keine) Weitergabe von Daten</h4>
+
+<p>
+Wir geben grundsätzlich keine Daten an Dritte weiter, sofern wir nicht rechtlich
+dazu gezwungen sind oder ein explizites Einverständnis des Benutzers vorliegt.
+Im Falle eines Einverständnisses werden die vom Benutzer genannten Daten nur an
+die vom Benutzer genannten Empfänger weitergegeben.
+</p>
+
+<p>
+Das Einverständnis erfolgt in der Regel elektronisch durch eine geeignete
+Benutzeraktion in den Diensten, beispielsweise der Freigabe eines Kalenders an
+eine andere Gruppe.
+</p>
+
+<h4>Speicherort</h4>
+
+<p>
+Alle Benutzerdaten befinden sich auf Servern in Rechenzentren der Universität
+Hamburg. Backups können auch an anderen Standorten gespeichert werden, sind
+dann aber vollständig verschlüsselt, so dass kein unberechtigter Zugriff
+stattfinden kann.
+</p>
+
+<h4>Technische und organisatorische Maßnahmen</h4>
+
+<p>
+Wir treffen technische Maßnahmen, um einen guten Datenschutz zu gewährleisten.
+So sind unsere Dienste, sofern technisch möglich, ausschließlich über
+verschlüsselte Verbindungen zu erreichen. Es wird regelmäßig geprüft, ob die
+verwendete Verschlüsselung dem Stand der Technik entspricht. Weiterhin setzen
+wir nur freie Software ein. Freie Software kann von jedem untersucht werden,
+insbesondere was ihren Umgang mit Daten angeht. Bei Bekanntwerden von
+Sicherheitslücken werden zeitnah, in der Regel innerhalb von 24 Stunden,
+Softwareupdates eingespielt oder andere Maßnahmen ergriffen, um die Sicherheit
+der Dienste zu gewährleisten.
+</p>
+
+<p>
+Volle Zugriffsrechte (&bdquo;root-Zugriff&ldquo;) auf die Server besitzen nur die
+Mitglieder der Server-AG.
+</p>
+
+<h4>Verzicht auf Tracking</h4>
+
+<p>
+Wir verzichten vollständig auf Methoden, die das Benutzerverhalten analysieren.
+Uns ist der Datenschutz an dieser Stelle wichtiger als Informationen über
+Benutzer, die möglichweise für die Verbesserung der Dienste verwendet werden
+könnten.
+</p>
+
+<h4>Einsicht während administrativer Tätigkeiten</h4>
+
+<p>
+Im Rahmen der Tätigkeiten der Server-AG kann es dazu kommen, dass die Mitglieder
+der Server-AG personenbezogene Daten zu Gesicht bekommen, z. B. bei der Analyse
+von Fehlern mit Hilfe von Logdateien (siehe Abschnitt Logdateien).
+Wir bemühen uns, solche Fälle zu vermeiden, können sie jedoch nicht komplett
+ausschließen. Gegebenenfalls eingesehene Daten werden vertraulich behandelt.
+</p>
+
+<h4>Logdateien</h4></a>
+
+<p>
+Um den zuverlässigen Betrieb der Dienste sicherzustellen und im Fehlerfall eine
+schnelle Problemlösung zu gewährleisten, werden von verschiedenen Diensten
+Logdateien geführt. Diese beinhalten Informationen über einzelne Anfragen oder
+andere Benutzeraktionen, die möglicherweise Rückschlüsse auf einzelne Benutzer
+zulassen. Wir speichern Logdateien für 4 Tage, ältere Logdateien werden
+automatisch gelöscht. Im konkreten Fehlerfall können Auszüge der Logdateien über
+4 Tage hinaus gespeichert werden, um einen Fehler zu beheben oder näher zu
+untersuchen. Nach der Behebung oder Untersuchung des Fehlers werden solche
+Auszüge gelöscht. Davon unberührt bleiben die in dem Abschnitt Weitergabe
+genannten Fälle der Weitergabe an Dritte.
+</p>
+
+<p>
+Beispiel für die Nutzung dieser Daten: Wir sehen in den Graphen zur
+Serverauslastung eine ungewöhnliche Lastspitze. Dann nutzen wir die Logdateien,
+um zu sehen, was diese Lastspitze erzeugt haben könnte. Dies kann z. B. ein
+fehlerhaft konfigurierter CalDAV-Client sein, der die Kalendersoftware mit
+Anfragen überhäuft, was im Webserver-Log sichtbar ist.
+</p>
+
+<h4>Zusätzliche Datenerhebung im Fehlerfall</h4>
+
+<p>
+Wir bemühen uns, die Dienste möglichst fehlerfrei bereitzustellen, dennoch
+können Fehler nicht ausgeschlossen werden. Um die genaue Ursache von
+Programmierfehlern zu ermitteln, setzen wir die Software
+<a href="https://getsentry.com">Sentry</a> ein, die wir selbst hosten.
+Bei einem erkannten Fehler wird ein sogenannter Stacktrace erstellt und zusammen
+mit den dazugehörigen Stackframes gespeichert. Diese können personenbezogene
+Daten enthalten, auch solche, die ursprünglich nur zur temporären Speicherung
+bei der Verarbeitung einer Anfrage oder Benutzeraktion gedacht waren. Diese
+Daten werden nach der Analyse und Behebung des Fehlers gelöscht. Davon unberührt
+bleiben die in dem Abschnitt Weitergabe genannten Fälle der Weitergabe
+an Dritte.
+</p>
+
+<h4>Langfristige Statistiken</h4>
+
+<p>
+Zur Planung der Ressourcen und weiteren Entwicklung erstellen wir langfristige
+Statistiken, beispielsweise zur Anzahl der HTTP-Anfragen oder der Auslastung des
+Servers. Die notwendigen Daten sind anonymisiert und erlauben keinen Rückschluss
+auf einzelne Benutzer oder Gruppen.
+</p>
+{% endblock %}

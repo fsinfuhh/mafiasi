@@ -65,7 +65,7 @@
             </div>
         </nav>
 
-        <div class="container">
+        <div class="container" id="content">
             {% for message in messages %}
             <div class="alert{% if message.tags %} {{ message.tags }}"{% endif %}>{{ message }}</div>
             {% endfor %}
@@ -88,6 +88,8 @@
                 {% csrf_token %}
                 <p class="muted credit">
                     <a href="{% url 'base_imprint' %}">{% trans "Imprint" %}</a>
+                    &middot;
+                    <a href="{% url 'base_data_privacy_statement' %}">{% trans "Data privacy statement" %}</a>
                     &middot;
                     <a href="{% url 'base_technical_info' %}">{% trans "Technical info" %}</a>
                     &middot;
