@@ -173,6 +173,7 @@ INSTALLED_APPS = (
     'mafiasi.teaching',
 	'mafiasi.owncloud',
     'mafiasi.mattermost',
+    'mafiasi.mailinglist',
     'oauth2_provider', # used by mattermost SSO
     'corsheaders',  # used by mattermost SSO
     'raven.contrib.django.raven_compat',
