@@ -2,6 +2,7 @@ from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.shortcuts import redirect
 from django.conf import settings
+from django.conf.urls.static import static
 
 
 import mafiasi.base.urls, mafiasi.registration.urls, mafiasi.dashboard.urls, mafiasi.discourse.urls,\
@@ -65,11 +66,6 @@ if 'mafiasi.mattermost' in settings.INSTALLED_APPS:
 
 
 if settings.DEBUG:
-    urlpatterns += [
-        url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
-            'document_root': settings.MEDIA_ROOT
-        }),
-        url(r'^mathjax/(?P<path>.*)$', 'django.views.static.serve', {
-            'document_root': settings.MATHJAX_ROOT
-        }),
-    ]
+    urlpatterns += \
+        static(r'^media/(?P<path>.*)$', document_root=settings.MEDIA_ROOT) +\
+        static(r'^mathjax/(?P<path>.*)$', document_root=settings.MATHJAX_ROOT);
