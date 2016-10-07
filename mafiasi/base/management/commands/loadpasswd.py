@@ -1,27 +1,25 @@
 from __future__ import print_function
 
 import sys
+import argparse
 
 from django.core.management.base import BaseCommand, CommandError
 from mafiasi.base.models import PasswdEntry
 
 class Command(BaseCommand):
-    args = '<passwd_file>'
     help = 'Loads the passwd file from "getent passwd" into the database'
 
-    def handle(self, *args, **options):
-        if len(args) != 1:
-            raise CommandError(u'No passwd file supplied')
+    def add_arguments(self, parser):
+        parser.add_argument('passwd_file', type=argparse.FileType('r'))
 
-        try:
-            with open(args[0]) as passwd_file:
-                entries = passwd_file.readlines()
-        except IOError as e:
-            raise CommandError(u'Could not load passwd file: {0}'.format(e))
-        
+    def handle(self, *args, **options):
+        passwd_file = options['passwd_file']
+
         new_entries = 0
         updated_entries = 0
-        for lino_no, entry in enumerate(entries):
+        total_entries = 0
+        for lino_no, entry in enumerate(passwd_file):
+            total_entries += 1
             try:
                 entry = entry.decode('utf-8').strip()
             except UnicodeDecodeError:
@@ -63,5 +61,4 @@ class Command(BaseCommand):
         updated_entries -= new_entries # new entries were also updated
         num_in_db = PasswdEntry.objects.count()
         print(u'{0} new, {1} updated, {2} processed, {3} in database'.format(
-                new_entries, updated_entries, len(entries), num_in_db))
-
+                new_entries, updated_entries, total_entries, num_in_db))
