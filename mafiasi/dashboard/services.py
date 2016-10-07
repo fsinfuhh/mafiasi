@@ -1,0 +1,95 @@
+from django.contrib.staticfiles.templatetags.staticfiles import static
+from django.utils.translation import ugettext_lazy as _
+
+SERVICES = {
+    'discourse': {
+        'title': _('Discourse'),
+        'description': _('Discourse is our forum for questions and discussions with your fellow students.'),
+        'link': 'https://discourse.mafiasi.de/',
+        'image': static('img/services/discourse.png'),
+    },
+    'dudel': {
+        'title': _('Dudel'),
+        'description': _('The Dudel helps you to find common dates for meetings easily.'),
+        'link': 'https://dudel.mafiasi.de/',
+        'image': static('img/services/dudel.png'),
+    },
+    'etherpad': {
+        'title': _('Etherpad'),
+        'description': _('You can use the Etherpad to work together on a document in real time.'),
+        'link': 'https://mafiasi.de/etherpad/',
+        'image': static('img/services/etherpad.png'),
+    },
+    'fb18': {
+        'title': _('FB18'),
+        'description': _('FB18 is our deprecated bulletin board, which is kept here as an archive.'),
+        'link': 'https://fb18.de/',
+        'image': static('img/services/fb18.png'),
+    },
+    'gogs': {
+        'title': _('Repositories'),
+        'description': _('The Github like repository service'),
+        'link': 'https://gogs.mafiasi.de/',
+        'image': static('img/services/gogs.png'),
+    },
+    'gprot': {
+        'title': _('GProt'),
+        'description': _('The GProt contains memory minutes of oral and written exams.'),
+        'link': 'https://mafiasi.de/gprot/',
+        'image': static('img/services/gprot.png'),
+    },
+    'jabber': {
+        'title': _('Jabber'),
+        'description': _('On our Jabber server you can chat with your fellow students, which are already on your contact list.'),
+        'link': 'https://mafiasi.de/jabber/',
+        'image': static('img/services/jabber.png'),
+    },
+    'mattermost': {
+        'title': _('Chat'),
+        'description': _('An online team chat service'),
+        'link': 'https://mattermost.mafiasi.de/',
+        'image': static('img/services/mattermost.png'),
+    },
+    'mumble': {
+        'title': _('Mumble'),
+        'description': _('You can use our mumble for voice chat with other fellow students.'),
+        'link': 'https://mafiasi.de/mumble/',
+        'image': static('img/services/mumble.png'),
+    },
+    'owncloud': {
+        'title': _('Owncloud'),
+        'description': _('OwnCloud enables you to sync and share your documents.'),
+        'link': 'https://owncloud.mafiasi.de/',
+        'image': static('img/services/owncloud.png'),
+    },
+    'pks': {
+        'title': _('Keyserver'),
+        'description': _('You can find your fellow students\' OpenPGP keys on our public keyserver.'),
+        'link': 'https://mafiasi.de/pks/',
+        'image': static('img/services/pks.png'),
+    },
+    'planet': {
+        'title': _('Planet'),
+        'description': _('Planet is a feed aggregator which collects blog entries from your fellow students.'),
+        'link': 'https://planet.mafiasi.de/',
+        'image': static('img/services/planet.png'),
+    },
+    'redmine': {
+        'title': _('Redmine'),
+        'description': _('Redmine is a project management software. You can create tasks and assign them to people.'),
+        'link': 'https://redmine.mafiasi.de/',
+        'image': static('img/services/redmine.png'),
+    },
+    'sogo': {
+        'title': _('Calendar'),
+        'description': _('Manage and share your calendars and address book, sync them to all your devices.'),
+        'link': 'https://sogo.mafiasi.de/',
+        'image': static('img/services/sogo.png'),
+    },
+    'wiki': {
+        'title': _('Wiki'),
+        'description': _('In the wiki you will find important information regarding your studies.'),
+        'link': 'https://wiki.mafiasi.de/',
+        'image': static('img/services/wiki.png'),
+    },
+}
