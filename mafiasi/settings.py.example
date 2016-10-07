@@ -201,19 +201,6 @@ MUMBLE_SERVER = {
 LOGIN_URL = '/login'
 LOGIN_REDIRECT_URL = '/dashboard/'
 DATABASE_ROUTERS = ['mafiasi.jabber.dbrouter.JabberRouter', 'ldapdb.router.Router']
-SERVICE_LINKS = {
-    'etherpad': 'https://ep.mafiasi.de/',
-    'wiki': 'https://wiki.mafiasi.de/',
-    'dudel': 'https://dudel.mafiasi.de/',
-    'gprot': 'https://www2.informatik.uni-hamburg.de/Fachschaft/gprot/',
-    'planet': 'https://planet.mafiasi.de/',
-    'fb18': 'https://fb18.de/',
-    'redmine': 'https://redmine.mafiasi.de/',
-	'discourse': 'https://discourse.mafiasi.de/',
-	'sogo': 'https://sogo.mafiasi.de/',
-	'gogs': 'https://gogs.mafiasi.de/',
-	'mattermost': 'https://mattermost.mafiasi.de/',
-}
 
 IMPRINT_URL = 'https://wiki.mafiasi.de/Fachschaft_Informatik:Impressum'
 TEAM_EMAIL = u'ag-server@informatik.uni-hamburg.de'
