@@ -1,13 +1,11 @@
 from __future__ import print_function
 
 from nameparser import HumanName
-from django.core.management.base import NoArgsCommand, CommandError
+from django.core.management.base import BaseCommand, CommandError
 from mafiasi.base.models import Mafiasi, Yeargroup, PasswdEntry
 from mafiasi.jabber.models import JabberUser, SrUser, JabberUserMapping
 
-class Command(NoArgsCommand):
-    help = 'Loads the passwd file from "getent passwd" into the database'
-
+class Command(BaseCommand):
     def handle(self, *args, **options):
         Mafiasi.objects.all().delete()
         JabberUserMapping.objects.all().delete()

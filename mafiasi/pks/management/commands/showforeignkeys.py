@@ -1,14 +1,14 @@
 from fuzzywuzzy import fuzz
 import gpgme
-from django.core.management.base import NoArgsCommand
 from django.conf import settings
+from django.core.management.base import BaseCommand
 
 from mafiasi.base.models import Mafiasi
 
-class Command(NoArgsCommand):
+class Command(BaseCommand):
     help = 'Show all OpenPGP keys which do not belong to our community'
 
-    def handle_noargs(self, **options):
+    def handle(self, **options):
         self.community_domains = ['@' + domain
                                   for domain in settings.PKS_COMMUNITY_DOMAINS]
         

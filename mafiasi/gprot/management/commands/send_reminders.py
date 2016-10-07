@@ -13,9 +13,6 @@ class Command(BaseCommand):
     help = 'Send emails for all reminders due today or earlier, then remove them.'
 
     def handle(self, *args, **options):
-        if len(args):
-            raise CommandError("This command does not accept any arguments.")
-
         reminders = Reminder.objects.select_related() \
                             .filter(exam_date__lte=date.today())
 

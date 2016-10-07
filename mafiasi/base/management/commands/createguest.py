@@ -9,31 +9,24 @@ from mafiasi.base.models import Mafiasi
 from optparse import make_option
 
 class Command(BaseCommand):
-    args = '<name> <email> <first_name> <last_name>'
     help = 'Create a guest account'
 
-    option_list = BaseCommand.option_list + (
-        make_option('--no-guest',
-                        action='store_true',
-                        dest='noguest',
-                        default=False,
-                        help='Do not add .guest to username'),
-        )
+    def add_arguments(self, parser):
+        parser.add_argument('--no-guest',
+                            action='store_true',
+                            dest='noguest',
+                            default=False,
+                            help='Do not add .guest to username')
+        parser.add_argument('name')
+        parser.add_argument('email')
+        parser.add_argument('first_name', nargs='?', default=None)
+        parser.add_argument('last_name', nargs='?', default=None)
 
     def handle(self, *args, **options):
-        if len(args) < 3:
-            raise CommandError(u'Please provide name and email')
-        
-        name = args[0]
-        email = args[1]
-        try:
-            first_name = args[2]
-        except IndexError:
-            first_name = None
-        try:
-            last_name = args[3]
-        except IndexError:
-            last_name = None
+        name = options['name']
+        email = options['email']
+        first_name = options['first_name']
+        last_name = options['last_name']
 
         if not options['noguest']:
             if not name.endswith('.guest'):

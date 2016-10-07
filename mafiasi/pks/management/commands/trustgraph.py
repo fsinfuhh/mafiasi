@@ -11,13 +11,17 @@ from mafiasi.pks.graph import generate_graph
 class Command(BaseCommand):
     help = 'Generate the trust graph'
 
+    def add_arguments(self, parser):
+        parser.add_argument('graph', nargs='*')
+
     def handle(self, *args, **options):
-        if not args or 'global' in args:
+        graphs = options['graph']
+        if not graphs or 'global' in graphs:
             self._build_graph('global')
         
         for party in KeysigningParty.objects.all():
             graph_name = 'party{}'.format(party.pk)
-            if args and graph_name not in args:
+            if graphs and graph_name not in graphs:
                 continue
             key_fingerprints = []
             for participant in party.participants.all():
