@@ -30,6 +30,28 @@ $(function() {
         localStorage.setItem('dashboard-services-order', JSON.stringify(services));
     }
 
+    /**
+     * Restore the order of the dashboard services if stored.
+     */
+    function restoreServicesOrder() {
+        if (typeof(localStorage) === undefined) {
+            return;
+        }
+        try {
+            var servicesOrder = JSON.parse(localStorage.getItem('dashboard-services-order'));
+        } catch(e) {
+            return;
+        }
+
+        // Place all services starting by second behind its predecessor
+        for (var i = 1; i < servicesOrder.length; i++) {
+            var previousService = $('#service-' + servicesOrder[i - 1]);
+            var service = $('#service-' + servicesOrder[i]);
+            service.insertAfter(previousService);
+        }
+    }
+    restoreServicesOrder();
+
     // Initialize sortable
     $('#dashboard-services-container').sortable({ 
         connectWith: '.dashboard-service',
