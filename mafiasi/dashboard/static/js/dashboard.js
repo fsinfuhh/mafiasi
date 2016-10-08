@@ -39,15 +39,15 @@ $(function() {
         }
         try {
             var servicesOrder = JSON.parse(localStorage.getItem('dashboard-services-order'));
+
+            // Place all services starting by second behind its predecessor
+            for (var i = 1; i < servicesOrder.length; i++) {
+                var previousService = $('#service-' + servicesOrder[i - 1]);
+                var service = $('#service-' + servicesOrder[i]);
+                service.insertAfter(previousService);
+            }
         } catch(e) {
             return;
-        }
-
-        // Place all services starting by second behind its predecessor
-        for (var i = 1; i < servicesOrder.length; i++) {
-            var previousService = $('#service-' + servicesOrder[i - 1]);
-            var service = $('#service-' + servicesOrder[i]);
-            service.insertAfter(previousService);
         }
     }
     restoreServicesOrder();
