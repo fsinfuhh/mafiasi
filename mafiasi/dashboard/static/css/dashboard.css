@@ -1,0 +1,13 @@
+.service {
+    position: relative;
+}
+
+.handle {
+    position: absolute !important;
+    top: auto !important;
+    bottom: 0 !important;
+    right: 0 !important;
+    height: 1em !important;
+    font-size: 1em !important;
+    margin: 0.3em;
+}
