@@ -9,6 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
 from django.template.response import TemplateResponse
 from django.conf import settings
+from mafiasi.services import SERVICES
 
 from mafiasi.groups.models import GroupProxy
 from mafiasi.etherpad.etherpad import Etherpad
@@ -50,7 +51,7 @@ def index(request):
             })
     return TemplateResponse(request, 'etherpad/index.html', {
         'group_pad_list': group_pad_list,
-        'etherpad_link': settings.SERVICE_LINKS['etherpad']
+        'etherpad_link': SERVICES['etherpad']['link']
     })
 
 @login_required
