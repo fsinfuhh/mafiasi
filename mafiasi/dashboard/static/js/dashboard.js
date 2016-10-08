@@ -12,5 +12,12 @@ $(function() {
                 resp_function(resp_data[1]);
             }, 'json');
         }
-    })
+    });
+
+    // Initialize sortable
+    $('.dashboard-service').sortable({ 
+        connectWith: '.dashboard-service',
+        revert: true,
+        opacity: 0.7
+    }).disableSelection();
 })
