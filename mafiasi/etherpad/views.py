@@ -51,7 +51,7 @@ def index(request):
             })
     return TemplateResponse(request, 'etherpad/index.html', {
         'group_pad_list': group_pad_list,
-        'etherpad_link': SERVICES['etherpad']['link']
+        'etherpad_link': settings.ETHERPAD_URL,
     })
 
 @login_required
