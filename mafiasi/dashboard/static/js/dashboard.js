@@ -57,6 +57,10 @@ $(function() {
         connectWith: '.dashboard-service',
         revert: true,
         opacity: 0.7,
-        update: saveServicesOrder
+        update: saveServicesOrder,
+        handle: '.handle'
+
     }).disableSelection();
+
+    $('[data-toggle="tooltip"]').tooltip();
 })
