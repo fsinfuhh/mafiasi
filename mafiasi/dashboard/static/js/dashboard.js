@@ -14,10 +14,27 @@ $(function() {
         }
     });
 
+    /**
+     * Save the current order of the dashboard services in localStorage.
+     */
+    function saveServicesOrder() {
+        if (typeof(localStorage) === undefined) {
+            return;
+        }
+
+        var services = [];
+        $('.dashboard-service').each(function(key, elem) {
+            services.push($(elem).data('servicetitle'));
+        });
+
+        localStorage.setItem('dashboard-services-order', JSON.stringify(services));
+    }
+
     // Initialize sortable
-    $('.dashboard-service').sortable({ 
+    $('#dashboard-services-container').sortable({ 
         connectWith: '.dashboard-service',
         revert: true,
-        opacity: 0.7
+        opacity: 0.7,
+        update: saveServicesOrder
     }).disableSelection();
 })
