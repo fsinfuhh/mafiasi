@@ -17,20 +17,21 @@ Dependencies
 Installation
 ------------
 
-Just install the dependencies, copy example settings, sync database and
+Just install the dependencies, copy example settings and services, migrate database and
 execute make::
     
     pip install -r requirements.txt
     cp mafiasi/settings.py.example mafiasi/settings.py
-    ./manage.py syncdb
+    cp mafiasi/services.py.example mafiasi/services.py
+    ./manage.py migrate
     make
 
 If you want to use jabber (ejabberd) you have to load the SQL schema
 into the database (you'll find it in the ejabberd source code),
-sync the jabber database and do some changes to the tables::
+migrate the jabber database and do some changes to the tables::
    
    psql jabber < ejabberd-source-code/sql/pg.sql
-   ./manage.py syncdb --database jabber
+   ./manage.py migrate --database jabber
    psql jabber < mafiasi/jabber/sql/*.sql
 
 We try to keep these installation instructions up to date, but we can't

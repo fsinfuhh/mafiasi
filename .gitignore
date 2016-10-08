@@ -5,6 +5,7 @@
 *.mo
 *~
 mafiasi/settings.py
+mafiasi/services.py
 _static
 _media
 mafiasi/base/static/mathjax
