@@ -4,7 +4,7 @@ from django.shortcuts import get_object_or_404
 from django.conf import settings
 
 from mafiasi.dashboard.models import News, Panel
-from mafiasi.dashboard.services import SERVICES
+from mafiasi.services import SERVICES
 
 def index(request):
     news_list = News.objects.filter(frontpage=True, published=True) \
