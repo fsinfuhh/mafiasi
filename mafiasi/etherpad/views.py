@@ -5,15 +5,18 @@ from operator import itemgetter
 from urllib2 import URLError
 
 from django import forms
+from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
 from django.template.response import TemplateResponse
+from django.views.decorators.http import require_POST
 from django.conf import settings
 from mafiasi.services import SERVICES
 
 from mafiasi.groups.models import GroupProxy
 from mafiasi.etherpad.etherpad import Etherpad
 from mafiasi.etherpad.dbview import get_group_pads
+from mafiasi.etherpad.models import PinnedEtherpad
 
 class NewEtherpadForm(forms.Form):
     name = forms.RegexField(max_length=30, regex="[a-zA-Z0-9\-_]+")
@@ -99,6 +102,25 @@ def delete_pad(request, group_name, pad_name):
         'group': group_name,
         'pad': pad_name,
     })
+
+@login_required
+@require_POST
+def pin_pad(request, group_name, pad_name):
+    try:
+        group = request.user.groups.get(name=group_name)
+    except ObjectDoesNotExist:
+        return TemplateResponse(request, 'etherpad/forbidden.html', {
+            'group_name': group_name,
+        }, status=403)
+
+    # TODO: test if pad exists
+
+    # ensure that pad is not already pinned
+    PinnedEtherpad.objects.get_or_create(
+        user=request.user, group_name=group, pad_name=pad_name)
+    # redirect to pad overview
+    return redirect('ep_index')
+
 
 @login_required
 def show_pad(request, group_name, pad_name):
