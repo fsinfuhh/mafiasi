@@ -10,7 +10,7 @@ class Etherpad(object):
     def __init__(self):
         self.api = EtherpadLiteClient(
             api_version='1.2.1',
-            base_url='{0}/api/'.format(settings.ETHERPAD_URL),
+            base_url='{0}/api'.format(settings.ETHERPAD_URL),
             base_params={'apikey': settings.ETHERPAD_API_KEY})
 
     def _get_ep_user(self, user):
