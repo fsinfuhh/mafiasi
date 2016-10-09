@@ -124,6 +124,22 @@ def pin_pad(request, group_name, pad_name):
     return redirect('ep_index')
 
 @login_required
+@require_POST
+def unpin_pad(request, group_name, pad_name):
+    try:
+        group = request.user.groups.get(name=group_name)
+    except ObjectDoesNotExist:
+        return TemplateResponse(request, 'etherpad/forbidden.html', {
+            'group_name': group_name,
+        }, status=403)
+
+    PinnedEtherpad.objects.filter(
+        user=request.user, group_name=group, pad_name=pad_name
+    ).delete()
+    # redirect to pad overview
+    return redirect('ep_index')
+
+@login_required
 def show_pad(request, group_name, pad_name):
     # test if user is in group
     if not request.user.groups.filter(name=group_name).exists():
