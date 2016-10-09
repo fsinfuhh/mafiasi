@@ -26,7 +26,7 @@
   <li>
     <a href="{% url 'ep_show_pad' pad.group_name pad.pad_name %}">{{ pad.pad_name }}</a>
     &nbsp;&nbsp;-&nbsp;&nbsp;<a href="{% url 'ep_show_pad_html' pad.group_name pad.pad_name %}">HTML</a>
-    <form method="POST" class="inline-form" action="{% url 'ep_pin_pad' pad.group_name pad.pad_name %}">
+    <form method="POST" class="inline-form" action="{% url 'ep_unpin_pad' pad.group_name pad.pad_name %}">
       {% csrf_token %}
       &nbsp;&nbsp;-&nbsp;&nbsp;<button class="button-link">Unpin</button>
     </form>
