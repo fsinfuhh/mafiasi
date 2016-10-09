@@ -96,6 +96,11 @@ def delete_pad(request, group_name, pad_name):
             ep.delete_pad('{0}${1}'.format(
                 ep.get_group_id(group_name),
                 pad_name))
+
+            # delete pinned pads
+            PinnedEtherpad.objects.filter(
+                group_name=group, pad_name=pad_name).delete()
+
             return redirect('ep_index')
 
     form = DeleteEtherpadForm(request.user)
