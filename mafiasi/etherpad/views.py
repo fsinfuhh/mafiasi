@@ -120,12 +120,16 @@ def pin_pad(request, group_name, pad_name):
             'group_name': group_name,
         }, status=403)
 
-    # TODO: test if pad exists
+    # ensure that pad exists
+    ep = Etherpad()
+    full_pad_name = '{0}${1}'.format(
+        ep.get_group_id(group_name),
+        pad_name)
+    html = ep.get_html(full_pad_name)
 
-    # ensure that pad is not already pinned
     PinnedEtherpad.objects.get_or_create(
         user=request.user, group_name=group, pad_name=pad_name)
-    # redirect to pad overview
+
     return redirect('ep_index')
 
 @login_required
