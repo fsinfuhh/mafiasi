@@ -38,9 +38,9 @@ def index(request):
         group_names = [group.name for group in groups]
         pad_dict = get_group_pads(group_names)
         old_time = datetime.datetime.now() - datetime.timedelta(days=7)
-        for group_name in group_names:
+        for group in groups:
             is_admin = GroupProxy(group).is_admin(request.user)
-            pads = pad_dict[group_name]
+            pads = pad_dict[group.name]
             for pad in pads:
                 edit_time = datetime.datetime.fromtimestamp(pad['timestamp'])
                 edit_time_not_old = edit_time >= old_time
@@ -49,7 +49,7 @@ def index(request):
                 pad['edit_time_not_old'] = edit_time_not_old
             pads.sort(key=itemgetter('last_edit'), reverse=True)
             group_pad_list.append({
-                'group_name': group_name,
+                'group_name': group.name,
                 'pads': pads
             })
     return TemplateResponse(request, 'etherpad/index.html', {
