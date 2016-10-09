@@ -79,13 +79,13 @@ def create_new_pad(request):
 def delete_pad(request, group_name, pad_name):
     # test if user is in group
     if not request.user.groups.filter(name=group_name).exists():
-        return TemplateResponse(request, 'etherpad/forbidden.html', {
+        return TemplateResponse(request, 'etherpad/forbidden-notingroup.html', {
             'group_name': group_name,
         }, status=403)
     # test if user is admin in the group
     group = request.user.groups.filter(name=group_name).all()[0]
     if not group.properties.admins.filter(pk=request.user.pk):
-        return TemplateResponse(request, 'etherpad/forbidden.html', {
+        return TemplateResponse(request, 'etherpad/forbidden-notadmin.html', {
             'group_name': group_name,
         }, status=403)
 
@@ -111,7 +111,7 @@ def pin_pad(request, group_name, pad_name):
     try:
         group = request.user.groups.get(name=group_name)
     except ObjectDoesNotExist:
-        return TemplateResponse(request, 'etherpad/forbidden.html', {
+        return TemplateResponse(request, 'etherpad/forbidden-notingroup.html', {
             'group_name': group_name,
         }, status=403)
 
@@ -129,7 +129,7 @@ def unpin_pad(request, group_name, pad_name):
     try:
         group = request.user.groups.get(name=group_name)
     except ObjectDoesNotExist:
-        return TemplateResponse(request, 'etherpad/forbidden.html', {
+        return TemplateResponse(request, 'etherpad/forbidden-notingroup.html', {
             'group_name': group_name,
         }, status=403)
 
@@ -143,7 +143,7 @@ def unpin_pad(request, group_name, pad_name):
 def show_pad(request, group_name, pad_name):
     # test if user is in group
     if not request.user.groups.filter(name=group_name).exists():
-        return TemplateResponse(request, 'etherpad/forbidden.html', {
+        return TemplateResponse(request, 'etherpad/forbidden-notingroup.html', {
             'group_name': group_name,
         }, status=403)
 
@@ -176,7 +176,7 @@ def show_pad(request, group_name, pad_name):
 def show_pad_html(request, group_name, pad_name):
     # test if user is in group
     if not request.user.groups.filter(name=group_name).exists():
-        return TemplateResponse(request, 'etherpad/forbidden.html', {
+        return TemplateResponse(request, 'etherpad/forbidden-notingroup.html', {
             'group_name': group_name,
         }, status=403)
 
