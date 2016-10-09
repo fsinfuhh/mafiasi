@@ -53,6 +53,8 @@ def index(request):
                 'pads': pads
             })
     return TemplateResponse(request, 'etherpad/index.html', {
+        'pinned_pads': PinnedEtherpad.objects.filter(
+            user=request.user).order_by('pad_name'),
         'group_pad_list': group_pad_list,
         'etherpad_link': settings.ETHERPAD_URL,
     })
@@ -120,7 +122,6 @@ def pin_pad(request, group_name, pad_name):
         user=request.user, group_name=group, pad_name=pad_name)
     # redirect to pad overview
     return redirect('ep_index')
-
 
 @login_required
 def show_pad(request, group_name, pad_name):
