@@ -111,5 +111,11 @@ body {
   padding: 0;
   border: 0;
 
+  text-decoration: none;
+
   color: #337ab7;
+}
+
+.button-link:hover {
+  text-decoration: underline;
 }
