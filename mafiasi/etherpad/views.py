@@ -54,7 +54,7 @@ def index(request):
                 'pads': pads
             })
         pinned_pads = PinnedEtherpad.objects.filter(
-            user=request.user).order_by('pad_name'),
+            user=request.user).order_by('pad_name')
 
     return TemplateResponse(request, 'etherpad/index.html', {
         'pinned_pads': pinned_pads,
