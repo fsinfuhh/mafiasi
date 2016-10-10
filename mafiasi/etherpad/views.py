@@ -32,6 +32,7 @@ class DeleteEtherpadForm(forms.Form):
 
 def index(request):
     group_pad_list = []
+    pinned_pads = None
     if request.user.is_authenticated():
         pad_dict = {}
         groups = request.user.groups.all().order_by('name')
@@ -52,9 +53,11 @@ def index(request):
                 'group_name': group.name,
                 'pads': pads
             })
-    return TemplateResponse(request, 'etherpad/index.html', {
-        'pinned_pads': PinnedEtherpad.objects.filter(
+        pinned_pads = PinnedEtherpad.objects.filter(
             user=request.user).order_by('pad_name'),
+
+    return TemplateResponse(request, 'etherpad/index.html', {
+        'pinned_pads': pinned_pads,
         'group_pad_list': group_pad_list,
         'etherpad_link': settings.ETHERPAD_URL,
     })
