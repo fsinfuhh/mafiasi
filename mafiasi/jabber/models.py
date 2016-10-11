@@ -9,6 +9,8 @@ from django.dispatch import receiver
 
 from mafiasi.base.models import Yeargroup, Mafiasi
 
+import logging
+
 class PrivacyDefaultList(models.Model):
     username = models.TextField(primary_key=True)
     name = models.TextField()
@@ -222,7 +224,7 @@ def create_jabber_account(mafiasi):
                     yeargroup_id=mafiasi.yeargroup.pk)
             sr_groups.append(m.sr_group)
         except YeargroupSrGroupMapping.DoesNotExist:
-            pass
+            logging.exception("Jabber yeargroup missing for user %s", mafiasi)
     
     user = JabberUser.objects.create(username=mafiasi.username,
                                      created_at=now())
