@@ -307,14 +307,14 @@ VALID_EMAIL_ADDRESSES = ['postmaster@mafiasi.de']
 EMAIL_ADDRESSES_PASSWORD = 'changeme'
 
 DASHBOARD_SERVICES = [
-    'wiki'
+    'wiki',
     'etherpad',
     'dudel',
     'redmine',
     'discourse',
     'sogo',
     'owncloud',
-    'gprod',
+    'gprot',
     'pks',
     'mumble',
     'jabber',
