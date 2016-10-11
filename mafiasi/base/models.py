@@ -10,6 +10,7 @@ from django.contrib.auth.models import AbstractUser, Group
 
 from mafiasi.base.tokenbucket import TokenBucket # noqa
 from mafiasi.utils.ldapmodel import LdapModel, LdapAttr, LdapNotFound
+from mafiasi.base.validation import validate_ascii
 
 LOCK_ID_LDAP_GROUP = -215652734
 
@@ -56,7 +57,7 @@ class PasswdEntry(models.Model):
 
 
 class Mafiasi(AbstractUser):
-    account = models.CharField(max_length=40)
+    account = models.CharField(max_length=40, validators=[validate_ascii])
     yeargroup = models.ForeignKey(Yeargroup, blank=True, null=True)
     is_guest = models.BooleanField(default=False)
     real_email = models.EmailField(unique=True, null=True)

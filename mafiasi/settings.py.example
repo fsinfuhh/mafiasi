@@ -368,3 +368,9 @@ TEMPLATE_ALLOWABLE_SETTINGS_VALUES = (
 )
 
 GUEST_ACCEPT_INVITATION_MAIL = False
+
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'mafiasi.base.validation.AsciiValidator',
+    },
+]
