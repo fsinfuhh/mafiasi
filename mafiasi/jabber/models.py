@@ -5,6 +5,7 @@ from django.db.models.signals import post_save
 from django.conf import settings
 from django.utils.timezone import now
 from django.contrib.auth import get_user_model
+from django.dispatch import receiver
 
 from mafiasi.base.models import Yeargroup, Mafiasi
 
@@ -200,6 +201,11 @@ def get_or_create_account(user):
         return mapping.jabber_user
     except JabberUserMapping.DoesNotExist:
         return create_jabber_account(user)
+
+@receiver(post_save, sender=Mafiasi)
+def _account_creation_cb(instance, created, **kwargs):
+    if created:
+        create_jabber_account(instance)
 
 def create_jabber_account(mafiasi):
     if mafiasi.is_student:
