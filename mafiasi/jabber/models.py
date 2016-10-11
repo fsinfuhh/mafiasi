@@ -94,12 +94,12 @@ class SrGroup(models.Model):
     def __unicode__(self):
         return self.name
 
-class SrInactiveUser(models.Model):
+class SrUser(models.Model):
     jid = models.TextField()
     grp = models.TextField()
     created_at = models.DateTimeField()
     class Meta:
-        db_table = 'sr_inactive_user'
+        db_table = 'sr_user'
         unique_together = ('jid', 'grp')
 
     def __unicode__(self):
@@ -231,6 +231,6 @@ def create_jabber_account(mafiasi):
     
     jid = user.get_jid()
     for sr_group in sr_groups:
-        SrInactiveUser.objects.create(jid=jid, grp=sr_group.name, created_at=now())
+        SrUser.objects.create(jid=jid, grp=sr_group.name, created_at=now())
 
     return user
