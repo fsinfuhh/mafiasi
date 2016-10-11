@@ -12,3 +12,4 @@ mafiasi/base/static/mathjax
 mafiasi/base/static/MathJax-*
 
 .idea
+.pyenv
