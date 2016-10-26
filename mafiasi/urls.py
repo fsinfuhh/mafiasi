@@ -6,7 +6,7 @@ from django.conf.urls.static import static
 
 
 import mafiasi.base.urls, mafiasi.registration.urls, mafiasi.dashboard.urls, mafiasi.discourse.urls,\
-    mafiasi.mumble.urls, mafiasi.wiki.urls, mafiasi.pks.urls, mafiasi.groups.urls,\
+    mafiasi.mumble.urls, mafiasi.wiki.urls, mafiasi.groups.urls,\
     mafiasi.etherpad.urls, mafiasi.gprot.urls, mafiasi.teaching.urls, mafiasi.mail.urls, mafiasi.mailinglist.urls,\
     mafiasi.guests.urls, mafiasi.owncloud.urls
 
@@ -25,7 +25,6 @@ urlpatterns = [
     url(r'^discourse/', include(mafiasi.discourse.urls)),
     url(r'^mumble/', include(mafiasi.mumble.urls)),
     url(r'^wiki/', include(mafiasi.wiki.urls)),
-    url(r'^pks/', include(mafiasi.pks.urls)),
     url(r'^groups/', include(mafiasi.groups.urls)),
     url(r'^etherpad/', include(mafiasi.etherpad.urls)),
     url(r'^gprot/', include(mafiasi.gprot.urls)),
@@ -45,6 +44,12 @@ urlpatterns = [
     url(r'^admin/doc/', include(django.contrib.admindocs.urls)),
     url(r'^admin/', include(admin.site.urls)),
 ]
+
+if 'mafiasi.pks' in settings.INSTALLED_APPS:
+    import mafiasi.pks.urls
+    urlpatterns += [
+        url(r'^pks/', include(mafiasi.pks.urls)),
+    ]
 
 if 'mafiasi.jabber' in settings.INSTALLED_APPS:
     import mafiasi.jabber.urls
