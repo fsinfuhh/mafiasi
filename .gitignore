@@ -10,6 +10,6 @@ _static
 _media
 mafiasi/base/static/mathjax
 mafiasi/base/static/MathJax-*
-
+*.db
 .idea
 .pyenv
