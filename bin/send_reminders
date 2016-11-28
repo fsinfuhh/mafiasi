@@ -1,5 +1,5 @@
 #!/bin/sh
 
 cd /opt/mafiasi 
-. .pyenv/bin/activate
+source .pyenv/bin/activate
 ./manage.py send_reminders
