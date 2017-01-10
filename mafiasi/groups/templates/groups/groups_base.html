@@ -59,12 +59,12 @@
     {% endif %}
     {% endblock %}
   </div>
+    {% value_from_settings PROJECT_NAME as project_name %}
   <div class="col-xs-9">
-      <h2>{% block group_ptitle %}{% trans 'Mafiasi Groups' %}{% endblock %}</h2>
+      <h2>{% block group_ptitle %}{% trans '{{ project_name }} Groups' %}{% endblock %}</h2>
       <hr/>
     {% block group_content %}
     <p class="alert alert-info">
-      {% value_from_settings PROJECT_NAME as project_name %}
       {% blocktrans %}
       Accept an invitation or create a new group and invite
       others to use {{ project_name }} features such as private
