@@ -131,7 +131,7 @@ class Mailinglist(models.Model):
         subject = {
             'admin': ('Email an {list} wartet auf Moderation/'
                       'Email is awaiting moderation'),
-            'sender': ('Deine Email an {list} wartet auf Genehming/'
+            'sender': ('Deine Email an {list} wartet auf Genehmigung/'
                        'Your email is awaiting approval')
         }.get(template).format(list=self.get_address())
         template_file = 'mailinglist/moderated_mail_{}.mail'.format(template)
