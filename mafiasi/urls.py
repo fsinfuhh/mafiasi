@@ -1,6 +1,6 @@
 from django.conf.urls import include, url
 from django.conf.urls.static import static
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -108,3 +108,12 @@ if settings.DEBUG:
     urlpatterns += \
         static(r'^media/(?P<path>.*)$', document_root=settings.MEDIA_ROOT) +\
         static(r'^mathjax/(?P<path>.*)$', document_root=settings.MATHJAX_ROOT);
+
+
+def handler500(request):
+    """500 error handler which includes ``request`` in the context.
+
+    Templates: `500.html`
+    Context: None
+    """
+    return render(request, '500.html', status=500)
