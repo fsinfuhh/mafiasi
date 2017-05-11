@@ -197,10 +197,10 @@ def _send_invitation_mail(request, invitation, subject, template_name):
     if not invitation.invitee.email:
         return
     template = loader.get_template('groups/mail_{0}.txt'.format(template_name))
-    message = template.render(Context({
+    message = template.render({
         'invitation': invitation,
         'site': get_current_site(request)
-    }))
+    })
     send_mail(settings.EMAIL_SUBJECT_PREFIX + subject,
               message,
               settings.DEFAULT_FROM_EMAIL,
