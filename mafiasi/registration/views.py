@@ -161,7 +161,7 @@ def create_account(request, info_token):
                                              is_student=True)
             mafiasi.set_password(form.cleaned_data['password1'])
             mafiasi.save()
-            mafiasi.backend='django.contrib.auth.backends.ModelBackend'
+            # mafiasi.backend='django.contrib.auth.backends.ModelBackend'
 
             login(request, mafiasi)
             return redirect('dashboard_index')

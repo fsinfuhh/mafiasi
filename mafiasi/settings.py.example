@@ -185,6 +185,11 @@ SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
 
 AUTH_USER_MODEL = 'base.Mafiasi'
+AUTHENTICATION_BACKENDS = (
+    'mafiasi.registration.auth_backend.EmailOrUsernameModelBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
 EMAIL_DOMAIN = u'informatik.uni-hamburg.de'
 PRIMARY_DOMAIN = u'informatik.uni-hamburg.de'
 REGISTER_DOMAINS =  [u'informatik.uni-hamburg.de', u'physnet.uni-hamburg.de']
