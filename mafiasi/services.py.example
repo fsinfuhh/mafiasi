@@ -8,11 +8,11 @@ SERVICES = {
         'link': 'https://discourse.mafiasi.de/',
         'image': static('img/services/discourse.png'),
     },
-    'dudel': {
-        'title': _('Dudel'),
-        'description': _('The Dudel helps you to find common dates for meetings easily.'),
-        'link': 'https://dudel.mafiasi.de/',
-        'image': static('img/services/dudel.png'),
+    'bitpoll': {
+        'title': _('BitPoll'),
+        'description': _('BitPoll helps you to find common dates for meetings easily.'),
+        'link': 'https://bitpoll.mafiasi.de/',
+        'image': static('img/services/bitpoll.png'),
     },
     'etherpad': {
         'title': _('Etherpad'),

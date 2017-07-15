@@ -309,7 +309,7 @@ EMAIL_ADDRESSES_PASSWORD = 'changeme'
 DASHBOARD_SERVICES = [
     'wiki',
     'etherpad',
-    'dudel',
+    'bitpoll',
     'redmine',
     'discourse',
     'sogo',
