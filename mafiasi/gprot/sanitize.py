@@ -3,7 +3,7 @@ from urlparse import urlparse
 import bleach
 from django.conf import settings
 
-def _filter_css_class(name, value):
+def _filter_css_class(tag, name, value):
     if name == 'class':
         if value in ('marker', 'math-tex'):
             return True
@@ -14,13 +14,13 @@ def _build_filter_integer(*attrs):
         return name in attrs and value.isdigit()
     return _filter_integer
 
-def _filter_src(name, value):
+def _filter_src(tag, name, value):
     if name == 'src':
         p = urlparse(value)
         return p.scheme in ('http', 'https', 'ftp')
     return False
 
-def _filter_img(name, value):
+def _filter_img(tag, name, value):
     return name in ('src', 'alt', 'style')
 
 def clean_html(content):
