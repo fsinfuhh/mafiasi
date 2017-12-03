@@ -15,7 +15,7 @@ def index(request):
         'news_list': news_list,
         'panel_list': panel_list,
         'wiki_search_url': settings.WIKI_URL + 'index.php',
-        'activated_services': SERVICES.keys(),
+        'activated_services': list(SERVICES.keys()),
         'services': (SERVICES[service] for service in settings.DASHBOARD_SERVICES),
     })
 

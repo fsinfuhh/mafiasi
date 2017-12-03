@@ -152,7 +152,7 @@ def invite(request, group_name):
         form = InvitationForm(request.POST, group=group,
                               user=request.user)
         if form.is_valid():
-            subject = u'Neue Gruppeneinladung / new group invitation'
+            subject = 'Neue Gruppeneinladung / new group invitation'
             invitations = form.get_invitations()
             for invitation in invitations:
                 invitation.save()

@@ -18,7 +18,7 @@ class PrivacyDefaultList(models.Model):
         db_table = 'privacy_default_list'
 
     def __unicode__(self):
-        return u'{0}: {1}'.format(self.username, self.name)
+        return '{0}: {1}'.format(self.username, self.name)
 
 class PrivacyList(models.Model):
     id = models.IntegerField(primary_key=True)
@@ -29,7 +29,7 @@ class PrivacyList(models.Model):
         db_table = 'privacy_list'
 
     def __unicode__(self):
-        return u'{0}: {1}'.format(self.username, self.name)
+        return '{0}: {1}'.format(self.username, self.name)
 
 class PrivacyListData(models.Model):
     privacy_list = models.OneToOneField(PrivacyList,
@@ -47,7 +47,7 @@ class PrivacyListData(models.Model):
         db_table = 'privacy_list_data'
 
     def __unicode__(self):
-        return unicode(self.privacy_list)
+        return str(self.privacy_list)
 
 class PrivateStorage(models.Model):
     username = models.TextField()
@@ -68,7 +68,7 @@ class Rostergroups(models.Model):
         db_table = 'rostergroups'
 
     def __unicode__(self):
-        return u'{0} {1}/{2}'.format(self.username, self.grp, self.jid)
+        return '{0} {1}/{2}'.format(self.username, self.grp, self.jid)
 
 class Rosteruser(models.Model):
     username = models.TextField()
@@ -85,7 +85,7 @@ class Rosteruser(models.Model):
         db_table = 'rosterusers'
 
     def __unicode__(self):
-        return u'{0}: {1} ({2})'.format(self.username, self.nick, self.jid)
+        return '{0}: {1} ({2})'.format(self.username, self.nick, self.jid)
 
 class SrGroup(models.Model):
     name = models.TextField(primary_key=True)
@@ -106,7 +106,7 @@ class SrUser(models.Model):
         unique_together = ('jid', 'grp')
 
     def __unicode__(self):
-        return u'{0} in {1}'.format(self.jid, self.grp)
+        return '{0} in {1}'.format(self.jid, self.grp)
 
 class JabberUser(models.Model):
     username = models.TextField(primary_key=True)
@@ -119,11 +119,11 @@ class JabberUser(models.Model):
         return self.username
 
     def get_jid(self):
-        return u'{0}@{1}'.format(self.username, settings.JABBER_DOMAIN)
+        return '{0}@{1}'.format(self.username, settings.JABBER_DOMAIN)
 
     def set_nickname(self, nickname):
         Vcard.objects.filter(username=self.username).delete()
-        vcard_tpl = u"<vCard xmlns='vcard-temp'><NICKNAME>{nick}</NICKNAME></vCard>"
+        vcard_tpl = "<vCard xmlns='vcard-temp'><NICKNAME>{nick}</NICKNAME></vCard>"
         vcard_xml = vcard_tpl.format(nick=escape(nickname, quote=True))
         try:
             vcard = Vcard.objects.get(username=self.username)
@@ -151,7 +151,7 @@ class JabberUserMapping(models.Model):
         unique_together = ('jabber_user', 'mafiasi_user_id')
     
     def __unicode__(self):
-        return u'{0} owns {1}@{2}'.format(self.mafiasi_user,
+        return '{0} owns {1}@{2}'.format(self.mafiasi_user,
                                           self.jabber_user,
                                           settings.JABBER_DOMAIN)
 
@@ -174,7 +174,7 @@ class YeargroupSrGroupMapping(models.Model):
     sr_group = models.ForeignKey(SrGroup)
 
     def __unicode__(self):
-        return u'{0} -> {1}'.format(self.yeargroup, self.sr_group)
+        return '{0} -> {1}'.format(self.yeargroup, self.sr_group)
     
     def _get_yeargroup(self):
         if not hasattr(self, '_yeargroup'):
@@ -195,7 +195,7 @@ class DefaultGroup(models.Model):
     sr_group = models.ForeignKey(SrGroup)
 
     def __unicode__(self):
-        return u'{0}: {1}'.format(self.get_group_type_display(), self.sr_group)
+        return '{0}: {1}'.format(self.get_group_type_display(), self.sr_group)
 
 def get_or_create_account(user):
     try:
@@ -230,7 +230,7 @@ def create_jabber_account(mafiasi):
                                      created_at=now())
     
     if mafiasi.first_name:
-        nickname = u'{0} ({1})'.format(mafiasi.first_name, mafiasi.username)
+        nickname = '{0} ({1})'.format(mafiasi.first_name, mafiasi.username)
     else:
         nickname = mafiasi.username
     user.set_nickname(nickname)

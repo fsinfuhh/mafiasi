@@ -1,4 +1,4 @@
-from __future__ import print_function
+
 
 from nameparser import HumanName
 from django.core.management.base import BaseCommand, CommandError
@@ -65,7 +65,7 @@ class Command(BaseCommand):
             mafiasi.first_name = first_name
             mafiasi.last_name = last_name
 
-        mafiasi.email = account + u'@informatik.uni-hamburg.de'
+        mafiasi.email = account + '@informatik.uni-hamburg.de'
 
         mafiasi.set_password(jabber_user.password)
 

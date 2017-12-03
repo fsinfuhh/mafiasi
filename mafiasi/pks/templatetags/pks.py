@@ -7,7 +7,7 @@ register = template.Library()
 
 @register.filter(name='format_fingerprint')
 def format_fingerprint(fingerprint):
-    return u' '.join(fingerprint[i * 4:(i + 1) * 4] for i in xrange(10))
+    return ' '.join(fingerprint[i * 4:(i + 1) * 4] for i in range(10))
 
 @register.filter(name='show_expires')
 def show_expires(subkey):

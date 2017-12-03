@@ -45,7 +45,7 @@ def index(request):
             if courses:
                 gprots = gprots.filter(course__in=courses)
             for teacher in examiners:
-                gprots = filter(lambda g: teacher in g.examiners.all(), gprots)
+                gprots = [g for g in gprots if teacher in g.examiners.all()]
     else:
         form = GProtSearchForm()
 
@@ -136,7 +136,7 @@ def edit_metadata(request, gprot_pk):
 def _clean_pdf_metadata(gprot):
     assert gprot.is_pdf
 
-    title = u"GProt: {} / {}".format(
+    title = "GProt: {} / {}".format(
         gprot.course.get_full_name(),
         gprot.exam_date.strftime("%Y-%m-%d"),
     )
@@ -318,7 +318,7 @@ def send_notification_email(gprot, notification, request):
         'url': request.build_absolute_uri(url)
     })
     try:
-        send_mail(_(u'New memory minutes for "%(coursename)s"'
+        send_mail(_('New memory minutes for "%(coursename)s"'
             % {'coursename': gprot.course.name}).encode('utf8'),
                 email_content.encode('utf8'),
                 None,
@@ -409,12 +409,12 @@ def reminders(request):
         if 'course' in request.POST and request.POST['course'].isdigit():
             course = get_object_or_404(Course, pk=request.POST['course'])
         elif 'course_name' in request.POST:
-            course_name = request.POST.get('course_name', u'').strip()
-            course = Course(name=course_name, short_name=u'')
+            course_name = request.POST.get('course_name', '').strip()
+            course = Course(name=course_name, short_name='')
         else:
             course = None
 
-        exam_date_str = request.POST.get('exam_date', u'')
+        exam_date_str = request.POST.get('exam_date', '')
         try:
             exam_date_t = time.strptime(exam_date_str, '%Y-%m-%d')
             exam_date = date(exam_date_t.tm_year, exam_date_t.tm_mon,

@@ -1,4 +1,4 @@
-from __future__ import unicode_literals
+
 
 from copy import deepcopy
 
@@ -69,7 +69,7 @@ class LdapList(object):
         return self._list_data[key].decode('utf-8')
 
     def __iter__(self):
-        for i in xrange(len(self._list_data)):
+        for i in range(len(self._list_data)):
             yield self[i]
         
 
@@ -112,7 +112,7 @@ class LdapModelMeta(type):
                     self._values[attr_obj.name][0] = value
             return _set
         
-        for attr, attr_obj in namespace['attrs'].iteritems():
+        for attr, attr_obj in namespace['attrs'].items():
             namespace[attr] = property(_make_getter(attr, attr_obj),
                                        _make_setter(attr, attr_obj))
 
@@ -124,13 +124,12 @@ class LdapModelMeta(type):
         return type.__new__(cls, name, bases, namespace)
 
 
-class LdapModel(object):
+class LdapModel(object, metaclass=LdapModelMeta):
     attrs = {}
     object_classes = []
     base_dn = None
     lookup_dn = None
     primary_key = None
-    __metaclass__ = LdapModelMeta
 
     def __init__(self, values=None):
         self._values = {} if values is None else values
@@ -189,7 +188,7 @@ class LdapModel(object):
 def ensure_bytestring(x):
     if isinstance(x, str):
         return x
-    elif isinstance(x, unicode):
+    elif isinstance(x, str):
         return x.encode('utf-8')
     else:
         return str(x)

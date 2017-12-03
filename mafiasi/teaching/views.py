@@ -18,7 +18,7 @@ def api_create_teacher(request):
         return HttpResponse(serialize('json', [teacher]),
                             content_type='application/json')
     else:
-        return HttpResponse(unicode(form.errors), status=400)
+        return HttpResponse(str(form.errors), status=400)
 
 @login_required
 @require_POST
@@ -29,4 +29,4 @@ def api_create_course(request):
         return HttpResponse(serialize('json', [course]),
                             content_type='application/json')
     else:
-        return HttpResponse(unicode(form.errors), status=400)
+        return HttpResponse(str(form.errors), status=400)

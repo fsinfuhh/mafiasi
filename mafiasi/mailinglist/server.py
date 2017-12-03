@@ -1,4 +1,4 @@
-from __future__ import unicode_literals
+
 
 from email.parser import Parser
 from email.utils import parseaddr

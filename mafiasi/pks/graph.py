@@ -1,4 +1,4 @@
-from __future__ import division
+
 
 import os
 from binascii import hexlify
@@ -41,7 +41,7 @@ def generate_graph(filenames, filter_invalid=True, restrict_keys=None,
     for key in key_list:
         keyid = key.subkeys[0].keyid
         name = key.uids[0].name
-        labels[keyid] = u'<{0}<BR/><FONT POINT-SIZE="10">{1}</FONT>>'.format(
+        labels[keyid] = '<{0}<BR/><FONT POINT-SIZE="10">{1}</FONT>>'.format(
                 escape_html(name), keyid)
 
         not_connected = (signature_stats['sigcount'][keyid] == 0 and
@@ -82,7 +82,7 @@ def generate_graph(filenames, filter_invalid=True, restrict_keys=None,
         g.add_node(keyid, **attrs)
     
     # Add edges for signatures
-    for signed_keyid, signer_keyids in graph_dict.items():
+    for signed_keyid, signer_keyids in list(graph_dict.items()):
         for signer_keyid in signer_keyids:
             if (signer_keyid, signed_keyid) in flipped_edges:
                 continue
@@ -158,7 +158,7 @@ def _get_signature_keyids(key):
 def _find_max_cliques(graph_dict):
     graph = networkx.Graph()
     directed_edges = set()
-    for signed_keyid, signer_keyids in graph_dict.items():
+    for signed_keyid, signer_keyids in list(graph_dict.items()):
         graph.add_node(signed_keyid)
         for signer_keyid in signer_keyids:
             directed_edges.add((signer_keyid, signed_keyid))
@@ -187,7 +187,7 @@ def _build_signature_stats(graph_dict):
     for keyid in graph_dict:
         sigcount[keyid] = 0
 
-    for signed_keyid, signature_keyids in graph_dict.items():
+    for signed_keyid, signature_keyids in list(graph_dict.items()):
         signedbycount[signed_keyid] = len(signature_keyids)
         for signer_keyid in signature_keyids:
             sigcount[signer_keyid] += 1

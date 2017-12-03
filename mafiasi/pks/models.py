@@ -24,7 +24,7 @@ class AssignedKey(models.Model, KeyMixin):
         unique_together = ('user', 'fingerprint')
 
     def __unicode__(self):
-        return u'{0} ({1})'.format(self.fingerprint, self.user)
+        return '{0} ({1})'.format(self.fingerprint, self.user)
 
 class KeysigningParty(models.Model):
     name = models.CharField(max_length=60)
@@ -43,5 +43,5 @@ class Participant(models.Model):
     keys = models.ManyToManyField(AssignedKey)
 
     def __unicode__(self):
-        key_ids = u', '.join(key.fingerprint for key in self.keys.all())
-        return u'{0} at {1} ({2})'.format(self.user, self.party, key_ids)
+        key_ids = ', '.join(key.fingerprint for key in self.keys.all())
+        return '{0} at {1} ({2})'.format(self.user, self.party, key_ids)

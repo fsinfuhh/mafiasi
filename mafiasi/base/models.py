@@ -66,7 +66,7 @@ class Mafiasi(AbstractUser):
     @property
     def is_student(self):
         return self.account and (self.account[0].isdigit() or
-                                 self.account[0] == u'x')
+                                 self.account[0] == 'x')
 
     def set_password(self, new_password):
         """ Set attribute new_password after changing a password.
@@ -139,12 +139,12 @@ def _change_user_cb(sender, instance, created, **kwargs):
         ldap_user = LdapUser()
         ldap_user.username = instance.username
 
-    ldap_user.id = unicode(instance.id)
+    ldap_user.id = str(instance.id)
     ldap_user.common_name = instance.username
     
     if created:
         if instance.first_name:
-            display_name = u'{} ({})'.format(instance.first_name,
+            display_name = '{} ({})'.format(instance.first_name,
                                              instance.username)
         else:
             display_name = instance.username
@@ -173,6 +173,6 @@ def _change_group_cb(sender, instance, created, **kwargs):
         ldap_group = LdapGroup()
         ldap_group.name = instance.name
 
-    ldap_group.gid = unicode(instance.id)
+    ldap_group.gid = str(instance.id)
     ldap_group.save()
 post_save.connect(_change_group_cb, sender=Group)

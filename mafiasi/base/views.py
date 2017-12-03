@@ -1,4 +1,4 @@
-from __future__ import unicode_literals
+
 
 import json
 
@@ -24,7 +24,7 @@ def licenses(request):
 def problems(request):
     team_email = settings.TEAM_EMAIL
     if not request.user.is_authenticated():
-        team_email = team_email.replace(u'@', u' (AT) ')
+        team_email = team_email.replace('@', ' (AT) ')
     return TemplateResponse(request, 'base/problems.html', {
         'team_email': team_email
     })

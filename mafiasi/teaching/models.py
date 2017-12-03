@@ -49,18 +49,18 @@ class Term(models.Model):
         elif self.term == 'summer':
             return _('summer term {0}').format(self.year)
         else:
-            return unicode(self.year)
+            return str(self.year)
 
 class TeacherManager(models.Manager):
     def as_choices(self):
         for teacher in self.all().order_by('last_name'):
-            yield teacher.pk, unicode(teacher)
+            yield teacher.pk, str(teacher)
 
     def as_grouped_choices(self):
         for teacher in self.filter(department=None).order_by('last_name'):
-            yield teacher.pk, unicode(teacher)
+            yield teacher.pk, str(teacher)
         for dep in Department.objects.select_related().order_by('name'):
-            yield dep.name, [(t.pk, unicode(t)) 
+            yield dep.name, [(t.pk, str(t)) 
                              for t in dep.teachers.all().order_by('last_name')]
 
 class Teacher(models.Model):
@@ -73,8 +73,8 @@ class Teacher(models.Model):
     objects = TeacherManager()
 
     def get_full_name(self):
-        title = self.title + u' ' if self.title else u''
-        return u'{0}{1} {2}'.format(title, self.first_name, self.last_name)
+        title = self.title + ' ' if self.title else ''
+        return '{0}{1} {2}'.format(title, self.first_name, self.last_name)
     
     def __unicode__(self):
         return self.get_full_name()
@@ -82,13 +82,13 @@ class Teacher(models.Model):
 class CourseManager(models.Manager):
     def as_choices(self):
         for course in self.all().order_by('name'):
-            yield course.pk, unicode(course)
+            yield course.pk, str(course)
 
     def as_grouped_choices(self):
         for course in self.filter(department=None).order_by('name'):
-            yield course.pk, unicode(course)
+            yield course.pk, str(course)
         for dep in Department.objects.select_related().order_by('name'):
-            yield dep.name, [(c.pk, unicode(c))
+            yield dep.name, [(c.pk, str(c))
                              for c in dep.courses.all().order_by('name')]
 
 class Course(models.Model):
@@ -104,7 +104,7 @@ class Course(models.Model):
 
     def get_full_name(self):
         if self.name and self.short_name:
-            return u'{0} ({1})'.format(self.name, self.short_name)
+            return '{0} ({1})'.format(self.name, self.short_name)
         elif self.short_name:
             return self.short_name
         else:
@@ -115,7 +115,7 @@ class AltCourseName(models.Model):
     name = models.CharField(max_length=100)
 
     def __unicode__(self):
-        return u'{0} ({1})'.format(self.name, self.course)
+        return '{0} ({1})'.format(self.name, self.course)
 
 class CourseToughtBy(models.Model):
     course = models.ForeignKey(Course, related_name='teachers')
@@ -123,7 +123,7 @@ class CourseToughtBy(models.Model):
     term = models.ForeignKey(Term)
 
     def __unicode__(self):
-        return u'{0}: {1} ({2})'.format(self.teacher, self.course,
+        return '{0}: {1} ({2})'.format(self.teacher, self.course,
                                         self.term)
 
 def insert_autocomplete_teachers(autocomplete=None):

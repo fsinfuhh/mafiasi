@@ -39,4 +39,4 @@ class Command(BaseCommand):
         img = Image.open(png_file)
         img.thumbnail((150, 150), Image.ANTIALIAS)
         img.save(thumb_file)
-        print 'Trust graph "{}" generated.'.format(graph_name)
+        print('Trust graph "{}" generated.'.format(graph_name))

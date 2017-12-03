@@ -30,7 +30,7 @@ class GProt(models.Model):
 
     def __unicode__(self):
         append = ' (PDF)' if self.content_pdf else ''
-        return u'[{0}] {1}: {2}{3}'.format(
+        return '[{0}] {1}: {2}{3}'.format(
             self.pk, self.exam_date, self.course, append)
 
 class Attachment(models.Model):
@@ -58,7 +58,7 @@ class Notification(models.Model):
             return self.course_query
 
     def __unicode__(self):
-        return u'Notification for {0} by {1}'.format(
+        return 'Notification for {0} by {1}'.format(
             self.query_or_course_name, self.user)
 
 class Reminder(models.Model):
@@ -70,7 +70,7 @@ class Reminder(models.Model):
         unique_together = ('user', 'exam_date', 'course')
 
     def __unicode__(self):
-        return u'Reminder for {0}, "{1}" on {2}'.format(
+        return 'Reminder for {0}, "{1}" on {2}'.format(
             self.user,
             self.course.name if self.course else "",
             self.exam_date)

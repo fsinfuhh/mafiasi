@@ -40,7 +40,7 @@ class Etherpad(object):
         # first we delete old sessions
         activ_sessions = self.api.listSessionsOfGroup(groupID=group)
         if activ_sessions:
-            for sessionID, data in activ_sessions.items():
+            for sessionID, data in list(activ_sessions.items()):
                 if data['authorID'] == user_ep:
                     if data['validUntil'] > time.time() + MIN_SESSION_REMAIN_TIME:
                         # There is a valid session with over 6 hours
@@ -64,7 +64,7 @@ class Etherpad(object):
         # We have to escape the comma with %2C because otherwise Django's
         # HttpResponse.set_cookie escapes it, but Etherpad can't read
         # the escaped value correctly.
-        sessions_cookie = '%2C'.join(sessions.keys())
+        sessions_cookie = '%2C'.join(list(sessions.keys()))
         return sessions_cookie
 
     def get_group_id(self, group_name):

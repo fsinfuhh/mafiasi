@@ -1,4 +1,4 @@
-from __future__ import unicode_literals
+
 
 from base64 import b64encode, b64decode
 from email.parser import Parser
@@ -89,7 +89,7 @@ class Mailinglist(models.Model):
         except (socket.error, smtplib.SMTPException) as e:
             logger.exception(e)
             return
-        for recipient_email, smtp_error in refused.items():
+        for recipient_email, smtp_error in list(refused.items()):
             permanent = 500 <= smtp_error[0] < 600
             refused_rcpt, _created = RefusedRecipient.objects.get_or_create(
                     email=recipient_email)

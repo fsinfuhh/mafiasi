@@ -27,12 +27,12 @@ class Command(BaseCommand):
 
         fingerprints = []
         for key in foreign_keys:
-            fingerprint = u'0x' + key.subkeys[0].fpr
+            fingerprint = '0x' + key.subkeys[0].fpr
             uid = key.uids[0]
-            print u'{}: {} <{}>'.format(fingerprint, uid.name, uid.email)
+            print('{}: {} <{}>'.format(fingerprint, uid.name, uid.email))
             fingerprints.append(fingerprint)
         
-        print u'\ngpg --batch --delete-key ' + u' '.join(fingerprints)
+        print('\ngpg --batch --delete-key ' + ' '.join(fingerprints))
 
     def is_community(self, key):
         for uid in key.uids:

@@ -1,4 +1,4 @@
-from __future__ import unicode_literals
+
 
 import copy
 from email.parser import Parser
@@ -6,7 +6,7 @@ from email.utils import getaddresses, formataddr
 import logging
 import smtplib
 import socket
-import customsmtpd
+from . import customsmtpd
 
 from django.conf import settings
 
@@ -45,7 +45,7 @@ class CloakServer(customsmtpd.RaisingSMTPServer):
             logger.exception(e)
             return
 
-        for recipient_email, smtp_error in refused.items():
+        for recipient_email, smtp_error in list(refused.items()):
             logger.info('Recipient {} refused ({}: {})'.format(
                     recipient_email, smtp_error[0], smtp_error[1]))
 

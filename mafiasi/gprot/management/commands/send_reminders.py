@@ -21,7 +21,7 @@ class Command(BaseCommand):
                 'course_name': reminder.course.name if reminder.course else "",
             })
             try:
-                send_mail((_(u'Reminder: Memory minutes for "%(coursename)s"')
+                send_mail((_('Reminder: Memory minutes for "%(coursename)s"')
                             % {'coursename': reminder.course.name if reminder.course else ""}).encode('utf8'),
                           email_content.encode('utf8'),
                           None,

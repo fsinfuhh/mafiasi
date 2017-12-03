@@ -1,8 +1,8 @@
-from __future__ import unicode_literals
+
 
 import datetime
 from operator import itemgetter
-from urllib2 import URLError
+from urllib.error import URLError
 
 from django import forms
 from django.core.exceptions import ObjectDoesNotExist

@@ -1,4 +1,4 @@
-from __future__ import print_function
+
 
 import sys
 import argparse
@@ -23,12 +23,12 @@ class Command(BaseCommand):
             try:
                 entry = entry.decode('utf-8').strip()
             except UnicodeDecodeError:
-                print(u'Ignored line {0}. Invalid UTF-8'.format(lino_no),
+                print('Ignored line {0}. Invalid UTF-8'.format(lino_no),
                     file=sys.stderr)
                 continue
             fields = entry.split(':')
             if len(fields) != 7:
-                print(u'Ignored line {0}. Invalid format'.format(lino_no),
+                print('Ignored line {0}. Invalid format'.format(lino_no),
                     file=sys.stderr)
                 continue
             
@@ -40,7 +40,7 @@ class Command(BaseCommand):
             full_name = fields[4]
             
             if len(full_name) > 60:
-                print(u'Ignored line {0}. Username too long'.format(lino_no),
+                print('Ignored line {0}. Username too long'.format(lino_no),
                         file=sys.stderr)
                 continue
 
@@ -60,5 +60,5 @@ class Command(BaseCommand):
 
         updated_entries -= new_entries # new entries were also updated
         num_in_db = PasswdEntry.objects.count()
-        print(u'{0} new, {1} updated, {2} processed, {3} in database'.format(
+        print('{0} new, {1} updated, {2} processed, {3} in database'.format(
                 new_entries, updated_entries, total_entries, num_in_db))

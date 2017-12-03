@@ -1,4 +1,4 @@
-from __future__ import print_function, unicode_literals
+
 
 import base64
 import re
@@ -40,7 +40,7 @@ class Command(BaseCommand):
                 raise CommandError(
                         'Name must be alphanumeric')
 
-        if u'@' not in email:
+        if '@' not in email:
             raise CommandError('Invalid email')
 
         password = base64.b64encode(os.urandom(15)).lower()

@@ -19,7 +19,7 @@ class RegisterForm(forms.Form):
 
     def clean_account(self):
         account = self.cleaned_data['account'].lower()
-        if u'@' in account:
+        if '@' in account:
             account, _domain = account.split('@', 1)
         if not account.isalnum():
             raise forms.ValidationError(_('Invalid account name'))
@@ -36,7 +36,7 @@ class AdditionalInfoForm(forms.Form):
 
     def _yeargroups_for_account(self, account):
         if account[0].isdigit():
-            group_name = u'___{0}'.format(account[0])
+            group_name = '___{0}'.format(account[0])
             where = ["slug LIKE '{0}'".format(group_name)]
             return Yeargroup.objects.extra(where=where)
         else:
@@ -118,7 +118,7 @@ class NickChangeForm(forms.Form):
     
     def save(self):
         ldap_user = self.user.get_ldapuser()
-        ldap_user.display_name = u"{} ({})".format(
+        ldap_user.display_name = "{} ({})".format(
                 self.cleaned_data['nickname'], self.user.username)
         ldap_user.save()
 

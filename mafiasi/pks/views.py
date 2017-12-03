@@ -1,6 +1,6 @@
 import json
-from StringIO import StringIO
-from urllib import quote
+from io import StringIO
+from urllib.parse import quote
 
 import gpgme
 
@@ -32,7 +32,7 @@ def my_keys(request):
 
 @login_required
 def autocomplete_keys(request):
-    term = request.GET.get('term', u'')
+    term = request.GET.get('term', '')
     resp = HttpResponse(content_type='text/plain')
     if len(term) < 3:
         json.dump([], resp)
@@ -45,7 +45,7 @@ def autocomplete_keys(request):
         try:
             uid = key.uids[0]
             keyid = key.subkeys[0].keyid
-            label = u'{}: {} <{}>'.format(keyid, uid.name, uid.email)
+            label = '{}: {} <{}>'.format(keyid, uid.name, uid.email)
             autocomplete_data.append({
                 'value': keyid,
                 'label': label
@@ -59,7 +59,7 @@ def autocomplete_keys(request):
 def assign_keyid(request):
     ctx = gpgme.Context()
     try:
-        key = ctx.get_key(request.POST.get('keyid', u'').encode('utf-8'))
+        key = ctx.get_key(request.POST.get('keyid', '').encode('utf-8'))
         fingerprint = key.subkeys[0].fpr
     except gpgme.GpgmeError:
         messages.error(request, _('Could not find the given keyid.'))
@@ -273,15 +273,15 @@ def party_missing_signatures(request, party_pk):
                 other_keys[keyid] = key
 
     # signature_graph: signed_keyid -> []signer_keyid
-    keylist = [key.key_obj for key in all_keys.itervalues()]
+    keylist = [key.key_obj for key in all_keys.values()]
     signature_graph = build_signature_graph(keylist)
 
     # Collect keyids which the user still has to sign
     missing_my_sigs = {}
-    for signed_keyid, signer_keyids in signature_graph.iteritems():
+    for signed_keyid, signer_keyids in signature_graph.items():
         if signed_keyid in own_keys:
             continue
-        for own_key in own_keys.itervalues():
+        for own_key in own_keys.values():
             if own_key.keyid in signer_keyids:
                 continue
             other_key = other_keys[signed_keyid]
@@ -289,14 +289,14 @@ def party_missing_signatures(request, party_pk):
     
     # Collect keyids of other users which still have to sign the users keys
     missing_other_sigs = {}
-    for other_key in other_keys.itervalues():
-        for own_key in own_keys.itervalues():
+    for other_key in other_keys.values():
+        for own_key in own_keys.values():
             if other_key.keyid not in signature_graph[own_key.keyid]:
                 _fill_missing_sigs(missing_other_sigs, own_key, other_key)
     
     sig_key = lambda sig: sig['user'].get_full_name()
-    missing_my_sigs = sorted(missing_my_sigs.itervalues(), key=sig_key)
-    missing_other_sigs = sorted(missing_other_sigs.itervalues(), key=sig_key)
+    missing_my_sigs = sorted(iter(missing_my_sigs.values()), key=sig_key)
+    missing_other_sigs = sorted(iter(missing_other_sigs.values()), key=sig_key)
     return TemplateResponse(request, 'pks/party_missing_signatures.html', {
         'party': party,
         'missing_my_sigs': missing_my_sigs,
@@ -399,8 +399,8 @@ def _hkp_op_index_mr(key_list):
                                   flags=_format_flags(subkey)))
 
         for uid in key.uids:
-            comment = u'({0}) '.format(uid.comment) if uid.comment else ''
-            uid_str = u'{0} {1}<{2}>'.format(uid.name, comment, uid.email)
+            comment = '({0}) '.format(uid.comment) if uid.comment else ''
+            uid_str = '{0} {1}<{2}>'.format(uid.name, comment, uid.email)
             uid_str = quote(uid_str.encode('utf-8'), '<>@()/ ')
             created = _get_uid_created(uid, subkey.keyid)
             # The standard allows to leave out expirydate

@@ -27,7 +27,7 @@ class GroupProperties(models.Model):
         return LdapGroup.lookup(self.group.name)
 
     def __unicode__(self):
-        return unicode(self.group)
+        return str(self.group)
 
 class GroupProxy(object):
     def __init__(self, group):
@@ -86,7 +86,7 @@ class GroupInvitation(models.Model):
             related_name='given_invitations')
 
     def __unicode__(self):
-        return u'Invitation to {0} for {1}'.format(self.group, self.invitee)
+        return 'Invitation to {0} for {1}'.format(self.group, self.invitee)
 
     def accept(self):
         group_proxy = GroupProxy(self.group)

@@ -4,7 +4,7 @@ from django.core.exceptions import ValidationError
 def validate_ascii(value):
     try:
         value.encode('ascii')
-    except UnicodeEncodeError, UnicodeDecodeError:
+    except (UnicodeEncodeError, UnicodeDecodeError) as e:
         raise ValidationError(
                 _("'%(value)s' contains invalid characters. Only ASCII characters are allowed."),
                 params={'value': value},

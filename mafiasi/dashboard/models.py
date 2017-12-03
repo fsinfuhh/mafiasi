@@ -1,4 +1,4 @@
-from creoleparser import text2html
+from creole import creole2html
 
 from django.db import models
 from django.conf import settings
@@ -19,13 +19,13 @@ class News(models.Model):
         verbose_name_plural = 'news'
     
     def __unicode__(self):
-        return u'{0}: {1}'.format(self.created_at, self.title)
+        return '{0}: {1}'.format(self.created_at, self.title)
 
     def render_teaser(self):
-        return mark_safe(text2html(self.teaser, method='xhtml'))
+        return mark_safe(creole2html(self.teaser, method='xhtml'))
     
     def render_text(self):
-        return mark_safe(text2html(self.text, method='xhtml'))
+        return mark_safe(creole2html(self.text, method='xhtml'))
 
 class Panel(models.Model):
     title = models.CharField(max_length=120)
@@ -37,4 +37,4 @@ class Panel(models.Model):
         return self.title
 
     def render_content(self):
-        return mark_safe(text2html(self.content, method='xhtml'))
+        return mark_safe(creole2html(self.content, method='xhtml'))

@@ -151,7 +151,7 @@ def create_account(request, info_token):
                 else:
                     return TemplateResponse(request,
                                             'registration/token_invalid.html')
-            email = u'{0}@{1}'.format(info['account'], info['domain'])
+            email = '{0}@{1}'.format(info['account'], info['domain'])
             mafiasi = create_mafiasi_account(username=username,
                                              email=email,
                                              first_name=first_name,
@@ -245,7 +245,7 @@ def _verify_email(request, email):
                                     email_content, email, request)
 
 def _finish_account_request(request, info):
-    email = u'{0}@{1}'.format(info['account'], info['domain'])
+    email = '{0}@{1}'.format(info['account'], info['domain'])
     token = signing.dumps(info)
     url_path = reverse('registration_create_account', args=(token,))
     activation_link = request.build_absolute_uri(url_path)
@@ -259,13 +259,13 @@ def _send_mail_or_error_page(subject, content, address, request):
     try:
         send_mail(subject, content, None, [address])
         if settings.DEBUG:
-            print(u"VALIDATION MAIL to {0}\nSubject: {1}\n{2}".format(
-                address, subject, content))
+            print(("VALIDATION MAIL to {0}\nSubject: {1}\n{2}".format(
+                address, subject, content)))
     except SMTPRecipientsRefused as e:
-        wrong_email, (error_code, error_msg) = e.recipients.items()[0]
+        wrong_email, (error_code, error_msg) = list(e.recipients.items())[0]
         unknown = 'User unknown' in error_msg
         if not unknown:
-            error_email_content = u'{0}: {1}'.format(e.__class__.__name__,
+            error_email_content = '{0}: {1}'.format(e.__class__.__name__,
                                                      repr(e.recipients))
             send_mail(
                     _('Registration: Sending mail failed: {}'.format(address)),
