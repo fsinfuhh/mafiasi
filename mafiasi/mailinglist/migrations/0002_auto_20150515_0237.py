@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='moderatedmail',
             name='mailinglist',
-            field=models.ForeignKey(related_name='moderated_mails', to='mailinglist.Mailinglist'),
+            field=models.ForeignKey(related_name='moderated_mails', on_delete=models.CASCADE, to='mailinglist.Mailinglist'),
         ),
         migrations.AlterField(
             model_name='refusedrecipient',
@@ -29,7 +29,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='whitelistedaddress',
             name='mailinglist',
-            field=models.ForeignKey(related_name='whitelist_addresses', to='mailinglist.Mailinglist'),
+            field=models.ForeignKey(related_name='whitelist_addresses', on_delete=models.CASCADE, to='mailinglist.Mailinglist'),
         ),
         migrations.AlterUniqueTogether(
             name='whitelistedaddress',

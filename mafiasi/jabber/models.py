@@ -32,7 +32,7 @@ class PrivacyList(models.Model):
         return '{0}: {1}'.format(self.username, self.name)
 
 class PrivacyListData(models.Model):
-    privacy_list = models.OneToOneField(PrivacyList,
+    privacy_list = models.OneToOneField(PrivacyList, on_delete=models.CASCADE,
         db_column='id', related_name='data', primary_key=True)
     t = models.CharField(max_length=1)
     value = models.TextField()
@@ -171,7 +171,7 @@ class JabberUserMapping(models.Model):
 
 class YeargroupSrGroupMapping(models.Model):
     yeargroup_id = models.IntegerField(unique=True)
-    sr_group = models.ForeignKey(SrGroup)
+    sr_group = models.ForeignKey(SrGroup, on_delete=models.CASCADE)
 
     def __unicode__(self):
         return '{0} -> {1}'.format(self.yeargroup, self.sr_group)
@@ -192,7 +192,7 @@ GROUP_TYPE_CHOICES = (
 )
 class DefaultGroup(models.Model):
     group_type = models.CharField(max_length=16, choices=GROUP_TYPE_CHOICES)
-    sr_group = models.ForeignKey(SrGroup)
+    sr_group = models.ForeignKey(SrGroup, on_delete=models.CASCADE)
 
     def __unicode__(self):
         return '{0}: {1}'.format(self.get_group_type_display(), self.sr_group)

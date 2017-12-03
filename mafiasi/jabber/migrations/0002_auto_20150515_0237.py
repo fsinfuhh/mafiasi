@@ -14,6 +14,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='privacylistdata',
             name='privacy_list',
-            field=models.OneToOneField(related_name='data', primary_key=True, db_column=b'id', serialize=False, to='jabber.PrivacyList'),
+            field=models.OneToOneField(related_name='data', primary_key=True, db_column='id', serialize=False, to='jabber.PrivacyList', on_delete=models.CASCADE),
         ),
     ]

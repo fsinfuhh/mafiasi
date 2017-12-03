@@ -18,7 +18,7 @@ from mafiasi.mail.signals import collect_mailaddresses, mailaddresses_known
 logger = logging.getLogger('mailinglist')
 
 class Mailinglist(models.Model):
-    group = models.OneToOneField(Group)
+    group = models.OneToOneField(Group, on_delete=models.CASCADE)
     is_known = models.BooleanField(default=False)
     enabled = models.BooleanField(default=True)
     allow_others = models.BooleanField(default=False)
@@ -154,7 +154,7 @@ class Mailinglist(models.Model):
         return cls.objects.get(group__name__iexact=local_part)
 
 class WhitelistedAddress(models.Model):
-    mailinglist = models.ForeignKey(Mailinglist,
+    mailinglist = models.ForeignKey(Mailinglist, on_delete=models.CASCADE,
                                     related_name='whitelist_addresses')
     email = models.EmailField()
 
@@ -165,7 +165,7 @@ class WhitelistedAddress(models.Model):
         unique_together = ('mailinglist', 'email')
 
 class ModeratedMail(models.Model):
-    mailinglist = models.ForeignKey(Mailinglist, related_name='moderated_mails')
+    mailinglist = models.ForeignKey(Mailinglist, on_delete=models.CASCADE, related_name='moderated_mails')
     email_content = models.TextField()
 
     def __unicode__(self):

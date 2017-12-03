@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
                 ('is_known', models.BooleanField(default=False)),
                 ('enabled', models.BooleanField(default=True)),
                 ('allow_others', models.BooleanField(default=False)),
-                ('group', models.OneToOneField(to='auth.Group')),
+                ('group', models.OneToOneField(to='auth.Group', on_delete=models.CASCADE)),
             ],
             options={
             },
@@ -29,7 +29,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('email_content', models.TextField()),
-                ('mailinglist', models.ForeignKey(to='mailinglist.Mailinglist')),
+                ('mailinglist', models.ForeignKey(to='mailinglist.Mailinglist', on_delete=models.CASCADE)),
             ],
             options={
             },
@@ -52,7 +52,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('email', models.EmailField(max_length=75)),
-                ('mailinglist', models.ForeignKey(related_name='whitelist', to='mailinglist.Mailinglist')),
+                ('mailinglist', models.ForeignKey(related_name='whitelist', to='mailinglist.Mailinglist', on_delete=models.CASCADE)),
             ],
             options={
             },

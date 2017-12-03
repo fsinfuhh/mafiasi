@@ -18,7 +18,7 @@ class PGPKey(models.Model, KeyMixin):
 
 class AssignedKey(models.Model, KeyMixin):
     fingerprint = models.CharField(max_length=40)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     class Meta:
         unique_together = ('user', 'fingerprint')
@@ -38,8 +38,8 @@ class KeysigningParty(models.Model):
         return self.name
 
 class Participant(models.Model):
-    party = models.ForeignKey(KeysigningParty, related_name='participants')
-    user = models.ForeignKey(settings.AUTH_USER_MODEL)
+    party = models.ForeignKey(KeysigningParty, on_delete=models.CASCADE, related_name='participants')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     keys = models.ManyToManyField(AssignedKey)
 
     def __unicode__(self):

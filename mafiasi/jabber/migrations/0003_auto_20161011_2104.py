@@ -15,6 +15,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='jabberuser',
             name='password',
-            field=models.TextField(default=b'NO_PASSWORDS_IN_DB_ZYYJN53N3M5QMHNQKLOAQD7E'),
+            field=models.TextField(default='NO_PASSWORDS_IN_DB_ZYYJN53N3M5QMHNQKLOAQD7E'),
         ),
     ]

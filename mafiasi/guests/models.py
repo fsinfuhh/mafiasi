@@ -5,7 +5,7 @@ from smtplib import SMTPRecipientsRefused
 from django.db import models
 from django.utils import timezone
 from django.core import signing
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib.sites.models import Site
@@ -22,7 +22,7 @@ class Invitation(models.Model):
     email = models.EmailField()
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
-    invited_by = models.ForeignKey(settings.AUTH_USER_MODEL,
+    invited_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,
                                    related_name='sent_invitations')
     date_invited = models.DateTimeField(default=timezone.now)
     
@@ -62,8 +62,8 @@ class Invitation(models.Model):
         
 
 class Guest(models.Model):
-    guest_user = models.OneToOneField(settings.AUTH_USER_MODEL)
-    invited_by = models.ForeignKey(settings.AUTH_USER_MODEL,
+    guest_user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    invited_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,
                                    related_name='invited_guests')
     date_invited = models.DateTimeField(default=timezone.now)
 

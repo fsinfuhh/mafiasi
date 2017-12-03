@@ -26,7 +26,7 @@ def require_auth(username, password, realm='Login'):
                     _data_dependent_delay(data)
                     raise ValueError('Invalid login creds')
             except (ValueError, KeyError, IndexError):
-                resp = HttpResponse(b'Unauthorized',
+                resp = HttpResponse('Unauthorized',
                                     status=401,
                                     content_type='text/plain')
                 resp['WWW-Authenticate'] = 'Basic realm="{}"'.format(realm)

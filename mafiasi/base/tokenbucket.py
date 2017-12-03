@@ -32,7 +32,7 @@ class TokensExceededBase(Exception):
 
 class TokenBucket(models.Model):
     identifier = models.CharField(max_length=30)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, null=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)
     max_tokens = models.IntegerField()
     fill_rate = models.FloatField()
     tokens = models.FloatField(default=0.0)

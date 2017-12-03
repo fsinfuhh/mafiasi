@@ -29,7 +29,7 @@ class DepartmentManager(models.Manager):
 
 class Department(models.Model):
     name = models.CharField(max_length=100)
-    faculty = models.ForeignKey(Faculty, related_name='departments',
+    faculty = models.ForeignKey(Faculty, on_delete=models.CASCADE, related_name='departments',
                                 blank=True, null=True)
     short_name = models.CharField(max_length=30)
 
@@ -67,7 +67,7 @@ class Teacher(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     title = models.CharField(max_length=30, blank=True)
-    department = models.ForeignKey(Department, related_name='teachers',
+    department = models.ForeignKey(Department, on_delete=models.CASCADE, related_name='teachers',
                                    blank=True, null=True)
 
     objects = TeacherManager()
@@ -94,7 +94,7 @@ class CourseManager(models.Manager):
 class Course(models.Model):
     name = models.CharField(max_length=100)
     short_name = models.CharField(max_length=30, blank=True)
-    department = models.ForeignKey(Department, related_name='courses',
+    department = models.ForeignKey(Department, on_delete=models.CASCADE, related_name='courses',
                                    blank=True, null=True)
 
     objects = CourseManager()
@@ -111,16 +111,16 @@ class Course(models.Model):
             return self.name
 
 class AltCourseName(models.Model):
-    course = models.ForeignKey(Course, related_name='alternate_names')
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='alternate_names')
     name = models.CharField(max_length=100)
 
     def __unicode__(self):
         return '{0} ({1})'.format(self.name, self.course)
 
 class CourseToughtBy(models.Model):
-    course = models.ForeignKey(Course, related_name='teachers')
-    teacher = models.ForeignKey(Teacher, related_name='courses')
-    term = models.ForeignKey(Term)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='teachers')
+    teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE, related_name='courses')
+    term = models.ForeignKey(Term, on_delete=models.CASCADE)
 
     def __unicode__(self):
         return '{0}: {1} ({2})'.format(self.teacher, self.course,

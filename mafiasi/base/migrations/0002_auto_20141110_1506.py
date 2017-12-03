@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
                 ('fill_rate', models.FloatField()),
                 ('tokens', models.FloatField(default=0.0)),
                 ('last_updated', models.DateTimeField()),
-                ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL, null=True)),
+                ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)),
             ],
             options={
             },

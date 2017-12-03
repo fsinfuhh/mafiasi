@@ -34,8 +34,8 @@ class Migration(migrations.Migration):
                 ('content', models.TextField(null=True, blank=True)),
                 ('content_pdf', models.FileField(null=True, upload_to=mafiasi.gprot.models.make_gprot_filename, blank=True)),
                 ('published', models.BooleanField(default=False)),
-                ('author', models.ForeignKey(blank=True, to=settings.AUTH_USER_MODEL, null=True)),
-                ('course', models.ForeignKey(to='teaching.Course')),
+                ('author', models.ForeignKey(blank=True, to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)),
+                ('course', models.ForeignKey(to='teaching.Course', on_delete=models.CASCADE)),
                 ('examiners', models.ManyToManyField(to='teaching.Teacher')),
             ],
             options={
@@ -48,8 +48,8 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('added_date', models.DateField()),
                 ('course_query', models.CharField(max_length=100, null=True, blank=True)),
-                ('course', models.ForeignKey(blank=True, to='teaching.Course', null=True)),
-                ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
+                ('course', models.ForeignKey(blank=True, to='teaching.Course', on_delete=models.CASCADE, null=True)),
+                ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)),
             ],
             options={
             },
@@ -60,8 +60,8 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('exam_date', models.DateField()),
-                ('course', models.ForeignKey(blank=True, to='teaching.Course', null=True)),
-                ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
+                ('course', models.ForeignKey(blank=True, to='teaching.Course', on_delete=models.CASCADE, null=True)),
+                ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)),
             ],
             options={
             },
@@ -78,7 +78,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='attachment',
             name='gprot',
-            field=models.ForeignKey(to='gprot.GProt'),
+            field=models.ForeignKey(to='gprot.GProt', on_delete=models.CASCADE),
             preserve_default=True,
         ),
     ]

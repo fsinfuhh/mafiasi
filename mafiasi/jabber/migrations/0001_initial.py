@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
             name='DefaultGroup',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('group_type', models.CharField(max_length=16, choices=[(b'student', b'Student'), (b'other', b'Other')])),
+                ('group_type', models.CharField(max_length=16, choices=[('student', 'Student'), ('other', 'Other')])),
             ],
             options={
             },
@@ -37,7 +37,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('mafiasi_user_id', models.IntegerField(unique=True)),
-                ('jabber_user', models.OneToOneField(to='jabber.JabberUser')),
+                ('jabber_user', models.OneToOneField(to='jabber.JabberUser', on_delete=models.CASCADE)),
             ],
             options={
             },
@@ -70,7 +70,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='PrivacyListData',
             fields=[
-                ('privacy_list', models.ForeignKey(related_name=b'data', primary_key=True, db_column=b'id', serialize=False, to='jabber.PrivacyList')),
+                ('privacy_list', models.ForeignKey(related_name='data', primary_key=True, db_column='id', serialize=False, to='jabber.PrivacyList', on_delete=models.CASCADE)),
                 ('t', models.CharField(max_length=1)),
                 ('value', models.TextField()),
                 ('action', models.CharField(max_length=1)),
@@ -175,7 +175,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('yeargroup_id', models.IntegerField(unique=True)),
-                ('sr_group', models.ForeignKey(to='jabber.SrGroup')),
+                ('sr_group', models.ForeignKey(to='jabber.SrGroup', on_delete=models.CASCADE)),
             ],
             options={
             },
@@ -192,7 +192,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='defaultgroup',
             name='sr_group',
-            field=models.ForeignKey(to='jabber.SrGroup'),
+            field=models.ForeignKey(to='jabber.SrGroup', on_delete=models.CASCADE),
             preserve_default=True,
         ),
     ]

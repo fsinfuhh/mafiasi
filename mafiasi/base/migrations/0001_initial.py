@@ -65,7 +65,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='mafiasi',
             name='yeargroup',
-            field=models.ForeignKey(blank=True, to='base.Yeargroup', null=True),
+            field=models.ForeignKey(blank=True, to='base.Yeargroup', on_delete=models.CASCADE, null=True),
             preserve_default=True,
         ),
     ]

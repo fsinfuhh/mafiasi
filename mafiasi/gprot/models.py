@@ -18,14 +18,14 @@ def make_attachment_filename(attachment, filename):
     return make_filename(attachment, 'gprot-attachment', ext)
 
 class GProt(models.Model):
-    course = models.ForeignKey(Course)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
     exam_date = models.DateField()
     examiners = models.ManyToManyField(Teacher)
     is_pdf = models.BooleanField(default=False)
     content = models.TextField(blank=True, null=True)
     content_pdf = models.FileField(upload_to=make_gprot_filename,
                                    null=True, blank=True)
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, blank=True, null=True)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True, null=True)
     published = models.BooleanField(default=False)
 
     def __unicode__(self):
@@ -34,7 +34,7 @@ class GProt(models.Model):
             self.pk, self.exam_date, self.course, append)
 
 class Attachment(models.Model):
-    gprot = models.ForeignKey(GProt)
+    gprot = models.ForeignKey(GProt, on_delete=models.CASCADE)
     file = models.FileField(upload_to=make_attachment_filename)
     mime_type = models.CharField(max_length=16)
 
@@ -42,9 +42,9 @@ class Attachment(models.Model):
         return "Attachment: {0}".format(self.file.name)
 
 class Notification(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     added_date = models.DateField()
-    course = models.ForeignKey(Course, blank=True, null=True)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, blank=True, null=True)
     course_query = models.CharField(max_length=100, blank=True, null=True)
 
     class Meta:
@@ -62,9 +62,9 @@ class Notification(models.Model):
             self.query_or_course_name, self.user)
 
 class Reminder(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     exam_date = models.DateField()
-    course = models.ForeignKey(Course, blank=True, null=True)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, blank=True, null=True)
 
     class Meta:
         unique_together = ('user', 'exam_date', 'course')

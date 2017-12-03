@@ -14,6 +14,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='participant',
             name='party',
-            field=models.ForeignKey(related_name=b'participants', to='pks.KeysigningParty'),
+            field=models.ForeignKey(related_name='participants', to='pks.KeysigningParty', on_delete=models.CASCADE),
         ),
     ]

@@ -3,7 +3,7 @@ from smtplib import SMTPRecipientsRefused
 from nameparser import HumanName
 
 from django.core import signing
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.core.mail import send_mail
 from django.template.response import TemplateResponse
 from django.template.loader import render_to_string

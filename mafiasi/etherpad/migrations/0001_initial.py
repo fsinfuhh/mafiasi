@@ -18,8 +18,8 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('pad_name', models.CharField(max_length=30)),
-                ('group_name', models.ForeignKey(blank=True, to='auth.Group', null=True)),
-                ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
+                ('group_name', models.ForeignKey(blank=True, on_delete=models.CASCADE, to='auth.Group', null=True)),
+                ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)),
             ],
         ),
     ]

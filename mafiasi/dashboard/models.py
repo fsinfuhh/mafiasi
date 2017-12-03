@@ -10,7 +10,7 @@ class News(models.Model):
     teaser = models.TextField()
     text = models.TextField(blank=True)
     created_at = models.DateTimeField(default=now, db_index=True)
-    created_by = models.ForeignKey(settings.AUTH_USER_MODEL)
+    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     frontpage = models.BooleanField(db_index=True, default=False)
     published = models.BooleanField(default=False)
 

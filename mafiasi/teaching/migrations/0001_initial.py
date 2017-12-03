@@ -35,7 +35,7 @@ class Migration(migrations.Migration):
             name='CourseToughtBy',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('course', models.ForeignKey(related_name=b'teachers', to='teaching.Course')),
+                ('course', models.ForeignKey(related_name='teachers', to='teaching.Course', on_delete=models.CASCADE)),
             ],
             options={
             },
@@ -70,7 +70,7 @@ class Migration(migrations.Migration):
                 ('first_name', models.CharField(max_length=30)),
                 ('last_name', models.CharField(max_length=30)),
                 ('title', models.CharField(max_length=30, blank=True)),
-                ('department', models.ForeignKey(related_name=b'teachers', blank=True, to='teaching.Department', null=True)),
+                ('department', models.ForeignKey(related_name='teachers', blank=True, to='teaching.Department', on_delete=models.CASCADE, null=True)),
             ],
             options={
             },
@@ -80,7 +80,7 @@ class Migration(migrations.Migration):
             name='Term',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('term', models.CharField(max_length=8, choices=[(b'winter', b'Winter term'), (b'summer', b'Summer term')])),
+                ('term', models.CharField(max_length=8, choices=[('winter', 'Winter term'), ('summer', 'Summer term')])),
                 ('year', models.IntegerField()),
             ],
             options={
@@ -90,31 +90,31 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='department',
             name='faculty',
-            field=models.ForeignKey(related_name=b'departments', blank=True, to='teaching.Faculty', null=True),
+            field=models.ForeignKey(related_name='departments', blank=True, to='teaching.Faculty', on_delete=models.CASCADE, null=True),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='coursetoughtby',
             name='teacher',
-            field=models.ForeignKey(related_name=b'courses', to='teaching.Teacher'),
+            field=models.ForeignKey(related_name='courses', to='teaching.Teacher', on_delete=models.CASCADE),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='coursetoughtby',
             name='term',
-            field=models.ForeignKey(to='teaching.Term'),
+            field=models.ForeignKey(to='teaching.Term', on_delete=models.CASCADE),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='course',
             name='department',
-            field=models.ForeignKey(related_name=b'courses', blank=True, to='teaching.Department', null=True),
+            field=models.ForeignKey(related_name='courses', blank=True, to='teaching.Department', on_delete=models.CASCADE, null=True),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='altcoursename',
             name='course',
-            field=models.ForeignKey(related_name=b'alternate_names', to='teaching.Course'),
+            field=models.ForeignKey(related_name='alternate_names', to='teaching.Course', on_delete=models.CASCADE),
             preserve_default=True,
         ),
     ]
