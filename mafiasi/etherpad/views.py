@@ -33,7 +33,7 @@ class DeleteEtherpadForm(forms.Form):
 def index(request):
     group_pad_list = []
     pinned_pads = None
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         pad_dict = {}
         groups = request.user.groups.all().order_by('name')
         group_names = [group.name for group in groups]

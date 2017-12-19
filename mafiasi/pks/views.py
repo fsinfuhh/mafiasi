@@ -150,7 +150,7 @@ def party_list(request):
 
     # Fetch parties the user participates in
     user_party_pks = set()
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         for participant in Participant.objects.filter(user=request.user):
             user_party_pks.add(participant.party.pk)
     # Mark those parties

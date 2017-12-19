@@ -22,10 +22,10 @@ class News(models.Model):
         return '{0}: {1}'.format(self.created_at, self.title)
 
     def render_teaser(self):
-        return mark_safe(creole2html(self.teaser, method='xhtml'))
+        return mark_safe(creole2html(self.teaser))
     
     def render_text(self):
-        return mark_safe(creole2html(self.text, method='xhtml'))
+        return mark_safe(creole2html(self.text))
 
 class Panel(models.Model):
     title = models.CharField(max_length=120)
@@ -37,4 +37,4 @@ class Panel(models.Model):
         return self.title
 
     def render_content(self):
-        return mark_safe(creole2html(self.content, method='xhtml'))
+        return mark_safe(creole2html(self.content))

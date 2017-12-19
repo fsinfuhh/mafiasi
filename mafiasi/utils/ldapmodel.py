@@ -151,6 +151,7 @@ class LdapModel(object, metaclass=LdapModelMeta):
                 # Nothing was changed
                 return
             for object_class in self.object_classes:
+                object_class = object_class.encode()
                 if object_class not in self._values['objectClass']:
                     self._values['objectClass'].append(object_class)
             mod_list = modifyModlist(self._old_values, self._values)

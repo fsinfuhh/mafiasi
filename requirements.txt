@@ -27,3 +27,4 @@ python-magic
 pydiscourse
 django-email-log
 pillow
+python-Levenshtein

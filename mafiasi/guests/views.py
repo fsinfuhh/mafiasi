@@ -93,7 +93,7 @@ def show_invited_by(request):
     })
 
 def accept(request, invitation_token):
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         return redirect('guests_index')
 
     try:

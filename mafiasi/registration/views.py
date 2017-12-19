@@ -116,7 +116,7 @@ def _create_username(info, yeargroup):
         return info['account']
 
 def create_account(request, info_token):
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         return redirect('dashboard_index')
 
     try:
