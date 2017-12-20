@@ -13,7 +13,7 @@ class PinnedEtherpad(models.Model):
                                    null=True)
     pad_name = models.CharField(max_length=30)
 
-    def __unicode__(self):
+    def __str__(self):
         return '{}: {}'.format(self.group_name, self.pad_name)
 
 def _delete_group_ep(sender, group, **kwargs):

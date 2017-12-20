@@ -17,7 +17,7 @@ class PrivacyDefaultList(models.Model):
     class Meta:
         db_table = 'privacy_default_list'
 
-    def __unicode__(self):
+    def __str__(self):
         return '{0}: {1}'.format(self.username, self.name)
 
 class PrivacyList(models.Model):
@@ -28,7 +28,7 @@ class PrivacyList(models.Model):
     class Meta:
         db_table = 'privacy_list'
 
-    def __unicode__(self):
+    def __str__(self):
         return '{0}: {1}'.format(self.username, self.name)
 
 class PrivacyListData(models.Model):
@@ -46,7 +46,7 @@ class PrivacyListData(models.Model):
     class Meta:
         db_table = 'privacy_list_data'
 
-    def __unicode__(self):
+    def __str__(self):
         return str(self.privacy_list)
 
 class PrivateStorage(models.Model):
@@ -57,7 +57,7 @@ class PrivateStorage(models.Model):
     class Meta:
         db_table = 'private_storage'
 
-    def __unicode__(self):
+    def __str__(self):
         return self.username
 
 class Rostergroups(models.Model):
@@ -67,7 +67,7 @@ class Rostergroups(models.Model):
     class Meta:
         db_table = 'rostergroups'
 
-    def __unicode__(self):
+    def __str__(self):
         return '{0} {1}/{2}'.format(self.username, self.grp, self.jid)
 
 class Rosteruser(models.Model):
@@ -84,7 +84,7 @@ class Rosteruser(models.Model):
     class Meta:
         db_table = 'rosterusers'
 
-    def __unicode__(self):
+    def __str__(self):
         return '{0}: {1} ({2})'.format(self.username, self.nick, self.jid)
 
 class SrGroup(models.Model):
@@ -94,7 +94,7 @@ class SrGroup(models.Model):
     class Meta:
         db_table = 'sr_group'
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
 class SrUser(models.Model):
@@ -105,7 +105,7 @@ class SrUser(models.Model):
         db_table = 'sr_user'
         unique_together = ('jid', 'grp')
 
-    def __unicode__(self):
+    def __str__(self):
         return '{0} in {1}'.format(self.jid, self.grp)
 
 class JabberUser(models.Model):
@@ -115,7 +115,7 @@ class JabberUser(models.Model):
     class Meta:
         db_table = 'users'
 
-    def __unicode__(self):
+    def __str__(self):
         return self.username
 
     def get_jid(self):
@@ -141,7 +141,7 @@ class Vcard(models.Model):
     class Meta:
         db_table = 'vcard'
 
-    def __unicode__(self):
+    def __str__(self):
         return self.username
 
 class JabberUserMapping(models.Model):
@@ -150,7 +150,7 @@ class JabberUserMapping(models.Model):
     class Meta:
         unique_together = ('jabber_user', 'mafiasi_user_id')
     
-    def __unicode__(self):
+    def __str__(self):
         return '{0} owns {1}@{2}'.format(self.mafiasi_user,
                                           self.jabber_user,
                                           settings.JABBER_DOMAIN)
@@ -173,7 +173,7 @@ class YeargroupSrGroupMapping(models.Model):
     yeargroup_id = models.IntegerField(unique=True)
     sr_group = models.ForeignKey(SrGroup, on_delete=models.CASCADE)
 
-    def __unicode__(self):
+    def __str__(self):
         return '{0} -> {1}'.format(self.yeargroup, self.sr_group)
     
     def _get_yeargroup(self):
@@ -194,7 +194,7 @@ class DefaultGroup(models.Model):
     group_type = models.CharField(max_length=16, choices=GROUP_TYPE_CHOICES)
     sr_group = models.ForeignKey(SrGroup, on_delete=models.CASCADE)
 
-    def __unicode__(self):
+    def __str__(self):
         return '{0}: {1}'.format(self.get_group_type_display(), self.sr_group)
 
 def get_or_create_account(user):

@@ -28,7 +28,7 @@ class GProt(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True, null=True)
     published = models.BooleanField(default=False)
 
-    def __unicode__(self):
+    def __str__(self):
         append = ' (PDF)' if self.content_pdf else ''
         return '[{0}] {1}: {2}{3}'.format(
             self.pk, self.exam_date, self.course, append)
@@ -38,7 +38,7 @@ class Attachment(models.Model):
     file = models.FileField(upload_to=make_attachment_filename)
     mime_type = models.CharField(max_length=16)
 
-    def __unicode__(self):
+    def __str__(self):
         return "Attachment: {0}".format(self.file.name)
 
 class Notification(models.Model):
@@ -57,7 +57,7 @@ class Notification(models.Model):
         else:
             return self.course_query
 
-    def __unicode__(self):
+    def __str__(self):
         return 'Notification for {0} by {1}'.format(
             self.query_or_course_name, self.user)
 
@@ -69,7 +69,7 @@ class Reminder(models.Model):
     class Meta:
         unique_together = ('user', 'exam_date', 'course')
 
-    def __unicode__(self):
+    def __str__(self):
         return 'Reminder for {0}, "{1}" on {2}'.format(
             self.user,
             self.course.name if self.course else "",

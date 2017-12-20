@@ -26,7 +26,7 @@ class Invitation(models.Model):
                                    related_name='sent_invitations')
     date_invited = models.DateTimeField(default=timezone.now)
     
-    def __unicode__(self):
+    def __str__(self):
         return self.username
 
     def accept_with_password(self, password):
@@ -67,7 +67,7 @@ class Guest(models.Model):
                                    related_name='invited_guests')
     date_invited = models.DateTimeField(default=timezone.now)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.guest_user.username
 
 def get_invitation_bucket(user, whatfor):

@@ -12,7 +12,7 @@ class Faculty(models.Model):
     name = models.CharField(max_length=100)
     short_name = models.CharField(max_length=30)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.short_name
 
 class DepartmentManager(models.Manager):
@@ -35,7 +35,7 @@ class Department(models.Model):
 
     objects = DepartmentManager()
 
-    def __unicode__(self):
+    def __str__(self):
         return self.short_name
     re.compile(r'[a-z0-9.]+@[a-z0-9.]+')
 
@@ -43,7 +43,7 @@ class Term(models.Model):
     term = models.CharField(max_length=8, choices=TERM_CHOICES)
     year = models.IntegerField()
 
-    def __unicode__(self):
+    def __str__(self):
         if self.term == 'winter':
             return _('winter term {0}').format(self.year)
         elif self.term == 'summer':
@@ -76,7 +76,7 @@ class Teacher(models.Model):
         title = self.title + ' ' if self.title else ''
         return '{0}{1} {2}'.format(title, self.first_name, self.last_name)
     
-    def __unicode__(self):
+    def __str__(self):
         return self.get_full_name()
 
 class CourseManager(models.Manager):
@@ -99,7 +99,7 @@ class Course(models.Model):
 
     objects = CourseManager()
 
-    def __unicode__(self):
+    def __str__(self):
         return self.get_full_name()
 
     def get_full_name(self):
@@ -114,7 +114,7 @@ class AltCourseName(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='alternate_names')
     name = models.CharField(max_length=100)
 
-    def __unicode__(self):
+    def __str__(self):
         return '{0} ({1})'.format(self.name, self.course)
 
 class CourseToughtBy(models.Model):
@@ -122,7 +122,7 @@ class CourseToughtBy(models.Model):
     teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE, related_name='courses')
     term = models.ForeignKey(Term, on_delete=models.CASCADE)
 
-    def __unicode__(self):
+    def __str__(self):
         return '{0}: {1} ({2})'.format(self.teacher, self.course,
                                         self.term)
 

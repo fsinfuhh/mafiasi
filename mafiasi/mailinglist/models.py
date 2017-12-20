@@ -23,7 +23,7 @@ class Mailinglist(models.Model):
     enabled = models.BooleanField(default=True)
     allow_others = models.BooleanField(default=False)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.get_address()
     
     def get_address(self):
@@ -158,7 +158,7 @@ class WhitelistedAddress(models.Model):
                                     related_name='whitelist_addresses')
     email = models.EmailField()
 
-    def __unicode__(self):
+    def __str__(self):
         return '[{}] {}'.format(self.mailinglist.group.name, self.email)
 
     class Meta:
@@ -168,7 +168,7 @@ class ModeratedMail(models.Model):
     mailinglist = models.ForeignKey(Mailinglist, on_delete=models.CASCADE, related_name='moderated_mails')
     email_content = models.TextField()
 
-    def __unicode__(self):
+    def __str__(self):
         return '[{}] {}'.format(self.mailinglist.group.name, self.subject)
     
     def get_email(self):
@@ -203,7 +203,7 @@ class RefusedRecipient(models.Model):
     count = models.IntegerField(default=1)
     permanent = models.BooleanField(default=False)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.email
 
     def is_permanent(self):

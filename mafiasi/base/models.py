@@ -43,7 +43,7 @@ class Yeargroup(models.Model):
 
     objects = YeargroupManager()
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
 
@@ -52,7 +52,7 @@ class PasswdEntry(models.Model):
     full_name = models.CharField(max_length=60)
     gid = models.BigIntegerField()
 
-    def __unicode__(self):
+    def __str__(self):
         return self.username
 
 
@@ -93,7 +93,7 @@ class LdapGroup(LdapModel):
         'members': LdapAttr('memberUid', multi=True)
     }
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
 
@@ -114,7 +114,7 @@ class LdapUser(LdapModel):
         'owncloud_quota': LdapAttr('ownCloudQuota')
     }
 
-    def __unicode__(self):
+    def __str__(self):
         return self.username
     
     def set_password(self, password):

@@ -18,7 +18,7 @@ class News(models.Model):
         verbose_name = 'news'
         verbose_name_plural = 'news'
     
-    def __unicode__(self):
+    def __str__(self):
         return '{0}: {1}'.format(self.created_at, self.title)
 
     def render_teaser(self):
@@ -33,7 +33,7 @@ class Panel(models.Model):
     position = models.IntegerField()
     shown = models.BooleanField(default=False)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
     def render_content(self):

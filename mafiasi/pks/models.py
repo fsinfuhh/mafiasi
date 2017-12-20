@@ -13,7 +13,7 @@ class KeyMixin(object):
 class PGPKey(models.Model, KeyMixin):
     fingerprint = models.CharField(max_length=40)
     
-    def __unicode__(self):
+    def __str__(self):
         return self.fingerprint
 
 class AssignedKey(models.Model, KeyMixin):
@@ -23,7 +23,7 @@ class AssignedKey(models.Model, KeyMixin):
     class Meta:
         unique_together = ('user', 'fingerprint')
 
-    def __unicode__(self):
+    def __str__(self):
         return '{0} ({1})'.format(self.fingerprint, self.user)
 
 class KeysigningParty(models.Model):
@@ -34,7 +34,7 @@ class KeysigningParty(models.Model):
     def submission_expired(self):
         return datetime.now(pytz.UTC) > self.submit_until
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
 class Participant(models.Model):
@@ -42,6 +42,6 @@ class Participant(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     keys = models.ManyToManyField(AssignedKey)
 
-    def __unicode__(self):
+    def __str__(self):
         key_ids = ', '.join(key.fingerprint for key in self.keys.all())
         return '{0} at {1} ({2})'.format(self.user, self.party, key_ids)

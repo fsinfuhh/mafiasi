@@ -26,7 +26,7 @@ class GroupProperties(models.Model):
     def get_ldap_group(self):
         return LdapGroup.lookup(self.group.name)
 
-    def __unicode__(self):
+    def __str__(self):
         return str(self.group)
 
 class GroupProxy(object):
@@ -85,7 +85,7 @@ class GroupInvitation(models.Model):
     invited_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,
             related_name='given_invitations')
 
-    def __unicode__(self):
+    def __str__(self):
         return 'Invitation to {0} for {1}'.format(self.group, self.invitee)
 
     def accept(self):
