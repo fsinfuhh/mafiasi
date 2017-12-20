@@ -1,5 +1,3 @@
-
-
 import base64
 from functools import wraps
 import hashlib
@@ -8,6 +6,7 @@ import time
 
 from django.http import HttpResponse
 from django.conf import settings
+
 
 def require_auth(username, password, realm='Login'):
     def decorator(view):
@@ -18,7 +17,7 @@ def require_auth(username, password, realm='Login'):
                 if not auth.startswith('Basic '):
                     raise ValueError('Invalid auth header')
 
-                creds = base64.b64decode(auth.split()[1])
+                creds = base64.b64decode(auth.split()[1]).decode()
                 http_username, http_password = creds.split(':', 1)
                 if http_username != username or http_password != password:
                     # Make timing attacks harder by adding some delay
@@ -34,6 +33,7 @@ def require_auth(username, password, realm='Login'):
             return view(request, *args, **kwargs)
         return wrapper
     return decorator
+
 
 def _data_dependent_delay(data, max_sleep=0.02):
     mac = hmac.new(settings.SECRET_KEY, data, hashlib.sha512).digest()
