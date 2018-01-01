@@ -30,6 +30,7 @@ def my_keys(request):
         'keys': keys
     })
 
+
 @login_required
 def autocomplete_keys(request):
     term = request.GET.get('term', '')
@@ -54,6 +55,7 @@ def autocomplete_keys(request):
             continue
     json.dump(autocomplete_data, resp)
     return resp
+
 
 @login_required
 def assign_keyid(request):
@@ -129,7 +131,7 @@ def show_key(request, keyid, raw=False):
     ctx.armor = True
 
     try:
-        key = ctx.get_key(keyid.encode('utf-8'))
+        key = ctx.get_key(keyid)
     except gpgme.GpgmeError:
         raise Http404
     
@@ -370,6 +372,7 @@ def _hkp_op_get(request, search, options):
                                     content_type='text/plain')
     return resp
 
+
 def _hkp_op_index(request, search, options):
     ctx = gpgme.Context()
     ctx.keylist_mode = gpgme.KEYLIST_MODE_SIGS
@@ -386,8 +389,10 @@ def _hkp_op_index(request, search, options):
             'key_list': key_list
         })
 
+
 def _hkp_op_index_human(key_list):
     return 
+
 
 def _hkp_op_index_mr(key_list):
     resp = HttpResponse(content_type='text/plain')
@@ -417,6 +422,7 @@ def _hkp_op_index_mr(key_list):
                                       flags='r' if uid.revoked else ''))
     return resp
 
+
 def _format_flags(subkey):
     if subkey.revoked and subkey.expired:
         return 're'
@@ -426,6 +432,7 @@ def _format_flags(subkey):
         return 'e'
     else:
         return ''
+
 
 def _get_uid_created(uid, own_keyid):
     selfsigs = [sig for sig in uid.signatures if sig.keyid == own_keyid]

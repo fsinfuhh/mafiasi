@@ -9,7 +9,7 @@ from django.conf import settings
 class KeyMixin(object):
     def get_keyobj(self):
         ctx = gpgme.Context()
-        return ctx.get_key(self.fingerprint.encode('utf-8'))
+        return ctx.get_key(self.fingerprint)
 
 
 class PGPKey(models.Model, KeyMixin):
