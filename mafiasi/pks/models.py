@@ -5,16 +5,19 @@ import pytz
 from django.db import models
 from django.conf import settings
 
+
 class KeyMixin(object):
     def get_keyobj(self):
         ctx = gpgme.Context()
-        return ctx.get_key(self.fingerprint)
-    
+        return ctx.get_key(self.fingerprint.encode('utf-8'))
+
+
 class PGPKey(models.Model, KeyMixin):
     fingerprint = models.CharField(max_length=40)
     
     def __str__(self):
         return self.fingerprint
+
 
 class AssignedKey(models.Model, KeyMixin):
     fingerprint = models.CharField(max_length=40)
@@ -26,6 +29,7 @@ class AssignedKey(models.Model, KeyMixin):
     def __str__(self):
         return '{0} ({1})'.format(self.fingerprint, self.user)
 
+
 class KeysigningParty(models.Model):
     name = models.CharField(max_length=60)
     event_date = models.DateField()
@@ -36,6 +40,7 @@ class KeysigningParty(models.Model):
 
     def __str__(self):
         return self.name
+
 
 class Participant(models.Model):
     party = models.ForeignKey(KeysigningParty, on_delete=models.CASCADE, related_name='participants')

@@ -1,5 +1,5 @@
 import json
-from io import StringIO
+from io import BytesIO
 from urllib.parse import quote
 
 import gpgme
@@ -108,6 +108,7 @@ def all_keys(request):
         'keys': keys
     })
 
+
 def graph(request, party_pk=None):
     party = None
     graph_name = 'global'
@@ -119,6 +120,7 @@ def graph(request, party_pk=None):
         'party': party
     })
 
+
 def show_key(request, keyid, raw=False):
     if raw:
         return _hkp_op_get(request, keyid, None)
@@ -127,23 +129,25 @@ def show_key(request, keyid, raw=False):
     ctx.armor = True
 
     try:
-        key = ctx.get_key(keyid)
+        key = ctx.get_key(keyid.encode('utf-8'))
     except gpgme.GpgmeError:
         raise Http404
     
-    keydata = StringIO()
+    keydata = BytesIO()
     ctx.export(keyid.encode('utf-8'), keydata)
 
     return TemplateResponse(request, 'pks/show_key.html', {
         'keyid': keyid,
         'key': key,
-        'keydata': keydata.getvalue()
+        'keydata': keydata.getvalue().decode('utf-8'),
     })
+
 
 def search(request):
     return TemplateResponse(request, 'pks/search.html', {
         'hkp_url': settings.HKP_URL
     })
+
 
 def party_list(request):
     parties = list(KeysigningParty.objects.order_by('-event_date'))
@@ -160,6 +164,7 @@ def party_list(request):
     return TemplateResponse(request, 'pks/party_list.html', {
         'parties': parties
     })
+
 
 @login_required
 def party_participate(request, party_pk):
@@ -214,6 +219,7 @@ def party_participate(request, party_pk):
         'checked_fingerprints': checked_fingerprints
     })
 
+
 @login_required
 def party_keys(request, party_pk):
     party = get_object_or_404(KeysigningParty, pk=party_pk)
@@ -233,6 +239,7 @@ def party_keys(request, party_pk):
         'hkp_url': settings.HKP_URL
     })
 
+
 @login_required
 def party_keys_export(request, party_pk):    
     party = get_object_or_404(KeysigningParty, pk=party_pk)
@@ -244,6 +251,7 @@ def party_keys_export(request, party_pk):
         for key in participant.keys.all():
             ctx.export(key.fingerprint.encode('utf-8'), resp)
     return resp
+
 
 @login_required
 def party_missing_signatures(request, party_pk):
@@ -303,6 +311,7 @@ def party_missing_signatures(request, party_pk):
         'missing_other_sigs': missing_other_sigs
     })
 
+
 def _fill_missing_sigs(missing_sigs, own_key, other_key):
         other_user = other_key.user
         if other_user.pk not in missing_sigs:
@@ -324,7 +333,7 @@ def hkp_add_key(request):
         return HttpResponseBadRequest("Missing keytext parameter.")
     
     ctx = gpgme.Context()
-    result = ctx.import_(StringIO(keytext))
+    result = ctx.import_(BytesIO(keytext.encode('utf-8')))
 
     return HttpResponse('OK. {0} keys imported.'.format(result.imported),
                         content_type='text/plain')
