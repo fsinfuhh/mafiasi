@@ -151,7 +151,6 @@ class LdapModel(object, metaclass=LdapModelMeta):
                 # Nothing was changed
                 return
             for object_class in self.object_classes:
-                object_class = object_class.encode()
                 if object_class not in self._values['objectClass']:
                     self._values['objectClass'].append(object_class)
             mod_list = modifyModlist(self._old_values, self._values)
@@ -188,11 +187,11 @@ class LdapModel(object, metaclass=LdapModelMeta):
 
 def ensure_bytestring(x):
     if isinstance(x, str):
+        return x.encode()
+    elif isinstance(x, bytes):
         return x
-    elif isinstance(x, str):
-        return x.encode('utf-8')
     else:
-        return str(x)
+        return bytes(x)
 
 
 connections = ConnectionManager()
