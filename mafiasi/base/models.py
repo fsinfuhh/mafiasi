@@ -63,6 +63,9 @@ class Mafiasi(AbstractUser):
     real_email = models.EmailField(unique=True, null=True)
     new_password = None
 
+    # USED in contrib.auth to determine the mail address for thinks like password reset
+    EMAIL_FIELD = 'real_email'
+
     @property
     def is_student(self):
         return self.account and (self.account[0].isdigit() or

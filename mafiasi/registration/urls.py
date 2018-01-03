@@ -1,11 +1,10 @@
 from django.conf.urls import url
 from django.conf import settings
 from django.conf.urls import url
+from django.contrib.auth.forms import PasswordResetForm
 from django.contrib.auth.views import password_reset, password_reset_done, password_reset_confirm,\
     password_reset_complete
 
-
-from .forms import PasswordResetForm
 from .views import *
 
 
