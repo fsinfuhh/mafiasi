@@ -123,7 +123,7 @@ class LdapUser(LdapModel):
     def set_password(self, password):
         salt = os.urandom(8)
         digest = hashlib.sha1(password.encode('utf-8') + salt).digest()
-        self.password = '{SSHA}' + base64.b64encode(digest + salt)
+        self.password = b'{SSHA}' + base64.b64encode(digest + salt).decode()
 
     def check_password(self, password):
         if not self.password.startswith('{SSHA}'):
