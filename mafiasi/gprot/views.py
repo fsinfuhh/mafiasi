@@ -143,7 +143,7 @@ def _clean_pdf_metadata(gprot):
     writer = PdfFileWriter()
 
     # Django file fields aren't context managers :/
-    gprot.content_pdf.open('r')
+    gprot.content_pdf.open('rb')
     reader = PdfFileReader(gprot.content_pdf)
     for i in range(reader.getNumPages()):
         writer.addPage(reader.getPage(i))
@@ -153,7 +153,7 @@ def _clean_pdf_metadata(gprot):
         '/Title': title,
     })
 
-    gprot.content_pdf.open('r+')
+    gprot.content_pdf.open('rb+')
     writer.write(gprot.content_pdf)
     gprot.content_pdf.close()
 
