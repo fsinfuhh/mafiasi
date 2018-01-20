@@ -312,7 +312,7 @@ def publish_gprot(request, gprot_pk):
     })
 
 def send_notification_email(gprot, notification, request):
-    url = reverse('mafiasi.gprot.views.view_gprot', args=(gprot.pk,))
+    url = reverse('gprot_view', args=(gprot.pk,))
     email_content = render_to_string('gprot/notification_email.txt', {
         'notification': notification,
         'url': request.build_absolute_uri(url)
