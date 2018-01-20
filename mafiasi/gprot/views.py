@@ -71,7 +71,7 @@ def create_gprot(request):
                                          is_pdf=is_pdf,
                                          content='',
                                          author=request.user)
-            gprot.examiners = examiners
+            gprot.examiners.set(examiners)
             gprot.save()
             return redirect('gprot_edit', gprot.pk)
     else:
