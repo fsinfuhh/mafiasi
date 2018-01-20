@@ -113,7 +113,7 @@ def edit_metadata(request, gprot_pk):
         form = GProtBasicForm(request.POST)
         if form.is_valid():
             gprot.course = form.cleaned_data['course']
-            gprot.examiners = form.cleaned_data['examiner']
+            gprot.examiners.set(form.cleaned_data['examiner'])
             gprot.exam_date = form.cleaned_data['exam_date']
             gprot.save()
             return redirect('gprot_edit', gprot.pk)
