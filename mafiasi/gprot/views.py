@@ -319,8 +319,8 @@ def send_notification_email(gprot, notification, request):
     })
     try:
         send_mail(_('New memory minutes for "%(coursename)s"'
-            % {'coursename': gprot.course.name}).encode('utf8'),
-                email_content.encode('utf8'),
+            % {'coursename': gprot.course.name}),
+                email_content,
                 None,
                 [notification.user.email])
     except SMTPException:
