@@ -221,7 +221,7 @@ def change_email(request, token):
         validate_email(email)
     except ValidationError:
         return TemplateResponse(request, 'registration/token_invalid.html')
-    if settings.MAILCLOAK_DOMAIN:
+    if not settings.MAILCLOAK_DOMAIN:
         request.user.email = email
     request.user.real_email = email
     request.user.save()
