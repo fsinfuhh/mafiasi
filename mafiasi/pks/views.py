@@ -61,7 +61,7 @@ def autocomplete_keys(request):
 def assign_keyid(request):
     ctx = gpgme.Context()
     try:
-        key = ctx.get_key(request.POST.get('keyid', '').encode('utf-8'))
+        key = ctx.get_key(request.POST.get('keyid', ''))
         fingerprint = key.subkeys[0].fpr
     except gpgme.GpgmeError:
         messages.error(request, _('Could not find the given keyid.'))
