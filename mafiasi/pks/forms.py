@@ -1,4 +1,4 @@
-from io import StringIO
+from io import BytesIO
 
 import gpgme
 
@@ -12,7 +12,7 @@ class ImportForm(forms.Form):
     def clean_keys(self):
         ctx = gpgme.Context()
         encoded_keys = self.cleaned_data['keys'].encode('utf-8')
-        result = ctx.import_(StringIO(encoded_keys))
+        result = ctx.import_(BytesIO(encoded_keys))
         if result.considered == 0:
             raise forms.ValidationError(_("No valid OpenPGP keys."))
         self.imported_keys = [key[0] for key in result.imports]
