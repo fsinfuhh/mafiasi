@@ -13,8 +13,9 @@ from mafiasi.base.utils import AdvisoryLock
 MIN_GROUPNAME_LENGTH = 3
 
 class GroupError(Exception):
-    pass
-
+    def __init__(self, message):
+        super().__init__(message)
+        self.message = message
 
 class GroupProperties(models.Model):
     group = models.OneToOneField(Group, related_name='properties', on_delete=models.CASCADE)
