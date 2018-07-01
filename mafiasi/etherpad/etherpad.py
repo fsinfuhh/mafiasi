@@ -30,7 +30,7 @@ class Etherpad(object):
                 padName=pad_name.encode('utf-8'))
         except EtherpadException as e:
             # test if pad was already created, if so it's ok
-            if e.message == "padName does already exist":
+            if str(e) == "padName does already exist":
                 return
             raise
 
@@ -76,7 +76,7 @@ class Etherpad(object):
         try:
             return self.api.listPads(groupID=self.get_group_id(group_name))['padIDs']
         except EtherpadException as e:
-            if e.message == "groupID does not exist":
+            if str(e) == "groupID does not exist":
                 # no pads for this group
                 return []
             raise
@@ -85,7 +85,7 @@ class Etherpad(object):
         try:
             self.api.deletePad(padID=pad_name.encode('utf-8'))
         except EtherpadException as e:
-            if e.message == "padID does not exist":
+            if str(e) == "padID does not exist":
                 return
             raise
 
@@ -96,7 +96,7 @@ class Etherpad(object):
         try:
             return float(self.api.getLastEdited(padID=pad_name.encode('utf-8'))['lastEdited']) / 1000
         except EtherpadException as e:
-            if e.message == "padID does not exist":
+            if str(e) == "padID does not exist":
                 return 0
             raise
         except TypeError:
@@ -107,7 +107,7 @@ class Etherpad(object):
         try:
             return self.api.getHTML(padID=pad_name.encode('utf-8'))['html']
         except EtherpadException as e:
-            if e.message == "padID does not exist":
+            if str(e) == "padID does not exist":
                 return ""
             raise
 

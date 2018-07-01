@@ -40,7 +40,7 @@ def create(request):
             messages.success(request, msg)
             return redirect('groups_show', group_name)
         except GroupError as e:
-            error = e.message
+            error = str(e)
     return TemplateResponse(request, 'groups/create.html', {
         'error': error,
         'group_name': group_name,
@@ -106,7 +106,7 @@ def leave(request, group_name):
         group_proxy.remove_member(request.user, check_sole_admin=True)
         messages.success(request, _('You left the group.'))
     except GroupError as e:
-        messages.error(request, e.message)
+        messages.error(request, str(e))
     
     return redirect('groups_index')
 
@@ -129,7 +129,7 @@ def group_action(request, group_name, member_pk):
             group_proxy.remove_member(member, check_sole_admin=True)
             messages.success(request, _('User was removed from group'))
         except GroupError as e:
-            messages.errror(request, e.message)
+            messages.errror(request, str(e))
     elif 'grant_admin' in request.POST:
         group_proxy.grant_admin(member)
         messages.success(request, _('User was granted group admin.'))
@@ -138,7 +138,7 @@ def group_action(request, group_name, member_pk):
             group_proxy.revoke_admin(member)
             messages.success(request, _('Revoked group admin rights from user.'))
         except GroupError as e:
-            messages.errror(request, e.message)
+            messages.errror(request, str(e))
     
     return redirect('groups_show', group.name) 
 
