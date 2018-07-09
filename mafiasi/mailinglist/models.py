@@ -174,7 +174,7 @@ class ModeratedMail(models.Model):
     def get_email(self):
         if not hasattr(self, '_parsed_message'):
             parser = Parser()
-            email_content = b64decode(self.email_content)
+            email_content = b64decode(self.email_content).decode('utf-8', 'replace')
             self._parsed_message = parser.parsestr(email_content)
         return self._parsed_message
 
@@ -182,7 +182,7 @@ class ModeratedMail(models.Model):
     def subject(self):
         email_obj = self.get_email()
         try:
-            return email_obj['Subject'].decode('utf-8', 'replace')
+            return email_obj['Subject']
         except KeyError:
             return ''
 
@@ -190,7 +190,7 @@ class ModeratedMail(models.Model):
     def sender(self):
         email_obj = self.get_email()
         try:
-            return email_obj['From'].decode('utf-8', 'replace')
+            return email_obj['From']
         except KeyError:
             return ''
     
