@@ -10,7 +10,7 @@ def _filter_css_class(tag, name, value):
     return False
 
 def _build_filter_integer(*attrs):
-    def _filter_integer(name, value):
+    def _filter_integer(tag, name, value):
         return name in attrs and value.isdigit()
     return _filter_integer
 
