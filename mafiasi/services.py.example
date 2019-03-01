@@ -86,6 +86,12 @@ SERVICES = {
         'link': 'https://sogo.mafiasi.de/',
         'image': static('img/services/sogo.png'),
     },
+    'tauschen': {
+        'title': _('Mafiasi Tauschen'),
+        'description': _('Mafiasi Tauschen is a service that provides an easy possibility to exchange course groups.'),
+        'link': 'https://tauschen.mafiasi.de/',
+        'image': static('img/services/tauschen.png'),
+    },
     'wiki': {
         'title': _('Wiki'),
         'description': _('In the wiki you will find important information regarding your studies.'),

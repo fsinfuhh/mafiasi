@@ -310,6 +310,7 @@ DASHBOARD_SERVICES = [
     'wiki',
     'etherpad',
     'bitpoll',
+    'tauschen',
     'redmine',
     'discourse',
     'sogo',
