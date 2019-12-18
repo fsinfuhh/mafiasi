@@ -3,7 +3,7 @@ from django.conf.urls.static import static
 from django.shortcuts import redirect, render
 from django.conf import settings
 from django.conf.urls.static import static
-
+from django.contrib.auth import views as auth_views
 
 import mafiasi.base.urls, mafiasi.registration.urls, mafiasi.dashboard.urls, \
     mafiasi.mumble.urls, mafiasi.wiki.urls, mafiasi.groups.urls,\
@@ -26,10 +26,8 @@ urlpatterns = [
     url(r'^guests/', include(mafiasi.guests.urls)),
     url(r'^owncloud/', include(mafiasi.owncloud.urls)),
 
-    url(r'^login$', django.contrib.auth.views.login, name='login'),
-    url(r'^logout$', django.contrib.auth.views.logout, {
-        'next_page': '/'
-    }, name='logout'),
+    url(r'^login/$', auth_views.LoginView.as_view(), name='login', ),
+    url(r'^logout/$', auth_views.LogoutView.as_view(next_page='home'), name='logout'),
 
     url(r'^i18n/', include(django.conf.urls.i18n)),
 
