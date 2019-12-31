@@ -1,9 +1,3 @@
-/*---------- GENERIC ---------*/
-
-#wrap > .container {
-    padding-top: 60px;
-}
-
 /*------------ DASHBOARD --------*/
 #dashboard .glyphicon {
     top: -7px;
