@@ -18,17 +18,10 @@
     {% block headJS %}
     {% endblock %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    {% if banner_img %} {# TODO: das ist etwas unschön das so statisch zu machen #}
-        <style type="text/css">
-        #wrap > .container {
-            padding-top: 114px;
-        }
-        </style>
-    {% endif %}
 </head>
 <body>
     <div id="wrap">
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation">
             {% value_from_settings BANNER_IMG as banner_img %}
             {% if banner_img %}
                 <div class="container">
