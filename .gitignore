@@ -13,3 +13,4 @@ mafiasi/base/static/MathJax-*
 *.db
 .idea
 .pyenv
+venv
