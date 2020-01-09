@@ -41,7 +41,8 @@ class Etherpad(object):
         activ_sessions = self.api.listSessionsOfGroup(groupID=group)
         if activ_sessions:
             for sessionID, data in list(activ_sessions.items()):
-                if data['authorID'] == user_ep:
+                # the etherpad returns None sessions in some edge cases, ignore them
+                if data and data['authorID'] == user_ep:
                     if data['validUntil'] > time.time() + MIN_SESSION_REMAIN_TIME:
                         # There is a valid session with over 6 hours
                         # remaining time
