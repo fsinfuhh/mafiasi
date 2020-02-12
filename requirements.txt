@@ -1,4 +1,4 @@
-django<3.0
+django
 django-ldapdb
 bleach
 python-creole
