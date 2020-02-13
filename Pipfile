@@ -1,0 +1,41 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+Django = "*"
+django-ldapdb = "*"
+bleach = "*"
+python-creole = "*"
+requests = "*"
+oauthlib = "*"
+urllib3 = "*"
+certifi = "*"
+idna = "*"
+chardet = "*"
+django-auth-ldap = "*"
+django-oauth-toolkit = "*"
+django-cors-headers = "*"
+django-widget-tweaks = "*"
+etherpad_lite = "*"
+fuzzywuzzy = "*"
+nameparser = "*"
+networkx = "*"
+psycopg2-binary = "*"
+pygpgme = "*"
+pygraphviz = "*"
+pytz = "*"
+PyPDF2 = "*"
+raven = "*"
+pyldap = "*"
+python-magic = "*"
+pydiscourse = "*"
+django-email-log = "*"
+Pillow = "*"
+python-Levenshtein = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.7"

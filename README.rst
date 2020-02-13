@@ -4,23 +4,13 @@ Mafiasi
 This is the source code of the django project behind mafiasi.de. This project
 is under active development, things may change often.
 
-Dependencies
-------------
-
-* Django
-* django-widget-tweaks
-* nameparser
-* creoleparser
-* yui-compressor
-* gettext
-
 Installation
 ------------
 
 Just install the dependencies, copy example settings and services, migrate database and
 execute make::
     
-    pip install -r requirements.txt
+    pipenv install
     cp mafiasi/settings.py.example mafiasi/settings.py
     cp mafiasi/services.py.example mafiasi/services.py
     ./manage.py migrate
