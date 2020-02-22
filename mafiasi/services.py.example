@@ -17,7 +17,7 @@ SERVICES = {
     'etherpad': {
         'title': _('Etherpad'),
         'description': _('You can use the Etherpad to work together on a document in real time.'),
-        'link': 'https://mafiasi.de/etherpad/',
+        'link': '/etherpad/',
         'image': static('img/services/etherpad.png'),
     },
     'fb18': {
@@ -35,13 +35,13 @@ SERVICES = {
     'gprot': {
         'title': _('GProt'),
         'description': _('The GProt contains memory minutes of oral and written exams.'),
-        'link': 'https://mafiasi.de/gprot/',
+        'link': '/gprot/',
         'image': static('img/services/gprot.png'),
     },
     'jabber': {
         'title': _('Jabber'),
         'description': _('On our Jabber server you can chat with your fellow students, which are already on your contact list.'),
-        'link': 'https://mafiasi.de/jabber/',
+        'link': '/jabber/',
         'image': static('img/services/jabber.png'),
     },
     'mattermost': {
@@ -53,7 +53,7 @@ SERVICES = {
     'mumble': {
         'title': _('Mumble'),
         'description': _('You can use our mumble for voice chat with other fellow students.'),
-        'link': 'https://mafiasi.de/mumble/',
+        'link': '/mumble/',
         'image': static('img/services/mumble.png'),
     },
     'owncloud': {
@@ -65,7 +65,7 @@ SERVICES = {
     'pks': {
         'title': _('Keyserver'),
         'description': _('You can find your fellow students\' OpenPGP keys on our public keyserver.'),
-        'link': 'https://mafiasi.de/pks/',
+        'link': '/pks/',
         'image': static('img/services/pks.png'),
     },
     'planet': {
