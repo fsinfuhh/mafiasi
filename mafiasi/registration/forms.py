@@ -59,7 +59,9 @@ class AdditionalInfoForm(forms.Form):
         if domain == settings.PRIMARY_DOMAIN:
             yeargroups = self._yeargroups_for_account(account)
         else:
-            yeargroups = [Yeargroup.objects.get_by_domain(domain)]
+            yeargroup = Yeargroup.objects.get_by_domain(domain)
+            # Get queryset
+            yeargroups = Yeargroup.objects.filter(id=yeargroup.id)
 
         self.fields["yeargroup"].queryset = yeargroups
 
