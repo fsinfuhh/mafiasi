@@ -22,7 +22,7 @@ Delete: {{ course_name }}
     </tr>
     <tr>
         <th>{% trans "Exam date" %}</th>
-        <td>{{ gprot.exam_date|date:"Y-m-d" }}</td>
+        <td>{{ gprot.exam_date|date:"SHORT_DATE_FORMAT" }}</td>
     </tr>
 </table>
 <hr/>

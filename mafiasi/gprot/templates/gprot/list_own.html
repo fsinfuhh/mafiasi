@@ -22,7 +22,7 @@
 {% for gprot in gprots %}
     <tr>
         <td>{{ gprot.course.get_full_name }}</td>
-        <td>{{ gprot.exam_date|date:"Y-m-d" }}</td>
+        <td>{{ gprot.exam_date|date:"SHORT_DATE_FORMAT" }}</td>
         <td>{{ gprot.examiners|format_examiners }}</td>
         <td>
         {% if gprot.published %}

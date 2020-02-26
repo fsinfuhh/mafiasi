@@ -21,8 +21,8 @@
 {% for party in parties %}
     <tr>
         <td><a href="{% url 'pks_party_keys' party.pk %}">{{ party.name }}</a></td>
-        <td>{{ party.event_date|date:"Y-m-d" }}</td>
-        <td>{{ party.submit_until|date:"Y-m-d H:i" }}</td>
+        <td>{{ party.event_date|date:"SHORT_DATE_FORMAT" }}</td>
+        <td>{{ party.submit_until|date:"SHORT_DATE_FORMAT H:i" }}</td>
         <td>
         {% if not party.submission_expired %}
             <a class="btn btn-primary" href="{% url 'pks_party_participate' party.pk %}">{% if party.user_participates %}{% trans "Change keys" %}{% else %}{% trans "Participate" %}{% endif %}</a>
