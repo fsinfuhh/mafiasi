@@ -35,7 +35,7 @@
                 {% if mailinglist %}
                 {% blocktrans with address=mailinglist.get_address %}The mailinglist address is <a href="mailto:{{ address }}">{{ address }}</a>.{% endblocktrans %}
                 {% elif is_groupadmin %}
-                This group does not have a mailinglist.
+                {% trans "This group does not have a mailinglist." %}
                 {% endif %}
             </div>
             {% if is_groupadmin %}
