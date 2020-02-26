@@ -50,7 +50,7 @@
             {{ gprot.course.department }}
             {% endif %}
         </td>
-        <td>{{ gprot.exam_date|date:"Y-m-d" }}</td>
+        <td>{{ gprot.exam_date|date:"SHORT_DATE_FORMAT" }}</td>
         <td>{{ gprot.examiners|format_examiners }}</td>
         <td class="gprot-actions">
             {% include 'gprot/_action_list.html' %}
