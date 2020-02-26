@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-26 15:01+0100\n"
-"PO-Revision-Date: 2020-02-26 15:01+0100\n"
+"POT-Creation-Date: 2020-02-26 15:26+0100\n"
+"PO-Revision-Date: 2020-02-26 15:27+0100\n"
 "Last-Translator: Henning Pridöhl <8pridoeh@informatik.uni-hamburg.de>\n"
 "Language-Team: \n"
 "Language: en\n"
@@ -205,14 +205,14 @@ msgstr "Delete the Pad <b>%(pad)s</b> from group <b>%(group)s</b>?"
 #: mafiasi/etherpad/templates/etherpad/forbidden-notadmin.html:8
 #, python-format
 #| msgid ""
-#| "You tried to access the group <b>%(group_name)s</b>. You aren't in this "
-#| "group!"
+#| "You tried to administratre the group <b>%(group_name)s</b>. You are not "
+#| "admin in this group!"
 msgid ""
-"You tried to administratre the group <b>%(group_name)s</b>. You are not "
-"admin in this group!"
+"You tried to administrate the group <b>%(group_name)s</b>. You are not admin "
+"in this group!"
 msgstr ""
-"You tried to administratre the group <b>%(group_name)s</b>. You are not "
-"admin in this group!"
+"You tried to administrate the group <b>%(group_name)s</b>. You are not admin "
+"in this group!"
 
 #: mafiasi/etherpad/templates/etherpad/forbidden-notingroup.html:8
 #, python-format
@@ -253,7 +253,6 @@ msgid "Protected group pads can only be created if you are logged in."
 msgstr "Protected group pads can only be created if you are logged in."
 
 #: mafiasi/etherpad/templates/etherpad/index.html:24
-#| msgid "Your group pads"
 msgid "Your pinned pads"
 msgstr "Your pinned pads"
 
@@ -1046,6 +1045,11 @@ msgid ""
 "The mailinglist address is <a href=\"mailto:%(address)s\">%(address)s</a>."
 msgstr ""
 "The mailinglist address is <a href=\"mailto:%(address)s\">%(address)s</a>."
+
+#: mafiasi/groups/templates/groups/show.html:38
+#| msgid "Please ask a group admin to create this mailinglist."
+msgid "This group does not have a mailinglist."
+msgstr "This group does not have a mailinglist."
 
 #: mafiasi/groups/templates/groups/show.html:47
 msgid "Manage"
@@ -2165,7 +2169,6 @@ msgid "Registration: Sending mail failed: {}"
 msgstr "Registration: Sending mail failed: {}"
 
 #: mafiasi/services.py:6
-#| msgid "Course"
 msgid "Discourse"
 msgstr "Discourse"
 
@@ -2182,12 +2185,10 @@ msgid "BitPoll"
 msgstr "BitPoll"
 
 #: mafiasi/services.py:13
-#| msgid "The Dudel helps you to find common dates for meetings easily."
 msgid "BitPoll helps you to find common dates for meetings easily."
 msgstr "BitPoll helps you to find common dates for meetings easily."
 
 #: mafiasi/services.py:18
-#| msgid "Etherpad overview"
 msgid "Etherpad"
 msgstr "Etherpad"
 
@@ -2272,7 +2273,6 @@ msgstr ""
 "students."
 
 #: mafiasi/services.py:78
-#| msgid "Revoke admin"
 msgid "Redmine"
 msgstr "Redmine"
 
@@ -2297,7 +2297,6 @@ msgstr ""
 "devices."
 
 #: mafiasi/services.py:90
-#| msgid "Mafiasi Groups"
 msgid "Mafiasi Tauschen"
 msgstr "Mafiasi Tauschen"
 

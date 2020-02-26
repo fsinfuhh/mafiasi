@@ -30,7 +30,7 @@
         &nbsp;&nbsp;-&nbsp;&nbsp;<a href="{% url 'ep_show_pad_html' pad.group_name pad.pad_name %}">HTML</a>
         <form method="POST" class="inline-form" action="{% url 'ep_unpin_pad' pad.group_name pad.pad_name %}">
           {% csrf_token %}
-          &nbsp;&nbsp;-&nbsp;&nbsp;<button class="button-link">Unpin</button>
+          &nbsp;&nbsp;-&nbsp;&nbsp;<button class="button-link">{% trans Unpin %}</button>
         </form>
       </li>
     {% endfor %}
