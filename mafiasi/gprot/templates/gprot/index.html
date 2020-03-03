@@ -40,6 +40,7 @@
         <th>{% trans "Department" %}</th>
         <th>{% trans "Exam date" %}</th>
         <th>{% trans "Examiners" %}</th>
+        <th style="text-align: center">{% trans "PDF?" %}</th>
         <th>{% trans "Actions" %}</th>
     </tr>
 {% for gprot in gprots %}
@@ -52,6 +53,13 @@
         </td>
         <td>{{ gprot.exam_date|date:"SHORT_DATE_FORMAT" }}</td>
         <td>{{ gprot.examiners|format_examiners }}</td>
+        <td style="text-align: center">
+            {% if gprot.is_pdf %}
+            <img src="{% static "admin/img/icon-yes.svg" %}"/>
+            {% else %}
+            <img src="{% static "admin/img/icon-no.svg" %}"/>
+            {%  endif %}
+        </td>
         <td class="gprot-actions">
             {% include 'gprot/_action_list.html' %}
         </td>
