@@ -17,6 +17,7 @@
         <th>{% trans "Exam date" %}</th>
         <th>{% trans "Examiners" %}</th>
         <th>{% trans "Status" %}</th>
+        <th>{% trans "Labels" %}</th>
         <th style="text-align: center">{% trans "PDF?" %}</th>
         <th>{% trans "Actions" %}</th>
     </tr>
@@ -32,11 +33,14 @@
         <span class="label label-danger">{% trans "unpublished" %}</span>
         {% endif %}
         </td>
+        <td>
+            {% include "gprot/_labels.html" %}
+        </td>
         <td style="text-align: center">
             {% if gprot.is_pdf %}
-            <img src="{% static "img/icon-yes.svg" %}"/>
+            <img src="{% static "admin/img/icon-yes.svg" %}"/>
             {% else %}
-            <img src="{% static "img/icon-no.svg" %}"/>
+            <img src="{% static "admin/img/icon-no.svg" %}"/>
             {%  endif %}
         </td>
         <td class="gprot-actions">

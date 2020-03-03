@@ -2,6 +2,7 @@ from functools import partial
 from django import forms
 from django.utils.translation import ugettext as _
 
+from mafiasi.gprot.models import Label
 from mafiasi.teaching.models import Course, Teacher
 
 
@@ -58,6 +59,7 @@ class GProtBasicForm(forms.Form):
     course = forms.MultipleChoiceField()
     exam_date = forms.DateField()
     examiner = forms.MultipleChoiceField()
+    labels = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple, required=False)
 
     def __init__(self, *args, **kwargs):
         super(forms.Form, self).__init__(*args, **kwargs)
@@ -66,6 +68,7 @@ class GProtBasicForm(forms.Form):
             Teacher.objects.as_grouped_choices()
         self.fields['course'].choices = \
             Course.objects.as_grouped_choices()
+        self.fields['labels'].choices = Label.objects.as_choices()
 
     def clean_course(self):
         data = self.cleaned_data['course'][0]
