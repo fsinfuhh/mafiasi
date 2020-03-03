@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-26 15:26+0100\n"
-"PO-Revision-Date: 2020-02-26 15:27+0100\n"
+"POT-Creation-Date: 2020-03-03 18:41+0100\n"
+"PO-Revision-Date: 2020-03-03 18:43+0100\n"
 "Last-Translator: Timon Engelke <7engelke@informatik.uni-hamburg.de>\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -280,23 +280,23 @@ msgstr "Pad: %(pad_name)s"
 msgid "Show this pad in fullscreen mode"
 msgstr "Zeige dieses Pad im Vollbildmodus"
 
-#: mafiasi/gprot/forms.py:48 mafiasi/gprot/forms.py:81
+#: mafiasi/gprot/forms.py:49 mafiasi/gprot/forms.py:84
 msgid "Selected examiner does not exist"
 msgstr "Ausgewählter Prüfer existiert nicht"
 
-#: mafiasi/gprot/forms.py:51 mafiasi/gprot/forms.py:73
+#: mafiasi/gprot/forms.py:52 mafiasi/gprot/forms.py:76
 msgid "Selected course does not exist"
 msgstr "Ausgewähltes Modul existiert nicht"
 
-#: mafiasi/gprot/forms.py:53
+#: mafiasi/gprot/forms.py:54
 msgid "Invalid selection"
 msgstr "Ungültige Auswahl"
 
-#: mafiasi/gprot/forms.py:86 mafiasi/gprot/templates/gprot/create.html:28
+#: mafiasi/gprot/forms.py:89 mafiasi/gprot/templates/gprot/create.html:28
 msgid "Write online"
 msgstr "Online schreiben"
 
-#: mafiasi/gprot/forms.py:87 mafiasi/gprot/templates/gprot/create.html:29
+#: mafiasi/gprot/forms.py:90 mafiasi/gprot/templates/gprot/create.html:29
 msgid "Upload PDF"
 msgstr "PDF hochladen"
 
@@ -348,6 +348,10 @@ msgstr "Prüfer:"
 #: mafiasi/gprot/templates/gprot/_basic_form.html:38
 msgid "Exam date:"
 msgstr "Prüfungsdatum:"
+
+#: mafiasi/gprot/templates/gprot/_basic_form.html:47
+msgid "Labels:"
+msgstr "Labels:"
 
 #: mafiasi/gprot/templates/gprot/_basic_form_modals.html:7
 #: mafiasi/gprot/templates/gprot/_basic_form_modals.html:34
@@ -473,17 +477,28 @@ msgstr "Metadaten bearbeiten"
 
 #: mafiasi/gprot/templates/gprot/edit.html:16
 #: mafiasi/gprot/templates/gprot/edit_metadata.html:8
-#: mafiasi/gprot/templates/gprot/list_own.html:29
+#: mafiasi/gprot/templates/gprot/list_own.html:31
 msgid "published"
 msgstr "veröffentlicht"
 
 #: mafiasi/gprot/templates/gprot/edit.html:18
 #: mafiasi/gprot/templates/gprot/edit_metadata.html:8
-#: mafiasi/gprot/templates/gprot/list_own.html:31
+#: mafiasi/gprot/templates/gprot/list_own.html:33
 msgid "unpublished"
 msgstr "unveröffentlicht"
 
-#: mafiasi/gprot/templates/gprot/edit.html:41
+#: mafiasi/gprot/templates/gprot/edit.html:38
+#: mafiasi/gprot/templates/gprot/index.html:43
+#: mafiasi/gprot/templates/gprot/list_own.html:20
+#: mafiasi/gprot/templates/gprot/view.html:63
+msgid "Labels"
+msgstr "Labels"
+
+#: mafiasi/gprot/templates/gprot/edit.html:43
+msgid "no labels"
+msgstr "kein Label"
+
+#: mafiasi/gprot/templates/gprot/edit.html:51
 msgid ""
 "<b>Warning:</b> The current document will be replaced when you upload a new "
 "one."
@@ -491,35 +506,35 @@ msgstr ""
 "<b>Achtung:</b> Das aktuelle Dokument wird ersetzt, wenn du ein neues "
 "hochlädst."
 
-#: mafiasi/gprot/templates/gprot/edit.html:45
+#: mafiasi/gprot/templates/gprot/edit.html:55
 msgid "Error:"
 msgstr "Fehler:"
 
-#: mafiasi/gprot/templates/gprot/edit.html:49
+#: mafiasi/gprot/templates/gprot/edit.html:59
 msgid "Select a file"
 msgstr "Datei auswählen"
 
-#: mafiasi/gprot/templates/gprot/edit.html:56
+#: mafiasi/gprot/templates/gprot/edit.html:66
 msgid "Upload"
 msgstr "Hochladen"
 
-#: mafiasi/gprot/templates/gprot/edit.html:61
+#: mafiasi/gprot/templates/gprot/edit.html:71
 msgid "Upload and publish"
 msgstr "Speichern und veröffentlichen"
 
-#: mafiasi/gprot/templates/gprot/edit.html:65
+#: mafiasi/gprot/templates/gprot/edit.html:75
 msgid "Upload only"
 msgstr "Nur speichern"
 
-#: mafiasi/gprot/templates/gprot/edit.html:78
+#: mafiasi/gprot/templates/gprot/edit.html:88
 msgid "Save changes"
 msgstr "Änderungen speichern"
 
-#: mafiasi/gprot/templates/gprot/edit.html:83
+#: mafiasi/gprot/templates/gprot/edit.html:93
 msgid "Save and publish"
 msgstr "Speichern und veröffentlichen"
 
-#: mafiasi/gprot/templates/gprot/edit.html:87
+#: mafiasi/gprot/templates/gprot/edit.html:97
 msgid "Save only"
 msgstr "Nur speichern"
 
@@ -555,7 +570,7 @@ msgid "Search for memory minutes"
 msgstr "Nach Gedächtnisprotokollen suchen"
 
 #: mafiasi/gprot/templates/gprot/index.html:25
-#: mafiasi/gprot/templates/gprot/index.html:88
+#: mafiasi/gprot/templates/gprot/index.html:100
 msgid ""
 "Just enter the name of the course and/or examiner to see available memory "
 "minutes."
@@ -581,8 +596,13 @@ msgstr "Modul"
 msgid "Department"
 msgstr "Fachbereich"
 
-#: mafiasi/gprot/templates/gprot/index.html:43
-#: mafiasi/gprot/templates/gprot/list_own.html:20
+#: mafiasi/gprot/templates/gprot/index.html:44
+#: mafiasi/gprot/templates/gprot/list_own.html:21
+msgid "PDF?"
+msgstr "PDF?"
+
+#: mafiasi/gprot/templates/gprot/index.html:45
+#: mafiasi/gprot/templates/gprot/list_own.html:22
 #: mafiasi/gprot/templates/gprot/notifications.html:22
 #: mafiasi/gprot/templates/gprot/reminders.html:24
 #: mafiasi/groups/templates/groups/invitations.html:19
@@ -591,7 +611,7 @@ msgstr "Fachbereich"
 msgid "Actions"
 msgstr "Aktionen"
 
-#: mafiasi/gprot/templates/gprot/index.html:65
+#: mafiasi/gprot/templates/gprot/index.html:77
 #, python-format
 msgid ""
 "\n"
@@ -617,11 +637,11 @@ msgstr "Eigene Gedächtnisprotokolle anzeigen"
 msgid "Status"
 msgstr "Status"
 
-#: mafiasi/gprot/templates/gprot/list_own.html:41
+#: mafiasi/gprot/templates/gprot/list_own.html:53
 msgid "You have no memory minutes we know of! :-("
 msgstr "Du hast keine eigenen Gedächtnisprotokolle, von denen wir wissen."
 
-#: mafiasi/gprot/templates/gprot/list_own.html:43
+#: mafiasi/gprot/templates/gprot/list_own.html:55
 #: mafiasi/gprot/templates/gprot/menu.html:10
 msgid "Create new"
 msgstr "Neues erstellen"
@@ -840,7 +860,7 @@ msgstr ""
 msgid "Download PDF"
 msgstr "PDF herunterladen"
 
-#: mafiasi/gprot/templates/gprot/view.html:67
+#: mafiasi/gprot/templates/gprot/view.html:75
 msgid ""
 "Sorry, your browser does not support embedding\n"
 "            this document. However, you can download the PDF file using the\n"
@@ -849,28 +869,28 @@ msgstr ""
 "Leider unterstützt dein Browser das Einbetten dieses Dokuments nicht.\n"
 "Du kannst es jedoch über den Button oben rechts als PDF-Datei herunterladen."
 
-#: mafiasi/gprot/templates/gprot/view.html:74
+#: mafiasi/gprot/templates/gprot/view.html:82
 msgid "No document has been uploaded yet."
 msgstr "Es wurde noch kein Dokument hochgeladen."
 
-#: mafiasi/gprot/views.py:172 mafiasi/gprot/views.py:273
+#: mafiasi/gprot/views.py:176 mafiasi/gprot/views.py:277
 #, python-brace-format
 msgid "Only files up to {0} MB are allowed."
 msgstr "Es sind nur Dateien kleiner als {0} MB erlaubt."
 
-#: mafiasi/gprot/views.py:176
+#: mafiasi/gprot/views.py:180
 msgid "Only PDF files are allowed."
 msgstr "Es sind nur PDF-Dateien erlaubt."
 
-#: mafiasi/gprot/views.py:178 mafiasi/gprot/views.py:280
+#: mafiasi/gprot/views.py:182 mafiasi/gprot/views.py:284
 msgid "Please select a file to upload."
 msgstr "Bitte wähle eine Datei zum Hochladen aus."
 
-#: mafiasi/gprot/views.py:278
+#: mafiasi/gprot/views.py:282
 msgid "Only PNG, JPEG and GIF files are allowed."
 msgstr "Es sind nur Bilder im PNG-, JPEG- oder GIF-Format erlaubt."
 
-#: mafiasi/gprot/views.py:321
+#: mafiasi/gprot/views.py:325
 #, python-format
 msgid "New memory minutes for \"%(coursename)s\""
 msgstr "Neues Gedächtnisprotokoll für \"%(coursename)s\""
@@ -2342,6 +2362,15 @@ msgstr "Wintersemester {0}"
 #, python-brace-format
 msgid "summer term {0}"
 msgstr "Sommersemester {0}"
+
+#~ msgid "Tags:"
+#~ msgstr "Tags:"
+
+#~ msgid "Tags"
+#~ msgstr "Tags"
+
+#~ msgid "no tags"
+#~ msgstr "keine Tags"
 
 #, fuzzy
 #~| msgid "My Invitations"

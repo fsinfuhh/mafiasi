@@ -43,3 +43,12 @@
     </div>
     {% endif %}
 </div>
+<div class="formgroup">
+    <label for="labels">{% trans "Labels:" %}</label>
+    {% for label in form.labels %}
+        <div class="checkbox-inline">
+            {{ label }}
+        </div>
+    {% endfor %}
+
+</div>

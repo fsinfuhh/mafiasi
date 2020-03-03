@@ -58,6 +58,14 @@ Memory minutes: {{ course_name }}
         <td>{{ gprot.course.department }}</td>
     </tr>
     {% endif %}
+    {% if gprot.labels.exists %}
+    <tr>
+        <th>{% trans "Labels" %}</th>
+        <td>
+             {% include "gprot/_labels.html" %}
+        </td>
+    </tr>
+    {% endif %}
 </table>
 {% if gprot.is_pdf %}
 {% if gprot.content_pdf %}

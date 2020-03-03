@@ -1,0 +1,3 @@
+{% for label in gprot.labels.all %}
+    <span class="label label-{{ label.color }}">{{ label.name }}</span>
+{% endfor %}

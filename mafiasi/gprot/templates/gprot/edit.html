@@ -34,6 +34,16 @@
         <th>{% trans "Exam date" %}</th>
         <td>{{ gprot.exam_date|date:"Y-m-d" }}</td>
     </tr>
+    <tr>
+        <th>{% trans "Labels" %}</th>
+        <td>
+            {% for label in gprot.labels.all %}
+                <span class="label label-{{ label.color }}">{{ label.name }}</span>
+            {% empty %}
+                {% trans "no labels" %}
+            {% endfor %}
+        </td>
+    </tr>
 </table>
 <hr/>
 {% if gprot.is_pdf %}

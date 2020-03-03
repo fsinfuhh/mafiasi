@@ -63,6 +63,7 @@ def create_gprot(request):
             course = form.cleaned_data['course']
             examiners = form.cleaned_data['examiner']
             exam_date = form.cleaned_data['exam_date']
+            labels = form.cleaned_data['labels']
             is_pdf = {'pdf': True,
                       'html': False}[form.cleaned_data['type']]
 
@@ -72,6 +73,7 @@ def create_gprot(request):
                                          content='',
                                          author=request.user)
             gprot.examiners.set(examiners)
+            gprot.labels.set(labels)
             gprot.save()
             return redirect('gprot_edit', gprot.pk)
     else:
@@ -115,6 +117,7 @@ def edit_metadata(request, gprot_pk):
             gprot.course = form.cleaned_data['course']
             gprot.examiners.set(form.cleaned_data['examiner'])
             gprot.exam_date = form.cleaned_data['exam_date']
+            gprot.labels.set(form.cleaned_data['labels'])
             gprot.save()
             return redirect('gprot_edit', gprot.pk)
     else:
@@ -122,6 +125,7 @@ def edit_metadata(request, gprot_pk):
             'course': [gprot.course.pk],
             'examiner': [examiner.pk for examiner in gprot.examiners.all()],
             'exam_date': gprot.exam_date.strftime('%Y-%m-%d'),
+            'labels': [label.pk for label in gprot.labels.all()],
         })
 
     teacher_form = TeacherForm(prefix='teacher')
