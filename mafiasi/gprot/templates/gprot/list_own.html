@@ -6,55 +6,20 @@
 {% block wtitle %}{% block ptitle %}{% trans "List own memory minutes" %}{% endblock %}{% endblock %}
 
 {% block submenu %}
-{% include "gprot/menu.html" with tab='own' %}
+    {% include "gprot/menu.html" with tab='own' %}
 {% endblock %}
 
 {% block content %}
-{% if gprots %}
-<table class="table table-striped">
-    <tr>
-        <th>{% trans "Course" %}</th>
-        <th>{% trans "Exam date" %}</th>
-        <th>{% trans "Examiners" %}</th>
-        <th>{% trans "Status" %}</th>
-        <th>{% trans "Labels" %}</th>
-        <th style="text-align: center">{% trans "PDF?" %}</th>
-        <th>{% trans "Actions" %}</th>
-    </tr>
-{% for gprot in gprots %}
-    <tr>
-        <td>{{ gprot.course.get_full_name }}</td>
-        <td>{{ gprot.exam_date|date:"SHORT_DATE_FORMAT" }}</td>
-        <td>{{ gprot.examiners|format_examiners }}</td>
-        <td>
-        {% if gprot.published %}
-        <span class="label label-success">{% trans "published" %}</span>
-        {% else %}
-        <span class="label label-danger">{% trans "unpublished" %}</span>
-        {% endif %}
-        </td>
-        <td>
-            {% include "gprot/_labels.html" %}
-        </td>
-        <td style="text-align: center">
-            {% if gprot.is_pdf %}
-            <img src="{% static "admin/img/icon-yes.svg" %}"/>
-            {% else %}
-            <img src="{% static "admin/img/icon-no.svg" %}"/>
-            {%  endif %}
-        </td>
-        <td class="gprot-actions">
-            {% include 'gprot/_action_list.html' %}
-        </td>
-    </tr>
-{% endfor %}
-</table>
-{% else %}
-<p>{% trans "You have no memory minutes we know of! :-(" %}</p>
-{% endif %}
-<p><a class="btn btn-primary" href="{% url 'gprot_create' %}">{% trans "Create new" %}</a></p>
+    {% if gprots %}
+        {% with has_status=True %}
+        {% include "gprot/_gprot_list.html" %}
+        {% endwith %}
+    {% else %}
+        <p>{% trans "You have no memory minutes we know of! :-(" %}</p>
+    {% endif %}
+    <p><a class="btn btn-primary" href="{% url 'gprot_create' %}">{% trans "Create new" %}</a></p>
 {% endblock %}
 
 {% block css %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/gprot.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/gprot.css' %}"/>
 {% endblock %}
