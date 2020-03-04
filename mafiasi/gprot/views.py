@@ -33,19 +33,18 @@ from mafiasi.gprot.sanitize import clean_html
 def index(request):
     is_query = False
     gprots = []
-    if request.method == 'POST':
-        form = GProtSearchForm(request.POST)
-        if form.is_valid():
-            is_query = True
-            examiners, courses = form.cleaned_data['search']
-        
-            gprots = GProt.objects.select_related() \
-                .filter(published=True) \
-                .order_by('-exam_date')
-            if courses:
-                gprots = gprots.filter(course__in=courses)
-            for teacher in examiners:
-                gprots = [g for g in gprots if teacher in g.examiners.all()]
+    form = GProtSearchForm(request.GET)
+    if form.is_valid():
+        is_query = True
+        examiners, courses = form.cleaned_data['search']
+
+        gprots = GProt.objects.select_related() \
+            .filter(published=True) \
+            .order_by('-exam_date')
+        if courses:
+            gprots = gprots.filter(course__in=courses)
+        for teacher in examiners:
+            gprots = [g for g in gprots if teacher in g.examiners.all()]
     else:
         form = GProtSearchForm()
 
