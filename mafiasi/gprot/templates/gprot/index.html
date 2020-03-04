@@ -11,9 +11,8 @@
 {% endblock %}
 
 {% block content %}
-<form method="post" action="" {% if not is_query %}style="margin-top: 50px;"{% endif %}>
+<form method="get" action="" {% if not is_query %}style="margin-top: 50px;"{% endif %}>
 {{ form.non_field_errors }}
-{% csrf_token %}
 <div class="form-group">
     {% if form.search.errors %}
     <div class="alert alert-danger">
