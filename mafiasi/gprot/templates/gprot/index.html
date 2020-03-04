@@ -34,42 +34,9 @@
 
 {% if gprots %}
 <hr/>
-<table class="table table-striped">
-    <tr>
-        <th>{% trans "Course" %}</th>
-        <th>{% trans "Department" %}</th>
-        <th>{% trans "Exam date" %}</th>
-        <th>{% trans "Examiners" %}</th>
-        <th>{%  trans "Labels" %}</th>
-        <th style="text-align: center">{% trans "PDF?" %}</th>
-        <th>{% trans "Actions" %}</th>
-    </tr>
-{% for gprot in gprots %}
-    <tr>
-        <td>{{ gprot.course.get_full_name }}</td>
-        <td>
-            {% if gprot.course.department %}
-            {{ gprot.course.department }}
-            {% endif %}
-        </td>
-        <td>{{ gprot.exam_date|date:"SHORT_DATE_FORMAT" }}</td>
-        <td>{{ gprot.examiners|format_examiners }}</td>
-        <td>
-            {% include "gprot/_labels.html" %}
-        </td>
-        <td style="text-align: center">
-            {% if gprot.is_pdf %}
-            <img src="{% static "admin/img/icon-yes.svg" %}"/>
-            {% else %}
-            <img src="{% static "admin/img/icon-no.svg" %}"/>
-            {%  endif %}
-        </td>
-        <td class="gprot-actions">
-            {% include 'gprot/_action_list.html' %}
-        </td>
-    </tr>
-{% endfor %}
-</table>
+    {% with has_status=False %}
+        {% include "gprot/_gprot_list.html" %}
+    {% endwith %}
 {% elif is_query %}
 <hr/>
 <div class="alert alert-warning">

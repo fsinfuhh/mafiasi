@@ -24,6 +24,11 @@ Memory minutes: {{ course_name }}
     </a>
     {% if not gprot.published %}
     {% if not gprot.is_pdf or gprot.content_pdf %}
+        <a class="btn btn-danger" href="{% url 'gprot_delete' gprot.pk %}"
+   title="{% trans 'Delete' %}">
+    <span class="glyphicon glyphicon-trash"></span>
+        {% trans "Delete" %}
+    </a>
     <a class=" btn btn-success" href="{% url 'gprot_publish' gprot.pk %}">
         <span class="glyphicon glyphicon-globe"></span>
         {% trans 'Publish' %}</a>

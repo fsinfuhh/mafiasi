@@ -1,6 +1,6 @@
 #search-items {
-    border:1px solid #ccc;
-    margin-bottom:10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
     background-color: #F5F5F5;
     border-radius: 4px;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05) inset;
@@ -16,5 +16,52 @@
 }
 
 .gprot-actions {
+    white-space: nowrap;
+}
+
+.table {
+    display: table;
+}
+
+.table-row {
+    display: table-row;
+}
+
+.cell {
+    display: table-cell;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.table-header {
+    display: table-header-group;
+}
+
+.row-group {
+    display: table-row-group;
+}
+
+.table-header .cell {
+    font-weight: bold;
+}
+
+a.table-row {
+    color: unset;
+    text-decoration: none;
+}
+
+a.table-row:hover {
+    background-color: #e0e0e0 !important;
+}
+
+.table-striped .table-header {
+    background-color: #f9f9f9;
+}
+
+.table-striped .table-row:nth-of-type(2n) {
+    background-color: #f9f9f9;
+}
+
+.table-labels {
     white-space: nowrap;
 }

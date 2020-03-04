@@ -1,0 +1,44 @@
+{% load i18n %}
+{% load static %}
+{% load gprot_extras %}
+
+<div class="table table-striped">
+            <div class="table-header">
+                <div class="cell">{% trans "Course" %}</div>
+                <div class="cell">{% trans "Exam date" %}</div>
+                <div class="cell">{% trans "Examiners" %}</div>
+                {% if has_status %}
+                <div class="cell">{% trans "Status" %}</div>
+                {% endif %}
+                <div class="cell">{% trans "Labels" %}</div>
+                <div class="cell" style="text-align: center">{% trans "PDF?" %}</div>
+            </div>
+            <div class="row-group">
+                {% for gprot in gprots %}
+                    <a class="table-row" href="{% url 'gprot_view' gprot.pk %}">
+                        <div class="cell">{{ gprot.course.get_full_name }}</div>
+                        <div class="cell">{{ gprot.exam_date|date:"SHORT_DATE_FORMAT" }}</div>
+                        <div class="cell">{{ gprot.examiners|format_examiners }}</div>
+                        {% if has_status %}
+                        <div class="cell">
+                            {% if gprot.published %}
+                                <span class="label label-success">{% trans "published" %}</span>
+                            {% else %}
+                                <span class="label label-danger">{% trans "unpublished" %}</span>
+                            {% endif %}
+                        </div>
+                        {% endif %}
+                        <div class="cell table-labels">
+                            {% include "gprot/_labels.html" %}
+                        </div>
+                        <div class="cell" style="text-align: center">
+                            {% if gprot.is_pdf %}
+                                <img src="{% static "admin/img/icon-yes.svg" %}"/>
+                            {% else %}
+                                <img src="{% static "admin/img/icon-no.svg" %}"/>
+                            {% endif %}
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
