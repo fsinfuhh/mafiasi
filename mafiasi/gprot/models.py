@@ -54,7 +54,7 @@ class GProt(models.Model):
                                    null=True, blank=True)
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True, null=True)
     published = models.BooleanField(default=False)
-    labels = models.ManyToManyField(Label, related_name='gprots')
+    labels = models.ManyToManyField(Label, related_name='gprots', blank=True)
 
     def __str__(self):
         append = ' (PDF)' if self.content_pdf else ''
