@@ -33,9 +33,9 @@
                         </div>
                         <div class="cell" style="text-align: center">
                             {% if gprot.is_pdf %}
-                                <img src="{% static "admin/img/icon-yes.svg" %}"/>
+                            <span class="glyphicon glyphicon-ok" style="color: #5cb85c;" />
                             {% else %}
-                                <img src="{% static "admin/img/icon-no.svg" %}"/>
+                            <span class="glyphicon glyphicon-remove" style="color: #d9534f;" />
                             {% endif %}
                         </div>
                     </a>
