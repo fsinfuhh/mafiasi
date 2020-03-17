@@ -10,7 +10,7 @@ css: ${base_static}css/main.min.css ${base_static}css/bootstrap.min.css ${base_s
 
 js: ${base_static}js/jquery-2.0.3.min.js ${base_static}js/jquery-ui-1.12.1.custom.min.js ${base_static}js/common.min.js ${base_static}js/autocomplete.min.js ${dashboard_static}js/dashboard.min.js ${pks_static}js/pks-graph.min.js ${gprot_static}js/gprot.min.js ${base_static}js/bootstrap.min.js
 
-locales: locale/de_DE/LC_MESSAGES/django.mo locale/en_US/LC_MESSAGES/django.mo
+locales: locale/de_DE/LC_MESSAGES/django.mo locale/en_US/LC_MESSAGES/django.mo locale/fr_FR/LC_MESSAGES/django.mo
 
 static: css js
 	./manage.py collectstatic --noinput
