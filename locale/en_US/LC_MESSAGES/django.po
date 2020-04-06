@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-03 18:41+0100\n"
-"PO-Revision-Date: 2020-03-03 18:42+0100\n"
+"POT-Creation-Date: 2020-04-06 16:29+0200\n"
+"PO-Revision-Date: 2020-04-06 16:30+0200\n"
 "Last-Translator: Timon Engelke <7engelke@informatik.uni-hamburg.de>\n"
 "Language-Team: \n"
 "Language: en\n"
@@ -314,18 +314,20 @@ msgstr "Edit"
 
 #: mafiasi/gprot/templates/gprot/_action_list.html:16
 #: mafiasi/gprot/templates/gprot/publish.html:62
-#: mafiasi/gprot/templates/gprot/view.html:29
+#: mafiasi/gprot/templates/gprot/view.html:34
 msgid "Publish"
 msgstr "Publish"
 
 #: mafiasi/gprot/templates/gprot/_action_list.html:21
 #: mafiasi/gprot/templates/gprot/delete.html:40
+#: mafiasi/gprot/templates/gprot/view.html:28
+#: mafiasi/gprot/templates/gprot/view.html:30
 msgid "Delete"
 msgstr "Delete"
 
 #: mafiasi/gprot/templates/gprot/_action_list.html:26
 #: mafiasi/gprot/templates/gprot/forget.html:40
-#: mafiasi/gprot/templates/gprot/view.html:33
+#: mafiasi/gprot/templates/gprot/view.html:38
 msgid "Forget authorship"
 msgstr "Forget authorship"
 
@@ -398,6 +400,60 @@ msgstr "Name:"
 msgid "Short Name:"
 msgstr "Short Name:"
 
+#: mafiasi/gprot/templates/gprot/_gprot_list.html:7
+#: mafiasi/gprot/templates/gprot/notifications.html:20
+#: mafiasi/gprot/templates/gprot/notifications.html:40
+#: mafiasi/gprot/templates/gprot/reminders.html:23
+#: mafiasi/gprot/templates/gprot/reminders.html:47
+msgid "Course"
+msgstr "Course"
+
+#: mafiasi/gprot/templates/gprot/_gprot_list.html:8
+#: mafiasi/gprot/templates/gprot/delete.html:24
+#: mafiasi/gprot/templates/gprot/edit.html:34
+#: mafiasi/gprot/templates/gprot/forget.html:22
+#: mafiasi/gprot/templates/gprot/publish.html:20
+#: mafiasi/gprot/templates/gprot/reminders.html:22
+#: mafiasi/gprot/templates/gprot/reminders.html:42
+#: mafiasi/gprot/templates/gprot/view.html:57
+msgid "Exam date"
+msgstr "Exam date"
+
+#: mafiasi/gprot/templates/gprot/_gprot_list.html:9
+#: mafiasi/gprot/templates/gprot/delete.html:20
+#: mafiasi/gprot/templates/gprot/edit.html:30
+#: mafiasi/gprot/templates/gprot/forget.html:18
+#: mafiasi/gprot/templates/gprot/publish.html:16
+#: mafiasi/gprot/templates/gprot/view.html:53
+msgid "Examiners"
+msgstr "Examiners"
+
+#: mafiasi/gprot/templates/gprot/_gprot_list.html:11
+msgid "Status"
+msgstr "Status"
+
+#: mafiasi/gprot/templates/gprot/_gprot_list.html:13
+#: mafiasi/gprot/templates/gprot/edit.html:38
+#: mafiasi/gprot/templates/gprot/view.html:68
+msgid "Labels"
+msgstr "Labels"
+
+#: mafiasi/gprot/templates/gprot/_gprot_list.html:14
+msgid "PDF?"
+msgstr "PDF?"
+
+#: mafiasi/gprot/templates/gprot/_gprot_list.html:25
+#: mafiasi/gprot/templates/gprot/edit.html:16
+#: mafiasi/gprot/templates/gprot/edit_metadata.html:8
+msgid "published"
+msgstr "published"
+
+#: mafiasi/gprot/templates/gprot/_gprot_list.html:27
+#: mafiasi/gprot/templates/gprot/edit.html:18
+#: mafiasi/gprot/templates/gprot/edit_metadata.html:8
+msgid "unpublished"
+msgstr "unpublished"
+
 #: mafiasi/gprot/templates/gprot/create.html:6
 msgid "Create memory minutes"
 msgstr "Create memory minutes"
@@ -433,28 +489,6 @@ msgstr ""
 "\n"
 "Delete: %(course_name)s\n"
 
-#: mafiasi/gprot/templates/gprot/delete.html:20
-#: mafiasi/gprot/templates/gprot/edit.html:30
-#: mafiasi/gprot/templates/gprot/forget.html:18
-#: mafiasi/gprot/templates/gprot/index.html:42
-#: mafiasi/gprot/templates/gprot/list_own.html:18
-#: mafiasi/gprot/templates/gprot/publish.html:16
-#: mafiasi/gprot/templates/gprot/view.html:48
-msgid "Examiners"
-msgstr "Examiners"
-
-#: mafiasi/gprot/templates/gprot/delete.html:24
-#: mafiasi/gprot/templates/gprot/edit.html:34
-#: mafiasi/gprot/templates/gprot/forget.html:22
-#: mafiasi/gprot/templates/gprot/index.html:41
-#: mafiasi/gprot/templates/gprot/list_own.html:17
-#: mafiasi/gprot/templates/gprot/publish.html:20
-#: mafiasi/gprot/templates/gprot/reminders.html:22
-#: mafiasi/gprot/templates/gprot/reminders.html:42
-#: mafiasi/gprot/templates/gprot/view.html:52
-msgid "Exam date"
-msgstr "Exam date"
-
 #: mafiasi/gprot/templates/gprot/delete.html:31
 msgid ""
 "\n"
@@ -472,25 +506,6 @@ msgstr "Memory minutes: %(course_name)s"
 #: mafiasi/gprot/templates/gprot/edit.html:13
 msgid "Edit metadata"
 msgstr "Edit metadata"
-
-#: mafiasi/gprot/templates/gprot/edit.html:16
-#: mafiasi/gprot/templates/gprot/edit_metadata.html:8
-#: mafiasi/gprot/templates/gprot/list_own.html:31
-msgid "published"
-msgstr "published"
-
-#: mafiasi/gprot/templates/gprot/edit.html:18
-#: mafiasi/gprot/templates/gprot/edit_metadata.html:8
-#: mafiasi/gprot/templates/gprot/list_own.html:33
-msgid "unpublished"
-msgstr "unpublished"
-
-#: mafiasi/gprot/templates/gprot/edit.html:38
-#: mafiasi/gprot/templates/gprot/index.html:43
-#: mafiasi/gprot/templates/gprot/list_own.html:20
-#: mafiasi/gprot/templates/gprot/view.html:63
-msgid "Labels"
-msgstr "Labels"
 
 #: mafiasi/gprot/templates/gprot/edit.html:43
 msgid "no labels"
@@ -569,8 +584,8 @@ msgstr ""
 msgid "Search for memory minutes"
 msgstr "Search for memory minutes"
 
-#: mafiasi/gprot/templates/gprot/index.html:25
-#: mafiasi/gprot/templates/gprot/index.html:100
+#: mafiasi/gprot/templates/gprot/index.html:24
+#: mafiasi/gprot/templates/gprot/index.html:66
 msgid ""
 "Just enter the name of the course and/or examiner to see available memory "
 "minutes."
@@ -578,40 +593,11 @@ msgstr ""
 "Just enter the name of the course and/or examiner to see available memory "
 "minutes."
 
-#: mafiasi/gprot/templates/gprot/index.html:31
+#: mafiasi/gprot/templates/gprot/index.html:30
 msgid "Show memory minutes"
 msgstr "Show memory minutes"
 
-#: mafiasi/gprot/templates/gprot/index.html:39
-#: mafiasi/gprot/templates/gprot/list_own.html:16
-#: mafiasi/gprot/templates/gprot/notifications.html:20
-#: mafiasi/gprot/templates/gprot/notifications.html:40
-#: mafiasi/gprot/templates/gprot/reminders.html:23
-#: mafiasi/gprot/templates/gprot/reminders.html:47
-msgid "Course"
-msgstr "Course"
-
-#: mafiasi/gprot/templates/gprot/index.html:40
-#: mafiasi/gprot/templates/gprot/view.html:57
-msgid "Department"
-msgstr "Department"
-
-#: mafiasi/gprot/templates/gprot/index.html:44
-#: mafiasi/gprot/templates/gprot/list_own.html:21
-msgid "PDF?"
-msgstr "PDF?"
-
-#: mafiasi/gprot/templates/gprot/index.html:45
-#: mafiasi/gprot/templates/gprot/list_own.html:22
-#: mafiasi/gprot/templates/gprot/notifications.html:22
-#: mafiasi/gprot/templates/gprot/reminders.html:24
-#: mafiasi/groups/templates/groups/invitations.html:19
-#: mafiasi/groups/templates/groups/show.html:122
-#: mafiasi/guests/templates/guests/index.html:16
-msgid "Actions"
-msgstr "Actions"
-
-#: mafiasi/gprot/templates/gprot/index.html:77
+#: mafiasi/gprot/templates/gprot/index.html:43
 #, python-format
 msgid ""
 "\n"
@@ -634,15 +620,11 @@ msgstr ""
 msgid "List own memory minutes"
 msgstr "List own memory minutes"
 
-#: mafiasi/gprot/templates/gprot/list_own.html:19
-msgid "Status"
-msgstr "Status"
-
-#: mafiasi/gprot/templates/gprot/list_own.html:53
+#: mafiasi/gprot/templates/gprot/list_own.html:18
 msgid "You have no memory minutes we know of! :-("
 msgstr "You have no memory minutes we know of! :-("
 
-#: mafiasi/gprot/templates/gprot/list_own.html:55
+#: mafiasi/gprot/templates/gprot/list_own.html:20
 #: mafiasi/gprot/templates/gprot/menu.html:10
 msgid "Create new"
 msgstr "Create new"
@@ -734,6 +716,14 @@ msgstr ""
 #: mafiasi/gprot/templates/gprot/notifications.html:21
 msgid "Added"
 msgstr "Added"
+
+#: mafiasi/gprot/templates/gprot/notifications.html:22
+#: mafiasi/gprot/templates/gprot/reminders.html:24
+#: mafiasi/groups/templates/groups/invitations.html:19
+#: mafiasi/groups/templates/groups/show.html:122
+#: mafiasi/guests/templates/guests/index.html:16
+msgid "Actions"
+msgstr "Actions"
 
 #: mafiasi/gprot/templates/gprot/notifications.html:31
 #: mafiasi/gprot/templates/gprot/reminders.html:33
@@ -856,7 +846,11 @@ msgstr ""
 msgid "Download PDF"
 msgstr "Download PDF"
 
-#: mafiasi/gprot/templates/gprot/view.html:75
+#: mafiasi/gprot/templates/gprot/view.html:62
+msgid "Department"
+msgstr "Department"
+
+#: mafiasi/gprot/templates/gprot/view.html:80
 msgid ""
 "Sorry, your browser does not support embedding\n"
 "            this document. However, you can download the PDF file using the\n"
@@ -866,28 +860,28 @@ msgstr ""
 "            this document. However, you can download the PDF file using the\n"
 "            button above."
 
-#: mafiasi/gprot/templates/gprot/view.html:82
+#: mafiasi/gprot/templates/gprot/view.html:87
 msgid "No document has been uploaded yet."
 msgstr "No document has been uploaded yet."
 
-#: mafiasi/gprot/views.py:176 mafiasi/gprot/views.py:277
+#: mafiasi/gprot/views.py:175 mafiasi/gprot/views.py:276
 #, python-brace-format
 msgid "Only files up to {0} MB are allowed."
 msgstr "Only files up to {0} MB are allowed."
 
-#: mafiasi/gprot/views.py:180
+#: mafiasi/gprot/views.py:179
 msgid "Only PDF files are allowed."
 msgstr "Only PDF files are allowed."
 
-#: mafiasi/gprot/views.py:182 mafiasi/gprot/views.py:284
+#: mafiasi/gprot/views.py:181 mafiasi/gprot/views.py:283
 msgid "Please select a file to upload."
 msgstr "Please select a file to upload."
 
-#: mafiasi/gprot/views.py:282
+#: mafiasi/gprot/views.py:281
 msgid "Only PNG, JPEG and GIF files are allowed."
 msgstr "Only PNG, JPEG and GIF files are allowed."
 
-#: mafiasi/gprot/views.py:325
+#: mafiasi/gprot/views.py:324
 #, python-format
 msgid "New memory minutes for \"%(coursename)s\""
 msgstr "New memory minutes for \"%(coursename)s\""
@@ -1312,7 +1306,7 @@ msgstr "invitation mails"
 msgid "Invitation mail was resent."
 msgstr "Invitation mail was resent."
 
-#: mafiasi/jabber/templates/jabber/index.html:5 mafiasi/services.py:42
+#: mafiasi/jabber/templates/jabber/index.html:5 mafiasi/services.py:48
 msgid "Jabber"
 msgstr "Jabber"
 
@@ -1526,7 +1520,7 @@ msgstr "Mail was discarded."
 msgid "Mailinglist settings saved."
 msgstr "Mailinglist settings saved."
 
-#: mafiasi/mumble/templates/mumble/index.html:5 mafiasi/services.py:54
+#: mafiasi/mumble/templates/mumble/index.html:5 mafiasi/services.py:60
 msgid "Mumble"
 msgstr "Mumble"
 
@@ -2238,7 +2232,19 @@ msgstr "GProt"
 msgid "The GProt contains memory minutes of oral and written exams."
 msgstr "The GProt contains memory minutes of oral and written exams."
 
+#: mafiasi/services.py:42
+msgid "Jitsi"
+msgstr "Jitsi"
+
 #: mafiasi/services.py:43
+msgid ""
+"Jitsi is a secure and open source video conference tool that can be used in "
+"a browser."
+msgstr ""
+"Jitsi is a secure and open source video conference tool that can be used in "
+"a browser."
+
+#: mafiasi/services.py:49
 msgid ""
 "On our Jabber server you can chat with your fellow students, which are "
 "already on your contact list."
@@ -2246,41 +2252,41 @@ msgstr ""
 "On our Jabber server you can chat with your fellow students, which are "
 "already on your contact list."
 
-#: mafiasi/services.py:48
+#: mafiasi/services.py:54
 msgid "Chat"
 msgstr "Chat"
 
-#: mafiasi/services.py:49
+#: mafiasi/services.py:55
 msgid "An online team chat service"
 msgstr "An online team chat service"
 
-#: mafiasi/services.py:55
+#: mafiasi/services.py:61
 msgid "You can use our mumble for voice chat with other fellow students."
 msgstr "You can use our mumble for voice chat with other fellow students."
 
-#: mafiasi/services.py:60
+#: mafiasi/services.py:66
 msgid "Owncloud"
 msgstr "Owncloud"
 
-#: mafiasi/services.py:61
+#: mafiasi/services.py:67
 msgid "OwnCloud enables you to sync and share your documents."
 msgstr "OwnCloud enables you to sync and share your documents."
 
-#: mafiasi/services.py:66
+#: mafiasi/services.py:72
 msgid "Keyserver"
 msgstr "Keyserver"
 
-#: mafiasi/services.py:67
+#: mafiasi/services.py:73
 msgid ""
 "You can find your fellow students' OpenPGP keys on our public keyserver."
 msgstr ""
 "You can find your fellow students' OpenPGP keys on our public keyserver."
 
-#: mafiasi/services.py:72
+#: mafiasi/services.py:78
 msgid "Planet"
 msgstr "Planet"
 
-#: mafiasi/services.py:73
+#: mafiasi/services.py:79
 msgid ""
 "Planet is a feed aggregator which collects blog entries from your fellow "
 "students."
@@ -2288,11 +2294,11 @@ msgstr ""
 "Planet is a feed aggregator which collects blog entries from your fellow "
 "students."
 
-#: mafiasi/services.py:78
+#: mafiasi/services.py:84
 msgid "Redmine"
 msgstr "Redmine"
 
-#: mafiasi/services.py:79
+#: mafiasi/services.py:85
 msgid ""
 "Redmine is a project management software. You can create tasks and assign "
 "them to people."
@@ -2300,11 +2306,11 @@ msgstr ""
 "Redmine is a project management software. You can create tasks and assign "
 "them to people."
 
-#: mafiasi/services.py:84
+#: mafiasi/services.py:90
 msgid "Calendar"
 msgstr "Calendar"
 
-#: mafiasi/services.py:85
+#: mafiasi/services.py:91
 msgid ""
 "Manage and share your calendars and address book, sync them to all your "
 "devices."
@@ -2312,11 +2318,11 @@ msgstr ""
 "Manage and share your calendars and address book, sync them to all your "
 "devices."
 
-#: mafiasi/services.py:90
+#: mafiasi/services.py:96
 msgid "Mafiasi Tauschen"
 msgstr "Mafiasi Tauschen"
 
-#: mafiasi/services.py:91
+#: mafiasi/services.py:97
 msgid ""
 "Mafiasi Tauschen is a service that provides an easy possibility to exchange "
 "course groups."
@@ -2324,11 +2330,11 @@ msgstr ""
 "Mafiasi Tauschen is a service that provides an easy possibility to exchange "
 "course groups."
 
-#: mafiasi/services.py:96
+#: mafiasi/services.py:102
 msgid "Wiki"
 msgstr "Wiki"
 
-#: mafiasi/services.py:97
+#: mafiasi/services.py:103
 msgid "In the wiki you will find important information regarding your studies."
 msgstr ""
 "In the wiki you will find important information regarding your studies."

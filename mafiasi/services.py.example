@@ -38,6 +38,12 @@ SERVICES = {
         'link': '/gprot/',
         'image': static('img/services/gprot.png'),
     },
+    'jitsi': {
+        'title': _('Jitsi'),
+        'description': _('Jitsi is a secure and open source video conference tool that can be used in a browser.'),
+        'link': 'https://conference.mafiasi.de',
+        'image': static('img/services/jitsi.png'),
+    },
     'jabber': {
         'title': _('Jabber'),
         'description': _('On our Jabber server you can chat with your fellow students, which are already on your contact list.'),
