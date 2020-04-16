@@ -20,12 +20,7 @@ class Command(BaseCommand):
         total_entries = 0
         for lino_no, entry in enumerate(passwd_file):
             total_entries += 1
-            try:
-                entry = entry.decode('utf-8').strip()
-            except UnicodeDecodeError:
-                print('Ignored line {0}. Invalid UTF-8'.format(lino_no),
-                    file=sys.stderr)
-                continue
+            entry = entry.strip()
             fields = entry.split(':')
             if len(fields) != 7:
                 print('Ignored line {0}. Invalid format'.format(lino_no),
