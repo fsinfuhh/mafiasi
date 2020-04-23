@@ -1,57 +1,48 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 import os
-ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+from .settings_base import *
 
-# Django settings for mafiasi project.
-
-DEBUG = True
+DEBUG = bool(os.getenv("MAFIASI_DEBUG", ""))
 TEMPLATE_DEBUG = DEBUG
-
-ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
-)
-
-MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'mafiasi',                      # Or path to database file if using sqlite3.
-        # The following settings are not used with sqlite3:
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'mafiasi',
         'USER': 'mafiasi',
-        'PASSWORD': 'foobar',
-        'HOST': '127.0.0.1',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT': '',                      # Set to empty string for default.
+        'PASSWORD': 'mafiasi',
+        'HOST': 'localhost',
+        'PORT': '5432',
     },
     'jabber': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'ejabberd',                      # Or path to database file if using sqlite3.
-        # The following settings are not used with sqlite3:
-        'USER': 'ejabberd',
-        'PASSWORD': 'foobar',
-        'HOST': '127.0.0.1',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT': '',                      # Set to empty string for default.
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'ejabberd',
+        'USER': 'mafiasi',
+        'PASSWORD': 'mafiasi',
+        'HOST': 'localhost',
+        'PORT': '5432',
     },
-    'ldap': {
-        'ENGINE': 'ldapdb.backends.ldap',
-        'NAME': 'ldap://127.0.0.1/',
-        'USER': 'cn=admin,dc=mafiasi,dc=de',
-        'PASSWORD': 'foobar',
+    'etherpad': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'etherpad',
+        'USER': 'mafiasi',
+        'PASSWORD': 'mafiasi',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
-
 }
 
 LDAP_SERVERS = {
     'default': {
-        'URI': 'ldap://127.0.0.1/',
-        'BIND_DN': 'cn=admin,dc=mafiasi,dc=de',
-        'BIND_PASSWORD': 'foobar',
+        'URI': 'ldab://localhost',
+        'BIND_DN': '',
+        'BIND_PASSWORD': '',
     }
 }
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ['mafiasi.de', '134.100.9.222:11371', '134.100.9.222']
+ALLOWED_HOSTS = os.getenv('MAFIASI_ALLOWED_HOSTS', 'localhost').split(',')
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -61,134 +52,50 @@ TIME_ZONE = 'Europe/Berlin'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'de-de'
-
-SITE_ID = 1
-
-# If you set this to False, Django will make some optimizations so as not
-# to load the internationalization machinery.
-USE_I18N = True
-
-# If you set this to False, Django will not format dates, numbers and
-# calendars according to the current locale.
-USE_L10N = True
-
-# If you set this to False, Django will not use timezone-aware datetimes.
-USE_TZ = True
-
-# Absolute filesystem path to the directory that will hold user-uploaded files.
-# Example: "/var/www/example.com/media/"
-MEDIA_ROOT = os.path.join(ROOT_DIR, '_media')
-
-# URL that handles the media served from MEDIA_ROOT. Make sure to use a
-# trailing slash.
-# Examples: "http://example.com/media/", "http://media.example.com/"
-MEDIA_URL = '/media/'
-
-# Absolute path to the directory static files should be collected to.
-# Don't put anything in this directory yourself; store your static files
-# in apps' "static/" subdirectories and in STATICFILES_DIRS.
-# Example: "/var/www/example.com/static/"
-STATIC_ROOT = os.path.join(ROOT_DIR, '_static')
-
-# URL prefix for static files.
-# Example: "http://example.com/static/", "http://static.example.com/"
-STATIC_URL = '/static/'
-
-# Additional locations of static files
-STATICFILES_DIRS = (
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-)
-
-# List of finder classes that know how to find static files in
-# various locations.
-STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
-)
+LANGUAGE_CODE = 'en-us'
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 'THIS IS JUST FOR DEVELOPMENT MODE'
-
-# List of callables that know how to import templates from various sources.
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.contrib.auth.context_processors.auth',
-                'django.template.context_processors.media',
-                'django.contrib.messages.context_processors.messages',
-                ]},
-    },
-]
+SECRET_KEY = os.getenv('MAFIASI_SECRET_KEY', 'dev')
 
 MIDDLEWARE = (
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.locale.LocaleMiddleware',
-    'corsheaders.middleware.CorsMiddleware',  # for OAuth
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'mafiasi.urls'
 
-# Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'mafiasi.wsgi.application'
-
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-)
-
-INSTALLED_APPS = (
-    'django.contrib.admin',
-    'django.contrib.admindocs',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.messages',
-    'django.contrib.sessions',
-    'django.contrib.sites',
-    'django.contrib.staticfiles',
-    'django.contrib.humanize',
-    'mafiasi.base',
-    'mafiasi.dashboard',
+INSTALLED_APPS += (
     'mafiasi.discourse',
     'mafiasi.etherpad',
     'mafiasi.gprot',
     'mafiasi.groups',
     'mafiasi.guests',
     'mafiasi.jabber',
+    'mafiasi.mail',
+    'mafiasi.mailinglist',
+    'mafiasi.mattermost',
     'mafiasi.mumble',
-    'mafiasi.pks',
+    'mafiasi.owncloud',
     'mafiasi.registration',
     'mafiasi.teaching',
-	'mafiasi.owncloud',
-    'mafiasi.mattermost',
-    'mafiasi.mailinglist',
-    'oauth2_provider', # used by mattermost SSO
-    'corsheaders',  # used by mattermost SSO
-    'raven.contrib.django.raven_compat',
-    'widget_tweaks',
+    'mafiasi.bitpoll',
+    'mafiasi.fb18',
+    'mafiasi.git',
+    'mafiasi.jitsi',
+    'mafiasi.sogo',
+    'mafiasi.tauschen',
+    'mafiasi.pks',
 )
 
-SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
-
-TEST_RUNNER = 'django.test.runner.DiscoverRunner'
-
-AUTH_USER_MODEL = 'base.Mafiasi'
 EMAIL_DOMAIN = u'informatik.uni-hamburg.de'
 PRIMARY_DOMAIN = u'informatik.uni-hamburg.de'
-REGISTER_DOMAINS =  [u'informatik.uni-hamburg.de', u'physnet.uni-hamburg.de']
+REGISTER_DOMAINS = [u'informatik.uni-hamburg.de', u'physnet.uni-hamburg.de']
 REGISTER_DOMAIN_MAPPING = {
     u'physnet.uni-hamburg.de': 'physnet',
 }
@@ -199,63 +106,13 @@ MUMBLE_SERVER = {
     'address': u'mumble.mafiasi.de',
     'port': 64738,
 }
-LOGIN_URL = '/login'
-LOGIN_REDIRECT_URL = '/dashboard/'
+
 DATABASE_ROUTERS = ['mafiasi.jabber.dbrouter.JabberRouter', 'ldapdb.router.Router']
 
 IMPRINT_URL = 'https://wiki.mafiasi.de/Fachschaft_Informatik:Impressum'
 TEAM_EMAIL = u'ag-server@informatik.uni-hamburg.de'
 WIKI_URL = 'https://www2.informatik.uni-hamburg.de/Fachschaft/wiki/'
-GPG_KEYRING='~mafiasi/signing-party-fun/tmp/keyring'
-
-from django.contrib.messages import constants as message_constants
-MESSAGE_TAGS = {
-    message_constants.DEBUG: 'alert-info',
-    message_constants.INFO: 'alert-info',
-    message_constants.SUCCESS: 'alert-success',
-    message_constants.WARNING: 'alert-warning',
-    message_constants.ERROR: 'alert-danger'
-}
-
-LOCALE_PATHS = (os.path.join(ROOT_DIR, 'locale'), )
-
-LANGUAGES = (
-    ('de', 'Deutsch'),
-    ('en', 'English'),
-    ('fr', 'Français'),
-)
-
-# A sample logging configuration. The only tangible logging
-# performed by this configuration is to send an email to
-# the site admins on every HTTP 500 error when DEBUG=False.
-# See http://docs.djangoproject.com/en/dev/topics/logging for
-# more details on how to customize your logging configuration.
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'filters': {
-        'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugFalse'
-        }
-    },
-    'handlers': {
-#        'mail_admins': {
-#            'level': 'ERROR',
-#            'filters': ['require_debug_false'],
-#            'class': 'django.utils.log.AdminEmailHandler'
-#        }
-    },
-    'loggers': {
-        'django.request': {
-            'handlers': [], # 'mail_admins'
-            'level': 'ERROR',
-            'propagate': True,
-        },
-    }
-}
-
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+GPG_KEYRING = '~mafiasi/signing-party-fun/tmp/keyring'
 
 EMAIL_HOST = 'mailhost.informatik.uni-hamburg.de'
 SERVER_EMAIL = 'Mafiasi.de server-ag@informatik.uni-hamburg.de'
@@ -266,7 +123,7 @@ EMAIL_SUBJECT_PREFIX = u'[mafiasi.de] '
 ROOT_DN = 'dc=mafiasi,dc=de'
 CALDAV_BASE_URL = 'http://localhost:5232/dav/'
 CALDAV_DISPLAY_URL = 'https://mafiasi.de/dav/'
-HKP_URL = 'hkp://mafiasi.de'
+HKP_URL = 'hkps://mafiasi.de'
 
 import ldap
 from django_auth_ldap.config import LDAPSearch
@@ -275,19 +132,19 @@ AUTHENTICATION_BACKENDS = (
     'django_auth_ldap.backend.LDAPBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
-AUTH_LDAP_BIND_DN = "cn=admin,dc=mafiasi,dc=de"
-AUTH_LDAP_BIND_PASSWORD = "foobar"
+AUTH_LDAP_BIND_DN = ""
+AUTH_LDAP_BIND_PASSWORD = ""
 AUTH_LDAP_USER_SEARCH = LDAPSearch("ou=People,dc=mafiasi,dc=de",
-    ldap.SCOPE_SUBTREE, "(uid=%(user)s)")
+                                   ldap.SCOPE_SUBTREE, "(uid=%(user)s)")
 AUTH_LDAP_ALWAYS_UPDATE_USER = False
+
 
 RAVEN_CONFIG = {
     'dsn': 'https://xxx:yyy@sentry.mafiasi.de/2',
 }
-
 RAVEN_PUBLIC_DSN = 'https://xxx@sentry.mafiasi.de/2'
 
-ETHERPAD_API_KEY = 'foobar'
+ETHERPAD_API_KEY = os.getenv('MAFIASI_EP_API_KEY', '')
 ETHERPAD_URL = 'https://ep.mafiasi.de'
 EP_COOKIE_DOMAIN = '.mafiasi.de'
 
@@ -296,7 +153,6 @@ DISCOURSE_SSO_SECRET = 'secret'
 
 GPROT_IMAGE_MAX_SIZE = 1
 GPROT_PDF_MAX_SIZE = 5
-MATHJAX_ROOT = '/usr/share/javascript/mathjax/'
 
 PKS_COMMUNITY_DOMAINS = ['informatik.uni-hamburg.de', 'studium.uni-hamburg.de']
 
@@ -306,25 +162,6 @@ MAILCLOAK_DOMAIN = 'cloak.mafiasi.de'
 MAILCLOAK_SERVER = ('127.0.0.1', 2523)
 VALID_EMAIL_ADDRESSES = ['postmaster@mafiasi.de']
 EMAIL_ADDRESSES_PASSWORD = 'changeme'
-
-DASHBOARD_SERVICES = [
-    'wiki',
-    'etherpad',
-    'bitpoll',
-    'tauschen',
-    'redmine',
-    'discourse',
-    'sogo',
-    'owncloud',
-    'gprot',
-    'pks',
-    'mumble',
-    'jabber',
-    'fb18',
-    'gogs',
-    'mattermost',
-    'jitsi',
-]
 
 REGISTER_ENABLED = True
 GUEST_EXTENSION = ".guest"
@@ -346,7 +183,7 @@ MAIL_INCLUDE_GERMAN = True
 
 CORS_ORIGIN_ALLOW_ALL = True
 
-BANNER_IMG="banner_cml.png"
+#BANNER_IMG = "banner_cml.png"
 
 DEFAULT_GUEST_GROUP = ""
 
@@ -354,26 +191,4 @@ GUEST_INVITE_HINT = "Must start with a letter and only contain alphanumeric char
 USER_LOGIN_HINT = "Note: For our account names we use two digits for year (e.g. <strong>13doe</strong> instead of 3doe)"
 GUEST_INVITE_INSTRUCTION_LINK = "https://dash.crossmodal-learning.org/static_redir/instruction"
 
-TEMPLATE_ALLOWABLE_SETTINGS_VALUES = (
-    "REGISTER_ENABLED",
-    "MAIL_SIGNATURE",
-    "PROJECT_NAME",
-    "PROJECT_BANNER",
-    "MAIL_GREETING",
-    "MAIL_INCLUDE_GERMAN",
-    "MAIL_GREETING_DE",
-    "MAIL_GREETING_EN",
-    "BANNER_IMG",
-    "GUEST_INVITE_HINT",
-    "USER_LOGIN_HINT",
-    "GUEST_INVITE_INSTRUCTION_LINK",
-    "RAVEN_PUBLIC_DSN",
-)
-
 GUEST_ACCEPT_INVITATION_MAIL = False
-
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'mafiasi.base.validation.AsciiValidator',
-    },
-]
