@@ -139,12 +139,6 @@ AUTH_LDAP_USER_SEARCH = LDAPSearch("ou=People,dc=mafiasi,dc=de",
                                    ldap.SCOPE_SUBTREE, "(uid=%(user)s)")
 AUTH_LDAP_ALWAYS_UPDATE_USER = False
 
-
-RAVEN_CONFIG = {
-    'dsn': 'https://xxx:yyy@sentry.mafiasi.de/2',
-}
-RAVEN_PUBLIC_DSN = 'https://xxx@sentry.mafiasi.de/2'
-
 ETHERPAD_API_KEY = os.getenv('MAFIASI_EP_API_KEY', '')
 ETHERPAD_URL = 'https://ep.mafiasi.de'
 EP_COOKIE_DOMAIN = '.mafiasi.de'

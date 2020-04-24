@@ -5,7 +5,7 @@ FROM docker.io/debian:buster-slim
 RUN apt update
 # https://stackoverflow.com/questions/58160597/docker-fails-with-sub-process-usr-bin-dpkg-returned-an-error-code-1
 RUN mkdir -p /usr/share/man/man1 
-RUN apt install -y --no-install-recommends uwsgi uwsgi-plugin-python3 python3 python3-setuptools pipenv gcc gettext libldap2-dev libsasl2-dev libgpgme-dev python3-dev libgraphviz-dev graphviz libmagic-dev libjs-mathjax make yui-compressor
+RUN apt install -y --no-install-recommends uwsgi uwsgi-plugin-python3 python3 python3-setuptools pipenv gcc gettext libldap2-dev libsasl2-dev libgpgme-dev python3-dev libgraphviz-dev graphviz libmagic-dev libjs-mathjax libpcre3 libpcre3-dev make yui-compressor
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 99
 
 
