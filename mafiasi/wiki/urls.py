@@ -1,7 +1,10 @@
 from django.conf.urls import url
 
-from .views import autocomplete
+from . import views
+
+include_at_top = True
 
 urlpatterns = [
-    url(r'^autocomplete$', autocomplete, name='wiki_autocomplete'),
+    url(r'wiki/autocomplete$', views.autocomplete, name='wiki_autocomplete'),
+    url(r'(?P<search>.*)', views.redirect_to_wiki, name='wiki_redirect')
 ]

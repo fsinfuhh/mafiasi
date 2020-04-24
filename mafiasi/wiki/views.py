@@ -1,8 +1,9 @@
 import urllib.request, urllib.parse, urllib.error
 import json
 
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.conf import settings
+
 
 def autocomplete(request):
     search_term = request.GET.get('search', '')
@@ -22,3 +23,7 @@ def autocomplete(request):
         ]
         result = json.dumps(result)
     return HttpResponse(result, content_type='application/x-json')
+
+
+def redirect_to_wiki(request, search):
+    return HttpResponseRedirect(f'https://wiki.mafiasi.de/{search}')

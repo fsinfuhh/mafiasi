@@ -29,7 +29,11 @@ for app in apps.get_app_configs():
     if app.name.startswith('mafiasi.'):
         try:
             urls = importlib.import_module(f'{app.name}.urls', '')
-            urlpatterns.append(url(f'{app.verbose_name.lower()}/', include(urls), name=app.name))
+            include_at_top = getattr(urls, 'include_at_top', False)
+            if include_at_top:
+                urlpatterns.append(url('', include(urls), name=app.name))
+            else:
+                urlpatterns.append(url(f'{app.verbose_name.lower()}/', include(urls), name=app.name))
         except ImportError as e:
             pass
 

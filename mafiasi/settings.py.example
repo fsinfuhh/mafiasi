@@ -91,6 +91,7 @@ INSTALLED_APPS += (
     'mafiasi.sogo',
     'mafiasi.tauschen',
     'mafiasi.pks',
+    'mafiasi.wiki',
 )
 
 EMAIL_DOMAIN = u'informatik.uni-hamburg.de'
