@@ -8,5 +8,8 @@ cp -rT /usr/share/javascript/mathjax /app/static/mathjax
 mkdir /app/static/django
 ./manage.py collectstatic --no-input
 
-exec uwsgi /app/config/uwsgi.ini
-
+if [[ -f "/app/config/uwsgi.ini" ]]; then
+  exec uwsgi /app/config/uwsgi.ini
+else
+  exec uwsgi /app/src/docker/uwsgi.ini
+fi

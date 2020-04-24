@@ -1,0 +1,47 @@
+---
+apiVersion: "apps/v1"
+kind: "Deployment"
+metadata:
+  name: "mafiasi-dashboard"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: "mafiasi-dashboard"
+
+  template:
+    metadata:
+      labels:
+        app: "mafiasi-dashboard"
+    spec:
+      imagePullSecrets:
+        - name: "registry-credentials"
+      nodeSelector:
+        kubernetes.io/hostname: "fs6"
+
+      volumes:
+        - name: "config"
+          configMap:
+            name: "mafiasi-dashboard"
+        - name: "storage"
+          hostPath:
+            path: "/srv/dashboard/storage"
+        - name: "media"
+          hostPath:
+            path: "/srv/dashboard/storage/media"
+
+      containers:
+        # dashboard backend
+        - image: "registry.mafiasi.de/dashboard"
+          name: "backend"
+          ports:
+            - name: "uwsgi"
+              containerPort: 3003
+            - name: "http"
+              containerPort: 8000
+          volumeMounts:
+            - name: "config"
+              mountPath: "/app/config"
+              readOnly: true
+            - name: "storage"
+              mountPath: "/app/storage"
