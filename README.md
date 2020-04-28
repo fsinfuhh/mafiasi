@@ -37,3 +37,9 @@ psql jabber < mafiasi/jabber/sql/*.sql
 
 We try to keep these installation instructions up to date, but we can't
 guarantee.
+
+
+# Notes
+
+If you are interested you can see how we deploy this service on our kubernetes cluster via `kustomization.yml`.
+The format is (kustomize)[https://kustomize.io/]. 
