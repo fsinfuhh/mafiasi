@@ -4,7 +4,7 @@ kind: "Kustomization"
 commonLabels:
   app: "mafiasi-dashboard"
 resources:
-  - "./k8s/deployment.yml"
-  - "./k8s/services.yml"
+  - "./deployment.yml"
+  - "./services.yml"
 configMapGenerator:
   - name: "mafiasi-dashboard"

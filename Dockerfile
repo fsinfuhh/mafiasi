@@ -26,18 +26,21 @@ ADD docker/uwsgi.ini /etc/uwsgi/mafiasi-dashboard.ini
 ADD docker/supervisor.conf /etc/supervisor/conf.d/app.conf
 ADD mafiasi/settings.py.example /app/config/settings.py
 RUN ln -sf /app/config/settings.py /app/src/mafiasi/settings.py
+RUN touch /app/config/jabber_cert_fingerprint
+RUN touch /app/config/mumble_cert_fingerprint
 
 # compile staticfiles and messages
 RUN make all
 RUN ./manage.py collectstatic --no-input
-#mkdir /app/static/django
-#./manage.py collectstatic --no-input
 
 # Configure Image Metadata
 ENTRYPOINT ["/app/src/docker/entrypoint.sh"]
 CMD supervisord -n -c /etc/supervisor/supervisord.conf -u root
 ENV LANG=en_US.UTF-8
+ENV HOME=/app
 # user uploaded content (like gprot) get put here
 VOLUME /app/media
+# pks keyring
+VOLUME /app/.gnupg
 # http
-EXPOSE 80
+EXPOSE 8000

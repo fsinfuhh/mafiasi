@@ -65,8 +65,6 @@ WSGI_APPLICATION = 'mafiasi.wsgi.application'
 
 
 INSTALLED_APPS = (
-    'django.contrib.admin',
-    'django.contrib.admindocs',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.humanize',
@@ -79,6 +77,10 @@ INSTALLED_APPS = (
     'corsheaders',
     'mafiasi.base',
     'mafiasi.dashboard',
+)
+INSTALLED_APPS_LATE = (
+    'django.contrib.admin',
+    'django.contrib.admindocs',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'

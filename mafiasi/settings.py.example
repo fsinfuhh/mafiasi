@@ -92,7 +92,7 @@ INSTALLED_APPS += (
     'mafiasi.tauschen',
     'mafiasi.pks',
     'mafiasi.wiki',
-)
+) + INSTALLED_APPS_LATE
 
 EMAIL_DOMAIN = u'informatik.uni-hamburg.de'
 PRIMARY_DOMAIN = u'informatik.uni-hamburg.de'
@@ -101,8 +101,8 @@ REGISTER_DOMAIN_MAPPING = {
     u'physnet.uni-hamburg.de': 'physnet',
 }
 JABBER_DOMAIN = u'jabber.mafiasi.de'
-JABBER_CERT_FINGERPRINT_FILE = u'/opt/mafiasi/jabber_cert_fingerprint'
-MUMBLE_CERT_FINGERPRINT_FILE = u'/opt/mumble_cert_fingerprint'
+JABBER_CERT_FINGERPRINT_FILE = os.path.join('/', 'app', 'config', 'jabber_cert_fingerprint')
+MUMBLE_CERT_FINGERPRINT_FILE = os.path.join('/', 'app', 'config', 'mumble_cert_fingerprint')
 MUMBLE_SERVER = {
     'address': u'mumble.mafiasi.de',
     'port': 64738,
@@ -113,7 +113,6 @@ DATABASE_ROUTERS = ['mafiasi.jabber.dbrouter.JabberRouter', 'ldapdb.router.Route
 IMPRINT_URL = 'https://wiki.mafiasi.de/Fachschaft_Informatik:Impressum'
 TEAM_EMAIL = u'ag-server@informatik.uni-hamburg.de'
 WIKI_URL = 'https://www2.informatik.uni-hamburg.de/Fachschaft/wiki/'
-GPG_KEYRING = '~mafiasi/signing-party-fun/tmp/keyring'
 
 EMAIL_HOST = 'mailhost.informatik.uni-hamburg.de'
 SERVER_EMAIL = 'Mafiasi.de server-ag@informatik.uni-hamburg.de'
