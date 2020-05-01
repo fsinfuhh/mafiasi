@@ -5,7 +5,7 @@ is under active development, things may change often.
 
 ## Installing
 
-You can install this applications either from source  or by building a docker image.
+You can install this applications either from source or by building a docker image.
 
 ### With Docker
 
@@ -26,7 +26,7 @@ pipenv run ./manage.py migrate
 make
 ```
 
-If you want to use jabber (ejabberd) you have to load the SQL schema
+If you want to use jabber (ejabberd), you have to load the SQL schema
 into the database (you'll find it in the ejabberd source code),
 migrate the jabber database and do some changes to the tables
 ```
