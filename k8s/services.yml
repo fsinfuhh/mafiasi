@@ -26,6 +26,3 @@ spec:
     - name: "http"
       port: 80
       targetPort: "http"
-    - name: "uwsgi"
-      port: 3003
-      targetPort: "uwsgi"
