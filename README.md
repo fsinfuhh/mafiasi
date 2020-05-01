@@ -21,7 +21,6 @@ execute make:
 ```
 pipenv install
 cp mafiasi/settings.py.example mafiasi/settings.py
-cp mafiasi/services.py.example mafiasi/services.py
 pipenv run ./manage.py migrate
 make
 ```
