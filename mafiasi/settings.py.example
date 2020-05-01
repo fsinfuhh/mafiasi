@@ -34,7 +34,7 @@ DATABASES = {
 
 LDAP_SERVERS = {
     'default': {
-        'URI': 'ldab://localhost',
+        'URI': 'ldap://localhost',
         'BIND_DN': '',
         'BIND_PASSWORD': '',
     }
