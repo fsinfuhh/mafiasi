@@ -1,5 +1,3 @@
-
-
 import datetime
 from operator import itemgetter
 from urllib.error import URLError
@@ -11,7 +9,6 @@ from django.shortcuts import redirect
 from django.template.response import TemplateResponse
 from django.views.decorators.http import require_POST
 from django.conf import settings
-from mafiasi.services import SERVICES
 
 from mafiasi.groups.models import GroupProxy
 from mafiasi.etherpad.etherpad import Etherpad

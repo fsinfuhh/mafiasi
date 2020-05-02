@@ -12,11 +12,12 @@
         <h2>{% trans "Services" %}</h2>
         <div id="dashboard-services-container" class="row">
             {% for service in services %}
-                <div id="service-{{ service.title }}" class="col-sm-6 dashboard-service" data-servicetitle="{{ service.title }}">
+                <div id="service-{{ service.title }}" class="col-sm-6 dashboard-service"
+                     data-servicetitle="{{ service.title }}">
                     <div class="panel panel-default service">
                         <div class="panel-body">
                             <a href="{{ service.link }}" class="btn btn-default btn-lg pull-left service-icon">
-                              <img src="{{ service.image }}" alt="{{ service.title }}" />
+                              <img src="{% static service.image %}" alt="{{ service.verbose_name }}" />
                             </a>
                             <h3><a href="{{ service.link }}">{{ service.title }}</a></h3>
                             <p>{{ service.description }}</p>
@@ -43,7 +44,7 @@
             </div>
         </div>
         {% endfor %}
-        {% if 'wiki' in activated_services %}
+        {% if 'mafiasi.wiki' in service_names %}
             <div class="panel panel-default">
                 <div class="panel-heading">{% trans "Wiki search" %}</div>
                 <div class="panel-body" style="text-align:center;">

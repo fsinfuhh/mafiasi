@@ -1,0 +1,1 @@
+default_app_config = 'mafiasi.fb18.apps.Fb18Config'
