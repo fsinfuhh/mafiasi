@@ -13,11 +13,18 @@
 <noscript>
     <div class="alert alert-danger">
         {% blocktrans %}
-        This page needs javascript in order to function correctly.
-        Please activate it before you proceed.
+            This page needs javascript in order to function correctly.
+            Please activate it before you proceed.
         {% endblocktrans %}
     </div>
 </noscript>
+
+<div class="alert alert-warning">
+    {% blocktrans %}
+        Please take care to only upload <strong>memory</strong> minutes. This is not the place for photos of exams or similar.
+    {% endblocktrans %}
+</div>
+
 <form method="post">
 {% csrf_token %}
 {{ form.non_field_errors }}

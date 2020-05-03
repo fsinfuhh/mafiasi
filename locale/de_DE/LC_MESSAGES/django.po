@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-06 16:29+0200\n"
-"PO-Revision-Date: 2020-04-06 16:30+0200\n"
+"POT-Creation-Date: 2020-05-01 18:10+0200\n"
+"PO-Revision-Date: 2020-05-01 18:14+0200\n"
 "Last-Translator: Timon Engelke <7engelke@informatik.uni-hamburg.de>\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -292,11 +292,11 @@ msgstr "Ausgewähltes Modul existiert nicht"
 msgid "Invalid selection"
 msgstr "Ungültige Auswahl"
 
-#: mafiasi/gprot/forms.py:89 mafiasi/gprot/templates/gprot/create.html:28
+#: mafiasi/gprot/forms.py:89 mafiasi/gprot/templates/gprot/create.html:34
 msgid "Write online"
 msgstr "Online schreiben"
 
-#: mafiasi/gprot/forms.py:90 mafiasi/gprot/templates/gprot/create.html:29
+#: mafiasi/gprot/forms.py:90 mafiasi/gprot/templates/gprot/create.html:35
 msgid "Upload PDF"
 msgstr "PDF hochladen"
 
@@ -460,7 +460,17 @@ msgstr "unveröffentlicht"
 msgid "Create memory minutes"
 msgstr "Gedächtnisprotokoll erstellen"
 
-#: mafiasi/gprot/templates/gprot/create.html:15
+#: mafiasi/gprot/templates/gprot/create.html:14
+msgid ""
+"\n"
+"Please take care to only upload <strong>memory</strong> minutes. This is not "
+"the place for photos of exams or similar.\n"
+msgstr ""
+"\n"
+"Bitte nur <em>Gedächtnis</em>protokolle hochladen! Fotos von Klausuren und "
+"Vergleichbares haben hier nichts verloren.\n"
+
+#: mafiasi/gprot/templates/gprot/create.html:21
 #: mafiasi/gprot/templates/gprot/edit_metadata.html:17
 msgid ""
 "\n"
@@ -473,12 +483,12 @@ msgstr ""
 "        Bitte aktiviere es, bevor du fortfährst.\n"
 "        "
 
-#: mafiasi/gprot/templates/gprot/create.html:26
+#: mafiasi/gprot/templates/gprot/create.html:32
 msgctxt "GProt format"
 msgid "Type"
 msgstr "Typ"
 
-#: mafiasi/gprot/templates/gprot/create.html:32
+#: mafiasi/gprot/templates/gprot/create.html:38
 msgid "Continue"
 msgstr "Weiter"
 
@@ -2368,6 +2378,15 @@ msgstr "Wintersemester {0}"
 #, python-brace-format
 msgid "summer term {0}"
 msgstr "Sommersemester {0}"
+
+#~ msgid ""
+#~ "\n"
+#~ "Please take care to only upload MEMORY minutes created by yourself. Don't "
+#~ "upload pictures or scans of the exam.\n"
+#~ msgstr ""
+#~ "\n"
+#~ "Bitte lade nur GEDÄCHTNISprotokolle und keine Bilder oder Scans von "
+#~ "Klausuren hoch.\n"
 
 #~ msgid "Tags:"
 #~ msgstr "Tags:"
