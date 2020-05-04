@@ -18,6 +18,13 @@ jobs:
       plan:
           - get: "mafiasi-dashboard-git"
             trigger: true
+          - set_pipeline: "mafiasi-dashboard-((branch))"
+            file: "mafiasi-dashboard-git/concourse-ci.yml"
+            vars:
+                branch: "((branch))"
+                registry-username: "((registry-username))"
+                registry-password: "((registry-password))"
+
           - task: "build"
             privileged: true
             config:
@@ -36,6 +43,7 @@ jobs:
                     - path: "cache"
                 run:
                     path: "build"
+
           - put: "mafiasi-dashboard-image"
             params:
                 image: "image/image.tar"
