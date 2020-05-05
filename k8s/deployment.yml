@@ -35,7 +35,7 @@ spec:
 
       containers:
         # dashboard backend
-        - image: "registry.mafiasi.de/mafiasi-dashboard:master-latest"
+        - image: "registry.mafiasi.de/mafiasi-dashboard:latest"
           name: "main"
           ports:
             - name: "http"
