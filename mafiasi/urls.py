@@ -75,4 +75,4 @@ def handler404(request, exception):
         return redirect_to_wiki(request, path)
 
     except LookupError as e:
-        return HttpResponse('Page not found')
+        return HttpResponse('Page not found', status=404)
