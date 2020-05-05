@@ -2,8 +2,6 @@ from django.conf.urls import url
 
 from .views import imprint, data_privacy_statement, technical_info, licenses, problems, autocomplete
 
-include_at_top = True
-
 urlpatterns = [
     url(r'^imprint$', imprint, name='base_imprint'),
     url(r'^technical_info$', technical_info, name='base_technical_info'),
