@@ -25,6 +25,14 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
 ]
 
+
+if 'oauth2_provider' in settings.INSTALLED_APPS:
+    import oauth2_provider.urls
+    urlpatterns += [
+        url(r'^oauth/', include(oauth2_provider.urls, namespace='oauth2_provider')),
+    ]
+
+
 for app in apps.get_app_configs():
     if app.name.startswith('mafiasi.'):
         try:
