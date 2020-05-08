@@ -10,7 +10,7 @@ from mafiasi.pks.graph import generate_graph
 
 
 # monkey-patch max image size to prevent decompression bomb errors on our very large trust graph
-Image.MAX_IMAGE_PIXELS *= 2
+Image.MAX_IMAGE_PIXELS *= 3
 
 
 class Command(BaseCommand):
