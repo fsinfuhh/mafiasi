@@ -48,3 +48,4 @@ spec:
               mountPath: "/app/media"
             - name: "gnupg"
               mountPath: "/app/.gnupg"
+          imagePullPolicy: "Always"
