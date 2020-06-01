@@ -34,7 +34,7 @@ RUN touch /app/config/mumble_cert_fingerprint
 RUN make all
 RUN ./manage.py collectstatic --no-input
 RUN mkdir -p /app/static/mathjax
-RUN cp -rt /usr/share/javascript/mathjax /app/static/mathjax
+RUN cp -rT /usr/share/javascript/mathjax /app/static/mathjax
 
 # remove build dependencies
 RUN apt purge -y pipenv gcc make yui-compressor libldap2-dev libsasl2-dev libgpgme-dev python3-dev libgraphviz-dev libjs-mathjax
