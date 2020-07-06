@@ -43,7 +43,7 @@ class Command(BaseCommand):
         if '@' not in email:
             raise CommandError('Invalid email')
 
-        password = base64.b64encode(os.urandom(15)).lower()
+        password = base64.b64encode(os.urandom(15)).decode().lower()
         password = password.replace('/', '').replace('+', '')[:10]
 
         mafiasi = Mafiasi.objects.create(username=name,
