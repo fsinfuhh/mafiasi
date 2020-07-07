@@ -81,7 +81,7 @@ INSTALLED_APPS += (
     'mafiasi.mailinglist',
     'mafiasi.mattermost',
     'mafiasi.mumble',
-    'mafiasi.owncloud',
+    'mafiasi.nextcloud',
     'mafiasi.registration',
     'mafiasi.teaching',
     'mafiasi.bitpoll',
