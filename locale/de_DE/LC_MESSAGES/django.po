@@ -1397,13 +1397,13 @@ msgstr ""
 #: mafiasi/jabber/templates/jabber/index.html:41
 msgid ""
 "\n"
-"    Below you can see the required configuration for Gajim, Pidgin and "
+"    Below you can see the required configuration for Gajim, Dino, Pidgin and "
 "Conversations.\n"
 "  "
 msgstr ""
 "\n"
-"Unten findest du die nötigen Einstellungen für Gajim, Conversations und "
-"Pidgin."
+"Unten findest du die nötigen Einstellungen für Gajim, Dino, Pidgin und "
+"Conversations."
 
 #: mafiasi/mailinglist/forms.py:20
 msgid "This email is already on the whitelist"

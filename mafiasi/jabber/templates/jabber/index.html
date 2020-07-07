@@ -39,16 +39,17 @@
 
 <p>
   {% blocktrans %}
-    Below you can see the required configuration for Gajim, Pidgin and Conversations.
+    Below you can see the required configuration for Gajim, Dino, Pidgin and Conversations.
   {% endblocktrans %}
 </p>
 
 
 <div id="jabber-screenshot-tabs">
   <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#gajim" aria-controls="home" role="tab" data-toggle="tab">Gajim</a></li>
-    <li role="presentation"><a href="#pidgin" aria-controls="profile" role="tab" data-toggle="tab">Pidgin</a></li>
-    <li role="presentation"><a href="#conversations" aria-controls="messages" role="tab" data-toggle="tab">Conversations</a></li>
+    <li role="presentation" class="active"><a href="#gajim" role="tab" data-toggle="tab">Gajim</a></li>
+    <li role="presentation"><a href="#dino" role="tab" data-toggle="tab">Dino</a></li>
+    <li role="presentation"><a href="#pidgin" role="tab" data-toggle="tab">Pidgin</a></li>
+    <li role="presentation"><a href="#conversations" role="tab" data-toggle="tab">Conversations</a></li>
   </ul>
 
   <div class="tab-content">
@@ -59,6 +60,13 @@
         </div>
         <div id="gajim-jabber-config-server">
           {{ jabber_domain }}
+        </div>
+      </div>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="dino">
+      <div id="dino-jabber-config-img">
+        <div id="dino-jabber-config-username">
+          {{ jabber_user.username }}@{{ jabber_domain }}
         </div>
       </div>
     </div>
