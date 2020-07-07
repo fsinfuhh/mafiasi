@@ -1,5 +1,3 @@
-
-
 import re
 
 from django import forms
@@ -24,7 +22,7 @@ class SetQuotaForm(forms.Form):
 
 
 
-@permission_required('owncloud.set_quota')
+@permission_required('nextcloud.set_quota')
 def set_quota(request, username):
     try:
         user = LdapUser.lookup(username)
@@ -34,16 +32,16 @@ def set_quota(request, username):
     if request.method == 'POST':
         form = SetQuotaForm(request.POST)
         if form.is_valid():
-            user.owncloud_quota = form.cleaned_data['quota']
+            user.nextcloud_quota = form.cleaned_data['quota']
             user.save()
             messages.success(request, 'Quota sucessfully set.')
-            return redirect('owncloud_set_quota', username)
+            return redirect('nextcloud_set_quota', username)
     else:
         form = SetQuotaForm(initial={
-            'quota': user.owncloud_quota if user.owncloud_quota else ''
+            'quota': user.nextcloud_quota if user.nextcloud_quota else ''
         })
 
-    return render(request, 'owncloud/set_quota.html', {
+    return render(request, 'nextcloud/set_quota.html', {
         'username': username,
         'form': form
     })

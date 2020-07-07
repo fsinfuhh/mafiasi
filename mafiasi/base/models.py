@@ -114,7 +114,7 @@ class LdapUser(LdapModel):
         'last_name': LdapAttr('sn'),
         'email': LdapAttr('mail'),
         'password': LdapAttr('userPassword'),
-        'owncloud_quota': LdapAttr('ownCloudQuota')
+        'nextcloud_quota': LdapAttr('ownCloudQuota')
     }
 
     def __str__(self):

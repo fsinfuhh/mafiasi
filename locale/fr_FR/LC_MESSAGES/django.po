@@ -1015,7 +1015,7 @@ msgid ""
 "\n"
 "      Accept an invitation or create a new group and invite\n"
 "      others to use %(project_name)s features such as private\n"
-"      etherpads, owncloud sharing, group calendars and group bitpolls. "
+"      etherpads, Nextcloud sharing, group calendars and group bitpolls. "
 "Please check for existing groups.\n"
 "      "
 msgstr ""
@@ -1023,7 +1023,7 @@ msgstr ""
 "      Acceptez une invitation ou créez un nouveau groupe et invitez\n"
 "      d'autres à utiliser les fonctionnalités de %(project_name)s, pour "
 "exemple les\n"
-"      etherpads, l'OwnCloud, calendriers de groupe et bitpolls de groupe. "
+"      etherpads, Nextcloud, calendriers de groupe et bitpolls de groupe. "
 "Veuillez regarder les groupes existants.\n"
 "      "
 
@@ -2324,12 +2324,12 @@ msgstr ""
 "d'autres."
 
 #: mafiasi/services.py:66
-msgid "Owncloud"
-msgstr "Owncloud"
+msgid "Nextcloud"
+msgstr "Nextloud"
 
 #: mafiasi/services.py:67
-msgid "OwnCloud enables you to sync and share your documents."
-msgstr "OwnCloud vous permet de synchroniser et de partager vos documents."
+msgid "Nextcloud enables you to sync and share your documents."
+msgstr "Nextcloud vous permet de synchroniser et de partager vos documents."
 
 #: mafiasi/services.py:72
 msgid "Keyserver"
