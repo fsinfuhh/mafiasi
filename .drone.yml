@@ -1,0 +1,53 @@
+---
+kind: pipeline
+type: kubernetes
+name: production
+
+trigger:
+  branch:
+    - master
+
+steps:
+  - name: update container
+    image: plugins/docker
+    settings:
+      registry: registry.mafiasi.de
+      repo: registry.mafiasi.de/mafiasi-dashboard
+      username: agserver
+      password:
+        from_secret: REGISTRY_PW
+
+  - name: deploy
+    image: registry.mafiasi.de/deployment_restarter
+    settings:
+      namespace: mafiasi-prod
+      name: mafiasi-dashboard
+
+
+
+---
+kind: pipeline
+type: kubernetes
+name: staging
+
+trigger:
+  branch:
+    - staging
+
+steps:
+  - name: update container
+    image: plugins/docker
+    settings:
+      registry: registry.mafiasi.de
+      repo: registry.mafiasi.de/mafiasi-dashboard
+      tags: staging-latest
+      username: agserver
+      password:
+        from_secret: REGISTRY_PW
+
+  - name: deploy
+    image: registry.mafiasi.de/deployment_restarter
+    settings:
+      namespace: mafiasi-staging
+      name: mafiasi-dashboard
+
