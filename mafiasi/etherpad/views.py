@@ -163,7 +163,7 @@ def show_pad(request, group_name, pad_name):
         pad_url = '{0}/p/{1}${2}'.format(
                 settings.ETHERPAD_URL,
                 group_id,
-                pad_name)
+                pad_name.replace('/', '_'))
         cookie = ep.get_session_cookie(request.user)
     except URLError:
         return TemplateResponse(request, 'etherpad/server_error.html', {
@@ -192,7 +192,7 @@ def show_pad_html(request, group_name, pad_name):
     ep = Etherpad()
     full_pad_name = '{0}${1}'.format(
                 ep.get_group_id(group_name),
-                pad_name)
+                pad_name.replace('/', '_'))
     html = ep.get_html(full_pad_name)
     return TemplateResponse(request, 'etherpad/pad_html.html', {
         'html': html[27:-14], #  strip <html> and head
