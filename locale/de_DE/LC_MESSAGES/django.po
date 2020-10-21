@@ -2154,7 +2154,7 @@ msgstr "RZ-Kennung"
 
 #: mafiasi/registration/templates/registration/require_info.html:50
 msgid "Year of study start"
-msgstr "Jahrgang"
+msgstr "Jahr des Studienbeginns"
 
 #: mafiasi/registration/templates/registration/require_info_other.html:17
 msgid "Your Email"
