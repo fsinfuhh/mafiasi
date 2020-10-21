@@ -40,11 +40,9 @@ for app in apps.get_app_configs():
             include_at_top = getattr(urls, 'include_at_top', False)
             if include_at_top:
                 urlpatterns.append(url('', include(urls), name=app.name))
-                print(f'including {app.verbose_name.lower()} urls at root')
             else:
                 prefix = app.name.split('.')[-1]
                 urlpatterns.append(url(f'{prefix}/', include(urls), name=app.name))
-                print(f'including {app.verbose_name} urls under /{prefix}/')
         except ImportError as e:
             pass
 

@@ -142,11 +142,20 @@ ETHERPAD_API_KEY = os.getenv('MAFIASI_EP_API_KEY', '')
 ETHERPAD_URL = 'https://ep.mafiasi.de'
 EP_COOKIE_DOMAIN = '.mafiasi.de'
 
-DISCOURSE_URL = 'https://forum.mafiasi.test'
-DISCOURSE_SSO_SECRET = 'secret'
 
 GPROT_IMAGE_MAX_SIZE = 1
 GPROT_PDF_MAX_SIZE = 5
+
+DISCOURSE_URL = 'https://discourse.mafiasi.de'
+SOGO_URL = 'https://sogo.mafiasi.de'
+GIT_URL = 'https://git.mafiasi.de'
+TAUSCHEN_URL = 'https://tauschen.mafiasi.de'
+MATTERMOST_URL = 'https://mattermost.mafiasi.de'
+NEXTCLOUD_URL = 'https://cloud.mafiasi.de'
+JITSI_URL = 'https://conference.mafiasi.de'
+FB18_URL = 'https://archiv.mafiasi.de/forum/fb18'
+WIKI_URL = 'https://wiki.mafiasi.de'
+BITPOLL_URL = 'https://bitpoll.mafiasi.de'
 
 PKS_COMMUNITY_DOMAINS = ['informatik.uni-hamburg.de', 'studium.uni-hamburg.de']
 
