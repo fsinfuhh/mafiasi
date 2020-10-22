@@ -2,37 +2,41 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-01 18:10+0200\n"
-"PO-Revision-Date: 2020-03-05 10:39+0100\n"
+"POT-Creation-Date: 2020-10-22 14:39+0200\n"
+"PO-Revision-Date: 2020-10-22 14:33+0200\n"
 "Last-Translator: Timon Engelke <7engelke@informatik.uni-hamburg.de>\n"
 "Language-Team: \n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 2.4.1\n"
 
 #: mafiasi/base/templates/500.html:5
 msgid "Internal server error"
 msgstr "Internal server error"
 
-#: mafiasi/base/templates/500.html:11
-#, python-format
+#: mafiasi/base/templates/500.html:10
+#, fuzzy, python-format
+#| msgid ""
+#| "We're sorry, but we didn't expect this to happen. Our error reporting "
+#| "tool should have sent an email to us with some technical details. Please "
+#| "try again later. If the problem persists, see our <a href="
+#| "\"%(problems_url)s\">problem reporting page</a>."
 msgid ""
-"We're sorry, but we didn't expect this to happen. Our error reporting tool "
-"should have sent an email to us with some technical details. Please try "
-"again later. If the problem persists, see our <a href=\"%(problems_url)s"
-"\">problem reporting page</a>."
+"\n"
+"    We're sorry, but we didn't expect this to happen.\n"
+"    Our error reporting tool should have sent an email to us with some "
+"technical details.\n"
+"    Please try again later.\n"
+"    If the problem persists, see our <a href=\"%(problems_url)s\">problem "
+"reporting page</a>.\n"
+"    "
 msgstr ""
 "We're sorry, but we didn't expect this to happen. Our error reporting tool "
 "should have sent an email to us with some technical details. Please try "
 "again later. If the problem persists, see our <a href=\"%(problems_url)s"
 "\">problem reporting page</a>."
-
-#: mafiasi/base/templates/500.html:14
-#, python-format
-msgid "We have recorded the error under the Identifier %(errorid)s."
-msgstr "We have recorded the error under the Identifier %(errorid)s."
 
 #: mafiasi/base/templates/base.html:38
 msgid "Groups"
@@ -140,6 +144,14 @@ msgstr ""
 msgid "Your password may only contain the following characters: %s"
 msgstr "Your password may only contain the following characters: %s"
 
+#: mafiasi/bitpoll/apps.py:10
+msgid "BitPoll"
+msgstr "BitPoll"
+
+#: mafiasi/bitpoll/apps.py:11
+msgid "BitPoll helps you to find common dates for meetings easily."
+msgstr "BitPoll helps you to find common dates for meetings easily."
+
 #: mafiasi/dashboard/templates/dashboard/index.html:5
 msgid "Dashboard"
 msgstr "Dashboard"
@@ -148,24 +160,44 @@ msgstr "Dashboard"
 msgid "Services"
 msgstr "Services"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:24
+#: mafiasi/dashboard/templates/dashboard/index.html:25
 msgid "Rearrange item"
 msgstr "Rearrange item"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:32
+#: mafiasi/dashboard/templates/dashboard/index.html:33
 msgid "News and more"
 msgstr "News and more"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:48
+#: mafiasi/dashboard/templates/dashboard/index.html:49
 msgid "Wiki search"
 msgstr "Wiki search"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:55
+#: mafiasi/dashboard/templates/dashboard/index.html:56
 #: mafiasi/gprot/templates/gprot/menu.html:4
 #: mafiasi/pks/templates/pks/menu.html:4
 #: mafiasi/pks/templates/pks/search.html:5
 msgid "Search"
 msgstr "Search"
+
+#: mafiasi/discourse/apps.py:10
+msgid "Discourse"
+msgstr "Discourse"
+
+#: mafiasi/discourse/apps.py:11
+msgid ""
+"Discourse is our forum for questions and discussions with your fellow "
+"students."
+msgstr ""
+"Discourse is our forum for questions and discussions with your fellow "
+"students."
+
+#: mafiasi/etherpad/apps.py:9
+msgid "Etherpad"
+msgstr "Etherpad"
+
+#: mafiasi/etherpad/apps.py:10
+msgid "You can use the Etherpad to work together on a document in real time."
+msgstr "You can use the Etherpad to work together on a document in real time."
 
 #: mafiasi/etherpad/templates/etherpad/create_new_pad.html:6
 #: mafiasi/etherpad/templates/etherpad/create_new_pad.html:27
@@ -278,6 +310,32 @@ msgstr "Pad: %(pad_name)s"
 msgid "Show this pad in fullscreen mode"
 msgstr "Show this pad in fullscreen mode"
 
+#: mafiasi/fb18/apps.py:10
+msgid "FB18"
+msgstr "FB18"
+
+#: mafiasi/fb18/apps.py:11
+msgid ""
+"FB18 is our deprecated bulletin board, which is kept here as an archive."
+msgstr ""
+"FB18 is our deprecated bulletin board, which is kept here as an archive."
+
+#: mafiasi/git/apps.py:10
+msgid "Repositories"
+msgstr "Repositories"
+
+#: mafiasi/git/apps.py:11
+msgid "The Github like repository service"
+msgstr "The Github like repository service"
+
+#: mafiasi/gprot/apps.py:9
+msgid "GProt"
+msgstr "GProt"
+
+#: mafiasi/gprot/apps.py:10
+msgid "The GProt contains memory minutes of oral and written exams."
+msgstr "The GProt contains memory minutes of oral and written exams."
+
 #: mafiasi/gprot/forms.py:49 mafiasi/gprot/forms.py:84
 msgid "Selected examiner does not exist"
 msgstr "Selected examiner does not exist"
@@ -290,11 +348,11 @@ msgstr "Selected course does not exist"
 msgid "Invalid selection"
 msgstr "Invalid selection"
 
-#: mafiasi/gprot/forms.py:89 mafiasi/gprot/templates/gprot/create.html:34
+#: mafiasi/gprot/forms.py:89 mafiasi/gprot/templates/gprot/create.html:35
 msgid "Write online"
 msgstr "Write online"
 
-#: mafiasi/gprot/forms.py:90 mafiasi/gprot/templates/gprot/create.html:35
+#: mafiasi/gprot/forms.py:90 mafiasi/gprot/templates/gprot/create.html:36
 msgid "Upload PDF"
 msgstr "Upload PDF"
 
@@ -458,19 +516,17 @@ msgstr "unpublished"
 msgid "Create memory minutes"
 msgstr "Create memory minutes"
 
-#: mafiasi/gprot/templates/gprot/create.html:14
+#: mafiasi/gprot/templates/gprot/create.html:15
+#, fuzzy
+#| msgid ""
+#| "\n"
+#| "        This page needs javascript in order to function correctly.\n"
+#| "        Please activate it before you proceed.\n"
+#| "        "
 msgid ""
 "\n"
-"Please take care to only upload <strong>memory</strong> minutes. This is not "
-"the place for photos of exams or similar.\n"
-msgstr ""
-
-#: mafiasi/gprot/templates/gprot/create.html:21
-#: mafiasi/gprot/templates/gprot/edit_metadata.html:17
-msgid ""
-"\n"
-"        This page needs javascript in order to function correctly.\n"
-"        Please activate it before you proceed.\n"
+"            This page needs javascript in order to function correctly.\n"
+"            Please activate it before you proceed.\n"
 "        "
 msgstr ""
 "\n"
@@ -478,12 +534,24 @@ msgstr ""
 "        Please activate it before you proceed.\n"
 "        "
 
-#: mafiasi/gprot/templates/gprot/create.html:32
+#: mafiasi/gprot/templates/gprot/create.html:23
+msgid ""
+"\n"
+"        Please take care to only upload <strong>memory</strong> minutes. "
+"This is not the place for photos of exams or similar.\n"
+"    "
+msgstr ""
+"\n"
+"        Please take care to only upload <strong>memory</strong> minutes. "
+"This is not the place for photos of exams or similar.\n"
+"    "
+
+#: mafiasi/gprot/templates/gprot/create.html:33
 msgctxt "GProt format"
 msgid "Type"
 msgstr "Type"
 
-#: mafiasi/gprot/templates/gprot/create.html:38
+#: mafiasi/gprot/templates/gprot/create.html:39
 msgid "Continue"
 msgstr "Continue"
 
@@ -557,6 +625,18 @@ msgstr "Save and publish"
 #: mafiasi/gprot/templates/gprot/edit.html:97
 msgid "Save only"
 msgstr "Save only"
+
+#: mafiasi/gprot/templates/gprot/edit_metadata.html:17
+msgid ""
+"\n"
+"        This page needs javascript in order to function correctly.\n"
+"        Please activate it before you proceed.\n"
+"        "
+msgstr ""
+"\n"
+"        This page needs javascript in order to function correctly.\n"
+"        Please activate it before you proceed.\n"
+"        "
 
 #: mafiasi/gprot/templates/gprot/edit_metadata.html:27
 msgid "Save"
@@ -989,12 +1069,19 @@ msgid "%(project_name)s Groups"
 msgstr "%(project_name)s Groups"
 
 #: mafiasi/groups/templates/groups/groups_base.html:68
-#, python-format
+#, fuzzy, python-format
+#| msgid ""
+#| "\n"
+#| "      Accept an invitation or create a new group and invite\n"
+#| "      others to use %(project_name)s features such as private\n"
+#| "      etherpads, Nextcloud sharing, group calendars and group bitpolls. "
+#| "Please check for existing groups.\n"
+#| "      "
 msgid ""
 "\n"
 "      Accept an invitation or create a new group and invite\n"
 "      others to use %(project_name)s features such as private\n"
-"      etherpads, Nextcloud sharing, group calendars and group bitpolls. "
+"      etherpads, owncloud sharing, group calendars and group bitpolls. "
 "Please check for existing groups.\n"
 "      "
 msgstr ""
@@ -1313,9 +1400,17 @@ msgstr "invitation mails"
 msgid "Invitation mail was resent."
 msgstr "Invitation mail was resent."
 
-#: mafiasi/jabber/templates/jabber/index.html:5 mafiasi/services.py:48
+#: mafiasi/jabber/apps.py:9 mafiasi/jabber/templates/jabber/index.html:5
 msgid "Jabber"
 msgstr "Jabber"
+
+#: mafiasi/jabber/apps.py:10
+msgid ""
+"On our Jabber server you can chat with your fellow students, which are "
+"already on your contact list."
+msgstr ""
+"On our Jabber server you can chat with your fellow students, which are "
+"already on your contact list."
 
 #: mafiasi/jabber/templates/jabber/index.html:10
 #, python-format
@@ -1398,6 +1493,30 @@ msgstr ""
 "    Below you can see the required configuration for Gajim, Dino, Pidgin and "
 "Conversations.\n"
 "  "
+
+#: mafiasi/jitsi/apps.py:10
+msgid "Jitsi"
+msgstr "Jitsi"
+
+#: mafiasi/jitsi/apps.py:11
+msgid ""
+"Jitsi is a secure and open source video conference tool that can be used in "
+"a browser."
+msgstr ""
+"Jitsi is a secure and open source video conference tool that can be used in "
+"a browser."
+
+#: mafiasi/kanboard/apps.py:10
+msgid "Kanboard"
+msgstr "Kanboard"
+
+#: mafiasi/kanboard/apps.py:11
+msgid ""
+"Kanboard is a kanban project management tool that you can use to track the "
+"progress of your projects."
+msgstr ""
+"Kanboard is a kanban project management tool that you can use to track the "
+"progress of your projects."
 
 #: mafiasi/mailinglist/forms.py:20
 msgid "This email is already on the whitelist"
@@ -1527,9 +1646,21 @@ msgstr "Mail was discarded."
 msgid "Mailinglist settings saved."
 msgstr "Mailinglist settings saved."
 
-#: mafiasi/mumble/templates/mumble/index.html:5 mafiasi/services.py:60
+#: mafiasi/mattermost/apps.py:10
+msgid "Chat"
+msgstr "Chat"
+
+#: mafiasi/mattermost/apps.py:11
+msgid "An online team chat service"
+msgstr "Mattermost is an online team chat service"
+
+#: mafiasi/mumble/apps.py:9 mafiasi/mumble/templates/mumble/index.html:5
 msgid "Mumble"
 msgstr "Mumble"
+
+#: mafiasi/mumble/apps.py:10
+msgid "You can use our mumble for voice chat with other fellow students."
+msgstr "You can use our mumble for voice chat with other fellow students."
 
 #: mafiasi/mumble/templates/mumble/index.html:8
 msgid ""
@@ -1542,6 +1673,24 @@ msgstr ""
 #: mafiasi/mumble/views.py:7
 msgid "Student association"
 msgstr "Student association"
+
+#: mafiasi/nextcloud/apps.py:10
+msgid "Nextcloud"
+msgstr "Nextcloud"
+
+#: mafiasi/nextcloud/apps.py:11
+msgid "Nextcloud enables you to sync and share your documents."
+msgstr "Nextcloud enables you to sync and share your documents."
+
+#: mafiasi/pks/apps.py:9
+msgid "Keyserver"
+msgstr "Keyserver"
+
+#: mafiasi/pks/apps.py:10
+msgid ""
+"You can find your fellow students' OpenPGP keys on our public keyserver."
+msgstr ""
+"You can find your fellow students' OpenPGP keys on our public keyserver."
 
 #: mafiasi/pks/forms.py:17
 msgid "No valid OpenPGP keys."
@@ -2185,139 +2334,11 @@ msgstr "Account creation at %s"
 msgid "Registration: Sending mail failed: {}"
 msgstr "Registration: Sending mail failed: {}"
 
-#: mafiasi/services.py:6
-msgid "Discourse"
-msgstr "Discourse"
-
-#: mafiasi/services.py:7
-msgid ""
-"Discourse is our forum for questions and discussions with your fellow "
-"students."
-msgstr ""
-"Discourse is our forum for questions and discussions with your fellow "
-"students."
-
-#: mafiasi/services.py:12
-msgid "BitPoll"
-msgstr "BitPoll"
-
-#: mafiasi/services.py:13
-msgid "BitPoll helps you to find common dates for meetings easily."
-msgstr "BitPoll helps you to find common dates for meetings easily."
-
-#: mafiasi/services.py:18
-msgid "Etherpad"
-msgstr "Etherpad"
-
-#: mafiasi/services.py:19
-msgid "You can use the Etherpad to work together on a document in real time."
-msgstr "You can use the Etherpad to work together on a document in real time."
-
-#: mafiasi/services.py:24
-msgid "FB18"
-msgstr "FB18"
-
-#: mafiasi/services.py:25
-msgid ""
-"FB18 is our deprecated bulletin board, which is kept here as an archive."
-msgstr ""
-"FB18 is our deprecated bulletin board, which is kept here as an archive."
-
-#: mafiasi/services.py:30
-msgid "Repositories"
-msgstr "Repositories"
-
-#: mafiasi/services.py:31
-msgid "The Github like repository service"
-msgstr "The Github like repository service"
-
-#: mafiasi/services.py:36
-msgid "GProt"
-msgstr "GProt"
-
-#: mafiasi/services.py:37
-msgid "The GProt contains memory minutes of oral and written exams."
-msgstr "The GProt contains memory minutes of oral and written exams."
-
-#: mafiasi/services.py:42
-msgid "Jitsi"
-msgstr "Jitsi"
-
-#: mafiasi/services.py:43
-msgid ""
-"Jitsi is a secure and open source video conference tool that can be used in "
-"a browser."
-msgstr ""
-"Jitsi is a secure and open source video conference tool that can be used in "
-"a browser."
-
-#: mafiasi/services.py:49
-msgid ""
-"On our Jabber server you can chat with your fellow students, which are "
-"already on your contact list."
-msgstr ""
-"On our Jabber server you can chat with your fellow students, which are "
-"already on your contact list."
-
-#: mafiasi/services.py:54
-msgid "Chat"
-msgstr "Chat"
-
-#: mafiasi/services.py:55
-msgid "An online team chat service"
-msgstr "An online team chat service"
-
-#: mafiasi/services.py:61
-msgid "You can use our mumble for voice chat with other fellow students."
-msgstr "You can use our mumble for voice chat with other fellow students."
-
-#: mafiasi/services.py:66
-msgid "Nextcloud"
-msgstr "Nextcloud"
-
-#: mafiasi/services.py:67
-msgid "Nextcloud enables you to sync and share your documents."
-msgstr "Nextcloud enables you to sync and share your documents."
-
-#: mafiasi/services.py:72
-msgid "Keyserver"
-msgstr "Keyserver"
-
-#: mafiasi/services.py:73
-msgid ""
-"You can find your fellow students' OpenPGP keys on our public keyserver."
-msgstr ""
-"You can find your fellow students' OpenPGP keys on our public keyserver."
-
-#: mafiasi/services.py:78
-msgid "Planet"
-msgstr "Planet"
-
-#: mafiasi/services.py:79
-msgid ""
-"Planet is a feed aggregator which collects blog entries from your fellow "
-"students."
-msgstr ""
-"Planet is a feed aggregator which collects blog entries from your fellow "
-"students."
-
-#: mafiasi/services.py:84
-msgid "Redmine"
-msgstr "Redmine"
-
-#: mafiasi/services.py:85
-msgid ""
-"Redmine is a project management software. You can create tasks and assign "
-"them to people."
-msgstr ""
-"Redmine is a project management software. You can create tasks and assign "
-"them to people."
-
-#: mafiasi/services.py:90
+#: mafiasi/sogo/apps.py:10
 msgid "Calendar"
 msgstr "Calendar"
 
-#: mafiasi/services.py:91
+#: mafiasi/sogo/apps.py:11
 msgid ""
 "Manage and share your calendars and address book, sync them to all your "
 "devices."
@@ -2325,26 +2346,17 @@ msgstr ""
 "Manage and share your calendars and address book, sync them to all your "
 "devices."
 
-#: mafiasi/services.py:96
+#: mafiasi/tauschen/apps.py:10
 msgid "Mafiasi Tauschen"
 msgstr "Mafiasi Tauschen"
 
-#: mafiasi/services.py:97
+#: mafiasi/tauschen/apps.py:11
 msgid ""
 "Mafiasi Tauschen is a service that provides an easy possibility to exchange "
 "course groups."
 msgstr ""
 "Mafiasi Tauschen is a service that provides an easy possibility to exchange "
 "course groups."
-
-#: mafiasi/services.py:102
-msgid "Wiki"
-msgstr "Wiki"
-
-#: mafiasi/services.py:103
-msgid "In the wiki you will find important information regarding your studies."
-msgstr ""
-"In the wiki you will find important information regarding your studies."
 
 #: mafiasi/teaching/models.py:48
 #, python-brace-format
@@ -2355,6 +2367,46 @@ msgstr "winter term {0}"
 #, python-brace-format
 msgid "summer term {0}"
 msgstr "summer term {0}"
+
+#: mafiasi/whiteboard/apps.py:10
+msgid "Whiteboard"
+msgstr "Whiteboard"
+
+#: mafiasi/whiteboard/apps.py:11
+msgid "Spacedeck Open is a collaborative whiteboard."
+msgstr "Spacedeck Open is a collaborative whiteboard."
+
+#: mafiasi/wiki/apps.py:10
+msgid "Wiki"
+msgstr "Wiki"
+
+#: mafiasi/wiki/apps.py:11
+msgid "In the wiki you will find important information regarding your studies."
+msgstr ""
+"In the wiki you will find important information regarding your studies."
+
+#~ msgid "We have recorded the error under the Identifier %(errorid)s."
+#~ msgstr "We have recorded the error under the Identifier %(errorid)s."
+
+#~ msgid "Planet"
+#~ msgstr "Planet"
+
+#~ msgid ""
+#~ "Planet is a feed aggregator which collects blog entries from your fellow "
+#~ "students."
+#~ msgstr ""
+#~ "Planet is a feed aggregator which collects blog entries from your fellow "
+#~ "students."
+
+#~ msgid "Redmine"
+#~ msgstr "Redmine"
+
+#~ msgid ""
+#~ "Redmine is a project management software. You can create tasks and assign "
+#~ "them to people."
+#~ msgstr ""
+#~ "Redmine is a project management software. You can create tasks and assign "
+#~ "them to people."
 
 #~ msgid ""
 #~ "\n"

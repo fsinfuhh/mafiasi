@@ -92,6 +92,8 @@ INSTALLED_APPS += (
     'mafiasi.tauschen',
     'mafiasi.pks',
     'mafiasi.wiki',
+    'mafiasi.kanboard',
+    'mafiasi.whiteboard',
 ) + INSTALLED_APPS_LATE
 
 EMAIL_DOMAIN = u'informatik.uni-hamburg.de'
@@ -156,6 +158,8 @@ JITSI_URL = 'https://conference.mafiasi.de'
 FB18_URL = 'https://archiv.mafiasi.de/forum/fb18'
 WIKI_URL = 'https://wiki.mafiasi.de'
 BITPOLL_URL = 'https://bitpoll.mafiasi.de'
+WHITEBOARD_URL = 'https://spacedeck.mafiasi.de'
+KANBOARD_URL = 'https://kanboard.mafiasi.de'
 
 PKS_COMMUNITY_DOMAINS = ['informatik.uni-hamburg.de', 'studium.uni-hamburg.de']
 
