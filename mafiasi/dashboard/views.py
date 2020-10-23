@@ -18,7 +18,7 @@ def index(request):
     return TemplateResponse(request, 'dashboard/index.html', {
         'news_list': news_list,
         'panel_list': panel_list,
-        'wiki_search_url': settings.WIKI_URL + 'index.php',
+        'wiki_search_url': settings.WIKI_URL + '/index.php',
         'services': service_list,
         'service_names': [i.name for i in service_list]
     })
