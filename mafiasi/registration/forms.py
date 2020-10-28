@@ -18,6 +18,8 @@ class RegisterForm(forms.Form):
             account, _domain = account.split('@', 1)
         if not account.isalnum():
             raise forms.ValidationError(_('Invalid account name'))
+        if not re.fullmatch(settings.ACCOUNT_PATTERN, account):
+            raise forms.ValidationError(_('That does not look like a valid account name.'))
         return account
 
 

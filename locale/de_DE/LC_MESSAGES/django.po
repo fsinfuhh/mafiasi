@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-22 14:39+0200\n"
-"PO-Revision-Date: 2020-10-22 14:32+0200\n"
+"POT-Creation-Date: 2020-10-28 14:12+0100\n"
+"PO-Revision-Date: 2020-10-28 14:14+0100\n"
 "Last-Translator: Timon Engelke <7engelke@informatik.uni-hamburg.de>\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -1279,7 +1279,7 @@ msgid "Username"
 msgstr "Benutzername"
 
 #: mafiasi/guests/templates/guests/accept.html:16
-#: mafiasi/registration/forms.py:71 mafiasi/registration/forms.py:95
+#: mafiasi/registration/forms.py:74 mafiasi/registration/forms.py:98
 #: mafiasi/registration/templates/registration/account.html:88
 #: mafiasi/registration/templates/registration/create_account.html:17
 #: mafiasi/registration/templates/registration/login.html:37
@@ -1287,7 +1287,7 @@ msgid "Password"
 msgstr "Passwort"
 
 #: mafiasi/guests/templates/guests/accept.html:25
-#: mafiasi/registration/forms.py:75
+#: mafiasi/registration/forms.py:78
 #: mafiasi/registration/templates/registration/create_account.html:26
 msgid "Password confirmation"
 msgstr "Passwort bestätigen"
@@ -2032,35 +2032,39 @@ msgstr "Teilnahme an der Keysigning-Party abgesagt."
 msgid "Invalid account name"
 msgstr "Ungültiger Accountname"
 
-#: mafiasi/registration/forms.py:49
+#: mafiasi/registration/forms.py:23
+msgid "That does not look like a valid account name."
+msgstr "Das ist keine valide Informatik-E-Mail-Adresse."
+
+#: mafiasi/registration/forms.py:52
 msgid "Invalid domain"
 msgstr "Ungültige Domain"
 
-#: mafiasi/registration/forms.py:52
+#: mafiasi/registration/forms.py:55
 msgid "This field is required."
 msgstr "Dieses Feld darf nicht leer sein."
 
-#: mafiasi/registration/forms.py:55
+#: mafiasi/registration/forms.py:58
 msgid "Invalid yeargroup selected"
 msgstr "Ungültige Jahrgangsgruppe ausgewählt"
 
-#: mafiasi/registration/forms.py:85
+#: mafiasi/registration/forms.py:88
 msgid "The two password fields didn't match."
 msgstr "Die beiden Passwörter stimmen nicht überein."
 
-#: mafiasi/registration/forms.py:103
+#: mafiasi/registration/forms.py:106
 msgid "Wrong password."
 msgstr "Falsches Passwort."
 
-#: mafiasi/registration/forms.py:140
+#: mafiasi/registration/forms.py:143
 msgid "This address is already associated with an account."
 msgstr "Es existiert bereits ein Account mit dieser E-Mail-Adresse."
 
-#: mafiasi/registration/forms.py:144
+#: mafiasi/registration/forms.py:147
 msgid "Group addresses cannot be used for this purpose."
 msgstr "Gruppenadressen können hier nicht verwendet werden."
 
-#: mafiasi/registration/forms.py:147
+#: mafiasi/registration/forms.py:150
 msgid "Cloak adresses cannot be used for this purpose."
 msgstr "Cloak-Adressen können hier nicht verwendet werden."
 
@@ -2272,13 +2276,15 @@ msgstr "Registrierung"
 
 #: mafiasi/registration/templates/registration/request_account.html:9
 msgid ""
-"Please enter your Informatics email address into the following field. "
+"Please enter your <a href=\"https://mafiasi.de/Kennungen\">Informatics email "
+"address</a> into the following field.\n"
 "Afterwards you will receive an email with further instructions."
 msgstr ""
-"Bitte gib deine Informatik-E-Mail-Adresse in das folgende Feld ein. Du "
-"bekommst daraufhin eine E-Mail mit weiteren Anweisungen."
+"Bitte gib deine <a href=\"https://mafiasi.de/Kennungen\">Informatik-E-Mail-"
+"Adresse</a> in das folgende Feld ein. Du bekommst daraufhin eine E-Mail mit "
+"weiteren Anweisungen."
 
-#: mafiasi/registration/templates/registration/request_account.html:21
+#: mafiasi/registration/templates/registration/request_account.html:30
 msgid "Request account"
 msgstr "Account beantragen"
 

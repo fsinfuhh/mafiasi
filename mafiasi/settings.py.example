@@ -199,3 +199,5 @@ USER_LOGIN_HINT = "Note: For our account names we use two digits for year (e.g. 
 GUEST_INVITE_INSTRUCTION_LINK = "https://dash.crossmodal-learning.org/static_redir/instruction"
 
 GUEST_ACCEPT_INVITATION_MAIL = False
+
+ACCOUNT_PATTERN = r'\d?[a-z]+'
