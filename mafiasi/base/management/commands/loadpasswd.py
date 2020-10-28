@@ -1,10 +1,9 @@
-
-
 import sys
 import argparse
 
-from django.core.management.base import BaseCommand, CommandError
-from mafiasi.base.models import PasswdEntry
+from django.conf import settings
+from django.core.management.base import BaseCommand
+from mafiasi.base.models import PasswdEntry, Mafiasi
 
 class Command(BaseCommand):
     help = 'Loads the passwd file from "getent passwd" into the database'
@@ -53,7 +52,21 @@ class Command(BaseCommand):
                 passwd_entry.save()
                 updated_entries += 1
 
+        # After importing the new users, unset email addresses of conflicting users
+        conflicting_users = Mafiasi.objects.raw("""SELECT base_mafiasi.id FROM base_mafiasi 
+            INNER JOIN base_passwdentry ON base_mafiasi.account = base_passwdentry.username
+            INNER JOIN base_yeargroup ON base_mafiasi.yeargroup_id = base_yeargroup.id
+            WHERE real_email IN
+                (SELECT CONCAT(username, '@informatik.uni-hamburg.de') FROM base_passwdentry)
+            AND base_yeargroup.gid <> base_passwdentry.gid
+            AND base_mafiasi.username SIMILAR TO '\d{2}\w{1,7}'""")
+
+        for user in conflicting_users:
+            print(f'Unsetting email address for {user.username}, email was {user.real_email}')
+            user.real_email = user.username + '@' + settings.INVALID_MAIL_DOMAIN
+            user.save()
+
         updated_entries -= new_entries # new entries were also updated
         num_in_db = PasswdEntry.objects.count()
-        print('{0} new, {1} updated, {2} processed, {3} in database'.format(
-                new_entries, updated_entries, total_entries, num_in_db))
+        print('{0} new, {1} updated, {2} processed, {3} email addresses unset, {4} in database'.format(
+                new_entries, updated_entries, total_entries, len(conflicting_users), num_in_db))
