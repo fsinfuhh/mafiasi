@@ -19,7 +19,7 @@ msgid ""
 "Your email address was automatically set to an invalid one. Please update "
 "your email address immediately."
 msgstr ""
-"Deine alte E-Mail-Adresse wurde automatisiert auf eine ungültig gesetzt. "
+"Deine alte E-Mail-Adresse wurde automatisiert auf eine ungültige gesetzt. "
 "Bitte aktualisiere sie umgehend."
 
 #: mafiasi/base/templates/500.html:5
