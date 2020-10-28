@@ -67,6 +67,7 @@ MIDDLEWARE = (
     'django.middleware.locale.LocaleMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'mafiasi.base.middleware.InvalidMailMiddleware',
 )
 
 
@@ -201,3 +202,5 @@ GUEST_INVITE_INSTRUCTION_LINK = "https://dash.crossmodal-learning.org/static_red
 GUEST_ACCEPT_INVITATION_MAIL = False
 
 ACCOUNT_PATTERN = r'\d?[a-z]+'
+
+INVALID_MAIL_DOMAIN = 'invalid.invalid'

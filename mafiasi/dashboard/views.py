@@ -3,7 +3,6 @@ from django.template.response import TemplateResponse
 from django.http import Http404
 from django.shortcuts import get_object_or_404
 from django.conf import settings
-from django.utils.translation import gettext_lazy, gettext
 
 from mafiasi.base.base_apps import BaseService
 from mafiasi.dashboard.models import News, Panel
