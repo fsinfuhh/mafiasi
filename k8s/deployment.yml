@@ -32,6 +32,20 @@ spec:
         - name: "gnupg"
           hostPath:
             path: "/srv/dashboard/storage/.gnupg"
+        - name: "mumble-cert"
+          readOnly: true
+          secret:
+            secretName: "mumble.mafiasi.de-cert"
+            items:
+              - key: "tls.crt"
+                path: "tls.crt"
+        - name: "jabber-cert"
+          readOnly: true
+          secret:
+            secretName: "jabber.mafiasi.de-cert"
+            items:
+              - key: "tls.crt"
+                path: "tls.crt"
 
       containers:
         # dashboard backend
@@ -48,4 +62,8 @@ spec:
               mountPath: "/app/media"
             - name: "gnupg"
               mountPath: "/app/.gnupg"
+            - name: "mumble-cert"
+              mountPath: "/app/mumble-cert"
+            - name: "jabber-cert"
+              mountPath: "/app/jabber-cert"
           imagePullPolicy: "Always"
