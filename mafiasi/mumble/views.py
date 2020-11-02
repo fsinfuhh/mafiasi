@@ -7,10 +7,8 @@ def index(request):
         'label': _('Student association'),
     }
     config.update(settings.MUMBLE_SERVER)
-    with open(settings.MUMBLE_CERT_FINGERPRINT_FILE) as file:
-        cert_fingerprint = file.read()
 
     return TemplateResponse(request, 'mumble/index.html', {
         'config': config,
-        'cert_fingerprint': cert_fingerprint,
+        'cert_fingerprint': settings.MUMBLE_CERT_FINGERPRINT,
     })

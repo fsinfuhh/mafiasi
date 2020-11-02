@@ -103,13 +103,22 @@ REGISTER_DOMAINS = [u'informatik.uni-hamburg.de', u'physnet.uni-hamburg.de']
 REGISTER_DOMAIN_MAPPING = {
     u'physnet.uni-hamburg.de': 'physnet',
 }
-JABBER_DOMAIN = u'jabber.mafiasi.de'
-JABBER_CERT_FINGERPRINT_FILE = os.path.join('/', 'app', 'config', 'jabber_cert_fingerprint')
-MUMBLE_CERT_FINGERPRINT_FILE = os.path.join('/', 'app', 'config', 'mumble_cert_fingerprint')
+JABBER_DOMAIN = 'jabber.mafiasi.de'
+JABBER_CERT_FILE = '/app/jabber-cert/tls.crt'
+if os.path.isfile(JABBER_CERT_FILE):
+    JABBER_CERT_FINGERPRINT = subprocess.check_output(['openssl', 'x509', '-in', JABBER_CERT_FILE, '-noout', '-fingerprint']).decode().strip()
+else:
+    JABBER_CERT_FINGERPRINT = ''
+
 MUMBLE_SERVER = {
-    'address': u'mumble.mafiasi.de',
+    'address': 'mumble.mafiasi.de',
     'port': 64738,
 }
+MUMBLE_CERT_FILE = '/app/mumble-cert/tls.crt'
+if os.path.isfile(MUMBLE_CERT_FILE):
+    MUMBLE_CERT_FINGERPRINT = subprocess.check_output(['openssl', 'x509', '-in', MUMBLE_CERT_FILE, '-noout', '-fingerprint']).decode().strip()
+else:
+    MUMBLE_CERT_FINGERPRINT = ''
 
 DATABASE_ROUTERS = ['mafiasi.jabber.dbrouter.JabberRouter', 'ldapdb.router.Router']
 
