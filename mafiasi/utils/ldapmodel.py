@@ -35,6 +35,10 @@ class ConnectionManager(object):
             self._connections[connection_name] = conn
         return self._connections[connection_name]
 
+    def __delitem__(self, connection_name):
+        if connection_name in self._connections:
+            del self._connections[connection_name]
+
 
 class LdapAttr(object):
     def __init__(self, name, multi=False):
@@ -159,6 +163,16 @@ class LdapModel(object, metaclass=LdapModelMeta):
             except ldap.NO_SUCH_OBJECT:
                 if not fail_silently:
                     raise
+            except ldap.SERVER_DOWN:
+                # Reopen connection and try again
+                del connections[connection]
+                conn = connections[connection]
+                try:
+                    conn.modify_s(dn, mod_list)
+                except ldap.NO_SUCH_OBJECT:
+                    if not fail_silently:
+                        raise
+
         else:
             self._values['objectClass'] = self.object_classes
             add_list = addModlist(self._values)
@@ -167,6 +181,15 @@ class LdapModel(object, metaclass=LdapModelMeta):
             except ldap.ALREADY_EXISTS:
                 if not fail_silently:
                     raise
+            except ldap.SERVER_DOWN:
+                # Reopen connection and try again
+                del connections[connection]
+                conn = connections[connection]
+                try:
+                    conn.add_s(dn, add_list)
+                except ldap.ALREADY_EXISTS:
+                    if not fail_silently:
+                        raise
 
     def _mark_dirty(self):
         if self._old_values is None and self._fetched:
@@ -180,6 +203,14 @@ class LdapModel(object, metaclass=LdapModelMeta):
             result = conn.search_s(dn, ldap.SCOPE_BASE)[0][1]
         except ldap.NO_SUCH_OBJECT:
             raise cls.DoesNotExist(dn)
+        except ldap.SERVER_DOWN:
+            # Reopen connection and try again
+            del connections[connection]
+            conn = connections[connection]
+            try:
+                result = conn.search_s(dn, ldap.SCOPE_BASE)[0][1]
+            except ldap.NO_SUCH_OBJECT:
+                raise cls.DoesNotExist(dn)
         instance = cls(result)
         instance._fetched = True
         return instance
