@@ -1672,7 +1672,7 @@ msgstr "Matrix"
 
 #: mafiasi/matrix/apps.py:11
 msgid "Matrix provides decentralized messaging and VoIP with E2E encryption."
-msgstr "Matrix ermöglicht dezentrales chatten und VoIP mit E2E Verschlüsselung."
+msgstr "Matrix ermöglicht dezentrales Chatten und VoIP mit Ende-zu-Ende-Verschlüsselung."
 
 #: mafiasi/mattermost/apps.py:10
 msgid "Chat"
