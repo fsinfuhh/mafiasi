@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-10-28 15:37+0100\n"
-"PO-Revision-Date: 2020-10-28 15:38+0100\n"
-"Last-Translator: Timon Engelke <7engelke@informatik.uni-hamburg.de>\n"
+"PO-Revision-Date: 2021-01-11 16:00+0100\n"
+"Last-Translator: Jonas Bögle <8boegle@informatik.uni-hamburg.de>\n"
 "Language-Team: \n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
@@ -1653,6 +1653,14 @@ msgstr "Mail was discarded."
 #: mafiasi/mailinglist/views.py:123
 msgid "Mailinglist settings saved."
 msgstr "Mailinglist settings saved."
+
+#: mafiasi/matrix/apps.py:10
+msgid "Matrix"
+msgstr "Matrix"
+
+#: mafiasi/matrix/apps.py:11
+msgid "Matrix provides decentralized messaging and VoIP with E2E encryption."
+msgstr "Matrix provides decentralized messaging and VoIP with E2E encryption."
 
 #: mafiasi/mattermost/apps.py:10
 msgid "Chat"
