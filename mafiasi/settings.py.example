@@ -95,6 +95,7 @@ INSTALLED_APPS += (
     'mafiasi.wiki',
     'mafiasi.kanboard',
     'mafiasi.whiteboard',
+    'mafiasi.matrix',
 ) + INSTALLED_APPS_LATE
 
 EMAIL_DOMAIN = u'informatik.uni-hamburg.de'
@@ -170,6 +171,7 @@ WIKI_URL = 'https://wiki.mafiasi.de'
 BITPOLL_URL = 'https://bitpoll.mafiasi.de'
 WHITEBOARD_URL = 'https://spacedeck.mafiasi.de'
 KANBOARD_URL = 'https://kanboard.mafiasi.de'
+MATRIX_URL = 'https://matrix.mafiasi.de'
 
 PKS_COMMUNITY_DOMAINS = ['informatik.uni-hamburg.de', 'studium.uni-hamburg.de']
 
