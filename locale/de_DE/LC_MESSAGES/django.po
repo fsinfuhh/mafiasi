@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-28 15:37+0100\n"
-"PO-Revision-Date: 2020-10-28 15:38+0100\n"
+"POT-Creation-Date: 2021-03-01 15:58+0100\n"
+"PO-Revision-Date: 2021-03-01 15:59+0100\n"
 "Last-Translator: Timon Engelke <7engelke@informatik.uni-hamburg.de>\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.4.1\n"
+"X-Generator: Poedit 2.4.2\n"
 
 #: mafiasi/base/middleware.py:15
 msgid ""
@@ -424,6 +424,14 @@ msgstr "Prüfungsdatum:"
 msgid "Labels:"
 msgstr "Labels:"
 
+#: mafiasi/gprot/templates/gprot/_basic_form.js:5
+msgid "Select a module"
+msgstr "Modul auswählen"
+
+#: mafiasi/gprot/templates/gprot/_basic_form.js:12
+msgid "Select the examiners"
+msgstr "Prüfer auswählen"
+
 #: mafiasi/gprot/templates/gprot/_basic_form_modals.html:7
 #: mafiasi/gprot/templates/gprot/_basic_form_modals.html:34
 #: mafiasi/gprot/templates/gprot/_basic_form_modals.html:48
@@ -530,12 +538,6 @@ msgid "Create memory minutes"
 msgstr "Gedächtnisprotokoll erstellen"
 
 #: mafiasi/gprot/templates/gprot/create.html:15
-#, fuzzy
-#| msgid ""
-#| "\n"
-#| "        This page needs javascript in order to function correctly.\n"
-#| "        Please activate it before you proceed.\n"
-#| "        "
 msgid ""
 "\n"
 "            This page needs javascript in order to function correctly.\n"
@@ -543,16 +545,11 @@ msgid ""
 "        "
 msgstr ""
 "\n"
-"        Diese Seite benötigt JavaScript um richtig zu funktionieren..\n"
-"        Bitte aktiviere es, bevor du fortfährst.\n"
+"            Diese Seite benötigt JavaScript um richtig zu funktionieren..\n"
+"            Bitte aktiviere es, bevor du fortfährst.\n"
 "        "
 
 #: mafiasi/gprot/templates/gprot/create.html:23
-#, fuzzy
-#| msgid ""
-#| "\n"
-#| "Please take care to only upload <strong>memory</strong> minutes. This is "
-#| "not the place for photos of exams or similar.\n"
 msgid ""
 "\n"
 "        Please take care to only upload <strong>memory</strong> minutes. "
@@ -560,8 +557,9 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"Bitte nur <em>Gedächtnis</em>protokolle hochladen! Fotos von Klausuren und "
-"Vergleichbares haben hier nichts verloren.\n"
+"        Bitte nur <em>Gedächtnis</em>protokolle hochladen! Fotos von "
+"Klausuren und Vergleichbares haben hier nichts verloren.\n"
+"    "
 
 #: mafiasi/gprot/templates/gprot/create.html:33
 msgctxt "GProt format"
@@ -1089,14 +1087,7 @@ msgid "%(project_name)s Groups"
 msgstr "Gruppen auf %(project_name)s"
 
 #: mafiasi/groups/templates/groups/groups_base.html:68
-#, fuzzy, python-format
-#| msgid ""
-#| "\n"
-#| "      Accept an invitation or create a new group and invite\n"
-#| "      others to use %(project_name)s features such as private\n"
-#| "      etherpads, Nextcloud sharing, group calendars and group bitpolls. "
-#| "Please check for existing groups.\n"
-#| "      "
+#, python-format
 msgid ""
 "\n"
 "      Accept an invitation or create a new group and invite\n"
@@ -1287,7 +1278,7 @@ msgid "Username"
 msgstr "Benutzername"
 
 #: mafiasi/guests/templates/guests/accept.html:16
-#: mafiasi/registration/forms.py:74 mafiasi/registration/forms.py:98
+#: mafiasi/registration/forms.py:73 mafiasi/registration/forms.py:97
 #: mafiasi/registration/templates/registration/account.html:88
 #: mafiasi/registration/templates/registration/create_account.html:17
 #: mafiasi/registration/templates/registration/login.html:37
@@ -1295,7 +1286,7 @@ msgid "Password"
 msgstr "Passwort"
 
 #: mafiasi/guests/templates/guests/accept.html:25
-#: mafiasi/registration/forms.py:78
+#: mafiasi/registration/forms.py:77
 #: mafiasi/registration/templates/registration/create_account.html:26
 msgid "Password confirmation"
 msgstr "Passwort bestätigen"
@@ -2040,39 +2031,39 @@ msgstr "Teilnahme an der Keysigning-Party abgesagt."
 msgid "Invalid account name"
 msgstr "Ungültiger Accountname"
 
-#: mafiasi/registration/forms.py:23
+#: mafiasi/registration/forms.py:22
 msgid "That does not look like a valid account name."
 msgstr "Das ist keine valide Informatik-E-Mail-Adresse."
 
-#: mafiasi/registration/forms.py:52
+#: mafiasi/registration/forms.py:51
 msgid "Invalid domain"
 msgstr "Ungültige Domain"
 
-#: mafiasi/registration/forms.py:55
+#: mafiasi/registration/forms.py:54
 msgid "This field is required."
 msgstr "Dieses Feld darf nicht leer sein."
 
-#: mafiasi/registration/forms.py:58
+#: mafiasi/registration/forms.py:57
 msgid "Invalid yeargroup selected"
 msgstr "Ungültige Jahrgangsgruppe ausgewählt"
 
-#: mafiasi/registration/forms.py:88
+#: mafiasi/registration/forms.py:87
 msgid "The two password fields didn't match."
 msgstr "Die beiden Passwörter stimmen nicht überein."
 
-#: mafiasi/registration/forms.py:106
+#: mafiasi/registration/forms.py:105
 msgid "Wrong password."
 msgstr "Falsches Passwort."
 
-#: mafiasi/registration/forms.py:143
+#: mafiasi/registration/forms.py:142
 msgid "This address is already associated with an account."
 msgstr "Es existiert bereits ein Account mit dieser E-Mail-Adresse."
 
-#: mafiasi/registration/forms.py:147
+#: mafiasi/registration/forms.py:146
 msgid "Group addresses cannot be used for this purpose."
 msgstr "Gruppenadressen können hier nicht verwendet werden."
 
-#: mafiasi/registration/forms.py:150
+#: mafiasi/registration/forms.py:149
 msgid "Cloak adresses cannot be used for this purpose."
 msgstr "Cloak-Adressen können hier nicht verwendet werden."
 
