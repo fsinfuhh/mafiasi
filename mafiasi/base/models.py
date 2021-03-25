@@ -39,7 +39,7 @@ class YeargroupManager(models.Manager):
 class Yeargroup(models.Model):
     slug = models.SlugField(max_length=16, unique=True)
     name = models.CharField(max_length=16)
-    gid = models.BigIntegerField(blank=True, null=True)
+    gid = models.BigIntegerField(blank=True, null=True, unique=True)
 
     objects = YeargroupManager()
 
