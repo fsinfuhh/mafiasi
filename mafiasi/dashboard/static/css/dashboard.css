@@ -13,3 +13,7 @@
 
     color: #BCC2C4;
 }
+
+.first-of-april {
+    transform: rotate(180deg);
+}
