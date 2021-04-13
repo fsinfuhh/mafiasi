@@ -26,9 +26,8 @@ class RegisterForm(forms.Form):
 class AdditionalInfoForm(forms.Form):
     first_name = forms.CharField(max_length=40)
     last_name = forms.CharField(max_length=40)
-    account = forms.CharField(max_length=16)
-    domain = forms.ChoiceField(
-        choices=[(v, v) for v in settings.REGISTER_DOMAINS])
+    account = forms.CharField(max_length=64)
+    domain = forms.ChoiceField(choices=[(v, v) for v in settings.REGISTER_DOMAINS])
     yeargroup = forms.ModelChoiceField(queryset=Yeargroup.objects.all(),
                                        required=False)
 
@@ -38,7 +37,7 @@ class AdditionalInfoForm(forms.Form):
             where = ["slug LIKE '{0}'".format(group_name)]
             return Yeargroup.objects.extra(where=where)
         else:
-            return Yeargroup.objects.all()
+            return Yeargroup.objects.order_by('name')
 
     def clean(self):
         account = self.cleaned_data['account']
@@ -63,7 +62,7 @@ class AdditionalInfoForm(forms.Form):
         else:
             yeargroup = Yeargroup.objects.get_by_domain(domain)
             # Get queryset
-            yeargroups = Yeargroup.objects.filter(id=yeargroup.id)
+            yeargroups = Yeargroup.objects.filter(id=yeargroup.id).order_by('name')
 
         self.fields["yeargroup"].queryset = yeargroups
 
