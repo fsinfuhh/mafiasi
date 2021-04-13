@@ -263,7 +263,7 @@ def _send_mail_or_error_page(subject, content, address, request):
                 address, subject, content)))
     except SMTPRecipientsRefused as e:
         wrong_email, (error_code, error_msg) = list(e.recipients.items())[0]
-        unknown = 'User unknown' in error_msg
+        unknown = 'User unknown' in error_msg.decode()
         if not unknown:
             error_email_content = '{0}: {1}'.format(e.__class__.__name__,
                                                      repr(e.recipients))

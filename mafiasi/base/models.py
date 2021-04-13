@@ -57,7 +57,7 @@ class PasswdEntry(models.Model):
 
 
 class Mafiasi(AbstractUser):
-    account = models.CharField(max_length=40, validators=[validate_ascii])
+    account = models.CharField(max_length=64, validators=[validate_ascii])
     yeargroup = models.ForeignKey(Yeargroup, on_delete=models.CASCADE, blank=True, null=True)
     is_guest = models.BooleanField(default=False)
     real_email = models.EmailField(unique=True, null=True)
