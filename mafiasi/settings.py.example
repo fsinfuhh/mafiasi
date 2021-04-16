@@ -103,6 +103,12 @@ REGISTER_DOMAINS = [u'informatik.uni-hamburg.de', u'physnet.uni-hamburg.de']
 REGISTER_DOMAIN_MAPPING = {
     u'physnet.uni-hamburg.de': 'physnet',
 }
+
+ACCOUNT_PATTERNS = {
+    'informatik.uni-hamburg.de': r'\d?[a-z]+',
+    'physnet.uni-hamburg.de': r'[a-z]+',
+}
+
 JABBER_DOMAIN = 'jabber.mafiasi.de'
 JABBER_CERT_FILE = '/app/jabber-cert/tls.crt'
 if os.path.isfile(JABBER_CERT_FILE):
@@ -209,7 +215,5 @@ USER_LOGIN_HINT = "Note: For our account names we use two digits for year (e.g. 
 GUEST_INVITE_INSTRUCTION_LINK = "https://dash.crossmodal-learning.org/static_redir/instruction"
 
 GUEST_ACCEPT_INVITATION_MAIL = False
-
-ACCOUNT_PATTERN = r'\d?[a-z]+'
 
 INVALID_MAIL_DOMAIN = 'invalid.invalid'

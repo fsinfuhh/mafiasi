@@ -13,13 +13,16 @@ class RegisterForm(forms.Form):
         choices=[(v, v) for v in settings.REGISTER_DOMAINS])
 
     def clean_account(self):
+        domain = self.data['domain']
         account = self.cleaned_data['account'].lower()
-        if '@' in account:
-            account, _domain = account.split('@', 1)
-        if not account.isalnum():
-            raise forms.ValidationError(_('Invalid account name'))
-        if not re.fullmatch(settings.ACCOUNT_PATTERN, account):
-            raise forms.ValidationError(_('That does not look like a valid account name.'))
+
+        if domain not in settings.ACCOUNT_PATTERNS:
+            # no pattern given, accept everything
+            return account
+
+        if not re.fullmatch(settings.ACCOUNT_PATTERNS[domain], account):
+            raise forms.ValidationError(_('That does not look like a valid account name for {}.').format(domain))
+
         return account
 
 
