@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-01 15:58+0100\n"
+"POT-Creation-Date: 2021-04-16 17:53+0200\n"
 "PO-Revision-Date: 2021-03-01 16:00+0100\n"
 "Last-Translator: Timon Engelke <7engelke@informatik.uni-hamburg.de>\n"
 "Language-Team: \n"
@@ -166,27 +166,27 @@ msgstr ""
 "Le BitPoll vous aide à trouver des dates communes pour les réunions "
 "facilement."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:5
+#: mafiasi/dashboard/templates/dashboard/index.html:6
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:12
+#: mafiasi/dashboard/templates/dashboard/index.html:14
 msgid "Services"
 msgstr "Services"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:25
+#: mafiasi/dashboard/templates/dashboard/index.html:27
 msgid "Rearrange item"
 msgstr "Réorganiser"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:33
+#: mafiasi/dashboard/templates/dashboard/index.html:35
 msgid "News and more"
 msgstr "Les nouvelles et plus"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:49
+#: mafiasi/dashboard/templates/dashboard/index.html:51
 msgid "Wiki search"
 msgstr "Recherche Wiki"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:56
+#: mafiasi/dashboard/templates/dashboard/index.html:58
 #: mafiasi/gprot/templates/gprot/menu.html:4
 #: mafiasi/pks/templates/pks/menu.html:4
 #: mafiasi/pks/templates/pks/search.html:5
@@ -1309,7 +1309,7 @@ msgid "Username"
 msgstr "Nom d'utilisateur"
 
 #: mafiasi/guests/templates/guests/accept.html:16
-#: mafiasi/registration/forms.py:73 mafiasi/registration/forms.py:97
+#: mafiasi/registration/forms.py:75 mafiasi/registration/forms.py:99
 #: mafiasi/registration/templates/registration/account.html:88
 #: mafiasi/registration/templates/registration/create_account.html:17
 #: mafiasi/registration/templates/registration/login.html:37
@@ -1317,7 +1317,7 @@ msgid "Password"
 msgstr "Mot de passe"
 
 #: mafiasi/guests/templates/guests/accept.html:25
-#: mafiasi/registration/forms.py:77
+#: mafiasi/registration/forms.py:79
 #: mafiasi/registration/templates/registration/create_account.html:26
 msgid "Password confirmation"
 msgstr "Confirmation mot de passe"
@@ -2063,43 +2063,39 @@ msgstr "Été transmis avec succès clés pour faire la fête."
 msgid "Not participating in this keysigning party."
 msgstr "Ne participe pas à cette signature de clés."
 
-#: mafiasi/registration/forms.py:20
-msgid "Invalid account name"
-msgstr "Invalid nom de compte"
+#: mafiasi/registration/forms.py:24
+msgid "That does not look like a valid account name for {}."
+msgstr "Ça ne ressemble pas une adresse e-mail de l'informatique pour {}."
 
-#: mafiasi/registration/forms.py:22
-msgid "That does not look like a valid account name."
-msgstr "Ça ne ressemble pas une adresse e-mail de l'informatique."
-
-#: mafiasi/registration/forms.py:51
+#: mafiasi/registration/forms.py:53
 msgid "Invalid domain"
 msgstr "Domaine non valide"
 
-#: mafiasi/registration/forms.py:54
+#: mafiasi/registration/forms.py:56
 msgid "This field is required."
 msgstr "Ce case est obligatoire."
 
-#: mafiasi/registration/forms.py:57
+#: mafiasi/registration/forms.py:59
 msgid "Invalid yeargroup selected"
 msgstr "Yeargroup non valide sélectionnée"
 
-#: mafiasi/registration/forms.py:87
+#: mafiasi/registration/forms.py:89
 msgid "The two password fields didn't match."
 msgstr "Les deux case de mot de passe ne correspondent pas."
 
-#: mafiasi/registration/forms.py:105
+#: mafiasi/registration/forms.py:107
 msgid "Wrong password."
 msgstr "Mot de passe incorrect."
 
-#: mafiasi/registration/forms.py:142
+#: mafiasi/registration/forms.py:144
 msgid "This address is already associated with an account."
 msgstr "Il existe déjà un compte avec cet e-mail."
 
-#: mafiasi/registration/forms.py:146
+#: mafiasi/registration/forms.py:148
 msgid "Group addresses cannot be used for this purpose."
 msgstr "Les adresses de groupe ne peuvent pas être utilisées ici."
 
-#: mafiasi/registration/forms.py:149
+#: mafiasi/registration/forms.py:151
 msgid "Cloak adresses cannot be used for this purpose."
 msgstr "Les adresses masquées ne peuvent pas être utilisées ici."
 
@@ -2453,6 +2449,9 @@ msgid "In the wiki you will find important information regarding your studies."
 msgstr ""
 "Dans le wiki, vous trouverez des informations importantes concernant vos "
 "études."
+
+#~ msgid "Invalid account name"
+#~ msgstr "Invalid nom de compte"
 
 #~ msgid "We have recorded the error under the Identifier %(errorid)s."
 #~ msgstr "Nous avons enregistré l'erreur sous l'identificateur %(errorid)s."
