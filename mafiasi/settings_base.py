@@ -53,6 +53,7 @@ TEMPLATES = [
             'context_processors': [
                 'django.contrib.auth.context_processors.auth',
                 'django.template.context_processors.media',
+                'django.template.context_processors.request',
                 'django.contrib.messages.context_processors.messages',
             ]},
     },
@@ -168,3 +169,5 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'mafiasi.base.validation.AsciiValidator',
     },
 ]
+
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
