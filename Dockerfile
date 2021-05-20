@@ -1,5 +1,8 @@
 FROM docker.io/debian:buster-slim
 
+# https://stackoverflow.com/questions/58160597/docker-fails-with-sub-process-usr-bin-dpkg-returned-an-er
+RUN mkdir -p /usr/share/man/man1
+
 # Install base system dependencies
 RUN apt update && \
     apt install -y --no-install-recommends uwsgi uwsgi-plugin-python3 python3 python3-pip \
