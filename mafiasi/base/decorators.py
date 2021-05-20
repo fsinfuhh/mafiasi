@@ -37,5 +37,5 @@ def require_auth(username, password, realm='Login'):
 
 def _data_dependent_delay(data, max_sleep=0.02):
     mac = hmac.new(settings.SECRET_KEY.encode(), data, hashlib.sha512).digest()
-    sleep_time = (ord(mac[0])/255.0)*max_sleep
+    sleep_time = (mac[0]/255.0)*max_sleep
     time.sleep(sleep_time)
