@@ -13,4 +13,4 @@ spec:
       targetPort: "http"
     - name: "hkp"
       port: 11371
-      targetPort: "hkp"
+      targetPort: "http"
