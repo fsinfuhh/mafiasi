@@ -5,7 +5,7 @@ import magic
 from datetime import date
 
 from fuzzywuzzy import fuzz
-from PyPDF2 import PdfFileReader, PdfFileWriter
+from PyPDF2 import PdfFileMerger
 from django.conf import settings
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
@@ -143,21 +143,21 @@ def _clean_pdf_metadata(gprot):
         gprot.course.get_full_name(),
         gprot.exam_date.strftime("%Y-%m-%d"),
     )
-    writer = PdfFileWriter()
+
+    # Merging only one file cleans metadata
+    merger = PdfFileMerger()
 
     # Django file fields aren't context managers :/
     gprot.content_pdf.open('rb')
-    reader = PdfFileReader(gprot.content_pdf)
-    for i in range(reader.getNumPages()):
-        writer.addPage(reader.getPage(i))
+    merger.append(gprot.content_pdf)
     gprot.content_pdf.close()
 
-    writer.addMetadata({
+    merger.addMetadata({
         '/Title': title,
     })
 
     gprot.content_pdf.open('rb+')
-    writer.write(gprot.content_pdf)
+    merger.write(gprot.content_pdf)
     gprot.content_pdf.close()
 
 @login_required
