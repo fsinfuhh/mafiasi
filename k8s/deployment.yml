@@ -52,6 +52,10 @@ spec:
           ports:
             - name: "http"
               containerPort: 8000
+            - name: "mailserv-group"
+              containerPort: 2522
+            - name: "mailserv-cloak"
+              containerPort: 2523
           volumeMounts:
             - name: "config"
               mountPath: "/app/config"

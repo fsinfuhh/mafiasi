@@ -14,3 +14,9 @@ spec:
     - name: "hkp"
       port: 11371
       targetPort: "http"
+    - name: "mailserv-group"
+      port: 2522
+      targetPort: "mailserv-group"
+    - name: "mailserv-cloak"
+      port: 2523
+      targetPort: "mailserv-cloak"
