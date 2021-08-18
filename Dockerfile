@@ -15,8 +15,9 @@ RUN apt update && \
 ADD Pipfile /app/src/Pipfile
 ADD Pipfile.lock /app/src/Pipfile.lock
 WORKDIR /app/src
-RUN pipenv install --system --deploy --ignore-pipfile && \
-    pip3 install sentry-sdk
+RUN pip3 install -U pip && \
+    pipenv install --system --deploy --ignore-pipfile && \
+    pip3 install sentry-sdk typing-extensions
 
 # add remaining sources
 ADD . /app/src
@@ -25,6 +26,7 @@ ADD . /app/src
 RUN cp docker/nginx.conf /etc/nginx/sites-enabled/default && \
     cp docker/uwsgi.ini /etc/uwsgi/mafiasi-dashboard.ini && \
     cp docker/supervisor.conf /etc/supervisor/conf.d/app.conf && \
+    mkdir /app/config && \
     cp mafiasi/settings.py.example /app/config/settings.py && \
     ln -sf /app/config/settings.py /app/src/mafiasi/settings.py && \
     touch /app/config/jabber_cert_fingerprint && \
