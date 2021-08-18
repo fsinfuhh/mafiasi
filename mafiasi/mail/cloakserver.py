@@ -1,7 +1,7 @@
 
 
 import copy
-from email.parser import Parser
+from email.parser import Parser, BytesParser
 from email.utils import getaddresses, formataddr
 import logging
 import smtplib
@@ -16,7 +16,10 @@ logger = logging.getLogger('mailcloak')
 
 class CloakServer(customsmtpd.RaisingSMTPServer):
     def process_message(self, peer, mailfrom, rcpttos, data, **kwargs):
-        parser = Parser()
+        if self._decode_data:
+            parser = Parser()
+        else:
+            parser = BytesParser()
         message = parser.parsestr(data)
         
         rcptto_addresses = [addr[1].lower() for addr in getaddresses(rcpttos)]
