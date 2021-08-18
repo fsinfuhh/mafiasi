@@ -1,6 +1,6 @@
 
 
-from email.parser import Parser
+from email.parser import Parser, BytesParser
 from email.utils import parseaddr
 import logging
 
@@ -10,9 +10,13 @@ from mafiasi.mailinglist.models import Mailinglist
 logger = logging.getLogger('mailinglist')
 
 class MailinglistServer(customsmtpd.RaisingSMTPServer):
-    def process_message(self, peer, mailfrom, rcpttos, data):
-        parser = Parser()
-        message = parser.parsestr(data)
+    def process_message(self, peer, mailfrom, rcpttos, data, **kwargs):
+        if self._decode_data:
+            parser = Parser()
+            message = parser.parsestr(data)
+        else:
+            parser = BytesParser()
+            message = parser.parsebytes(data)
         
         for rcptto in rcpttos:
             self.process_message_single(mailfrom, rcptto, message)
