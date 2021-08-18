@@ -15,7 +15,7 @@ from mafiasi.base.models import Mafiasi
 logger = logging.getLogger('mailcloak')
 
 class CloakServer(customsmtpd.RaisingSMTPServer):
-    def process_message(self, peer, mailfrom, rcpttos, data):
+    def process_message(self, peer, mailfrom, rcpttos, data, **kwargs):
         parser = Parser()
         message = parser.parsestr(data)
         
