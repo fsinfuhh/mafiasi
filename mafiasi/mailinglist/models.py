@@ -47,8 +47,8 @@ class Mailinglist(models.Model):
     def moderate(self, email_obj):
         if 'From' not in email_obj:
             return None
-        email_data = email_obj.as_bytes()
-        email_content = b64encode(email_data).decode()
+        email_data = email_obj.as_string()
+        email_content = b64encode(email_data.encode()).decode()
         modmail = ModeratedMail.objects.create(mailinglist=self,
                                                email_content=email_content)
         modmail._parsed_message = email_obj
