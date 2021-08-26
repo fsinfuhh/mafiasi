@@ -1,4 +1,4 @@
-FROM docker.io/debian:buster-slim
+FROM docker.io/debian:bullseye-slim
 
 # https://stackoverflow.com/questions/58160597/docker-fails-with-sub-process-usr-bin-dpkg-returned-an-er
 RUN mkdir -p /usr/share/man/man1
