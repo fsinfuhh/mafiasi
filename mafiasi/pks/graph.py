@@ -1,8 +1,6 @@
-
-
 import os
 from binascii import hexlify
-from cgi import escape as escape_html
+from html import escape as escape_html
 import xml.etree.ElementTree as ET
 
 import gpgme
