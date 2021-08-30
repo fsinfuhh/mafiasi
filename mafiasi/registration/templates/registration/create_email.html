@@ -1,21 +1,13 @@
-{% extends "base_email.html" %}
-{% load i18n %}
-{% load settings_value %}
-{% autoescape off %}
+{% extends "base_email.html" %}{% load i18n %}{% load settings_value %}{% autoescape off %}
+{% block content_de %}Hallo,
 
-
-{% block content_de %}
-    Hallo,
-
-    Hier ist dein Registrierungs Link:
-    {{ activation_link }}
+hier ist dein Registrierungs-Link für den Benutzernamen "{{ account }}":
+{{ activation_link }}
 {% endblock %}
-
 
 {% block content_en %}
 Hi,
 
-Here is your account creation link:
+Here is your account creation link for the username "{{ account }}":
 {{ activation_link }}
-{% endblock %}
-{% endautoescape %}
+{% endblock %}{% endautoescape %}

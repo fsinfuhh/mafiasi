@@ -217,3 +217,20 @@ GUEST_INVITE_INSTRUCTION_LINK = "https://dash.crossmodal-learning.org/static_red
 GUEST_ACCEPT_INVITATION_MAIL = False
 
 INVALID_MAIL_DOMAIN = 'invalid.invalid'
+
+REGISTRATION_LDAP_CA = '/app/config/ca.crt'
+REGISTRATION_LDAP_URI = 'ldaps://ldap.example.org'
+REGISTRATION_LDAP_BIND_DN = 'cn=readonly,dc=example,dc=org'
+REGISTRATION_LDAP_PASSWORD = ''
+REGISTRATION_LDAP_USER_SEARCH_FAST = LDAPSearch('dc=nested,dc=namespace,dc=base,dc=example,dc=org',
+                                                ldap.SCOPE_SUBTREE,
+                                                '(uid=%(uid)s)',
+                                                ['mail', 'gecos', 'gidNumber'])
+REGISTRATION_LDAP_USER_SEARCH_SLOW = LDAPSearch('dc=base,dc=example,dc=org',
+                                                ldap.SCOPE_SUBTREE,
+                                                '(uid=%(uid)s)',
+                                                ['mail', 'gecos', 'gidNumber'])
+REGISTRATION_LDAP_GROUP_SEARCH = LDAPSearch('dc=base,dc=example,dc=org',
+                                            ldap.SCOPE_SUBTREE,
+                                            '(&(gidNumber=%(gidNumber)s)(objectClass=group))',
+                                            ['name'])

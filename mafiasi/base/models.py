@@ -14,17 +14,8 @@ from mafiasi.base.validation import validate_ascii
 
 LOCK_ID_LDAP_GROUP = -215652734
 
-class YeargroupManager(models.Manager):
-    def get_by_account(self, account):
-        try:
-            passwd = PasswdEntry.objects.get(username=account)
-            try:
-                return Yeargroup.objects.get(gid=passwd.gid)
-            except Yeargroup.DoesNotExist:
-                return None
-        except PasswdEntry.DoesNotExist:
-            return None
 
+class YeargroupManager(models.Manager):
     def get_by_domain(self, domain):
         domain = settings.REGISTER_DOMAIN_MAPPING[domain]
         try:
@@ -45,15 +36,6 @@ class Yeargroup(models.Model):
 
     def __str__(self):
         return self.name
-
-
-class PasswdEntry(models.Model):
-    username = models.CharField(max_length=40, unique=True)
-    full_name = models.CharField(max_length=60)
-    gid = models.BigIntegerField()
-
-    def __str__(self):
-        return self.username
 
 
 class Mafiasi(AbstractUser):
@@ -148,7 +130,7 @@ def _change_user_cb(sender, instance, created, **kwargs):
     if created:
         if instance.first_name:
             display_name = '{} ({})'.format(instance.first_name,
-                                             instance.username)
+                                            instance.username)
         else:
             display_name = instance.username
         ldap_user.display_name = display_name

@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-16 17:53+0200\n"
-"PO-Revision-Date: 2021-03-01 16:00+0100\n"
+"POT-Creation-Date: 2021-08-30 17:52+0200\n"
+"PO-Revision-Date: 2021-08-30 18:02+0200\n"
 "Last-Translator: Timon Engelke <7engelke@informatik.uni-hamburg.de>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Poedit 3.0\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: mafiasi/base/middleware.py:15
@@ -1309,7 +1309,7 @@ msgid "Username"
 msgstr "Nom d'utilisateur"
 
 #: mafiasi/guests/templates/guests/accept.html:16
-#: mafiasi/registration/forms.py:75 mafiasi/registration/forms.py:99
+#: mafiasi/registration/forms.py:85 mafiasi/registration/forms.py:109
 #: mafiasi/registration/templates/registration/account.html:88
 #: mafiasi/registration/templates/registration/create_account.html:17
 #: mafiasi/registration/templates/registration/login.html:37
@@ -1317,7 +1317,7 @@ msgid "Password"
 msgstr "Mot de passe"
 
 #: mafiasi/guests/templates/guests/accept.html:25
-#: mafiasi/registration/forms.py:79
+#: mafiasi/registration/forms.py:89
 #: mafiasi/registration/templates/registration/create_account.html:26
 msgid "Password confirmation"
 msgstr "Confirmation mot de passe"
@@ -1325,8 +1325,8 @@ msgstr "Confirmation mot de passe"
 #: mafiasi/guests/templates/guests/accept.html:34
 #: mafiasi/registration/templates/registration/create_account.html:5
 #: mafiasi/registration/templates/registration/create_account.html:36
-#: mafiasi/registration/templates/registration/require_info.html:55
-#: mafiasi/registration/templates/registration/require_info_other.html:29
+#: mafiasi/registration/templates/registration/require_info.html:37
+#: mafiasi/registration/templates/registration/require_info_other.html:28
 msgid "Create account"
 msgstr "Créer un compte"
 
@@ -1392,14 +1392,12 @@ msgid "This invitation has been withdrawn or is no longer valid."
 msgstr "Cette invitation a été retirée ou ne est plus valide."
 
 #: mafiasi/guests/templates/guests/invite.html:46
-#: mafiasi/registration/templates/registration/require_info.html:32
-#: mafiasi/registration/templates/registration/require_info_other.html:21
+#: mafiasi/registration/templates/registration/require_info_other.html:20
 msgid "First name"
 msgstr "Prénom"
 
 #: mafiasi/guests/templates/guests/invite.html:50
-#: mafiasi/registration/templates/registration/require_info.html:41
-#: mafiasi/registration/templates/registration/require_info_other.html:25
+#: mafiasi/registration/templates/registration/require_info_other.html:24
 msgid "Last name"
 msgstr "Nom de famille"
 
@@ -2064,38 +2062,42 @@ msgid "Not participating in this keysigning party."
 msgstr "Ne participe pas à cette signature de clés."
 
 #: mafiasi/registration/forms.py:24
+msgid "That does not look like a valid account name."
+msgstr "Ça ne ressemble pas un compte informatique."
+
+#: mafiasi/registration/forms.py:26
 msgid "That does not look like a valid account name for {}."
 msgstr "Ça ne ressemble pas une adresse e-mail de l'informatique pour {}."
 
-#: mafiasi/registration/forms.py:53
+#: mafiasi/registration/forms.py:68
 msgid "Invalid domain"
 msgstr "Domaine non valide"
 
-#: mafiasi/registration/forms.py:56
+#: mafiasi/registration/forms.py:71
 msgid "This field is required."
 msgstr "Ce case est obligatoire."
 
-#: mafiasi/registration/forms.py:59
+#: mafiasi/registration/forms.py:74
 msgid "Invalid yeargroup selected"
 msgstr "Yeargroup non valide sélectionnée"
 
-#: mafiasi/registration/forms.py:89
+#: mafiasi/registration/forms.py:99
 msgid "The two password fields didn't match."
 msgstr "Les deux case de mot de passe ne correspondent pas."
 
-#: mafiasi/registration/forms.py:107
+#: mafiasi/registration/forms.py:117
 msgid "Wrong password."
 msgstr "Mot de passe incorrect."
 
-#: mafiasi/registration/forms.py:144
+#: mafiasi/registration/forms.py:154
 msgid "This address is already associated with an account."
 msgstr "Il existe déjà un compte avec cet e-mail."
 
-#: mafiasi/registration/forms.py:148
+#: mafiasi/registration/forms.py:158
 msgid "Group addresses cannot be used for this purpose."
 msgstr "Les adresses de groupe ne peuvent pas être utilisées ici."
 
-#: mafiasi/registration/forms.py:151
+#: mafiasi/registration/forms.py:161
 msgid "Cloak adresses cannot be used for this purpose."
 msgstr "Les adresses masquées ne peuvent pas être utilisées ici."
 
@@ -2308,40 +2310,67 @@ msgstr "Réinitialiser mon mot de passe"
 msgid "Registration"
 msgstr "Inscription"
 
-#: mafiasi/registration/templates/registration/request_account.html:9
-msgid ""
-"Please enter your <a href=\"https://mafiasi.de/Kennungen\">Informatics email "
-"address</a> into the following field.\n"
-"Afterwards you will receive an email with further instructions."
-msgstr ""
-"S'il vous plaît entrez votre <a href=\"https://mafiasi.de/Kennungen"
-"\">adresse e-mail de l'informatique</a> dans le champ suivant. Ensuite, vous "
-"recevrez un courriel avec des instructions supplémentaires."
+#: mafiasi/registration/templates/registration/request_account.html:13
+msgid "Registration with informatics account"
+msgstr "Inscription avec compte informatique"
 
-#: mafiasi/registration/templates/registration/request_account.html:30
+#: mafiasi/registration/templates/registration/request_account.html:18
+msgid ""
+"Please enter your informatics account into the following field.\n"
+"                    When you study informatics or a related subject, have "
+"informatics as secondary subject, or work\n"
+"                    at the informatics department, you have received an "
+"informatics account that is usually composed\n"
+"                    of a number and up to seven letters, e.g. 1musterm.\n"
+"                    After the registration, you will receive an email with "
+"further instructions."
+msgstr ""
+"Veuillez entrer votre compte informatique dans le champ suivant.\n"
+"                    Lorsque vous étudiez l'informatique, une matière "
+"connexe, vous avez l'informatique comme matière secondaire ou travaillez au "
+"département informatique, vous avez reçu un compte informatique qui est "
+"généralement composé d'un numéro et sept lettres au maximum, par exemple "
+"1musterm.\n"
+"Après l'inscription, vous recevrez un e-mail contenant des instructions "
+"supplémentaires."
+
+#: mafiasi/registration/templates/registration/request_account.html:36
+#: mafiasi/registration/templates/registration/request_account.html:72
 msgid "Request account"
 msgstr "Demande compte"
+
+#: mafiasi/registration/templates/registration/request_account.html:46
+msgid "Registration with email address"
+msgstr "Inscription avec adresse e-mail"
+
+#: mafiasi/registration/templates/registration/request_account.html:52
+msgid ""
+"Here, registration with specific email addresses is possible. Unless you "
+"have\n"
+"                one of the listed email addresses, you should register with "
+"your informatics account."
+msgstr ""
+"Ici, l'enregistrement avec des adresses électroniques spécifiques est "
+"possible. Si vous n'avez pas l'une des adresses électroniques listées, vous "
+"devez vous inscrire avec votre compte informatique."
 
 #: mafiasi/registration/templates/registration/request_successful.html:4
 msgid "Verify your address to continue"
 msgstr "Vérifiez votre adresse pour continuer"
 
 #: mafiasi/registration/templates/registration/request_successful.html:8
-#, python-format
 msgid ""
-"You should have received a link via email (to <strong>%(email)s</strong>) "
-"now, which you can use to verify your address."
+"If the given account exists, you should have received a link via email now, "
+"which you can use to verify your address."
 msgstr ""
-"Vous devriez avoir reçu un lien par e-mail (à <strong>%(email)s</strong>) "
-"maintenant, que vous pouvez utiliser pour vérifier votre adresse."
+"Si le compte donné existe, vous devriez avoir reçu un lien par e-mail que "
+"vous pouvez utiliser pour vérifier votre adresse."
 
 #: mafiasi/registration/templates/registration/require_info.html:7
-#: mafiasi/registration/templates/registration/require_info_other.html:6
 msgid "Sorry, but we don't know you yet :-("
 msgstr "Désolé, mais nous ne vous connaissons pas encore :-("
 
 #: mafiasi/registration/templates/registration/require_info.html:11
-#: mafiasi/registration/templates/registration/require_info_other.html:10
 msgid "Please provide us some more information."
 msgstr "S'il vous plaît nous fournir quelques informations."
 
@@ -2349,11 +2378,15 @@ msgstr "S'il vous plaît nous fournir quelques informations."
 msgid "Informatics account"
 msgstr "Compte informatique"
 
-#: mafiasi/registration/templates/registration/require_info.html:50
+#: mafiasi/registration/templates/registration/require_info.html:32
 msgid "Year of study start"
 msgstr "Année de début de l'étude"
 
-#: mafiasi/registration/templates/registration/require_info_other.html:17
+#: mafiasi/registration/templates/registration/require_info_other.html:6
+msgid "Please complete your registration"
+msgstr "Veuillez compléter votre inscription"
+
+#: mafiasi/registration/templates/registration/require_info_other.html:16
 msgid "Your Email"
 msgstr "Votre e-mail"
 
@@ -2373,29 +2406,29 @@ msgstr "Jeton non valide"
 msgid "Sorry, but the provided token is invalid."
 msgstr "Désolé, mais le jeton fourni ne est pas valide."
 
-#: mafiasi/registration/views.py:187
+#: mafiasi/registration/views.py:199
 msgid "Password was changed."
 msgstr "Mot de passe a été changé."
 
-#: mafiasi/registration/views.py:193
+#: mafiasi/registration/views.py:205
 msgid "Your nickname is now {}."
 msgstr "Votre nom est {}."
 
-#: mafiasi/registration/views.py:229
+#: mafiasi/registration/views.py:242
 msgid "Your email address has been changed."
 msgstr "Votre adresse é-mail a été modifiée."
 
-#: mafiasi/registration/views.py:244
+#: mafiasi/registration/views.py:258
 #, python-format
 msgid "Verify this address for %s"
 msgstr "Vérifiez cette adresse pour %s"
 
-#: mafiasi/registration/views.py:255
+#: mafiasi/registration/views.py:271
 #, python-format
 msgid "Account creation at %s"
 msgstr "Création de compte à %s"
 
-#: mafiasi/registration/views.py:271
+#: mafiasi/registration/views.py:288
 msgid "Registration: Sending mail failed: {}"
 msgstr "Enregistrement : L'envoi du courrier a échoué: {}"
 
@@ -2449,6 +2482,15 @@ msgid "In the wiki you will find important information regarding your studies."
 msgstr ""
 "Dans le wiki, vous trouverez des informations importantes concernant vos "
 "études."
+
+#~ msgid ""
+#~ "Please enter your <a href=\"https://mafiasi.de/Kennungen\">Informatics "
+#~ "email address</a> into the following field.\n"
+#~ "Afterwards you will receive an email with further instructions."
+#~ msgstr ""
+#~ "S'il vous plaît entrez votre <a href=\"https://mafiasi.de/Kennungen"
+#~ "\">adresse e-mail de l'informatique</a> dans le champ suivant. Ensuite, "
+#~ "vous recevrez un courriel avec des instructions supplémentaires."
 
 #~ msgid "Invalid account name"
 #~ msgstr "Invalid nom de compte"

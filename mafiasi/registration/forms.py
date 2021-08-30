@@ -7,10 +7,9 @@ from mafiasi import settings
 from mafiasi.base.models import Mafiasi, Yeargroup
 
 
-class RegisterForm(forms.Form):
+class PrimaryRegisterForm(forms.Form):
     account = forms.CharField()
-    domain = forms.ChoiceField(
-        choices=[(v, v) for v in settings.REGISTER_DOMAINS])
+    domain = forms.CharField(widget=forms.HiddenInput())
 
     def clean_account(self):
         domain = self.data['domain']
@@ -21,14 +20,20 @@ class RegisterForm(forms.Form):
             return account
 
         if not re.fullmatch(settings.ACCOUNT_PATTERNS[domain], account):
-            raise forms.ValidationError(_('That does not look like a valid account name for {}.').format(domain))
+            if domain == settings.PRIMARY_DOMAIN:
+                raise forms.ValidationError(_('That does not look like a valid account name.'))
+            else:
+                raise forms.ValidationError(_('That does not look like a valid account name for {}.').format(domain))
 
         return account
 
 
-class AdditionalInfoForm(forms.Form):
-    first_name = forms.CharField(max_length=40)
-    last_name = forms.CharField(max_length=40)
+class OtherRegisterForm(PrimaryRegisterForm):
+    domain = forms.ChoiceField(
+        choices=[(v, v) for v in settings.REGISTER_DOMAINS if v != settings.PRIMARY_DOMAIN])
+
+
+class YearForm(forms.Form):
     account = forms.CharField(max_length=64)
     domain = forms.ChoiceField(choices=[(v, v) for v in settings.REGISTER_DOMAINS])
     yeargroup = forms.ModelChoiceField(queryset=Yeargroup.objects.all(),
@@ -41,6 +46,16 @@ class AdditionalInfoForm(forms.Form):
             return Yeargroup.objects.extra(where=where)
         else:
             return Yeargroup.objects.order_by('name')
+
+    def prefill(self, account, domain):
+        if domain == settings.PRIMARY_DOMAIN:
+            yeargroups = self._yeargroups_for_account(account)
+        else:
+            yeargroup = Yeargroup.objects.get_by_domain(domain)
+            # Get queryset
+            yeargroups = Yeargroup.objects.filter(id=yeargroup.id).order_by('name')
+
+        self.fields["yeargroup"].queryset = yeargroups
 
     def clean(self):
         account = self.cleaned_data['account']
@@ -59,15 +74,10 @@ class AdditionalInfoForm(forms.Form):
                 raise forms.ValidationError(_('Invalid yeargroup selected'))
         return self.cleaned_data
 
-    def prefill(self, account, domain):
-        if domain == settings.PRIMARY_DOMAIN:
-            yeargroups = self._yeargroups_for_account(account)
-        else:
-            yeargroup = Yeargroup.objects.get_by_domain(domain)
-            # Get queryset
-            yeargroups = Yeargroup.objects.filter(id=yeargroup.id).order_by('name')
 
-        self.fields["yeargroup"].queryset = yeargroups
+class AdditionalInfoForm(YearForm):
+    first_name = forms.CharField(max_length=40)
+    last_name = forms.CharField(max_length=40)
 
 
 class PasswordForm(forms.Form):
