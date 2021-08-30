@@ -18,38 +18,63 @@ from django.views.decorators.http import require_POST
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
 
-from mafiasi.base.models import Yeargroup, Mafiasi, PasswdEntry
+from mafiasi.base.models import Yeargroup, Mafiasi
+from mafiasi.registration.utils import get_irz_ldap_entry, get_irz_ldap_group
 from mafiasi.registration.models import create_mafiasi_account
-from mafiasi.registration.forms import (RegisterForm, AdditionalInfoForm,
-                                        PasswordForm, NickChangeForm,
-                                        EmailChangeForm)
+from mafiasi.registration.forms import (AdditionalInfoForm, PasswordForm, NickChangeForm,
+                                        EmailChangeForm, PrimaryRegisterForm, OtherRegisterForm)
 
 TOKEN_MAX_AGE = 3600 * 24
 
+
 def request_account(request):
     if request.method == 'POST':
-        form = RegisterForm(request.POST)
+        is_primary = request.POST['domain'] == settings.PRIMARY_DOMAIN
+        if is_primary:
+            form = PrimaryRegisterForm(request.POST)
+        else:
+            form = OtherRegisterForm(request.POST)
         if form.is_valid():
             account = form.cleaned_data['account']
             domain = form.cleaned_data['domain']
             if domain == settings.PRIMARY_DOMAIN:
-                yeargroup = Yeargroup.objects.get_by_account(account)
-                if yeargroup:                     
-                    return _finish_account_request(request, {
-                        'action': 'request_account',
-                        'account': account,
-                        'domain': domain,
-                        'yeargroup_pk': yeargroup.pk
-                    })
-                else:
-                    info_form = AdditionalInfoForm()
-                    info_form.prefill(account, domain)
-                    return TemplateResponse(request,
-                        'registration/require_info.html', {
-                            'account': account,
-                            'info_form': info_form,
-                    })
+                user = get_irz_ldap_entry(uid=account)
+                if user is None:
+                    # Nobody is supposed to know that this account does not exist. Therefore, pretend success.
+                    return TemplateResponse(request, 'registration/request_successful.html')
+                try:
+                    yeargroup = Yeargroup.objects.get(gid=user['gid'])
+                except Yeargroup.DoesNotExist:
+                    if account[0].isdigit():
+                        # ask the LDAP for the group (which is only relevant for ids starting with a digit)
+                        irz_group_slug = get_irz_ldap_group(user['gid'])
+                        if irz_group_slug is None:
+                            # this should not happen because only students should have accounts
+                            # starting with a digit, and all students should be in a yeargroup that
+                            # exists in the IRZ's LDAP
+                            raise AssertionError(f'The yeargroup {user["gid"]} was referenced in the IRZ Active '
+                                                  'Directory but does not actually exist there.')
+                        else:
+                            # This should usually only happen once a year, when the first user
+                            # of the new yeargroup fills out the registration form.
+                            group_slug = irz_group_slug.lstrip('j')
+                            yeargroup = Yeargroup(slug=group_slug, name=group_slug, gid=user['gid'])
+                            yeargroup.save()
+                    else:
+                        # All accounts that start with another letter than a digit are employee
+                        # accounts and should be treated as such. Further differentiation by their
+                        # actual groups (which correspond to the research groups) is not necessary.
+                        yeargroup = Yeargroup.objects.get(slug='employee')
+
+                return _finish_account_request(request, {
+                    'action': 'request_account',
+                    'account': account,
+                    'domain': domain,
+                    'yeargroup_pk': yeargroup.pk,
+                    'email': user['email'],
+                })
             else:
+                # here we need all the information because these users are not in the registration LDAP
                 info_form = AdditionalInfoForm()
                 info_form.prefill(account, domain)
                 return TemplateResponse(request,
@@ -58,62 +83,53 @@ def request_account(request):
                         'domain': domain,
                         'info_form': info_form,
                     })
+        else:
+            return TemplateResponse(request, 'registration/request_account.html', {
+                'form_principal': form if is_primary else PrimaryRegisterForm(),
+                'form_other': OtherRegisterForm() if is_primary else form,
+                'is_primary': is_primary,
+            })
 
-    else:
-        form = RegisterForm()
+    form = PrimaryRegisterForm(initial={'domain': settings.PRIMARY_DOMAIN})
 
     return TemplateResponse(request, 'registration/request_account.html', {
-            'form': form,
+            'form_principal': form,
+            'form_other': OtherRegisterForm(),
+            'is_primary': True,
         })
 
 
 @require_POST
 def additional_info(request):
-    if request.POST:
-        form = AdditionalInfoForm(request.POST)
-        if form.is_valid():
-            return _finish_account_request(request, {
-                        'action': 'request_account',
-                        'account': form.cleaned_data['account'],
-                        'domain': form.cleaned_data['domain'],
-                        'first_name': form.cleaned_data['first_name'],
-                        'last_name': form.cleaned_data['last_name'],
-                        'yeargroup_pk': form.cleaned_data['yeargroup'].pk
-                    })
-
-    if not 'domain' in form.cleaned_data or not 'account' in form.cleaned_data:
-        return redirect('registration_request_account')
-    else:
-        domain = form.cleaned_data['domain']
+    form = AdditionalInfoForm(request.POST)
+    if form.is_valid():
         account = form.cleaned_data['account']
-
-    if domain == settings.PRIMARY_DOMAIN:
-        template = 'registration/require_info.html'
-    else:
-        template = 'registration/require_info_other.html'
-    form.prefill(account, domain)
-
-    return TemplateResponse(request, template, {
-        'account': account,
-        'domain': domain,
-        'info_form': form,
-    })
+        domain = form.cleaned_data['domain']
+        return _finish_account_request(request, {
+                    'action': 'request_account',
+                    'account': account,
+                    'domain': domain,
+                    'first_name': form.cleaned_data['first_name'],
+                    'last_name': form.cleaned_data['last_name'],
+                    'yeargroup_pk': form.cleaned_data['yeargroup'].pk,
+                    'email': f'{account}@{domain}',
+                })
 
 
-def request_successful(request, email):
-    return TemplateResponse(request, 'registration/request_successful.html', {
-        'email': email
-    })
+def request_successful(request):
+    return TemplateResponse(request, 'registration/request_successful.html')
+
 
 def _create_username(info, yeargroup):
-    if info['account'][0].isdigit():
-        return yeargroup.slug[2] + info['account']
-    elif info['domain'] != settings.PRIMARY_DOMAIN:
+    if info['domain'] != settings.PRIMARY_DOMAIN:
         return "{}.{}".format(
             info['account'],
             settings.REGISTER_DOMAIN_MAPPING[info['domain']])
+    elif info['account'][0].isdigit():
+        return yeargroup.slug[2] + info['account']
     else:
         return info['account']
+
 
 def create_account(request, info_token):
     if request.user.is_authenticated:
@@ -135,23 +151,18 @@ def create_account(request, info_token):
     if request.method == 'POST':
         form = PasswordForm(request.POST)
         if form.is_valid():
-            first_name = info.get('first_name')
-            last_name = info.get('last_name')
-            if not (first_name and last_name):
-                if info['domain'] == settings.PRIMARY_DOMAIN:
-                    try:
-                        passwd = PasswdEntry.objects.get(username=info['account'])
-                        name_parsed = HumanName(passwd.full_name)
-                        first_name = name_parsed.first
-                        last_name = name_parsed.last
-                    except PasswdEntry.DoesNotExist:
-                        # This happens only when someone removed an entry
-                        # from our passwd database manually
-                        pass
-                else:
-                    return TemplateResponse(request,
-                                            'registration/token_invalid.html')
-            email = '{0}@{1}'.format(info['account'], info['domain'])
+            if info['domain'] == settings.PRIMARY_DOMAIN:
+                # Get information from IRZ LDAP
+                user = get_irz_ldap_entry(uid=info['account'])
+                email = user['email']
+                name_parsed = HumanName(user['name'])
+                first_name = name_parsed.first
+                last_name = name_parsed.last
+            else:
+                first_name = info.get('first_name')
+                last_name = info.get('last_name')
+                email = '{0}@{1}'.format(info['account'], info['domain'])
+
             mafiasi = create_mafiasi_account(username=username,
                                              email=email,
                                              first_name=first_name,
@@ -172,6 +183,7 @@ def create_account(request, info_token):
         'form': form,
         'username': username
     })
+
 
 @login_required
 def account_settings(request):
@@ -206,6 +218,7 @@ def account_settings(request):
         'username': request.user.username,
     })
 
+
 @login_required
 def change_email(request, token):
     try:
@@ -229,6 +242,7 @@ def change_email(request, token):
     messages.success(request, _('Your email address has been changed.'))
     return redirect('registration_account')
 
+
 def _verify_email(request, email):
     token = signing.dumps({
         'email': email,
@@ -244,17 +258,20 @@ def _verify_email(request, email):
     return _send_mail_or_error_page(_('Verify this address for %s' % settings.PROJECT_NAME),
                                     email_content, email, request)
 
+
 def _finish_account_request(request, info):
-    email = '{0}@{1}'.format(info['account'], info['domain'])
+    email = info['email']
     token = signing.dumps(info)
     url_path = reverse('registration_create_account', args=(token,))
     activation_link = request.build_absolute_uri(url_path)
     email_content = render_to_string('registration/create_email.html', {
-        'activation_link': activation_link
+        'account': info['account'],
+        'activation_link': activation_link,
     })
     return _send_mail_or_error_page(_('Account creation at %s' % settings.PROJECT_NAME),
                                     email_content, email, request)
-    
+
+
 def _send_mail_or_error_page(subject, content, address, request):
     try:
         send_mail(subject, content, None, [address])
@@ -279,4 +296,4 @@ def _send_mail_or_error_page(subject, content, address, request):
             'recipient': wrong_email
         })
 
-    return redirect('registration_request_successful', address)
+    return redirect('registration_request_successful')

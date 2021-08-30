@@ -6,29 +6,76 @@
 {% block wtitle %}{% block ptitle %}{% trans "Registration" %}{% endblock %}{% endblock %}
 
 {% block content %}
-<p>{% blocktrans %}Please enter your <a href="https://mafiasi.de/Kennungen">Informatics email address</a> into the following field.
-Afterwards you will receive an email with further instructions.{% endblocktrans %}
-</p>
-<form method="post" action="" class="form-inline">
-    {% csrf_token %}
-    <p>
-        <div class="form-group{% if form.account.errors %} has-error{% endif %}">
-                {% render_field form.account class+="form-control" style="width: 100px;" %}
+    <div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse-primary">{% trans "Registration with informatics account" %}</a>
+            </h4>
         </div>
-        @
-        <div class="form-group">
-            {% render_field form.domain class+="form-control" %}
+        <div id="collapse-primary" class="panel-collapse collapse{% if is_primary %} in{% endif %}">
+            <div class="panel-body">
+                <p>{% blocktrans %}Please enter your informatics account into the following field.
+                    When you study informatics or a related subject, have informatics as secondary subject, or work
+                    at the informatics department, you have received an informatics account that is usually composed
+                    of a number and up to seven letters, e.g. 1musterm.
+                    After the registration, you will receive an email with further instructions.{% endblocktrans %}
+                </p>
+                <form method="post" action="" class="form-inline input-group">
+                    {% csrf_token %}
+                    {% if form_principal.account.errors and is_primary %}
+                    <p>
+                        <span class="help-block">
+                            {% for error in form_principal.account.errors %}{{ error }} {% endfor %}
+                        </span>
+                    </p>
+                    {% endif %}
+                    {{ form_principal.domain.as_hidden }}
+                    <div class="form-group{% if form.account.errors %} has-error{% endif %}">
+                        {% render_field form_principal.account class+="form-control" style="width: 200px;" %}
+                        <span class="input-group-btn"><input type="submit" class="btn btn-default" value="{% trans "Request account" %}"/></span>
+                    </div>
+                </form>
+            </div>
         </div>
-    </p>
-    <p>
-        {% if form.account.errors %}
-            <span class="help-block">
-            {% for error in form.account.errors %}{{ error }} {% endfor %}
-        </span>
-        {% endif %}
-    </p>
-    <p><input type="submit" class="btn btn-default" value="{% trans "Request account" %}" /></p>
-</form>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse-other">
+                    {% trans "Registration with email address" %}
+                </a>
+            </h4>
+        </div>
+        <div id="collapse-other" class="panel-collapse collapse{% if not is_primary %} in{% endif %}">
+            <div class="panel-body">
+                <p>{% blocktrans %}Here, registration with specific email addresses is possible. Unless you have
+                one of the listed email addresses, you should register with your informatics account.{% endblocktrans %}</p>
+                <form method="post" action="" class="form-inline">
+                    {% csrf_token %}
+                    <p>
+                        <div class="form-group{% if form_other.account.errors %} has-error{% endif %}">
+                                {% render_field form_other.account class+="form-control" style="width: 100px;" %}
+                        </div>
+                        @
+                        <div class="form-group">
+                            {% render_field form_other.domain class+="form-control" %}
+                        </div>
+                    </p>
+                    {% if form_other.account.errors and not is_primary %}
+                        <p>
+                            <span class="help-block">
+                            {% for error in form_other.account.errors %}{{ error }} {% endfor %}
+                            </span>
+                        </p>
+                    {% endif %}
+                    <p><input type="submit" class="btn btn-default" value="{% trans "Request account" %}" /></p>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+
 {% endblock content %}
 
 {% block css %}
