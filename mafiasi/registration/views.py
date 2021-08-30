@@ -68,7 +68,6 @@ def request_account(request):
 
                 return _finish_account_request(request, {
                     'action': 'request_account',
-                    'account': account,
                     'domain': domain,
                     'yeargroup_pk': yeargroup.pk,
                     'email': user['email'],
@@ -107,7 +106,6 @@ def additional_info(request):
         domain = form.cleaned_data['domain']
         return _finish_account_request(request, {
                     'action': 'request_account',
-                    'account': account,
                     'domain': domain,
                     'first_name': form.cleaned_data['first_name'],
                     'last_name': form.cleaned_data['last_name'],
@@ -265,7 +263,6 @@ def _finish_account_request(request, info):
     url_path = reverse('registration_create_account', args=(token,))
     activation_link = request.build_absolute_uri(url_path)
     email_content = render_to_string('registration/create_email.html', {
-        'account': info['account'],
         'activation_link': activation_link,
     })
     return _send_mail_or_error_page(_('Account creation at %s' % settings.PROJECT_NAME),
