@@ -1,10 +1,9 @@
-
-
 from copy import deepcopy
 
 import ldap
 from ldap.dn import escape_dn_chars
 from ldap.modlist import addModlist, modifyModlist
+from ldap.ldapobject import ReconnectLDAPObject
 
 from django.conf import settings
 
@@ -28,10 +27,9 @@ class ConnectionManager(object):
     def __getitem__(self, connection_name):
         if connection_name not in self._connections:
             server = settings.LDAP_SERVERS[connection_name]
-            conn = ldap.initialize(server['URI'])
-            conn.bind_s(server['BIND_DN'],
-                        server['BIND_PASSWORD'],
-                        ldap.AUTH_SIMPLE)
+            ldap.set_option(ldap.OPT_X_TLS_CACERTFILE, server.get('CA', ''))
+            conn = ReconnectLDAPObject(server['URI'])
+            conn.simple_bind_s(server['BIND_DN'], server['BIND_PASSWORD'])
             self._connections[connection_name] = conn
         return self._connections[connection_name]
 
@@ -163,15 +161,6 @@ class LdapModel(object, metaclass=LdapModelMeta):
             except ldap.NO_SUCH_OBJECT:
                 if not fail_silently:
                     raise
-            except ldap.SERVER_DOWN:
-                # Reopen connection and try again
-                del connections[connection]
-                conn = connections[connection]
-                try:
-                    conn.modify_s(dn, mod_list)
-                except ldap.NO_SUCH_OBJECT:
-                    if not fail_silently:
-                        raise
 
         else:
             self._values['objectClass'] = self.object_classes
@@ -181,15 +170,6 @@ class LdapModel(object, metaclass=LdapModelMeta):
             except ldap.ALREADY_EXISTS:
                 if not fail_silently:
                     raise
-            except ldap.SERVER_DOWN:
-                # Reopen connection and try again
-                del connections[connection]
-                conn = connections[connection]
-                try:
-                    conn.add_s(dn, add_list)
-                except ldap.ALREADY_EXISTS:
-                    if not fail_silently:
-                        raise
 
     def _mark_dirty(self):
         if self._old_values is None and self._fetched:
@@ -203,14 +183,6 @@ class LdapModel(object, metaclass=LdapModelMeta):
             result = conn.search_s(dn, ldap.SCOPE_BASE)[0][1]
         except ldap.NO_SUCH_OBJECT:
             raise cls.DoesNotExist(dn)
-        except ldap.SERVER_DOWN:
-            # Reopen connection and try again
-            del connections[connection]
-            conn = connections[connection]
-            try:
-                result = conn.search_s(dn, ldap.SCOPE_BASE)[0][1]
-            except ldap.NO_SUCH_OBJECT:
-                raise cls.DoesNotExist(dn)
         instance = cls(result)
         instance._fetched = True
         return instance

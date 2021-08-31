@@ -37,7 +37,14 @@ LDAP_SERVERS = {
         'URI': 'ldap://localhost',
         'BIND_DN': '',
         'BIND_PASSWORD': '',
+    },
+    'registration': {
+        'CA': '/path/to/ldap/ca.crt',
+        'URI': '',
+        'BIND_DN': '',
+        'BIND_PASSWORD': '',
     }
+
 }
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
@@ -218,10 +225,6 @@ GUEST_ACCEPT_INVITATION_MAIL = False
 
 INVALID_MAIL_DOMAIN = 'invalid.invalid'
 
-REGISTRATION_LDAP_CA = '/app/config/ca.crt'
-REGISTRATION_LDAP_URI = 'ldaps://ldap.example.org'
-REGISTRATION_LDAP_BIND_DN = 'cn=readonly,dc=example,dc=org'
-REGISTRATION_LDAP_PASSWORD = ''
 REGISTRATION_LDAP_USER_SEARCH_FAST = LDAPSearch('dc=nested,dc=namespace,dc=base,dc=example,dc=org',
                                                 ldap.SCOPE_SUBTREE,
                                                 '(uid=%(uid)s)',
