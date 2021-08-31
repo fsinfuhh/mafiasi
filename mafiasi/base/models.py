@@ -144,7 +144,6 @@ def _change_user_cb(sender, instance, created, **kwargs):
     if instance.email:
         ldap_user.email = instance.email
 
-
     if instance.new_password:
         ldap_user.set_password(instance.new_password)
     ldap_user.save()
