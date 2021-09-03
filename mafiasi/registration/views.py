@@ -42,24 +42,25 @@ def request_account(request):
                 if user is None:
                     # Nobody is supposed to know that this account does not exist. Therefore, pretend success.
                     return TemplateResponse(request, 'registration/request_successful.html')
+                irz_group_slug = get_irz_ldap_group(user['gid'])
+                if irz_group_slug is None:
+                    # this should not happen because all groups used in the LDAP should also exist there
+                    raise AssertionError(f'The yeargroup {user["gid"]} was referenced in the IRZ LDAP '
+                                         'but does not actually exist there.')
+
+                # Our group slugs do not contain the leading 'j'
+                group_slug = irz_group_slug.lstrip('j')
+
                 try:
-                    yeargroup = Yeargroup.objects.get(gid=user['gid'])
+                    # Try to find the group with the same gid and slug. Because the gids can be reused
+                    # for new groups, we have to check both.
+                    yeargroup = Yeargroup.objects.get(gid=user['gid'], slug=group_slug)
                 except Yeargroup.DoesNotExist:
                     if account[0].isdigit():
-                        # ask the LDAP for the group (which is only relevant for ids starting with a digit)
-                        irz_group_slug = get_irz_ldap_group(user['gid'])
-                        if irz_group_slug is None:
-                            # this should not happen because only students should have accounts
-                            # starting with a digit, and all students should be in a yeargroup that
-                            # exists in the IRZ's LDAP
-                            raise AssertionError(f'The yeargroup {user["gid"]} was referenced in the IRZ Active '
-                                                  'Directory but does not actually exist there.')
-                        else:
-                            # This should usually only happen once a year, when the first user
-                            # of the new yeargroup fills out the registration form.
-                            group_slug = irz_group_slug.lstrip('j')
-                            yeargroup = Yeargroup(slug=group_slug, name=group_slug, gid=user['gid'])
-                            yeargroup.save()
+                        # This should usually only happen once a year, when the first user
+                        # of the new yeargroup fills out the registration form.
+                        yeargroup = Yeargroup(slug=group_slug, name=group_slug, gid=user['gid'])
+                        yeargroup.save()
                     else:
                         # All accounts that start with another letter than a digit are employee
                         # accounts and should be treated as such. Further differentiation by their
