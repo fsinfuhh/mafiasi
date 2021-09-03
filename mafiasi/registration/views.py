@@ -65,7 +65,7 @@ def request_account(request):
                         # All accounts that start with another letter than a digit are employee
                         # accounts and should be treated as such. Further differentiation by their
                         # actual groups (which correspond to the research groups) is not necessary.
-                        yeargroup = Yeargroup.objects.get(slug='employee')
+                        yeargroup = Yeargroup.objects.get_or_create(slug='employee', defaults={'name': 'Employee'})
 
                 return _finish_account_request(request, {
                     'action': 'request_account',
