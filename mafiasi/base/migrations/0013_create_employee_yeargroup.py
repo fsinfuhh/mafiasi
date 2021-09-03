@@ -7,7 +7,10 @@ def create_employee_yeargroup(apps, schema_editor):
     Yeargroup = apps.get_model("base", "Yeargroup")
     db_alias = schema_editor.connection.alias
     if not Yeargroup.objects.using(db_alias).filter(slug='employee').exists():
-        Yeargroup.objects.using(db_alias).create(slug='employee', name='Employee')
+        yeargroup = Yeargroup.objects.using(db_alias).create(slug='employee', name='Employee')
+        if apps.is_installed('jabber'):
+            from mafiasi.jabber import models
+            models.create_yeargroup(yeargroup, created=True)
 
 
 class Migration(migrations.Migration):
@@ -15,6 +18,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('base', '0012_delete_passwdentry'),
+        ('jabber', '0004_alter_created_at'),
     ]
 
     operations = [
