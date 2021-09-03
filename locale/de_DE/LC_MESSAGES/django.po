@@ -2343,7 +2343,7 @@ msgstr "Jahr des Studienbeginns"
 
 #: mafiasi/registration/templates/registration/require_info_other.html:6
 msgid "Please complete your registration"
-msgstr "Bitte beende deine Registrierung"
+msgstr "Bitte vervollständige deine Registrierung"
 
 #: mafiasi/registration/templates/registration/require_info_other.html:16
 msgid "Your Email"

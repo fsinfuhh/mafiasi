@@ -246,7 +246,7 @@ def create_jabber_account(mafiasi):
     return user
 
 @receiver(post_save, sender=Yeargroup)
-def create_yeargroup(sender, instance, created, **kwargs):
+def create_yeargroup(instance, created, **kwargs):
     if not created:
         # No changes necessary
         return
