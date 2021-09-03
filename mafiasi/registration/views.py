@@ -69,6 +69,7 @@ def request_account(request):
 
                 return _finish_account_request(request, {
                     'action': 'request_account',
+                    'account': account,
                     'domain': domain,
                     'yeargroup_pk': yeargroup.pk,
                     'email': user['email'],
@@ -112,6 +113,7 @@ def additional_info(request):
                     'last_name': form.cleaned_data['last_name'],
                     'yeargroup_pk': form.cleaned_data['yeargroup'].pk,
                     'email': f'{account}@{domain}',
+                    'account': account,
                 })
 
 
@@ -259,7 +261,7 @@ def _verify_email(request, email):
 
 
 def _finish_account_request(request, info):
-    email = info['email']
+    email = info.pop('email')
     token = signing.dumps(info)
     url_path = reverse('registration_create_account', args=(token,))
     activation_link = request.build_absolute_uri(url_path)

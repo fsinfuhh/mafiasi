@@ -40,7 +40,7 @@ class Yeargroup(models.Model):
 
 
 @receiver(pre_save, sender=Yeargroup)
-def yeargroup_pre_save(sender, instance, *args, **kwargs):
+def yeargroup_pre_save(sender, instance, **kwargs):
     if instance.id is None:
         # when instance.id is None, the object was just created
         try:
