@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-30 17:52+0200\n"
-"PO-Revision-Date: 2021-08-30 18:02+0200\n"
+"POT-Creation-Date: 2021-09-03 22:36+0200\n"
+"PO-Revision-Date: 2021-09-03 22:39+0200\n"
 "Last-Translator: Timon Engelke <7engelke@informatik.uni-hamburg.de>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -67,6 +67,8 @@ msgid "Logout"
 msgstr "Déconnecter"
 
 #: mafiasi/base/templates/base.html:55
+#: mafiasi/registration/templates/registration/request_account.html:34
+#: mafiasi/registration/templates/registration/request_account.html:70
 msgid "Register"
 msgstr "Enregistrez-Vous"
 
@@ -2317,33 +2319,21 @@ msgstr "Inscription avec compte informatique"
 #: mafiasi/registration/templates/registration/request_account.html:18
 msgid ""
 "Please enter your informatics account into the following field.\n"
-"                    When you study informatics or a related subject, have "
-"informatics as secondary subject, or work\n"
-"                    at the informatics department, you have received an "
-"informatics account that is usually composed\n"
-"                    of a number and up to seven letters, e.g. 1musterm.\n"
-"                    After the registration, you will receive an email with "
-"further instructions."
+"                    The account is usually composed of a number and up to "
+"seven letters, e.g. <code>1musterm</code>.\n"
+"                    Afterwards, you will receive an email with further "
+"instructions."
 msgstr ""
 "Veuillez entrer votre compte informatique dans le champ suivant.\n"
-"                    Lorsque vous étudiez l'informatique, une matière "
-"connexe, vous avez l'informatique comme matière secondaire ou travaillez au "
-"département informatique, vous avez reçu un compte informatique qui est "
-"généralement composé d'un numéro et sept lettres au maximum, par exemple "
-"1musterm.\n"
-"Après l'inscription, vous recevrez un e-mail contenant des instructions "
-"supplémentaires."
+"Il est généralement composé d'un numéro et sept lettres au maximum, par "
+"exemple <code>1musterm</code>.\n"
+"Ensuite, vous recevrez un e-mail contenant des instructions supplémentaires."
 
-#: mafiasi/registration/templates/registration/request_account.html:36
-#: mafiasi/registration/templates/registration/request_account.html:72
-msgid "Request account"
-msgstr "Demande compte"
-
-#: mafiasi/registration/templates/registration/request_account.html:46
+#: mafiasi/registration/templates/registration/request_account.html:44
 msgid "Registration with email address"
 msgstr "Inscription avec adresse e-mail"
 
-#: mafiasi/registration/templates/registration/request_account.html:52
+#: mafiasi/registration/templates/registration/request_account.html:50
 msgid ""
 "Here, registration with specific email addresses is possible. Unless you "
 "have\n"
@@ -2358,7 +2348,16 @@ msgstr ""
 msgid "Verify your address to continue"
 msgstr "Vérifiez votre adresse pour continuer"
 
-#: mafiasi/registration/templates/registration/request_successful.html:8
+#: mafiasi/registration/templates/registration/request_successful.html:10
+#, python-format
+msgid ""
+"You should have received a link to %(email)s now, which you can use to "
+"verify your address."
+msgstr ""
+"Vous devriez avoir reçu un lien à %(email)s que vous pouvez utiliser pour "
+"vérifier votre adresse."
+
+#: mafiasi/registration/templates/registration/request_successful.html:12
 msgid ""
 "If the given account exists, you should have received a link via email now, "
 "which you can use to verify your address."
@@ -2423,12 +2422,12 @@ msgstr "Votre adresse é-mail a été modifiée."
 msgid "Verify this address for %s"
 msgstr "Vérifiez cette adresse pour %s"
 
-#: mafiasi/registration/views.py:271
+#: mafiasi/registration/views.py:276
 #, python-format
 msgid "Account creation at %s"
 msgstr "Création de compte à %s"
 
-#: mafiasi/registration/views.py:288
+#: mafiasi/registration/views.py:293
 msgid "Registration: Sending mail failed: {}"
 msgstr "Enregistrement : L'envoi du courrier a échoué: {}"
 
@@ -2482,6 +2481,9 @@ msgid "In the wiki you will find important information regarding your studies."
 msgstr ""
 "Dans le wiki, vous trouverez des informations importantes concernant vos "
 "études."
+
+#~ msgid "Request account"
+#~ msgstr "Demande compte"
 
 #~ msgid ""
 #~ "Please enter your <a href=\"https://mafiasi.de/Kennungen\">Informatics "
