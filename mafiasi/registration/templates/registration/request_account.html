@@ -10,7 +10,8 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapse-primary">{% trans "Registration with informatics account" %}</a>
+                <a class="accordion-toggle{% if not is_primary %} collapsed{% endif %}" data-toggle="collapse"
+                   data-parent="#accordion" href="#collapse-primary">{% trans "Registration with informatics account" %}</a>
             </h4>
         </div>
         <div id="collapse-primary" class="panel-collapse collapse{% if is_primary %} in{% endif %}">
@@ -40,8 +41,8 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapse-other">
-                    {% trans "Registration with email address" %}
+                <a class="accordion-toggle{% if is_primary %} collapsed {% endif %}" data-toggle="collapse"
+                   data-parent="#accordion" href="#collapse-other">{% trans "Registration with email address" %}
                 </a>
             </h4>
         </div>
@@ -79,6 +80,7 @@
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{% static 'select2/select2.css' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'select2/select2-bootstrap.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/main.min.css' %}" />
 {% endblock css %}
 
 {% block js %}
