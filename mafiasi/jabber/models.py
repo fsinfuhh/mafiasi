@@ -274,7 +274,7 @@ def create_yeargroup(instance, created, **kwargs):
         # the operation. Unfortunately, these options are stored as an Erlang string which has to be
         # parsed manually.
         with transaction.atomic(using=SrGroup.objects.db):
-            seher_group = SrGroup.objects.get_or_create(name='jxxxx_seher', defaults={'opts': '[]'})
+            seher_group, _created = SrGroup.objects.get_or_create(name='jxxxx_seher', defaults={'opts': '[]'})
             current_group_options = seher_group.opts
             # These options are in the erlang string format
             options = erlangparser.parse(current_group_options)
