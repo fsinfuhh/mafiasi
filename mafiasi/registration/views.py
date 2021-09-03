@@ -41,7 +41,7 @@ def request_account(request):
                 user = get_irz_ldap_entry(uid=account)
                 if user is None:
                     # Nobody is supposed to know that this account does not exist. Therefore, pretend success.
-                    return TemplateResponse(request, 'registration/request_successful.html')
+                    return TemplateResponse(request, 'registration/request_successful.html', {'email': None})
                 irz_group_slug = get_irz_ldap_group(user['gid'])
                 if irz_group_slug is None:
                     # this should not happen because all groups used in the LDAP should also exist there
@@ -256,7 +256,7 @@ def _verify_email(request, email):
         'link': link,
     })
     return _send_mail_or_error_page(_('Verify this address for %s' % settings.PROJECT_NAME),
-                                    email_content, email, request)
+                                    email_content, email, request, email)
 
 
 def _finish_account_request(request, info):
@@ -267,11 +267,17 @@ def _finish_account_request(request, info):
     email_content = render_to_string('registration/create_email.html', {
         'activation_link': activation_link,
     })
+    # Registration was with email for all domains except the primary domain
+    if info['domain'] == settings.PRIMARY_DOMAIN:
+        # For the primary domain, don't leak the person's mail address
+        email_shown = None
+    else:
+        email_shown = email
     return _send_mail_or_error_page(_('Account creation at %s' % settings.PROJECT_NAME),
-                                    email_content, email, request)
+                                    email_content, email, request, email_shown)
 
 
-def _send_mail_or_error_page(subject, content, address, request):
+def _send_mail_or_error_page(subject, content, address, request, email_shown):
     try:
         send_mail(subject, content, None, [address])
         if settings.DEBUG:
@@ -295,4 +301,6 @@ def _send_mail_or_error_page(subject, content, address, request):
             'recipient': wrong_email
         })
 
-    return redirect('registration_request_successful')
+    return TemplateResponse(request, 'registration/request_successful.html', {
+        'email': email_shown,
+    })

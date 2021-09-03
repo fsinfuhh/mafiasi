@@ -5,6 +5,12 @@
 
 {% block content %}
 
-<p>{% blocktrans %}If the given account exists, you should have received a link via email now, which you can use to verify your address.{% endblocktrans %}</p>
+<p>
+{% if email %}
+{% blocktrans %}You should have received a link to {{ email }} now, which you can use to verify your address.{% endblocktrans %}
+{% else %}
+{% blocktrans %}If the given account exists, you should have received a link via email now, which you can use to verify your address.{% endblocktrans %}
+{% endif %}
+</p>
 
 {% endblock content %}
