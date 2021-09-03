@@ -3,8 +3,9 @@ import base64
 import hashlib
 
 from django.db import models
-from django.db.models.signals import post_save
+from django.db.models.signals import post_save, pre_save
 from django.conf import settings
+from django.dispatch import receiver
 from django.utils.crypto import constant_time_compare
 from django.contrib.auth.models import AbstractUser, Group
 
@@ -36,6 +37,20 @@ class Yeargroup(models.Model):
 
     def __str__(self):
         return self.name
+
+
+@receiver(pre_save, sender=Yeargroup)
+def yeargroup_pre_save(sender, instance, *args, **kwargs):
+    if instance.id is None:
+        # when instance.id is None, the object was just created
+        try:
+            # Sometimes, gids are reused. In this case, unset the old group's gid first.
+            same_gid_group = Yeargroup.objects.get(gid=instance.gid)
+            same_gid_group.gid = None
+            same_gid_group.save()
+        except Yeargroup.DoesNotExist:
+            # No problem, no conflicting group
+            pass
 
 
 class Mafiasi(AbstractUser):

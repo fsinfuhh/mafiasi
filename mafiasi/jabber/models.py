@@ -1,6 +1,6 @@
 from html import escape
 
-from django.db import models
+from django.db import models, transaction
 from django.db.models.signals import post_save
 from django.conf import settings
 from django.utils.timezone import now
@@ -8,8 +8,10 @@ from django.contrib.auth import get_user_model
 from django.dispatch import receiver
 
 from mafiasi.base.models import Yeargroup, Mafiasi
+from mafiasi.jabber import erlangparser
 
 import logging
+
 
 class PrivacyDefaultList(models.Model):
     username = models.TextField(primary_key=True)
@@ -90,7 +92,7 @@ class Rosteruser(models.Model):
 class SrGroup(models.Model):
     name = models.TextField(primary_key=True)
     opts = models.TextField()
-    created_at = models.DateTimeField()
+    created_at = models.DateTimeField(auto_now_add=True)
     class Meta:
         db_table = 'sr_group'
 
@@ -100,7 +102,7 @@ class SrGroup(models.Model):
 class SrUser(models.Model):
     jid = models.TextField()
     grp = models.TextField()
-    created_at = models.DateTimeField()
+    created_at = models.DateTimeField(auto_now_add=True)
     class Meta:
         db_table = 'sr_user'
         unique_together = ('jid', 'grp')
@@ -242,3 +244,50 @@ def create_jabber_account(mafiasi):
         SrUser.objects.create(jid=jid, grp=sr_group.name, created_at=now())
 
     return user
+
+@receiver(post_save, sender=Yeargroup)
+def create_yeargroup(sender, instance, created, **kwargs):
+    if not created:
+        # No changes necessary
+        return
+
+    if instance.gid is not None:
+        # Normal student year groups have a gid, set their jabber group name accordingly
+        jabber_group_name = 'j' + instance.slug
+    else:
+        # Other groups, e.g. for other registration domains, just get their slug as jabber name
+        jabber_group_name = instance.slug
+
+    # The sr_group table is the table containing the groups for the shared roster (sr).
+    # For each yeargroup, all students of the yeargroup are added to the corresponding
+    # sr_group automatically, via the create_jabber_account hook above.
+    sr_group = SrGroup.objects.create(name=jabber_group_name, opts=erlangparser.dump({'name': jabber_group_name}))
+    # Then, the sr group is mapped to the correct yeargroup in mafiasi.
+    YeargroupSrGroupMapping.objects.create(yeargroup_id=instance.id, sr_group=sr_group)
+
+    if jabber_group_name.startswith('j'):
+        # To make the new group visible to all other users, it is added to 'jxxxx_seher'. This
+        # is a group containing all users that should see the other users and the default group
+        # for new student users. Therefore, only student yeargroups should be added to the groups
+        # seen by jxxxx_seher, other groups should only see themselves.
+        # This code is in an atomic transaction to avoid other changes to the options string during
+        # the operation. Unfortunately, these options are stored as an Erlang string which has to be
+        # parsed manually.
+        with transaction.atomic(using='jabber'):
+            seher_group = SrGroup.objects.get(name='jxxxx_seher')
+            current_group_options = seher_group.opts
+            # These options are in the erlang string format
+            options = erlangparser.parse(current_group_options)
+            displayed_groups = options.get('displayed_groups', [])
+            displayed_groups.append(jabber_group_name)
+            displayed_groups.sort()
+            options['displayed_groups'] = displayed_groups
+            seher_group.opts = erlangparser.dump(options)
+            seher_group.save()
+    else:
+        # For non-student groups, make the group view itself.
+        options = sr_group.opts
+        data = erlangparser.parse(options)
+        data['displayed_groups'] = [jabber_group_name]
+        sr_group.opts = erlangparser.dump(data)
+        sr_group.save()
