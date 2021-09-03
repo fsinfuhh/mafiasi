@@ -273,7 +273,7 @@ def create_yeargroup(instance, created, **kwargs):
         # This code is in an atomic transaction to avoid other changes to the options string during
         # the operation. Unfortunately, these options are stored as an Erlang string which has to be
         # parsed manually.
-        with transaction.atomic(using='jabber'):
+        with transaction.atomic(using=SrGroup.objects.db):
             seher_group = SrGroup.objects.get(name='jxxxx_seher')
             current_group_options = seher_group.opts
             # These options are in the erlang string format
