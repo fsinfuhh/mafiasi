@@ -52,9 +52,8 @@ def request_account(request):
                 group_slug = irz_group_slug.lstrip('j')
 
                 try:
-                    # Try to find the group with the same gid and slug. Because the gids can be reused
-                    # for new groups, we have to check both.
-                    yeargroup = Yeargroup.objects.get(gid=user['gid'], slug=group_slug)
+                    # Try to find the group with the same slug.
+                    yeargroup = Yeargroup.objects.get(slug=group_slug)
                 except Yeargroup.DoesNotExist:
                     if account[0].isdigit():
                         # This should usually only happen once a year, when the first user
