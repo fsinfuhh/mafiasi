@@ -76,7 +76,7 @@ def request_account(request):
             else:
                 # here we need all the information because these users are not in the registration LDAP
                 info_form = AdditionalInfoForm()
-                info_form.prefill(account, domain)
+                info_form.prefill(domain)
                 return TemplateResponse(request,
                     'registration/require_info_other.html', {
                         'account': account,

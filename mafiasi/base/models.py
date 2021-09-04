@@ -19,12 +19,7 @@ LOCK_ID_LDAP_GROUP = -215652734
 class YeargroupManager(models.Manager):
     def get_by_domain(self, domain):
         domain = settings.REGISTER_DOMAIN_MAPPING[domain]
-        try:
-            yeargroup = Yeargroup.objects.get(name=domain)
-        except Yeargroup.DoesNotExist:
-            yeargroup = Yeargroup(slug=domain,
-                                  name=domain)
-            yeargroup.save()
+        yeargroup, _created = Yeargroup.objects.get_or_create(slug=domain, defaults={'name': domain})
         return yeargroup
 
 
