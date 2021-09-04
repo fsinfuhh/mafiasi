@@ -1,6 +1,7 @@
 import os
 import base64
 import hashlib
+import re
 
 from django.db import models
 from django.db.models.signals import post_save, pre_save
@@ -26,26 +27,15 @@ class YeargroupManager(models.Manager):
 class Yeargroup(models.Model):
     slug = models.SlugField(max_length=16, unique=True)
     name = models.CharField(max_length=16)
-    gid = models.BigIntegerField(blank=True, null=True, unique=True)
 
     objects = YeargroupManager()
 
     def __str__(self):
         return self.name
 
-
-@receiver(pre_save, sender=Yeargroup)
-def yeargroup_pre_save(sender, instance, **kwargs):
-    if instance.id is None:
-        # when instance.id is None, the object was just created
-        try:
-            # Sometimes, gids are reused. In this case, unset the old group's gid first.
-            same_gid_group = Yeargroup.objects.get(gid=instance.gid)
-            same_gid_group.gid = None
-            same_gid_group.save()
-        except Yeargroup.DoesNotExist:
-            # No problem, no conflicting group
-            pass
+    @property
+    def is_student_group(self):
+        return re.fullmatch(r'j\d{4}', self.slug) or self.slug == 'jx'
 
 
 class Mafiasi(AbstractUser):
