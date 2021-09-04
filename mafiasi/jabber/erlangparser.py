@@ -17,11 +17,11 @@ def parse(string: str) -> dict:
     return result
 
 
-def _sanitize(object: Union[list, str]) -> Union[list, str]:
+def _sanitize(object_to_sanitize: Union[list, str]) -> Union[list, str]:
     # To avoid possible code injections, keep only letters, digits, and whitespace
-    if isinstance(object, list):
-        return [_sanitize(x) for x in object]
-    return re.sub(r'[^\w\s]', '', object)
+    if isinstance(object_to_sanitize, list):
+        return [_sanitize(x) for x in object_to_sanitize]
+    return re.sub(r'[^\w\s]', '', object_to_sanitize)
 
 
 def dump(object: dict) -> str:
