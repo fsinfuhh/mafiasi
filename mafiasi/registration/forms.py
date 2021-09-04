@@ -33,7 +33,7 @@ class OtherRegisterForm(PrimaryRegisterForm):
         choices=[(v, v) for v in settings.REGISTER_DOMAINS if v != settings.PRIMARY_DOMAIN])
 
 
-class AdditionalInfo(forms.Form):
+class AdditionalInfoForm(forms.Form):
     account = forms.CharField(max_length=64)
     domain = forms.ChoiceField(choices=[(v, v) for v in settings.REGISTER_DOMAINS])
     yeargroup = forms.ModelChoiceField(queryset=Yeargroup.objects.all(),
