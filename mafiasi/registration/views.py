@@ -81,9 +81,15 @@ def request_account(request):
                         'info_form': info_form,
                     })
         else:
+            if is_primary:
+                form_principal = form
+                form_other = OtherRegisterForm()
+            else:
+                form_principal = PrimaryRegisterForm(initial={'domain': settings.PRIMARY_DOMAIN})
+                form_other = form
             return TemplateResponse(request, 'registration/request_account.html', {
-                'form_principal': form if is_primary else PrimaryRegisterForm(),
-                'form_other': OtherRegisterForm() if is_primary else form,
+                'form_principal': form_principal,
+                'form_other': form_other,
                 'is_primary': is_primary,
             })
 
