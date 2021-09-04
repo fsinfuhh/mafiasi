@@ -8,7 +8,6 @@ from django.core import signing
 from django.urls import reverse
 from django.core.mail import send_mail
 from django.conf import settings
-from django.contrib.sites.models import Site
 from django.template.loader import render_to_string
 
 from mafiasi.base.tokenbucket import TokenBucket
@@ -46,9 +45,8 @@ class Invitation(models.Model):
 
     def send_email(self):
         token = signing.dumps(self.pk)
-        site = Site.objects.get_current()
         url_path = reverse('guests_accept', args=(token,))
-        activation_link = 'https://{}{}'.format(site.domain, url_path)
+        activation_link = 'https://{}{}'.format(settings.PROJECT_NAME, url_path)
         email_content = render_to_string('guests/invitation_mail.txt', {
             'invitation': self,
             'activation_link': activation_link
@@ -59,7 +57,7 @@ class Invitation(models.Model):
             send_mail(subject, email_content, None, [self.email])
         except SMTPRecipientsRefused:
             pass # FIXME: Inform the user
-        
+
 
 class Guest(models.Model):
     guest_user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
