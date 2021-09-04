@@ -33,51 +33,29 @@ class OtherRegisterForm(PrimaryRegisterForm):
         choices=[(v, v) for v in settings.REGISTER_DOMAINS if v != settings.PRIMARY_DOMAIN])
 
 
-class YearForm(forms.Form):
+class AdditionalInfo(forms.Form):
     account = forms.CharField(max_length=64)
     domain = forms.ChoiceField(choices=[(v, v) for v in settings.REGISTER_DOMAINS])
     yeargroup = forms.ModelChoiceField(queryset=Yeargroup.objects.all(),
                                        required=False)
+    first_name = forms.CharField(max_length=40)
+    last_name = forms.CharField(max_length=40)
 
-    def _yeargroups_for_account(self, account):
-        if account[0].isdigit():
-            group_name = '___{0}'.format(account[0])
-            where = ["slug LIKE '{0}'".format(group_name)]
-            return Yeargroup.objects.extra(where=where)
-        else:
-            return Yeargroup.objects.order_by('name')
-
-    def prefill(self, account, domain):
-        if domain == settings.PRIMARY_DOMAIN:
-            yeargroups = self._yeargroups_for_account(account)
-        else:
-            yeargroup = Yeargroup.objects.get_by_domain(domain)
-            # Get queryset
-            yeargroups = Yeargroup.objects.filter(id=yeargroup.id).order_by('name')
+    def prefill(self, domain):
+        yeargroup = Yeargroup.objects.get_by_domain(domain)
+        # Get queryset
+        yeargroups = Yeargroup.objects.filter(id=yeargroup.id).order_by('name')
 
         self.fields["yeargroup"].queryset = yeargroups
 
     def clean(self):
-        account = self.cleaned_data['account']
         domain = self.cleaned_data['domain']
-        if domain != settings.PRIMARY_DOMAIN:
-            try:
-                self.cleaned_data['yeargroup'] = \
-                    Yeargroup.objects.get_by_domain(domain)
-            except KeyError:
-                raise forms.ValidationError(_('Invalid domain'))
-        else:
-            if not 'yeargroup' in self.cleaned_data:
-                raise forms.ValidationError(_('This field is required.'))
-            if not self.cleaned_data['yeargroup'] in \
-                self._yeargroups_for_account(account):
-                raise forms.ValidationError(_('Invalid yeargroup selected'))
+        try:
+            self.cleaned_data['yeargroup'] = Yeargroup.objects.get_by_domain(domain)
+        except KeyError:
+            raise forms.ValidationError(_('Invalid domain'))
+
         return self.cleaned_data
-
-
-class AdditionalInfoForm(YearForm):
-    first_name = forms.CharField(max_length=40)
-    last_name = forms.CharField(max_length=40)
 
 
 class PasswordForm(forms.Form):
