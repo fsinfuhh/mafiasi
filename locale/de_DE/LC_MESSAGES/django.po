@@ -70,7 +70,7 @@ msgstr "Abmelden"
 #: mafiasi/registration/templates/registration/request_account.html:34
 #: mafiasi/registration/templates/registration/request_account.html:70
 msgid "Register"
-msgstr "Registrierung"
+msgstr "Registrieren"
 
 #: mafiasi/base/templates/base.html:57
 #: mafiasi/registration/templates/registration/login.html:5
