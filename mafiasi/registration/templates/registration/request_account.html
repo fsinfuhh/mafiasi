@@ -8,10 +8,10 @@
 {% block content %}
     <div class="panel-group" id="accordion">
     <div class="panel panel-default">
-        <div class="panel-heading">
+        <div class="panel-heading{% if not is_primary %} collapsed{% endif %}"
+             data-toggle="collapse" data-parent="#accordion" href="#collapse-primary">
             <h4 class="panel-title">
-                <a class="accordion-toggle{% if not is_primary %} collapsed{% endif %}" data-toggle="collapse"
-                   data-parent="#accordion" href="#collapse-primary">{% trans "Registration with informatics account" %}</a>
+                <span class="accordion-toggle">{% trans "Registration with informatics account" %}</span>
             </h4>
         </div>
         <div id="collapse-primary" class="panel-collapse collapse{% if is_primary %} in{% endif %}">
@@ -39,11 +39,10 @@
         </div>
     </div>
     <div class="panel panel-default">
-        <div class="panel-heading">
+        <div class="panel-heading{% if is_primary %} collapsed {% endif %}"
+             data-toggle="collapse" data-parent="#accordion" href="#collapse-other">
             <h4 class="panel-title">
-                <a class="accordion-toggle{% if is_primary %} collapsed {% endif %}" data-toggle="collapse"
-                   data-parent="#accordion" href="#collapse-other">{% trans "Registration with email address" %}
-                </a>
+                <span class="accordion-toggle">{% trans "Registration with email address" %}</span>
             </h4>
         </div>
         <div id="collapse-other" class="panel-collapse collapse{% if not is_primary %} in{% endif %}">

@@ -118,11 +118,14 @@ body {
 .panel-heading .accordion-toggle:after {
     /* symbol for "opening" panels */
     font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
-    content: "\e114";
+    content: "\e113";
     float: right;
     color: grey;
 }
-.panel-heading .accordion-toggle.collapsed:after {
+.panel-heading.collapsed .accordion-toggle:after {
     /* symbol for "collapsed" panels */
-    content: "\e080";
+    content: "\e114";
+}
+.panel-heading {
+    cursor: pointer;
 }
