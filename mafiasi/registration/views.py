@@ -42,14 +42,11 @@ def request_account(request):
                 if user is None:
                     # Nobody is supposed to know that this account does not exist. Therefore, pretend success.
                     return TemplateResponse(request, 'registration/request_successful.html', {'email': None})
-                irz_group_slug = get_irz_ldap_group(user['gid'])
-                if irz_group_slug is None:
+                group_slug = get_irz_ldap_group(user['gid'])
+                if group_slug is None:
                     # this should not happen because all groups used in the LDAP should also exist there
                     raise AssertionError(f'The yeargroup {user["gid"]} was referenced in the IRZ LDAP '
                                          'but does not actually exist there.')
-
-                # Our group slugs do not contain the leading 'j'
-                group_slug = irz_group_slug.lstrip('j')
 
                 try:
                     # Try to find the group with the same slug.
@@ -58,7 +55,7 @@ def request_account(request):
                     if account[0].isdigit():
                         # This should usually only happen once a year, when the first user
                         # of the new yeargroup fills out the registration form.
-                        yeargroup = Yeargroup(slug=group_slug, name=group_slug, gid=user['gid'])
+                        yeargroup = Yeargroup(slug=group_slug, name=group_slug)
                         yeargroup.save()
                     else:
                         # All accounts that start with another letter than a digit are employee
@@ -126,7 +123,7 @@ def _create_username(info, yeargroup):
             info['account'],
             settings.REGISTER_DOMAIN_MAPPING[info['domain']])
     elif info['account'][0].isdigit():
-        return yeargroup.slug[2] + info['account']
+        return yeargroup.slug[-2] + info['account']
     else:
         return info['account']
 

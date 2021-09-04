@@ -246,26 +246,20 @@ def create_jabber_account(mafiasi):
     return user
 
 @receiver(post_save, sender=Yeargroup)
-def create_yeargroup(instance, created, **kwargs):
+def create_yeargroup(instance: Yeargroup, created, **kwargs):
     if not created:
         # No changes necessary
         return
 
-    if instance.gid is not None:
-        # Normal student year groups have a gid, set their jabber group name accordingly
-        jabber_group_name = 'j' + instance.slug
-    else:
-        # Other groups, e.g. for other registration domains, just get their slug as jabber name
-        jabber_group_name = instance.slug
-
+    jabber_group_name = instance.slug
     # The sr_group table is the table containing the groups for the shared roster (sr).
     # For each yeargroup, all students of the yeargroup are added to the corresponding
     # sr_group automatically, via the create_jabber_account hook above.
-    sr_group = SrGroup.objects.create(name=jabber_group_name, opts=erlangparser.dump({'name': jabber_group_name}))
+    sr_group = SrGroup.objects.create(name=jabber_group_name, opts=erlangparser.dump({'name': instance.name}))
     # Then, the sr group is mapped to the correct yeargroup in mafiasi.
     YeargroupSrGroupMapping.objects.create(yeargroup_id=instance.id, sr_group=sr_group)
 
-    if jabber_group_name.startswith('j'):
+    if instance.is_student_group:
         # To make the new group visible to all other users, it is added to 'jxxxx_seher'. This
         # is a group containing all users that should see the other users and the default group
         # for new student users. Therefore, only student yeargroups should be added to the groups
