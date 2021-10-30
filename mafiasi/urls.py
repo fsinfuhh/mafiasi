@@ -67,7 +67,7 @@ def handler404(request, exception):
         apps.get_app_config('wiki')
         path = str(request.path).replace('/', '', 1)
         if '/' in path:
-            return HttpResponse('Page not found')
+            return HttpResponse('Page not found', status=404)
 
         from mafiasi.wiki.views import redirect_to_wiki
         return redirect_to_wiki(request, path)
