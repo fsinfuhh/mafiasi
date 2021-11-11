@@ -317,8 +317,8 @@ msgid "Pad: %(pad_name)s"
 msgstr "Pad: %(pad_name)s"
 
 #: mafiasi/etherpad/templates/etherpad/pad.html:18
-msgid "Show this pad in fullscreen mode"
-msgstr "Show this pad in fullscreen mode"
+msgid "Hide navigation bars"
+msgstr "Hide navigation bars"
 
 #: mafiasi/fb18/apps.py:10
 msgid "FB18"
