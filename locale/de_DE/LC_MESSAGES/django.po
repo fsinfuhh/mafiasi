@@ -1657,6 +1657,14 @@ msgstr "E-Mail wurde verworfen."
 msgid "Mailinglist settings saved."
 msgstr "Mailinglisteneinstellungen gespeichert."
 
+#: mafiasi/matrix/apps.py:10
+msgid "Matrix"
+msgstr "Matrix"
+
+#: mafiasi/matrix/apps.py:11
+msgid "Matrix provides decentralized messaging and VoIP with E2E encryption."
+msgstr "Matrix ermöglicht dezentrales Chatten und VoIP mit Ende-zu-Ende-Verschlüsselung."
+
 #: mafiasi/mattermost/apps.py:10
 msgid "Chat"
 msgstr "Chat"

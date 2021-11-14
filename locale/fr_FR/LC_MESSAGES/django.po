@@ -1696,6 +1696,14 @@ msgstr "Courrier a été écartée."
 msgid "Mailinglist settings saved."
 msgstr "Mailing paramètres sauvegardés."
 
+#: mafiasi/matrix/apps.py:10
+msgid "Matrix"
+msgstr "Matrix"
+
+#: mafiasi/matrix/apps.py:11
+msgid "Matrix provides decentralized messaging and VoIP with E2E encryption."
+msgstr "Matrix fournit messagerie décentralisée et VoIP avec chiffrement de bout en bout."
+
 #: mafiasi/mattermost/apps.py:10
 msgid "Chat"
 msgstr "Chat"
