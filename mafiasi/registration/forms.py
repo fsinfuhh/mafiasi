@@ -131,10 +131,10 @@ class EmailChangeForm(forms.Form):
             raise forms.ValidationError(
                 _('This address is already associated with an account.'))
 
-        if email.endswith(settings.MAILINGLIST_DOMAIN):
+        if settings.MAILINGLIST_DOMAIN and email.endswith(settings.MAILINGLIST_DOMAIN):
             raise forms.ValidationError(
                 _('Group addresses cannot be used for this purpose.'))
-        elif email.endswith(settings.MAILCLOAK_DOMAIN):
+        elif settings.MAILCLOAK_DOMAIN and email.endswith(settings.MAILCLOAK_DOMAIN):
             raise forms.ValidationError(
                 _('Cloak adresses cannot be used for this purpose.'))
 
