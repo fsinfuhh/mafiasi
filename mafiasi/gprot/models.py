@@ -105,3 +105,13 @@ class Reminder(models.Model):
             self.user,
             self.course.name if self.course else "",
             self.exam_date)
+
+class Favorite(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    url = models.URLField()
+    courses = models.ManyToManyField(Course, blank=True)
+    examiners = models.ManyToManyField(Teacher, blank=True)
+
+    def __str__(self):
+        return '[{0}] {1}: {2}'.format(
+            self.pk, self.user, self.url)

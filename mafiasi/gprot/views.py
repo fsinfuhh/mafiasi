@@ -2,6 +2,7 @@
 import json
 import time
 import magic
+import re
 from datetime import date
 
 from fuzzywuzzy import fuzz
@@ -22,17 +23,18 @@ from django.utils.crypto import constant_time_compare
 from raven.contrib.django.raven_compat.models import client
 from django.middleware.csrf import get_token as get_csrf_token
 
-from mafiasi.teaching.models import Course, insert_autocomplete_courses
+from mafiasi.teaching.models import Course, Teacher, insert_autocomplete_courses
 from mafiasi.teaching.forms import TeacherForm, CourseForm
 from mafiasi.gprot.forms import \
         GProtBasicForm, GProtCreateForm, GProtSearchForm
-from mafiasi.gprot.models import Attachment, GProt, Notification, Reminder
+from mafiasi.gprot.models import Attachment, GProt, Notification, Reminder, Favorite
 from mafiasi.gprot.sanitize import clean_html
 
 @login_required
 def index(request):
     is_query = False
     gprots = []
+    favorites = Favorite.objects.filter(user=request.user)
     form = GProtSearchForm(request.GET)
     if form.is_valid():
         is_query = True
@@ -50,6 +52,7 @@ def index(request):
 
     return render(request, 'gprot/index.html', {
         'gprots': gprots,
+        'favorites': favorites,
         'is_query': is_query,
         'form': form,
     })
@@ -455,3 +458,27 @@ def delete_reminder(request, reminder_pk):
     reminder.delete()
 
     return redirect('gprot_reminders')
+
+@login_required
+def favorite(request):
+    action = request.POST.get('action', None)
+    user = request.user
+    url = request.POST.get('url', None)
+    if action == 'save':
+        if Favorite.objects.filter(user=user, url=url):
+              return HttpResponse('already a favorite', status=400)
+        favorite = Favorite.objects.create(user=user, url=url)
+        keywords = re.split("search=", url)[1:]
+        for keyword in keywords:
+            if keyword[-1] == "&":
+                keyword = keyword[:-1]
+            if keyword[0] == "c":
+                favorite.courses.add(Course.objects.get(id=int(keyword[2:])))
+            elif keyword[0] == "e":
+                favorite.examiners.add(Teacher.objects.get(id=int(keyword[2:])))
+    elif action == 'delete':
+        favorite = get_object_or_404(Favorite, user=user, url=url)
+        favorite.delete()
+    else:
+        return HttpResponse(status=400)
+    return HttpResponse(status=200)

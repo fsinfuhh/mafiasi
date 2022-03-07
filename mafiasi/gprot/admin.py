@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from mafiasi.gprot.models import Attachment, GProt, Label, Notification, Reminder
+from mafiasi.gprot.models import Attachment, GProt, Label, Notification, Reminder, Favorite
 
 admin.site.register(Attachment)
 
@@ -17,3 +17,4 @@ admin.site.register(GProt, GProtAdmin)
 admin.site.register(Notification)
 admin.site.register(Reminder)
 admin.site.register(Label)
+admin.site.register(Favorite)
