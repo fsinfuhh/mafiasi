@@ -2,7 +2,6 @@
 import json
 import time
 import magic
-import re
 from datetime import date
 
 from fuzzywuzzy import fuzz
@@ -22,6 +21,8 @@ from django.utils.translation import ugettext as _
 from django.utils.crypto import constant_time_compare
 from raven.contrib.django.raven_compat.models import client
 from django.middleware.csrf import get_token as get_csrf_token
+
+from urllib.parse import urlparse, parse_qs
 
 from mafiasi.teaching.models import Course, Teacher, insert_autocomplete_courses
 from mafiasi.teaching.forms import TeacherForm, CourseForm
@@ -461,24 +462,27 @@ def delete_reminder(request, reminder_pk):
 
 @login_required
 def favorite(request):
-    action = request.POST.get('action', None)
+    action = request.POST.get('action')
     user = request.user
-    url = request.POST.get('url', None)
+    url = request.POST.get('url')
+    if url == None:
+        return HttpResponse(status=400)
     if action == 'save':
         if Favorite.objects.filter(user=user, url=url):
               return HttpResponse('already a favorite', status=400)
         favorite = Favorite.objects.create(user=user, url=url)
-        keywords = re.split("search=", url)[1:]
+        query = urlparse(url).query
+        keywords = parse_qs(query)['search']
         for keyword in keywords:
-            if keyword[-1] == "&":
-                keyword = keyword[:-1]
             if keyword[0] == "c":
-                favorite.courses.add(Course.objects.get(id=int(keyword[2:])))
+                favorite.courses.add(get_object_or_404(Course, id=int(keyword[2:])))
             elif keyword[0] == "e":
-                favorite.examiners.add(Teacher.objects.get(id=int(keyword[2:])))
+                favorite.examiners.add(get_object_or_404(Teacher, id=int(keyword[2:])))
+        favorite.save()
+        return HttpResponse(status=201)
     elif action == 'delete':
         favorite = get_object_or_404(Favorite, user=user, url=url)
         favorite.delete()
+        return HttpResponse(status=204)
     else:
         return HttpResponse(status=400)
-    return HttpResponse(status=200)

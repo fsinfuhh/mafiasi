@@ -113,5 +113,4 @@ class Favorite(models.Model):
     examiners = models.ManyToManyField(Teacher, blank=True)
 
     def __str__(self):
-        return '[{0}] {1}: {2}'.format(
-            self.pk, self.user, self.url)
+        return '[{0}] {1}: {2}'.format(self.pk, self.user, self.url)

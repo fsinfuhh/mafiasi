@@ -65,3 +65,11 @@ a.table-row:hover {
 .table-labels {
     white-space: nowrap;
 }
+
+.lable-favorite{
+    background-color:white;
+    color:black;
+    border: solid 1px #bbbbbb;
+    font-size:13px;
+    font-weight: normal
+}
