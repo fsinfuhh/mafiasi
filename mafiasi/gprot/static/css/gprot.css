@@ -62,6 +62,16 @@ a.table-row:hover {
     background-color: #f9f9f9;
 }
 
+.cell-favorite {
+    color: unset;
+    text-decoration: none;
+}
+
+.cell-favorite:hover {
+    background-color: #e0e0e0 !important;
+    text-decoration: none;
+}
+
 .table-labels {
     white-space: nowrap;
 }
@@ -70,6 +80,6 @@ a.table-row:hover {
     background-color:white;
     color:black;
     border: solid 1px #bbbbbb;
-    font-size:13px;
-    font-weight: normal
+    font-size:14px;
+    font-weight: normal;
 }

@@ -50,8 +50,7 @@ GProt.initSearch = function(autocompleteData, search) {
     renderSearch();
 }
 
-function favorite(action){
-    let url = window.location.href
+function favorite(action, url){
     $.ajax({
         type: 'POST',
         url: '/gprot/favorite/',

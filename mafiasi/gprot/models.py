@@ -108,7 +108,7 @@ class Reminder(models.Model):
 
 class Favorite(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    url = models.URLField()
+    url = models.CharField(max_length=500)
     courses = models.ManyToManyField(Course, blank=True)
     examiners = models.ManyToManyField(Teacher, blank=True)
 
