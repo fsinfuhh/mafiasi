@@ -73,10 +73,10 @@
             <div class="table-row">
                 <a class="cell cell-favorite" href="{{ favorite.url }}">
                     {% for examiner in favorite.examiners.all %}
-                        <span class="label lable-favorite">{{ examiner }}</span>
+                        <span class="label label-favorite">{{ examiner }}</span>
                     {% endfor %}
                     {% for course in favorite.courses.all %}
-                        <span class="label lable-favorite">{{ course }}</span>
+                        <span class="label label-favorite">{{ course }}</span>
                     {% endfor %}
                 </a>
                 <div class="cell" style="width:185px;">

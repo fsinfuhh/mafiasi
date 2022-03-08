@@ -62,11 +62,6 @@ a.table-row:hover {
     background-color: #f9f9f9;
 }
 
-.cell-favorite {
-    color: unset;
-    text-decoration: none;
-}
-
 .cell-favorite:hover {
     background-color: #e0e0e0 !important;
     text-decoration: none;
@@ -76,7 +71,7 @@ a.table-row:hover {
     white-space: nowrap;
 }
 
-.lable-favorite{
+.label-favorite{
     background-color:white;
     color:black;
     border: solid 1px #bbbbbb;
