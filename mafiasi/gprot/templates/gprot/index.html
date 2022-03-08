@@ -72,7 +72,7 @@
             <a class="table-row" href="{{ favorite.url }}">
                 <div class="cell">
                     {% for examiner in favorite.examiners.all %}
-                        <span class="label">{{examiner}}</span>
+                        <span class="label">{{ examiner }}</span>
                     {% endfor %}
                     {% for course in favorite.courses.all %}
                         <span class="label">{{course}}</span>
