@@ -19,4 +19,5 @@ urlpatterns = [
     url(r'^reminders/$', reminders, name='gprot_reminders'),
     url(r'^reminders/delete/(\d+)$', delete_reminder,
         name='gprot_reminder_delete'),
+    url(r'^favorite/$', favorite),
 ]

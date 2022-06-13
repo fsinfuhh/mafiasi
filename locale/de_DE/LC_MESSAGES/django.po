@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-03 22:36+0200\n"
-"PO-Revision-Date: 2021-11-11 11:48+0100\n"
+"POT-Creation-Date: 2022-03-07 15:43+0100\n"
+"PO-Revision-Date: 2022-03-07 15:54+0100\n"
 "Last-Translator: Markus Neblung <markus.neblung@uni-hamburg.de>\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -67,7 +67,7 @@ msgid "Logout"
 msgstr "Abmelden"
 
 #: mafiasi/base/templates/base.html:55
-#: mafiasi/registration/templates/registration/request_account.html:34
+#: mafiasi/registration/templates/registration/request_account.html:35
 #: mafiasi/registration/templates/registration/request_account.html:70
 msgid "Register"
 msgstr "Registrieren"
@@ -426,14 +426,6 @@ msgstr "Prüfungsdatum:"
 msgid "Labels:"
 msgstr "Labels:"
 
-#: mafiasi/gprot/templates/gprot/_basic_form.js:5
-msgid "Select a module"
-msgstr "Modul auswählen"
-
-#: mafiasi/gprot/templates/gprot/_basic_form.js:12
-msgid "Select the examiners"
-msgstr "Prüfer auswählen"
-
 #: mafiasi/gprot/templates/gprot/_basic_form_modals.html:7
 #: mafiasi/gprot/templates/gprot/_basic_form_modals.html:34
 #: mafiasi/gprot/templates/gprot/_basic_form_modals.html:48
@@ -687,7 +679,7 @@ msgid "Search for memory minutes"
 msgstr "Nach Gedächtnisprotokollen suchen"
 
 #: mafiasi/gprot/templates/gprot/index.html:24
-#: mafiasi/gprot/templates/gprot/index.html:66
+#: mafiasi/gprot/templates/gprot/index.html:109
 msgid ""
 "Just enter the name of the course and/or examiner to see available memory "
 "minutes."
@@ -695,11 +687,19 @@ msgstr ""
 "Gib einfach den Namen des Moduls und/oder Prüfers ein, um die verfügbaren "
 "Gedächtnisprotokolle zu sehen."
 
-#: mafiasi/gprot/templates/gprot/index.html:30
+#: mafiasi/gprot/templates/gprot/index.html:33
+msgid "Remove from favorites"
+msgstr "Aus Favoriten entfernen"
+
+#: mafiasi/gprot/templates/gprot/index.html:38
+msgid "Save as favorite"
+msgstr "Als Favorit speichern"
+
+#: mafiasi/gprot/templates/gprot/index.html:44
 msgid "Show memory minutes"
 msgstr "Gedächtnisprotokolle anzeigen"
 
-#: mafiasi/gprot/templates/gprot/index.html:43
+#: mafiasi/gprot/templates/gprot/index.html:57
 #, python-format
 msgid ""
 "\n"
@@ -716,6 +716,10 @@ msgstr ""
 "Du kannst eine <a href=\"%(notifications_url)s\">Benachrichtigung</a> "
 "einrichten, wenn du über neu veröffentlichte Gedächtnisprotokolle zu deiner "
 "Anfrage informiert werden möchtest.\n"
+
+#: mafiasi/gprot/templates/gprot/index.html:68
+msgid "Favorites"
+msgstr "Favoriten"
 
 #: mafiasi/gprot/templates/gprot/list_own.html:6
 msgid "List own memory minutes"
@@ -969,24 +973,24 @@ msgstr ""
 msgid "No document has been uploaded yet."
 msgstr "Es wurde noch kein Dokument hochgeladen."
 
-#: mafiasi/gprot/views.py:175 mafiasi/gprot/views.py:276
+#: mafiasi/gprot/views.py:178 mafiasi/gprot/views.py:279
 #, python-brace-format
 msgid "Only files up to {0} MB are allowed."
 msgstr "Es sind nur Dateien kleiner als {0} MB erlaubt."
 
-#: mafiasi/gprot/views.py:179
+#: mafiasi/gprot/views.py:182
 msgid "Only PDF files are allowed."
 msgstr "Es sind nur PDF-Dateien erlaubt."
 
-#: mafiasi/gprot/views.py:181 mafiasi/gprot/views.py:283
+#: mafiasi/gprot/views.py:184 mafiasi/gprot/views.py:286
 msgid "Please select a file to upload."
 msgstr "Bitte wähle eine Datei zum Hochladen aus."
 
-#: mafiasi/gprot/views.py:281
+#: mafiasi/gprot/views.py:284
 msgid "Only PNG, JPEG and GIF files are allowed."
 msgstr "Es sind nur Bilder im PNG-, JPEG- oder GIF-Format erlaubt."
 
-#: mafiasi/gprot/views.py:324
+#: mafiasi/gprot/views.py:327
 #, python-format
 msgid "New memory minutes for \"%(coursename)s\""
 msgstr "Neues Gedächtnisprotokoll für \"%(coursename)s\""
@@ -1280,7 +1284,7 @@ msgid "Username"
 msgstr "Benutzername"
 
 #: mafiasi/guests/templates/guests/accept.html:16
-#: mafiasi/registration/forms.py:85 mafiasi/registration/forms.py:109
+#: mafiasi/registration/forms.py:63 mafiasi/registration/forms.py:87
 #: mafiasi/registration/templates/registration/account.html:88
 #: mafiasi/registration/templates/registration/create_account.html:17
 #: mafiasi/registration/templates/registration/login.html:37
@@ -1288,7 +1292,7 @@ msgid "Password"
 msgstr "Passwort"
 
 #: mafiasi/guests/templates/guests/accept.html:25
-#: mafiasi/registration/forms.py:89
+#: mafiasi/registration/forms.py:67
 #: mafiasi/registration/templates/registration/create_account.html:26
 msgid "Password confirmation"
 msgstr "Passwort bestätigen"
@@ -1663,7 +1667,9 @@ msgstr "Matrix"
 
 #: mafiasi/matrix/apps.py:11
 msgid "Matrix provides decentralized messaging and VoIP with E2E encryption."
-msgstr "Matrix ermöglicht dezentrales Chatten und VoIP mit Ende-zu-Ende-Verschlüsselung."
+msgstr ""
+"Matrix ermöglicht dezentrales Chatten und VoIP mit Ende-zu-Ende-"
+"Verschlüsselung."
 
 #: mafiasi/mattermost/apps.py:10
 msgid "Chat"
@@ -2043,35 +2049,27 @@ msgstr "Das ist keine valide Kennung."
 msgid "That does not look like a valid account name for {}."
 msgstr "Das ist keine valide E-Mail-Adresse für {}."
 
-#: mafiasi/registration/forms.py:68
+#: mafiasi/registration/forms.py:56
 msgid "Invalid domain"
 msgstr "Ungültige Domain"
 
-#: mafiasi/registration/forms.py:71
-msgid "This field is required."
-msgstr "Dieses Feld darf nicht leer sein."
-
-#: mafiasi/registration/forms.py:74
-msgid "Invalid yeargroup selected"
-msgstr "Ungültige Jahrgangsgruppe ausgewählt"
-
-#: mafiasi/registration/forms.py:99
+#: mafiasi/registration/forms.py:77
 msgid "The two password fields didn't match."
 msgstr "Die beiden Passwörter stimmen nicht überein."
 
-#: mafiasi/registration/forms.py:117
+#: mafiasi/registration/forms.py:95
 msgid "Wrong password."
 msgstr "Falsches Passwort."
 
-#: mafiasi/registration/forms.py:154
+#: mafiasi/registration/forms.py:132
 msgid "This address is already associated with an account."
 msgstr "Es existiert bereits ein Account mit dieser E-Mail-Adresse."
 
-#: mafiasi/registration/forms.py:158
+#: mafiasi/registration/forms.py:136
 msgid "Group addresses cannot be used for this purpose."
 msgstr "Gruppenadressen können hier nicht verwendet werden."
 
-#: mafiasi/registration/forms.py:161
+#: mafiasi/registration/forms.py:139
 msgid "Cloak adresses cannot be used for this purpose."
 msgstr "Cloak-Adressen können hier nicht verwendet werden."
 
@@ -2281,11 +2279,11 @@ msgstr "Mein Passwort zurücksetzen"
 msgid "Registration"
 msgstr "Registrierung"
 
-#: mafiasi/registration/templates/registration/request_account.html:13
+#: mafiasi/registration/templates/registration/request_account.html:14
 msgid "Registration with informatics account"
 msgstr "Registrierung mit Informatik-Kennung"
 
-#: mafiasi/registration/templates/registration/request_account.html:18
+#: mafiasi/registration/templates/registration/request_account.html:19
 msgid ""
 "Please enter your informatics account into the following field.\n"
 "                    The account is usually composed of a number and up to "
@@ -2298,7 +2296,7 @@ msgstr ""
 "Beispiel <code>1musterm</code>.\n"
 "Anschließend erhältst du eine E-Mail mit weiteren Anweisungen."
 
-#: mafiasi/registration/templates/registration/request_account.html:44
+#: mafiasi/registration/templates/registration/request_account.html:45
 msgid "Registration with email address"
 msgstr "Registrierung mit E-Mail-Adresse"
 
@@ -2374,29 +2372,29 @@ msgstr "Ungültiger Token"
 msgid "Sorry, but the provided token is invalid."
 msgstr "Tut uns leid, aber der angegebene Token ist ungültig."
 
-#: mafiasi/registration/views.py:199
+#: mafiasi/registration/views.py:202
 msgid "Password was changed."
 msgstr "Passwort wurde geändert."
 
-#: mafiasi/registration/views.py:205
+#: mafiasi/registration/views.py:208
 msgid "Your nickname is now {}."
 msgstr "Dein Spitzname ist nun {}."
 
-#: mafiasi/registration/views.py:242
+#: mafiasi/registration/views.py:245
 msgid "Your email address has been changed."
 msgstr "Deine E-Mailadresse wurde geändert."
 
-#: mafiasi/registration/views.py:258
+#: mafiasi/registration/views.py:261
 #, python-format
 msgid "Verify this address for %s"
 msgstr "Bestätige diese E-Mailadresse für %s"
 
-#: mafiasi/registration/views.py:276
+#: mafiasi/registration/views.py:279
 #, python-format
 msgid "Account creation at %s"
 msgstr "Accounterstellung um %s"
 
-#: mafiasi/registration/views.py:293
+#: mafiasi/registration/views.py:296
 msgid "Registration: Sending mail failed: {}"
 msgstr "Registrierung: Senden einer Mail fehlgeschlagen: {}"
 
@@ -2450,6 +2448,18 @@ msgstr "Wiki"
 msgid "In the wiki you will find important information regarding your studies."
 msgstr ""
 "Im Wiki findest du wichtige Informationen zum Studium. Beteiligen erwünscht!"
+
+#~ msgid "Select a module"
+#~ msgstr "Modul auswählen"
+
+#~ msgid "Select the examiners"
+#~ msgstr "Prüfer auswählen"
+
+#~ msgid "This field is required."
+#~ msgstr "Dieses Feld darf nicht leer sein."
+
+#~ msgid "Invalid yeargroup selected"
+#~ msgstr "Ungültige Jahrgangsgruppe ausgewählt"
 
 #~ msgid "Request account"
 #~ msgstr "Account beantragen"

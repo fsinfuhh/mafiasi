@@ -25,6 +25,20 @@
     </div>
 </div>
 <div style="clear:both;"></div>
+{% if is_query%}
+    {% is_favorite_filter favorites request.get_full_path as is_favorite%}
+    {% if is_favorite %}
+    <button class="btn btn-default" style="float:right" type="button" onClick="favorite('delete', '{{ request.get_full_path }}')">
+        <span class="glyphicon glyphicon-star-empty"></span>
+        {% trans 'Remove from favorites' %}
+    </button>
+    {% else %}
+    <button class="btn btn-default" style="float:right" type="button" onClick="favorite('save', '{{ request.get_full_path }}')">
+        <span class="glyphicon glyphicon-star"></span>
+        {% trans 'Save as favorite' %}
+    </button>
+    {% endif %}
+{% endif %}
 <button class="btn btn-primary">
     <span class="glyphicon glyphicon-search"></span>
     {% trans "Show memory minutes" %}
@@ -47,6 +61,34 @@
     are published.
 {% endblocktrans %}
 </div>
+{% elif favorites %}
+<hr/>
+<div class="table table-striped">
+    <div class="table-header">
+        <div class="cell">{% trans "Favorites" %}</div>
+        <div class="cell"></div>
+    </div>
+    <div class="row-group">
+        {% for favorite in favorites %}
+            <div class="table-row">
+                <a class="cell cell-favorite" href="{{ favorite.url }}">
+                    {% for examiner in favorite.examiners.all %}
+                        <span class="label label-favorite">{{ examiner }}</span>
+                    {% endfor %}
+                    {% for course in favorite.courses.all %}
+                        <span class="label label-favorite">{{ course }}</span>
+                    {% endfor %}
+                </a>
+                <div class="cell" style="width:185px;">
+                    <button class="btn btn-sm btn-default" style="float:right" type="button" onClick="favorite('delete', '{{ favorite.url }}')">
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        {% trans 'Remove from favorites' %}
+                    </button>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
 {% endif %}
 
 {% endblock %}
@@ -59,6 +101,7 @@
 
 {% block js %}
 <script type="text/javascript" src="{% static 'select2/select2.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/gprot.js' %}"></script>
 <script type="text/javascript">
     $("#search").select2({
         minimumInputLength: 2,
