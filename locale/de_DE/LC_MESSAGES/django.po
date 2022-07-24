@@ -1556,11 +1556,11 @@ msgstr "Mailingliste für %(group_name)s"
 
 #: mafiasi/mailinglist/templates/mailinglist/show_list.html:9
 msgid ""
-"The mailinglist is not yet known to the mailserver. Please wait about half "
-"an hour."
+"The mailinglist is not yet known to the mailserver. It will be activated "
+"at midnight."
 msgstr ""
-"Die Mailingliste ist dem Mailserver noch nicht bekannt. Bitte warte ungefähr "
-"eine halbe Stunde."
+"Die Mailingliste ist dem Mailserver noch nicht bekannt. Sie wird um "
+"Mitternacht aktiviert."
 
 #: mafiasi/mailinglist/templates/mailinglist/show_list.html:11
 #, python-format

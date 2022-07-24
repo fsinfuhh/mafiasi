@@ -6,7 +6,7 @@
 {% block group_content %}
 {% if mailinglist %}
 {% if not mailinglist.is_known %}
-<div class="alert alert-danger">{% trans "The mailinglist is not yet known to the mailserver. Please wait about half an hour." %}</div>
+<div class="alert alert-danger">{% trans "The mailinglist is not yet known to the mailserver. It will be activated at midnight." %}</div>
 {% endif %}
 <p>{% blocktrans with address=mailinglist.get_address %}The email address of this mailinglist is <strong>{{ address }}</strong>.{% endblocktrans %}</p>
 

@@ -13,7 +13,7 @@ def mailaddresses(request):
     addresses = []
     collect_mailaddresses.send_robust(sender=CollectMail, addresses=addresses)
     addresses += settings.VALID_EMAIL_ADDRESSES
-    output = '\n'.join(address + ' OK' for address in addresses) + '\n'
+    output = '\n'.join(address for address in addresses) + '\n'
     mailaddresses_known.send_robust(sender=CollectMail)
     return HttpResponse(output.encode('utf-8'), content_type='text/plain')
 
