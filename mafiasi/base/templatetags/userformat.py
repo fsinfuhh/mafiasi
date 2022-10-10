@@ -14,7 +14,7 @@ def format_user(user, format='full'):
         result = '{0} <span class="user-username">({1})</span>'.format(
                 nickname, username)
     elif format == 'name':
-        result = conditional_escape(user.display_name())
+        result = conditional_escape(nickname)
     elif format == 'username':
         result = conditional_escape(user.username)
     elif format == 'email':
