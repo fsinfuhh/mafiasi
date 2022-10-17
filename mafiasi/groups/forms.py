@@ -21,7 +21,7 @@ class InvitationForm(forms.Form):
             User = get_user_model()
             try:
                 invitee_user = User.objects.get(username=invitee)
-                self.invitee_users.append(invitee_user)
+                
             except User.DoesNotExist:
                 raise forms.ValidationError(_('There is no user "%s."')
                                             % invitee)
@@ -29,15 +29,14 @@ class InvitationForm(forms.Form):
             has_invitation = bool(GroupInvitation.objects.filter(
                     group=self.group, invitee=invitee_user))
             if has_invitation:
-                raise forms.ValidationError(
-                    _('"%s" already has an invitation.') % invitee)
+                continue
 
             already_member = \
                 invitee_user.groups.filter(name=self.group.name).exists()
             if already_member:
-                raise forms.ValidationError(
-                    _('"%s" is already a member of this group.')
-                    % invitee)
+                continue
+
+            self.invitee_users.append(invitee_user)
 
     def get_invitations(self):
         invitations = []
