@@ -36,8 +36,7 @@ def autocomplete(request):
     result_json = json.dumps({
     "users": [{
             'username': user.username,
-            'first_name': user.first_name,
-            'last_name': user.last_name
+            'displayname': user.get_ldapuser().display_name,
         } for user in users]
     })
     return HttpResponse(result_json, content_type='application/json')
