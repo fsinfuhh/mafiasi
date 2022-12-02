@@ -7,7 +7,7 @@ env.read_env(env.path("MAFIASI_ENV_FILE", default=".env"))
 
 BASE_DIR = Path(__file__).parent.parent
 
-DEBUG = env.bool("MAFIAS_DEBUG", default=False)
+DEBUG = env.bool("MAFIASI_DEBUG", default=False)
 TEMPLATE_DEBUG = DEBUG
 
 # Feature toggles
