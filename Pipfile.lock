@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "2224436dd3b877cb9548fc3e155e3e7504831498de8371294b9a51a9411b1a18"
+            "sha256": "37e71036ba69aa95cb1d7d38de98f6125cfa887055afb96e5abd599534e85692"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -165,6 +165,20 @@
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
             "version": "==1.2.13"
         },
+        "dj-database-url": {
+            "hashes": [
+                "sha256:ccf3e8718f75ddd147a1e212fca88eecdaa721759ee48e38b485481c77bca3dc",
+                "sha256:cd354a3b7a9136d78d64c17b2aec369e2ae5616fbca6bfbe435ef15bb372ce39"
+            ],
+            "version": "==1.0.0"
+        },
+        "dj-email-url": {
+            "hashes": [
+                "sha256:55ffe3329e48f54f8a75aa36ece08f365e09d61f8a209773ef09a1d4760e699a",
+                "sha256:cbd08327fbb08b104eac160fb4703f375532e4c0243eb230f5b960daee7a96db"
+            ],
+            "version": "==1.0.6"
+        },
         "django": {
             "hashes": [
                 "sha256:18ba8efa36b69cfcd4b670d0fa187c6fe7506596f0ababe580e16909bcdec121",
@@ -180,6 +194,13 @@
             ],
             "index": "pypi",
             "version": "==2.4.0"
+        },
+        "django-cache-url": {
+            "hashes": [
+                "sha256:6cc9901a99a99751f5458aa7de08ce06e48c1441b1a94c9457d78af74fab9a26",
+                "sha256:c4a62634cffc9d636073cef597a44576d67b07660ab2ef1f02b160ee7ecf0e98"
+            ],
+            "version": "==3.4.2"
         },
         "django-cors-headers": {
             "hashes": [
@@ -228,6 +249,18 @@
             ],
             "markers": "python_version >= '3.7'",
             "version": "==0.19"
+        },
+        "environs": {
+            "extras": [
+                "django"
+            ],
+            "hashes": [
+                "sha256:1e549569a3de49c05f856f40bce86979e7d5ffbbc4398e7f338574c220189124",
+                "sha256:a76307b36fbe856bdca7ee9161e6c466fd7fcffc297109a118c59b54e27e30c9"
+            ],
+            "index": "pypi",
+            "markers": null,
+            "version": "==9.5.0"
         },
         "etherpad-lite": {
             "hashes": [
@@ -367,6 +400,14 @@
             ],
             "markers": "python_version >= '3.6'",
             "version": "==0.20.8"
+        },
+        "marshmallow": {
+            "hashes": [
+                "sha256:90032c0fd650ce94b6ec6dc8dfeb0e3ff50c144586462c389b81a07205bedb78",
+                "sha256:93f0958568da045b0021ec6aeb7ac37c81bfcccbb9a0e7ed8559885070b3a19b"
+            ],
+            "markers": "python_version >= '3.7'",
+            "version": "==3.19.0"
         },
         "nameparser": {
             "hashes": [
@@ -606,6 +647,14 @@
             ],
             "index": "pypi",
             "version": "==1.4.10"
+        },
+        "python-dotenv": {
+            "hashes": [
+                "sha256:1684eb44636dd462b66c3ee016599815514527ad99965de77f43e0944634a7e5",
+                "sha256:b77d08274639e3d34145dfa6c7008e66df0f04b7be7a75fd0d5292c191d79045"
+            ],
+            "markers": "python_version >= '3.7'",
+            "version": "==0.21.0"
         },
         "python-ldap": {
             "hashes": [
