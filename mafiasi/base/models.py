@@ -48,6 +48,8 @@ class Mafiasi(AbstractUser):
     # USED in contrib.auth to determine the mail address for thinks like password reset
     EMAIL_FIELD = 'real_email'
 
+    REQUIRED_FIELDS = ["email", "real_email"]
+
     @property
     def is_student(self):
         return self.account and (self.account[0].isdigit() or
@@ -148,7 +150,6 @@ def _change_user_cb(sender, instance, created, **kwargs):
         ldap_user.set_password(instance.new_password)
     ldap_user.save()
 
-post_save.connect(_change_user_cb, sender=Mafiasi)
 
 def _change_group_cb(sender, instance, created, **kwargs):
     try:
@@ -159,4 +160,8 @@ def _change_group_cb(sender, instance, created, **kwargs):
 
     ldap_group.gid = str(instance.id)
     ldap_group.save()
-post_save.connect(_change_group_cb, sender=Group)
+
+
+if settings.ENABLE_LDAP_AUTH_BACKEND:
+    post_save.connect(_change_user_cb, sender=Mafiasi)
+    post_save.connect(_change_group_cb, sender=Group)
