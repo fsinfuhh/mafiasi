@@ -4,13 +4,14 @@
 *.min.js
 *.mo
 *~
-mafiasi/settings.py
 mafiasi/services.py
 _static
 _media
 mafiasi/base/static/mathjax
 mafiasi/base/static/MathJax-*
+staticfiles
 *.db
 .idea
 .pyenv
 venv
+db-data
