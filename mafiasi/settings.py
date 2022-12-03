@@ -62,7 +62,7 @@ if ENABLE_LDAP_REGISTRATION:
         "BIND_PASSWORD": env.str("MAFIASI_LDAP_REGISTRATION_BIND_PW"),
     }
 
-ALLOWED_HOSTS = env.list("MAFIAS_ALLOWED_HOSTS", default=["localhost", "127.0.0.1", "::1"])
+ALLOWED_HOSTS = env.list("MAFIASI_ALLOWED_HOSTS", default=["localhost", "127.0.0.1", "::1"])
 
 USE_I18N = True
 USE_L10N = True
