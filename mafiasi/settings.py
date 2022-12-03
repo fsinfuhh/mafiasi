@@ -29,6 +29,18 @@ if ENABLE_LDAP_AUTH_BACKEND:
             "BIND_PASSWORD": env.str("MAFIASI_LDAP_BIND_PW"),
         }
     }
+    import ldap
+    from django_auth_ldap.config import LDAPSearch
+
+    AUTHENTICATION_BACKENDS = (
+        'django_auth_ldap.backend.LDAPBackend',
+        'django.contrib.auth.backends.ModelBackend',
+    )
+    AUTH_LDAP_BIND_DN = ""
+    AUTH_LDAP_BIND_PASSWORD = ""
+    AUTH_LDAP_USER_SEARCH = LDAPSearch("ou=People,dc=mafiasi,dc=de",
+                                       ldap.SCOPE_SUBTREE, "(uid=%(user)s)")
+    AUTH_LDAP_ALWAYS_UPDATE_USER = False
 
 ALLOWED_HOSTS = env.list("MAFIAS_ALLOWED_HOSTS", default=["localhost", "127.0.0.1", "::1"])
 
@@ -245,20 +257,6 @@ ROOT_DN = 'dc=mafiasi,dc=de'
 CALDAV_BASE_URL = 'http://localhost:5232/dav/'
 CALDAV_DISPLAY_URL = 'https://mafiasi.de/dav/'
 HKP_URL = 'hkps://mafiasi.de'
-
-import ldap
-from django_auth_ldap.config import LDAPSearch
-
-AUTHENTICATION_BACKENDS = (
-    'django_auth_ldap.backend.LDAPBackend',
-    'django.contrib.auth.backends.ModelBackend',
-)
-AUTH_LDAP_BIND_DN = ""
-AUTH_LDAP_BIND_PASSWORD = ""
-AUTH_LDAP_USER_SEARCH = LDAPSearch("ou=People,dc=mafiasi,dc=de",
-                                   ldap.SCOPE_SUBTREE, "(uid=%(user)s)")
-AUTH_LDAP_ALWAYS_UPDATE_USER = False
-
 
 GPROT_IMAGE_MAX_SIZE = 1
 GPROT_PDF_MAX_SIZE = 5
