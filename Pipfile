@@ -5,7 +5,7 @@ name = "pypi"
 
 [packages]
 Django = "~=3.0"
-Pillow = "~=7.1"
+Pillow = "~=9.3"
 PyPDF2 = "~=1.26"
 bleach = "~=3.1"
 certifi = "==2020.6.20"
