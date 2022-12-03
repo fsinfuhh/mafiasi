@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-07 15:43+0100\n"
+"POT-Creation-Date: 2022-12-03 17:33+0100\n"
 "PO-Revision-Date: 2022-03-07 16:02+0100\n"
 "Last-Translator: Markus Neblung <9neblung@informatik.uni-hamburg.de>\n"
 "Language-Team: \n"
@@ -30,8 +30,8 @@ msgstr "Erreur interne du serveur"
 #| msgid ""
 #| "We're sorry, but we didn't expect this to happen. Our error reporting "
 #| "tool should have sent an email to us with some technical details. Please "
-#| "try again later. If the problem persists, see our <a href="
-#| "\"%(problems_url)s\">problem reporting page</a>."
+#| "try again later. If the problem persists, see our <a "
+#| "href=\"%(problems_url)s\">problem reporting page</a>."
 msgid ""
 "\n"
 "    We're sorry, but we didn't expect this to happen.\n"
@@ -107,8 +107,8 @@ msgid ""
 "strong> and describe your problem.</p>"
 msgstr ""
 "<p>Avez-vous rencontrez des problèmes techniques en utilisant de ce site? Il "
-"suffit d'écrire un courriel à <strong><a href=\"mailto:%(team_email)s\">"
-"%(team_email)s </a></strong> et décrire votre problème.</p>"
+"suffit d'écrire un courriel à <strong><a href=\"mailto:"
+"%(team_email)s\">%(team_email)s </a></strong> et décrire votre problème.</p>"
 
 #: mafiasi/base/templates/base/technical_info.html:4
 msgid "Technical Info"
@@ -691,7 +691,7 @@ msgid "Search for memory minutes"
 msgstr "Rechercher minutes de mémoire"
 
 #: mafiasi/gprot/templates/gprot/index.html:24
-#: mafiasi/gprot/templates/gprot/index.html:109
+#: mafiasi/gprot/templates/gprot/index.html:108
 msgid ""
 "Just enter the name of the course and/or examiner to see available memory "
 "minutes."
@@ -700,6 +700,7 @@ msgstr ""
 "disponibles minutes de mémoire."
 
 #: mafiasi/gprot/templates/gprot/index.html:33
+#: mafiasi/gprot/templates/gprot/index.html:85
 msgid "Remove from favorites"
 msgstr "Retirer des favoris"
 
@@ -992,24 +993,24 @@ msgstr ""
 msgid "No document has been uploaded yet."
 msgstr "Aucun document n'a encore été téléchargé."
 
-#: mafiasi/gprot/views.py:178 mafiasi/gprot/views.py:279
+#: mafiasi/gprot/views.py:179 mafiasi/gprot/views.py:280
 #, python-brace-format
 msgid "Only files up to {0} MB are allowed."
 msgstr "Seuls les fichiers jusqu'à {0} Mo sont admis."
 
-#: mafiasi/gprot/views.py:182
+#: mafiasi/gprot/views.py:183
 msgid "Only PDF files are allowed."
 msgstr "Seuls les fichiers PDF sont autorisés."
 
-#: mafiasi/gprot/views.py:184 mafiasi/gprot/views.py:286
+#: mafiasi/gprot/views.py:185 mafiasi/gprot/views.py:287
 msgid "Please select a file to upload."
 msgstr "S'il vous plaît sélectionner un fichier à télécharger."
 
-#: mafiasi/gprot/views.py:284
+#: mafiasi/gprot/views.py:285
 msgid "Only PNG, JPEG and GIF files are allowed."
 msgstr "Seuls les fichiers PNG, JPEG et GIF sont autorisés."
 
-#: mafiasi/gprot/views.py:327
+#: mafiasi/gprot/views.py:328
 #, python-format
 msgid "New memory minutes for \"%(coursename)s\""
 msgstr "Nouveaux minutes de mémoire pour \"%(coursename)s\""
@@ -1018,16 +1019,6 @@ msgstr "Nouveaux minutes de mémoire pour \"%(coursename)s\""
 #, python-format
 msgid "There is no user \"%s.\""
 msgstr "Il n'y a pas user \"%s.\""
-
-#: mafiasi/groups/forms.py:33
-#, python-format
-msgid "\"%s\" already has an invitation."
-msgstr "\"%s\" a déjà une invitation."
-
-#: mafiasi/groups/forms.py:39
-#, python-format
-msgid "\"%s\" is already a member of this group."
-msgstr "\"%s\" est déjà membre de ce groupe."
 
 #: mafiasi/groups/models.py:76
 msgid ""
@@ -1196,8 +1187,8 @@ msgstr "Mailinglist"
 msgid ""
 "The mailinglist address is <a href=\"mailto:%(address)s\">%(address)s</a>."
 msgstr ""
-"L'adresse de la liste de diffusion est <a href=\"mailto:%(address)s\">"
-"%(address)s</a>."
+"L'adresse de la liste de diffusion est <a href=\"mailto:"
+"%(address)s\">%(address)s</a>."
 
 #: mafiasi/groups/templates/groups/show.html:38
 msgid "This group does not have a mailinglist."
@@ -1568,6 +1559,14 @@ msgid ""
 "progress of your projects."
 msgstr "Kanboard est un tableau kanban pour visualiser le progrès d'un projet."
 
+#: mafiasi/link_shortener/apps.py:11
+msgid "Link Shortener"
+msgstr ""
+
+#: mafiasi/link_shortener/apps.py:12
+msgid "The best URL shortening service near you"
+msgstr ""
+
 #: mafiasi/mailinglist/forms.py:20
 msgid "This email is already on the whitelist"
 msgstr "Cet e-mail est déjà sur la liste blanche"
@@ -1592,11 +1591,11 @@ msgstr "Liste de diffusion pour %(group_name)s"
 
 #: mafiasi/mailinglist/templates/mailinglist/show_list.html:9
 msgid ""
-"The mailinglist is not yet known to the mailserver. It will be activated "
-"at midnight."
+"The mailinglist is not yet known to the mailserver. It will be activated at "
+"midnight."
 msgstr ""
-"La liste de diffusion ne est pas encore connu du serveur de messagerie. "
-"Elle va être activée à minuit."
+"La liste de diffusion ne est pas encore connu du serveur de messagerie. Elle "
+"va être activée à minuit."
 
 #: mafiasi/mailinglist/templates/mailinglist/show_list.html:11
 #, python-format
@@ -2117,11 +2116,11 @@ msgstr "Compte"
 #: mafiasi/registration/templates/registration/account.html:18
 #, python-format
 msgid ""
-"You want to use %(project_name)s with your friends? You can <a href="
-"\"%(guests_url)s\">invite guests</a>."
+"You want to use %(project_name)s with your friends? You can <a "
+"href=\"%(guests_url)s\">invite guests</a>."
 msgstr ""
-"Vous souhaitez utiliser %(project_name)s avec vos amis? Vous pouvez <a href="
-"\"%(guests_url)s\">inviter invités</a>."
+"Vous souhaitez utiliser %(project_name)s avec vos amis? Vous pouvez <a "
+"href=\"%(guests_url)s\">inviter invités</a>."
 
 #: mafiasi/registration/templates/registration/account.html:27
 msgid "Nickname"
@@ -2488,6 +2487,14 @@ msgstr ""
 "Dans le wiki, vous trouverez des informations importantes concernant vos "
 "études."
 
+#, python-format
+#~ msgid "\"%s\" already has an invitation."
+#~ msgstr "\"%s\" a déjà une invitation."
+
+#, python-format
+#~ msgid "\"%s\" is already a member of this group."
+#~ msgstr "\"%s\" est déjà membre de ce groupe."
+
 #~ msgid "Select a module"
 #~ msgstr "Sélectionnez un cours"
 
@@ -2508,9 +2515,9 @@ msgstr ""
 #~ "email address</a> into the following field.\n"
 #~ "Afterwards you will receive an email with further instructions."
 #~ msgstr ""
-#~ "S'il vous plaît entrez votre <a href=\"https://mafiasi.de/Kennungen"
-#~ "\">adresse e-mail de l'informatique</a> dans le champ suivant. Ensuite, "
-#~ "vous recevrez un courriel avec des instructions supplémentaires."
+#~ "S'il vous plaît entrez votre <a href=\"https://mafiasi.de/"
+#~ "Kennungen\">adresse e-mail de l'informatique</a> dans le champ suivant. "
+#~ "Ensuite, vous recevrez un courriel avec des instructions supplémentaires."
 
 #~ msgid "Invalid account name"
 #~ msgstr "Invalid nom de compte"
@@ -2999,8 +3006,8 @@ msgstr ""
 #~ "You have to <a href=\"%(login_url)s?next=%(jabber_index_url)s\">login</a> "
 #~ "to see your Jabber account data."
 #~ msgstr ""
-#~ "Vous devez vous identifier <a href=\"%(login_url)s?next="
-#~ "%(jabber_index_url)s\"> </a> pour créer ou gérer votre compte Jabber."
+#~ "Vous devez vous identifier <a href=\"%(login_url)s?"
+#~ "next=%(jabber_index_url)s\"> </a> pour créer ou gérer votre compte Jabber."
 
 #~ msgid "Mafiasi Hub"
 #~ msgstr "Mafiasi Hub"

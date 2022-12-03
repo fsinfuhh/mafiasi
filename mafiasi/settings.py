@@ -132,6 +132,7 @@ INSTALLED_APPS = [
     'mafiasi.wiki',
     'mafiasi.kanboard',
     'mafiasi.whiteboard',
+    'mafiasi.link_shortener',
     ###
     'django.contrib.admin',
     'django.contrib.admindocs',
@@ -149,6 +150,8 @@ TEMPLATES = [
             ]},
     },
 ]
+
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
 ROOT_URLCONF = 'mafiasi.urls'
 
@@ -295,6 +298,7 @@ BITPOLL_URL = 'https://bitpoll.mafiasi.de'
 WHITEBOARD_URL = 'https://spacedeck.mafiasi.de'
 KANBOARD_URL = 'https://kanboard.mafiasi.de'
 MATRIX_URL = 'https://matrix.mafiasi.de'
+LINK_SHORTENER_URL = 'https://l.mafiasi.de'
 
 PKS_COMMUNITY_DOMAINS = REGISTER_DOMAINS + ['studium.uni-hamburg.de']
 

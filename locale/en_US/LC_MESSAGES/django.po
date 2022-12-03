@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-07 15:43+0100\n"
+"POT-Creation-Date: 2022-12-03 17:33+0100\n"
 "PO-Revision-Date: 2022-03-07 16:02+0100\n"
 "Last-Translator: Markus Neblung <9neblung@informatik.uni-hamburg.de>\n"
 "Language-Team: \n"
@@ -29,8 +29,8 @@ msgstr "Internal server error"
 #| msgid ""
 #| "We're sorry, but we didn't expect this to happen. Our error reporting "
 #| "tool should have sent an email to us with some technical details. Please "
-#| "try again later. If the problem persists, see our <a href="
-#| "\"%(problems_url)s\">problem reporting page</a>."
+#| "try again later. If the problem persists, see our <a "
+#| "href=\"%(problems_url)s\">problem reporting page</a>."
 msgid ""
 "\n"
 "    We're sorry, but we didn't expect this to happen.\n"
@@ -43,8 +43,8 @@ msgid ""
 msgstr ""
 "We're sorry, but we didn't expect this to happen. Our error reporting tool "
 "should have sent an email to us with some technical details. Please try "
-"again later. If the problem persists, see our <a href=\"%(problems_url)s"
-"\">problem reporting page</a>."
+"again later. If the problem persists, see our <a "
+"href=\"%(problems_url)s\">problem reporting page</a>."
 
 #: mafiasi/base/templates/base.html:38
 msgid "Groups"
@@ -682,7 +682,7 @@ msgid "Search for memory minutes"
 msgstr "Search for memory minutes"
 
 #: mafiasi/gprot/templates/gprot/index.html:24
-#: mafiasi/gprot/templates/gprot/index.html:109
+#: mafiasi/gprot/templates/gprot/index.html:108
 msgid ""
 "Just enter the name of the course and/or examiner to see available memory "
 "minutes."
@@ -691,6 +691,7 @@ msgstr ""
 "minutes."
 
 #: mafiasi/gprot/templates/gprot/index.html:33
+#: mafiasi/gprot/templates/gprot/index.html:85
 msgid "Remove from favorites"
 msgstr "Remove from favorites"
 
@@ -973,24 +974,24 @@ msgstr ""
 msgid "No document has been uploaded yet."
 msgstr "No document has been uploaded yet."
 
-#: mafiasi/gprot/views.py:178 mafiasi/gprot/views.py:279
+#: mafiasi/gprot/views.py:179 mafiasi/gprot/views.py:280
 #, python-brace-format
 msgid "Only files up to {0} MB are allowed."
 msgstr "Only files up to {0} MB are allowed."
 
-#: mafiasi/gprot/views.py:182
+#: mafiasi/gprot/views.py:183
 msgid "Only PDF files are allowed."
 msgstr "Only PDF files are allowed."
 
-#: mafiasi/gprot/views.py:184 mafiasi/gprot/views.py:286
+#: mafiasi/gprot/views.py:185 mafiasi/gprot/views.py:287
 msgid "Please select a file to upload."
 msgstr "Please select a file to upload."
 
-#: mafiasi/gprot/views.py:284
+#: mafiasi/gprot/views.py:285
 msgid "Only PNG, JPEG and GIF files are allowed."
 msgstr "Only PNG, JPEG and GIF files are allowed."
 
-#: mafiasi/gprot/views.py:327
+#: mafiasi/gprot/views.py:328
 #, python-format
 msgid "New memory minutes for \"%(coursename)s\""
 msgstr "New memory minutes for \"%(coursename)s\""
@@ -999,16 +1000,6 @@ msgstr "New memory minutes for \"%(coursename)s\""
 #, python-format
 msgid "There is no user \"%s.\""
 msgstr "There is no user \"%s.\""
-
-#: mafiasi/groups/forms.py:33
-#, python-format
-msgid "\"%s\" already has an invitation."
-msgstr "\"%s\" already has an invitation."
-
-#: mafiasi/groups/forms.py:39
-#, python-format
-msgid "\"%s\" is already a member of this group."
-msgstr "\"%s\" is already a member of this group."
 
 #: mafiasi/groups/models.py:76
 msgid ""
@@ -1538,6 +1529,14 @@ msgstr ""
 "Kanboard is a kanban project management tool that you can use to track the "
 "progress of your projects."
 
+#: mafiasi/link_shortener/apps.py:11
+msgid "Link Shortener"
+msgstr ""
+
+#: mafiasi/link_shortener/apps.py:12
+msgid "The best URL shortening service near you"
+msgstr ""
+
 #: mafiasi/mailinglist/forms.py:20
 msgid "This email is already on the whitelist"
 msgstr "This email is already on the whitelist"
@@ -1562,11 +1561,11 @@ msgstr "Mailinglist for %(group_name)s"
 
 #: mafiasi/mailinglist/templates/mailinglist/show_list.html:9
 msgid ""
-"The mailinglist is not yet known to the mailserver. It will be activated "
-"at midnight."
+"The mailinglist is not yet known to the mailserver. It will be activated at "
+"midnight."
 msgstr ""
-"The mailinglist is not yet known to the mailserver. It will be activated "
-"at midnight."
+"The mailinglist is not yet known to the mailserver. It will be activated at "
+"midnight."
 
 #: mafiasi/mailinglist/templates/mailinglist/show_list.html:11
 #, python-format
@@ -2073,11 +2072,11 @@ msgstr "Account"
 #: mafiasi/registration/templates/registration/account.html:18
 #, python-format
 msgid ""
-"You want to use %(project_name)s with your friends? You can <a href="
-"\"%(guests_url)s\">invite guests</a>."
+"You want to use %(project_name)s with your friends? You can <a "
+"href=\"%(guests_url)s\">invite guests</a>."
 msgstr ""
-"You want to use %(project_name)s with your friends? You can <a href="
-"\"%(guests_url)s\">invite guests</a>."
+"You want to use %(project_name)s with your friends? You can <a "
+"href=\"%(guests_url)s\">invite guests</a>."
 
 #: mafiasi/registration/templates/registration/account.html:27
 msgid "Nickname"
@@ -2269,20 +2268,11 @@ msgstr "Reset my password"
 msgid "Registration"
 msgstr "Registration"
 
-#: mafiasi/registration/templates/registration/request_account.html:13
+#: mafiasi/registration/templates/registration/request_account.html:14
 msgid "Registration with informatics account"
 msgstr "Registration with informatics account"
 
-#: mafiasi/registration/templates/registration/request_account.html:18
-#| msgid ""
-#| "Please enter your informatics account into the following field.\n"
-#| "                    When you study informatics or a related subject, have "
-#| "informatics as secondary subject, or work\n"
-#| "                    at the informatics department, you have received an "
-#| "informatics account that is usually composed\n"
-#| "                    of a number and up to seven letters, e.g. 1musterm.\n"
-#| "                    After the registration, you will receive an email "
-#| "with further instructions."
+#: mafiasi/registration/templates/registration/request_account.html:19
 msgid ""
 "Please enter your informatics account into the following field.\n"
 "                    The account is usually composed of a number and up to "
@@ -2318,9 +2308,6 @@ msgstr "Verify your address to continue"
 
 #: mafiasi/registration/templates/registration/request_successful.html:10
 #, python-format
-#| msgid ""
-#| "If the given account exists, you should have received a link via email "
-#| "now, which you can use to verify your address."
 msgid ""
 "You should have received a link to %(email)s now, which you can use to "
 "verify your address."
@@ -2452,6 +2439,14 @@ msgstr "Wiki"
 msgid "In the wiki you will find important information regarding your studies."
 msgstr ""
 "In the wiki you will find important information regarding your studies."
+
+#, python-format
+#~ msgid "\"%s\" already has an invitation."
+#~ msgstr "\"%s\" already has an invitation."
+
+#, python-format
+#~ msgid "\"%s\" is already a member of this group."
+#~ msgstr "\"%s\" is already a member of this group."
 
 #~ msgid "Select a module"
 #~ msgstr "Select a module"

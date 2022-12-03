@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-07 15:43+0100\n"
+"POT-Creation-Date: 2022-12-03 17:33+0100\n"
 "PO-Revision-Date: 2022-03-07 15:54+0100\n"
 "Last-Translator: Markus Neblung <markus.neblung@uni-hamburg.de>\n"
 "Language-Team: \n"
@@ -31,8 +31,8 @@ msgstr "Interner Serverfehler"
 #| msgid ""
 #| "We're sorry, but we didn't expect this to happen. Our error reporting "
 #| "tool should have sent an email to us with some technical details. Please "
-#| "try again later. If the problem persists, see our <a href="
-#| "\"%(problems_url)s\">problem reporting page</a>."
+#| "try again later. If the problem persists, see our <a "
+#| "href=\"%(problems_url)s\">problem reporting page</a>."
 msgid ""
 "\n"
 "    We're sorry, but we didn't expect this to happen.\n"
@@ -679,7 +679,7 @@ msgid "Search for memory minutes"
 msgstr "Nach Gedächtnisprotokollen suchen"
 
 #: mafiasi/gprot/templates/gprot/index.html:24
-#: mafiasi/gprot/templates/gprot/index.html:109
+#: mafiasi/gprot/templates/gprot/index.html:108
 msgid ""
 "Just enter the name of the course and/or examiner to see available memory "
 "minutes."
@@ -688,6 +688,7 @@ msgstr ""
 "Gedächtnisprotokolle zu sehen."
 
 #: mafiasi/gprot/templates/gprot/index.html:33
+#: mafiasi/gprot/templates/gprot/index.html:85
 msgid "Remove from favorites"
 msgstr "Aus Favoriten entfernen"
 
@@ -973,24 +974,24 @@ msgstr ""
 msgid "No document has been uploaded yet."
 msgstr "Es wurde noch kein Dokument hochgeladen."
 
-#: mafiasi/gprot/views.py:178 mafiasi/gprot/views.py:279
+#: mafiasi/gprot/views.py:179 mafiasi/gprot/views.py:280
 #, python-brace-format
 msgid "Only files up to {0} MB are allowed."
 msgstr "Es sind nur Dateien kleiner als {0} MB erlaubt."
 
-#: mafiasi/gprot/views.py:182
+#: mafiasi/gprot/views.py:183
 msgid "Only PDF files are allowed."
 msgstr "Es sind nur PDF-Dateien erlaubt."
 
-#: mafiasi/gprot/views.py:184 mafiasi/gprot/views.py:286
+#: mafiasi/gprot/views.py:185 mafiasi/gprot/views.py:287
 msgid "Please select a file to upload."
 msgstr "Bitte wähle eine Datei zum Hochladen aus."
 
-#: mafiasi/gprot/views.py:284
+#: mafiasi/gprot/views.py:285
 msgid "Only PNG, JPEG and GIF files are allowed."
 msgstr "Es sind nur Bilder im PNG-, JPEG- oder GIF-Format erlaubt."
 
-#: mafiasi/gprot/views.py:327
+#: mafiasi/gprot/views.py:328
 #, python-format
 msgid "New memory minutes for \"%(coursename)s\""
 msgstr "Neues Gedächtnisprotokoll für \"%(coursename)s\""
@@ -999,16 +1000,6 @@ msgstr "Neues Gedächtnisprotokoll für \"%(coursename)s\""
 #, python-format
 msgid "There is no user \"%s.\""
 msgstr "Es gibt keinen Benutzer \"%s\"."
-
-#: mafiasi/groups/forms.py:33
-#, python-format
-msgid "\"%s\" already has an invitation."
-msgstr "\"%s\" hat bereits eine Einladung."
-
-#: mafiasi/groups/forms.py:39
-#, python-format
-msgid "\"%s\" is already a member of this group."
-msgstr "\"%s\" ist bereits Mitglied dieser Gruppe."
 
 #: mafiasi/groups/models.py:76
 msgid ""
@@ -1165,8 +1156,8 @@ msgstr "Mailingliste"
 msgid ""
 "The mailinglist address is <a href=\"mailto:%(address)s\">%(address)s</a>."
 msgstr ""
-"Die Adresse der Mailingliste lautet <a href=\"mailto:%(address)s\">"
-"%(address)s</a>."
+"Die Adresse der Mailingliste lautet <a href=\"mailto:"
+"%(address)s\">%(address)s</a>."
 
 #: mafiasi/groups/templates/groups/show.html:38
 msgid "This group does not have a mailinglist."
@@ -1318,8 +1309,8 @@ msgid ""
 "password?</a>"
 msgstr ""
 "Hallo %(full_name)s, du besitzt hier bereits einen Account! Der Benutzername "
-"lautet: %(username)s. Hast du dein <a href=\"%(password_reset_url)s"
-"\">Passwort vergessen?</a>"
+"lautet: %(username)s. Hast du dein <a "
+"href=\"%(password_reset_url)s\">Passwort vergessen?</a>"
 
 #: mafiasi/guests/templates/guests/index.html:8
 msgid "Open invitations"
@@ -1435,8 +1426,8 @@ msgid ""
 "Your Jabber ID is <strong>%(username)s</strong>@%(jabber_domain)s. Note: "
 "it's different from your username."
 msgstr ""
-"Deine Jabber-ID lautet abweichend: <strong>%(username)s</strong>@"
-"%(jabber_domain)s."
+"Deine Jabber-ID lautet abweichend: <strong>%(username)s</"
+"strong>@%(jabber_domain)s."
 
 #: mafiasi/jabber/templates/jabber/index.html:12
 #, python-format
@@ -1532,6 +1523,14 @@ msgstr ""
 "Kanboard ist eine Kanban-Tafel mit der du den Fortschritt in deinen "
 "Projekten verfolgen koordinieren kannst."
 
+#: mafiasi/link_shortener/apps.py:11
+msgid "Link Shortener"
+msgstr "Kurzlinks"
+
+#: mafiasi/link_shortener/apps.py:12
+msgid "The best URL shortening service near you"
+msgstr "Der beste Kurzlink-Dienst in deiner Umgebung"
+
 #: mafiasi/mailinglist/forms.py:20
 msgid "This email is already on the whitelist"
 msgstr "Diese E-Mail-Adresse ist bereits auf der Whitelist"
@@ -1556,8 +1555,8 @@ msgstr "Mailingliste für %(group_name)s"
 
 #: mafiasi/mailinglist/templates/mailinglist/show_list.html:9
 msgid ""
-"The mailinglist is not yet known to the mailserver. It will be activated "
-"at midnight."
+"The mailinglist is not yet known to the mailserver. It will be activated at "
+"midnight."
 msgstr ""
 "Die Mailingliste ist dem Mailserver noch nicht bekannt. Sie wird um "
 "Mitternacht aktiviert."
@@ -2081,8 +2080,8 @@ msgstr "Account"
 #: mafiasi/registration/templates/registration/account.html:18
 #, python-format
 msgid ""
-"You want to use %(project_name)s with your friends? You can <a href="
-"\"%(guests_url)s\">invite guests</a>."
+"You want to use %(project_name)s with your friends? You can <a "
+"href=\"%(guests_url)s\">invite guests</a>."
 msgstr ""
 "Du möchtest %(project_name)s mit deinen Freunden nutzen? Du kannst sie als "
 "<a href=\"%(guests_url)s\">Gäste einladen</a>."
@@ -2448,6 +2447,14 @@ msgstr "Wiki"
 msgid "In the wiki you will find important information regarding your studies."
 msgstr ""
 "Im Wiki findest du wichtige Informationen zum Studium. Beteiligen erwünscht!"
+
+#, python-format
+#~ msgid "\"%s\" already has an invitation."
+#~ msgstr "\"%s\" hat bereits eine Einladung."
+
+#, python-format
+#~ msgid "\"%s\" is already a member of this group."
+#~ msgstr "\"%s\" ist bereits Mitglied dieser Gruppe."
 
 #~ msgid "Select a module"
 #~ msgstr "Modul auswählen"
@@ -2962,8 +2969,9 @@ msgstr ""
 #~ "You have to <a href=\"%(login_url)s?next=%(jabber_index_url)s\">login</a> "
 #~ "to see your Jabber account data."
 #~ msgstr ""
-#~ "Du musst dich <a href=\"%(login_url)s?next=%(jabber_index_url)s"
-#~ "\">einloggen</a>, um deinen Jabber-Account zu erstellen oder zu verwalten."
+#~ "Du musst dich <a href=\"%(login_url)s?"
+#~ "next=%(jabber_index_url)s\">einloggen</a>, um deinen Jabber-Account zu "
+#~ "erstellen oder zu verwalten."
 
 #~ msgid "Mafiasi Hub"
 #~ msgstr "Mafiasi Hub"
@@ -3073,8 +3081,8 @@ msgstr ""
 #~ "To manage your groups to go the <a href=\"%(groups_url)s\">group "
 #~ "management</a>."
 #~ msgstr ""
-#~ "Um deine Gruppen zu verwalten, besuche die <a href=\"%(groups_url)s"
-#~ "\">Gruppenverwaltung</a>."
+#~ "Um deine Gruppen zu verwalten, besuche die <a "
+#~ "href=\"%(groups_url)s\">Gruppenverwaltung</a>."
 
 #~ msgid "Here you can change your password here and configure your account."
 #~ msgstr ""
@@ -3115,8 +3123,8 @@ msgstr ""
 #~ "    <li><a href=\"http://genshi.edgewall.org/\">Genshi</a></li>\n"
 #~ "    <li><a href=\"https://code.google.com/p/python-nameparser/\">python-"
 #~ "nameparser</a></li>\n"
-#~ "    <li><a href=\"https://pypi.python.org/pypi/django-widget-tweaks"
-#~ "\">django-widget-tweaks</a></li>\n"
+#~ "    <li><a href=\"https://pypi.python.org/pypi/django-widget-"
+#~ "tweaks\">django-widget-tweaks</a></li>\n"
 #~ "</ul>\n"
 #~ msgstr ""
 #~ "<p>Diese Seite benutzt folgende Software/Komponenten:</p>\n"
@@ -3132,8 +3140,8 @@ msgstr ""
 #~ "    <li><a href=\"http://genshi.edgewall.org/\">Genshi</a></li>\n"
 #~ "    <li><a href=\"https://code.google.com/p/python-nameparser/\">python-"
 #~ "nameparser</a></li>\n"
-#~ "    <li><a href=\"https://pypi.python.org/pypi/django-widget-tweaks"
-#~ "\">django-widget-tweaks</a></li>\n"
+#~ "    <li><a href=\"https://pypi.python.org/pypi/django-widget-"
+#~ "tweaks\">django-widget-tweaks</a></li>\n"
 #~ "</ul>\n"
 
 #~ msgid ""
