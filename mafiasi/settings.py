@@ -15,19 +15,17 @@ ENABLE_JABBER_INTEGRATION = env.bool("MAFIASI_ENABLE_JABBER_INTEGRATION")
 ENABLE_MUMBLE_INTEGRATION = env.bool("MAFIASI_ENABLE_MUMBLE_INTEGRATION")
 ENABLE_EP_INTEGRATION = env.bool("MAFIASI_ENABLE_EP_INTEGRATION")
 
-
 DATABASES = {
     "default": env.dj_db_url("MAFIASI_DB"),
 }
 
+LDAP_SERVERS = {}
 ENABLE_LDAP_AUTH_BACKEND = env.bool("MAFIASI_ENABLE_LDAP_AUTH_BACKEND", default=True)
 if ENABLE_LDAP_AUTH_BACKEND:
-    LDAP_SERVERS = {
-        "default": {
-            "URI": env.str("MAFIASI_LDAP_URI"),
-            "BIND_DN": env.str("MAFIASI_LDAP_BIND_DN"),
-            "BIND_PASSWORD": env.str("MAFIASI_LDAP_BIND_PW"),
-        }
+    LDAP_SERVERS["default"] = {
+        "URI": env.str("MAFIASI_LDAP_URI"),
+        "BIND_DN": env.str("MAFIASI_LDAP_BIND_DN"),
+        "BIND_PASSWORD": env.str("MAFIASI_LDAP_BIND_PW"),
     }
     import ldap
     from django_auth_ldap.config import LDAPSearch
@@ -41,6 +39,28 @@ if ENABLE_LDAP_AUTH_BACKEND:
     AUTH_LDAP_USER_SEARCH = LDAPSearch("ou=People,dc=mafiasi,dc=de",
                                        ldap.SCOPE_SUBTREE, "(uid=%(user)s)")
     AUTH_LDAP_ALWAYS_UPDATE_USER = False
+
+    REGISTRATION_LDAP_USER_SEARCH_FAST = LDAPSearch('ou=Users,ou=studenten,dc=informatik,dc=uni-hamburg,dc=de',
+                                                    ldap.SCOPE_SUBTREE,
+                                                    '(uid=%(uid)s)',
+                                                    ['mail', 'gecos', 'gidNumber'])
+    REGISTRATION_LDAP_USER_SEARCH_SLOW = LDAPSearch('dc=informatik,dc=uni-hamburg,dc=de',
+                                                    ldap.SCOPE_SUBTREE,
+                                                    '(uid=%(uid)s)',
+                                                    ['mail', 'gecos', 'gidNumber'])
+    REGISTRATION_LDAP_GROUP_SEARCH = LDAPSearch('dc=informatik,dc=uni-hamburg,dc=de',
+                                                ldap.SCOPE_SUBTREE,
+                                                '(&(gidNumber=%(gidNumber)s)(objectClass=group))',
+                                                ['name'])
+
+ENABLE_LDAP_REGISTRATION = env.bool("MAFIASI_ENABLE_LDAP_REGISTRATION")
+if ENABLE_LDAP_REGISTRATION:
+    LDAP_SERVERS["registration"] = {
+        "CA": env.str("MAFIASI_LDAP_REGISTRATION_CA"),
+        "URI": env.str("MAFIASI_LDAP_REGISTRATION_URI"),
+        "BIND_DN": env.str("MAFIASI_LDAP_REGISTRATION_BIND_DN"),
+        "BIND_PASSWORD": env.str("MAFIASI_LDAP_REGISTRATION_BIND_PW"),
+    }
 
 ALLOWED_HOSTS = env.list("MAFIAS_ALLOWED_HOSTS", default=["localhost", "127.0.0.1", "::1"])
 
@@ -216,9 +236,10 @@ AUTH_PASSWORD_VALIDATORS = [
 
 EMAIL_DOMAIN = u'informatik.uni-hamburg.de'
 PRIMARY_DOMAIN = u'informatik.uni-hamburg.de'
-REGISTER_DOMAINS = [u'informatik.uni-hamburg.de', u'physnet.uni-hamburg.de']
+REGISTER_DOMAINS = [u'informatik.uni-hamburg.de', u'physnet.uni-hamburg.de', 'hiforum.de']
 REGISTER_DOMAIN_MAPPING = {
-    u'physnet.uni-hamburg.de': 'physnet',
+    'physnet.uni-hamburg.de': 'physnet',
+    'hiforum.de': 'hiforum',
 }
 
 if ENABLE_JABBER_INTEGRATION:
@@ -247,7 +268,7 @@ IMPRINT_URL = 'https://wiki.mafiasi.de/Fachschaft_Informatik:Impressum'
 TEAM_EMAIL = u'ag-server@informatik.uni-hamburg.de'
 WIKI_URL = 'https://www2.informatik.uni-hamburg.de/Fachschaft/wiki/'
 
-EMAIL_HOST = 'mailhost.informatik.uni-hamburg.de'
+EMAIL_HOST = env.str("MAFIASI_EMAIL_HOST")
 SERVER_EMAIL = 'Mafiasi.de server-ag@informatik.uni-hamburg.de'
 DEFAULT_FROM_EMAIL = u'Mafiasi.de <ag-server@informatik.uni-hamburg.de>'
 SERVER_EMAIL = DEFAULT_FROM_EMAIL
@@ -273,8 +294,9 @@ WIKI_URL = 'https://wiki.mafiasi.de'
 BITPOLL_URL = 'https://bitpoll.mafiasi.de'
 WHITEBOARD_URL = 'https://spacedeck.mafiasi.de'
 KANBOARD_URL = 'https://kanboard.mafiasi.de'
+MATRIX_URL = 'https://matrix.mafiasi.de'
 
-PKS_COMMUNITY_DOMAINS = ['informatik.uni-hamburg.de', 'studium.uni-hamburg.de']
+PKS_COMMUNITY_DOMAINS = REGISTER_DOMAINS + ['studium.uni-hamburg.de']
 
 MAILINGLIST_DOMAIN = 'group.mafiasi.de'
 MAILINGLIST_SERVER = ('127.0.0.1', 2522)
@@ -311,7 +333,22 @@ GUEST_INVITE_INSTRUCTION_LINK = "https://dash.crossmodal-learning.org/static_red
 
 GUEST_ACCEPT_INVITATION_MAIL = False
 
-ACCOUNT_PATTERN = r'\d?[a-z]+'
+ACCOUNT_PATTERNS = {
+    'informatik.uni-hamburg.de': r'\d?[a-z]+',
+    'physnet.uni-hamburg.de': r'[a-z]+',
+}
 
 INVALID_MAIL_DOMAIN = 'invalid.invalid'
 
+SENTRY_DSN = env.str("SENTRY_DSN", default=None)
+if SENTRY_DSN is not None:
+    import sentry_sdk
+    from sentry_sdk.integrations.django import DjangoIntegration
+
+    sentry_sdk.init(
+        dsn=SENTRY_DSN,
+        integrations=[DjangoIntegration()],
+        # If you wish to associate users to errors (assuming you are using
+        # django.contrib.auth) you may enable sending PII data.
+        send_default_pii=True
+    )
