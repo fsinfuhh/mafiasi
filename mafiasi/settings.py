@@ -36,7 +36,7 @@ if ENABLE_LDAP_AUTH_BACKEND:
     )
     AUTH_LDAP_BIND_DN = ""
     AUTH_LDAP_BIND_PASSWORD = ""
-    AUTH_LDAP_USER_SEARCH = LDAPSearch("ou=People,dc=mafiasi,dc=de",
+    AUTH_LDAP_USER_SEARCH = LDAPSearch(env.str("MAFIASI_LDAP_USER_SEARCH_DN"),
                                        ldap.SCOPE_SUBTREE, "(uid=%(user)s)")
     AUTH_LDAP_ALWAYS_UPDATE_USER = False
 
@@ -52,6 +52,7 @@ if ENABLE_LDAP_AUTH_BACKEND:
                                                 ldap.SCOPE_SUBTREE,
                                                 '(&(gidNumber=%(gidNumber)s)(objectClass=group))',
                                                 ['name'])
+    ROOT_DN = env.str("MAFIASI_LDAP_ROOT_DN")
 
 ENABLE_LDAP_REGISTRATION = env.bool("MAFIASI_ENABLE_LDAP_REGISTRATION")
 if ENABLE_LDAP_REGISTRATION:
@@ -108,31 +109,33 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'oauth2_provider',
     'corsheaders',
-    ###
+    ### internal
     'mafiasi.base',
     'mafiasi.dashboard',
-    'mafiasi.discourse',
-    'mafiasi.etherpad',
-    'mafiasi.gprot',
     'mafiasi.groups',
     'mafiasi.guests',
+    'mafiasi.registration',
     'mafiasi.mail',
     'mafiasi.mailinglist',
-    'mafiasi.mattermost',
-    'mafiasi.nextcloud',
-    'mafiasi.registration',
     'mafiasi.teaching',
+    ### dashboard apps
+    'mafiasi.wiki',
+    'mafiasi.gprot',
+    'mafiasi.nextcloud',
+    'mafiasi.etherpad',
     'mafiasi.bitpoll',
-    'mafiasi.fb18',
+    'mafiasi.matrix',
     'mafiasi.git',
-    'mafiasi.jitsi',
     'mafiasi.sogo',
     'mafiasi.tauschen',
+    'mafiasi.jitsi',
+    'mafiasi.link_shortener',
     'mafiasi.pks',
-    'mafiasi.wiki',
     'mafiasi.kanboard',
     'mafiasi.whiteboard',
-    'mafiasi.link_shortener',
+    'mafiasi.mattermost',
+    'mafiasi.discourse',
+    'mafiasi.fb18',
     ###
     'django.contrib.admin',
     'django.contrib.admindocs',
@@ -193,19 +196,18 @@ LOGGING = {
         }
     },
     'handlers': {
-        #        'mail_admins': {
-        #            'level': 'ERROR',
-        #            'filters': ['require_debug_false'],
-        #            'class': 'django.utils.log.AdminEmailHandler'
-        #        }
+        'console': {
+            'level': 'DEBUG',
+            'filters': None,
+            'class': 'logging.StreamHandler',
+        },
     },
     'loggers': {
-        'django.request': {
-            'handlers': [],  # 'mail_admins'
-            'level': 'ERROR',
-            'propagate': True,
+        'django': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
         },
-    }
+    },
 }
 
 SESSION_COOKIE_SECURE = True
@@ -248,7 +250,7 @@ REGISTER_DOMAIN_MAPPING = {
 if ENABLE_JABBER_INTEGRATION:
     JABBER_DOMAIN = u'jabber.mafiasi.de'
     JABBER_CERT_FINGERPRINT_FILE = str(env.path("MAFIASI_JABBER_CERT_FINGERPRINT_FILE"))
-    INSTALLED_APPS.insert(INSTALLED_APPS.index('mafiasi.mail'), 'mafiasi.jabber')
+    INSTALLED_APPS.insert(INSTALLED_APPS.index('mafiasi.mattermost'), 'mafiasi.jabber')
     DATABASES["jabber"] = env.dj_db_url("MAFIASI_DB_JABBER", default="sqlite://:memory:")
 
 if ENABLE_MUMBLE_INTEGRATION:
@@ -257,7 +259,7 @@ if ENABLE_MUMBLE_INTEGRATION:
         'address': u'mumble.mafiasi.de',
         'port': 64738,
     }
-    INSTALLED_APPS.insert(INSTALLED_APPS.index("mafiasi.mail"), "mafiasi.mumble")
+    INSTALLED_APPS.insert(INSTALLED_APPS.index("mafiasi.mattermost"), "mafiasi.mumble")
 
 if ENABLE_EP_INTEGRATION:
     DATABASES["etherpad"] = env.dj_db_url("MAFIASI_DB_ETHERPAD", default="sqlite://:memory:")
@@ -277,7 +279,6 @@ DEFAULT_FROM_EMAIL = u'Mafiasi.de <ag-server@informatik.uni-hamburg.de>'
 SERVER_EMAIL = DEFAULT_FROM_EMAIL
 EMAIL_SUBJECT_PREFIX = u'[mafiasi.de] '
 
-ROOT_DN = 'dc=mafiasi,dc=de'
 CALDAV_BASE_URL = 'http://localhost:5232/dav/'
 CALDAV_DISPLAY_URL = 'https://mafiasi.de/dav/'
 HKP_URL = 'hkps://mafiasi.de'
