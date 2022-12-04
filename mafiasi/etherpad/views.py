@@ -177,7 +177,7 @@ def show_pad(request, group_name, pad_name):
         'fullscreen': is_fullscreen,
         'base_template': 'base_raw.html' if is_fullscreen else 'base.html'
     })
-    cookie_domain = '.' + settings.EP_COOKIE_DOMAIN
+    cookie_domain = settings.EP_COOKIE_DOMAIN
     response.set_cookie('sessionID', cookie, domain=cookie_domain)
     response['Access-Control-Allow-Origin'] = "https://ep.mafiasi.de"
     return response
