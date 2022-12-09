@@ -70,7 +70,7 @@ class Mafiasi(AbstractUser):
 
 
 class LdapGroup(LdapModel):
-    base_dn = 'ou=groups,' + settings.ROOT_DN
+    base_dn = 'ou=groups,' + getattr(settings, "ROOT_DN", "cn=unused")
     lookup_dn = 'cn={},' + base_dn
     primary_key = 'name'
     object_classes = [b'posixGroup']
@@ -85,7 +85,7 @@ class LdapGroup(LdapModel):
 
 
 class LdapUser(LdapModel):
-    base_dn = 'ou=People,' + settings.ROOT_DN
+    base_dn = 'ou=People,' + getattr(settings, "ROOT_DN", "cn=unused")
     lookup_dn = 'uid={},' + base_dn
     primary_key = 'username'
     object_classes = [b'person', b'inetOrgPerson', b'ownCloud']
