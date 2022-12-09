@@ -304,9 +304,9 @@ LINK_SHORTENER_URL = 'https://l.mafiasi.de'
 PKS_COMMUNITY_DOMAINS = REGISTER_DOMAINS + ['studium.uni-hamburg.de']
 
 MAILINGLIST_DOMAIN = 'group.mafiasi.de'
-MAILINGLIST_SERVER = ('127.0.0.1', 2522)
+MAILINGLIST_SERVER = ('0.0.0.0', 2522)
 MAILCLOAK_DOMAIN = 'cloak.mafiasi.de'
-MAILCLOAK_SERVER = ('127.0.0.1', 2523)
+MAILCLOAK_SERVER = ('0.0.0.0', 2523)
 VALID_EMAIL_ADDRESSES = ['postmaster@mafiasi.de']
 EMAIL_ADDRESSES_PASSWORD = 'changeme'
 
