@@ -128,7 +128,6 @@ INSTALLED_APPS = [
     'mafiasi.git',
     'mafiasi.sogo',
     'mafiasi.tauschen',
-    'mafiasi.jitsi',
     'mafiasi.link_shortener',
     'mafiasi.pks',
     'mafiasi.kanboard',
