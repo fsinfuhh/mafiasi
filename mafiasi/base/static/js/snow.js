@@ -1,11 +1,17 @@
 'use strict';
 
-const NUM_SNOWFLAKES = 69;
+const NUM_SNOWFLAKES = 69 * 2;
 const SNOWFLAKE_COLORS = [[233, 234, 235], [232, 239, 248], [170, 204, 255], [211, 219, 236]];
 
-let xpos;
+/**
+ * @type { HTMLCanvasElement }
+ */
 let canvas;
+/**
+ * @type { CanvasRenderingContext2D }
+ */
 let canvas_ctx;
+let xpos;
 let snowflakes = [];
 
 /**
@@ -42,13 +48,13 @@ class Snowflake {
      */
     replace() {
         this.opacity = 0;
-        this.dop = 0.03 * range(1, 4);
+        this.dop = 0.01 * range(1, 4);
         this.x = range(-this.r * 2, canvas.width - this.r * 2);
         this.y = range(-20, canvas.height - this.r * 2);
         this.xmax = canvas.width - this.r;
         this.ymax = canvas.height - this.r;
-        this.vx = range(0, 2) + 8 * xpos - 5;
-        this.vy = 0.7 * this.r + range(-1, 1);
+        this.vx = 0.5 * (range(0, 2) + 8 * xpos - 5);
+        this.vy = 0.3 * this.r + range(-1, 1);
     }
 
     draw() {
