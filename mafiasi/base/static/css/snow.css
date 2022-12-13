@@ -1,0 +1,14 @@
+#snow-canvas {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion) {
+  #snow-canvas {
+      display: none;
+  }
+}
