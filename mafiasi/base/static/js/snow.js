@@ -1,7 +1,7 @@
 'use strict';
 
 const NUM_SNOWFLAKES = 69 * 2;
-const SNOWFLAKE_COLORS = [[233, 234, 235], [232, 239, 248], [170, 204, 255], [211, 219, 236]];
+const SNOWFLAKE_COLORS = [[233, 234, 235], [232, 239, 248], [170, 204, 255], [211, 219, 236], [214, 255, 250], [196, 255, 2467]];
 
 /**
  * @type { HTMLCanvasElement }
