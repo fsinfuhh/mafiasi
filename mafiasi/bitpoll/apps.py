@@ -10,4 +10,4 @@ class BitpollConfig(BaseService):
     title = _('BitPoll')
     description = _('BitPoll helps you to find common dates for meetings easily.')
     link = settings.BITPOLL_URL
-    image = 'img/services/bitpoll.png'
+    image = 'img/services/bitpoll.svg'

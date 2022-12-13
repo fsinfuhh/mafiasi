@@ -10,4 +10,4 @@ class NextcloudConfig(BaseService):
     title = _('Nextcloud')
     description = _('Nextcloud enables you to sync and share your documents.')
     link = settings.NEXTCLOUD_URL
-    image = 'img/services/nextcloud.png'
+    image = 'img/services/nextcloud.svg'

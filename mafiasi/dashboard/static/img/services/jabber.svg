@@ -1,73 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="40"
-   height="36.666668"
-   id="svg5551"
-   version="1.1"
-   inkscape:version="0.48.3.1 r9886"
-   sodipodi:docname="jabber.svg">
-  <defs
-     id="defs5553" />
-  <sodipodi:namedview
-     id="base"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="1.0349609"
-     inkscape:cx="-52.359878"
-     inkscape:cy="-0.81744562"
-     inkscape:document-units="px"
-     inkscape:current-layer="layer1"
-     showgrid="false"
-     fit-margin-top="0"
-     fit-margin-left="0"
-     fit-margin-right="0"
-     fit-margin-bottom="0"
-     inkscape:window-width="898"
-     inkscape:window-height="1058"
-     inkscape:window-x="0"
-     inkscape:window-y="18"
-     inkscape:window-maximized="0" />
-  <metadata
-     id="metadata5556">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
-     id="layer1"
-     transform="translate(-427.35988,-494.87807)">
-    <g
-       transform="translate(383.99179,544.86308)"
-       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#333333;fill-opacity:1;stroke:none;font-family:GLYPHICONS Halflings;-inkscape-font-specification:GLYPHICONS Halflings"
-       id="text3520"
-       inkscape:export-filename="/home/henning/workspace/mafiasi/mafiasi/dashboard/static/img/services/jabber.png"
-       inkscape:export-xdpi="180"
-       inkscape:export-ydpi="180">
-      <path
-         inkscape:connector-curvature="0"
-         d="m 46.701421,-49.98501 33.333333,0 c 0.911074,3.7e-5 1.688851,0.33337 2.333334,1 0.666627,0.64448 0.99996,1.422257 1,2.333334 l 0,20 c -4e-5,0.911123 -0.333373,1.700011 -1,2.366666 -0.644483,0.644455 -1.42226,0.966677 -2.333334,0.966667 l -19.866666,0 -10.133334,10 0,-10 -3.333333,0 c -0.911113,10e-6 -1.700002,-0.322212 -2.366667,-0.966667 -0.644444,-0.666655 -0.966666,-1.455543 -0.966666,-2.366666 l 0,-20 c 0,-0.911077 0.322222,-1.688854 0.966666,-2.333334 0.666665,-0.66663 1.455554,-0.999963 2.366667,-1"
-         id="path3525"
-         style="fill:#333333;fill-opacity:1" />
-    </g>
-  </g>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW 2019 (64-Bit) -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="24.8627mm" height="22.9064mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 3734.93 3441.05"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil0 {fill:black;fill-rule:nonzero}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <path class="fil0" d="M399.58 0l2935.78 0c54.19,0 105.2,10.23 152.94,30.72 46.79,20.04 89.25,49.59 127.31,88.6 38.98,38.04 68.55,80.47 88.6,127.28 20.46,47.79 30.72,98.8 30.72,152.97l0 1761.49c0,53.72 -10.25,104.84 -30.72,153.27 -20.08,47.55 -49.63,90.87 -88.63,129.88l0.21 0.21c-37.89,37.89 -80.82,66.8 -128.74,86.65 -47.58,19.69 -98.16,29.58 -151.69,29.58l-1706.68 0 -861.42 850.06c-41.61,40.92 -108.54,40.36 -149.46,-1.25 -20.23,-20.58 -30.33,-47.35 -30.33,-74.1l-0.32 0 0 -774.71 -187.58 0c-53.09,0 -103.77,-9.88 -152.04,-29.59 -47.71,-19.5 -90.97,-47.98 -129.67,-85.39l-2.9 -2.9c-37.41,-38.7 -65.89,-81.96 -85.39,-129.67 -19.71,-48.25 -29.58,-98.95 -29.58,-152.04l0 -1761.49c0,-53.84 9.87,-104.57 29.58,-152.12 19.45,-46.94 48.34,-89.61 86.63,-127.91 39.07,-39.09 82.47,-68.71 130.09,-88.83 48.45,-20.48 99.55,-30.72 153.27,-30.72zm2935.78 211.99l-2935.78 0c-26.51,0 -50.29,4.45 -71.31,13.32 -21.83,9.22 -42.59,23.66 -62.19,43.28 -18.45,18.46 -32.18,38.5 -41.09,60.01 -8.65,20.9 -12.99,44.57 -12.99,70.97l0 1761.49c0,27.15 4.34,51.35 12.99,72.54 8.64,21.17 22.31,41.58 40.92,61.13 19.54,18.61 39.96,32.28 61.13,40.92 21.21,8.67 45.4,13.01 72.54,13.01l293.58 0c58.53,0 106,47.47 106,106l0 627.63 706.54 -697.23c19.44,-22.31 48.04,-36.4 79.93,-36.4l1749.73 0c26.66,0 50.49,-4.34 71.39,-12.99 20.58,-8.52 40.33,-22.25 59.19,-41.1l0.21 0.21 0.2 -0.21c19.62,-19.6 34.06,-40.36 43.28,-62.19 8.88,-21 13.32,-44.8 13.32,-71.31l0 -1761.49c0,-26.05 -4.46,-49.45 -13.32,-70.17 -9.03,-21.08 -23.07,-40.83 -42.03,-59.16l-2.9 -2.9c-18.34,-18.97 -38.1,-33 -59.19,-42.03 -20.7,-8.88 -44.09,-13.32 -70.14,-13.32z"/>
+ </g>
 </svg>

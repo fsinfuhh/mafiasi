@@ -1,161 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   height="111.40883"
-   width="88.604774"
-   id="svg2575"
-   sodipodi:version="0.32"
-   inkscape:version="0.48.3.1 r9886"
-   sodipodi:docname="wiki.svg"
-   inkscape:output_extension="org.inkscape.output.svg.inkscape"
-   version="1.0"
-   inkscape:export-filename="I:\Workspace\phphotdoc2\template\logo.png"
-   inkscape:export-xdpi="90"
-   inkscape:export-ydpi="90">
-  <defs
-     id="defs2577" />
-  <sodipodi:namedview
-     id="base"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:cx="39.876659"
-     inkscape:cy="91.687769"
-     inkscape:zoom="3.0798429"
-     inkscape:document-units="px"
-     inkscape:current-layer="layer1"
-     inkscape:window-width="1128"
-     inkscape:window-height="1058"
-     inkscape:window-x="0"
-     inkscape:window-y="18"
-     width="135px"
-     height="135px"
-     showgrid="false"
-     fit-margin-top="0"
-     fit-margin-left="0"
-     fit-margin-right="0"
-     fit-margin-bottom="0"
-     inkscape:window-maximized="0" />
-  <g
-     inkscape:groupmode="layer"
-     inkscape:label="Warstwa 1"
-     id="layer1"
-     transform="translate(-223.30865,-281.92576)">
-    <path
-       style="color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#333333;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       d="m 308.65645,309.52221 0,75.88327 c 0,3.00773 -2.65929,5.42911 -5.96253,5.42911 l -70.92274,-10e-6 c -3.30324,10e-6 -5.96253,-2.42137 -5.96253,-5.4291 l 0,-94.8666 c 0,-3.00772 2.65929,-5.42911 5.96253,-5.42911 l 0,0 51.51028,0"
-       id="path2601-0"
-       inkscape:connector-curvature="0"
-       inkscape:export-filename="/home/henning/workspace/mafiasi/mafiasi/dashboard/static/img/services/wiki.png"
-       inkscape:export-xdpi="65.941612"
-       inkscape:export-ydpi="65.941612" />
-    <path
-       style="color:#000000;fill:none;stroke:#333333;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       d="m 308.02881,312.60433 -19.41245,0 c -3.30325,0 -5.96254,-2.65929 -5.96254,-5.96253 l 0,-20.84846"
-       id="rect2583-7"
-       inkscape:connector-curvature="0"
-       inkscape:export-filename="/home/henning/workspace/mafiasi/mafiasi/dashboard/static/img/services/wiki.png"
-       inkscape:export-xdpi="65.941612"
-       inkscape:export-ydpi="65.941612" />
-    <rect
-       style="color:#000000;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:#333333;stroke-width:2.50430059;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       id="rect2587"
-       width="60.636009"
-       height="2.4956994"
-       x="237.46019"
-       y="329.51697" />
-    <path
-       style="color:#000000;fill:none;stroke:#333333;stroke-width:5.13615084;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       d="m 281.50738,284.49384 27.83797,26.86574"
-       id="path2603-1"
-       sodipodi:nodetypes="cc"
-       inkscape:connector-curvature="0"
-       inkscape:export-filename="/home/henning/workspace/mafiasi/mafiasi/dashboard/static/img/services/wiki.png"
-       inkscape:export-xdpi="65.941612"
-       inkscape:export-ydpi="65.941612" />
-    <rect
-       y="351.06577"
-       x="237.46019"
-       height="2.4956994"
-       width="60.636009"
-       id="rect2589"
-       style="color:#000000;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:#333333;stroke-width:2.50430059;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
-    <rect
-       style="color:#000000;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:#333333;stroke-width:2.50430059;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       id="rect2591"
-       width="60.636009"
-       height="2.4956994"
-       x="236.83255"
-       y="372.61453" />
-    <rect
-       y="307.75568"
-       x="237.24747"
-       height="2.9209564"
-       width="32.190262"
-       id="rect2593"
-       style="color:#000000;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:#333333;stroke-width:2.07904363;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
-  </g>
-  <metadata
-     id="metadata14">
-    <rdf:RDF>
-      <cc:Work>
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <cc:license
-           rdf:resource="http://creativecommons.org/licenses/publicdomain/" />
-        <dc:publisher>
-          <cc:Agent
-             rdf:about="http://openclipart.org/">
-            <dc:title>Open Clip Art Library</dc:title>
-          </cc:Agent>
-        </dc:publisher>
-        <dc:title />
-        <dc:date>2008-03-31T16:55:43</dc:date>
-        <dc:description>Text document icon.</dc:description>
-        <dc:source>http://openclipart.org/detail/16073/document-by-kml</dc:source>
-        <dc:creator>
-          <cc:Agent>
-            <dc:title>kml</dc:title>
-          </cc:Agent>
-        </dc:creator>
-        <dc:subject>
-          <rdf:Bag>
-            <rdf:li>clip art</rdf:li>
-            <rdf:li>clipart</rdf:li>
-            <rdf:li>how i did it</rdf:li>
-            <rdf:li>icon</rdf:li>
-            <rdf:li>icon</rdf:li>
-            <rdf:li>image</rdf:li>
-            <rdf:li>media</rdf:li>
-            <rdf:li>paper</rdf:li>
-            <rdf:li>paper</rdf:li>
-            <rdf:li>public domain</rdf:li>
-            <rdf:li>svg</rdf:li>
-            <rdf:li>text</rdf:li>
-            <rdf:li>text</rdf:li>
-          </rdf:Bag>
-        </dc:subject>
-      </cc:Work>
-      <cc:License
-         rdf:about="http://creativecommons.org/licenses/publicdomain/">
-        <cc:permits
-           rdf:resource="http://creativecommons.org/ns#Reproduction" />
-        <cc:permits
-           rdf:resource="http://creativecommons.org/ns#Distribution" />
-        <cc:permits
-           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
-      </cc:License>
-    </rdf:RDF>
-  </metadata>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW 2019 (64-Bit) -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="23.2431mm" height="29.2959mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 1521.99 1918.33"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil0 {fill:black;fill-rule:nonzero}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <path class="fil0" d="M1521.99 466.27l0 1314.69c0,38.74 -16.95,73.54 -44.41,98.55 -26.36,24.01 -62.5,38.83 -102.21,38.83l-1228.75 0c-39.71,0 -75.85,-14.82 -102.21,-38.83 -27.46,-25 -44.41,-59.8 -44.41,-98.54l0 -1643.58c0,-38.74 16.95,-73.54 44.41,-98.55 26.36,-24.01 62.5,-38.83 102.21,-38.83l892.42 0 0 0.69 0.03 -0.03 482.3 465.45 -0.14 0.15 0.76 0zm-722.78 38.01l-557.7 0c-9.95,0 -18.01,-8.07 -18.01,-18.01l0 -50.6c0,-9.95 8.07,-18.01 18.01,-18.01l557.7 0c9.95,0 18.01,8.07 18.01,18.01l0 50.6c0,9.95 -8.07,18.01 -18.01,18.01zm485.64 1120l-1050.53 0c-11.98,0 -21.69,-9.72 -21.69,-21.69l0 -43.24c0,-11.98 9.72,-21.69 21.69,-21.69l1050.53 0c11.98,0 21.69,9.72 21.69,21.69l0 43.24c0,11.98 -9.72,21.69 -21.69,21.69zm10.88 -373.33l-1050.53 0c-11.98,0 -21.69,-9.72 -21.69,-21.69l0 -43.24c0,-11.98 9.72,-21.69 21.69,-21.69l1050.53 0c11.98,0 21.69,9.72 21.69,21.69l0 43.24c0,11.98 -9.72,21.69 -21.69,21.69zm-224.23 -1095.65l0 261.07c0,16.76 6.61,31.77 17.33,42.48l0.17 0.17c10.71,10.72 25.72,17.33 42.48,17.33l272.7 0 -332.68 -321.06zm224.23 722.31l-1050.53 0c-11.98,0 -21.69,-9.72 -21.69,-21.69l0 -43.24c0,-11.98 9.72,-21.69 21.69,-21.69l1050.53 0c11.98,0 21.69,9.72 21.69,21.69l0 43.24c0,11.98 -9.72,21.69 -21.69,21.69zm-310.87 -790.97l-838.24 0c-17.52,0 -33.05,6.17 -44.01,16.15 -9.88,9 -15.98,21.24 -15.98,34.6l0 1643.58c0,13.36 6.1,25.6 15.98,34.59 10.96,9.98 26.49,16.15 44.01,16.15l1228.75 0c17.52,0 33.05,-6.17 44.01,-16.15 9.87,-8.99 15.98,-21.24 15.98,-34.6l0 -1217.97 -303.88 0c-40.38,0 -76.96,-16.36 -103.57,-42.88l-0.17 -0.17c-26.53,-26.61 -42.88,-63.19 -42.88,-103.57l0 -329.73z"/>
+ </g>
 </svg>

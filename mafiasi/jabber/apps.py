@@ -9,4 +9,4 @@ class JabberConfig(BaseService):
     title = _('Jabber')
     description = _('On our Jabber server you can chat with your fellow students, which are already on your contact list.')
     link = '/jabber/'
-    image = 'img/services/jabber.png'
+    image = 'img/services/jabber.svg'

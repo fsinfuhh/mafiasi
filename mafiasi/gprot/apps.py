@@ -9,4 +9,4 @@ class GprotConfig(BaseService):
     title = _('GProt')
     description = _('The GProt contains memory minutes of oral and written exams.')
     link = '/gprot/'
-    image = 'img/services/gprot.png'
+    image = 'img/services/gprot.svg'
