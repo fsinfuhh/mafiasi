@@ -8,7 +8,6 @@ env.read_env(env.path("MAFIASI_ENV_FILE", default=".env"))
 BASE_DIR = Path(__file__).parent.parent
 
 DEBUG = env.bool("MAFIASI_DEBUG", default=False)
-TEMPLATE_DEBUG = DEBUG
 
 # Feature toggles
 ENABLE_JABBER_INTEGRATION = env.bool("MAFIASI_ENABLE_JABBER_INTEGRATION")
@@ -39,6 +38,16 @@ if ENABLE_LDAP_AUTH_BACKEND:
                                        ldap.SCOPE_SUBTREE, "(uid=%(user)s)")
     AUTH_LDAP_ALWAYS_UPDATE_USER = False
 
+    ROOT_DN = env.str("MAFIASI_LDAP_ROOT_DN")
+
+ENABLE_LDAP_REGISTRATION = env.bool("MAFIASI_ENABLE_LDAP_REGISTRATION")
+if ENABLE_LDAP_REGISTRATION:
+    LDAP_SERVERS["registration"] = {
+        "CA": env.str("MAFIASI_LDAP_REGISTRATION_CA"),
+        "URI": env.str("MAFIASI_LDAP_REGISTRATION_URI"),
+        "BIND_DN": env.str("MAFIASI_LDAP_REGISTRATION_BIND_DN"),
+        "BIND_PASSWORD": env.str("MAFIASI_LDAP_REGISTRATION_BIND_PW"),
+    }
     REGISTRATION_LDAP_USER_SEARCH_FAST = LDAPSearch('ou=Users,ou=studenten,dc=informatik,dc=uni-hamburg,dc=de',
                                                     ldap.SCOPE_SUBTREE,
                                                     '(uid=%(uid)s)',
@@ -51,16 +60,18 @@ if ENABLE_LDAP_AUTH_BACKEND:
                                                 ldap.SCOPE_SUBTREE,
                                                 '(&(gidNumber=%(gidNumber)s)(objectClass=group))',
                                                 ['name'])
-    ROOT_DN = env.str("MAFIASI_LDAP_ROOT_DN")
 
-ENABLE_LDAP_REGISTRATION = env.bool("MAFIASI_ENABLE_LDAP_REGISTRATION")
-if ENABLE_LDAP_REGISTRATION:
-    LDAP_SERVERS["registration"] = {
-        "CA": env.str("MAFIASI_LDAP_REGISTRATION_CA"),
-        "URI": env.str("MAFIASI_LDAP_REGISTRATION_URI"),
-        "BIND_DN": env.str("MAFIASI_LDAP_REGISTRATION_BIND_DN"),
-        "BIND_PASSWORD": env.str("MAFIASI_LDAP_REGISTRATION_BIND_PW"),
-    }
+REGISTER_ENABLED = True
+PRIMARY_DOMAIN = 'informatik.uni-hamburg.de'
+REGISTER_DOMAINS = ['informatik.uni-hamburg.de', 'physnet.uni-hamburg.de', 'hiforum.de']
+REGISTER_DOMAIN_MAPPING = {
+    'physnet.uni-hamburg.de': 'physnet',
+    'hiforum.de': 'hiforum',
+}
+ACCOUNT_PATTERNS = {
+    'informatik.uni-hamburg.de': r'\d?[a-z]+',
+    'physnet.uni-hamburg.de': r'[a-z]+',
+}
 
 ALLOWED_HOSTS = env.list("MAFIASI_ALLOWED_HOSTS", default=["localhost", "127.0.0.1", "::1"])
 
@@ -69,8 +80,6 @@ USE_L10N = True
 USE_TZ = True
 TIME_ZONE = "Europe/Berlin"
 LANGUAGE_CODE = "en-us"
-
-SITE_ID = 1
 
 SECRET_KEY = env.str("MAFIASI_SECRET_KEY")
 
@@ -104,7 +113,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.sessions',
     'django.contrib.staticfiles',
-    'django.contrib.sites',
     'widget_tweaks',
     'oauth2_provider',
     'corsheaders',
@@ -148,8 +156,27 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.template.context_processors.media',
                 'django.contrib.messages.context_processors.messages',
-            ]},
+                'django.template.context_processors.request',
+            ],
+            'debug': DEBUG,
+        },
     },
+]
+
+TEMPLATE_ALLOWABLE_SETTINGS_VALUES = [
+    "REGISTER_ENABLED",
+    "MAIL_SIGNATURE",
+    "PROJECT_NAME",
+    "PROJECT_BANNER",
+    "MAIL_GREETING",
+    "MAIL_INCLUDE_GERMAN",
+    "MAIL_GREETING_DE",
+    "MAIL_GREETING_EN",
+    "BANNER_IMG",
+    "GUEST_INVITE_HINT",
+    "USER_LOGIN_HINT",
+    "GUEST_INVITE_INSTRUCTION_LINK",
+    "RAVEN_PUBLIC_DSN",
 ]
 
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
@@ -166,6 +193,7 @@ AUTH_USER_MODEL = 'base.Mafiasi'
 
 LOGIN_URL = '/login'
 LOGIN_REDIRECT_URL = '/dashboard/'
+USER_LOGIN_HINT = "Note: For our account names we use two digits for year (e.g. <strong>13doe</strong> instead of 3doe)"
 
 from django.contrib.messages import constants as message_constants
 
@@ -210,26 +238,9 @@ LOGGING = {
 
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
+CORS_ORIGIN_ALLOW_ALL = True
 
 MATHJAX_ROOT = '/usr/share/javascript/mathjax/'
-
-BANNER_IMG = ""
-
-TEMPLATE_ALLOWABLE_SETTINGS_VALUES = [
-    "REGISTER_ENABLED",
-    "MAIL_SIGNATURE",
-    "PROJECT_NAME",
-    "PROJECT_BANNER",
-    "MAIL_GREETING",
-    "MAIL_INCLUDE_GERMAN",
-    "MAIL_GREETING_DE",
-    "MAIL_GREETING_EN",
-    "BANNER_IMG",
-    "GUEST_INVITE_HINT",
-    "USER_LOGIN_HINT",
-    "GUEST_INVITE_INSTRUCTION_LINK",
-    "RAVEN_PUBLIC_DSN",
-]
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -237,16 +248,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-EMAIL_DOMAIN = u'informatik.uni-hamburg.de'
-PRIMARY_DOMAIN = u'informatik.uni-hamburg.de'
-REGISTER_DOMAINS = [u'informatik.uni-hamburg.de', u'physnet.uni-hamburg.de', 'hiforum.de']
-REGISTER_DOMAIN_MAPPING = {
-    'physnet.uni-hamburg.de': 'physnet',
-    'hiforum.de': 'hiforum',
-}
-
 if ENABLE_JABBER_INTEGRATION:
-    JABBER_DOMAIN = u'jabber.mafiasi.de'
+    JABBER_DOMAIN = 'jabber.mafiasi.de'
     JABBER_CERT_FINGERPRINT_FILE = str(env.path("MAFIASI_JABBER_CERT_FINGERPRINT_FILE"))
     INSTALLED_APPS.insert(INSTALLED_APPS.index('mafiasi.mattermost'), 'mafiasi.jabber')
     DATABASES["jabber"] = env.dj_db_url("MAFIASI_DB_JABBER", default="sqlite://:memory:")
@@ -259,23 +262,18 @@ if ENABLE_EP_INTEGRATION:
 
 DATABASE_ROUTERS = ['mafiasi.jabber.dbrouter.JabberRouter', 'ldapdb.router.Router']
 
-IMPRINT_URL = 'https://wiki.mafiasi.de/Fachschaft_Informatik:Impressum'
-TEAM_EMAIL = u'ag-server@informatik.uni-hamburg.de'
-WIKI_URL = 'https://www2.informatik.uni-hamburg.de/Fachschaft/wiki/'
+PROJECT_NAME = "mafiasi.de"
+PROJECT_BANNER = "Mafiasi Hub"
+BANNER_IMG = ""
 
-EMAIL_HOST = env.str("MAFIASI_EMAIL_HOST")
-SERVER_EMAIL = 'Mafiasi.de server-ag@informatik.uni-hamburg.de'
-DEFAULT_FROM_EMAIL = u'Mafiasi.de <ag-server@informatik.uni-hamburg.de>'
-SERVER_EMAIL = DEFAULT_FROM_EMAIL
-EMAIL_SUBJECT_PREFIX = u'[mafiasi.de] '
-
-CALDAV_BASE_URL = 'http://localhost:5232/dav/'
-CALDAV_DISPLAY_URL = 'https://mafiasi.de/dav/'
 HKP_URL = 'hkps://mafiasi.de'
 
+# Maximum sizes for gprot images / pdfs in MB
 GPROT_IMAGE_MAX_SIZE = 1
 GPROT_PDF_MAX_SIZE = 5
 
+IMPRINT_URL = 'https://wiki.mafiasi.de/Fachschaft_Informatik:Impressum'
+WIKI_URL = 'https://www2.informatik.uni-hamburg.de/Fachschaft/wiki/'
 DISCOURSE_URL = 'https://discourse.mafiasi.de'
 SOGO_URL = 'https://sogo.mafiasi.de'
 GIT_URL = 'https://git.mafiasi.de'
@@ -291,7 +289,10 @@ KANBOARD_URL = 'https://kanboard.mafiasi.de'
 MATRIX_URL = 'https://matrix.mafiasi.de'
 LINK_SHORTENER_URL = 'https://l.mafiasi.de'
 
-PKS_COMMUNITY_DOMAINS = REGISTER_DOMAINS + ['studium.uni-hamburg.de']
+if REGISTER_ENABLED:
+    PKS_COMMUNITY_DOMAINS = REGISTER_DOMAINS + ['studium.uni-hamburg.de']
+else:
+    PKS_COMMUNITY_DOMAINS = ALLOWED_HOSTS
 
 MAILINGLIST_DOMAIN = 'group.mafiasi.de'
 MAILINGLIST_SERVER = ('0.0.0.0', 2522)
@@ -300,11 +301,12 @@ MAILCLOAK_SERVER = ('0.0.0.0', 2523)
 VALID_EMAIL_ADDRESSES = ['postmaster@mafiasi.de']
 EMAIL_ADDRESSES_PASSWORD = env.str('MAFIASI_EMAIL_ADDRESSES_PASSWORD')
 
-REGISTER_ENABLED = True
-GUEST_EXTENSION = ".guest"
+TEAM_EMAIL = 'ag-server@informatik.uni-hamburg.de'
+EMAIL_HOST = env.str("MAFIASI_EMAIL_HOST")
+DEFAULT_FROM_EMAIL = 'Mafiasi.de <ag-server@informatik.uni-hamburg.de>'
+SERVER_EMAIL = DEFAULT_FROM_EMAIL
+EMAIL_SUBJECT_PREFIX = '[mafiasi.de] '
 MAIL_SIGNATURE = "mafiasi.de-Team"
-PROJECT_NAME = "mafiasi.de"
-PROJECT_BANNER = "Mafiasi Hub"
 
 MAIL_GREETING_EN = """
 Best regards,
@@ -317,23 +319,14 @@ Grüße,
 Deine Server-AG"""
 
 MAIL_INCLUDE_GERMAN = True
+INVALID_MAIL_DOMAIN = 'invalid.invalid'
 
-CORS_ORIGIN_ALLOW_ALL = True
-
+GUEST_EXTENSION = ".guest"
 DEFAULT_GUEST_GROUP = ""
-
 GUEST_INVITE_HINT = "Must start with a letter and only contain alphanumeric characters. Lowercase only."
-USER_LOGIN_HINT = "Note: For our account names we use two digits for year (e.g. <strong>13doe</strong> instead of 3doe)"
-GUEST_INVITE_INSTRUCTION_LINK = "https://dash.crossmodal-learning.org/static_redir/instruction"
-
 GUEST_ACCEPT_INVITATION_MAIL = False
 
-ACCOUNT_PATTERNS = {
-    'informatik.uni-hamburg.de': r'\d?[a-z]+',
-    'physnet.uni-hamburg.de': r'[a-z]+',
-}
-
-INVALID_MAIL_DOMAIN = 'invalid.invalid'
+GUEST_INVITE_INSTRUCTION_LINK = "https://dash.crossmodal-learning.org/static_redir/instruction"
 
 SENTRY_DSN = env.str("SENTRY_DSN", default=None)
 if SENTRY_DSN is not None:
