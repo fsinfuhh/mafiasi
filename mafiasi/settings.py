@@ -12,7 +12,6 @@ TEMPLATE_DEBUG = DEBUG
 
 # Feature toggles
 ENABLE_JABBER_INTEGRATION = env.bool("MAFIASI_ENABLE_JABBER_INTEGRATION")
-ENABLE_MUMBLE_INTEGRATION = env.bool("MAFIASI_ENABLE_MUMBLE_INTEGRATION")
 ENABLE_EP_INTEGRATION = env.bool("MAFIASI_ENABLE_EP_INTEGRATION")
 
 DATABASES = {
@@ -251,14 +250,6 @@ if ENABLE_JABBER_INTEGRATION:
     JABBER_CERT_FINGERPRINT_FILE = str(env.path("MAFIASI_JABBER_CERT_FINGERPRINT_FILE"))
     INSTALLED_APPS.insert(INSTALLED_APPS.index('mafiasi.mattermost'), 'mafiasi.jabber')
     DATABASES["jabber"] = env.dj_db_url("MAFIASI_DB_JABBER", default="sqlite://:memory:")
-
-if ENABLE_MUMBLE_INTEGRATION:
-    MUMBLE_CERT_FINGERPRINT_FILE = str(env.path("MAFIASI_MUMBLE_CERT_FINGERPRINT_FILE"))
-    MUMBLE_SERVER = {
-        'address': u'mumble.mafiasi.de',
-        'port': 64738,
-    }
-    INSTALLED_APPS.insert(INSTALLED_APPS.index("mafiasi.mattermost"), "mafiasi.mumble")
 
 if ENABLE_EP_INTEGRATION:
     DATABASES["etherpad"] = env.dj_db_url("MAFIASI_DB_ETHERPAD", default="sqlite://:memory:")
