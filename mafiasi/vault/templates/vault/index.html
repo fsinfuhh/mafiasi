@@ -21,8 +21,12 @@
         {% blocktranslate %}
             Vault is a <i>Vaultwarden / Bitwarden</i> password manager hosted and operated by Mafiasi.<br>
             You can use it to store and manage your passwords.
-            You can also share passwords with other users or groups.<br>
-            TODO: add note that we dont have access to passwords
+            You can also share passwords with other users or groups.
+        {% endblocktranslate %}
+    </p>
+    <p>
+        {% blocktranslate %}
+            Note that Mafiasi has no access to any of your credentials because they are encrypted with a master password chosen by you.
         {% endblocktranslate %}
     </p>
     <a id="vault-link" href="{% value_from_settings VAULT_URL %}">
