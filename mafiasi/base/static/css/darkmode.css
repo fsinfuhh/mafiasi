@@ -1,243 +1,392 @@
-@media(prefers-color-scheme: dark) {
-    :root {
-        --mafiasi-dark-bg: #18181a;
-        --mafiasi-dark-color: #e5e5e5;
-        --mafiasi-dark-border-color: #333337;
-        --mafiasi-dark-border: solid 1px var(--mafiasi-dark-border-color);
-        --mafiasi-dark-hover: rgba(255, 255, 255, 0.1);
-        --mafiasi-dark-striped: rgba(255, 255, 255, 0.05);
-        --mafiasi-dark-cotrast: #2a2a2f;
-        --mafiasi-dark-btn-primary: #15b2ff;
-        --mafiasi-dark-btn-primary-hover: #0b6591;
-        --mafiasi-dark-btn-default: #424248;
-        --mafiasi-dark-btn-default-hover: #333337;
-    }
-
-    #wrap {
-        background: var(--mafiasi-dark-bg);
-        color: var(--mafiasi-dark-color);
-    }
-
-    .service-icon.btn-default {
-        background: transparent;
-        border: none;
-    }
-
-    .service-icon:hover {
-        background: var(--mafiasi-dark-hover);
-    }
-
-    .service-icon>img {
-        filter: contrast(0) brightness(1.8);
-    }
-
-    .dashboard-service>div {
-        background: transparent;
-        color: var(--mafiasi-dark-color);
-        border: var(--mafiasi-dark-border);
-    }
-
-    .panel {
-        background: transparent;
-        color: var(--mafiasi-dark-color);
-        border-color: var(--mafiasi-dark-border-color);
-    }
-
-    .panel .panel-heading {
-        background: var(--mafiasi-dark-border-color);
-        border-color: var(--mafiasi-dark-border-color);
-        color: var(--mafiasi-dark-color);
-    }
-
-    .panel .panel-footer {
-        background: var(--mafiasi-dark-border-color);
-        border-color: var(--mafiasi-dark-border-color);
-        color: var(--mafiasi-dark-color);
-    }
-
-    .navbar {
-        background: var(--mafiasi-dark-cotrast);
-        border-color: var(--mafiasi-dark-cotrast);
-    }
-
-    #footer {
-        background: var(--mafiasi-dark-cotrast);
-        border-color: var(--mafiasi-dark-cotrast);
-    }
-
-    a {
-        color: var(--mafiasi-dark-btn-primary);
-    }
-
-    .btn-primary {
-        background: var(--mafiasi-dark-btn-primary);
-        border-color: var(--mafiasi-dark-btn-primary);
-        color: #000;
-    }
-
-    .btn-default {
-        background: var(--mafiasi-dark-btn-default);
-        border-color: var(--mafiasi-dark-btn-default);
-        color: #fff;
-    }
-
-    a:hover {
-        color: var(--mafiasi-dark-btn-primary-hover);
-    }
-
-    .btn-primary:hover {
-        background: var(--mafiasi-dark-btn-primary-hover);
-        border-color: var(--mafiasi-dark-btn-primary-hover);
-    }
-
-    .btn-default:hover {
-        background: var(--mafiasi-dark-btn-default-hover);
-        border-color: var(--mafiasi-dark-btn-default-hover);
-        color: #fff;
-    }
-
-    input.form-control {
-        background: var(--mafiasi-dark-bg);
-        color: var(--mafiasi-dark-color);
-        border-color: var(--mafiasi-dark-border-color);
-    }
-
-    .table-striped>tbody>tr:nth-of-type(2n+1),
-    .table-striped>.row-group>.table-row:nth-of-type(2n),
-    .table-striped .table-header {
-        background: var(--mafiasi-dark-striped);
-    }
-
-    .table-hover>tbody>tr:hover {
-        background: var(--mafiasi-dark-hover);
-    }
-
-    .table-striped>.row-group>.table-row:hover {
-        background: var(--mafiasi-dark-hover) !important;
-        color: var(--mafiasi-dark-color);
-    }
-
-    .table>thead>tr>th,
-    .table>tbody>tr>th,
-    .table>tfoot>tr>th,
-    .table>thead>tr>td,
-    .table>tbody>tr>td,
-    .table>tfoot>tr>td,
-    .table-striped>.row-group>.table-row>.cell,
-    .table-striped>.table-header>.cell {
-        border-color: var(--mafiasi-dark-border-color);
-    }
-
-    .cell-favorite:hover {
-        background: transparent !important;
-    }
-
-    .input-group-addon {
-        background: var(--mafiasi-dark-btn-default);
-        border-color: var(--mafiasi-dark-btn-default);
-        color: #fff;
-    }
-
-    a.list-group-item {
-        background: transparent;
-        border-color: var(--mafiasi-dark-border-color);
-        color: var(--mafiasi-dark-color);
-    }
-
-    a.list-group-item:hover,
-    a.list-group-item:focus {
-        background: var(--mafiasi-dark-hover);
-        color: inherit;
-    }
-
-    .list-group-item.active,
-    .list-group-item.active:hover,
-    .list-group-item.active:focus {
-        background: var(--mafiasi-dark-btn-primary);
-        color: #000;
-    }
-
-    .nav-tabs {
-        border-color: var(--mafiasi-dark-border-color);
-    }
-
-    .nav-tabs>li.active>a {
-        color: var(--mafiasi-dark-color);
-    }
-
-    .nav-tabs>li.active>a,
-    .nav-tabs>li.active>a:hover,
-    .nav-tabs>li.active>a:focus {
-        background: transparent;
-        border-color: var(--mafiasi-dark-border-color);
-        border-bottom-color: var(--mafiasi-dark-bg);
-    }
-
-    .nav-tabs>li>a:hover {
-        border-color: var(--mafiasi-dark-border-color);
-    }
-
-    .nav>li>a:hover,
-    .nav>li>a:focus {
-        background: var(--mafiasi-dark-hover);
-    }
-
-    .button-link {
-        background: transparent;
-    }
-
-    .input-group-addon {
-        background: var(--mafiasi-dark-btn-default);
-        border-color: var(--mafiasi-dark-btn-default);
-        color: #fff;
-    }
-
-    a.list-group-item {
-        background: transparent;
-        border-color: var(--mafiasi-dark-border-color);
-        color: var(--mafiasi-dark-color);
-    }
-
-    a.list-group-item:hover,
-    a.list-group-item:focus {
-        background: var(--mafiasi-dark-hover);
-        color: inherit;
-    }
-
-    .list-group-item.active,
-    .list-group-item.active:hover,
-    .list-group-item.active:focus {
-        background: var(--mafiasi-dark-btn-primary);
-        color: #000;
-    }
-
-    .nav-tabs {
-        border-color: var(--mafiasi-dark-border-color);
-    }
-
-    .nav-tabs>li.active>a {
-        color: var(--mafiasi-dark-color);
-    }
-
-    .nav-tabs>li.active>a,
-    .nav-tabs>li.active>a:hover,
-    .nav-tabs>li.active>a:focus {
-        background: transparent;
-        border-color: var(--mafiasi-dark-border-color);
-        border-bottom-color: var(--mafiasi-dark-bg);
-    }
-
-    .nav-tabs>li>a:hover {
-        border-color: var(--mafiasi-dark-border-color);
-    }
-
-    .nav>li>a:hover,
-    .nav>li>a:focus {
-        background: var(--mafiasi-dark-hover);
-    }
-
-    .button-link {
-        background: transparent;
-    }
-
+:root {
+  --mafiasi-dark-bg: #18181a;
+  --mafiasi-dark-color: #e5e5e5;
+  --mafiasi-dark-border-color: #333337;
+  --mafiasi-dark-border: solid 1px var(--mafiasi-dark-border-color);
+  --mafiasi-dark-hover: rgba(255, 255, 255, 0.1);
+  --mafiasi-dark-striped: rgba(255, 255, 255, 0.05);
+  --mafiasi-dark-cotrast: #2a2a2f;
+  --mafiasi-dark-btn-primary: #15b2ff;
+  --mafiasi-dark-btn-primary-hover: #0b6591;
+  --mafiasi-dark-btn-default: #424248;
+  --mafiasi-dark-btn-default-hover: #333337;
 }
+
+#theme-toggle {
+  background: transparent;
+  border: none;
+}
+
+body.theme--dark #wrap {
+  background: var(--mafiasi-dark-bg);
+  color: var(--mafiasi-dark-color);
+}
+body.theme--dark .service-icon.btn-default {
+  background: transparent;
+  border: none;
+}
+body.theme--dark .service-icon:hover {
+  background: var(--mafiasi-dark-hover);
+}
+body.theme--dark .service-icon > img {
+  filter: contrast(0) brightness(1.8);
+}
+body.theme--dark .dashboard-service > div {
+  background: transparent;
+  color: var(--mafiasi-dark-color);
+  border: var(--mafiasi-dark-border);
+}
+body.theme--dark .panel {
+  background: transparent;
+  color: var(--mafiasi-dark-color);
+  border-color: var(--mafiasi-dark-border-color);
+}
+body.theme--dark .panel .panel-heading {
+  background: var(--mafiasi-dark-border-color);
+  border-color: var(--mafiasi-dark-border-color);
+  color: var(--mafiasi-dark-color);
+}
+body.theme--dark .panel .panel-footer {
+  background: var(--mafiasi-dark-border-color);
+  border-color: var(--mafiasi-dark-border-color);
+  color: var(--mafiasi-dark-color);
+}
+body.theme--dark .navbar {
+  background: var(--mafiasi-dark-cotrast);
+  border-color: var(--mafiasi-dark-cotrast);
+}
+body.theme--dark #footer {
+  background: var(--mafiasi-dark-cotrast);
+  border-color: var(--mafiasi-dark-cotrast);
+}
+body.theme--dark a {
+  color: var(--mafiasi-dark-btn-primary);
+}
+body.theme--dark .btn-primary {
+  background: var(--mafiasi-dark-btn-primary);
+  border-color: var(--mafiasi-dark-btn-primary);
+  color: #000;
+}
+body.theme--dark .btn-default {
+  background: var(--mafiasi-dark-btn-default);
+  border-color: var(--mafiasi-dark-btn-default);
+  color: #fff;
+}
+body.theme--dark a:hover {
+  color: var(--mafiasi-dark-btn-primary-hover);
+}
+body.theme--dark .btn-primary:hover {
+  background: var(--mafiasi-dark-btn-primary-hover);
+  border-color: var(--mafiasi-dark-btn-primary-hover);
+}
+body.theme--dark .btn-default:hover {
+  background: var(--mafiasi-dark-btn-default-hover);
+  border-color: var(--mafiasi-dark-btn-default-hover);
+  color: #fff;
+}
+body.theme--dark input.form-control {
+  background: var(--mafiasi-dark-bg);
+  color: var(--mafiasi-dark-color);
+  border-color: var(--mafiasi-dark-border-color);
+}
+body.theme--dark .table-striped > tbody > tr:nth-of-type(2n+1),
+body.theme--dark .table-striped > .row-group > .table-row:nth-of-type(2n),
+body.theme--dark .table-striped .table-header {
+  background: var(--mafiasi-dark-striped);
+}
+body.theme--dark .table-hover > tbody > tr:hover {
+  background: var(--mafiasi-dark-hover);
+}
+body.theme--dark .table-striped > .row-group > .table-row:hover {
+  background: var(--mafiasi-dark-hover) !important;
+  color: var(--mafiasi-dark-color);
+}
+body.theme--dark .table > thead > tr > th,
+body.theme--dark .table > tbody > tr > th,
+body.theme--dark .table > tfoot > tr > th,
+body.theme--dark .table > thead > tr > td,
+body.theme--dark .table > tbody > tr > td,
+body.theme--dark .table > tfoot > tr > td,
+body.theme--dark .table-striped > .row-group > .table-row > .cell,
+body.theme--dark .table-striped > .table-header > .cell {
+  border-color: var(--mafiasi-dark-border-color);
+}
+body.theme--dark .cell-favorite:hover {
+  background: transparent !important;
+}
+body.theme--dark .input-group-addon {
+  background: var(--mafiasi-dark-btn-default);
+  border-color: var(--mafiasi-dark-btn-default);
+  color: #fff;
+}
+body.theme--dark a.list-group-item {
+  background: transparent;
+  border-color: var(--mafiasi-dark-border-color);
+  color: var(--mafiasi-dark-color);
+}
+body.theme--dark a.list-group-item:hover,
+body.theme--dark a.list-group-item:focus {
+  background: var(--mafiasi-dark-hover);
+  color: inherit;
+}
+body.theme--dark .list-group-item.active,
+body.theme--dark .list-group-item.active:hover,
+body.theme--dark .list-group-item.active:focus {
+  background: var(--mafiasi-dark-btn-primary);
+  color: #000;
+}
+body.theme--dark .nav-tabs {
+  border-color: var(--mafiasi-dark-border-color);
+}
+body.theme--dark .nav-tabs > li.active > a {
+  color: var(--mafiasi-dark-color);
+}
+body.theme--dark .nav-tabs > li.active > a,
+body.theme--dark .nav-tabs > li.active > a:hover,
+body.theme--dark .nav-tabs > li.active > a:focus {
+  background: transparent;
+  border-color: var(--mafiasi-dark-border-color);
+  border-bottom-color: var(--mafiasi-dark-bg);
+}
+body.theme--dark .nav-tabs > li > a:hover {
+  border-color: var(--mafiasi-dark-border-color);
+}
+body.theme--dark .nav > li > a:hover,
+body.theme--dark .nav > li > a:focus {
+  background: var(--mafiasi-dark-hover);
+}
+body.theme--dark .button-link {
+  background: transparent;
+}
+body.theme--dark .input-group-addon {
+  background: var(--mafiasi-dark-btn-default);
+  border-color: var(--mafiasi-dark-btn-default);
+  color: #fff;
+}
+body.theme--dark a.list-group-item {
+  background: transparent;
+  border-color: var(--mafiasi-dark-border-color);
+  color: var(--mafiasi-dark-color);
+}
+body.theme--dark a.list-group-item:hover,
+body.theme--dark a.list-group-item:focus {
+  background: var(--mafiasi-dark-hover);
+  color: inherit;
+}
+body.theme--dark .list-group-item.active,
+body.theme--dark .list-group-item.active:hover,
+body.theme--dark .list-group-item.active:focus {
+  background: var(--mafiasi-dark-btn-primary);
+  color: #000;
+}
+body.theme--dark .nav-tabs {
+  border-color: var(--mafiasi-dark-border-color);
+}
+body.theme--dark .nav-tabs > li.active > a {
+  color: var(--mafiasi-dark-color);
+}
+body.theme--dark .nav-tabs > li.active > a,
+body.theme--dark .nav-tabs > li.active > a:hover,
+body.theme--dark .nav-tabs > li.active > a:focus {
+  background: transparent;
+  border-color: var(--mafiasi-dark-border-color);
+  border-bottom-color: var(--mafiasi-dark-bg);
+}
+body.theme--dark .nav-tabs > li > a:hover {
+  border-color: var(--mafiasi-dark-border-color);
+}
+body.theme--dark .nav > li > a:hover,
+body.theme--dark .nav > li > a:focus {
+  background: var(--mafiasi-dark-hover);
+}
+body.theme--dark .button-link {
+  background: transparent;
+}
+
+@media (prefers-color-scheme: dark) {
+  body:not(.theme--light) #wrap {
+    background: var(--mafiasi-dark-bg);
+    color: var(--mafiasi-dark-color);
+  }
+  body:not(.theme--light) .service-icon.btn-default {
+    background: transparent;
+    border: none;
+  }
+  body:not(.theme--light) .service-icon:hover {
+    background: var(--mafiasi-dark-hover);
+  }
+  body:not(.theme--light) .service-icon > img {
+    filter: contrast(0) brightness(1.8);
+  }
+  body:not(.theme--light) .dashboard-service > div {
+    background: transparent;
+    color: var(--mafiasi-dark-color);
+    border: var(--mafiasi-dark-border);
+  }
+  body:not(.theme--light) .panel {
+    background: transparent;
+    color: var(--mafiasi-dark-color);
+    border-color: var(--mafiasi-dark-border-color);
+  }
+  body:not(.theme--light) .panel .panel-heading {
+    background: var(--mafiasi-dark-border-color);
+    border-color: var(--mafiasi-dark-border-color);
+    color: var(--mafiasi-dark-color);
+  }
+  body:not(.theme--light) .panel .panel-footer {
+    background: var(--mafiasi-dark-border-color);
+    border-color: var(--mafiasi-dark-border-color);
+    color: var(--mafiasi-dark-color);
+  }
+  body:not(.theme--light) .navbar {
+    background: var(--mafiasi-dark-cotrast);
+    border-color: var(--mafiasi-dark-cotrast);
+  }
+  body:not(.theme--light) #footer {
+    background: var(--mafiasi-dark-cotrast);
+    border-color: var(--mafiasi-dark-cotrast);
+  }
+  body:not(.theme--light) a {
+    color: var(--mafiasi-dark-btn-primary);
+  }
+  body:not(.theme--light) .btn-primary {
+    background: var(--mafiasi-dark-btn-primary);
+    border-color: var(--mafiasi-dark-btn-primary);
+    color: #000;
+  }
+  body:not(.theme--light) .btn-default {
+    background: var(--mafiasi-dark-btn-default);
+    border-color: var(--mafiasi-dark-btn-default);
+    color: #fff;
+  }
+  body:not(.theme--light) a:hover {
+    color: var(--mafiasi-dark-btn-primary-hover);
+  }
+  body:not(.theme--light) .btn-primary:hover {
+    background: var(--mafiasi-dark-btn-primary-hover);
+    border-color: var(--mafiasi-dark-btn-primary-hover);
+  }
+  body:not(.theme--light) .btn-default:hover {
+    background: var(--mafiasi-dark-btn-default-hover);
+    border-color: var(--mafiasi-dark-btn-default-hover);
+    color: #fff;
+  }
+  body:not(.theme--light) input.form-control {
+    background: var(--mafiasi-dark-bg);
+    color: var(--mafiasi-dark-color);
+    border-color: var(--mafiasi-dark-border-color);
+  }
+  body:not(.theme--light) .table-striped > tbody > tr:nth-of-type(2n+1),
+body:not(.theme--light) .table-striped > .row-group > .table-row:nth-of-type(2n),
+body:not(.theme--light) .table-striped .table-header {
+    background: var(--mafiasi-dark-striped);
+  }
+  body:not(.theme--light) .table-hover > tbody > tr:hover {
+    background: var(--mafiasi-dark-hover);
+  }
+  body:not(.theme--light) .table-striped > .row-group > .table-row:hover {
+    background: var(--mafiasi-dark-hover) !important;
+    color: var(--mafiasi-dark-color);
+  }
+  body:not(.theme--light) .table > thead > tr > th,
+body:not(.theme--light) .table > tbody > tr > th,
+body:not(.theme--light) .table > tfoot > tr > th,
+body:not(.theme--light) .table > thead > tr > td,
+body:not(.theme--light) .table > tbody > tr > td,
+body:not(.theme--light) .table > tfoot > tr > td,
+body:not(.theme--light) .table-striped > .row-group > .table-row > .cell,
+body:not(.theme--light) .table-striped > .table-header > .cell {
+    border-color: var(--mafiasi-dark-border-color);
+  }
+  body:not(.theme--light) .cell-favorite:hover {
+    background: transparent !important;
+  }
+  body:not(.theme--light) .input-group-addon {
+    background: var(--mafiasi-dark-btn-default);
+    border-color: var(--mafiasi-dark-btn-default);
+    color: #fff;
+  }
+  body:not(.theme--light) a.list-group-item {
+    background: transparent;
+    border-color: var(--mafiasi-dark-border-color);
+    color: var(--mafiasi-dark-color);
+  }
+  body:not(.theme--light) a.list-group-item:hover,
+body:not(.theme--light) a.list-group-item:focus {
+    background: var(--mafiasi-dark-hover);
+    color: inherit;
+  }
+  body:not(.theme--light) .list-group-item.active,
+body:not(.theme--light) .list-group-item.active:hover,
+body:not(.theme--light) .list-group-item.active:focus {
+    background: var(--mafiasi-dark-btn-primary);
+    color: #000;
+  }
+  body:not(.theme--light) .nav-tabs {
+    border-color: var(--mafiasi-dark-border-color);
+  }
+  body:not(.theme--light) .nav-tabs > li.active > a {
+    color: var(--mafiasi-dark-color);
+  }
+  body:not(.theme--light) .nav-tabs > li.active > a,
+body:not(.theme--light) .nav-tabs > li.active > a:hover,
+body:not(.theme--light) .nav-tabs > li.active > a:focus {
+    background: transparent;
+    border-color: var(--mafiasi-dark-border-color);
+    border-bottom-color: var(--mafiasi-dark-bg);
+  }
+  body:not(.theme--light) .nav-tabs > li > a:hover {
+    border-color: var(--mafiasi-dark-border-color);
+  }
+  body:not(.theme--light) .nav > li > a:hover,
+body:not(.theme--light) .nav > li > a:focus {
+    background: var(--mafiasi-dark-hover);
+  }
+  body:not(.theme--light) .button-link {
+    background: transparent;
+  }
+  body:not(.theme--light) .input-group-addon {
+    background: var(--mafiasi-dark-btn-default);
+    border-color: var(--mafiasi-dark-btn-default);
+    color: #fff;
+  }
+  body:not(.theme--light) a.list-group-item {
+    background: transparent;
+    border-color: var(--mafiasi-dark-border-color);
+    color: var(--mafiasi-dark-color);
+  }
+  body:not(.theme--light) a.list-group-item:hover,
+body:not(.theme--light) a.list-group-item:focus {
+    background: var(--mafiasi-dark-hover);
+    color: inherit;
+  }
+  body:not(.theme--light) .list-group-item.active,
+body:not(.theme--light) .list-group-item.active:hover,
+body:not(.theme--light) .list-group-item.active:focus {
+    background: var(--mafiasi-dark-btn-primary);
+    color: #000;
+  }
+  body:not(.theme--light) .nav-tabs {
+    border-color: var(--mafiasi-dark-border-color);
+  }
+  body:not(.theme--light) .nav-tabs > li.active > a {
+    color: var(--mafiasi-dark-color);
+  }
+  body:not(.theme--light) .nav-tabs > li.active > a,
+body:not(.theme--light) .nav-tabs > li.active > a:hover,
+body:not(.theme--light) .nav-tabs > li.active > a:focus {
+    background: transparent;
+    border-color: var(--mafiasi-dark-border-color);
+    border-bottom-color: var(--mafiasi-dark-bg);
+  }
+  body:not(.theme--light) .nav-tabs > li > a:hover {
+    border-color: var(--mafiasi-dark-border-color);
+  }
+  body:not(.theme--light) .nav > li > a:hover,
+body:not(.theme--light) .nav > li > a:focus {
+    background: var(--mafiasi-dark-hover);
+  }
+  body:not(.theme--light) .button-link {
+    background: transparent;
+  }
+}/*# sourceMappingURL=darkmode.css.map */
