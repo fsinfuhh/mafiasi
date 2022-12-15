@@ -40,10 +40,10 @@
             <div class="container">
                 <a href="/" class="navbar-brand">{% value_from_settings PROJECT_BANNER %}</a>
                 <div class="pull-right">
+                    <a class="btn btn-default btn-sm" href="#" id="theme-toggle">
+                        <span class="glyphicon glyphicon-adjust"></span>
+                    </a>
                     {% if user.is_authenticated %}
-                        <a class="btn btn-default btn-sm" href="#" id="theme-toggle">
-                            <span class="glyphicon glyphicon-adjust"></span>
-                        </a>
                         {% url 'logout' as logout_url %}
                         <a class="btn btn-primary btn-sm" href="{% url 'groups_index' %}">
                             <span class="glyphicon glyphicon-user"></span>
