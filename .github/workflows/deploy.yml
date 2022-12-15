@@ -1,4 +1,4 @@
-name: build
+name: deploy
 on:
   workflow_dispatch: {}
   push:
