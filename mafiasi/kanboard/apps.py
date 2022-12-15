@@ -10,4 +10,4 @@ class KanboardConfig(BaseService):
     title = _('Kanboard')
     description = _('Kanboard is a kanban project management tool that you can use to track the progress of your projects.')
     link = settings.KANBOARD_URL
-    image = 'img/services/kanboard.png'
+    image = 'img/services/kanboard.svg'

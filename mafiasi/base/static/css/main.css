@@ -114,6 +114,10 @@ body {
   text-decoration: underline;
 }
 
+.panel .panel-heading {
+    cursor: default;
+}
+
 /* https://stackoverflow.com/a/18568997 */
 .panel-heading .accordion-toggle:after {
     /* symbol for "opening" panels */

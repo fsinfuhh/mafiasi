@@ -11,4 +11,4 @@ class LinkShortenerConfig(BaseService):
     title = _("Link Shortener")
     description = _("The best URL shortening service near you")
     link = settings.LINK_SHORTENER_URL
-    image = "img/services/link_shortener.png"
+    image = "img/services/link_shortener.svg"

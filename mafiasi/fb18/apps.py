@@ -10,4 +10,4 @@ class Fb18Config(BaseService):
     title = _('FB18')
     description = _('FB18 is our deprecated bulletin board, which is kept here as an archive.')
     link = settings.FB18_URL
-    image = 'img/services/fb18.png'
+    image = 'img/services/fb18.svg'

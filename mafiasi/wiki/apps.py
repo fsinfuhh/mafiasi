@@ -10,4 +10,4 @@ class WikiConfig(BaseService):
     title = _('Wiki')
     description = _('In the wiki you will find important information regarding your studies.')
     link = settings.WIKI_URL
-    image = 'img/services/wiki.png'
+    image = 'img/services/wiki.svg'

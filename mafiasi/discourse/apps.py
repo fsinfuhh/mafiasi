@@ -10,4 +10,4 @@ class Discourse(BaseService):
     title = _('Discourse')
     description = _('Discourse is our forum for questions and discussions with your fellow students.')
     link = settings.DISCOURSE_URL
-    image = 'img/services/discourse.png'
+    image = 'img/services/discourse.svg'

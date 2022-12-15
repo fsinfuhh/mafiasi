@@ -10,4 +10,4 @@ class TauschenConfig(BaseService):
     title = _('Mafiasi Tauschen')
     description = _('Mafiasi Tauschen is a service that provides an easy possibility to exchange course groups.')
     link = settings.TAUSCHEN_URL
-    image = 'img/services/tauschen.png'
+    image = 'img/services/tauschen.svg'

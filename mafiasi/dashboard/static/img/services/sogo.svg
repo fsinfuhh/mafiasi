@@ -1,80 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="36.666668"
-   height="40"
-   id="svg3623"
-   version="1.1"
-   inkscape:version="0.48.3.1 r9886"
-   sodipodi:docname="dudle.svg"
-   inkscape:export-filename="/home/henning/workspace/mafiasi/mafiasi/dashboard/static/img/services/dudle.png"
-   inkscape:export-xdpi="180"
-   inkscape:export-ydpi="180">
-  <defs
-     id="defs3625" />
-  <sodipodi:namedview
-     id="base"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="10.036871"
-     inkscape:cx="0.88397346"
-     inkscape:cy="30.296526"
-     inkscape:document-units="px"
-     inkscape:current-layer="layer1"
-     showgrid="false"
-     fit-margin-top="0"
-     fit-margin-left="0"
-     fit-margin-right="0"
-     fit-margin-bottom="0"
-     inkscape:window-width="956"
-     inkscape:window-height="1058"
-     inkscape:window-x="0"
-     inkscape:window-y="18"
-     inkscape:window-maximized="0" />
-  <metadata
-     id="metadata3628">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
-     id="layer1"
-     transform="translate(-162.69262,-411.85125)">
-    <rect
-       style="fill:#ffffff;fill-opacity:1;stroke:none"
-       id="rect2984"
-       width="36.667"
-       height="30.786488"
-       x="162.69263"
-       y="419.07211" />
-    <g
-       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#333333;fill-opacity:1;stroke:none;font-family:STIXGeneral;-inkscape-font-specification:STIXGeneral"
-       id="text3428"
-       transform="translate(162.69262,411.85125)">
-      <path
-         inkscape:connector-curvature="0"
-         d="m 36.666667,10 0,-5 c -3.7e-5,-0.4666312 -0.166703,-0.8555197 -0.5,-1.1666667 C 35.85552,3.5000365 35.466631,3.33337 35,3.3333333 l -5,0 L 30,0 l -3.333333,0 0,3.3333333 L 10,3.3333333 10,0 6.6666667,0 l 0,3.3333333 -5,0 c -0.4666679,3.67e-5 -0.8666675,0.1667032 -1.20000003,0.5 C 0.1555554,4.1444803 0,4.5333688 0,5 l 0,5 36.666667,0 M 0,13.333333 l 0,25 C 0,38.777779 0.1555554,39.166668 0.46666667,39.5 0.7999992,39.833334 1.1999988,40 1.6666667,40 L 35,40 c 0.466631,0 0.85552,-0.166666 1.166667,-0.5 0.333297,-0.333332 0.499963,-0.722221 0.5,-1.166667 l 0,-25 -36.666667,0 M 3.3333333,20 l 3.3333334,0 0,3.333333 -3.3333334,0 0,-3.333333 M 10,20 l 3.333333,0 0,3.333333 -3.333333,0 L 10,20 M 16.666667,20 20,20 l 0,3.333333 -3.333333,0 0,-3.333333 m 6.666666,0 3.333334,0 0,3.333333 -3.333334,0 0,-3.333333 M 30,20 l 3.333333,0 0,3.333333 -3.333333,0 L 30,20 m -26.6666667,6.666667 3.3333334,0 0,3.333333 -3.3333334,0 0,-3.333333 m 6.6666667,0 3.333333,0 0,3.333333 L 10,30 10,26.666667 m 6.666667,0 3.333333,0 L 20,30 l -3.333333,0 0,-3.333333 m 6.666666,0 3.333334,0 0,3.333333 -3.333334,0 0,-3.333333 m 6.666667,0 3.333333,0 0,3.333333 L 30,30 30,26.666667 m -26.6666667,6.666666 3.3333334,0 0,3.333334 -3.3333334,0 0,-3.333334 m 6.6666667,0 3.333333,0 0,3.333334 -3.333333,0 0,-3.333334 m 6.666667,0 3.333333,0 0,3.333334 -3.333333,0 0,-3.333334 m 6.666666,0 3.333334,0 0,3.333334 -3.333334,0 0,-3.333334 m 6.666667,0 3.333333,0 0,3.333334 -3.333333,0 0,-3.333334"
-         id="path3441"
-         style="fill:#333333;fill-opacity:1" />
-    </g>
-  </g>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW 2019 (64-Bit) -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="15.4426mm" height="16.846mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 1696.19 1850.34"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil0 {fill:black}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <path class="fil0" d="M1696 462.78l0 -231.29c0,-21.62 -7.77,-39.55 -23.16,-54 -14.36,-15.42 -32.38,-23.16 -54,-23.16l-231.29 0 0 -154.22 -154.14 0 0 154.13 -770.84 0 0 -154.23 -154.13 0 0 154.13 -231.29 0c-21.63,0 -40.04,7.77 -55.53,23.16 -14.36,14.44 -21.63,32.37 -21.63,54l0 231.29 1695.8 0 0.2 0.21zm0.19 154.14l-1695.8 0 -0.19 0 0 1156.26c0,20.56 7.16,38.59 21.62,54 15.42,15.42 33.93,23.16 55.53,23.16l1541.68 0c21.63,0 39.56,-7.77 54,-23.16 15.42,-15.41 23.16,-33.43 23.16,-54l0 -1156.26zm-1541.87 308.36l154.13 0 0 154.13 -154.13 0 0 -154.13zm308.36 0l154.13 0 0 154.13 -154.13 0 0 -154.13zm308.34 0l154.13 0 0 154.13 -154.13 0 0 -154.13zm308.36 0l154.13 0 0 154.13 -154.13 0 0 -154.13zm308.36 0l154.13 0 0 154.13 -154.13 0 0 -154.13zm-1233.33 308.36l154.13 0 0 154.13 -154.13 0 0 -154.13zm308.36 0l154.13 0 0 154.13 -154.13 0 0 -154.13zm308.36 0l154.13 0 0 154.13 -154.13 0 0 -154.13zm308.36 0l154.13 0 0 154.13 -154.13 0 0 -154.13zm308.36 0l154.13 0 0 154.13 -154.13 0 0 -154.13zm-1233.34 308.36l154.13 0 0 154.13 -154.13 0 0 -154.13zm308.36 0l154.13 0 0 154.13 -154.13 0 0 -154.13zm308.36 0l154.14 0 0 154.13 -154.14 0 0 -154.13zm308.35 0l154.13 0 0 154.13 -154.13 0 0 -154.13zm308.36 0l154.13 0 0 154.13 -154.13 0 0 -154.13z"/>
+ </g>
 </svg>

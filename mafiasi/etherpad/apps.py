@@ -9,4 +9,4 @@ class EtherpadConfig(BaseService):
     title = _('Etherpad')
     description = _('You can use the Etherpad to work together on a document in real time.')
     link = '/etherpad/'
-    image = 'img/services/etherpad.png'
+    image = 'img/services/etherpad.svg'

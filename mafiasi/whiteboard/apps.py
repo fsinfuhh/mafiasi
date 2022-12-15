@@ -10,4 +10,4 @@ class WhiteboardConfig(BaseService):
     title = _('Whiteboard')
     description = _('Spacedeck Open is a collaborative whiteboard.')
     link = settings.WHITEBOARD_URL
-    image = 'img/services/whiteboard.png'
+    image = 'img/services/whiteboard.svg'
