@@ -326,12 +326,12 @@
     }
 }
 
-body.theme--dark {
+html[data-theme="dark"] {
     @include darkmode;
 }
 
 @media (prefers-color-scheme: dark) {
-    body:not(.theme--light) {
+    html:not([data-theme="light"]) {
         @include darkmode;
     }
 }
