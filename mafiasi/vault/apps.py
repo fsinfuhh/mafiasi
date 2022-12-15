@@ -13,7 +13,7 @@ class VaultConfig(BaseService):
     verbose_name = "Vault"
     title = _("Vault")
     description = _("Mafiasi hosted password manager")
-    image = "img/services/vaultwarden.png"
+    image = "img/services/vaultwarden.svg"
 
     @property
     def link(self):
