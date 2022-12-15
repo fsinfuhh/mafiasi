@@ -21,6 +21,9 @@
     {% endblock %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="{% static 'css/darkmode.css' %}" />
+    <script>
+        if (localStorage.mafiasi_theme) document.documentElement.dataset.theme = localStorage.mafiasi_theme;
+    </script>
     {% if is_snowing_val %}
         <link rel="stylesheet" href="{% static 'css/snow.css' %}" />
     {% endif %}
@@ -36,8 +39,8 @@
             {% endif %}
             <div class="container">
                 <a href="/" class="navbar-brand">{% value_from_settings PROJECT_BANNER %}</a>
-                {% if user.is_authenticated %}
-                <div class="pull-right">
+                <div class="pull-right"></div>
+                    {% if user.is_authenticated %}
                     <a class="btn btn-default btn-sm" href="#" id="theme-toggle">
                         <span class="glyphicon glyphicon-adjust"></span>
                     </a>
@@ -50,22 +53,22 @@
                             <span class="badge">{{ oi }}</span>
                         {% endif %}
                     </a>
-					<a class="btn btn-default btn-sm" href="{% url 'registration_account' %}">
+                    <a class="btn btn-default btn-sm" href="{% url 'registration_account' %}">
                         <span class="glyphicon glyphicon-cog"></span>
                         {% trans "Settings" %}
                     </a>
                     <span class="navbar-text">{% blocktrans with username=user.username %}Logged in as {{ username }}{% endblocktrans %}</span>
                     <a class="btn btn-default btn-sm navbar-btn" href="{{ logout_url }}">{% trans "Logout" %}</a>
-                </div>
-                {% else %}
-                <div class="btn-group pull-right">
-                    {% value_from_settings REGISTER_ENABLED as REGISTER_ENABLED %}
-                    {% if REGISTER_ENABLED %}
-                        <a class="btn btn-default navbar-btn" href="{% url 'registration_request_account' %}">{% trans "Register" %}</a>
+                    {% else %}
+                    <div class="btn-group">
+                        {% value_from_settings REGISTER_ENABLED as REGISTER_ENABLED %}
+                        {% if REGISTER_ENABLED %}
+                            <a class="btn btn-default navbar-btn" href="{% url 'registration_request_account' %}">{% trans "Register" %}</a>
+                        {% endif %}
+                        <a class="btn btn-primary navbar-btn" href="{% url 'login' %}">{% trans "Login" %}</a>
+                    </div>
                     {% endif %}
-                    <a class="btn btn-primary navbar-btn" href="{% url 'login' %}">{% trans "Login" %}</a>
                 </div>
-                {% endif %}
             </div>
         </nav>
 

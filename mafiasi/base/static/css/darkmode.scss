@@ -2,7 +2,6 @@
     --mafiasi-dark-bg: #18181a;
     --mafiasi-dark-color: #e5e5e5;
     --mafiasi-dark-border-color: #333337;
-    --mafiasi-dark-border: solid 1px var(--mafiasi-dark-border-color);
     --mafiasi-dark-hover: rgba(255, 255, 255, 0.1);
     --mafiasi-dark-striped: rgba(255, 255, 255, 0.05);
     --mafiasi-dark-cotrast: #2a2a2f;
@@ -15,6 +14,10 @@
 #theme-toggle {
     background: transparent;
     border: none;
+
+    &:active {
+        box-shadow: none;
+    }
 }
 
 @mixin darkmode {
@@ -39,7 +42,7 @@
     .dashboard-service>div {
         background: transparent;
         color: var(--mafiasi-dark-color);
-        border: var(--mafiasi-dark-border);
+        border-color: var(--mafiasi-dark-border-color);
     }
 
     .panel {
@@ -60,6 +63,17 @@
         color: var(--mafiasi-dark-color);
     }
 
+    .modal {
+        .modal-content {
+            background-color: var(--mafiasi-dark-bg);
+        }
+
+        .modal-header,
+        .modal-footer {
+            border-color: var(--mafiasi-dark-border-color);
+        }
+    }
+
     .navbar {
         background: var(--mafiasi-dark-cotrast);
         border-color: var(--mafiasi-dark-cotrast);
@@ -70,38 +84,98 @@
         border-color: var(--mafiasi-dark-cotrast);
     }
 
+
+    // Select2 Input Field
+    .select2-container {
+        background-color: transparent;
+
+        .select2-choice,
+        .select2-choices {
+            background-image: none;
+            background-color: transparent;
+            color: var(--mafiasi-dark-color);
+        }
+
+        .select2-choices{
+            .select2-search-choice  {
+                background: var(--mafiasi-dark-btn-default);
+                color: var(--mafiasi-dark-color);
+                border-color: var(--mafiasi-dark-border-color);
+                box-shadow: none;
+            }
+        }
+
+        &.select2-dropdown-open {
+            .select2-choice {
+                box-shadow: none;
+            }
+        }
+
+        .select2-arrow {
+            background: transparent;
+            border-color: var(--mafiasi-dark-border-color);
+        }
+    }
+
+    // Select2 Dropdown
+    .select2-drop {
+        background-color: var(--mafiasi-dark-bg);
+        color: var(--mafiasi-dark-color);
+
+        .select2-search input {
+            background: var(--mafiasi-dark-bg);
+            border-radius: 4px;
+            border-color: var(--mafiasi-dark-border-color);
+        }
+
+        .select2-selection-limit, .select2-no-results {
+            background: inherit;
+        }
+    }
+
     a {
         color: var(--mafiasi-dark-btn-primary);
+
+        &:hover {
+            color: var(--mafiasi-dark-btn-primary-hover);
+        }
     }
 
     .btn-primary {
         background: var(--mafiasi-dark-btn-primary);
         border-color: var(--mafiasi-dark-btn-primary);
         color: #000;
+
+        &:hover,
+        &:active,
+        &.active {
+            background: var(--mafiasi-dark-btn-primary-hover);
+            color: var(--mafiasi-dark-color);
+        }
+
+        &:hover {
+            border-color: var(--mafiasi-dark-btn-primary-hover);
+        }
     }
 
     .btn-default {
         background: var(--mafiasi-dark-btn-default);
         border-color: var(--mafiasi-dark-btn-default);
-        color: #fff;
+        color: var(--mafiasi-dark-color);
+
+        &:hover,
+        &:active,
+        &.active {
+            background: var(--mafiasi-dark-btn-default-hover);
+            color: var(--mafiasi-dark-color);
+        }
+
+        &:hover {
+            border-color: var(--mafiasi-dark-btn-default-hover);
+        }
     }
 
-    a:hover {
-        color: var(--mafiasi-dark-btn-primary-hover);
-    }
-
-    .btn-primary:hover {
-        background: var(--mafiasi-dark-btn-primary-hover);
-        border-color: var(--mafiasi-dark-btn-primary-hover);
-    }
-
-    .btn-default:hover {
-        background: var(--mafiasi-dark-btn-default-hover);
-        border-color: var(--mafiasi-dark-btn-default-hover);
-        color: #fff;
-    }
-
-    input.form-control {
+    .form-control {
         background: var(--mafiasi-dark-bg);
         color: var(--mafiasi-dark-color);
         border-color: var(--mafiasi-dark-border-color);
@@ -244,14 +318,20 @@
     .button-link {
         background: transparent;
     }
+
+    .label-favorite {
+        background-color: var(--mafiasi-dark-btn-default);
+        color: var(--mafiasi-dark-color);
+        border-color: var(--mafiasi-dark-border-color);
+    }
 }
 
-body.theme--dark {
+html[data-theme="dark"] {
     @include darkmode;
 }
 
 @media (prefers-color-scheme: dark) {
-    body:not(.theme--light) {
+    html:not([data-theme="light"]) {
         @include darkmode;
     }
 }

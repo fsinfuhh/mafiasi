@@ -2,7 +2,6 @@
   --mafiasi-dark-bg: #18181a;
   --mafiasi-dark-color: #e5e5e5;
   --mafiasi-dark-border-color: #333337;
-  --mafiasi-dark-border: solid 1px var(--mafiasi-dark-border-color);
   --mafiasi-dark-hover: rgba(255, 255, 255, 0.1);
   --mafiasi-dark-striped: rgba(255, 255, 255, 0.05);
   --mafiasi-dark-cotrast: #2a2a2f;
@@ -16,377 +15,482 @@
   background: transparent;
   border: none;
 }
+#theme-toggle:active {
+  box-shadow: none;
+}
 
-body.theme--dark #wrap {
+html[data-theme=dark] #wrap {
   background: var(--mafiasi-dark-bg);
   color: var(--mafiasi-dark-color);
 }
-body.theme--dark .service-icon.btn-default {
+html[data-theme=dark] .service-icon.btn-default {
   background: transparent;
   border: none;
 }
-body.theme--dark .service-icon:hover {
+html[data-theme=dark] .service-icon:hover {
   background: var(--mafiasi-dark-hover);
 }
-body.theme--dark .service-icon > img {
+html[data-theme=dark] .service-icon > img {
   filter: contrast(0) brightness(1.8);
 }
-body.theme--dark .dashboard-service > div {
-  background: transparent;
-  color: var(--mafiasi-dark-color);
-  border: var(--mafiasi-dark-border);
-}
-body.theme--dark .panel {
+html[data-theme=dark] .dashboard-service > div {
   background: transparent;
   color: var(--mafiasi-dark-color);
   border-color: var(--mafiasi-dark-border-color);
 }
-body.theme--dark .panel .panel-heading {
+html[data-theme=dark] .panel {
+  background: transparent;
+  color: var(--mafiasi-dark-color);
+  border-color: var(--mafiasi-dark-border-color);
+}
+html[data-theme=dark] .panel .panel-heading {
   background: var(--mafiasi-dark-border-color);
   border-color: var(--mafiasi-dark-border-color);
   color: var(--mafiasi-dark-color);
 }
-body.theme--dark .panel .panel-footer {
+html[data-theme=dark] .panel .panel-footer {
   background: var(--mafiasi-dark-border-color);
   border-color: var(--mafiasi-dark-border-color);
   color: var(--mafiasi-dark-color);
 }
-body.theme--dark .navbar {
+html[data-theme=dark] .modal .modal-content {
+  background-color: var(--mafiasi-dark-bg);
+}
+html[data-theme=dark] .modal .modal-header,
+html[data-theme=dark] .modal .modal-footer {
+  border-color: var(--mafiasi-dark-border-color);
+}
+html[data-theme=dark] .navbar {
   background: var(--mafiasi-dark-cotrast);
   border-color: var(--mafiasi-dark-cotrast);
 }
-body.theme--dark #footer {
+html[data-theme=dark] #footer {
   background: var(--mafiasi-dark-cotrast);
   border-color: var(--mafiasi-dark-cotrast);
 }
-body.theme--dark a {
+html[data-theme=dark] .select2-container {
+  background-color: transparent;
+}
+html[data-theme=dark] .select2-container .select2-choice,
+html[data-theme=dark] .select2-container .select2-choices {
+  background-image: none;
+  background-color: transparent;
+  color: var(--mafiasi-dark-color);
+}
+html[data-theme=dark] .select2-container .select2-choices .select2-search-choice {
+  background: var(--mafiasi-dark-btn-default);
+  color: var(--mafiasi-dark-color);
+  border-color: var(--mafiasi-dark-border-color);
+  box-shadow: none;
+}
+html[data-theme=dark] .select2-container.select2-dropdown-open .select2-choice {
+  box-shadow: none;
+}
+html[data-theme=dark] .select2-container .select2-arrow {
+  background: transparent;
+  border-color: var(--mafiasi-dark-border-color);
+}
+html[data-theme=dark] .select2-drop {
+  background-color: var(--mafiasi-dark-bg);
+  color: var(--mafiasi-dark-color);
+}
+html[data-theme=dark] .select2-drop .select2-search input {
+  background: var(--mafiasi-dark-bg);
+  border-radius: 4px;
+  border-color: var(--mafiasi-dark-border-color);
+}
+html[data-theme=dark] .select2-drop .select2-selection-limit, html[data-theme=dark] .select2-drop .select2-no-results {
+  background: inherit;
+}
+html[data-theme=dark] a {
   color: var(--mafiasi-dark-btn-primary);
 }
-body.theme--dark .btn-primary {
+html[data-theme=dark] a:hover {
+  color: var(--mafiasi-dark-btn-primary-hover);
+}
+html[data-theme=dark] .btn-primary {
   background: var(--mafiasi-dark-btn-primary);
   border-color: var(--mafiasi-dark-btn-primary);
   color: #000;
 }
-body.theme--dark .btn-default {
-  background: var(--mafiasi-dark-btn-default);
-  border-color: var(--mafiasi-dark-btn-default);
-  color: #fff;
-}
-body.theme--dark a:hover {
-  color: var(--mafiasi-dark-btn-primary-hover);
-}
-body.theme--dark .btn-primary:hover {
+html[data-theme=dark] .btn-primary:hover, html[data-theme=dark] .btn-primary:active, html[data-theme=dark] .btn-primary.active {
   background: var(--mafiasi-dark-btn-primary-hover);
+  color: var(--mafiasi-dark-color);
+}
+html[data-theme=dark] .btn-primary:hover {
   border-color: var(--mafiasi-dark-btn-primary-hover);
 }
-body.theme--dark .btn-default:hover {
-  background: var(--mafiasi-dark-btn-default-hover);
-  border-color: var(--mafiasi-dark-btn-default-hover);
-  color: #fff;
+html[data-theme=dark] .btn-default {
+  background: var(--mafiasi-dark-btn-default);
+  border-color: var(--mafiasi-dark-btn-default);
+  color: var(--mafiasi-dark-color);
 }
-body.theme--dark input.form-control {
+html[data-theme=dark] .btn-default:hover, html[data-theme=dark] .btn-default:active, html[data-theme=dark] .btn-default.active {
+  background: var(--mafiasi-dark-btn-default-hover);
+  color: var(--mafiasi-dark-color);
+}
+html[data-theme=dark] .btn-default:hover {
+  border-color: var(--mafiasi-dark-btn-default-hover);
+}
+html[data-theme=dark] .form-control {
   background: var(--mafiasi-dark-bg);
   color: var(--mafiasi-dark-color);
   border-color: var(--mafiasi-dark-border-color);
 }
-body.theme--dark .table-striped > tbody > tr:nth-of-type(2n+1),
-body.theme--dark .table-striped > .row-group > .table-row:nth-of-type(2n),
-body.theme--dark .table-striped .table-header {
+html[data-theme=dark] .table-striped > tbody > tr:nth-of-type(2n+1),
+html[data-theme=dark] .table-striped > .row-group > .table-row:nth-of-type(2n),
+html[data-theme=dark] .table-striped .table-header {
   background: var(--mafiasi-dark-striped);
 }
-body.theme--dark .table-hover > tbody > tr:hover {
+html[data-theme=dark] .table-hover > tbody > tr:hover {
   background: var(--mafiasi-dark-hover);
 }
-body.theme--dark .table-striped > .row-group > .table-row:hover {
+html[data-theme=dark] .table-striped > .row-group > .table-row:hover {
   background: var(--mafiasi-dark-hover) !important;
   color: var(--mafiasi-dark-color);
 }
-body.theme--dark .table > thead > tr > th,
-body.theme--dark .table > tbody > tr > th,
-body.theme--dark .table > tfoot > tr > th,
-body.theme--dark .table > thead > tr > td,
-body.theme--dark .table > tbody > tr > td,
-body.theme--dark .table > tfoot > tr > td,
-body.theme--dark .table-striped > .row-group > .table-row > .cell,
-body.theme--dark .table-striped > .table-header > .cell {
+html[data-theme=dark] .table > thead > tr > th,
+html[data-theme=dark] .table > tbody > tr > th,
+html[data-theme=dark] .table > tfoot > tr > th,
+html[data-theme=dark] .table > thead > tr > td,
+html[data-theme=dark] .table > tbody > tr > td,
+html[data-theme=dark] .table > tfoot > tr > td,
+html[data-theme=dark] .table-striped > .row-group > .table-row > .cell,
+html[data-theme=dark] .table-striped > .table-header > .cell {
   border-color: var(--mafiasi-dark-border-color);
 }
-body.theme--dark .cell-favorite:hover {
+html[data-theme=dark] .cell-favorite:hover {
   background: transparent !important;
 }
-body.theme--dark .input-group-addon {
+html[data-theme=dark] .input-group-addon {
   background: var(--mafiasi-dark-btn-default);
   border-color: var(--mafiasi-dark-btn-default);
   color: #fff;
 }
-body.theme--dark a.list-group-item {
+html[data-theme=dark] a.list-group-item {
   background: transparent;
   border-color: var(--mafiasi-dark-border-color);
   color: var(--mafiasi-dark-color);
 }
-body.theme--dark a.list-group-item:hover,
-body.theme--dark a.list-group-item:focus {
+html[data-theme=dark] a.list-group-item:hover,
+html[data-theme=dark] a.list-group-item:focus {
   background: var(--mafiasi-dark-hover);
   color: inherit;
 }
-body.theme--dark .list-group-item.active,
-body.theme--dark .list-group-item.active:hover,
-body.theme--dark .list-group-item.active:focus {
+html[data-theme=dark] .list-group-item.active,
+html[data-theme=dark] .list-group-item.active:hover,
+html[data-theme=dark] .list-group-item.active:focus {
   background: var(--mafiasi-dark-btn-primary);
   color: #000;
 }
-body.theme--dark .nav-tabs {
+html[data-theme=dark] .nav-tabs {
   border-color: var(--mafiasi-dark-border-color);
 }
-body.theme--dark .nav-tabs > li.active > a {
+html[data-theme=dark] .nav-tabs > li.active > a {
   color: var(--mafiasi-dark-color);
 }
-body.theme--dark .nav-tabs > li.active > a,
-body.theme--dark .nav-tabs > li.active > a:hover,
-body.theme--dark .nav-tabs > li.active > a:focus {
+html[data-theme=dark] .nav-tabs > li.active > a,
+html[data-theme=dark] .nav-tabs > li.active > a:hover,
+html[data-theme=dark] .nav-tabs > li.active > a:focus {
   background: transparent;
   border-color: var(--mafiasi-dark-border-color);
   border-bottom-color: var(--mafiasi-dark-bg);
 }
-body.theme--dark .nav-tabs > li > a:hover {
+html[data-theme=dark] .nav-tabs > li > a:hover {
   border-color: var(--mafiasi-dark-border-color);
 }
-body.theme--dark .nav > li > a:hover,
-body.theme--dark .nav > li > a:focus {
+html[data-theme=dark] .nav > li > a:hover,
+html[data-theme=dark] .nav > li > a:focus {
   background: var(--mafiasi-dark-hover);
 }
-body.theme--dark .button-link {
+html[data-theme=dark] .button-link {
   background: transparent;
 }
-body.theme--dark .input-group-addon {
+html[data-theme=dark] .input-group-addon {
   background: var(--mafiasi-dark-btn-default);
   border-color: var(--mafiasi-dark-btn-default);
   color: #fff;
 }
-body.theme--dark a.list-group-item {
+html[data-theme=dark] a.list-group-item {
   background: transparent;
   border-color: var(--mafiasi-dark-border-color);
   color: var(--mafiasi-dark-color);
 }
-body.theme--dark a.list-group-item:hover,
-body.theme--dark a.list-group-item:focus {
+html[data-theme=dark] a.list-group-item:hover,
+html[data-theme=dark] a.list-group-item:focus {
   background: var(--mafiasi-dark-hover);
   color: inherit;
 }
-body.theme--dark .list-group-item.active,
-body.theme--dark .list-group-item.active:hover,
-body.theme--dark .list-group-item.active:focus {
+html[data-theme=dark] .list-group-item.active,
+html[data-theme=dark] .list-group-item.active:hover,
+html[data-theme=dark] .list-group-item.active:focus {
   background: var(--mafiasi-dark-btn-primary);
   color: #000;
 }
-body.theme--dark .nav-tabs {
+html[data-theme=dark] .nav-tabs {
   border-color: var(--mafiasi-dark-border-color);
 }
-body.theme--dark .nav-tabs > li.active > a {
+html[data-theme=dark] .nav-tabs > li.active > a {
   color: var(--mafiasi-dark-color);
 }
-body.theme--dark .nav-tabs > li.active > a,
-body.theme--dark .nav-tabs > li.active > a:hover,
-body.theme--dark .nav-tabs > li.active > a:focus {
+html[data-theme=dark] .nav-tabs > li.active > a,
+html[data-theme=dark] .nav-tabs > li.active > a:hover,
+html[data-theme=dark] .nav-tabs > li.active > a:focus {
   background: transparent;
   border-color: var(--mafiasi-dark-border-color);
   border-bottom-color: var(--mafiasi-dark-bg);
 }
-body.theme--dark .nav-tabs > li > a:hover {
+html[data-theme=dark] .nav-tabs > li > a:hover {
   border-color: var(--mafiasi-dark-border-color);
 }
-body.theme--dark .nav > li > a:hover,
-body.theme--dark .nav > li > a:focus {
+html[data-theme=dark] .nav > li > a:hover,
+html[data-theme=dark] .nav > li > a:focus {
   background: var(--mafiasi-dark-hover);
 }
-body.theme--dark .button-link {
+html[data-theme=dark] .button-link {
   background: transparent;
+}
+html[data-theme=dark] .label-favorite {
+  background-color: var(--mafiasi-dark-btn-default);
+  color: var(--mafiasi-dark-color);
+  border-color: var(--mafiasi-dark-border-color);
 }
 
 @media (prefers-color-scheme: dark) {
-  body:not(.theme--light) #wrap {
+  html:not([data-theme=light]) #wrap {
     background: var(--mafiasi-dark-bg);
     color: var(--mafiasi-dark-color);
   }
-  body:not(.theme--light) .service-icon.btn-default {
+  html:not([data-theme=light]) .service-icon.btn-default {
     background: transparent;
     border: none;
   }
-  body:not(.theme--light) .service-icon:hover {
+  html:not([data-theme=light]) .service-icon:hover {
     background: var(--mafiasi-dark-hover);
   }
-  body:not(.theme--light) .service-icon > img {
+  html:not([data-theme=light]) .service-icon > img {
     filter: contrast(0) brightness(1.8);
   }
-  body:not(.theme--light) .dashboard-service > div {
-    background: transparent;
-    color: var(--mafiasi-dark-color);
-    border: var(--mafiasi-dark-border);
-  }
-  body:not(.theme--light) .panel {
+  html:not([data-theme=light]) .dashboard-service > div {
     background: transparent;
     color: var(--mafiasi-dark-color);
     border-color: var(--mafiasi-dark-border-color);
   }
-  body:not(.theme--light) .panel .panel-heading {
+  html:not([data-theme=light]) .panel {
+    background: transparent;
+    color: var(--mafiasi-dark-color);
+    border-color: var(--mafiasi-dark-border-color);
+  }
+  html:not([data-theme=light]) .panel .panel-heading {
     background: var(--mafiasi-dark-border-color);
     border-color: var(--mafiasi-dark-border-color);
     color: var(--mafiasi-dark-color);
   }
-  body:not(.theme--light) .panel .panel-footer {
+  html:not([data-theme=light]) .panel .panel-footer {
     background: var(--mafiasi-dark-border-color);
     border-color: var(--mafiasi-dark-border-color);
     color: var(--mafiasi-dark-color);
   }
-  body:not(.theme--light) .navbar {
+  html:not([data-theme=light]) .modal .modal-content {
+    background-color: var(--mafiasi-dark-bg);
+  }
+  html:not([data-theme=light]) .modal .modal-header,
+html:not([data-theme=light]) .modal .modal-footer {
+    border-color: var(--mafiasi-dark-border-color);
+  }
+  html:not([data-theme=light]) .navbar {
     background: var(--mafiasi-dark-cotrast);
     border-color: var(--mafiasi-dark-cotrast);
   }
-  body:not(.theme--light) #footer {
+  html:not([data-theme=light]) #footer {
     background: var(--mafiasi-dark-cotrast);
     border-color: var(--mafiasi-dark-cotrast);
   }
-  body:not(.theme--light) a {
+  html:not([data-theme=light]) .select2-container {
+    background-color: transparent;
+  }
+  html:not([data-theme=light]) .select2-container .select2-choice,
+html:not([data-theme=light]) .select2-container .select2-choices {
+    background-image: none;
+    background-color: transparent;
+    color: var(--mafiasi-dark-color);
+  }
+  html:not([data-theme=light]) .select2-container .select2-choices .select2-search-choice {
+    background: var(--mafiasi-dark-btn-default);
+    color: var(--mafiasi-dark-color);
+    border-color: var(--mafiasi-dark-border-color);
+    box-shadow: none;
+  }
+  html:not([data-theme=light]) .select2-container.select2-dropdown-open .select2-choice {
+    box-shadow: none;
+  }
+  html:not([data-theme=light]) .select2-container .select2-arrow {
+    background: transparent;
+    border-color: var(--mafiasi-dark-border-color);
+  }
+  html:not([data-theme=light]) .select2-drop {
+    background-color: var(--mafiasi-dark-bg);
+    color: var(--mafiasi-dark-color);
+  }
+  html:not([data-theme=light]) .select2-drop .select2-search input {
+    background: var(--mafiasi-dark-bg);
+    border-radius: 4px;
+    border-color: var(--mafiasi-dark-border-color);
+  }
+  html:not([data-theme=light]) .select2-drop .select2-selection-limit, html:not([data-theme=light]) .select2-drop .select2-no-results {
+    background: inherit;
+  }
+  html:not([data-theme=light]) a {
     color: var(--mafiasi-dark-btn-primary);
   }
-  body:not(.theme--light) .btn-primary {
+  html:not([data-theme=light]) a:hover {
+    color: var(--mafiasi-dark-btn-primary-hover);
+  }
+  html:not([data-theme=light]) .btn-primary {
     background: var(--mafiasi-dark-btn-primary);
     border-color: var(--mafiasi-dark-btn-primary);
     color: #000;
   }
-  body:not(.theme--light) .btn-default {
-    background: var(--mafiasi-dark-btn-default);
-    border-color: var(--mafiasi-dark-btn-default);
-    color: #fff;
-  }
-  body:not(.theme--light) a:hover {
-    color: var(--mafiasi-dark-btn-primary-hover);
-  }
-  body:not(.theme--light) .btn-primary:hover {
+  html:not([data-theme=light]) .btn-primary:hover, html:not([data-theme=light]) .btn-primary:active, html:not([data-theme=light]) .btn-primary.active {
     background: var(--mafiasi-dark-btn-primary-hover);
+    color: var(--mafiasi-dark-color);
+  }
+  html:not([data-theme=light]) .btn-primary:hover {
     border-color: var(--mafiasi-dark-btn-primary-hover);
   }
-  body:not(.theme--light) .btn-default:hover {
-    background: var(--mafiasi-dark-btn-default-hover);
-    border-color: var(--mafiasi-dark-btn-default-hover);
-    color: #fff;
+  html:not([data-theme=light]) .btn-default {
+    background: var(--mafiasi-dark-btn-default);
+    border-color: var(--mafiasi-dark-btn-default);
+    color: var(--mafiasi-dark-color);
   }
-  body:not(.theme--light) input.form-control {
+  html:not([data-theme=light]) .btn-default:hover, html:not([data-theme=light]) .btn-default:active, html:not([data-theme=light]) .btn-default.active {
+    background: var(--mafiasi-dark-btn-default-hover);
+    color: var(--mafiasi-dark-color);
+  }
+  html:not([data-theme=light]) .btn-default:hover {
+    border-color: var(--mafiasi-dark-btn-default-hover);
+  }
+  html:not([data-theme=light]) .form-control {
     background: var(--mafiasi-dark-bg);
     color: var(--mafiasi-dark-color);
     border-color: var(--mafiasi-dark-border-color);
   }
-  body:not(.theme--light) .table-striped > tbody > tr:nth-of-type(2n+1),
-body:not(.theme--light) .table-striped > .row-group > .table-row:nth-of-type(2n),
-body:not(.theme--light) .table-striped .table-header {
+  html:not([data-theme=light]) .table-striped > tbody > tr:nth-of-type(2n+1),
+html:not([data-theme=light]) .table-striped > .row-group > .table-row:nth-of-type(2n),
+html:not([data-theme=light]) .table-striped .table-header {
     background: var(--mafiasi-dark-striped);
   }
-  body:not(.theme--light) .table-hover > tbody > tr:hover {
+  html:not([data-theme=light]) .table-hover > tbody > tr:hover {
     background: var(--mafiasi-dark-hover);
   }
-  body:not(.theme--light) .table-striped > .row-group > .table-row:hover {
+  html:not([data-theme=light]) .table-striped > .row-group > .table-row:hover {
     background: var(--mafiasi-dark-hover) !important;
     color: var(--mafiasi-dark-color);
   }
-  body:not(.theme--light) .table > thead > tr > th,
-body:not(.theme--light) .table > tbody > tr > th,
-body:not(.theme--light) .table > tfoot > tr > th,
-body:not(.theme--light) .table > thead > tr > td,
-body:not(.theme--light) .table > tbody > tr > td,
-body:not(.theme--light) .table > tfoot > tr > td,
-body:not(.theme--light) .table-striped > .row-group > .table-row > .cell,
-body:not(.theme--light) .table-striped > .table-header > .cell {
+  html:not([data-theme=light]) .table > thead > tr > th,
+html:not([data-theme=light]) .table > tbody > tr > th,
+html:not([data-theme=light]) .table > tfoot > tr > th,
+html:not([data-theme=light]) .table > thead > tr > td,
+html:not([data-theme=light]) .table > tbody > tr > td,
+html:not([data-theme=light]) .table > tfoot > tr > td,
+html:not([data-theme=light]) .table-striped > .row-group > .table-row > .cell,
+html:not([data-theme=light]) .table-striped > .table-header > .cell {
     border-color: var(--mafiasi-dark-border-color);
   }
-  body:not(.theme--light) .cell-favorite:hover {
+  html:not([data-theme=light]) .cell-favorite:hover {
     background: transparent !important;
   }
-  body:not(.theme--light) .input-group-addon {
+  html:not([data-theme=light]) .input-group-addon {
     background: var(--mafiasi-dark-btn-default);
     border-color: var(--mafiasi-dark-btn-default);
     color: #fff;
   }
-  body:not(.theme--light) a.list-group-item {
+  html:not([data-theme=light]) a.list-group-item {
     background: transparent;
     border-color: var(--mafiasi-dark-border-color);
     color: var(--mafiasi-dark-color);
   }
-  body:not(.theme--light) a.list-group-item:hover,
-body:not(.theme--light) a.list-group-item:focus {
+  html:not([data-theme=light]) a.list-group-item:hover,
+html:not([data-theme=light]) a.list-group-item:focus {
     background: var(--mafiasi-dark-hover);
     color: inherit;
   }
-  body:not(.theme--light) .list-group-item.active,
-body:not(.theme--light) .list-group-item.active:hover,
-body:not(.theme--light) .list-group-item.active:focus {
+  html:not([data-theme=light]) .list-group-item.active,
+html:not([data-theme=light]) .list-group-item.active:hover,
+html:not([data-theme=light]) .list-group-item.active:focus {
     background: var(--mafiasi-dark-btn-primary);
     color: #000;
   }
-  body:not(.theme--light) .nav-tabs {
+  html:not([data-theme=light]) .nav-tabs {
     border-color: var(--mafiasi-dark-border-color);
   }
-  body:not(.theme--light) .nav-tabs > li.active > a {
+  html:not([data-theme=light]) .nav-tabs > li.active > a {
     color: var(--mafiasi-dark-color);
   }
-  body:not(.theme--light) .nav-tabs > li.active > a,
-body:not(.theme--light) .nav-tabs > li.active > a:hover,
-body:not(.theme--light) .nav-tabs > li.active > a:focus {
+  html:not([data-theme=light]) .nav-tabs > li.active > a,
+html:not([data-theme=light]) .nav-tabs > li.active > a:hover,
+html:not([data-theme=light]) .nav-tabs > li.active > a:focus {
     background: transparent;
     border-color: var(--mafiasi-dark-border-color);
     border-bottom-color: var(--mafiasi-dark-bg);
   }
-  body:not(.theme--light) .nav-tabs > li > a:hover {
+  html:not([data-theme=light]) .nav-tabs > li > a:hover {
     border-color: var(--mafiasi-dark-border-color);
   }
-  body:not(.theme--light) .nav > li > a:hover,
-body:not(.theme--light) .nav > li > a:focus {
+  html:not([data-theme=light]) .nav > li > a:hover,
+html:not([data-theme=light]) .nav > li > a:focus {
     background: var(--mafiasi-dark-hover);
   }
-  body:not(.theme--light) .button-link {
+  html:not([data-theme=light]) .button-link {
     background: transparent;
   }
-  body:not(.theme--light) .input-group-addon {
+  html:not([data-theme=light]) .input-group-addon {
     background: var(--mafiasi-dark-btn-default);
     border-color: var(--mafiasi-dark-btn-default);
     color: #fff;
   }
-  body:not(.theme--light) a.list-group-item {
+  html:not([data-theme=light]) a.list-group-item {
     background: transparent;
     border-color: var(--mafiasi-dark-border-color);
     color: var(--mafiasi-dark-color);
   }
-  body:not(.theme--light) a.list-group-item:hover,
-body:not(.theme--light) a.list-group-item:focus {
+  html:not([data-theme=light]) a.list-group-item:hover,
+html:not([data-theme=light]) a.list-group-item:focus {
     background: var(--mafiasi-dark-hover);
     color: inherit;
   }
-  body:not(.theme--light) .list-group-item.active,
-body:not(.theme--light) .list-group-item.active:hover,
-body:not(.theme--light) .list-group-item.active:focus {
+  html:not([data-theme=light]) .list-group-item.active,
+html:not([data-theme=light]) .list-group-item.active:hover,
+html:not([data-theme=light]) .list-group-item.active:focus {
     background: var(--mafiasi-dark-btn-primary);
     color: #000;
   }
-  body:not(.theme--light) .nav-tabs {
+  html:not([data-theme=light]) .nav-tabs {
     border-color: var(--mafiasi-dark-border-color);
   }
-  body:not(.theme--light) .nav-tabs > li.active > a {
+  html:not([data-theme=light]) .nav-tabs > li.active > a {
     color: var(--mafiasi-dark-color);
   }
-  body:not(.theme--light) .nav-tabs > li.active > a,
-body:not(.theme--light) .nav-tabs > li.active > a:hover,
-body:not(.theme--light) .nav-tabs > li.active > a:focus {
+  html:not([data-theme=light]) .nav-tabs > li.active > a,
+html:not([data-theme=light]) .nav-tabs > li.active > a:hover,
+html:not([data-theme=light]) .nav-tabs > li.active > a:focus {
     background: transparent;
     border-color: var(--mafiasi-dark-border-color);
     border-bottom-color: var(--mafiasi-dark-bg);
   }
-  body:not(.theme--light) .nav-tabs > li > a:hover {
+  html:not([data-theme=light]) .nav-tabs > li > a:hover {
     border-color: var(--mafiasi-dark-border-color);
   }
-  body:not(.theme--light) .nav > li > a:hover,
-body:not(.theme--light) .nav > li > a:focus {
+  html:not([data-theme=light]) .nav > li > a:hover,
+html:not([data-theme=light]) .nav > li > a:focus {
     background: var(--mafiasi-dark-hover);
   }
-  body:not(.theme--light) .button-link {
+  html:not([data-theme=light]) .button-link {
     background: transparent;
+  }
+  html:not([data-theme=light]) .label-favorite {
+    background-color: var(--mafiasi-dark-btn-default);
+    color: var(--mafiasi-dark-color);
+    border-color: var(--mafiasi-dark-border-color);
   }
 }/*# sourceMappingURL=darkmode.css.map */
