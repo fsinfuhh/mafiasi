@@ -13,10 +13,12 @@
 {% is_snowing as is_snowing_val %}
 <div class="row {% if is_first_of_april_val %}first-of-april{% endif %}">
     <div id="dashboard" class="col-md-8">
-        <h2>{% trans "Services" %}</h2>
-        {% if is_snowing_val %}
-            <img id="santa-hat-services-deco" src="{% static "img/santa-hat.png" %}" alt="santa-hat" />
-        {% endif %}
+        <h2>
+            {% trans "Services" %}
+            {% if is_snowing_val %}
+                <img id="santa-hat-services-deco" src="{% static "img/santa-hat.png" %}" alt="santa-hat" />
+            {% endif %}
+        </h2>
         <div id="dashboard-services-container" class="row">
             {% for service in services %}
                 <div id="service-{{ service.title }}" class="col-sm-6 dashboard-service"
