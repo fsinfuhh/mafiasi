@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-03 17:33+0100\n"
+"POT-Creation-Date: 2022-12-15 18:52+0100\n"
 "PO-Revision-Date: 2022-03-07 16:02+0100\n"
 "Last-Translator: Markus Neblung <9neblung@informatik.uni-hamburg.de>\n"
 "Language-Team: \n"
@@ -46,49 +46,49 @@ msgstr ""
 "again later. If the problem persists, see our <a "
 "href=\"%(problems_url)s\">problem reporting page</a>."
 
-#: mafiasi/base/templates/base.html:38
+#: mafiasi/base/templates/base.html:47
 msgid "Groups"
 msgstr "Groups"
 
-#: mafiasi/base/templates/base.html:46
+#: mafiasi/base/templates/base.html:55
 #: mafiasi/mailinglist/templates/mailinglist/show_list.html:46
 msgid "Settings"
 msgstr "Settings"
 
-#: mafiasi/base/templates/base.html:48
+#: mafiasi/base/templates/base.html:57
 #, python-format
 msgid "Logged in as %(username)s"
 msgstr "Logged in as %(username)s"
 
-#: mafiasi/base/templates/base.html:49
+#: mafiasi/base/templates/base.html:58
 msgid "Logout"
 msgstr "Logout"
 
-#: mafiasi/base/templates/base.html:55
+#: mafiasi/base/templates/base.html:64
 #: mafiasi/registration/templates/registration/request_account.html:35
 #: mafiasi/registration/templates/registration/request_account.html:70
 msgid "Register"
 msgstr "Register"
 
-#: mafiasi/base/templates/base.html:57
+#: mafiasi/base/templates/base.html:66
 #: mafiasi/registration/templates/registration/login.html:5
 #: mafiasi/registration/templates/registration/login.html:47
 msgid "Login"
 msgstr "Login"
 
-#: mafiasi/base/templates/base.html:85
+#: mafiasi/base/templates/base.html:94
 msgid "Imprint"
 msgstr "Imprint"
 
-#: mafiasi/base/templates/base.html:87
+#: mafiasi/base/templates/base.html:96
 msgid "Data privacy statement"
 msgstr "Data privacy statement"
 
-#: mafiasi/base/templates/base.html:89
+#: mafiasi/base/templates/base.html:98
 msgid "Technical info"
 msgstr "Technical info"
 
-#: mafiasi/base/templates/base.html:91
+#: mafiasi/base/templates/base.html:100
 #: mafiasi/base/templates/base/problems.html:4
 msgid "Problems?"
 msgstr "Problems?"
@@ -162,27 +162,27 @@ msgstr "BitPoll"
 msgid "BitPoll helps you to find common dates for meetings easily."
 msgstr "BitPoll helps you to find common dates for meetings easily."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:6
+#: mafiasi/dashboard/templates/dashboard/index.html:7
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:14
+#: mafiasi/dashboard/templates/dashboard/index.html:16
 msgid "Services"
 msgstr "Services"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:27
+#: mafiasi/dashboard/templates/dashboard/index.html:32
 msgid "Rearrange item"
 msgstr "Rearrange item"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:35
+#: mafiasi/dashboard/templates/dashboard/index.html:40
 msgid "News and more"
 msgstr "News and more"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:51
+#: mafiasi/dashboard/templates/dashboard/index.html:56
 msgid "Wiki search"
 msgstr "Wiki search"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:58
+#: mafiasi/dashboard/templates/dashboard/index.html:63
 #: mafiasi/gprot/templates/gprot/menu.html:4
 #: mafiasi/pks/templates/pks/menu.html:4
 #: mafiasi/pks/templates/pks/search.html:5
@@ -1505,18 +1505,6 @@ msgstr ""
 "Conversations.\n"
 "  "
 
-#: mafiasi/jitsi/apps.py:10
-msgid "Jitsi"
-msgstr "Jitsi"
-
-#: mafiasi/jitsi/apps.py:11
-msgid ""
-"Jitsi is a secure and open source video conference tool that can be used in "
-"a browser."
-msgstr ""
-"Jitsi is a secure and open source video conference tool that can be used in "
-"a browser."
-
 #: mafiasi/kanboard/apps.py:10
 msgid "Kanboard"
 msgstr "Kanboard"
@@ -2423,6 +2411,92 @@ msgstr "winter term {0}"
 msgid "summer term {0}"
 msgstr "summer term {0}"
 
+#: mafiasi/vault/apps.py:14
+msgid "Vault"
+msgstr ""
+
+#: mafiasi/vault/apps.py:15
+msgid "Mafiasi hosted password manager"
+msgstr ""
+
+#: mafiasi/vault/templates/vault/index.html:21
+msgid ""
+"\n"
+"            Vault is a <i>Vaultwarden / Bitwarden</i> password manager "
+"hosted and operated by Mafiasi.<br>\n"
+"            You can use it to store and manage your passwords.\n"
+"            You can also share passwords with other users or groups.\n"
+"        "
+msgstr ""
+
+#: mafiasi/vault/templates/vault/index.html:28
+msgid ""
+"\n"
+"            Note that Mafiasi has no access to any of your credentials "
+"because they are encrypted with a master password\n"
+"            chosen by you.\n"
+"        "
+msgstr ""
+
+#: mafiasi/vault/templates/vault/index.html:37
+msgid "You do not currently have a vault account"
+msgstr ""
+
+#: mafiasi/vault/templates/vault/index.html:39
+#, python-format
+msgid ""
+"\n"
+"                    You can use the button below to create a new account."
+"<br>\n"
+"                    When doing so, you will receive an e-mail at "
+"%(vault_email)s inviting you to register and set\n"
+"                    a password.\n"
+"                "
+msgstr ""
+
+#: mafiasi/vault/templates/vault/index.html:46
+#: mafiasi/vault/templates/vault/index.html:84
+msgid ""
+"The password you choose to use with Vault should not be confused with your "
+"Mafiasi password. They are completely separate."
+msgstr ""
+
+#: mafiasi/vault/templates/vault/index.html:49
+#: mafiasi/vault/templates/vault/index.html:87
+msgid ""
+"Do not change your email address to anything else. It is what binds the "
+"vaultwarden account to your Mafiasi account and we use it to synchronize "
+"group / organization memberships. Wel also regularly delete vault accounts "
+"with unknown email addresses."
+msgstr ""
+
+#: mafiasi/vault/templates/vault/index.html:61
+msgid "Your vault account is ready to go"
+msgstr ""
+
+#: mafiasi/vault/templates/vault/index.html:63
+#, python-format
+msgid ""
+"\n"
+"                    You can log in using <i>%(vault_email)s</i> as your "
+"email.\n"
+"                "
+msgstr ""
+
+#: mafiasi/vault/templates/vault/index.html:76
+msgid "Your vault account has been created but is not yet ready"
+msgstr ""
+
+#: mafiasi/vault/templates/vault/index.html:78
+#, python-format
+msgid ""
+"\n"
+"                    An invitation email has been sent to %(vault_email)s.\n"
+"                    It includes a link which you need to click to complete "
+"the account creation.\n"
+"                "
+msgstr ""
+
 #: mafiasi/whiteboard/apps.py:10
 msgid "Whiteboard"
 msgstr "Whiteboard"
@@ -2439,6 +2513,16 @@ msgstr "Wiki"
 msgid "In the wiki you will find important information regarding your studies."
 msgstr ""
 "In the wiki you will find important information regarding your studies."
+
+#~ msgid "Jitsi"
+#~ msgstr "Jitsi"
+
+#~ msgid ""
+#~ "Jitsi is a secure and open source video conference tool that can be used "
+#~ "in a browser."
+#~ msgstr ""
+#~ "Jitsi is a secure and open source video conference tool that can be used "
+#~ "in a browser."
 
 #, python-format
 #~ msgid "\"%s\" already has an invitation."
