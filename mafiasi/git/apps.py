@@ -10,4 +10,4 @@ class GitConfig(BaseService):
     title = _('Repositories')
     description = _('The Github like repository service')
     link = settings.GIT_URL
-    image = 'img/services/git.png'
+    image = 'img/services/git.svg'

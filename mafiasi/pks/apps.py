@@ -9,4 +9,4 @@ class PksConfig(BaseService):
     title = _('Keyserver')
     description = _('You can find your fellow students\' OpenPGP keys on our public keyserver.')
     link = '/pks/'
-    image = 'img/services/pks.png'
+    image = 'img/services/pks.svg'
