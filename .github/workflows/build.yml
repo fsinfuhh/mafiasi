@@ -9,11 +9,30 @@ on:
 jobs:
   build-container:
     uses: fsinfuhh/workflows/.github/workflows/build_image.yml@main
+
+  determine-app-path:
+    runs-on: ubuntu-latest
+    outputs:
+      app-path: ${{ steps.determine-app-path.outputs.app-path }}
+    steps:
+      - id: determine-app-path
+        run: |
+          if [[ "${{ github.ref_name }}" == "main" || "${{ github.ref_name }}" == "master" ]]; then
+            echo "::set-output name=app-path::dashboard"
+            echo "APP_PATH=dashboard" >> $GITHUB_ENV
+          elif [[ "${{ github.ref_name }}" == "stage" || "${{ github.ref_name }}" == "staging" ]]; then
+            echo "::set-output name=app-path::dashboard-stage"
+            echo "APP_PATH=dashboard-stage" >> $GITHUB_ENV    
+          else
+            echo "Invalid github ref name ${{ github.ref_name }}"
+            exit 1
+          fi
+
   deploy:
-    needs: [ build-container ]
+    needs: [ build-container, determine-app-path ]
     uses: fsinfuhh/workflows/.github/workflows/deploy.yml@main
     secrets: inherit
     with:
-      app_path: k8s/apps/mafiasi/dashboard-staging
+      app_path: k8s/apps/mafiasi/${{ needs.determine-app-path.outputs.app-path }}
       image_name: ${{ needs.build-container.outputs.image_name }}
       new_digest: ${{ needs.build-container.outputs.image_digest }}
