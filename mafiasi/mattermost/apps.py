@@ -10,4 +10,4 @@ class MattermostConfig(BaseService):
     title = _('Chat')
     description = _('An online team chat service')
     link = settings.MATTERMOST_URL
-    image = 'img/services/mattermost.png'
+    image = 'img/services/mattermost.svg'

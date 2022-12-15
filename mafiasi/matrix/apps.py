@@ -10,4 +10,4 @@ class MatrixConfig(BaseService):
     title = _('Matrix')
     description = _('Matrix provides decentralized messaging and VoIP with E2E encryption.')
     link = settings.MATRIX_URL
-    image = 'img/services/matrix.png'
+    image = 'img/services/matrix.svg'
