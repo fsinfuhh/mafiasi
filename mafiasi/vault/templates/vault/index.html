@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% load settings_value %}
+
+{% block wtitle %}
+    Vault
+{% endblock %}
+
+{% block ptitle %}
+    Mafiasi Vault
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static "css/vault.css" %}">
+{% endblock %}
+
+{% block content %}
+    <!-- General info and link to actual vault -->
+    <p>
+        {% blocktranslate %}
+            Vault is a <i>Vaultwarden / Bitwarden</i> password manager hosted and operated by Mafiasi.<br>
+            You can use it to store and manage your passwords.
+            You can also share passwords with other users or groups.<br>
+            TODO: add note that we dont have access to passwords
+        {% endblocktranslate %}
+    </p>
+    <a id="vault-link" href="{% value_from_settings VAULT_URL %}">
+        <button class="btn btn-primary btn-block">Go to Vault</button>
+    </a>
+
+    {% if vault_account_status == -1 %}
+        <!-- Account does not exist, create new account here -->
+        <div class="alert alert-warning">
+            <p><strong>{% translate "You do not currently have a vault account" %}</strong></p>
+            <p>
+                {% blocktranslate with vault_email=vault_email %}
+                    You can use the button below to create a new account.<br>
+                    When doing so, you will receive an e-mail at {{ vault_email }} inviting you to register and set
+                    a password.
+                {% endblocktranslate %}
+            </p>
+            <p class="text-info">
+                {% translate "The password you choose to use with Vault is should not be confused with your Mafiasi password. They are completely separate." %}
+            </p>
+            <p class="text-info">
+                {% translate "Do not change your email address to anything else. It is what binds the vaultwarden account to your Mafiasi account and we use it to synchronize group / organization memberships. Wel also regularly delete vault accounts with unknown email addresses." %}
+            </p>
+
+            <form method="post">
+                {% csrf_token %}
+                <button id="create-vault-account" type="submit" class="btn btn-primary">Create Vault Account</button>
+            </form>
+        </div>
+
+    {% elif vault_account_status == 0 %}
+        <!-- Account exists and is ready to go -->
+        <div class="alert alert-success">
+            <p><strong>{% translate "Your vault account is ready to go" %}</strong></p>
+            <p>
+                {% blocktranslate with vault_email=vault_email %}
+                    You can log in using <i>{{ vault_email }}</i> as your email.
+                {% endblocktranslate %}
+            </p>
+        </div>
+
+    {% elif vault_account_status == 1 %}
+        <!-- User is invited -->
+        <div class="alert alert-warning">
+            <p><strong>{% translate "Your vault account has been created but is not yet ready" %}</strong></p>
+            <p>
+                {% blocktranslate with vault_email=vault_email %}
+                    An invitation email has been sent to {{ vault_email }}.
+                    It includes a link which you need to click to complete the account creation.
+                {% endblocktranslate %}
+            </p>
+            <p class="text-info">
+                {% translate "The password you choose to use with Vault is should not be confused with your Mafiasi password. They are completely separate." %}
+            </p>
+            <p class="text-info">
+                {% translate "Do not change your email address to anything else. It is what binds the vaultwarden account to your Mafiasi account and we use it to synchronize group / organization memberships. Wel also regularly delete vault accounts with unknown email addresses." %}
+            </p>
+        </div>
+
+    {% endif %}
+{% endblock %}

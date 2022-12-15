@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 D=$(realpath $(dirname $0)/..)
 
-exec docker run \
+exec podman run \
   --rm \
   -e POSTGRES_DB=mafiasi-dashboard \
   -e POSTGRES_USER=mafiasi-dashboard \

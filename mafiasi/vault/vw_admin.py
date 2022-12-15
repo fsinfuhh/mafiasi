@@ -25,6 +25,7 @@ class VwOrganization:
 
 
 class UserStatus(enum.IntEnum):
+    NOT_EXISTING = -1
     ENABLED = 0
     INVITED = 1
     DISABLED = 2

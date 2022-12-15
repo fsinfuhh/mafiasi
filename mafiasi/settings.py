@@ -108,7 +108,7 @@ MIDDLEWARE = [
     'mafiasi.base.middleware.InvalidMailMiddleware',
 ]
 
-INSTALLED_APPS = [
+INSTALLED_APPS = [i for i in [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.humanize',
@@ -138,7 +138,7 @@ INSTALLED_APPS = [
     'mafiasi.sogo',
     'mafiasi.tauschen',
     'mafiasi.link_shortener',
-    'mafiasi.vault',
+    'mafiasi.vault' if ENABLE_VAULT_INTEGRATION else None,
     'mafiasi.pks',
     'mafiasi.kanboard',
     'mafiasi.whiteboard',
@@ -148,7 +148,7 @@ INSTALLED_APPS = [
     ###
     'django.contrib.admin',
     'django.contrib.admindocs',
-]
+] if i is not None]
 
 TEMPLATES = [
     {
