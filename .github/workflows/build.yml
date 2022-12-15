@@ -18,11 +18,9 @@ jobs:
       - id: determine-app-path
         run: |
           if [[ "${{ github.ref_name }}" == "main" || "${{ github.ref_name }}" == "master" ]]; then
-            echo "::set-output name=app-path::dashboard"
-            echo "APP_PATH=dashboard" >> $GITHUB_ENV
+            echo "app-path=dashboard" >> $GITHUB_OUTPUT
           elif [[ "${{ github.ref_name }}" == "stage" || "${{ github.ref_name }}" == "staging" ]]; then
-            echo "::set-output name=app-path::dashboard-stage"
-            echo "APP_PATH=dashboard-stage" >> $GITHUB_ENV    
+            echo "app-path=dashboard-staging" >> $GITHUB_OUTPUT
           else
             echo "Invalid github ref name ${{ github.ref_name }}"
             exit 1
