@@ -1,5 +1,19 @@
 name: build
-on: [ push, workflow_dispatch, pull_request ]
+on:
+  workflow_dispatch: {}
+  push:
+    branches:
+      - main
+      - staging
+
 jobs:
   build-container:
     uses: fsinfuhh/workflows/.github/workflows/build_image.yml@main
+  deploy:
+    needs: [ build-container ]
+    uses: fsinfuhh/workflows/.github/workflows/deploy.yml@main
+    secrets: inherit
+    with:
+      app_path: k8s/apps/mafiasi/dashboard-staging
+      image_name: ${{ needs.build-container.outputs.image_name }}
+      new_digest: ${{ needs.build-container.outputs.image_digest }}
