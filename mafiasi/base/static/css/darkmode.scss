@@ -15,6 +15,10 @@
 #theme-toggle {
     background: transparent;
     border: none;
+
+    &:active {
+        box-shadow: none;
+    }
 }
 
 @mixin darkmode {

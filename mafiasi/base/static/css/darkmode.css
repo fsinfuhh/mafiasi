@@ -16,6 +16,9 @@
   background: transparent;
   border: none;
 }
+#theme-toggle:active {
+  box-shadow: none;
+}
 
 body.theme--dark #wrap {
   background: var(--mafiasi-dark-bg);
