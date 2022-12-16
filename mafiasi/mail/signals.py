@@ -6,6 +6,6 @@ class CollectMail(object):
 class CollectServer(object):
     pass
 
-collect_mailaddresses = django.dispatch.Signal(providing_args=["addresses"])
+collect_mailaddresses = django.dispatch.Signal()
 mailaddresses_known = django.dispatch.Signal()
-collect_servers = django.dispatch.Signal(providing_args=["servers"])
+collect_servers = django.dispatch.Signal()

@@ -17,7 +17,7 @@ from django.core.exceptions import PermissionDenied
 from django.http import HttpResponse, HttpResponseBadRequest, Http404
 from django.core.mail import send_mail
 from smtplib import SMTPException
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 from django.utils.crypto import constant_time_compare
 from raven.contrib.django.raven_compat.models import client
 from django.middleware.csrf import get_token as get_csrf_token

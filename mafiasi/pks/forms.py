@@ -3,7 +3,7 @@ from io import BytesIO
 import gpgme
 
 from django import forms
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 class ImportForm(forms.Form):
     keys = forms.CharField(widget=forms.Textarea())

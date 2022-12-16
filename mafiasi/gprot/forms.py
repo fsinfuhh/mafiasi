@@ -1,6 +1,6 @@
 from functools import partial
 from django import forms
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 
 from mafiasi.gprot.models import Label
 from mafiasi.teaching.models import Course, Teacher
