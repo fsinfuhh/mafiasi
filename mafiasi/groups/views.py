@@ -61,7 +61,7 @@ def show(request, group_name):
             # after he had removed himself from the group
             return redirect('groups_index')
 
-    group_members = list(group.user_set.order_by('first_name'))
+    group_members = list(group.user_set.order_by('display_name'))
     admin_pks = set(admin.pk for admin in properties.admins.all())
     is_groupadmin = request.user.pk in admin_pks
     num_admins = 0
