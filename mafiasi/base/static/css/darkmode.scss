@@ -1,26 +1,65 @@
+$theme-colors: (
+    "background": #18181a,
+    "text-light": #e5e5e5,
+    "text-dark": #000000,
+);
+
+
+$btn-colors: (
+    "default": lighten(map-get($theme-colors, "background"), 17%),
+    "primary": #15b2ff,
+    "success": #28a745,
+    "info": #17a2b8,
+    "warning": #ffc107,
+    "danger": #dc3545,
+);
+
+$btn-text: (
+    "default": "text-light",
+    "primary": "text-dark",
+    "success": "text-light",
+    "info": "text-light",
+    "warning": "text-dark",
+    "danger": "text-light",
+);
+
+
 :root {
-    --mafiasi-dark-bg: #18181a;
-    --mafiasi-dark-color: #e5e5e5;
-    --mafiasi-dark-border-color: #333337;
-    --mafiasi-dark-border: solid 1px var(--mafiasi-dark-border-color);
+    --mafiasi-dark-bg: #{map-get($theme-colors, "background")};
+    --mafiasi-dark-text-light: #{map-get($theme-colors, "text-light")};
+    --mafiasi-dark-text-dark: #{map-get($theme-colors, "text-dark")};
+    --mafiasi-dark-border-color: #{lighten(map-get($theme-colors, "background"), 11%)};
     --mafiasi-dark-hover: rgba(255, 255, 255, 0.1);
     --mafiasi-dark-striped: rgba(255, 255, 255, 0.05);
-    --mafiasi-dark-cotrast: #2a2a2f;
-    --mafiasi-dark-btn-primary: #15b2ff;
-    --mafiasi-dark-btn-primary-hover: #0b6591;
-    --mafiasi-dark-btn-default: #424248;
-    --mafiasi-dark-btn-default-hover: #333337;
+    --mafiasi-dark-contrast: #{lighten(map-get($theme-colors, "background"), 5%)};
+
+    --mafiasi-dark-btn-default: #{map-get($btn-colors, "default")};
+    --mafiasi-dark-btn-default-hover: #{darken(map-get($btn-colors, "default"), 6%)};
+    --mafiasi-dark-btn-primary: #{map-get($btn-colors, "primary")};
+    --mafiasi-dark-btn-primary-hover: #{darken(map-get($btn-colors, "primary"), 15%)};
+    --mafiasi-dark-btn-success: #{map-get($btn-colors, "success")};
+    --mafiasi-dark-btn-success-hover: #{darken(map-get($btn-colors, "success"), 15%)};
+    --mafiasi-dark-btn-info: #{map-get($btn-colors, "info")};
+    --mafiasi-dark-btn-info-hover: #{darken(map-get($btn-colors, "info"), 15%)};
+    --mafiasi-dark-btn-warning: #{map-get($btn-colors, "warning")};
+    --mafiasi-dark-btn-warning-hover: #{darken(map-get($btn-colors, "warning"), 15%)};
+    --mafiasi-dark-btn-danger: #{map-get($btn-colors, "danger")};
+    --mafiasi-dark-btn-danger-hover: #{darken(map-get($btn-colors, "danger"), 15%)};
 }
 
 #theme-toggle {
     background: transparent;
     border: none;
+
+    &:active {
+        box-shadow: none;
+    }
 }
 
 @mixin darkmode {
     #wrap {
         background: var(--mafiasi-dark-bg);
-        color: var(--mafiasi-dark-color);
+        color: var(--mafiasi-dark-text-light);
     }
 
     .service-icon.btn-default {
@@ -38,72 +77,130 @@
 
     .dashboard-service>div {
         background: transparent;
-        color: var(--mafiasi-dark-color);
-        border: var(--mafiasi-dark-border);
+        color: var(--mafiasi-dark-text-light);
+        border-color: var(--mafiasi-dark-border-color);
     }
 
     .panel {
         background: transparent;
-        color: var(--mafiasi-dark-color);
+        color: var(--mafiasi-dark-text-light);
         border-color: var(--mafiasi-dark-border-color);
     }
 
     .panel .panel-heading {
         background: var(--mafiasi-dark-border-color);
         border-color: var(--mafiasi-dark-border-color);
-        color: var(--mafiasi-dark-color);
+        color: var(--mafiasi-dark-text-light);
     }
 
     .panel .panel-footer {
         background: var(--mafiasi-dark-border-color);
         border-color: var(--mafiasi-dark-border-color);
-        color: var(--mafiasi-dark-color);
+        color: var(--mafiasi-dark-text-light);
+    }
+
+    .modal {
+        .modal-content {
+            background-color: var(--mafiasi-dark-bg);
+        }
+
+        .modal-header,
+        .modal-footer {
+            border-color: var(--mafiasi-dark-border-color);
+        }
     }
 
     .navbar {
-        background: var(--mafiasi-dark-cotrast);
-        border-color: var(--mafiasi-dark-cotrast);
+        background: var(--mafiasi-dark-contrast);
+        border-color: var(--mafiasi-dark-contrast);
     }
 
     #footer {
-        background: var(--mafiasi-dark-cotrast);
-        border-color: var(--mafiasi-dark-cotrast);
+        background: var(--mafiasi-dark-contrast);
+        border-color: var(--mafiasi-dark-contrast);
+    }
+
+
+    // Select2 Input Field
+    .select2-container {
+        background-color: transparent;
+
+        .select2-choice,
+        .select2-choices {
+            background-image: none;
+            background-color: transparent;
+            color: var(--mafiasi-dark-text-light);
+        }
+
+        .select2-choices {
+            .select2-search-choice {
+                background: var(--mafiasi-dark-btn-default);
+                color: var(--mafiasi-dark-text-light);
+                border-color: var(--mafiasi-dark-border-color);
+                box-shadow: none;
+            }
+        }
+
+        &.select2-dropdown-open {
+            .select2-choice {
+                box-shadow: none;
+            }
+        }
+
+        .select2-arrow {
+            background: transparent;
+            border-color: var(--mafiasi-dark-border-color);
+        }
+    }
+
+    // Select2 Dropdown
+    .select2-drop {
+        background-color: var(--mafiasi-dark-bg);
+        color: var(--mafiasi-dark-text-light);
+
+        .select2-search input {
+            background: var(--mafiasi-dark-bg);
+            border-radius: 4px;
+            border-color: var(--mafiasi-dark-border-color);
+        }
+
+        .select2-selection-limit,
+        .select2-no-results {
+            background: inherit;
+        }
     }
 
     a {
         color: var(--mafiasi-dark-btn-primary);
+
+        &:hover {
+            color: var(--mafiasi-dark-btn-primary-hover);
+        }
     }
 
-    .btn-primary {
-        background: var(--mafiasi-dark-btn-primary);
-        border-color: var(--mafiasi-dark-btn-primary);
-        color: #000;
+    @each $name,
+    $bg in $btn-colors {
+        .btn-#{$name} {
+            background: var(--mafiasi-dark-btn-#{$name});
+            border-color: var(--mafiasi-dark-btn-#{$name});
+            color: var(--mafiasi-dark-#{map-get($btn-text, $name)});
+
+            &:hover,
+            &:active,
+            &.active {
+                background: var(--mafiasi-dark-btn-#{$name}-hover);
+                color: var(--mafiasi-dark-#{map-get($btn-text, $name)});
+            }
+
+            &:hover {
+                border-color: var(--mafiasi-dark-btn-#{$name}-hover);
+            }
+        }
     }
 
-    .btn-default {
-        background: var(--mafiasi-dark-btn-default);
-        border-color: var(--mafiasi-dark-btn-default);
-        color: #fff;
-    }
-
-    a:hover {
-        color: var(--mafiasi-dark-btn-primary-hover);
-    }
-
-    .btn-primary:hover {
-        background: var(--mafiasi-dark-btn-primary-hover);
-        border-color: var(--mafiasi-dark-btn-primary-hover);
-    }
-
-    .btn-default:hover {
-        background: var(--mafiasi-dark-btn-default-hover);
-        border-color: var(--mafiasi-dark-btn-default-hover);
-        color: #fff;
-    }
-
-    input.form-control {
+    .form-control {
         background: var(--mafiasi-dark-bg);
-        color: var(--mafiasi-dark-color);
+        color: var(--mafiasi-dark-text-light);
         border-color: var(--mafiasi-dark-border-color);
     }
 
@@ -119,7 +216,7 @@
 
     .table-striped>.row-group>.table-row:hover {
         background: var(--mafiasi-dark-hover) !important;
-        color: var(--mafiasi-dark-color);
+        color: var(--mafiasi-dark-text-light);
     }
 
     .table>thead>tr>th,
@@ -146,7 +243,7 @@
     a.list-group-item {
         background: transparent;
         border-color: var(--mafiasi-dark-border-color);
-        color: var(--mafiasi-dark-color);
+        color: var(--mafiasi-dark-text-light);
     }
 
     a.list-group-item:hover,
@@ -167,7 +264,7 @@
     }
 
     .nav-tabs>li.active>a {
-        color: var(--mafiasi-dark-color);
+        color: var(--mafiasi-dark-text-light);
     }
 
     .nav-tabs>li.active>a,
@@ -200,7 +297,7 @@
     a.list-group-item {
         background: transparent;
         border-color: var(--mafiasi-dark-border-color);
-        color: var(--mafiasi-dark-color);
+        color: var(--mafiasi-dark-text-light);
     }
 
     a.list-group-item:hover,
@@ -221,7 +318,7 @@
     }
 
     .nav-tabs>li.active>a {
-        color: var(--mafiasi-dark-color);
+        color: var(--mafiasi-dark-text-light);
     }
 
     .nav-tabs>li.active>a,
@@ -244,14 +341,20 @@
     .button-link {
         background: transparent;
     }
+
+    .label-favorite {
+        background-color: var(--mafiasi-dark-btn-default);
+        color: var(--mafiasi-dark-text-light);
+        border-color: var(--mafiasi-dark-border-color);
+    }
 }
 
-body.theme--dark {
+html[data-theme="dark"] {
     @include darkmode;
 }
 
 @media (prefers-color-scheme: dark) {
-    body:not(.theme--light) {
+    html:not([data-theme="light"]) {
         @include darkmode;
     }
 }

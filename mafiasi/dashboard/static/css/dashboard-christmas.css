@@ -1,7 +1,11 @@
-#santa-hat-services-deco {
+#dashboard > h2 {
     position: relative;
-    top: -56px;
-    left: -6px;
+}
+
+#santa-hat-services-deco {
     width: 24px;
     height: 24px;
+    position: absolute;
+    top: -13px;
+    left: -6px;
 }
