@@ -1,14 +1,23 @@
 :root {
   --mafiasi-dark-bg: #18181a;
-  --mafiasi-dark-color: #e5e5e5;
+  --mafiasi-dark-text-light: #e5e5e5;
+  --mafiasi-dark-text-dark: #000000;
   --mafiasi-dark-border-color: #333337;
   --mafiasi-dark-hover: rgba(255, 255, 255, 0.1);
   --mafiasi-dark-striped: rgba(255, 255, 255, 0.05);
-  --mafiasi-dark-cotrast: #2a2a2f;
-  --mafiasi-dark-btn-primary: #15b2ff;
-  --mafiasi-dark-btn-primary-hover: #0b6591;
-  --mafiasi-dark-btn-default: #424248;
+  --mafiasi-dark-contrast: #242427;
+  --mafiasi-dark-btn-default: #424247;
   --mafiasi-dark-btn-default-hover: #333337;
+  --mafiasi-dark-btn-primary: #15b2ff;
+  --mafiasi-dark-btn-primary-hover: #0086c8;
+  --mafiasi-dark-btn-success: #28a745;
+  --mafiasi-dark-btn-success-hover: #19692c;
+  --mafiasi-dark-btn-info: #17a2b8;
+  --mafiasi-dark-btn-info-hover: #0f6674;
+  --mafiasi-dark-btn-warning: #ffc107;
+  --mafiasi-dark-btn-warning-hover: #ba8b00;
+  --mafiasi-dark-btn-danger: #dc3545;
+  --mafiasi-dark-btn-danger-hover: #a71d2a;
 }
 
 #theme-toggle {
@@ -21,7 +30,7 @@
 
 html[data-theme=dark] #wrap {
   background: var(--mafiasi-dark-bg);
-  color: var(--mafiasi-dark-color);
+  color: var(--mafiasi-dark-text-light);
 }
 html[data-theme=dark] .service-icon.btn-default {
   background: transparent;
@@ -35,23 +44,23 @@ html[data-theme=dark] .service-icon > img {
 }
 html[data-theme=dark] .dashboard-service > div {
   background: transparent;
-  color: var(--mafiasi-dark-color);
+  color: var(--mafiasi-dark-text-light);
   border-color: var(--mafiasi-dark-border-color);
 }
 html[data-theme=dark] .panel {
   background: transparent;
-  color: var(--mafiasi-dark-color);
+  color: var(--mafiasi-dark-text-light);
   border-color: var(--mafiasi-dark-border-color);
 }
 html[data-theme=dark] .panel .panel-heading {
   background: var(--mafiasi-dark-border-color);
   border-color: var(--mafiasi-dark-border-color);
-  color: var(--mafiasi-dark-color);
+  color: var(--mafiasi-dark-text-light);
 }
 html[data-theme=dark] .panel .panel-footer {
   background: var(--mafiasi-dark-border-color);
   border-color: var(--mafiasi-dark-border-color);
-  color: var(--mafiasi-dark-color);
+  color: var(--mafiasi-dark-text-light);
 }
 html[data-theme=dark] .modal .modal-content {
   background-color: var(--mafiasi-dark-bg);
@@ -61,12 +70,12 @@ html[data-theme=dark] .modal .modal-footer {
   border-color: var(--mafiasi-dark-border-color);
 }
 html[data-theme=dark] .navbar {
-  background: var(--mafiasi-dark-cotrast);
-  border-color: var(--mafiasi-dark-cotrast);
+  background: var(--mafiasi-dark-contrast);
+  border-color: var(--mafiasi-dark-contrast);
 }
 html[data-theme=dark] #footer {
-  background: var(--mafiasi-dark-cotrast);
-  border-color: var(--mafiasi-dark-cotrast);
+  background: var(--mafiasi-dark-contrast);
+  border-color: var(--mafiasi-dark-contrast);
 }
 html[data-theme=dark] .select2-container {
   background-color: transparent;
@@ -75,11 +84,11 @@ html[data-theme=dark] .select2-container .select2-choice,
 html[data-theme=dark] .select2-container .select2-choices {
   background-image: none;
   background-color: transparent;
-  color: var(--mafiasi-dark-color);
+  color: var(--mafiasi-dark-text-light);
 }
 html[data-theme=dark] .select2-container .select2-choices .select2-search-choice {
   background: var(--mafiasi-dark-btn-default);
-  color: var(--mafiasi-dark-color);
+  color: var(--mafiasi-dark-text-light);
   border-color: var(--mafiasi-dark-border-color);
   box-shadow: none;
 }
@@ -92,14 +101,15 @@ html[data-theme=dark] .select2-container .select2-arrow {
 }
 html[data-theme=dark] .select2-drop {
   background-color: var(--mafiasi-dark-bg);
-  color: var(--mafiasi-dark-color);
+  color: var(--mafiasi-dark-text-light);
 }
 html[data-theme=dark] .select2-drop .select2-search input {
   background: var(--mafiasi-dark-bg);
   border-radius: 4px;
   border-color: var(--mafiasi-dark-border-color);
 }
-html[data-theme=dark] .select2-drop .select2-selection-limit, html[data-theme=dark] .select2-drop .select2-no-results {
+html[data-theme=dark] .select2-drop .select2-selection-limit,
+html[data-theme=dark] .select2-drop .select2-no-results {
   background: inherit;
 }
 html[data-theme=dark] a {
@@ -108,33 +118,81 @@ html[data-theme=dark] a {
 html[data-theme=dark] a:hover {
   color: var(--mafiasi-dark-btn-primary-hover);
 }
-html[data-theme=dark] .btn-primary {
-  background: var(--mafiasi-dark-btn-primary);
-  border-color: var(--mafiasi-dark-btn-primary);
-  color: #000;
-}
-html[data-theme=dark] .btn-primary:hover, html[data-theme=dark] .btn-primary:active, html[data-theme=dark] .btn-primary.active {
-  background: var(--mafiasi-dark-btn-primary-hover);
-  color: var(--mafiasi-dark-color);
-}
-html[data-theme=dark] .btn-primary:hover {
-  border-color: var(--mafiasi-dark-btn-primary-hover);
-}
 html[data-theme=dark] .btn-default {
   background: var(--mafiasi-dark-btn-default);
   border-color: var(--mafiasi-dark-btn-default);
-  color: var(--mafiasi-dark-color);
+  color: var(--mafiasi-dark-text-light);
 }
 html[data-theme=dark] .btn-default:hover, html[data-theme=dark] .btn-default:active, html[data-theme=dark] .btn-default.active {
   background: var(--mafiasi-dark-btn-default-hover);
-  color: var(--mafiasi-dark-color);
+  color: var(--mafiasi-dark-text-light);
 }
 html[data-theme=dark] .btn-default:hover {
   border-color: var(--mafiasi-dark-btn-default-hover);
 }
+html[data-theme=dark] .btn-primary {
+  background: var(--mafiasi-dark-btn-primary);
+  border-color: var(--mafiasi-dark-btn-primary);
+  color: var(--mafiasi-dark-text-dark);
+}
+html[data-theme=dark] .btn-primary:hover, html[data-theme=dark] .btn-primary:active, html[data-theme=dark] .btn-primary.active {
+  background: var(--mafiasi-dark-btn-primary-hover);
+  color: var(--mafiasi-dark-text-dark);
+}
+html[data-theme=dark] .btn-primary:hover {
+  border-color: var(--mafiasi-dark-btn-primary-hover);
+}
+html[data-theme=dark] .btn-success {
+  background: var(--mafiasi-dark-btn-success);
+  border-color: var(--mafiasi-dark-btn-success);
+  color: var(--mafiasi-dark-text-light);
+}
+html[data-theme=dark] .btn-success:hover, html[data-theme=dark] .btn-success:active, html[data-theme=dark] .btn-success.active {
+  background: var(--mafiasi-dark-btn-success-hover);
+  color: var(--mafiasi-dark-text-light);
+}
+html[data-theme=dark] .btn-success:hover {
+  border-color: var(--mafiasi-dark-btn-success-hover);
+}
+html[data-theme=dark] .btn-info {
+  background: var(--mafiasi-dark-btn-info);
+  border-color: var(--mafiasi-dark-btn-info);
+  color: var(--mafiasi-dark-text-light);
+}
+html[data-theme=dark] .btn-info:hover, html[data-theme=dark] .btn-info:active, html[data-theme=dark] .btn-info.active {
+  background: var(--mafiasi-dark-btn-info-hover);
+  color: var(--mafiasi-dark-text-light);
+}
+html[data-theme=dark] .btn-info:hover {
+  border-color: var(--mafiasi-dark-btn-info-hover);
+}
+html[data-theme=dark] .btn-warning {
+  background: var(--mafiasi-dark-btn-warning);
+  border-color: var(--mafiasi-dark-btn-warning);
+  color: var(--mafiasi-dark-text-dark);
+}
+html[data-theme=dark] .btn-warning:hover, html[data-theme=dark] .btn-warning:active, html[data-theme=dark] .btn-warning.active {
+  background: var(--mafiasi-dark-btn-warning-hover);
+  color: var(--mafiasi-dark-text-dark);
+}
+html[data-theme=dark] .btn-warning:hover {
+  border-color: var(--mafiasi-dark-btn-warning-hover);
+}
+html[data-theme=dark] .btn-danger {
+  background: var(--mafiasi-dark-btn-danger);
+  border-color: var(--mafiasi-dark-btn-danger);
+  color: var(--mafiasi-dark-text-light);
+}
+html[data-theme=dark] .btn-danger:hover, html[data-theme=dark] .btn-danger:active, html[data-theme=dark] .btn-danger.active {
+  background: var(--mafiasi-dark-btn-danger-hover);
+  color: var(--mafiasi-dark-text-light);
+}
+html[data-theme=dark] .btn-danger:hover {
+  border-color: var(--mafiasi-dark-btn-danger-hover);
+}
 html[data-theme=dark] .form-control {
   background: var(--mafiasi-dark-bg);
-  color: var(--mafiasi-dark-color);
+  color: var(--mafiasi-dark-text-light);
   border-color: var(--mafiasi-dark-border-color);
 }
 html[data-theme=dark] .table-striped > tbody > tr:nth-of-type(2n+1),
@@ -147,7 +205,7 @@ html[data-theme=dark] .table-hover > tbody > tr:hover {
 }
 html[data-theme=dark] .table-striped > .row-group > .table-row:hover {
   background: var(--mafiasi-dark-hover) !important;
-  color: var(--mafiasi-dark-color);
+  color: var(--mafiasi-dark-text-light);
 }
 html[data-theme=dark] .table > thead > tr > th,
 html[data-theme=dark] .table > tbody > tr > th,
@@ -170,7 +228,7 @@ html[data-theme=dark] .input-group-addon {
 html[data-theme=dark] a.list-group-item {
   background: transparent;
   border-color: var(--mafiasi-dark-border-color);
-  color: var(--mafiasi-dark-color);
+  color: var(--mafiasi-dark-text-light);
 }
 html[data-theme=dark] a.list-group-item:hover,
 html[data-theme=dark] a.list-group-item:focus {
@@ -187,7 +245,7 @@ html[data-theme=dark] .nav-tabs {
   border-color: var(--mafiasi-dark-border-color);
 }
 html[data-theme=dark] .nav-tabs > li.active > a {
-  color: var(--mafiasi-dark-color);
+  color: var(--mafiasi-dark-text-light);
 }
 html[data-theme=dark] .nav-tabs > li.active > a,
 html[data-theme=dark] .nav-tabs > li.active > a:hover,
@@ -214,7 +272,7 @@ html[data-theme=dark] .input-group-addon {
 html[data-theme=dark] a.list-group-item {
   background: transparent;
   border-color: var(--mafiasi-dark-border-color);
-  color: var(--mafiasi-dark-color);
+  color: var(--mafiasi-dark-text-light);
 }
 html[data-theme=dark] a.list-group-item:hover,
 html[data-theme=dark] a.list-group-item:focus {
@@ -231,7 +289,7 @@ html[data-theme=dark] .nav-tabs {
   border-color: var(--mafiasi-dark-border-color);
 }
 html[data-theme=dark] .nav-tabs > li.active > a {
-  color: var(--mafiasi-dark-color);
+  color: var(--mafiasi-dark-text-light);
 }
 html[data-theme=dark] .nav-tabs > li.active > a,
 html[data-theme=dark] .nav-tabs > li.active > a:hover,
@@ -252,14 +310,14 @@ html[data-theme=dark] .button-link {
 }
 html[data-theme=dark] .label-favorite {
   background-color: var(--mafiasi-dark-btn-default);
-  color: var(--mafiasi-dark-color);
+  color: var(--mafiasi-dark-text-light);
   border-color: var(--mafiasi-dark-border-color);
 }
 
 @media (prefers-color-scheme: dark) {
   html:not([data-theme=light]) #wrap {
     background: var(--mafiasi-dark-bg);
-    color: var(--mafiasi-dark-color);
+    color: var(--mafiasi-dark-text-light);
   }
   html:not([data-theme=light]) .service-icon.btn-default {
     background: transparent;
@@ -273,23 +331,23 @@ html[data-theme=dark] .label-favorite {
   }
   html:not([data-theme=light]) .dashboard-service > div {
     background: transparent;
-    color: var(--mafiasi-dark-color);
+    color: var(--mafiasi-dark-text-light);
     border-color: var(--mafiasi-dark-border-color);
   }
   html:not([data-theme=light]) .panel {
     background: transparent;
-    color: var(--mafiasi-dark-color);
+    color: var(--mafiasi-dark-text-light);
     border-color: var(--mafiasi-dark-border-color);
   }
   html:not([data-theme=light]) .panel .panel-heading {
     background: var(--mafiasi-dark-border-color);
     border-color: var(--mafiasi-dark-border-color);
-    color: var(--mafiasi-dark-color);
+    color: var(--mafiasi-dark-text-light);
   }
   html:not([data-theme=light]) .panel .panel-footer {
     background: var(--mafiasi-dark-border-color);
     border-color: var(--mafiasi-dark-border-color);
-    color: var(--mafiasi-dark-color);
+    color: var(--mafiasi-dark-text-light);
   }
   html:not([data-theme=light]) .modal .modal-content {
     background-color: var(--mafiasi-dark-bg);
@@ -299,12 +357,12 @@ html:not([data-theme=light]) .modal .modal-footer {
     border-color: var(--mafiasi-dark-border-color);
   }
   html:not([data-theme=light]) .navbar {
-    background: var(--mafiasi-dark-cotrast);
-    border-color: var(--mafiasi-dark-cotrast);
+    background: var(--mafiasi-dark-contrast);
+    border-color: var(--mafiasi-dark-contrast);
   }
   html:not([data-theme=light]) #footer {
-    background: var(--mafiasi-dark-cotrast);
-    border-color: var(--mafiasi-dark-cotrast);
+    background: var(--mafiasi-dark-contrast);
+    border-color: var(--mafiasi-dark-contrast);
   }
   html:not([data-theme=light]) .select2-container {
     background-color: transparent;
@@ -313,11 +371,11 @@ html:not([data-theme=light]) .modal .modal-footer {
 html:not([data-theme=light]) .select2-container .select2-choices {
     background-image: none;
     background-color: transparent;
-    color: var(--mafiasi-dark-color);
+    color: var(--mafiasi-dark-text-light);
   }
   html:not([data-theme=light]) .select2-container .select2-choices .select2-search-choice {
     background: var(--mafiasi-dark-btn-default);
-    color: var(--mafiasi-dark-color);
+    color: var(--mafiasi-dark-text-light);
     border-color: var(--mafiasi-dark-border-color);
     box-shadow: none;
   }
@@ -330,14 +388,15 @@ html:not([data-theme=light]) .select2-container .select2-choices {
   }
   html:not([data-theme=light]) .select2-drop {
     background-color: var(--mafiasi-dark-bg);
-    color: var(--mafiasi-dark-color);
+    color: var(--mafiasi-dark-text-light);
   }
   html:not([data-theme=light]) .select2-drop .select2-search input {
     background: var(--mafiasi-dark-bg);
     border-radius: 4px;
     border-color: var(--mafiasi-dark-border-color);
   }
-  html:not([data-theme=light]) .select2-drop .select2-selection-limit, html:not([data-theme=light]) .select2-drop .select2-no-results {
+  html:not([data-theme=light]) .select2-drop .select2-selection-limit,
+html:not([data-theme=light]) .select2-drop .select2-no-results {
     background: inherit;
   }
   html:not([data-theme=light]) a {
@@ -346,33 +405,81 @@ html:not([data-theme=light]) .select2-container .select2-choices {
   html:not([data-theme=light]) a:hover {
     color: var(--mafiasi-dark-btn-primary-hover);
   }
-  html:not([data-theme=light]) .btn-primary {
-    background: var(--mafiasi-dark-btn-primary);
-    border-color: var(--mafiasi-dark-btn-primary);
-    color: #000;
-  }
-  html:not([data-theme=light]) .btn-primary:hover, html:not([data-theme=light]) .btn-primary:active, html:not([data-theme=light]) .btn-primary.active {
-    background: var(--mafiasi-dark-btn-primary-hover);
-    color: var(--mafiasi-dark-color);
-  }
-  html:not([data-theme=light]) .btn-primary:hover {
-    border-color: var(--mafiasi-dark-btn-primary-hover);
-  }
   html:not([data-theme=light]) .btn-default {
     background: var(--mafiasi-dark-btn-default);
     border-color: var(--mafiasi-dark-btn-default);
-    color: var(--mafiasi-dark-color);
+    color: var(--mafiasi-dark-text-light);
   }
   html:not([data-theme=light]) .btn-default:hover, html:not([data-theme=light]) .btn-default:active, html:not([data-theme=light]) .btn-default.active {
     background: var(--mafiasi-dark-btn-default-hover);
-    color: var(--mafiasi-dark-color);
+    color: var(--mafiasi-dark-text-light);
   }
   html:not([data-theme=light]) .btn-default:hover {
     border-color: var(--mafiasi-dark-btn-default-hover);
   }
+  html:not([data-theme=light]) .btn-primary {
+    background: var(--mafiasi-dark-btn-primary);
+    border-color: var(--mafiasi-dark-btn-primary);
+    color: var(--mafiasi-dark-text-dark);
+  }
+  html:not([data-theme=light]) .btn-primary:hover, html:not([data-theme=light]) .btn-primary:active, html:not([data-theme=light]) .btn-primary.active {
+    background: var(--mafiasi-dark-btn-primary-hover);
+    color: var(--mafiasi-dark-text-dark);
+  }
+  html:not([data-theme=light]) .btn-primary:hover {
+    border-color: var(--mafiasi-dark-btn-primary-hover);
+  }
+  html:not([data-theme=light]) .btn-success {
+    background: var(--mafiasi-dark-btn-success);
+    border-color: var(--mafiasi-dark-btn-success);
+    color: var(--mafiasi-dark-text-light);
+  }
+  html:not([data-theme=light]) .btn-success:hover, html:not([data-theme=light]) .btn-success:active, html:not([data-theme=light]) .btn-success.active {
+    background: var(--mafiasi-dark-btn-success-hover);
+    color: var(--mafiasi-dark-text-light);
+  }
+  html:not([data-theme=light]) .btn-success:hover {
+    border-color: var(--mafiasi-dark-btn-success-hover);
+  }
+  html:not([data-theme=light]) .btn-info {
+    background: var(--mafiasi-dark-btn-info);
+    border-color: var(--mafiasi-dark-btn-info);
+    color: var(--mafiasi-dark-text-light);
+  }
+  html:not([data-theme=light]) .btn-info:hover, html:not([data-theme=light]) .btn-info:active, html:not([data-theme=light]) .btn-info.active {
+    background: var(--mafiasi-dark-btn-info-hover);
+    color: var(--mafiasi-dark-text-light);
+  }
+  html:not([data-theme=light]) .btn-info:hover {
+    border-color: var(--mafiasi-dark-btn-info-hover);
+  }
+  html:not([data-theme=light]) .btn-warning {
+    background: var(--mafiasi-dark-btn-warning);
+    border-color: var(--mafiasi-dark-btn-warning);
+    color: var(--mafiasi-dark-text-dark);
+  }
+  html:not([data-theme=light]) .btn-warning:hover, html:not([data-theme=light]) .btn-warning:active, html:not([data-theme=light]) .btn-warning.active {
+    background: var(--mafiasi-dark-btn-warning-hover);
+    color: var(--mafiasi-dark-text-dark);
+  }
+  html:not([data-theme=light]) .btn-warning:hover {
+    border-color: var(--mafiasi-dark-btn-warning-hover);
+  }
+  html:not([data-theme=light]) .btn-danger {
+    background: var(--mafiasi-dark-btn-danger);
+    border-color: var(--mafiasi-dark-btn-danger);
+    color: var(--mafiasi-dark-text-light);
+  }
+  html:not([data-theme=light]) .btn-danger:hover, html:not([data-theme=light]) .btn-danger:active, html:not([data-theme=light]) .btn-danger.active {
+    background: var(--mafiasi-dark-btn-danger-hover);
+    color: var(--mafiasi-dark-text-light);
+  }
+  html:not([data-theme=light]) .btn-danger:hover {
+    border-color: var(--mafiasi-dark-btn-danger-hover);
+  }
   html:not([data-theme=light]) .form-control {
     background: var(--mafiasi-dark-bg);
-    color: var(--mafiasi-dark-color);
+    color: var(--mafiasi-dark-text-light);
     border-color: var(--mafiasi-dark-border-color);
   }
   html:not([data-theme=light]) .table-striped > tbody > tr:nth-of-type(2n+1),
@@ -385,7 +492,7 @@ html:not([data-theme=light]) .table-striped .table-header {
   }
   html:not([data-theme=light]) .table-striped > .row-group > .table-row:hover {
     background: var(--mafiasi-dark-hover) !important;
-    color: var(--mafiasi-dark-color);
+    color: var(--mafiasi-dark-text-light);
   }
   html:not([data-theme=light]) .table > thead > tr > th,
 html:not([data-theme=light]) .table > tbody > tr > th,
@@ -408,7 +515,7 @@ html:not([data-theme=light]) .table-striped > .table-header > .cell {
   html:not([data-theme=light]) a.list-group-item {
     background: transparent;
     border-color: var(--mafiasi-dark-border-color);
-    color: var(--mafiasi-dark-color);
+    color: var(--mafiasi-dark-text-light);
   }
   html:not([data-theme=light]) a.list-group-item:hover,
 html:not([data-theme=light]) a.list-group-item:focus {
@@ -425,7 +532,7 @@ html:not([data-theme=light]) .list-group-item.active:focus {
     border-color: var(--mafiasi-dark-border-color);
   }
   html:not([data-theme=light]) .nav-tabs > li.active > a {
-    color: var(--mafiasi-dark-color);
+    color: var(--mafiasi-dark-text-light);
   }
   html:not([data-theme=light]) .nav-tabs > li.active > a,
 html:not([data-theme=light]) .nav-tabs > li.active > a:hover,
@@ -452,7 +559,7 @@ html:not([data-theme=light]) .nav > li > a:focus {
   html:not([data-theme=light]) a.list-group-item {
     background: transparent;
     border-color: var(--mafiasi-dark-border-color);
-    color: var(--mafiasi-dark-color);
+    color: var(--mafiasi-dark-text-light);
   }
   html:not([data-theme=light]) a.list-group-item:hover,
 html:not([data-theme=light]) a.list-group-item:focus {
@@ -469,7 +576,7 @@ html:not([data-theme=light]) .list-group-item.active:focus {
     border-color: var(--mafiasi-dark-border-color);
   }
   html:not([data-theme=light]) .nav-tabs > li.active > a {
-    color: var(--mafiasi-dark-color);
+    color: var(--mafiasi-dark-text-light);
   }
   html:not([data-theme=light]) .nav-tabs > li.active > a,
 html:not([data-theme=light]) .nav-tabs > li.active > a:hover,
@@ -490,7 +597,7 @@ html:not([data-theme=light]) .nav > li > a:focus {
   }
   html:not([data-theme=light]) .label-favorite {
     background-color: var(--mafiasi-dark-btn-default);
-    color: var(--mafiasi-dark-color);
+    color: var(--mafiasi-dark-text-light);
     border-color: var(--mafiasi-dark-border-color);
   }
 }/*# sourceMappingURL=darkmode.css.map */
