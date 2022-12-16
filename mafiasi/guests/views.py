@@ -6,7 +6,7 @@ from smtplib import SMTPRecipientsRefused
 from django.contrib.auth.models import Group
 from django.core import signing
 from django.core.exceptions import PermissionDenied
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login
 from django.conf import settings

@@ -1,6 +1,6 @@
 from datetime import datetime
 import gpgme
-import pytz
+from zoneinfo import ZoneInfo
 
 from django.db import models
 from django.conf import settings
@@ -36,7 +36,7 @@ class KeysigningParty(models.Model):
     submit_until = models.DateTimeField()
 
     def submission_expired(self):
-        return datetime.now(pytz.UTC) > self.submit_until
+        return datetime.now(ZoneInfo("UTC")) > self.submit_until
 
     def __str__(self):
         return self.name
