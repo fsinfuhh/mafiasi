@@ -1,4 +1,4 @@
-from django.conf.urls import include, path
+from django.urls import include, path
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.conf import settings
@@ -39,10 +39,10 @@ for app in apps.get_app_configs():
             urls = importlib.import_module(f'{app.name}.urls', '')
             include_at_top = getattr(urls, 'include_at_top', False)
             if include_at_top:
-                urlpatterns.append(url('', include(urls), name=app.name))
+                urlpatterns.append(path('', include(urls), name=app.name))
             else:
                 prefix = app.name.split('.')[-1]
-                urlpatterns.append(url(f'{prefix}/', include(urls), name=app.name))
+                urlpatterns.append(path(f'{prefix}/', include(urls), name=app.name))
         except ImportError as e:
             pass
 
