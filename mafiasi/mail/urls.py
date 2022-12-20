@@ -1,7 +1,7 @@
-from django.conf.urls import url
+from django.urls import path
 
 from .views import mailaddresses
 
 urlpatterns = [
-    url(r'^mailaddresses$', mailaddresses, name='mail_mailaddesses'),
+    path('mailaddresses', mailaddresses, name='mail_mailaddesses'),
 ]

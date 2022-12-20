@@ -1,4 +1,4 @@
-from django.conf.urls import path, re_path
+from django.urls import path, re_path
 
 from .views import *
 
@@ -16,13 +16,13 @@ urlpatterns = [
     re_path(r'^key/([A-Fa-f0-9]{16}).asc$', show_key, {'raw': True},
             name='pks_show_key_raw'),
     path('party/', party_list, name='pks_party_list'),
-    re_path(r'^party/(\d+)/keys$', party_keys, name='pks_party_keys'),
-    re_path(r'^party/(\d+)/keys.asc$', party_keys_export,
+    path('party/<int:party_pk>/keys', party_keys, name='pks_party_keys'),
+    path('party/<int:party_pk>/keys.asc', party_keys_export,
             name='pks_party_keys_export'),
-    re_path(r'^party/(\d+)/participate$', party_participate,
+    path('party/<int:party_pk>/participate', party_participate,
             name='pks_party_participate'),
-    re_path(r'^party/(\d+)/graph$', graph, name='pks_party_graph'),
-    re_path(r'^party/(\d+)/missing$', party_missing_signatures,
+    path('party/<int:party_pk>/graph', graph, name='pks_party_graph'),
+    path('party/<int:party_pk>/missing', party_missing_signatures,
             name='pks_party_missing_signatures'),
     path('search', search, name='pks_search'),
     path('add', hkp_add_key, name='pks_hkp_add'),

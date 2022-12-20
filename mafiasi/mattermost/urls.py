@@ -1,7 +1,7 @@
-from django.conf.urls import url
+from django.urls import path
 
 from .views import get_user_info
 
 urlpatterns = [
-    url(r'^user$', get_user_info, name='mattermost_get_user_info'),
+    path('user', get_user_info, name='mattermost_get_user_info'),
 ]
