@@ -4,6 +4,7 @@ from mafiasi.base.base_apps import BaseService
 
 
 class PksConfig(BaseService):
+    default = True
     name = 'mafiasi.pks'
     verbose_name = 'Keyserver'
     title = _('Keyserver')

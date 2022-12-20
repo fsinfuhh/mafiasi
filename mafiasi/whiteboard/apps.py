@@ -5,6 +5,7 @@ from mafiasi.base.base_apps import BaseService
 
 
 class WhiteboardConfig(BaseService):
+    default = True
     name = 'mafiasi.whiteboard'
     verbose_name = 'Whiteboard'
     title = _('Whiteboard')

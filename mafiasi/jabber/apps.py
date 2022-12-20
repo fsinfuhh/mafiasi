@@ -4,6 +4,7 @@ from mafiasi.base.base_apps import BaseService
 
 
 class JabberConfig(BaseService):
+    default = True
     name = 'mafiasi.jabber'
     verbose_name = 'Jabber'
     title = _('Jabber')

@@ -5,6 +5,7 @@ from mafiasi.base.base_apps import BaseService
 
 
 class SogoConfig(BaseService):
+    default = True
     name = 'mafiasi.sogo'
     verbose_name = 'Calendar'
     title = _('Calendar')
