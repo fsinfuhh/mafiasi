@@ -4,6 +4,7 @@ from mafiasi.base.base_apps import BaseService
 
 
 class GprotConfig(BaseService):
+    default = True
     name = 'mafiasi.gprot'
     verbose_name = 'GProt'
     title = _('GProt')

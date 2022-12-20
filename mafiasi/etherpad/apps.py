@@ -4,6 +4,7 @@ from mafiasi.base.base_apps import BaseService
 
 
 class EtherpadConfig(BaseService):
+    default = True
     name = 'mafiasi.etherpad'
     verbose_name = 'Etherpad'
     title = _('Etherpad')

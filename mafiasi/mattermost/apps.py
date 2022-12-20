@@ -5,6 +5,7 @@ from mafiasi.base.base_apps import BaseService
 
 
 class MattermostConfig(BaseService):
+    default = True
     name = 'mafiasi.mattermost'
     verbose_name = 'Mattermost'
     title = _('Chat')

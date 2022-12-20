@@ -5,6 +5,7 @@ from mafiasi.base.base_apps import BaseService
 
 
 class NextcloudConfig(BaseService):
+    default = True
     name = 'mafiasi.nextcloud'
     verbose_name = 'nextcloud'
     title = _('Nextcloud')
