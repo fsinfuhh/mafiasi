@@ -2455,7 +2455,7 @@ msgstr ""
 
 #: mafiasi/vault/templates/vault/index.html:37
 msgid "You do not currently have a vault account"
-msgstr "Du hast momentan noch keinen Vault-Konto"
+msgstr "Du hast momentan noch kein Vault-Konto"
 
 #: mafiasi/vault/templates/vault/index.html:39
 #, python-format
@@ -2480,7 +2480,7 @@ msgid ""
 "The password you choose to use with Vault should not be confused with your "
 "Mafiasi password. They are completely separate."
 msgstr ""
-"Das Master-Passwort, welches du in Vault benutzt sollte nicht mit dem "
+"Das Master-Passwort, welches du in Vault benutzt, sollte nicht mit dem "
 "Mafiasi-Passwort verwechselt werden. Die beiden haben nichts miteinander zu "
 "tun."
 
@@ -2524,7 +2524,7 @@ msgid ""
 "                "
 msgstr ""
 "Eine Einladungs-E-Mail wurde an %(vault_email)s gesendet.\n"
-"Sie beinhaltet einen Link mit dem du dein Konto bei Vault vervollständigen "
+"Sie beinhaltet einen Link, mit dem du dein Konto bei Vault vervollständigen "
 "kannst."
 
 #: mafiasi/whiteboard/apps.py:10
