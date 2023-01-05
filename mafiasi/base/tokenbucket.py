@@ -1,8 +1,4 @@
-
-
 from datetime import timedelta
-
-import pytz
 
 from django.db import models
 from django.conf import settings
@@ -16,7 +12,7 @@ class TokensExceededBase(Exception):
 
     def get_message(self, tz=None):
         if tz is None:
-            tz = pytz.timezone(settings.TIME_ZONE)
+            tz = timezone.get_default_timezone()
         time_available = self.time_available.astimezone(tz)
         if time_available.date() != timezone.now().date():
             time_format = '%Y-%m-%d %H:%M'
