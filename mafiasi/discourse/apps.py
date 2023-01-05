@@ -5,6 +5,7 @@ from mafiasi.base.base_apps import BaseService
 
 
 class Discourse(BaseService):
+    default = True
     name = 'mafiasi.discourse'
     verbose_name = 'Discourse'
     title = _('Discourse')

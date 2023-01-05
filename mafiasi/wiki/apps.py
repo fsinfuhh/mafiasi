@@ -5,6 +5,7 @@ from mafiasi.base.base_apps import BaseService
 
 
 class WikiConfig(BaseService):
+    default = True
     name = 'mafiasi.wiki'
     verbose_name = 'Wiki'
     title = _('Wiki')

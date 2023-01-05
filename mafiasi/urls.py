@@ -1,4 +1,4 @@
-from django.conf.urls import include, url
+from django.urls import include, path
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.conf import settings
@@ -16,20 +16,20 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = [
-    url(r'^$', lambda req: redirect('dashboard_index'), name='home'),
-    url(r'^login', auth_views.LoginView.as_view(), name='login', ),
-    url(r'^logout', auth_views.LogoutView.as_view(next_page='home'), name='logout'),
-    url(r'^i18n/', include(django.conf.urls.i18n)),
+    path('', lambda req: redirect('dashboard_index'), name='home'),
+    path('login/', auth_views.LoginView.as_view(), name='login', ),
+    path('logout/', auth_views.LogoutView.as_view(next_page='home'), name='logout'),
+    path('i18n/', include(django.conf.urls.i18n)),
 
-    url(r'^admin/doc/', include(django.contrib.admindocs.urls)),
-    url(r'^admin/', admin.site.urls),
+    path('admin/doc/', include(django.contrib.admindocs.urls)),
+    path('admin/', admin.site.urls),
 ]
 
 
 if 'oauth2_provider' in settings.INSTALLED_APPS:
     import oauth2_provider.urls
     urlpatterns += [
-        url(r'^oauth/', include(oauth2_provider.urls, namespace='oauth2_provider')),
+        path('oauth/', include(oauth2_provider.urls, namespace='oauth2_provider')),
     ]
 
 
@@ -39,10 +39,10 @@ for app in apps.get_app_configs():
             urls = importlib.import_module(f'{app.name}.urls', '')
             include_at_top = getattr(urls, 'include_at_top', False)
             if include_at_top:
-                urlpatterns.append(url('', include(urls), name=app.name))
+                urlpatterns.append(path('', include(urls), name=app.name))
             else:
                 prefix = app.name.split('.')[-1]
-                urlpatterns.append(url(f'{prefix}/', include(urls), name=app.name))
+                urlpatterns.append(path(f'{prefix}/', include(urls), name=app.name))
         except ImportError as e:
             pass
 

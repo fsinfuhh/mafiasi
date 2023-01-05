@@ -5,6 +5,7 @@ from mafiasi.base.base_apps import BaseService
 
 
 class GitConfig(BaseService):
+    default = True
     name = 'mafiasi.git'
     verbose_name = 'Repositories'
     title = _('Repositories')

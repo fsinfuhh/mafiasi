@@ -5,6 +5,7 @@ from mafiasi.base.base_apps import BaseService
 
 
 class MatrixConfig(BaseService):
+    default = True
     name = 'mafiasi.matrix'
     verbose_name = 'Matrix'
     title = _('Matrix')

@@ -251,6 +251,10 @@ AUTH_PASSWORD_VALIDATORS = [
 if ENABLE_JABBER_INTEGRATION:
     JABBER_DOMAIN = 'jabber.mafiasi.de'
     JABBER_CERT_FINGERPRINT_FILE = str(env.path("MAFIASI_JABBER_CERT_FINGERPRINT_FILE"))
+    if os.path.isfile(JABBER_CERT_FINGERPRINT_FILE):
+        JABBER_CERT_FINGERPRINT = subprocess.check_output(['openssl', 'x509', '-in', JABBER_CERT_FINGERPRINT_FILE, '-noout', '-fingerprint']).decode().strip()
+    else:
+        JABBER_CERT_FINGERPRINT = ''
     INSTALLED_APPS.insert(INSTALLED_APPS.index('mafiasi.mattermost'), 'mafiasi.jabber')
     DATABASES["jabber"] = env.dj_db_url("MAFIASI_DB_JABBER", default="sqlite://:memory:")
 
@@ -274,13 +278,13 @@ GPROT_PDF_MAX_SIZE = 5
 
 IMPRINT_URL = 'https://wiki.mafiasi.de/Fachschaft_Informatik:Impressum'
 WIKI_URL = 'https://www2.informatik.uni-hamburg.de/Fachschaft/wiki/'
-DISCOURSE_URL = 'https://discourse.mafiasi.de'
 SOGO_URL = 'https://sogo.mafiasi.de'
 GIT_URL = 'https://git.mafiasi.de'
 TAUSCHEN_URL = 'https://tauschen.mafiasi.de'
 MATTERMOST_URL = 'https://mattermost.mafiasi.de'
 NEXTCLOUD_URL = 'https://cloud.mafiasi.de'
 JITSI_URL = 'https://conference.mafiasi.de'
+DISCOURSE_URL = 'https://archiv.mafiasi.de/forum/discourse'
 FB18_URL = 'https://archiv.mafiasi.de/forum/fb18'
 WIKI_URL = 'https://wiki.mafiasi.de'
 BITPOLL_URL = 'https://bitpoll.mafiasi.de'

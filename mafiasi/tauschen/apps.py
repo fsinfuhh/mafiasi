@@ -5,6 +5,7 @@ from mafiasi.base.base_apps import BaseService
 
 
 class TauschenConfig(BaseService):
+    default = True
     name = 'mafiasi.tauschen'
     verbose_name = 'Mafiasi Tauschen'
     title = _('Mafiasi Tauschen')

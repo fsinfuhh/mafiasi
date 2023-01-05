@@ -5,6 +5,7 @@ from mafiasi.base.base_apps import BaseService
 
 
 class BitpollConfig(BaseService):
+    default = True
     name = 'mafiasi.bitpoll'
     verbose_name = 'Bitpoll'
     title = _('BitPoll')

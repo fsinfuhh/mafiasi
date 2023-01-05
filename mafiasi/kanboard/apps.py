@@ -5,6 +5,7 @@ from mafiasi.base.base_apps import BaseService
 
 
 class KanboardConfig(BaseService):
+    default = True
     name = 'mafiasi.kanboard'
     verbose_name = 'Kanboard'
     title = _('Kanboard')

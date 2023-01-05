@@ -5,6 +5,7 @@ from mafiasi.base.base_apps import BaseService
 
 
 class Fb18Config(BaseService):
+    default = True
     name = 'mafiasi.fb18'
     verbose_name = 'fb18'
     title = _('FB18')
