@@ -17,7 +17,7 @@ class VaultConfig(BaseService):
 
     @property
     def link(self):
-        return reverse("vault-index")
+        return reverse("vault_index")
 
     def ready(self):
         super().ready()

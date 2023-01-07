@@ -42,4 +42,4 @@ class IndexView(View):
     def post(self, request: HttpRequest) -> HttpResponse:
         if self.get_vw_user() is None:
             self.vw_client.invite_user(request.user.email)
-        return HttpResponseRedirect(redirect_to=reverse("vault-index"))
+        return HttpResponseRedirect(redirect_to=reverse("vault_index"))
