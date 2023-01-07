@@ -14,7 +14,7 @@ def register_auth_response():
         url="https://vw.example.com/admin/",
         match=[matchers.urlencoded_params_matcher({"token": "foobar123"})],
         headers={
-            "set-cookie": "VW_ADMIN=super-secret-access-cookie; HttOnly; sameSite=Strict; Path=/admin; Max-Age=1200",
+            "set-cookie": "VW_ADMIN=super-secret-access-cookie; HttpOnly; sameSite=Strict; Path=/admin; Max-Age=1200",
         }
     )
 
