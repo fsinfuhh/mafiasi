@@ -36,7 +36,7 @@
         <div class="alert alert-warning">
             <p><strong>{% translate "You do not currently have a vault account" %}</strong></p>
             <p>
-                {% blocktranslate with vault_email=vault_email %}
+                {% blocktranslate with vault_email=user.real_email %}
                     You can use the button below to create a new account.<br>
                     When doing so, you will receive an e-mail at {{ vault_email }} inviting you to register and set
                     a password.
@@ -60,7 +60,7 @@
         <div class="alert alert-success">
             <p><strong>{% translate "Your vault account is ready to go" %}</strong></p>
             <p>
-                {% blocktranslate with vault_email=vault_email %}
+                {% blocktranslate with vault_email=user.email %}
                     You can log in using <i>{{ vault_email }}</i> as your email.
                 {% endblocktranslate %}
             </p>
@@ -75,7 +75,7 @@
         <div class="alert alert-warning">
             <p><strong>{% translate "Your vault account has been created but is not yet ready" %}</strong></p>
             <p>
-                {% blocktranslate with vault_email=vault_email %}
+                {% blocktranslate with vault_email=user.email %}
                     An invitation email has been sent to {{ vault_email }}.
                     It includes a link which you need to click to complete the account creation.
                 {% endblocktranslate %}

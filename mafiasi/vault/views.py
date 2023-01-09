@@ -35,7 +35,6 @@ class IndexView(View):
             "vault/index.html",
             {
                 "vault_account_status": vw_user.status if vw_user else -1,
-                "vault_email": request.user.email,
             }
         )
 
