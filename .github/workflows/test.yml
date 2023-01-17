@@ -1,0 +1,36 @@
+name: test
+on:
+  workflow_dispatch: {}
+  push: {}
+
+jobs:
+
+#  TODO re-add once pre-commit is set up
+#  check-pre-commit:
+#    uses: fsinfuhh/workflows/.github/workflows/check_pre_commit.yml@main
+
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: "postgres:15"
+        env:
+          POSTGRES_DB: mafiasi-dashboard
+          POSTGRES_USER: mafiasi-dashboard
+          POSTGRES_PASSWORD: mafiasi-dashboard
+        ports:
+          - 5432
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+          cache: pipenv
+      - name: install pipenv
+        run: pip install pipenv
+      - name: install project dependencies
+        run: |
+          sudo apt install -y --no-install-recommends libgpgme-dev libsasl2-dev libldap2-dev libmagic-dev libjpeg-dev libgraphviz-dev
+          pipenv sync --dev
+      - name: run tests
+        run: pipenv run pytest
