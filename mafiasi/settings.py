@@ -333,6 +333,10 @@ GUEST_ACCEPT_INVITATION_MAIL = False
 
 GUEST_INVITE_INSTRUCTION_LINK = "https://dash.crossmodal-learning.org/static_redir/instruction"
 
+OAUTH2_PROVIDER = {
+    'PKCE_REQUIRED': False,
+}
+
 SENTRY_DSN = env.str("SENTRY_DSN", default=None)
 if SENTRY_DSN is not None:
     import sentry_sdk
