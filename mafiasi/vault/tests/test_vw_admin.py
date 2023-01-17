@@ -11,7 +11,7 @@ BASE_DIR = Path(__file__).parent
 
 def register_auth_response():
     responses.post(
-        url="https://vw.example.com/admin/",
+        url="https://vault.example.com/admin/",
         match=[matchers.urlencoded_params_matcher({"token": "foobar123"})],
         headers={
             "set-cookie": "VW_ADMIN=super-secret-access-cookie; HttpOnly; sameSite=Strict; Path=/admin; Max-Age=1200",
@@ -55,7 +55,7 @@ def test_list_users():
     register_auth_response()
     with open(BASE_DIR / "user_list_response.json", mode="r", encoding="UTF-8") as f:
         responses.get(
-            url="https://vw.example.com/admin/users",
+            url="https://vault.example.com/admin/users",
             body=f.read(),
         )
 
@@ -77,7 +77,7 @@ def test_invite():
     register_auth_response()
     with open(BASE_DIR / "invite_response.json", mode="r", encoding="UTF-8") as f:
         responses.post(
-            url="https://vw.example.com/admin/invite/",
+            url="https://vault.example.com/admin/invite/",
             body=f.read(),
             match=[matchers.json_params_matcher({"email": "test@invalid.invalid"})]
         )

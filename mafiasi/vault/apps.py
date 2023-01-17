@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
@@ -23,10 +24,11 @@ class VaultConfig(BaseService):
         super().ready()
 
         # validate vault credentials
-        vw_client = VwAdminClient.init_from_settings()
-        try:
-            vw_client.authenticate()
-        except HTTPError as e:
-            if e.response.status_code == 401:
-                raise ImproperlyConfigured(f"the provided vault admin token is not valid for {vw_client.vw_url}") from e
-            raise e
+        if not settings.TESTING:
+            vw_client = VwAdminClient.init_from_settings()
+            try:
+                vw_client.authenticate()
+            except HTTPError as e:
+                if e.response.status_code == 401:
+                    raise ImproperlyConfigured(f"the provided vault admin token is not valid for {vw_client.vw_url}") from e
+                raise e

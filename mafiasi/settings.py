@@ -9,6 +9,7 @@ env.read_env(env.path("MAFIASI_ENV_FILE", default=".env"))
 BASE_DIR = Path(__file__).parent.parent
 
 DEBUG = env.bool("MAFIASI_DEBUG", default=False)
+TESTING = env.bool("MAFIASI_TESTING", default=False)
 
 # Feature toggles
 ENABLE_JABBER_INTEGRATION = env.bool("MAFIASI_ENABLE_JABBER_INTEGRATION")
