@@ -1,0 +1,53 @@
+[
+  {
+    "CreatedAt": "2022-12-15 13:29:34 +00:00",
+    "Culture": "en-US",
+    "Email": "test@example.com",
+    "EmailVerified": true,
+    "ForcePasswordReset": false,
+    "Id": "19ecb6ab-9c24-4a0b-9770-517ea43b392c",
+    "Key": "foobar123",
+    "MasterPasswordHint": "the foo and the bar",
+    "Name": "test",
+    "Object": "profile",
+    "Organizations": [
+      {
+        "Enabled": true,
+        "HasPublicAndPrivateKeys": true,
+        "Id": "42c27470-643d-461f-814c-ed68db292cf8",
+        "Identifier": null,
+        "Key": "foobar123",
+        "MaxCollections": 10,
+        "MaxStorageGb": 10,
+        "Name": "test-org",
+        "Object": "profileOrganization",
+        "ProviderId": null,
+        "ProviderName": null,
+        "ResetPasswordEnrolled": false,
+        "Seats": 10,
+        "SelfHost": true,
+        "SsoBound": false,
+        "Status": 2,
+        "Type": 0,
+        "Use2fa": true,
+        "UseApi": false,
+        "UseDirectory": false,
+        "UseEvents": false,
+        "UseGroups": false,
+        "UsePolicies": true,
+        "UseSso": false,
+        "UseTotp": true,
+        "UserId": "19ecb6ab-9c24-4a0b-9770-517ea43b392c",
+        "UsersGetPremium": true
+      }
+    ],
+    "Premium": true,
+    "PrivateKey": "foobar123",
+    "ProviderOrganizations": [],
+    "Providers": [],
+    "SecurityStamp": "27ca5ee6-7654-4v8a-9a32-d02qe634bd61",
+    "TwoFactorEnabled": false,
+    "UserEnabled": true,
+    "_Status": 0
+  }
+]

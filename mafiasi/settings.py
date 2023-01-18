@@ -1,6 +1,6 @@
-import os
+import os.path
+import subprocess
 from pathlib import Path
-
 from environs import Env
 
 env = Env()
@@ -9,10 +9,12 @@ env.read_env(env.path("MAFIASI_ENV_FILE", default=".env"))
 BASE_DIR = Path(__file__).parent.parent
 
 DEBUG = env.bool("MAFIASI_DEBUG", default=False)
+TESTING = env.bool("MAFIASI_TESTING", default=False)
 
 # Feature toggles
 ENABLE_JABBER_INTEGRATION = env.bool("MAFIASI_ENABLE_JABBER_INTEGRATION")
 ENABLE_EP_INTEGRATION = env.bool("MAFIASI_ENABLE_EP_INTEGRATION")
+ENABLE_VAULT_INTEGRATION = env.bool("MAFIASI_ENABLE_VAULT_INTEGRATION")
 
 DATABASES = {
     "default": env.dj_db_url("MAFIASI_DB"),
@@ -107,7 +109,7 @@ MIDDLEWARE = [
     'mafiasi.base.middleware.InvalidMailMiddleware',
 ]
 
-INSTALLED_APPS = [
+INSTALLED_APPS = [i for i in [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.humanize',
@@ -137,6 +139,7 @@ INSTALLED_APPS = [
     'mafiasi.sogo',
     'mafiasi.tauschen',
     'mafiasi.link_shortener',
+    'mafiasi.vault' if ENABLE_VAULT_INTEGRATION else None,
     'mafiasi.pks',
     'mafiasi.kanboard',
     'mafiasi.whiteboard',
@@ -146,7 +149,7 @@ INSTALLED_APPS = [
     ###
     'django.contrib.admin',
     'django.contrib.admindocs',
-]
+] if i is not None]
 
 TEMPLATES = [
     {
@@ -178,6 +181,7 @@ TEMPLATE_ALLOWABLE_SETTINGS_VALUES = [
     "USER_LOGIN_HINT",
     "GUEST_INVITE_INSTRUCTION_LINK",
     "RAVEN_PUBLIC_DSN",
+    "VAULT_URL",
 ]
 
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
@@ -264,6 +268,10 @@ if ENABLE_EP_INTEGRATION:
     ETHERPAD_API_KEY = env.str('MAFIASI_EP_API_KEY')
     ETHERPAD_URL = 'https://ep.mafiasi.de'
     EP_COOKIE_DOMAIN = '.mafiasi.de'
+
+if ENABLE_VAULT_INTEGRATION:
+    VAULT_URL = env.str("MAFIASI_VAULT_URL", default="https://vault.mafiasi.de")
+    VAULT_ADMIN_TOKEN = env.str("MAFIASI_VAULT_ADMIN_TOKEN")
 
 DATABASE_ROUTERS = ['mafiasi.jabber.dbrouter.JabberRouter', 'ldapdb.router.Router']
 

@@ -1,0 +1,5 @@
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "mafiasi.settings"
+env = [
+    "MAFIASI_ENV_FILE=.env.test"
+]

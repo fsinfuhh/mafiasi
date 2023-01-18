@@ -1,0 +1,19 @@
+{
+  "Culture": "en-US",
+  "Email": "test@invalid.invalid",
+  "EmailVerified": false,
+  "ForcePasswordReset": false,
+  "Id": "3e8cb3c6-8fd4-4eef-87b6-e537e880c7c9",
+  "Key": "",
+  "MasterPasswordHint": null,
+  "Name": "test@invalid.invalid",
+  "Object": "profile",
+  "Organizations": [],
+  "Premium": true,
+  "PrivateKey": null,
+  "ProviderOrganizations": [],
+  "Providers": [],
+  "SecurityStamp": "b7b3639c-4ae3-494e-b1a8-072d099edf09",
+  "TwoFactorEnabled": false,
+  "_Status": 1
+}
