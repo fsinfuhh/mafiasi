@@ -18,14 +18,14 @@
 {% block content %}
     <!-- General info and link to actual vault -->
     <p>
-        {% blocktranslate %}
+        {% blocktranslate trimmed %}
             Vault is a <i>Vaultwarden / Bitwarden</i> password manager hosted and operated by Mafiasi.<br>
             You can use it to store and manage your passwords.
             You can also share passwords with other users or groups.
         {% endblocktranslate %}
     </p>
     <p>
-        {% blocktranslate %}
+        {% blocktranslate trimmed %}
             Note that Mafiasi has no access to any of your credentials because they are encrypted with a master password
             chosen by you.
         {% endblocktranslate %}
@@ -36,7 +36,7 @@
         <div class="alert alert-warning">
             <p><strong>{% translate "You do not currently have a vault account" %}</strong></p>
             <p>
-                {% blocktranslate with vault_email=user.real_email %}
+                {% blocktranslate with vault_email=user.real_email trimmed %}
                     You can use the button below to create a new account.<br>
                     When doing so, you will receive an e-mail at {{ vault_email }} inviting you to register and set
                     a password.
@@ -60,7 +60,7 @@
         <div class="alert alert-success">
             <p><strong>{% translate "Your vault account is ready to go" %}</strong></p>
             <p>
-                {% blocktranslate with vault_email=user.email %}
+                {% blocktranslate with vault_email=user.email trimmed %}
                     You can log in using <i>{{ vault_email }}</i> as your email.
                 {% endblocktranslate %}
             </p>
@@ -75,7 +75,7 @@
         <div class="alert alert-warning">
             <p><strong>{% translate "Your vault account has been created but is not yet ready" %}</strong></p>
             <p>
-                {% blocktranslate with vault_email=user.real_email %}
+                {% blocktranslate with vault_email=user.real_email trimmed %}
                     An invitation email has been sent to {{ vault_email }}.
                     It includes a link which you need to click to complete the account creation.
                 {% endblocktranslate %}

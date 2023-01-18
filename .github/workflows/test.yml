@@ -30,7 +30,26 @@ jobs:
         run: pip install pipenv
       - name: install project dependencies
         run: |
-          sudo apt install -y --no-install-recommends libgpgme-dev libsasl2-dev libldap2-dev libmagic-dev libjpeg-dev libgraphviz-dev
+          sudo apt install -y --no-install-recommends libgpgme-dev libsasl2-dev libldap2-dev libmagic-dev libjpeg-dev libgraphviz-dev gettext
           pipenv sync --dev
       - name: run tests
         run: pipenv run pytest
+
+  compile_messages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+          cache: pipenv
+      - name: install pipenv
+        run: pip install pipenv
+      - name: install project dependencies
+        run: |
+          sudo apt install -y --no-install-recommends libgpgme-dev libsasl2-dev libldap2-dev libmagic-dev libjpeg-dev libgraphviz-dev gettext
+          pipenv sync --dev
+      - name: compile i18n messages
+        env:
+          MAFIASI_ENV_FILE: .env.test
+        run: pipenv run ./manage.py compilemessages

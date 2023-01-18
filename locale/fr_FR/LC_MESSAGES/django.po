@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-15 18:52+0100\n"
+"POT-Creation-Date: 2023-01-18 14:47+0100\n"
 "PO-Revision-Date: 2022-03-07 16:02+0100\n"
 "Last-Translator: Markus Neblung <9neblung@informatik.uni-hamburg.de>\n"
 "Language-Team: \n"
@@ -2457,31 +2457,25 @@ msgstr "semestre d'hiver {0}"
 msgid "summer term {0}"
 msgstr "session d'été {0}"
 
-#: mafiasi/vault/apps.py:14
+#: mafiasi/vault/apps.py:15
 msgid "Vault"
 msgstr ""
 
-#: mafiasi/vault/apps.py:15
+#: mafiasi/vault/apps.py:16
 msgid "Mafiasi hosted password manager"
 msgstr ""
 
 #: mafiasi/vault/templates/vault/index.html:21
 msgid ""
-"\n"
-"            Vault is a <i>Vaultwarden / Bitwarden</i> password manager "
-"hosted and operated by Mafiasi.<br>\n"
-"            You can use it to store and manage your passwords.\n"
-"            You can also share passwords with other users or groups.\n"
-"        "
+"Vault is a <i>Vaultwarden / Bitwarden</i> password manager hosted and "
+"operated by Mafiasi.<br> You can use it to store and manage your passwords. "
+"You can also share passwords with other users or groups."
 msgstr ""
 
 #: mafiasi/vault/templates/vault/index.html:28
 msgid ""
-"\n"
-"            Note that Mafiasi has no access to any of your credentials "
-"because they are encrypted with a master password\n"
-"            chosen by you.\n"
-"        "
+"Note that Mafiasi has no access to any of your credentials because they are "
+"encrypted with a master password chosen by you."
 msgstr ""
 
 #: mafiasi/vault/templates/vault/index.html:37
@@ -2491,13 +2485,9 @@ msgstr ""
 #: mafiasi/vault/templates/vault/index.html:39
 #, python-format
 msgid ""
-"\n"
-"                    You can use the button below to create a new account."
-"<br>\n"
-"                    When doing so, you will receive an e-mail at "
-"%(vault_email)s inviting you to register and set\n"
-"                    a password.\n"
-"                "
+"You can use the button below to create a new account.<br> When doing so, you "
+"will receive an e-mail at %(vault_email)s inviting you to register and set a "
+"password."
 msgstr ""
 
 #: mafiasi/vault/templates/vault/index.html:46
@@ -2522,11 +2512,7 @@ msgstr ""
 
 #: mafiasi/vault/templates/vault/index.html:63
 #, python-format
-msgid ""
-"\n"
-"                    You can log in using <i>%(vault_email)s</i> as your "
-"email.\n"
-"                "
+msgid "You can log in using <i>%(vault_email)s</i> as your email."
 msgstr ""
 
 #: mafiasi/vault/templates/vault/index.html:76
@@ -2536,11 +2522,8 @@ msgstr ""
 #: mafiasi/vault/templates/vault/index.html:78
 #, python-format
 msgid ""
-"\n"
-"                    An invitation email has been sent to %(vault_email)s.\n"
-"                    It includes a link which you need to click to complete "
-"the account creation.\n"
-"                "
+"An invitation email has been sent to %(vault_email)s. It includes a link "
+"which you need to click to complete the account creation."
 msgstr ""
 
 #: mafiasi/whiteboard/apps.py:10
