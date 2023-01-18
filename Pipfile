@@ -35,6 +35,8 @@ pytest = "*"
 pytest-django = "*"
 pytest-env = "*"
 freezegun = "*"
+black = "*"
+isort = "*"
 
 [requires]
 python_version = "3"
