@@ -75,7 +75,7 @@
         <div class="alert alert-warning">
             <p><strong>{% translate "Your vault account has been created but is not yet ready" %}</strong></p>
             <p>
-                {% blocktranslate with vault_email=user.email %}
+                {% blocktranslate with vault_email=user.real_email %}
                     An invitation email has been sent to {{ vault_email }}.
                     It includes a link which you need to click to complete the account creation.
                 {% endblocktranslate %}
