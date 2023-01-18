@@ -2,9 +2,10 @@
 Implementation of a Vaultwarden admin API client
 """
 import enum
-from typing import TypeVar, Type, TypedDict, List, Mapping, Any, Optional
-import requests
 from dataclasses import dataclass
+from typing import Any, List, Mapping, Optional, Type, TypedDict, TypeVar
+
+import requests
 from django.conf import settings
 from django.utils.timezone import datetime
 
@@ -73,9 +74,7 @@ class VwAdminClient:
         response = self.session.post(
             url=f"{self.vw_url}/admin/",
             data={"token": self.admin_token},
-            headers={
-                "Content-Type": "application/x-www-form-urlencoded"
-            },
+            headers={"Content-Type": "application/x-www-form-urlencoded"},
         )
         response.raise_for_status()
 

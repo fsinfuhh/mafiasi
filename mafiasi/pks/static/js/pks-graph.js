@@ -4,11 +4,11 @@ $(function() {
     var graphthumb = $('#pks-graph-thumb');
     var graphselector = $('#pks-graphselector');
     var graphselectorHelp = $('#pks-graphselector-help');
-    
-    
-    function rescaleElements() { 
+
+
+    function rescaleElements() {
         graphscroll.css('height', $(window).height() - graphscroll.offset().top - $('#footer').height());
-        
+
         // Calculate the height and width of the graphselector
         // Hide it (together with the graphthumb) if you don't have to scroll
         if (graph.width() <= graphscroll.innerWidth()) {
@@ -16,13 +16,13 @@ $(function() {
         } else {
             var graphselectorWidth = graphthumb.width() / (graph.width() / graphscroll.innerWidth());
         }
-        
+
         if (graph.height() <= graphscroll.innerHeight()) {
             graphselectorHeight = graphthumb.height();
         } else {
             var graphselectorHeight = graphthumb.height() / (graph.height() / graphscroll.innerHeight());
         }
-        
+
         if (graph.width() <= graphscroll.innerWidth() && graph.height() <= graphscroll.innerHeight()) {
             graphselector.hide();
             graphselectorHelp.hide();
@@ -53,10 +53,10 @@ $(function() {
         graphscroll.scrollTop((graph.height() - graphscroll.height()) / 2);
         graphscroll.scrollLeft((graph.width() - graphscroll.width()) / 2);
     }
-    
+
     $(window).load(initialize);
     $(window).resize(rescaleElements);
-    
+
     function handleGraphscroll(ev) {
         var maxScrollLeft = graphscroll[0].scrollWidth - graphscroll[0].clientWidth;
         var maxScrollTop = graphscroll[0].scrollHeight - graphscroll[0].clientHeight;

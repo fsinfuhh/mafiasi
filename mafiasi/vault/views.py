@@ -9,7 +9,7 @@ from django.utils.decorators import method_decorator
 from django.views import View
 from django.views.decorators.csrf import csrf_protect
 
-from mafiasi.vault.vw_admin import VwUser, VwAdminClient
+from mafiasi.vault.vw_admin import VwAdminClient, VwUser
 
 
 @method_decorator(login_required, "dispatch")
@@ -35,7 +35,7 @@ class IndexView(View):
             "vault/index.html",
             {
                 "vault_account_status": vw_user.status if vw_user else -1,
-            }
+            },
         )
 
     def post(self, request: HttpRequest) -> HttpResponse:

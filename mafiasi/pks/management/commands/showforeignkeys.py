@@ -1,17 +1,17 @@
-from fuzzywuzzy import fuzz
 import gpgme
 from django.conf import settings
 from django.core.management.base import BaseCommand
+from fuzzywuzzy import fuzz
 
 from mafiasi.base.models import Mafiasi
 
+
 class Command(BaseCommand):
-    help = 'Show all OpenPGP keys which do not belong to our community'
+    help = "Show all OpenPGP keys which do not belong to our community"
 
     def handle(self, **options):
-        self.community_domains = ['@' + domain
-                                  for domain in settings.PKS_COMMUNITY_DOMAINS]
-        
+        self.community_domains = ["@" + domain for domain in settings.PKS_COMMUNITY_DOMAINS]
+
         full_names = set()
         for mafiasi in Mafiasi.objects.all():
             full_names.add(mafiasi.get_full_name())
@@ -27,12 +27,12 @@ class Command(BaseCommand):
 
         fingerprints = []
         for key in foreign_keys:
-            fingerprint = '0x' + key.subkeys[0].fpr
+            fingerprint = "0x" + key.subkeys[0].fpr
             uid = key.uids[0]
-            print('{}: {} <{}>'.format(fingerprint, uid.name, uid.email))
+            print("{}: {} <{}>".format(fingerprint, uid.name, uid.email))
             fingerprints.append(fingerprint)
-        
-        print('\ngpg --batch --delete-key ' + ' '.join(fingerprints))
+
+        print("\ngpg --batch --delete-key " + " ".join(fingerprints))
 
     def is_community(self, key):
         for uid in key.uids:

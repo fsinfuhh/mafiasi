@@ -5,9 +5,8 @@ on:
 
 jobs:
 
-#  TODO re-add once pre-commit is set up
-#  check-pre-commit:
-#    uses: fsinfuhh/workflows/.github/workflows/check_pre_commit.yml@main
+  check-pre-commit:
+    uses: fsinfuhh/workflows/.github/workflows/check_pre_commit.yml@main
 
   test:
     runs-on: ubuntu-latest

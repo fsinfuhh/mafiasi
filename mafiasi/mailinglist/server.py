@@ -1,13 +1,12 @@
-
-
-from email.parser import Parser, BytesParser
-from email.utils import parseaddr
 import logging
+from email.parser import BytesParser, Parser
+from email.utils import parseaddr
 
 from mafiasi.mail import customsmtpd
 from mafiasi.mailinglist.models import Mailinglist
 
-logger = logging.getLogger('mailinglist')
+logger = logging.getLogger("mailinglist")
+
 
 class MailinglistServer(customsmtpd.RaisingSMTPServer):
     def process_message(self, peer, mailfrom, rcpttos, data, **kwargs):
@@ -17,13 +16,13 @@ class MailinglistServer(customsmtpd.RaisingSMTPServer):
         else:
             parser = BytesParser()
             message = parser.parsebytes(data)
-        
+
         for rcptto in rcpttos:
             self.process_message_single(mailfrom, rcptto, message)
 
     def process_message_single(self, mailfrom, rcptto, message):
-        if '@' not in rcptto:
-            logger.warning('Invalid RCPTTO: {}'.format(rcptto))
+        if "@" not in rcptto:
+            logger.warning("Invalid RCPTTO: {}".format(rcptto))
             return
 
         try:
@@ -33,10 +32,9 @@ class MailinglistServer(customsmtpd.RaisingSMTPServer):
             return
 
         try:
-            mailfrom_header = parseaddr(message['From'])[1]
+            mailfrom_header = parseaddr(message["From"])[1]
         except KeyError:
-            logger.info(
-                    'Missing From header in email from {}'.format(mailfrom))
+            logger.info("Missing From header in email from {}".format(mailfrom))
             return
 
         if mailinglist.can_send(mailfrom_header):

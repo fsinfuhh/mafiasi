@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 
 
-from django.db import models, migrations
 from django.conf import settings
+from django.db import migrations, models
+
 import mafiasi.gprot.models
 
 
@@ -10,75 +11,77 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('teaching', '__first__'),
+        ("teaching", "__first__"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Attachment',
+            name="Attachment",
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('file', models.FileField(upload_to=mafiasi.gprot.models.make_attachment_filename)),
-                ('mime_type', models.CharField(max_length=16)),
+                ("id", models.AutoField(verbose_name="ID", serialize=False, auto_created=True, primary_key=True)),
+                ("file", models.FileField(upload_to=mafiasi.gprot.models.make_attachment_filename)),
+                ("mime_type", models.CharField(max_length=16)),
             ],
-            options={
-            },
+            options={},
             bases=(models.Model,),
         ),
         migrations.CreateModel(
-            name='GProt',
+            name="GProt",
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('exam_date', models.DateField()),
-                ('is_pdf', models.BooleanField(default=False)),
-                ('content', models.TextField(null=True, blank=True)),
-                ('content_pdf', models.FileField(null=True, upload_to=mafiasi.gprot.models.make_gprot_filename, blank=True)),
-                ('published', models.BooleanField(default=False)),
-                ('author', models.ForeignKey(blank=True, to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)),
-                ('course', models.ForeignKey(to='teaching.Course', on_delete=models.CASCADE)),
-                ('examiners', models.ManyToManyField(to='teaching.Teacher')),
+                ("id", models.AutoField(verbose_name="ID", serialize=False, auto_created=True, primary_key=True)),
+                ("exam_date", models.DateField()),
+                ("is_pdf", models.BooleanField(default=False)),
+                ("content", models.TextField(null=True, blank=True)),
+                (
+                    "content_pdf",
+                    models.FileField(null=True, upload_to=mafiasi.gprot.models.make_gprot_filename, blank=True),
+                ),
+                ("published", models.BooleanField(default=False)),
+                (
+                    "author",
+                    models.ForeignKey(blank=True, to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True),
+                ),
+                ("course", models.ForeignKey(to="teaching.Course", on_delete=models.CASCADE)),
+                ("examiners", models.ManyToManyField(to="teaching.Teacher")),
             ],
-            options={
-            },
+            options={},
             bases=(models.Model,),
         ),
         migrations.CreateModel(
-            name='Notification',
+            name="Notification",
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('added_date', models.DateField()),
-                ('course_query', models.CharField(max_length=100, null=True, blank=True)),
-                ('course', models.ForeignKey(blank=True, to='teaching.Course', on_delete=models.CASCADE, null=True)),
-                ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)),
+                ("id", models.AutoField(verbose_name="ID", serialize=False, auto_created=True, primary_key=True)),
+                ("added_date", models.DateField()),
+                ("course_query", models.CharField(max_length=100, null=True, blank=True)),
+                ("course", models.ForeignKey(blank=True, to="teaching.Course", on_delete=models.CASCADE, null=True)),
+                ("user", models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)),
             ],
-            options={
-            },
+            options={},
             bases=(models.Model,),
         ),
         migrations.CreateModel(
-            name='Reminder',
+            name="Reminder",
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('exam_date', models.DateField()),
-                ('course', models.ForeignKey(blank=True, to='teaching.Course', on_delete=models.CASCADE, null=True)),
-                ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)),
+                ("id", models.AutoField(verbose_name="ID", serialize=False, auto_created=True, primary_key=True)),
+                ("exam_date", models.DateField()),
+                ("course", models.ForeignKey(blank=True, to="teaching.Course", on_delete=models.CASCADE, null=True)),
+                ("user", models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)),
             ],
-            options={
-            },
+            options={},
             bases=(models.Model,),
         ),
         migrations.AlterUniqueTogether(
-            name='reminder',
-            unique_together=set([('user', 'exam_date', 'course')]),
+            name="reminder",
+            unique_together=set([("user", "exam_date", "course")]),
         ),
         migrations.AlterUniqueTogether(
-            name='notification',
-            unique_together=set([('user', 'course', 'course_query')]),
+            name="notification",
+            unique_together=set([("user", "course", "course_query")]),
         ),
         migrations.AddField(
-            model_name='attachment',
-            name='gprot',
-            field=models.ForeignKey(to='gprot.GProt', on_delete=models.CASCADE),
+            model_name="attachment",
+            name="gprot",
+            field=models.ForeignKey(to="gprot.GProt", on_delete=models.CASCADE),
             preserve_default=True,
         ),
     ]

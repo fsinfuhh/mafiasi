@@ -1,11 +1,10 @@
 from copy import deepcopy
 
 import ldap
-from ldap.dn import escape_dn_chars
-from ldap.modlist import addModlist, modifyModlist
-from ldap.ldapobject import ReconnectLDAPObject
-
 from django.conf import settings
+from ldap.dn import escape_dn_chars
+from ldap.ldapobject import ReconnectLDAPObject
+from ldap.modlist import addModlist, modifyModlist
 
 
 class LdapError(Exception):
@@ -27,9 +26,9 @@ class ConnectionManager(object):
     def __getitem__(self, connection_name):
         if connection_name not in self._connections:
             server = settings.LDAP_SERVERS[connection_name]
-            ldap.set_option(ldap.OPT_X_TLS_CACERTFILE, server.get('CA', ''))
-            conn = ReconnectLDAPObject(server['URI'])
-            conn.simple_bind_s(server['BIND_DN'], server['BIND_PASSWORD'])
+            ldap.set_option(ldap.OPT_X_TLS_CACERTFILE, server.get("CA", ""))
+            conn = ReconnectLDAPObject(server["URI"])
+            conn.simple_bind_s(server["BIND_DN"], server["BIND_PASSWORD"])
             self._connections[connection_name] = conn
         return self._connections[connection_name]
 
@@ -68,12 +67,12 @@ class LdapList(object):
         self._list_data[key] = value
 
     def __getitem__(self, key):
-        return self._list_data[key].decode('utf-8')
+        return self._list_data[key].decode("utf-8")
 
     def __iter__(self):
         for i in range(len(self._list_data)):
             yield self[i]
-        
+
 
 class LdapModelMeta(type):
     def __new__(cls, name, bases, namespace):
@@ -93,16 +92,18 @@ class LdapModelMeta(type):
                     if attr_obj.multi:
                         retval = LdapList(self, retval)
                     else:
-                        retval = retval.decode('utf-8', errors='replace')
+                        retval = retval.decode("utf-8", errors="replace")
                 return retval
+
             return _get
+
         def _make_setter(attr, attr_obj):
             def _set(self, value):
                 self._mark_dirty()
                 if value is None:
                     self._values[attr_obj.name] = []
                     return
-                value = value.encode('utf-8')
+                value = value.encode("utf-8")
 
                 if attr_obj.multi:
                     if isinstance(value, LdapList):
@@ -112,16 +113,16 @@ class LdapModelMeta(type):
                     if attr_obj.name not in self._values:
                         self._values[attr_obj.name] = [None]
                     self._values[attr_obj.name][0] = value
+
             return _set
-        
-        for attr, attr_obj in namespace['attrs'].items():
-            namespace[attr] = property(_make_getter(attr, attr_obj),
-                                       _make_setter(attr, attr_obj))
+
+        for attr, attr_obj in namespace["attrs"].items():
+            namespace[attr] = property(_make_getter(attr, attr_obj), _make_setter(attr, attr_obj))
 
         class DoesNotExist(LdapNotFound):
             pass
 
-        namespace['DoesNotExist'] = DoesNotExist
+        namespace["DoesNotExist"] = DoesNotExist
 
         return type.__new__(cls, name, bases, namespace)
 
@@ -139,13 +140,13 @@ class LdapModel(object, metaclass=LdapModelMeta):
         self._fetched = False
 
     def __repr__(self):
-        return '<{} {}>'.format(self.__class__.__name__, self.get_dn())
+        return "<{} {}>".format(self.__class__.__name__, self.get_dn())
 
     def get_dn(self):
         dn_primary = getattr(self, self.primary_key)
         return self.lookup_dn.format(escape_dn_chars(dn_primary))
 
-    def save(self, connection='default', fail_silently=True):
+    def save(self, connection="default", fail_silently=True):
         dn = self.get_dn()
         conn = connections[connection]
         if self._fetched:
@@ -153,8 +154,8 @@ class LdapModel(object, metaclass=LdapModelMeta):
                 # Nothing was changed
                 return
             for object_class in self.object_classes:
-                if object_class not in self._values['objectClass']:
-                    self._values['objectClass'].append(object_class)
+                if object_class not in self._values["objectClass"]:
+                    self._values["objectClass"].append(object_class)
             mod_list = modifyModlist(self._old_values, self._values)
             try:
                 conn.modify_s(dn, mod_list)
@@ -163,7 +164,7 @@ class LdapModel(object, metaclass=LdapModelMeta):
                     raise
 
         else:
-            self._values['objectClass'] = self.object_classes
+            self._values["objectClass"] = self.object_classes
             add_list = addModlist(self._values)
             try:
                 conn.add_s(dn, add_list)
@@ -176,7 +177,7 @@ class LdapModel(object, metaclass=LdapModelMeta):
             self._old_values = deepcopy(self._values)
 
     @classmethod
-    def lookup(cls, value, connection='default'):
+    def lookup(cls, value, connection="default"):
         dn = cls.lookup_dn.format(escape_dn_chars(value))
         conn = connections[connection]
         try:

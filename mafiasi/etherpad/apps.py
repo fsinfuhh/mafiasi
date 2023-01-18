@@ -5,9 +5,9 @@ from mafiasi.base.base_apps import BaseService
 
 class EtherpadConfig(BaseService):
     default = True
-    name = 'mafiasi.etherpad'
-    verbose_name = 'Etherpad'
-    title = _('Etherpad')
-    description = _('You can use the Etherpad to work together on a document in real time.')
-    link = '/etherpad/'
-    image = 'img/services/etherpad.svg'
+    name = "mafiasi.etherpad"
+    verbose_name = "Etherpad"
+    title = _("Etherpad")
+    description = _("You can use the Etherpad to work together on a document in real time.")
+    link = "/etherpad/"
+    image = "img/services/etherpad.svg"

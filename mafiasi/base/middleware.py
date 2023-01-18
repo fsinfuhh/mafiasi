@@ -12,6 +12,10 @@ class InvalidMailMiddleware:
     def __call__(self, request):
         if request.user.is_authenticated:
             if Mafiasi.objects.get(username=request.user.username).real_email.endswith(settings.INVALID_MAIL_DOMAIN):
-                messages.error(request, _('Your email address was automatically set to an invalid one. Please update your email address immediately.'))
+                messages.error(
+                    request,
+                    _(
+                        "Your email address was automatically set to an invalid one. Please update your email address immediately."
+                    ),
+                )
         return self.get_response(request)
-

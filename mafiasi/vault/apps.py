@@ -30,5 +30,7 @@ class VaultConfig(BaseService):
                 vw_client.authenticate()
             except HTTPError as e:
                 if e.response.status_code == 401:
-                    raise ImproperlyConfigured(f"the provided vault admin token is not valid for {vw_client.vw_url}") from e
+                    raise ImproperlyConfigured(
+                        f"the provided vault admin token is not valid for {vw_client.vw_url}"
+                    ) from e
                 raise e

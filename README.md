@@ -41,4 +41,4 @@ guarantee.
 # Notes
 
 If you are interested you can see how we deploy this service on our kubernetes cluster via `kustomization.yml`.
-The format is [kustomize](https://kustomize.io/). 
+The format is [kustomize](https://kustomize.io/).

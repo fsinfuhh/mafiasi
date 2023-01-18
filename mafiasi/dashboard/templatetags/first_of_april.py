@@ -1,5 +1,5 @@
-from django.utils.timezone import now
 from django.template import Library
+from django.utils.timezone import now
 
 register = Library()
 

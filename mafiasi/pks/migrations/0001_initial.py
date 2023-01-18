@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 
 
-from django.db import models, migrations
 from django.conf import settings
+from django.db import migrations, models
+
 import mafiasi.pks.models
 
 
@@ -14,52 +15,48 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='AssignedKey',
+            name="AssignedKey",
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('fingerprint', models.CharField(max_length=40)),
-                ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)),
+                ("id", models.AutoField(verbose_name="ID", serialize=False, auto_created=True, primary_key=True)),
+                ("fingerprint", models.CharField(max_length=40)),
+                ("user", models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)),
             ],
-            options={
-            },
+            options={},
             bases=(models.Model, mafiasi.pks.models.KeyMixin),
         ),
         migrations.CreateModel(
-            name='KeysigningParty',
+            name="KeysigningParty",
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('name', models.CharField(max_length=60)),
-                ('event_date', models.DateField()),
-                ('submit_until', models.DateTimeField()),
+                ("id", models.AutoField(verbose_name="ID", serialize=False, auto_created=True, primary_key=True)),
+                ("name", models.CharField(max_length=60)),
+                ("event_date", models.DateField()),
+                ("submit_until", models.DateTimeField()),
             ],
-            options={
-            },
+            options={},
             bases=(models.Model,),
         ),
         migrations.CreateModel(
-            name='Participant',
+            name="Participant",
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('keys', models.ManyToManyField(to='pks.AssignedKey')),
-                ('party', models.ForeignKey(to='pks.KeysigningParty', on_delete=models.CASCADE)),
-                ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)),
+                ("id", models.AutoField(verbose_name="ID", serialize=False, auto_created=True, primary_key=True)),
+                ("keys", models.ManyToManyField(to="pks.AssignedKey")),
+                ("party", models.ForeignKey(to="pks.KeysigningParty", on_delete=models.CASCADE)),
+                ("user", models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)),
             ],
-            options={
-            },
+            options={},
             bases=(models.Model,),
         ),
         migrations.CreateModel(
-            name='PGPKey',
+            name="PGPKey",
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('fingerprint', models.CharField(max_length=40)),
+                ("id", models.AutoField(verbose_name="ID", serialize=False, auto_created=True, primary_key=True)),
+                ("fingerprint", models.CharField(max_length=40)),
             ],
-            options={
-            },
+            options={},
             bases=(models.Model, mafiasi.pks.models.KeyMixin),
         ),
         migrations.AlterUniqueTogether(
-            name='assignedkey',
-            unique_together=set([('user', 'fingerprint')]),
+            name="assignedkey",
+            unique_together=set([("user", "fingerprint")]),
         ),
     ]

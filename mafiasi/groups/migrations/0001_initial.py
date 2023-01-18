@@ -1,42 +1,50 @@
 # -*- coding: utf-8 -*-
 
 
-from django.db import models, migrations
 import django.utils.timezone
 from django.conf import settings
+from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('auth', '0001_initial'),
+        ("auth", "0001_initial"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='GroupInvitation',
+            name="GroupInvitation",
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('date_invited', models.DateTimeField(default=django.utils.timezone.now)),
-                ('group', models.ForeignKey(related_name='invitations', to='auth.Group', on_delete=models.CASCADE)),
-                ('invited_by', models.ForeignKey(related_name='given_invitations', to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)),
-                ('invitee', models.ForeignKey(related_name='invitations', to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)),
+                ("id", models.AutoField(verbose_name="ID", serialize=False, auto_created=True, primary_key=True)),
+                ("date_invited", models.DateTimeField(default=django.utils.timezone.now)),
+                ("group", models.ForeignKey(related_name="invitations", to="auth.Group", on_delete=models.CASCADE)),
+                (
+                    "invited_by",
+                    models.ForeignKey(
+                        related_name="given_invitations", to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE
+                    ),
+                ),
+                (
+                    "invitee",
+                    models.ForeignKey(
+                        related_name="invitations", to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE
+                    ),
+                ),
             ],
-            options={
-            },
+            options={},
             bases=(models.Model,),
         ),
         migrations.CreateModel(
-            name='GroupProperties',
+            name="GroupProperties",
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('public_members', models.BooleanField(default=False)),
-                ('admins', models.ManyToManyField(related_name='admin_of', to=settings.AUTH_USER_MODEL)),
-                ('group', models.OneToOneField(related_name='properties', to='auth.Group', on_delete=models.CASCADE)),
+                ("id", models.AutoField(verbose_name="ID", serialize=False, auto_created=True, primary_key=True)),
+                ("public_members", models.BooleanField(default=False)),
+                ("admins", models.ManyToManyField(related_name="admin_of", to=settings.AUTH_USER_MODEL)),
+                ("group", models.OneToOneField(related_name="properties", to="auth.Group", on_delete=models.CASCADE)),
             ],
-            options={
-            },
+            options={},
             bases=(models.Model,),
         ),
     ]

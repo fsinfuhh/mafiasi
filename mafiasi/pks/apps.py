@@ -5,9 +5,9 @@ from mafiasi.base.base_apps import BaseService
 
 class PksConfig(BaseService):
     default = True
-    name = 'mafiasi.pks'
-    verbose_name = 'Keyserver'
-    title = _('Keyserver')
-    description = _('You can find your fellow students\' OpenPGP keys on our public keyserver.')
-    link = '/pks/'
-    image = 'img/services/pks.svg'
+    name = "mafiasi.pks"
+    verbose_name = "Keyserver"
+    title = _("Keyserver")
+    description = _("You can find your fellow students' OpenPGP keys on our public keyserver.")
+    link = "/pks/"
+    image = "img/services/pks.svg"
