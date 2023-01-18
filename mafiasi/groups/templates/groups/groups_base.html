@@ -47,8 +47,8 @@
     </h4>
     {% block group_list %}
     {% if groups %}
-    <div class="list-group">  
-      {% for group in groups %}      
+    <div class="list-group">
+      {% for group in groups %}
       <a class="list-group-item{% if active_group_name == group.name %} active{% endif %}" href="{% url 'groups_show' group.name %}">
         {{ group.name }}
       </a>

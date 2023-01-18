@@ -53,7 +53,7 @@ $(function() {
     restoreServicesOrder();
 
     // Initialize sortable
-    $('#dashboard-services-container').sortable({ 
+    $('#dashboard-services-container').sortable({
         connectWith: '.dashboard-service',
         revert: true,
         opacity: 0.7,

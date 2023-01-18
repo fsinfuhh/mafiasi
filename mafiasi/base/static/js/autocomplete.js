@@ -1,9 +1,9 @@
 /*
  * Return a callback that can be used with jQuery autocomplete.
- * 
+ *
  * @param {Function} autocompleteDataCb(fn): Callback that calls fn with autocomplete data
  * @param {Array} autocompleteTypes -- List of objects {'type': type, 'label_key': label_key}
- * 
+ *
  * Autocomplete data is an objects with the following structure:
  * {
  *     'some_type': {
@@ -46,17 +46,17 @@ function getAutocompleteCb(autocompleteDataCb, autocompleteTypes) {
                 if (tokenObj['type'] != autocompleteType['type']) {
                     continue;
                 }
-                
+
                 var objType = autocompleteType['type'];
                 var obj = autocompleteData[objType][tokenObj['pk']];
-                
+
                 var valueKey = autocompleteType['value_key'];
                 var value = '';
                 if (typeof(autocompleteTypes['value_key']) === 'string') {
                     value = obj[valueKey];
                 }
-                
-                responseSet[key] = true; 
+
+                responseSet[key] = true;
                 responseData.push({
                     'label': obj[autocompleteType['label_key']],
                     'value': value,
@@ -67,7 +67,7 @@ function getAutocompleteCb(autocompleteDataCb, autocompleteTypes) {
         }
         response(responseData);
     }
-    
+
     return function(request, response) {
         autocompleteDataCb(request.term, function(autocompleteData) {
             doAutocomplete(autocompleteData, request, response);

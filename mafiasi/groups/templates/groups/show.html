@@ -41,7 +41,7 @@
             {% if is_groupadmin %}
             <div class="panel-footer">
                 {% if mailinglist %}
-                <a class="btn btn-default btn-xs" 
+                <a class="btn btn-default btn-xs"
                    href="{{ mailinglist_url }}">
                     <span class="glyphicon glyphicon-cog"></span>
                     {% trans "Manage" %}
@@ -96,7 +96,7 @@
             </div>
             {% endif %}
             <div class="panel-footer">
-                <a class="btn btn-primary btn-xs" 
+                <a class="btn btn-primary btn-xs"
                    href="{% url 'groups_invite' group.name %}">
                     <span class="glyphicon glyphicon-plus"></span>
                     {% trans "Invite users" %}

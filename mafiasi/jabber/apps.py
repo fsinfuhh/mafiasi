@@ -5,9 +5,11 @@ from mafiasi.base.base_apps import BaseService
 
 class JabberConfig(BaseService):
     default = True
-    name = 'mafiasi.jabber'
-    verbose_name = 'Jabber'
-    title = _('Jabber')
-    description = _('On our Jabber server you can chat with your fellow students, which are already on your contact list.')
-    link = '/jabber/'
-    image = 'img/services/jabber.svg'
+    name = "mafiasi.jabber"
+    verbose_name = "Jabber"
+    title = _("Jabber")
+    description = _(
+        "On our Jabber server you can chat with your fellow students, which are already on your contact list."
+    )
+    link = "/jabber/"
+    image = "img/services/jabber.svg"

@@ -1,10 +1,10 @@
 from pathlib import Path
 
 import responses
-from responses import matchers
 from freezegun import freeze_time
+from responses import matchers
 
-from mafiasi.vault.vw_admin import VwAdminClient, UserStatus
+from mafiasi.vault.vw_admin import UserStatus, VwAdminClient
 
 BASE_DIR = Path(__file__).parent
 
@@ -15,7 +15,7 @@ def register_auth_response():
         match=[matchers.urlencoded_params_matcher({"token": "foobar123"})],
         headers={
             "set-cookie": "VW_ADMIN=super-secret-access-cookie; HttpOnly; sameSite=Strict; Path=/admin; Max-Age=1200",
-        }
+        },
     )
 
 
@@ -79,7 +79,7 @@ def test_invite():
         responses.post(
             url="https://vault.example.com/admin/invite/",
             body=f.read(),
-            match=[matchers.json_params_matcher({"email": "test@invalid.invalid"})]
+            match=[matchers.json_params_matcher({"email": "test@invalid.invalid"})],
         )
 
     # act

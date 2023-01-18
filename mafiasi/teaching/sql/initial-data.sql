@@ -70,4 +70,3 @@ SELECT pg_catalog.setval('teaching_faculty_id_seq', 8, true);
 --
 -- PostgreSQL database dump complete
 --
-
