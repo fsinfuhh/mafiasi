@@ -1,7 +1,11 @@
 from django.contrib import admin
 
-from mafiasi.mailinglist.models import (Mailinglist, WhitelistedAddress,
-                                        RefusedRecipient, ModeratedMail)
+from mafiasi.mailinglist.models import (
+    Mailinglist,
+    ModeratedMail,
+    RefusedRecipient,
+    WhitelistedAddress,
+)
 
 admin.site.register(Mailinglist)
 admin.site.register(WhitelistedAddress)

@@ -45,4 +45,3 @@ CKEDITOR.dialog.add( 'myDialog', function( editor ) {
 		]
 	};
 } );
-

@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
             "width": path.getAttribute("stroke-width")
 		};
 	}
-	
+
 	var edge_re = /^([A-F0-9]{16})_([A-F0-9]{16})$/
 	var nodes = document.querySelectorAll('g[class="node"]');
 	for (var i = 0; i < nodes.length; i++) {
@@ -24,8 +24,8 @@ document.addEventListener("DOMContentLoaded", function() {
 				}
 				var signer_keyid = conn[1];
 				var signed_keyid = conn[2];
-				
-				var path = edge.querySelector('path');		
+
+				var path = edge.querySelector('path');
 				var polygons = edge.querySelectorAll('polygon');
 
 				var attrs = {}

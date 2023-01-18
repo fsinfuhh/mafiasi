@@ -32,7 +32,7 @@ GProt.initSearch = function(autocompleteData, search) {
         }
         itemList.show();
     }
-    
+
     var aTypes = [{'type': 'course', 'label_key': 'full_name'},
                   {'type': 'teacher', 'label_key': 'full_name'}];
     $('#search').autocomplete({

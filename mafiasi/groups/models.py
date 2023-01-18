@@ -1,33 +1,34 @@
 import re
 
+from django.conf import settings
+from django.contrib.auth.models import Group
 from django.db import models
 from django.db.models.signals import post_save
-from django.contrib.auth.models import Group
-from django.conf import settings
-from django.utils.translation import gettext_lazy as _
 from django.utils.timezone import now
+from django.utils.translation import gettext_lazy as _
 
-from mafiasi.base.models import LdapGroup, LOCK_ID_LDAP_GROUP
+from mafiasi.base.models import LOCK_ID_LDAP_GROUP, LdapGroup
 from mafiasi.base.utils import AdvisoryLock
 
 MIN_GROUPNAME_LENGTH = 3
+
 
 class GroupError(Exception):
     pass
 
 
 class GroupProperties(models.Model):
-    group = models.OneToOneField(Group, related_name='properties', on_delete=models.CASCADE)
-    admins = models.ManyToManyField(settings.AUTH_USER_MODEL,
-            related_name='admin_of')
+    group = models.OneToOneField(Group, related_name="properties", on_delete=models.CASCADE)
+    admins = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="admin_of")
     public_members = models.BooleanField(default=False)
     has_mailinglist = models.BooleanField(default=False)
-    
+
     def get_ldap_group(self):
         return LdapGroup.lookup(self.group.name)
 
     def __str__(self):
         return str(self.group)
+
 
 class GroupProxy(object):
     def __init__(self, group):
@@ -54,7 +55,7 @@ class GroupProxy(object):
             except ValueError:
                 pass
             self.group.user_set.remove(user)
-    
+
     def grant_admin(self, user):
         self.group.properties.admins.add(user)
 
@@ -73,20 +74,18 @@ class GroupProxy(object):
         if self.is_admin(user):
             num_admins = properties.admins.count()
             if num_admins == 1:
-                msg = _('You are the sole group admin. Please terminate the '
-                        'group or appoint another group admin.')
+                msg = _("You are the sole group admin. Please terminate the " "group or appoint another group admin.")
                 raise GroupError(msg)
+
 
 class GroupInvitation(models.Model):
     date_invited = models.DateTimeField(default=now)
-    group = models.ForeignKey(Group, related_name='invitations', on_delete=models.CASCADE)
-    invitee = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,
-            related_name='invitations')
-    invited_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,
-            related_name='given_invitations')
+    group = models.ForeignKey(Group, related_name="invitations", on_delete=models.CASCADE)
+    invitee = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="invitations")
+    invited_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="given_invitations")
 
     def __str__(self):
-        return 'Invitation to {0} for {1}'.format(self.group, self.invitee)
+        return "Invitation to {0} for {1}".format(self.group, self.invitee)
 
     def accept(self):
         group_proxy = GroupProxy(self.group)
@@ -96,19 +95,21 @@ class GroupInvitation(models.Model):
     def refuse(self):
         self.delete()
 
-_group_name_re = re.compile(r'^[a-zA-Z]([a-zA-Z0-9-]*)$')
+
+_group_name_re = re.compile(r"^[a-zA-Z]([a-zA-Z0-9-]*)$")
+
+
 def create_usergroup(user, name):
     if not _group_name_re.match(name):
-        raise GroupError(_('Invalid group name.'))
+        raise GroupError(_("Invalid group name."))
 
     if len(name) < MIN_GROUPNAME_LENGTH:
-        err_msg = _('The group name must be at least {} characters').format(
-                MIN_GROUPNAME_LENGTH)
+        err_msg = _("The group name must be at least {} characters").format(MIN_GROUPNAME_LENGTH)
         raise GroupError(err_msg)
-    
+
     if Group.objects.filter(name__iexact=name).count():
-        raise GroupError(_('Group does already exist.'))
-    
+        raise GroupError(_("Group does already exist."))
+
     group = Group.objects.create(name=name)
 
     group_proxy = GroupProxy(group)
@@ -118,8 +119,11 @@ def create_usergroup(user, name):
 
     return group
 
+
 def _change_group_cb(sender, instance, created, **kwargs):
     if created:
         props = GroupProperties.objects.create(group=instance)
         instance.properties = props
+
+
 post_save.connect(_change_group_cb, sender=Group)

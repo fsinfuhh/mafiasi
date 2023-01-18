@@ -6,21 +6,35 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('gprot', '0001_initial'),
+        ("gprot", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Label',
+            name="Label",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=50)),
-                ('color', models.CharField(choices=[('success', 'green'), ('default', 'grey'), ('info', 'light blue'), ('primary', 'blue'), ('warning', 'yellow'), ('danger', 'red')], default='default', max_length=15)),
+                ("id", models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                ("name", models.CharField(max_length=50)),
+                (
+                    "color",
+                    models.CharField(
+                        choices=[
+                            ("success", "green"),
+                            ("default", "grey"),
+                            ("info", "light blue"),
+                            ("primary", "blue"),
+                            ("warning", "yellow"),
+                            ("danger", "red"),
+                        ],
+                        default="default",
+                        max_length=15,
+                    ),
+                ),
             ],
         ),
         migrations.AddField(
-            model_name='gprot',
-            name='labels',
-            field=models.ManyToManyField(related_name='gprots', to='gprot.Label'),
+            model_name="gprot",
+            name="labels",
+            field=models.ManyToManyField(related_name="gprots", to="gprot.Label"),
         ),
     ]

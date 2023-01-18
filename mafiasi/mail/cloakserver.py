@@ -1,18 +1,18 @@
-
-
 import copy
-from email.parser import Parser, BytesParser
-from email.utils import getaddresses, formataddr
 import logging
 import smtplib
 import socket
-from . import customsmtpd
+from email.parser import BytesParser, Parser
+from email.utils import formataddr, getaddresses
 
 from django.conf import settings
 
 from mafiasi.base.models import Mafiasi
 
-logger = logging.getLogger('mailcloak')
+from . import customsmtpd
+
+logger = logging.getLogger("mailcloak")
+
 
 class CloakServer(customsmtpd.RaisingSMTPServer):
     def process_message(self, peer, mailfrom, rcpttos, data, **kwargs):
@@ -22,15 +22,13 @@ class CloakServer(customsmtpd.RaisingSMTPServer):
         else:
             parser = BytesParser()
             message = parser.parsebytes(data)
-        
+
         rcptto_addresses = [addr[1].lower() for addr in getaddresses(rcpttos)]
         cloaks = self.get_cloaks(rcptto_addresses)
 
         for rcptto_address in rcptto_addresses:
             if rcptto_address in cloaks:
-                rcptmessage = self.uncloak_message(message,
-                                                      rcptto_address,
-                                                      cloaks)
+                rcptmessage = self.uncloak_message(message, rcptto_address, cloaks)
                 rcptto = cloaks[rcptto_address]
             else:
                 rcptto = rcptto_address
@@ -50,25 +48,23 @@ class CloakServer(customsmtpd.RaisingSMTPServer):
             return
 
         for recipient_email, smtp_error in list(refused.items()):
-            logger.info('Recipient {} refused ({}: {})'.format(
-                    recipient_email, smtp_error[0], smtp_error[1]))
+            logger.info("Recipient {} refused ({}: {})".format(recipient_email, smtp_error[0], smtp_error[1]))
 
     def get_cloaks(self, addresses):
         cloaks = {}
         cloak_users = []
         for address in addresses:
-            local_part, domain = address.split('@', 1)
+            local_part, domain = address.split("@", 1)
             if domain == settings.MAILCLOAK_DOMAIN:
                 cloak_users.append(local_part)
         for cloak_user in Mafiasi.objects.filter(username__in=cloak_users):
-            cloak_email = '{}@{}'.format(cloak_user.username,
-                                         settings.MAILCLOAK_DOMAIN)
+            cloak_email = "{}@{}".format(cloak_user.username, settings.MAILCLOAK_DOMAIN)
             cloaks[cloak_email] = cloak_user.real_email
         return cloaks
 
     def uncloak_message(self, message, rcptto, cloaks):
         message = copy.deepcopy(message)
-        for field in ('To', 'Cc'):
+        for field in ("To", "Cc"):
             self._uncloak_field(message, rcptto, cloaks, field)
         return message
 

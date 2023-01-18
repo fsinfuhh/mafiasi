@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 
-from django.db import models, migrations
 import django.utils.timezone
 from django.conf import settings
+from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
@@ -14,30 +14,38 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Guest',
+            name="Guest",
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('date_invited', models.DateTimeField(default=django.utils.timezone.now)),
-                ('guest_user', models.OneToOneField(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)),
-                ('invited_by', models.ForeignKey(related_name='invited_guests', to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)),
+                ("id", models.AutoField(verbose_name="ID", serialize=False, auto_created=True, primary_key=True)),
+                ("date_invited", models.DateTimeField(default=django.utils.timezone.now)),
+                ("guest_user", models.OneToOneField(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)),
+                (
+                    "invited_by",
+                    models.ForeignKey(
+                        related_name="invited_guests", to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE
+                    ),
+                ),
             ],
-            options={
-            },
+            options={},
             bases=(models.Model,),
         ),
         migrations.CreateModel(
-            name='Invitation',
+            name="Invitation",
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('username', models.CharField(unique=True, max_length=24)),
-                ('email', models.EmailField(max_length=75)),
-                ('first_name', models.CharField(max_length=30)),
-                ('last_name', models.CharField(max_length=30)),
-                ('date_invited', models.DateTimeField(default=django.utils.timezone.now)),
-                ('invited_by', models.ForeignKey(related_name='sent_invitations', to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)),
+                ("id", models.AutoField(verbose_name="ID", serialize=False, auto_created=True, primary_key=True)),
+                ("username", models.CharField(unique=True, max_length=24)),
+                ("email", models.EmailField(max_length=75)),
+                ("first_name", models.CharField(max_length=30)),
+                ("last_name", models.CharField(max_length=30)),
+                ("date_invited", models.DateTimeField(default=django.utils.timezone.now)),
+                (
+                    "invited_by",
+                    models.ForeignKey(
+                        related_name="sent_invitations", to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE
+                    ),
+                ),
             ],
-            options={
-            },
+            options={},
             bases=(models.Model,),
         ),
     ]

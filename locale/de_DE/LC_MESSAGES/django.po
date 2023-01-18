@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-03 17:33+0100\n"
-"PO-Revision-Date: 2022-03-07 15:54+0100\n"
+"POT-Creation-Date: 2023-01-18 14:54+0100\n"
+"PO-Revision-Date: 2023-01-18 14:58+0100\n"
 "Last-Translator: Markus Neblung <markus.neblung@uni-hamburg.de>\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: mafiasi/base/middleware.py:15
 msgid ""
@@ -48,49 +48,49 @@ msgstr ""
 "Bitte versuche es später nochmal. Falls das Problem bestehen bleibt, schaue "
 "auf unsere <a href=\"%(problems_url)s\">Fehlermeldeseite</a>."
 
-#: mafiasi/base/templates/base.html:38
+#: mafiasi/base/templates/base.html:47
 msgid "Groups"
 msgstr "Gruppen"
 
-#: mafiasi/base/templates/base.html:46
+#: mafiasi/base/templates/base.html:55
 #: mafiasi/mailinglist/templates/mailinglist/show_list.html:46
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: mafiasi/base/templates/base.html:48
+#: mafiasi/base/templates/base.html:57
 #, python-format
 msgid "Logged in as %(username)s"
 msgstr "Angemeldet als %(username)s"
 
-#: mafiasi/base/templates/base.html:49
+#: mafiasi/base/templates/base.html:58
 msgid "Logout"
 msgstr "Abmelden"
 
-#: mafiasi/base/templates/base.html:55
+#: mafiasi/base/templates/base.html:64
 #: mafiasi/registration/templates/registration/request_account.html:35
 #: mafiasi/registration/templates/registration/request_account.html:70
 msgid "Register"
 msgstr "Registrieren"
 
-#: mafiasi/base/templates/base.html:57
+#: mafiasi/base/templates/base.html:66
 #: mafiasi/registration/templates/registration/login.html:5
 #: mafiasi/registration/templates/registration/login.html:47
 msgid "Login"
 msgstr "Login"
 
-#: mafiasi/base/templates/base.html:85
+#: mafiasi/base/templates/base.html:94
 msgid "Imprint"
 msgstr "Impressum"
 
-#: mafiasi/base/templates/base.html:87
+#: mafiasi/base/templates/base.html:96
 msgid "Data privacy statement"
 msgstr "Datenschutzerklärung"
 
-#: mafiasi/base/templates/base.html:89
+#: mafiasi/base/templates/base.html:98
 msgid "Technical info"
 msgstr "Technik"
 
-#: mafiasi/base/templates/base.html:91
+#: mafiasi/base/templates/base.html:100
 #: mafiasi/base/templates/base/problems.html:4
 msgid "Problems?"
 msgstr "Probleme?"
@@ -163,27 +163,27 @@ msgstr "BitPoll"
 msgid "BitPoll helps you to find common dates for meetings easily."
 msgstr "Mit dem BitPoll kannst du einfach gemeinsame Termine finden."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:6
+#: mafiasi/dashboard/templates/dashboard/index.html:7
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:14
+#: mafiasi/dashboard/templates/dashboard/index.html:16
 msgid "Services"
 msgstr "Dienste"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:27
+#: mafiasi/dashboard/templates/dashboard/index.html:32
 msgid "Rearrange item"
 msgstr "Dienst umordnen"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:35
+#: mafiasi/dashboard/templates/dashboard/index.html:40
 msgid "News and more"
 msgstr "Aktuelles und mehr"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:51
+#: mafiasi/dashboard/templates/dashboard/index.html:56
 msgid "Wiki search"
 msgstr "Wiki-Suche"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:58
+#: mafiasi/dashboard/templates/dashboard/index.html:63
 #: mafiasi/gprot/templates/gprot/menu.html:4
 #: mafiasi/pks/templates/pks/menu.html:4
 #: mafiasi/pks/templates/pks/search.html:5
@@ -1499,18 +1499,6 @@ msgstr ""
 "Unten findest du die nötigen Einstellungen für Gajim, Dino, Pidgin und "
 "Conversations."
 
-#: mafiasi/jitsi/apps.py:10
-msgid "Jitsi"
-msgstr "Jitsi"
-
-#: mafiasi/jitsi/apps.py:11
-msgid ""
-"Jitsi is a secure and open source video conference tool that can be used in "
-"a browser."
-msgstr ""
-"Jitsi ist eine sichere Open-Source-Videoplattform, die im Browser genutzt "
-"werden kann."
-
 #: mafiasi/kanboard/apps.py:10
 msgid "Kanboard"
 msgstr "Kanboard"
@@ -2431,6 +2419,93 @@ msgstr "Wintersemester {0}"
 msgid "summer term {0}"
 msgstr "Sommersemester {0}"
 
+#: mafiasi/vault/apps.py:15
+msgid "Vault"
+msgstr "Vault"
+
+#: mafiasi/vault/apps.py:16
+msgid "Mafiasi hosted password manager"
+msgstr "Passwort-Manager betrieben von Mafiasi"
+
+#: mafiasi/vault/templates/vault/index.html:21
+msgid ""
+"Vault is a <i>Vaultwarden / Bitwarden</i> password manager hosted and "
+"operated by Mafiasi.<br> You can use it to store and manage your passwords. "
+"You can also share passwords with other users or groups."
+msgstr ""
+"Vault ist eine von Mafiasi betriebene <i>Vaultwarden / Bitwarden</i> Instanz."
+"<br>Du kannst es nutzen, um deine Passwörter sicher aufzubewahren. Außerdem "
+"kannst du diese einfach mit anderen Mafiasi-Nutzer:innen teilen."
+
+#: mafiasi/vault/templates/vault/index.html:28
+msgid ""
+"Note that Mafiasi has no access to any of your credentials because they are "
+"encrypted with a master password chosen by you."
+msgstr ""
+"Mafiasi selbst hat keinen Zugriff auf deine Passwörter oder andere "
+"sicherheitsrelevante Daten deines Vaults."
+
+#: mafiasi/vault/templates/vault/index.html:37
+msgid "You do not currently have a vault account"
+msgstr "Du hast momentan noch kein Vault-Konto"
+
+#: mafiasi/vault/templates/vault/index.html:39
+#, python-format
+msgid ""
+"You can use the button below to create a new account.<br> When doing so, you "
+"will receive an e-mail at %(vault_email)s inviting you to register and set a "
+"password."
+msgstr ""
+"Du kannst den unteren Knopf nutzen, um dir dein Vault-Konto zu erstellen."
+"<br>Wenn du dies tust, bekommst du von uns eine E-Mail an %(vault_email)s, "
+"welche dich einlädt, dir ein Konto anzulegen und ein Master-Passwort zu "
+"bestimmen."
+
+#: mafiasi/vault/templates/vault/index.html:46
+#: mafiasi/vault/templates/vault/index.html:84
+msgid ""
+"The password you choose to use with Vault should not be confused with your "
+"Mafiasi password. They are completely separate."
+msgstr ""
+"Das Master-Passwort, welches du in Vault benutzt, sollte nicht mit dem "
+"Mafiasi-Passwort verwechselt werden. Die beiden haben nichts miteinander zu "
+"tun."
+
+#: mafiasi/vault/templates/vault/index.html:49
+#: mafiasi/vault/templates/vault/index.html:87
+msgid ""
+"Do not change your email address to anything else. It is what binds the "
+"vaultwarden account to your Mafiasi account and we use it to synchronize "
+"group / organization memberships. Wel also regularly delete vault accounts "
+"with unknown email addresses."
+msgstr ""
+"Bitte ändere deine E-Mail Adresse nicht. Sie wird genutzt, um dein Vault-"
+"Konto an dein Mafiasi-Konto zu knüpfen. Wir löschen regelmäßig Vault-Konten "
+"mit E-Mail-Adressen, welche nicht zu uns gehören."
+
+#: mafiasi/vault/templates/vault/index.html:61
+msgid "Your vault account is ready to go"
+msgstr "Dein Vault-Konto ist eingerichtet; du kannst loslegen"
+
+#: mafiasi/vault/templates/vault/index.html:63
+#, python-format
+msgid "You can log in using <i>%(vault_email)s</i> as your email."
+msgstr ""
+"Du kannst dich bei Vault mit der E-Mail <i>%(vault_email)s</i> anmelden."
+
+#: mafiasi/vault/templates/vault/index.html:76
+msgid "Your vault account has been created but is not yet ready"
+msgstr "Dein Vault-Konto wurde erstellt aber ist noch nicht bereit."
+
+#: mafiasi/vault/templates/vault/index.html:78
+#, python-format
+msgid ""
+"An invitation email has been sent to %(vault_email)s. It includes a link "
+"which you need to click to complete the account creation."
+msgstr ""
+"Eine Einladungs-E-Mail wurde an %(vault_email)s gesendet. Sie beinhaltet "
+"einen Link, mit dem du dein Konto bei Vault vervollständigen kannst."
+
 #: mafiasi/whiteboard/apps.py:10
 msgid "Whiteboard"
 msgstr "Whiteboard"
@@ -2447,6 +2522,16 @@ msgstr "Wiki"
 msgid "In the wiki you will find important information regarding your studies."
 msgstr ""
 "Im Wiki findest du wichtige Informationen zum Studium. Beteiligen erwünscht!"
+
+#~ msgid "Jitsi"
+#~ msgstr "Jitsi"
+
+#~ msgid ""
+#~ "Jitsi is a secure and open source video conference tool that can be used "
+#~ "in a browser."
+#~ msgstr ""
+#~ "Jitsi ist eine sichere Open-Source-Videoplattform, die im Browser genutzt "
+#~ "werden kann."
 
 #, python-format
 #~ msgid "\"%s\" already has an invitation."

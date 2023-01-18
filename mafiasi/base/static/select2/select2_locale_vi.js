@@ -1,6 +1,6 @@
 /**
  * Select2 Vietnamese translation.
- * 
+ *
  * Author: Long Nguyen <olragon@gmail.com>
  */
 (function ($) {
@@ -17,4 +17,3 @@
 
     $.extend($.fn.select2.defaults, $.fn.select2.locales['vi']);
 })(jQuery);
-
