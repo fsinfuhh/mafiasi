@@ -1,7 +1,7 @@
 from urllib.parse import urlparse
 
 import bleach
-from bleach import CSSSanitizer
+from bleach.css_sanitizer import CSSSanitizer
 from django.conf import settings
 
 
