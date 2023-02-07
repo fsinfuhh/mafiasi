@@ -1,6 +1,7 @@
 from urllib.parse import urlparse
 
 import bleach
+from bleach import CSSSanitizer
 from django.conf import settings
 
 
@@ -49,12 +50,13 @@ def clean_html(content):
         "img",
         "br",
     ]
-    allowed_tags = bleach.ALLOWED_TAGS + extra_tags
+    allowed_tags = bleach.ALLOWED_TAGS.union(extra_tags)
     allowed_attrs = {
         "span": _filter_css_class,
         "table": _build_filter_integer("border", "cellpadding", "cellspacing"),
         "a": _filter_src,
         "img": _filter_img,
     }
-    allowed_styles = ["border-style", "border-width", "float", "height", "margin", "left"]
-    return bleach.clean(content, tags=allowed_tags, attributes=allowed_attrs, styles=allowed_styles)
+    allowed_css_properties = ["border-style", "border-width", "float", "height", "margin", "left"]
+    css_sanitizer = CSSSanitizer(allowed_css_properties=allowed_css_properties)
+    return bleach.clean(content, tags=allowed_tags, attributes=allowed_attrs, css_sanitizer=css_sanitizer)

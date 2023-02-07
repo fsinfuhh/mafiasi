@@ -7,7 +7,7 @@ name = "pypi"
 Django = "~=4.1"
 Pillow = "~=9.3"
 PyPDF2 = "~=1.27"
-bleach = "~=5.0"
+bleach = {extras = ["css"], version = "~=6.0"}
 django-auth-ldap = "~=4.1"
 django-cors-headers = "~=3.13"
 django-ldapdb = "~=1.5"
