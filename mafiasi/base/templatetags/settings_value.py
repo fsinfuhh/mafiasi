@@ -6,6 +6,8 @@ register = template.Library()
 
 
 register = Library()
+
+
 # I found some tricks in URLNode and url from defaulttags.py:
 # https://code.djangoproject.com/browser/django/trunk/django/template/defaulttags.py
 @register.tag

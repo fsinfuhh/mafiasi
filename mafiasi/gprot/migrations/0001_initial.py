@@ -8,7 +8,6 @@ import mafiasi.gprot.models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
         ("teaching", "__first__"),
