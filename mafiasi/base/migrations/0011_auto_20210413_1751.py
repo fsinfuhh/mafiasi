@@ -6,7 +6,6 @@ import mafiasi.base.validation
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("base", "0010_auto_20210325_1312"),
     ]

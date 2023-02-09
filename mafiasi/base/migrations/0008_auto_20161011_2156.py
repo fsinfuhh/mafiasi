@@ -8,7 +8,6 @@ import mafiasi.base.validation
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("base", "0007_auto_20161005_1857"),
     ]
