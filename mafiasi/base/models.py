@@ -6,8 +6,7 @@ import re
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser, Group
 from django.db import models
-from django.db.models.signals import post_save, pre_save
-from django.dispatch import receiver
+from django.db.models.signals import post_save
 from django.utils.crypto import constant_time_compare
 
 from mafiasi.base.tokenbucket import TokenBucket  # noqa
@@ -43,7 +42,6 @@ class Mafiasi(AbstractUser):
     yeargroup = models.ForeignKey(Yeargroup, on_delete=models.CASCADE, blank=True, null=True)
     is_guest = models.BooleanField(default=False)
     real_email = models.EmailField(unique=True, null=True)
-    new_password = None
 
     # USED in contrib.auth to determine the mail address for thinks like password reset
     EMAIL_FIELD = "real_email"
@@ -53,16 +51,6 @@ class Mafiasi(AbstractUser):
     @property
     def is_student(self):
         return self.account and (self.account[0].isdigit() or self.account[0] == "x")
-
-    def set_password(self, new_password):
-        """Set attribute new_password after changing a password.
-
-        This way other parts of this app can register to Mafiasi.post_save
-        signal and access the plaintext password for changing it in their
-        service.
-        """
-        super(Mafiasi, self).set_password(new_password)
-        self.new_password = new_password
 
     def get_ldapuser(self):
         return LdapUser.lookup(self.username)
@@ -140,8 +128,6 @@ def _change_user_cb(sender, instance, created, **kwargs):
     if instance.email:
         ldap_user.email = instance.email
 
-    if instance.new_password:
-        ldap_user.set_password(instance.new_password)
     ldap_user.save()
 
 
