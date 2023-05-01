@@ -21,6 +21,17 @@ DATABASES = {
     "default": env.dj_db_url("MAFIASI_DB"),
 }
 
+OPENID_ISSUER = env.str("MAFIASI_OPENID_ISSUER", default="https://identity.mafiasi.de/realms/mafiasi")
+OPENID_CLIENT_ID = env.str("MAFIASI_OPENID_CLIENT_ID", default="mafiasi-dashboard")
+OPENID_CLIENT_SECRET = env.str("MAFIASI_OPENID_CLIENT_SECRET", required=True)
+OPENID_SCOPE = "openid profile email"
+OPENID_CREATE_USER_FUNC = "mafiasi.registration.user_mapping.create_user_from_token"
+OPENID_UPDATE_USER_FUNC = "mafiasi.registration.user_mapping.update_user_from_token"
+
+OPENID_SYNC_SUPERUSER = env.bool("MAFIASI_OPENID_SYNC_SUPERUSER", default=True)
+if OPENID_SYNC_SUPERUSER:
+    OPENID_SUPERUSER_GROUP = env.str("MAFIASI_OPENID_SUPERUSER_GROUP", default="Server-AG")
+
 LDAP_SERVERS = {}
 ENABLE_LDAP_AUTH_BACKEND = env.bool("MAFIASI_ENABLE_LDAP_AUTH_BACKEND", default=True)
 if ENABLE_LDAP_AUTH_BACKEND:
@@ -124,6 +135,7 @@ INSTALLED_APPS = [
         "widget_tweaks",
         "oauth2_provider",
         "corsheaders",
+        "simple_openid_connect.integrations.django",
         ### internal
         "mafiasi.base",
         "mafiasi.dashboard",

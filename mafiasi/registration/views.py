@@ -173,7 +173,7 @@ def create_account(request, info_token):
     username = _create_username(info, yeargroup)
 
     if Mafiasi.objects.filter(username=username).exists():
-        return redirect("login")
+        return redirect("simple_openid_connect.login")
 
     if request.method == "POST":
         form = PasswordForm(request.POST)
