@@ -24,7 +24,7 @@ DATABASES = {
 OPENID_ISSUER = env.str("MAFIASI_OPENID_ISSUER", default="https://identity.mafiasi.de/realms/mafiasi")
 OPENID_CLIENT_ID = env.str("MAFIASI_OPENID_CLIENT_ID", default="mafiasi-dashboard")
 OPENID_CLIENT_SECRET = env.str("MAFIASI_OPENID_CLIENT_SECRET", required=True)
-OPENID_SCOPE = "openid profile email groups"
+OPENID_SCOPE = "openid profile email"
 OPENID_CREATE_USER_FUNC = "mafiasi.registration.user_mapping.create_user_from_token"
 OPENID_UPDATE_USER_FUNC = "mafiasi.registration.user_mapping.update_user_from_token"
 
