@@ -12,6 +12,7 @@ def create_user_from_token(id_token: IdToken) -> Any:
         user.exists()
     ), f"User {id_token.preferred_username} does not exist in local database even though users are only ever created from the dashboard"
     user = user.get()
+    user.backend = "django.contrib.auth.backends.ModelBackend"
     update_user_from_token(user, id_token)
     return user
 
