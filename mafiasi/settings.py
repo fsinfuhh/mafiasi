@@ -28,6 +28,10 @@ OPENID_SCOPE = "openid profile email"
 OPENID_CREATE_USER_FUNC = "mafiasi.registration.user_mapping.create_user_from_token"
 OPENID_UPDATE_USER_FUNC = "mafiasi.registration.user_mapping.update_user_from_token"
 
+KEYCLOAK_ACCOUNT_CONSOLE_URL = env.str(
+    "MAFIASI_KEYCLOAK_ACCOUNT_CONSOLE_URL", default="https://identity.mafiasi.de/realms/mafiasi/account"
+)
+
 OPENID_SYNC_SUPERUSER = env.bool("MAFIASI_OPENID_SYNC_SUPERUSER", default=True)
 if OPENID_SYNC_SUPERUSER:
     OPENID_SUPERUSER_GROUP = env.str("MAFIASI_OPENID_SUPERUSER_GROUP", default="Server-AG")
@@ -201,6 +205,7 @@ TEMPLATE_ALLOWABLE_SETTINGS_VALUES = [
     "GUEST_INVITE_INSTRUCTION_LINK",
     "RAVEN_PUBLIC_DSN",
     "VAULT_URL",
+    "KEYCLOAK_ACCOUNT_CONSOLE_URL",
 ]
 
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"

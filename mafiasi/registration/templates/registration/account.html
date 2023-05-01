@@ -7,126 +7,118 @@
 
 {% block content %}
 
-<div class="page-header">
-    <h1>{% trans "Account" %}</h1>
-</div>
-
-{% if not user.is_guest %}
-{% url 'guests_index' as guests_url %}
-<p>
-{% value_from_settings PROJECT_NAME as project_name %}
-{% blocktrans %}You want to use {{ project_name }} with your friends? You can <a href="{{ guests_url }}">invite guests</a>.{% endblocktrans %}
-</p>
-{% endif %}
-<div class="row">
-    <div class="col-sm-6">
-        <form method="post" class="form-inline">
-            <div class="panel panel-default" id="panel-settings-nickname">
-                <div class="panel-heading">
-                    <h3 class="panel-title">
-                        {% trans "Nickname" %}
-                    </h3>
-                </div>
-                <div class="panel-body">
-                    <p>{% trans 'If you choose a nickname, it will be shown instead of your first name (e.g. when you vote in Dudle)' %}</p>
-                    {% csrf_token %}
-                    <input type="hidden" name="form" value="change_nick" />
-                    <div class="form-group{% if nick_change_form.nickname.errors %} has-error{% endif %}">
-                        <div class="input-group">
-                            {% render_field nick_change_form.nickname class+="form-control" style="width:20em" %}
-                            <span class="input-group-addon"> ({{ username }})</span>
-                        </div>
-                        {% if nick_change_form.nickname.errors %}
-                        <div class="help-block">
-                        {% for error in nick_change_form.nickname.errors %}{{ error }} {% endfor %}
-                        </div>
-                        {% endif %}
-                    </div>
-                </div>
-                <div class="panel-footer">
-                    <button type="submit" class="btn btn-primary btn-xs">
-                        {% trans "Change Nickname" %}
-                    </button>
-                </div>
-            </div>
-        </form>
-
-
-        <form method="post">
-            <div class="panel panel-default" id="panel-settings-email">
-                <div class="panel-heading">
-                    <h3 class="panel-title">
-                        {% trans "Email" %}
-                    </h3>
-                </div>
-                <div class="panel-body">
-                    {% csrf_token %}
-                    <input type="hidden" name="form" value="change_email" />
-                    <div class="form-group{% if email_change_form.email.errors %} has-error{% endif %}">
-                        <label class="control-label">{% trans "New Email Address" %}</label>
-                        {% render_field email_change_form.email class+="form-control" %}
-                        {% if email_change_form.email.errors %}
-                        <div class="help-block">
-                        {% for error in email_change_form.email.errors %}{{ error }} {% endfor %}
-                        </div>
-                        {% endif %}
-                    </div>
-                </div>
-                <div class="panel-footer">
-                    <button type="submit" class="btn btn-primary btn-xs">
-                        {% trans "Change Email" %}
-                    </button>
-                </div>
-            </div>
-        </form>
+    <div class="page-header">
+        <h1>{% trans "Account" %}</h1>
     </div>
-    <div class="col-sm-6">
-        <form method="post">
-        <div class="panel panel-default" id="panel-settings-password">
-            <div class="panel-heading">
-                <h3 class="panel-title">
-                    {% trans "Password" %}
-                </h3>
-            </div>
-            <div class="panel-body">
-                <p>{% trans 'Note: You can "change" your password to the current password to synchronize it with other services (e.g. Jabber)' %}</p>
-                {% csrf_token %}
-                <input type="hidden" name="form" value="change_pw" />
-                <div class="form-group{% if password_change_form.old_password.errors %} has-error{% endif %}">
-                    <label class="control-label">{% trans "Old password" %}</label>
-                    {% render_field password_change_form.old_password class+="form-control" %}
-                    {% if password_change_form.old_password.errors %}
-                    <div class="help-block">
-                    {% for error in password_change_form.old_password.errors %}{{ error }} {% endfor %}
+
+    <div class="row">
+        <div class="col-sm-6">
+
+            {# nickname management #}
+            <form method="post" class="form-inline">
+                <div class="panel panel-default" id="panel-settings-nickname">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            {% trans "Nickname" %}
+                        </h3>
                     </div>
-                    {% endif %}
-                </div>
-                <div class="form-group{% if password_change_form.new_password1.errors %} has-error{% endif %}">
-                    <label class="control-label">{% trans "New password" %}</label>
-                    {% render_field password_change_form.new_password1 class+="form-control" %}
-                    {% if password_change_form.new_password1.errors %}
-                    <div class="help-block">
-                    {% for error in password_change_form.new_password1.errors %}{{ error }} {% endfor %}
+                    <div class="panel-body">
+                        <p>{% trans 'If you choose a nickname, it will be shown instead of your first name (e.g. when you vote in Dudle)' %}</p>
+                        {% csrf_token %}
+                        <input type="hidden" name="form" value="change_nick"/>
+                        <div class="form-group{% if nick_change_form.nickname.errors %} has-error{% endif %}">
+                            <div class="input-group">
+                                {% render_field nick_change_form.nickname class+="form-control" style="width:20em" %}
+                                <span class="input-group-addon"> ({{ username }})</span>
+                            </div>
+                            {% if nick_change_form.nickname.errors %}
+                                <div class="help-block">
+                                    {% for error in nick_change_form.nickname.errors %}{{ error }} {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
                     </div>
-                    {% endif %}
-                </div>
-                <div class="form-group{% if password_change_form.new_password2.errors %} has-error{% endif %}">
-                    <label class="control-label">{% trans "New password confirmation" %}</label>
-                    {% render_field password_change_form.new_password2 class+="form-control" %}
-                    {% if password_change_form.new_password2.errors %}
-                    <div class="help-block">
-                    {% for error in password_change_form.new_password2.errors %}{{ error }} {% endfor %}
+                    <div class="panel-footer">
+                        <button type="submit" class="btn btn-primary btn-xs">
+                            {% trans "Change Nickname" %}
+                        </button>
                     </div>
-                    {% endif %}
                 </div>
-            </div>
-            <div class="panel-footer">
-                <button type="submit" class="btn btn-primary btn-xs">
-                    {% trans "Change password" %}
-                </button>
-            </div>
+            </form>
+
+            {# real email management #}
+            <form method="post">
+                <div class="panel panel-default" id="panel-settings-email">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            {% trans "Email" %}
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        {% csrf_token %}
+                        <input type="hidden" name="form" value="change_email"/>
+                        <div class="form-group{% if email_change_form.email.errors %} has-error{% endif %}">
+                            <label class="control-label">{% trans "New Email Address" %}</label>
+                            {% render_field email_change_form.email class+="form-control" %}
+                            {% if email_change_form.email.errors %}
+                                <div class="help-block">
+                                    {% for error in email_change_form.email.errors %}{{ error }} {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <button type="submit" class="btn btn-primary btn-xs">
+                            {% trans "Change Email" %}
+                        </button>
+                    </div>
+                </div>
+            </form>
         </div>
-        </form>
+        <div class="col-sm-6">
+
+            {# keycloak account management #}
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{% trans "Update Password" %}</h3>
+                </div>
+                <div class="panel-body">
+                    <p>
+                        {% blocktrans trimmed %}
+                            To change your password you need to visit our central <i>Account Console</i>.
+                            We also support the usage of additional second-factor security which can also be configured there.
+                        {% endblocktrans %}
+                    </p>
+                </div>
+                <div class="panel-footer">
+                    <a href="{% value_from_settings KEYCLOAK_ACCOUNT_CONSOLE_URL %}">
+                        <button class="btn btn-primary btn-xs">Go to Account Console</button>
+                    </a>
+                </div>
+            </div>
+
+            {# invite guests  #}
+            {% if not user.is_guest %}
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{% trans "Invite Guests" %}</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            {% url 'guests_index' as guests_url %}
+                            {% value_from_settings PROJECT_NAME as project_name %}
+                            {% blocktrans %}You want to use {{ project_name }} with your friends? You can
+                                <a href="{{ guests_url }}">invite guests</a>.{% endblocktrans %}
+                        </p>
+                    </div>
+                    <div class="panel-footer">
+                        <a href="{% url "guests_index" %}">
+                            <button class="btn btn-primary btn-xs">{% trans "Manage Guests" %}</button>
+                        </a>
+                    </div>
+                </div>
+            {% endif %}
+
+        </div>
     </div>
-</div>
 {% endblock %}
