@@ -7,10 +7,10 @@ from mafiasi.base.models import Mafiasi as MafiasiUser
 
 
 def create_user_from_token(id_token: IdToken) -> Any:
-    user = MafiasiUser.objects.filter(username=id_token.username)
+    user = MafiasiUser.objects.filter(username=id_token.preferred_username)
     assert (
         user.exists()
-    ), f"User {id_token.username} does not exist in local database even though users are only ever created from the dashboard"
+    ), f"User {id_token.preferred_username} does not exist in local database even though users are only ever created from the dashboard"
     user = user.get()
     update_user_from_token(user, id_token)
     return user
