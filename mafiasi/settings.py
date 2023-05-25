@@ -220,8 +220,9 @@ TEST_RUNNER = "django.test.runner.DiscoverRunner"
 
 AUTH_USER_MODEL = "base.Mafiasi"
 
-LOGIN_URL = "/login"
-LOGIN_REDIRECT_URL = "/dashboard/"
+LOGIN_URL = "simple_openid_connect_django:login"
+LOGIN_REDIRECT_URL = "dashboard_index"
+LOGOUT_REDIRECT_URL = "dashboard_index"
 USER_LOGIN_HINT = "Note: For our account names we use two digits for year (e.g. <strong>13doe</strong> instead of 3doe)"
 
 from django.contrib.messages import constants as message_constants
