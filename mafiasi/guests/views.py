@@ -47,7 +47,7 @@ def invite(request):
             invitation = form.save(commit=False)
             invitation.invited_by = request.user
             invitation.save()
-            invitation.send_email()
+            invitation.send_email(request)
             msg = _("{} was successfully invited.").format(invitation.username)
             messages.success(request, msg)
             return redirect("guests_index")
@@ -80,7 +80,7 @@ def invitation_action(request):
             except bucket.TokensExceeded as e:
                 messages.error(request, e.get_message())
             else:
-                invitation.send_email()
+                invitation.send_email(request)
                 messages.success(request, _("Invitation mail was resent."))
     return redirect("guests_index")
 

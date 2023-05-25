@@ -37,10 +37,10 @@ class Invitation(models.Model):
         self.delete()
         return mafiasi
 
-    def send_email(self):
+    def send_email(self, request):
         token = signing.dumps(self.pk)
         url_path = reverse("guests_accept", args=(token,))
-        activation_link = "https://{}{}".format(settings.PROJECT_NAME, url_path)
+        activation_link = request.build_absolute_uri(url_path)
         email_content = render_to_string(
             "guests/invitation_mail.txt", {"invitation": self, "activation_link": activation_link}
         )
