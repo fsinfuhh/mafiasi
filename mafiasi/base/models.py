@@ -42,6 +42,7 @@ class Mafiasi(AbstractUser):
     yeargroup = models.ForeignKey(Yeargroup, on_delete=models.CASCADE, blank=True, null=True)
     is_guest = models.BooleanField(default=False)
     real_email = models.EmailField(unique=True, null=True)
+    new_password = None
 
     # USED in contrib.auth to determine the mail address for thinks like password reset
     EMAIL_FIELD = "real_email"
@@ -51,6 +52,11 @@ class Mafiasi(AbstractUser):
     @property
     def is_student(self):
         return self.account and (self.account[0].isdigit() or self.account[0] == "x")
+
+    def set_password(self, new_password):
+        """Set a new password for the user. This is only used when registering."""
+        super(Mafiasi, self).set_password(new_password)
+        self.new_password = new_password
 
     def get_ldapuser(self):
         return LdapUser.lookup(self.username)
@@ -128,6 +134,8 @@ def _change_user_cb(sender, instance, created, **kwargs):
     if instance.email:
         ldap_user.email = instance.email
 
+    if instance.new_password:
+        ldap_user.set_password(instance.new_password)
     ldap_user.save()
 
 
