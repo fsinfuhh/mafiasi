@@ -21,6 +21,21 @@ DATABASES = {
     "default": env.dj_db_url("MAFIASI_DB"),
 }
 
+OPENID_ISSUER = env.str("MAFIASI_OPENID_ISSUER", default="https://identity.mafiasi.de/realms/mafiasi")
+OPENID_CLIENT_ID = env.str("MAFIASI_OPENID_CLIENT_ID", default="mafiasi-dashboard")
+OPENID_CLIENT_SECRET = env.str("MAFIASI_OPENID_CLIENT_SECRET", required=True)
+OPENID_SCOPE = "openid profile email"
+OPENID_CREATE_USER_FUNC = "mafiasi.registration.user_mapping.create_user_from_token"
+OPENID_UPDATE_USER_FUNC = "mafiasi.registration.user_mapping.update_user_from_token"
+
+KEYCLOAK_ACCOUNT_CONSOLE_URL = env.str(
+    "MAFIASI_KEYCLOAK_ACCOUNT_CONSOLE_URL", default="https://identity.mafiasi.de/realms/mafiasi/account"
+)
+
+OPENID_SYNC_SUPERUSER = env.bool("MAFIASI_OPENID_SYNC_SUPERUSER", default=True)
+if OPENID_SYNC_SUPERUSER:
+    OPENID_SUPERUSER_GROUP = env.str("MAFIASI_OPENID_SUPERUSER_GROUP", default="Server-AG")
+
 LDAP_SERVERS = {}
 ENABLE_LDAP_AUTH_BACKEND = env.bool("MAFIASI_ENABLE_LDAP_AUTH_BACKEND", default=True)
 if ENABLE_LDAP_AUTH_BACKEND:
@@ -124,6 +139,7 @@ INSTALLED_APPS = [
         "widget_tweaks",
         "oauth2_provider",
         "corsheaders",
+        "simple_openid_connect.integrations.django",
         ### internal
         "mafiasi.base",
         "mafiasi.dashboard",
@@ -189,6 +205,7 @@ TEMPLATE_ALLOWABLE_SETTINGS_VALUES = [
     "GUEST_INVITE_INSTRUCTION_LINK",
     "RAVEN_PUBLIC_DSN",
     "VAULT_URL",
+    "KEYCLOAK_ACCOUNT_CONSOLE_URL",
 ]
 
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
@@ -203,8 +220,9 @@ TEST_RUNNER = "django.test.runner.DiscoverRunner"
 
 AUTH_USER_MODEL = "base.Mafiasi"
 
-LOGIN_URL = "/login"
-LOGIN_REDIRECT_URL = "/dashboard/"
+LOGIN_URL = "simple_openid_connect_django:login"
+LOGIN_REDIRECT_URL = "dashboard_index"
+LOGOUT_REDIRECT_URL = "dashboard_index"
 USER_LOGIN_HINT = "Note: For our account names we use two digits for year (e.g. <strong>13doe</strong> instead of 3doe)"
 
 from django.contrib.messages import constants as message_constants

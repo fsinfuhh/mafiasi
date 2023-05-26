@@ -4,7 +4,6 @@ from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import PasswordChangeForm
 from django.core import signing
 from django.core.exceptions import ValidationError
 from django.core.mail import send_mail
@@ -173,7 +172,7 @@ def create_account(request, info_token):
     username = _create_username(info, yeargroup)
 
     if Mafiasi.objects.filter(username=username).exists():
-        return redirect("login")
+        return redirect("simple_openid_connect.login")
 
     if request.method == "POST":
         form = PasswordForm(request.POST)
@@ -213,18 +212,11 @@ def create_account(request, info_token):
 
 @login_required
 def account_settings(request):
-    password_change_form = PasswordChangeForm(request.user)
     nick_change_form = NickChangeForm(request.user)
     email_change_form = EmailChangeForm(request.user)
 
     form = request.POST.get("form")
-    if form == "change_pw":
-        password_change_form = PasswordChangeForm(request.user, request.POST)
-        if password_change_form.is_valid():
-            password_change_form.save()
-            messages.success(request, _("Password was changed."))
-            return redirect("registration_account")
-    elif form == "change_nick":
+    if form == "change_nick":
         nick_change_form = NickChangeForm(request.user, request.POST)
         if nick_change_form.is_valid():
             nick_change_form.save()
@@ -239,7 +231,6 @@ def account_settings(request):
         request,
         "registration/account.html",
         {
-            "password_change_form": password_change_form,
             "nick_change_form": nick_change_form,
             "email_change_form": email_change_form,
             "username": request.user.username,

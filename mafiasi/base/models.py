@@ -6,8 +6,7 @@ import re
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser, Group
 from django.db import models
-from django.db.models.signals import post_save, pre_save
-from django.dispatch import receiver
+from django.db.models.signals import post_save
 from django.utils.crypto import constant_time_compare
 
 from mafiasi.base.tokenbucket import TokenBucket  # noqa
@@ -55,12 +54,7 @@ class Mafiasi(AbstractUser):
         return self.account and (self.account[0].isdigit() or self.account[0] == "x")
 
     def set_password(self, new_password):
-        """Set attribute new_password after changing a password.
-
-        This way other parts of this app can register to Mafiasi.post_save
-        signal and access the plaintext password for changing it in their
-        service.
-        """
+        """Set a new password for the user. This is only used when registering."""
         super(Mafiasi, self).set_password(new_password)
         self.new_password = new_password
 

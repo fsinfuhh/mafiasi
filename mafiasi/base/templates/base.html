@@ -44,7 +44,6 @@
                         <span class="glyphicon glyphicon-adjust"></span>
                     </a>
                     {% if user.is_authenticated %}
-                        {% url 'logout' as logout_url %}
                         <a class="btn btn-primary btn-sm" href="{% url 'groups_index' %}">
                             <span class="glyphicon glyphicon-user"></span>
                             {% trans "Groups" %}
@@ -60,7 +59,7 @@
                         <span class="navbar-text">
                             {% blocktrans with username=user.username %}Logged in as {{ username }}{% endblocktrans %}
                         </span>
-                        <a class="btn btn-default btn-sm navbar-btn" href="{{ logout_url }}">
+                        <a class="btn btn-default btn-sm navbar-btn" href="{% url 'simple_openid_connect:logout' %}">
                             {% trans "Logout" %}
                         </a>
                     {% else %}
@@ -69,7 +68,7 @@
                             {% if REGISTER_ENABLED %}
                                 <a class="btn btn-default navbar-btn" href="{% url 'registration_request_account' %}">{% trans "Register" %}</a>
                             {% endif %}
-                            <a class="btn btn-primary navbar-btn" href="{% url 'login' %}">{% trans "Login" %}</a>
+                            <a class="btn btn-primary navbar-btn" href="{% url 'simple_openid_connect:login' %}">{% trans "Login" %}</a>
                         </div>
                     {% endif %}
                 </div>
