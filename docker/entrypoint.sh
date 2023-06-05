@@ -3,13 +3,13 @@ set -e
 cd /app/src
 
 echo Compiling locales
-./manage.py compilemessages
+pipenv run ./manage.py compilemessages
 echo Collecting staticfiles
-./manage.py collectstatic --no-input
+pipenv run ./manage.py collectstatic --no-input
 echo Migrating database
-./manage.py migrate
+pipenv run ./manage.py migrate
 echo Performing system checks
-./manage.py check --deploy
+pipenv run ./manage.py check --deploy
 
 echo Executing docker command
 exec "$@"
