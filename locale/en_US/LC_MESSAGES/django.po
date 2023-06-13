@@ -1988,30 +1988,6 @@ msgstr "New Email Address"
 msgid "Change Email"
 msgstr "Change Email"
 
-#: mafiasi/registration/templates/registration/account.html:92
-msgid ""
-"Note: You can \"change\" your password to the current password to "
-"synchronize it with other services (e.g. Bitpoll)"
-msgstr ""
-"Note: You can \"change\" your password to the current password to "
-"synchronize it with other services (e.g. Bitpoll)"
-
-#: mafiasi/registration/templates/registration/account.html:96
-msgid "Old password"
-msgstr "Old password"
-
-#: mafiasi/registration/templates/registration/account.html:105
-msgid "New password"
-msgstr "New password"
-
-#: mafiasi/registration/templates/registration/account.html:114
-msgid "New password confirmation"
-msgstr "New password confirmation"
-
-#: mafiasi/registration/templates/registration/account.html:125
-msgid "Change password"
-msgstr "Change password"
-
 #: mafiasi/registration/templates/registration/email_error.html:5
 msgid "Email address is invalid"
 msgstr "Email address is invalid"
