@@ -163,7 +163,6 @@ INSTALLED_APPS = [
         "mafiasi.pks",
         "mafiasi.kanboard",
         "mafiasi.whiteboard",
-        "mafiasi.mattermost",
         "mafiasi.discourse",
         "mafiasi.fb18",
         ###
@@ -298,7 +297,6 @@ WIKI_URL = "https://www2.informatik.uni-hamburg.de/Fachschaft/wiki/"
 SOGO_URL = "https://sogo.mafiasi.de"
 GIT_URL = "https://git.mafiasi.de"
 TAUSCHEN_URL = "https://tauschen.mafiasi.de"
-MATTERMOST_URL = "https://mattermost.mafiasi.de"
 NEXTCLOUD_URL = "https://cloud.mafiasi.de"
 JITSI_URL = "https://conference.mafiasi.de"
 DISCOURSE_URL = "https://archiv.mafiasi.de/forum/discourse"
