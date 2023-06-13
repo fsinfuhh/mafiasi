@@ -1999,30 +1999,6 @@ msgstr "Neue E-Mail-Adresse"
 msgid "Change Email"
 msgstr "Mailadresse ändern"
 
-#: mafiasi/registration/templates/registration/account.html:92
-msgid ""
-"Note: You can \"change\" your password to the current password to "
-"synchronize it with other services (e.g. Bitpoll)"
-msgstr ""
-"Hinweis: Du kannst dein Passwört auf das aktuelle Passwort \"ändern\", um es "
-"mit anderen Diensten zu synchronisieren (z.B. Bitpoll)"
-
-#: mafiasi/registration/templates/registration/account.html:96
-msgid "Old password"
-msgstr "Altes Passwort"
-
-#: mafiasi/registration/templates/registration/account.html:105
-msgid "New password"
-msgstr "Neues Passwort"
-
-#: mafiasi/registration/templates/registration/account.html:114
-msgid "New password confirmation"
-msgstr "Neues Passwort bestätigen"
-
-#: mafiasi/registration/templates/registration/account.html:125
-msgid "Change password"
-msgstr "Passwort ändern"
-
 #: mafiasi/registration/templates/registration/email_error.html:5
 msgid "Email address is invalid"
 msgstr "E-Mail-Adresse ist ungültig"

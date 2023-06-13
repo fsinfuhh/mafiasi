@@ -2030,30 +2030,6 @@ msgstr "Nouvel adresse é-mail"
 msgid "Change Email"
 msgstr "Modifier adresse é-mail"
 
-#: mafiasi/registration/templates/registration/account.html:92
-msgid ""
-"Note: You can \"change\" your password to the current password to "
-"synchronize it with other services (e.g. Bitpoll)"
-msgstr ""
-"Remarque: Vous pouvez \"changement\" votre mot de passe le mot de passe en "
-"cours pour le synchroniser avec d'autres services (par exemple, Bitpoll)"
-
-#: mafiasi/registration/templates/registration/account.html:96
-msgid "Old password"
-msgstr "Ancien mot de passe"
-
-#: mafiasi/registration/templates/registration/account.html:105
-msgid "New password"
-msgstr "Nouveau mot de passe"
-
-#: mafiasi/registration/templates/registration/account.html:114
-msgid "New password confirmation"
-msgstr "Nouvelle confirmation de mot de passe"
-
-#: mafiasi/registration/templates/registration/account.html:125
-msgid "Change password"
-msgstr "Changer le mot de passe"
-
 #: mafiasi/registration/templates/registration/email_error.html:5
 msgid "Email address is invalid"
 msgstr "Adresse é-mail ne est pas valide"
