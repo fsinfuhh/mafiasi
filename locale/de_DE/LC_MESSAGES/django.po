@@ -1567,14 +1567,6 @@ msgstr ""
 "Matrix ermöglicht dezentrales Chatten und VoIP mit Ende-zu-Ende-"
 "Verschlüsselung."
 
-#: mafiasi/mattermost/apps.py:10
-msgid "Chat"
-msgstr "Chat"
-
-#: mafiasi/mattermost/apps.py:11
-msgid "An online team chat service"
-msgstr "Mattermost ist ein Online-Chatservice für Teams"
-
 #: mafiasi/mumble/apps.py:9 mafiasi/mumble/templates/mumble/index.html:5
 msgid "Mumble"
 msgstr "Mumble"

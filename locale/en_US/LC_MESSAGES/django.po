@@ -1567,14 +1567,6 @@ msgstr "Matrix"
 msgid "Matrix provides decentralized messaging and VoIP with E2E encryption."
 msgstr "Matrix provides decentralized messaging and VoIP with E2E encryption."
 
-#: mafiasi/mattermost/apps.py:10
-msgid "Chat"
-msgstr "Chat"
-
-#: mafiasi/mattermost/apps.py:11
-msgid "An online team chat service"
-msgstr "Mattermost is an online team chat service"
-
 #: mafiasi/mumble/apps.py:9 mafiasi/mumble/templates/mumble/index.html:5
 msgid "Mumble"
 msgstr "Mumble"

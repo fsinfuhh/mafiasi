@@ -1601,14 +1601,6 @@ msgstr ""
 "Matrix fournit messagerie décentralisée et VoIP avec chiffrement de bout en "
 "bout."
 
-#: mafiasi/mattermost/apps.py:10
-msgid "Chat"
-msgstr "Chat"
-
-#: mafiasi/mattermost/apps.py:11
-msgid "An online team chat service"
-msgstr "Mattermost est un service de chat de groupe en ligne"
-
 #: mafiasi/mumble/apps.py:9 mafiasi/mumble/templates/mumble/index.html:5
 msgid "Mumble"
 msgstr "Marmonner"
