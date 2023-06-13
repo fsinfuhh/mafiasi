@@ -26,8 +26,7 @@ ADD . /app/src
 # Put configs in appropriate locations
 RUN cp docker/nginx.conf /etc/nginx/sites-enabled/default && \
     cp docker/uwsgi.ini /etc/uwsgi/mafiasi-dashboard.ini && \
-    cp docker/supervisor.conf /etc/supervisor/conf.d/app.conf && \
-    touch /app/config/jabber_cert_fingerprint
+    cp docker/supervisor.conf /etc/supervisor/conf.d/app.conf
 
 RUN mkdir -p /app/static/mathjax
 RUN cp -rT /usr/share/javascript/mathjax /app/static/mathjax

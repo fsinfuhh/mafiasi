@@ -1408,97 +1408,6 @@ msgstr "Einladungsmails"
 msgid "Invitation mail was resent."
 msgstr "Einladungsmail wurde erneut versandt."
 
-#: mafiasi/jabber/apps.py:9 mafiasi/jabber/templates/jabber/index.html:5
-msgid "Jabber"
-msgstr "Jabber"
-
-#: mafiasi/jabber/apps.py:10
-msgid ""
-"On our Jabber server you can chat with your fellow students, which are "
-"already on your contact list."
-msgstr ""
-"Auf unserem Jabber-Server hast du deine Kommilitonen automatisch in der "
-"Kontaktliste und kannst mit ihnen chatten."
-
-#: mafiasi/jabber/templates/jabber/index.html:10
-#, python-format
-msgid ""
-"Your Jabber ID is <strong>%(username)s</strong>@%(jabber_domain)s. Note: "
-"it's different from your username."
-msgstr ""
-"Deine Jabber-ID lautet abweichend: <strong>%(username)s</"
-"strong>@%(jabber_domain)s."
-
-#: mafiasi/jabber/templates/jabber/index.html:12
-#, python-format
-msgid "Your Jabber ID is <strong>%(username)s@%(jabber_domain)s</strong>."
-msgstr ""
-"Deine Jabber-ID lautet: <strong>%(username)s@%(jabber_domain)s</strong>."
-
-#: mafiasi/jabber/templates/jabber/index.html:17
-#, python-format
-msgid ""
-"<p>If you want to change your Jabber password, just change it in your <a "
-"href=\"%(account_url)s\">account settings</a>.</p>"
-msgstr ""
-"<p>Wenn du dein Jabber-Passwort ändern möchtest, ändere einfach dein "
-"Passwort in den <a href=\"%(account_url)s\">Account-Einstellungen</a>.</p>"
-
-#: mafiasi/jabber/templates/jabber/index.html:19
-#: mafiasi/mumble/templates/mumble/index.html:23
-msgid "The fingerprint of the current SSL certificate is:"
-msgstr "Der Fingerprint des aktuellen SSL-Zertifikats lautet:"
-
-#: mafiasi/jabber/templates/jabber/index.html:22
-msgid "Configure your Jabber Client"
-msgstr "Einrichtung deines Jabber-Clients"
-
-#: mafiasi/jabber/templates/jabber/index.html:24
-msgid ""
-"\n"
-"    In order to use Jabber, you need to install a Jabber client and "
-"configure it\n"
-"    to connect to the Mafiasi server. One option is <a href=\"https://gajim."
-"org\"\n"
-"    target=\"_blank\">Gajim</a>, which is recommended by us.\n"
-"  "
-msgstr ""
-"\n"
-"Um Jabber nutzen zu können, musst du einen Jabber-Client installieren und "
-"dort deinen Mafiasi-Zugang einrichten. Die von uns empfohlene Option ist <a "
-"href=\"https://gajim.org\" target=\"_blank\">Gajim</a>."
-
-#: mafiasi/jabber/templates/jabber/index.html:32
-msgid ""
-"\n"
-"    For Android systems, we recommend using\n"
-"    <a href=\"https://conversations.im\" target=\"_blank\">Conversations</"
-"a>, which is\n"
-"    a free Jabber client. It is available for free on F-Droid or paid on "
-"the\n"
-"    Play Store.\n"
-"  "
-msgstr ""
-"\n"
-"    Für Android-Systeme empfehlen wir\n"
-"    <a href=\"https://conversations.im\" target=\"_blank\">Conversations</"
-"a>, ein\n"
-"    freier Jabber-Client, der kostenlos über F-Droid und kostenpflichtig\n"
-"    im Play Store bezogen werden kann.\n"
-"\n"
-"  "
-
-#: mafiasi/jabber/templates/jabber/index.html:41
-msgid ""
-"\n"
-"    Below you can see the required configuration for Gajim, Dino, Pidgin and "
-"Conversations.\n"
-"  "
-msgstr ""
-"\n"
-"Unten findest du die nötigen Einstellungen für Gajim, Dino, Pidgin und "
-"Conversations."
-
 #: mafiasi/kanboard/apps.py:10
 msgid "Kanboard"
 msgstr "Kanboard"
@@ -2101,10 +2010,10 @@ msgstr "Mailadresse ändern"
 #: mafiasi/registration/templates/registration/account.html:92
 msgid ""
 "Note: You can \"change\" your password to the current password to "
-"synchronize it with other services (e.g. Jabber)"
+"synchronize it with other services (e.g. Bitpoll)"
 msgstr ""
 "Hinweis: Du kannst dein Passwört auf das aktuelle Passwort \"ändern\", um es "
-"mit anderen Diensten zu synchronisieren (z.B. Jabber)"
+"mit anderen Diensten zu synchronisieren (z.B. Bitpoll)"
 
 #: mafiasi/registration/templates/registration/account.html:96
 msgid "Old password"
@@ -3046,18 +2955,6 @@ msgstr ""
 #~ msgid "e-mails"
 #~ msgstr "E-Mails"
 
-#, fuzzy
-#~| msgid ""
-#~| "You have to <a href=\"%(login_url)s?next=%(jabber_index_url)s\">login</"
-#~| "a> to create or manage your Jabber account."
-#~ msgid ""
-#~ "You have to <a href=\"%(login_url)s?next=%(jabber_index_url)s\">login</a> "
-#~ "to see your Jabber account data."
-#~ msgstr ""
-#~ "Du musst dich <a href=\"%(login_url)s?"
-#~ "next=%(jabber_index_url)s\">einloggen</a>, um deinen Jabber-Account zu "
-#~ "erstellen oder zu verwalten."
-
 #~ msgid "Mafiasi Hub"
 #~ msgstr "Mafiasi Hub"
 
@@ -3067,21 +2964,6 @@ msgstr ""
 #~ msgstr ""
 #~ "Muss mit einem Buchstaben beginnen und nur alphanumerische Zeichen "
 #~ "enthalten. Nur Kleinbuchstaben."
-
-#~ msgid "Create Jabber account"
-#~ msgstr "Jabber-Account erstellen"
-
-#~ msgid ""
-#~ "To create your Jabber account you have to enter your current password:"
-#~ msgstr ""
-#~ "Um deinen Jabber-Account zu erstellen, musst du dein aktuelles Passwort "
-#~ "eingeben:"
-
-#~ msgid ""
-#~ "You can now <a href=\"%(create_url)s\">create your Jabber account</a>."
-#~ msgstr ""
-#~ "Du kannst nun deinen <a href=\"%(create_url)s\">Jabber-Account erstellen</"
-#~ "a>."
 
 #~ msgid "Account was created."
 #~ msgstr "Account wurde erstellt."
@@ -3249,15 +3131,6 @@ msgstr ""
 
 #~ msgid "Confirm password:"
 #~ msgstr "Passwort bestätigen:"
-
-#~ msgid "Reset password of your Jabber account"
-#~ msgstr "Jabber-Account-Passwort zurücksetzen"
-
-#~ msgid ""
-#~ "Enter your current password to set the Jabber password to the entered one."
-#~ msgstr ""
-#~ "Gib dein aktuelles Passwort ein, um das Jabber-Passwort auf dieses "
-#~ "zurückzusetzen."
 
 #~ msgid "Reset password"
 #~ msgstr "Passwort zurücksetzen"
