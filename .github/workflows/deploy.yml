@@ -7,7 +7,11 @@ on:
       - staging
 
 jobs:
+  test:
+    uses: ./.github/workflows/test.yml
+
   build-container:
+    needs: [ test ]
     uses: fsinfuhh/workflows/.github/workflows/build_image.yml@main
 
   determine-app-path:
