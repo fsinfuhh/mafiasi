@@ -13,7 +13,6 @@ DEBUG = env.bool("MAFIASI_DEBUG", default=False)
 TESTING = env.bool("MAFIASI_TESTING", default=False)
 
 # Feature toggles
-ENABLE_JABBER_INTEGRATION = env.bool("MAFIASI_ENABLE_JABBER_INTEGRATION")
 ENABLE_EP_INTEGRATION = env.bool("MAFIASI_ENABLE_EP_INTEGRATION")
 ENABLE_VAULT_INTEGRATION = env.bool("MAFIASI_ENABLE_VAULT_INTEGRATION")
 
@@ -164,7 +163,6 @@ INSTALLED_APPS = [
         "mafiasi.pks",
         "mafiasi.kanboard",
         "mafiasi.whiteboard",
-        "mafiasi.mattermost",
         "mafiasi.discourse",
         "mafiasi.fb18",
         ###
@@ -274,20 +272,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-if ENABLE_JABBER_INTEGRATION:
-    JABBER_DOMAIN = "jabber.mafiasi.de"
-    JABBER_CERT_FINGERPRINT_FILE = str(env.path("MAFIASI_JABBER_CERT_FINGERPRINT_FILE"))
-    if os.path.isfile(JABBER_CERT_FINGERPRINT_FILE):
-        JABBER_CERT_FINGERPRINT = (
-            subprocess.check_output(["openssl", "x509", "-in", JABBER_CERT_FINGERPRINT_FILE, "-noout", "-fingerprint"])
-            .decode()
-            .strip()
-        )
-    else:
-        JABBER_CERT_FINGERPRINT = ""
-    INSTALLED_APPS.insert(INSTALLED_APPS.index("mafiasi.mattermost"), "mafiasi.jabber")
-    DATABASES["jabber"] = env.dj_db_url("MAFIASI_DB_JABBER", default="sqlite://:memory:")
-
 if ENABLE_EP_INTEGRATION:
     DATABASES["etherpad"] = env.dj_db_url("MAFIASI_DB_ETHERPAD", default="sqlite://:memory:")
     ETHERPAD_API_KEY = env.str("MAFIASI_EP_API_KEY")
@@ -297,8 +281,6 @@ if ENABLE_EP_INTEGRATION:
 if ENABLE_VAULT_INTEGRATION:
     VAULT_URL = env.str("MAFIASI_VAULT_URL", default="https://vault.mafiasi.de")
     VAULT_ADMIN_TOKEN = env.str("MAFIASI_VAULT_ADMIN_TOKEN")
-
-DATABASE_ROUTERS = ["mafiasi.jabber.dbrouter.JabberRouter", "ldapdb.router.Router"]
 
 PROJECT_NAME = "mafiasi.de"
 PROJECT_BANNER = "Mafiasi Hub"
@@ -315,7 +297,6 @@ WIKI_URL = "https://www2.informatik.uni-hamburg.de/Fachschaft/wiki/"
 SOGO_URL = "https://sogo.mafiasi.de"
 GIT_URL = "https://git.mafiasi.de"
 TAUSCHEN_URL = "https://tauschen.mafiasi.de"
-MATTERMOST_URL = "https://mattermost.mafiasi.de"
 NEXTCLOUD_URL = "https://cloud.mafiasi.de"
 JITSI_URL = "https://conference.mafiasi.de"
 DISCOURSE_URL = "https://archiv.mafiasi.de/forum/discourse"
