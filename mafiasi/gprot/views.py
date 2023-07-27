@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import hashlib
 import json
 import time
 from datetime import date
@@ -24,7 +25,14 @@ from PyPDF2 import PdfFileMerger
 from raven.contrib.django.raven_compat.models import client
 
 from mafiasi.gprot.forms import GProtBasicForm, GProtCreateForm, GProtSearchForm
-from mafiasi.gprot.models import Attachment, Favorite, GProt, Notification, Reminder
+from mafiasi.gprot.models import (
+    Attachment,
+    BlockedGprots,
+    Favorite,
+    GProt,
+    Notification,
+    Reminder,
+)
 from mafiasi.gprot.sanitize import clean_html
 from mafiasi.teaching.forms import CourseForm, TeacherForm
 from mafiasi.teaching.models import Course, Teacher, insert_autocomplete_courses
@@ -195,6 +203,7 @@ def edit_gprot(request, gprot_pk):
                     error = _("Only files up to {0} MB are allowed.").format(settings.GPROT_PDF_MAX_SIZE)
                 if magic.from_buffer(upload.read(1024), mime=True) != "application/pdf":
                     error = _("Only PDF files are allowed.")
+
             else:
                 error = _("Please select a file to upload.")
 
@@ -204,6 +213,16 @@ def edit_gprot(request, gprot_pk):
                 gprot.content_pdf = upload
                 gprot.save()
                 _clean_pdf_metadata(gprot)
+                # we have to calculate the hash after cleaning the file
+                gprot.content_pdf.file.open()
+                pdf_content = gprot.content_pdf.file.read()
+                gprot.content_pdf.file.close()
+                hash = hashlib.sha256(pdf_content).hexdigest()
+                if BlockedGprots.objects.filter(pdf_hash=hash).exists():
+                    error = _(
+                        "This file was blocked because it is an original exam. Please do not try to upload it again because we will get problems with the university."
+                    )
+                    gprot.content_pdf.delete()
 
         else:
             content = request.POST.get("content", "")

@@ -60,6 +60,15 @@ class GProt(models.Model):
         return "[{0}] {1}: {2}{3}".format(self.pk, self.exam_date, self.course, append)
 
 
+class BlockedGprots(models.Model):
+    pdf_hash = models.CharField(max_length=64)
+    gprot_title = models.CharField(max_length=100)
+    blocked_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return "BlockedGprot: {0}".format(self.gprot_title)
+
+
 class Attachment(models.Model):
     gprot = models.ForeignKey(GProt, on_delete=models.CASCADE)
     file = models.FileField(upload_to=make_attachment_filename)
