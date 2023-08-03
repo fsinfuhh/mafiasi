@@ -30,6 +30,7 @@ jobs:
         run: pip install pipenv
       - name: install project dependencies
         run: |
+          sudo apt update
           sudo apt install -y --no-install-recommends libgpgme-dev libsasl2-dev libldap2-dev libmagic-dev libjpeg-dev libgraphviz-dev gettext
           pipenv sync --dev
       - name: run tests
@@ -47,6 +48,7 @@ jobs:
         run: pip install pipenv
       - name: install project dependencies
         run: |
+          sudo apt update
           sudo apt install -y --no-install-recommends libgpgme-dev libsasl2-dev libldap2-dev libmagic-dev libjpeg-dev libgraphviz-dev gettext
           pipenv sync --dev
       - name: compile i18n messages
