@@ -37,7 +37,6 @@ class GProtAdmin(admin.ModelAdmin):
             messages.error(request, "Cannot block, not a PDF")
         else:
             to_block.published = False
-            to_block.owner = None
             to_block.save()
             pdf_filefield = to_block.content_pdf
             if not pdf_filefield:
