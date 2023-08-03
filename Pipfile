@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-Django = "==4.1.9"    # can be upgraded once we have postgres >11 deployed
+Django = "==4.1.10"    # can be upgraded once we have postgres >11 deployed
 Pillow = "~=9.3"
 PyPDF2 = "~=1.27"
 bleach = {extras = ["css"], version = "~=6.0"}
