@@ -9,6 +9,7 @@ urlpatterns = [
     path("change_email/<token>", change_email, name="registration_change_email"),
     path("request_successful", request_successful, name="registration_request_successful"),
     path("account", account_settings, name="registration_account"),
+    path("password_reset", password_reset, name="registration_password_reset"),
 ]
 
 if settings.REGISTER_ENABLED:
