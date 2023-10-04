@@ -71,6 +71,10 @@ def request_account(request):
                             slug="employee", defaults={"name": "Employee"}
                         )
 
+                username = _get_username({"account": account, "domain": domain}, yeargroup)
+                if Mafiasi.objects.filter(username=username).exists():
+                    return _send_email_exists(request, username)
+
                 return _finish_account_request(
                     request,
                     {
@@ -130,6 +134,10 @@ def additional_info(request):
     if form.is_valid():
         account = form.cleaned_data["account"]
         domain = form.cleaned_data["domain"]
+        username = _get_username({"account": account, "domain": domain}, form.cleaned_data["yeargroup"])
+        if Mafiasi.objects.filter(username=username).exists():
+            return _send_email_exists(request, username)
+
         return _finish_account_request(
             request,
             {
@@ -148,7 +156,7 @@ def request_successful(request):
     return TemplateResponse(request, "registration/request_successful.html")
 
 
-def _create_username(info, yeargroup):
+def _get_username(info, yeargroup):
     if info["domain"] != settings.PRIMARY_DOMAIN:
         return "{}.{}".format(info["account"], settings.REGISTER_DOMAIN_MAPPING[info["domain"]])
     elif info["account"][0].isdigit():
@@ -169,10 +177,10 @@ def create_account(request, info_token):
         return TemplateResponse(request, "registration/token_invalid.html")
 
     yeargroup = Yeargroup.objects.get(pk=info["yeargroup_pk"])
-    username = _create_username(info, yeargroup)
+    username = _get_username(info, yeargroup)
 
     if Mafiasi.objects.filter(username=username).exists():
-        return redirect("simple_openid_connect.login")
+        return redirect(reverse("simple_openid_connect:login"))
 
     if request.method == "POST":
         form = PasswordForm(request.POST)
@@ -303,6 +311,20 @@ def _finish_account_request(request, info):
         email_shown = email
     return _send_mail_or_error_page(
         _("Account creation at %s" % settings.PROJECT_NAME), email_content, email, request, email_shown
+    )
+
+
+def _send_email_exists(request, username):
+    email = Mafiasi.objects.get(username=username).real_email
+    email_content = render_to_string(
+        "registration/email_exists.txt",
+        {
+            "username": username,
+            "password_reset_url": settings.PASSWORD_RESET_URL,
+        },
+    )
+    return _send_mail_or_error_page(
+        _("Account exists at %s" % settings.PROJECT_NAME), email_content, email, request, None
     )
 
 
