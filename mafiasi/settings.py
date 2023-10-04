@@ -32,7 +32,7 @@ KEYCLOAK_ACCOUNT_CONSOLE_URL = env.str(
 )
 PASSWORD_RESET_URL = env.str(
     "MAFIASI_PASSWORD_RESET_URL",
-    default="https://identity.mafiasi.de/realms/mafiasi/login-actions/reset-credentials?client_id=mafiasi-dashboard",
+    default="https://identity.mafiasi.de/realms/mafiasi/login-actions/reset-credentials",
 )
 
 OPENID_SYNC_SUPERUSER = env.bool("MAFIASI_OPENID_SYNC_SUPERUSER", default=True)
