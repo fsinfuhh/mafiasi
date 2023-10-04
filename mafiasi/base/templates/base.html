@@ -68,7 +68,7 @@
                             {% if REGISTER_ENABLED %}
                                 <a class="btn btn-default navbar-btn" href="{% url 'registration_request_account' %}">{% trans "Register" %}</a>
                             {% endif %}
-                            <a class="btn btn-primary navbar-btn" href="{% url 'simple_openid_connect:login' %}">{% trans "Login" %}</a>
+                            <a class="btn btn-primary navbar-btn" href="{% url 'simple_openid_connect:login' %}?next={{ request.path }}">{% trans "Login" %}</a>
                         </div>
                     {% endif %}
                 </div>
