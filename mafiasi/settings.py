@@ -285,7 +285,7 @@ if ENABLE_VAULT_INTEGRATION:
     VAULT_URL = env.str("MAFIASI_VAULT_URL", default="https://vault.mafiasi.de")
     VAULT_ADMIN_TOKEN = env.str("MAFIASI_VAULT_ADMIN_TOKEN")
 
-PROJECT_NAME = "mafiasi.de"
+PROJECT_NAME = env.str("MAFIASI_PROJECT_NAME", default="mafiasi.de")
 PROJECT_BANNER = "Mafiasi Hub"
 BANNER_IMG = ""
 
