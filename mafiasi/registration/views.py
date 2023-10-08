@@ -1,4 +1,5 @@
 from smtplib import SMTPRecipientsRefused
+from urllib.parse import urlencode
 
 from django.conf import settings
 from django.contrib import messages
@@ -316,11 +317,12 @@ def _finish_account_request(request, info):
 
 def _send_email_exists(request, username):
     email = Mafiasi.objects.get(username=username).real_email
+    password_reset_url = request.build_absolute_uri(reverse("registration_password_reset"))
     email_content = render_to_string(
         "registration/email_exists.txt",
         {
             "username": username,
-            "password_reset_url": settings.PASSWORD_RESET_URL,
+            "password_reset_url": password_reset_url,
         },
     )
     return _send_mail_or_error_page(
@@ -357,3 +359,20 @@ def _send_mail_or_error_page(subject, content, address, request, email_shown):
             "email": email_shown,
         },
     )
+
+
+def password_reset(request):
+    password_reset_url = settings.PASSWORD_RESET_URL
+    if password_reset_url is None:
+        password_reset_url = (
+            settings.OPENID_ISSUER
+            + "/login-actions/reset-credentials?"
+            + urlencode(
+                {
+                    "response_type": "code",
+                    "client_id": settings.OPENID_CLIENT_ID,
+                    "redirect_uri": request.build_absolute_uri(reverse(settings.LOGIN_URL)),
+                }
+            )
+        )
+    return redirect(password_reset_url)

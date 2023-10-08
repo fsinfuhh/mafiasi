@@ -30,10 +30,9 @@ OPENID_UPDATE_USER_FUNC = "mafiasi.registration.user_mapping.update_user_from_to
 KEYCLOAK_ACCOUNT_CONSOLE_URL = env.str(
     "MAFIASI_KEYCLOAK_ACCOUNT_CONSOLE_URL", default="https://identity.mafiasi.de/realms/mafiasi/account"
 )
-PASSWORD_RESET_URL = env.str(
-    "MAFIASI_PASSWORD_RESET_URL",
-    default="https://identity.mafiasi.de/realms/mafiasi/login-actions/reset-credentials",
-)
+
+# If this is None, it is automatically generated from OPENID_ISSUER
+PASSWORD_RESET_URL = env.str("MAFIASI_PASSWORD_RESET_URL", default=None)
 
 OPENID_SYNC_SUPERUSER = env.bool("MAFIASI_OPENID_SYNC_SUPERUSER", default=True)
 if OPENID_SYNC_SUPERUSER:
