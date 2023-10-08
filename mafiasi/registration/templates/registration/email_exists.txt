@@ -1,0 +1,17 @@
+{% extends "base_email.html" %}{% load i18n %}
+{% block content_de %}Hallo,
+du hast versucht, einen Account zu erstellen, den es schon gibt. Falls du dein Passwort vergessen hast, kannst du es hier zurücksetzen:
+{{ password_reset_url|safe }}
+Dein Nutzername ist {{ username }}.
+
+Viele Grüße,
+Deine Server-AG
+{% endblock %}
+{% block content_en %}Hello,
+you tried to create an account that already exists. If you forgot your password, you can reset it here:
+{{ password_reset_url|safe }}
+Your username is {{ username }}.
+
+Best regards,
+Your Server-AG
+{% endblock %}

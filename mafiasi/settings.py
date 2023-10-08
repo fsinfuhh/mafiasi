@@ -31,6 +31,9 @@ KEYCLOAK_ACCOUNT_CONSOLE_URL = env.str(
     "MAFIASI_KEYCLOAK_ACCOUNT_CONSOLE_URL", default="https://identity.mafiasi.de/realms/mafiasi/account"
 )
 
+# If this is None, it is automatically generated from OPENID_ISSUER
+PASSWORD_RESET_URL = env.str("MAFIASI_PASSWORD_RESET_URL", default=None)
+
 OPENID_SYNC_SUPERUSER = env.bool("MAFIASI_OPENID_SYNC_SUPERUSER", default=True)
 if OPENID_SYNC_SUPERUSER:
     OPENID_SUPERUSER_GROUP = env.str("MAFIASI_OPENID_SUPERUSER_GROUP", default="Server-AG")
@@ -282,7 +285,7 @@ if ENABLE_VAULT_INTEGRATION:
     VAULT_URL = env.str("MAFIASI_VAULT_URL", default="https://vault.mafiasi.de")
     VAULT_ADMIN_TOKEN = env.str("MAFIASI_VAULT_ADMIN_TOKEN")
 
-PROJECT_NAME = "mafiasi.de"
+PROJECT_NAME = env.str("MAFIASI_PROJECT_NAME", default="mafiasi.de")
 PROJECT_BANNER = "Mafiasi Hub"
 BANNER_IMG = ""
 
