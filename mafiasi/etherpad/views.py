@@ -5,6 +5,7 @@ from urllib.error import URLError
 from django import forms
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import Group
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import redirect
 from django.template.response import TemplateResponse
@@ -159,18 +160,10 @@ def pin_pad(request, group_name, pad_name):
 @require_POST
 def unpin_pad(request, group_name, pad_name):
     try:
-        group = request.user.groups.get(name=group_name)
+        group = Group.objects.get(name=group_name)
+        PinnedEtherpad.objects.filter(user=request.user, group_name=group, pad_name=pad_name).delete()
     except ObjectDoesNotExist:
-        return TemplateResponse(
-            request,
-            "etherpad/forbidden-notingroup.html",
-            {
-                "group_name": group_name,
-            },
-            status=403,
-        )
-
-    PinnedEtherpad.objects.filter(user=request.user, group_name=group, pad_name=pad_name).delete()
+        pass
     # redirect to pad overview
     return redirect("ep_index")
 
