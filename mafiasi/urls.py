@@ -63,7 +63,7 @@ def handler500(request):
 def handler404(request, exception):
     try:
         apps.get_app_config("wiki")
-        path = str(request.path).replace("/", "", 2)
+        path = str(request.path).strip("/")
         if "/" in path:
             return HttpResponse("Page not found", status=404)
 
