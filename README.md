@@ -16,18 +16,20 @@ docker build -t mafiasi-dashboard .
 
 ### From Source
 
-Just install the dependencies, copy example settings and services, migrate database and
-execute make:
+To install Mafiasi from source, you need the following apt packages: `libgpgme-dev` and `libgraphviz-dev`
+
+Install the dependencies and start and migrate database:
 ```
 pipenv install
-cp mafiasi/settings.py.example mafiasi/settings.py
+./start_dev_db.sh
 pipenv run ./manage.py migrate
-make
 ```
 
-We try to keep these installation instructions up to date, but we can't
-guarantee.
-
+To run Mafiasi, just start the database and Mafiasi:
+```
+./start_dev_db.sh
+pipenv run ./manage.py runserver
+```
 
 # Notes
 
