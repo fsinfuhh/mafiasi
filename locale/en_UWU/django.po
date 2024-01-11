@@ -104,9 +104,9 @@ msgid ""
 "email to <strong><a href=\"mailto:%(team_email)s\">%(team_email)s</a>"
 "</strong> and describe your problem.</p>"
 msgstr ""
-"<p>Did you encounter any technical problems using this site? Just write an "
-"email to <strong><a href=\"mailto:%(team_email)s\">%(team_email)s</a>"
-"</strong> and describe your problem.</p>"
+"<p>Oh no, site no worky worky? Type me text via gud old mail <strong><a "
+"href=\"mailto:%(team_email)s\">%(team_email)s</a></strong> and say what is "
+"wron.</p>"
 
 #: mafiasi/base/templates/base/technical_info.html:4
 msgid "Technical Info"
@@ -146,13 +146,12 @@ msgstr ""
 #: mafiasi/base/validation.py:23
 msgid ""
 "Your password contains invalid characters. Only ASCII characters are allowed."
-msgstr ""
-"Your password contains invalid characters. Only ASCII characters are allowed."
+msgstr "Me not like these scary chars. Pls use only ASCII."
 
 #: mafiasi/base/validation.py:27
 #, python-format
 msgid "Your password may only contain the following characters: %s"
-msgstr "Your password may only contain the following characters: %s"
+msgstr "Me not like these scary chars: %s"
 
 #: mafiasi/bitpoll/apps.py:10
 msgid "BitPoll"
@@ -291,11 +290,11 @@ msgstr "Protected group pads can only be created if you are logged in."
 
 #: mafiasi/etherpad/templates/etherpad/index.html:24
 msgid "Your pinned pads"
-msgstr "Your pinned pads"
+msgstr "U like this texts very much :3"
 
 #: mafiasi/etherpad/templates/etherpad/index.html:40
 msgid "Your group pads"
-msgstr "Your group pads"
+msgstr "Text shared with frens"
 
 #: mafiasi/etherpad/templates/etherpad/index.html:53
 msgid "Last changed:"
@@ -445,7 +444,7 @@ msgstr "Cancel"
 #: mafiasi/gprot/templates/gprot/_basic_form_modals.html:8 
 #: mafiasi/gprot/templates/gprot/_basic_form_modals.html:37
 msgid "Add new teacher"
-msgstr "Add new teacher"
+msgstr "New teachy person"
 
 #: mafiasi/gprot/templates/gprot/_basic_form_modals.html:15
 msgid "Title:"
@@ -467,7 +466,7 @@ msgstr "Department:"
 #: mafiasi/gprot/templates/gprot/_basic_form_modals.html:49 
 #: mafiasi/gprot/templates/gprot/_basic_form_modals.html:74
 msgid "Add new course"
-msgstr "Add new course"
+msgstr "New teachy subject"
 
 #: mafiasi/gprot/templates/gprot/_basic_form_modals.html:56
 msgid "Name:"
@@ -610,7 +609,7 @@ msgid ""
 "<b>Warning:</b> The current document will be replaced when you upload a new "
 "one."
 msgstr ""
-"<b>Warning:</b> The current document will be replaced when you upload a new "
+"<b>Oh no:</b> The cuwwent document will be wepwaced when you upwoad a new "
 "one."
 
 #: mafiasi/gprot/templates/gprot/edit.html:55
@@ -834,26 +833,26 @@ msgstr ""
 
 #: mafiasi/gprot/templates/gprot/notifications.html:21
 msgid "Added"
-msgstr "Added"
+msgstr "I'll let you know since"
 
-#: mafiasi/gprot/templates/gprot/notifications.html:22 
-#: mafiasi/gprot/templates/gprot/reminders.html:24 
-#: mafiasi/groups/templates/groups/invitations.html:19 
-#: mafiasi/groups/templates/groups/show.html:122 
+#: mafiasi/gprot/templates/gprot/notifications.html:22
+#: mafiasi/gprot/templates/gprot/reminders.html:24
+#: mafiasi/groups/templates/groups/invitations.html:19
+#: mafiasi/groups/templates/groups/show.html:122
 #: mafiasi/guests/templates/guests/index.html:16
 msgid "Actions"
-msgstr "Actions"
+msgstr "do thingies"
 
-#: mafiasi/gprot/templates/gprot/notifications.html:31 
-#: mafiasi/gprot/templates/gprot/reminders.html:33 
-#: mafiasi/groups/templates/groups/show.html:147 
+#: mafiasi/gprot/templates/gprot/notifications.html:31
+#: mafiasi/gprot/templates/gprot/reminders.html:33
+#: mafiasi/groups/templates/groups/show.html:147
 #: mafiasi/mailinglist/templates/mailinglist/whitelist.html:25
 msgid "Remove"
 msgstr "Remove"
 
 #: mafiasi/gprot/templates/gprot/notifications.html:45
 msgid "Add notification"
-msgstr "Add notification"
+msgstr "Let me knouw!"
 
 #: mafiasi/gprot/templates/gprot/publish.html:30
 msgid ""
@@ -1073,7 +1072,7 @@ msgstr "Invitations"
 #: mafiasi/groups/templates/groups/groups_base.html:27 
 #: mafiasi/guests/templates/guests/accept.html:5
 msgid "Accept invitation"
-msgstr "Accept invitation"
+msgstr "Yes, I wan frens :3"
 
 #: mafiasi/groups/templates/groups/groups_base.html:30
 msgid "Decline invitation"
@@ -1095,7 +1094,7 @@ msgstr "You are not yet member of any group."
 #: mafiasi/groups/templates/groups/groups_base.html:64
 #, python-format
 msgid "%(project_name)s Groups"
-msgstr "%(project_name)s Groups"
+msgstr "%(project_name)s Gwoups"
 
 #: mafiasi/groups/templates/groups/groups_base.html:68
 #, fuzzy
@@ -1134,7 +1133,7 @@ msgstr "Invited By"
 
 #: mafiasi/groups/templates/groups/invitations.html:31
 msgid "Accept"
-msgstr "Accept"
+msgstr "We takes"
 
 #: mafiasi/groups/templates/groups/invitations.html:32
 msgid "Refuse"
@@ -1151,7 +1150,7 @@ msgstr "Invite people to %(group_name)s"
 
 #: mafiasi/groups/templates/groups/invite.html:12
 msgid "Account names"
-msgstr "Account names"
+msgstr "frens to add"
 
 #: mafiasi/groups/templates/groups/invite.html:20
 msgid "Invite user"
@@ -1198,7 +1197,7 @@ msgstr "Create mailinglist"
 msgid "Invitee"
 msgstr "Invitee"
 
-#: mafiasi/groups/templates/groups/show.html:87 
+#: mafiasi/groups/templates/groups/show.html:87
 #: mafiasi/guests/templates/guests/index.html:30
 msgid "Withdraw"
 msgstr "Withdraw"
@@ -1318,7 +1317,7 @@ msgstr "Create account"
 #: mafiasi/guests/templates/guests/has_account.html:4 
 #: mafiasi/guests/templates/guests/username_exists.html:4
 msgid "Account already exists"
-msgstr "Account already exists"
+msgstr "I already know you!"
 
 #: mafiasi/guests/templates/guests/has_account.html:8
 #, python-format
@@ -1362,7 +1361,7 @@ msgstr "Invite guest"
 
 #: mafiasi/guests/templates/guests/index.html:42
 msgid "Your guests"
-msgstr "Your guests"
+msgstr "Ur invited frens"
 
 #: mafiasi/guests/templates/guests/index.html:61
 msgid "You have no guests."
@@ -1388,7 +1387,7 @@ msgstr "Last name"
 
 #: mafiasi/guests/templates/guests/invited_by.html:4
 msgid "Hello "
-msgstr "Henlo "
+msgstr "Heya "
 
 #: mafiasi/guests/templates/guests/invited_by.html:7
 #, python-format
@@ -1413,7 +1412,7 @@ msgstr ""
 
 #: mafiasi/guests/views.py:53
 msgid "{} was successfully invited."
-msgstr "{} was successfully invited."
+msgstr "{} was successfuwwy invited."
 
 #: mafiasi/guests/views.py:72
 msgid "Invitation was withdrawn."
@@ -1495,11 +1494,11 @@ msgstr "Subject"
 #: mafiasi/mailinglist/templates/mailinglist/show_list.html:21 
 #: mafiasi/mailinglist/templates/mailinglist/whitelist.html:13
 msgid "Action"
-msgstr "Action"
+msgstr "do thingies"
 
 #: mafiasi/mailinglist/templates/mailinglist/show_list.html:32
 msgid "Allow"
-msgstr "Allow"
+msgstr "Say yes!"
 
 #: mafiasi/mailinglist/templates/mailinglist/show_list.html:33
 msgid "Discard"
@@ -1520,7 +1519,7 @@ msgstr "Manage whitelist"
 #: mafiasi/mailinglist/templates/mailinglist/show_list.html:45
 #, python-format
 msgid "%(whitelist_count)s entries"
-msgstr "%(whitelist_count)s entries"
+msgstr "%(whitelist_count)s entwies"
 
 #: mafiasi/mailinglist/templates/mailinglist/show_list.html:53
 msgid ""
@@ -1554,7 +1553,7 @@ msgstr "Add sender to whitelist"
 
 #: mafiasi/mailinglist/templates/mailinglist/whitelist.html:43
 msgid "Add to whitelist"
-msgstr "Add to whitelist"
+msgstr "Add fren to I-trust-U-list"
 
 #: mafiasi/mailinglist/views.py:44
 msgid "Mailinglist {list_name} was created."
@@ -1625,7 +1624,7 @@ msgstr "No valid OpenPGP keys."
 #: mafiasi/pks/templates/pks/all_keys.html:4 
 #: mafiasi/pks/templates/pks/menu.html:10
 msgid "All keys"
-msgstr "All keys"
+msgstr "All kees"
 
 #: mafiasi/pks/templates/pks/all_keys.html:5
 msgid "All keys on the keyserver"
@@ -1681,7 +1680,7 @@ msgstr "Pawprint"
 #: mafiasi/pks/templates/pks/menu.html:7 
 #: mafiasi/pks/templates/pks/my_keys.html:4
 msgid "My keys"
-msgstr "My secrets"
+msgstr "My kees"
 
 #: mafiasi/pks/templates/pks/menu.html:16 
 #: mafiasi/pks/templates/pks/party_list.html:4
@@ -1888,7 +1887,7 @@ msgstr "Insert one or more OpenPGP keys into the following field:"
 
 #: mafiasi/pks/templates/pks/upload_keys.html:27
 msgid "Add keys"
-msgstr "Add keys"
+msgstr "Add kees"
 
 #: mafiasi/pks/templatetags/pks.py:15
 msgid "Revoked."
@@ -1948,7 +1947,7 @@ msgstr "The two password fields didn't match."
 
 #: mafiasi/registration/forms.py:95
 msgid "Wrong password."
-msgstr "Wrong password."
+msgstr "Wron secret!"
 
 #: mafiasi/registration/forms.py:132
 msgid "This address is already associated with an account."
@@ -1965,7 +1964,7 @@ msgstr "Cloak adresses cannot be used for this purpose."
 #: mafiasi/registration/templates/registration/account.html:6 
 #: mafiasi/registration/templates/registration/account.html:11
 msgid "Account"
-msgstr "Account"
+msgstr "Me data"
 
 #: mafiasi/registration/templates/registration/account.html:18
 #, python-format
@@ -2043,7 +2042,7 @@ msgstr "Password reset complete"
 
 #: mafiasi/registration/templates/registration/password_reset_complete.html:7
 msgid "Your password has been set.  You may go ahead and log in now."
-msgstr "Your password has been set.  You may go ahead and log in now."
+msgstr "Secret accepted! Use it?"
 
 #: mafiasi/registration/templates/registration/password_reset_complete.html:9
 msgid "Log in"
@@ -2114,7 +2113,7 @@ msgstr "Please go to the following page and choose a new password:"
 
 #: mafiasi/registration/templates/registration/password_reset_email.html:11
 msgid "Your username, in case you've forgotten:"
-msgstr "Your username, in case you've forgotten:"
+msgstr "U wanted me to name u:"
 
 #: mafiasi/registration/templates/registration/password_reset_email.html:13
 msgid "Thanks for using our site!"
@@ -2243,7 +2242,7 @@ msgstr "Password was changed."
 
 #: mafiasi/registration/views.py:208
 msgid "Your nickname is now {}."
-msgstr "Your nickname is now {}."
+msgstr "Now I call u {}. I likes :3"
 
 #: mafiasi/registration/views.py:245
 msgid "Your email address has been changed."
@@ -2257,7 +2256,7 @@ msgstr "Verify this address for %s"
 #: mafiasi/registration/views.py:279
 #, python-format
 msgid "Account creation at %s"
-msgstr "Account creation at %s"
+msgstr "Know u since %s"
 
 #: mafiasi/registration/views.py:296
 msgid "Registration: Sending mail failed: {}"
