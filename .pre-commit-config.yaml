@@ -8,11 +8,21 @@ repos:
       - id: end-of-file-fixer
       - id: check-yaml
       - id: check-added-large-files
+
   - repo: https://github.com/psf/black
     rev: "23.1.0"
     hooks:
       - id: black
+
   - repo: https://github.com/PyCQA/isort
     rev: "5.12.0"
     hooks:
       - id: isort
+
+  - repo: local
+    hooks:
+      - id: check_i18n
+        name: Check that i18n files have been updated
+        pass_filenames: false
+        language: system
+        entry: pipenv run ./manage.py makemessages --all
