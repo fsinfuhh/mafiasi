@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-12 16:48+0100\n"
+"POT-Creation-Date: 2024-01-12 17:28+0100\n"
 "PO-Revision-Date: 2024-01-12 17:06+0100\n"
 "Last-Translator: Timon Engelke <timon.engelke@uni-hamburg.de>\n"
 "Language-Team: \n"
@@ -873,7 +873,6 @@ msgstr ""
 #: mafiasi/groups/templates/groups/create.html:4
 #: mafiasi/groups/templates/groups/groups_base.html:43
 #: mafiasi/groups/templates/groups/my_groups.html:30
-#| msgid "Create new pad"
 msgid "Create new group"
 msgstr ""
 
@@ -884,7 +883,6 @@ msgstr ""
 #: mafiasi/groups/templates/groups/create.html:11
 #: mafiasi/groups/templates/groups/invitations.html:17
 #: mafiasi/groups/templates/groups/my_groups.html:14
-#| msgid "Group"
 msgid "Group name"
 msgstr ""
 
@@ -894,7 +892,6 @@ msgid ""
 msgstr ""
 
 #: mafiasi/groups/templates/groups/create.html:17
-#| msgid "Create new"
 msgid "Create"
 msgstr ""
 
@@ -920,7 +917,6 @@ msgid "Invited by"
 msgstr ""
 
 #: mafiasi/groups/templates/groups/groups_base.html:42
-#| msgid "Groups"
 msgid "My Groups"
 msgstr ""
 
@@ -981,7 +977,6 @@ msgid "Please enter the account names of the users you want to invite"
 msgstr ""
 
 #: mafiasi/groups/templates/groups/my_groups.html:4
-#| msgid "Groups"
 msgid "My groups"
 msgstr ""
 
@@ -1035,7 +1030,6 @@ msgid "Members"
 msgstr ""
 
 #: mafiasi/groups/templates/groups/show.html:134
-#| msgid "Group"
 msgid "Group admin"
 msgstr ""
 
@@ -1052,7 +1046,6 @@ msgid "Grant admin"
 msgstr ""
 
 #: mafiasi/groups/templates/groups/show.html:162
-#| msgid "Create group pad"
 msgid "Leave group"
 msgstr ""
 
@@ -1086,7 +1079,6 @@ msgid "Username must be alphanumeric and start with a letter."
 msgstr ""
 
 #: mafiasi/guests/forms.py:28
-#| msgid "The group name must be at least {} characters"
 msgid "Username must be at least 3 characters long."
 msgstr ""
 
@@ -1103,7 +1095,6 @@ msgid "There is already an account with that email."
 msgstr ""
 
 #: mafiasi/guests/forms.py:49
-#| msgid "Notifications"
 msgid "invitations"
 msgstr ""
 
@@ -1132,13 +1123,11 @@ msgstr ""
 #: mafiasi/registration/templates/registration/create_account.html:36
 #: mafiasi/registration/templates/registration/require_info.html:37
 #: mafiasi/registration/templates/registration/require_info_other.html:28
-#| msgid "Create new"
 msgid "Create account"
 msgstr ""
 
 #: mafiasi/guests/templates/guests/has_account.html:4
 #: mafiasi/guests/templates/guests/username_exists.html:4
-#| msgid "Group does already exist."
 msgid "Account already exists"
 msgstr ""
 
@@ -1151,7 +1140,6 @@ msgid ""
 msgstr ""
 
 #: mafiasi/guests/templates/guests/index.html:8
-#| msgid "Hide navigation bars"
 msgid "Open invitations"
 msgstr ""
 
@@ -1181,7 +1169,6 @@ msgid "Invite guest"
 msgstr ""
 
 #: mafiasi/guests/templates/guests/index.html:42
-#| msgid "Your group pads"
 msgid "Your guests"
 msgstr ""
 
@@ -1199,13 +1186,11 @@ msgstr ""
 
 #: mafiasi/guests/templates/guests/invite.html:46
 #: mafiasi/registration/templates/registration/require_info_other.html:20
-#| msgid "First Name:"
 msgid "First name"
 msgstr ""
 
 #: mafiasi/guests/templates/guests/invite.html:50
 #: mafiasi/registration/templates/registration/require_info_other.html:24
-#| msgid "Last Name:"
 msgid "Last name"
 msgstr ""
 
@@ -1239,7 +1224,6 @@ msgid "Invitation was withdrawn."
 msgstr ""
 
 #: mafiasi/guests/views.py:77
-#| msgid "Hide navigation bars"
 msgid "invitation mails"
 msgstr ""
 
@@ -1248,7 +1232,6 @@ msgid "Invitation mail was resent."
 msgstr ""
 
 #: mafiasi/kanboard/apps.py:11
-#| msgid "Dashboard"
 msgid "Kanboard"
 msgstr ""
 
@@ -1280,7 +1263,6 @@ msgid "Allow emails from all senders."
 msgstr ""
 
 #: mafiasi/mailinglist/templates/mailinglist/settings.html:17
-#| msgid "Settings"
 msgid "Save settings"
 msgstr ""
 
@@ -1305,7 +1287,6 @@ msgid "Moderated emails"
 msgstr ""
 
 #: mafiasi/mailinglist/templates/mailinglist/show_list.html:19
-#| msgid "Reminders"
 msgid "Sender"
 msgstr ""
 
@@ -1315,7 +1296,6 @@ msgstr ""
 
 #: mafiasi/mailinglist/templates/mailinglist/show_list.html:21
 #: mafiasi/mailinglist/templates/mailinglist/whitelist.html:13
-#| msgid "Actions"
 msgid "Action"
 msgstr ""
 
@@ -1324,7 +1304,6 @@ msgid "Allow"
 msgstr ""
 
 #: mafiasi/mailinglist/templates/mailinglist/show_list.html:33
-#| msgid "Discourse"
 msgid "Discard"
 msgstr ""
 
@@ -1333,7 +1312,6 @@ msgid "There are no emails needing moderation."
 msgstr ""
 
 #: mafiasi/mailinglist/templates/mailinglist/show_list.html:42
-#| msgid "Settings"
 msgid "List settings"
 msgstr ""
 
@@ -1462,7 +1440,6 @@ msgstr ""
 
 #: mafiasi/pks/templates/pks/keylist.html:11
 #: mafiasi/pks/templates/pks/show_key.html:23
-#| msgid "Create new"
 msgid "Created"
 msgstr ""
 
@@ -1498,7 +1475,6 @@ msgstr ""
 
 #: mafiasi/pks/templates/pks/menu.html:27
 #: mafiasi/pks/templates/pks/my_keys.html:32
-#| msgid "Upload only"
 msgid "Upload own keys"
 msgstr ""
 
@@ -1642,7 +1618,6 @@ msgid "Missing a key? <a href=\"%(my_keys_url)s\">Manage your keys</a>."
 msgstr ""
 
 #: mafiasi/pks/templates/pks/search.html:4
-#| msgid "Wiki search"
 msgid "Key search"
 msgstr ""
 
@@ -1655,7 +1630,6 @@ msgid "search term"
 msgstr ""
 
 #: mafiasi/pks/templates/pks/search_form.html:9
-#| msgid "Search"
 msgid "Search key"
 msgstr ""
 
@@ -1670,7 +1644,6 @@ msgid "Key details for 0x%(keyid)s"
 msgstr ""
 
 #: mafiasi/pks/templates/pks/show_key.html:15
-#| msgid "License information"
 msgid "Key information"
 msgstr ""
 
@@ -1744,7 +1717,6 @@ msgid "That does not look like a valid account name for {}."
 msgstr ""
 
 #: mafiasi/registration/forms.py:54
-#| msgid "Invalid selection"
 msgid "Invalid domain"
 msgstr ""
 
@@ -1847,7 +1819,6 @@ msgstr ""
 #: mafiasi/registration/templates/registration/request_account.html:6
 #: mafiasi/registration/templates/registration/require_info.html:6
 #: mafiasi/registration/templates/registration/require_info_other.html:5
-#| msgid "Register"
 msgid "Registration"
 msgstr ""
 
@@ -1924,7 +1895,6 @@ msgid "Sorry, but the provided token is expired."
 msgstr ""
 
 #: mafiasi/registration/templates/registration/token_invalid.html:4
-#| msgid "Invalid selection"
 msgid "Invalid token"
 msgstr ""
 
@@ -1970,7 +1940,6 @@ msgid ""
 msgstr ""
 
 #: mafiasi/tauschen/apps.py:11
-#| msgid "Mafiasi"
 msgid "Mafiasi Tauschen"
 msgstr ""
 
@@ -2060,7 +2029,6 @@ msgid ""
 msgstr ""
 
 #: mafiasi/whiteboard/apps.py:11
-#| msgid "Dashboard"
 msgid "Whiteboard"
 msgstr ""
 
