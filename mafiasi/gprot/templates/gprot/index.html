@@ -54,7 +54,7 @@
 <hr/>
 <div class="alert alert-warning">
 {% url 'gprot_notifications' as notifications_url %}
-{% blocktrans %}
+{% blocktrans trimmed %}
     Sorry, there are currently no published memory minutes matching your search.
     You may set up a <a href="{{ notifications_url }}">notification</a> if you
     would like to be informed when new memory minutes matching your query

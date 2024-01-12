@@ -16,9 +16,12 @@
         </div>
         <div id="collapse-primary" class="panel-collapse collapse{% if is_primary %} in{% endif %}">
             <div class="panel-body">
-                <p>{% blocktrans %}Please enter your informatics account into the following field.
-                    The account is usually composed of a number and up to seven letters, e.g. <code>1musterm</code>.
-                    Afterwards, you will receive an email with further instructions.{% endblocktrans %}
+                <p>
+                    {% blocktrans trimmed %}
+                        Please enter your informatics account into the following field.
+                        The account is usually composed of a number and up to seven letters, e.g. <code>1musterm</code>.
+                        Afterwards, you will receive an email with further instructions.
+                    {% endblocktrans %}
                 </p>
                 <form method="post" action="" class="form-inline input-group">
                     {% csrf_token %}
@@ -47,8 +50,12 @@
         </div>
         <div id="collapse-other" class="panel-collapse collapse{% if not is_primary %} in{% endif %}">
             <div class="panel-body">
-                <p>{% blocktrans %}Here, registration with specific email addresses is possible. Unless you have
-                one of the listed email addresses, you should register with your informatics account.{% endblocktrans %}</p>
+                <p>
+                    {% blocktrans trimmed %}
+                        Here, registration with specific email addresses is possible. Unless you have
+                        one of the listed email addresses, you should register with your informatics account.
+                    {% endblocktrans %}
+                </p>
                 <form method="post" action="" class="form-inline">
                     {% csrf_token %}
                     <p>
