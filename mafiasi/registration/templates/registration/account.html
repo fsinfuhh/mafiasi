@@ -107,8 +107,10 @@
                         <p>
                             {% url 'guests_index' as guests_url %}
                             {% value_from_settings PROJECT_NAME as project_name %}
-                            {% blocktrans %}You want to use {{ project_name }} with your friends? You can
-                                <a href="{{ guests_url }}">invite guests</a>.{% endblocktrans %}
+                            {% blocktrans trimmed %}
+                                You want to use {{ project_name }} with your friends? You can
+                                <a href="{{ guests_url }}">invite guests</a>.
+                            {% endblocktrans %}
                         </p>
                     </div>
                     <div class="panel-footer">

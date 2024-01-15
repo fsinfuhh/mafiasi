@@ -1,6 +1,6 @@
 {% autoescape off %}(english below)
 
-Hallo {{ user.first_name}},
+Hallo {{ user.display_name }},
 
 es gibt für die Mailingliste der Gruppe {{ mailinglist.group.name }} eine neue E-Mail zu moderieren.
 
@@ -8,7 +8,7 @@ Kthxbye!
 
 ----
 
-Hi {{ user.first_name}},
+Hi {{ user.display_name }},
 
 there is a new email to be moderated for the mailinglist of the group {{ mailinglist.group.name }}.
 
