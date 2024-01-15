@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-12 16:48+0100\n"
-"PO-Revision-Date: 2024-01-12 16:59+0100\n"
+"PO-Revision-Date: 2024-01-15 16:39+0100\n"
 "Last-Translator: Timon Engelke <timon.engelke@uni-hamburg.de>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.4.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: mafiasi/base/middleware.py:18
 msgid ""
@@ -26,12 +26,7 @@ msgid "Internal server error"
 msgstr "Erreur interne du serveur"
 
 #: mafiasi/base/templates/500.html:10
-#, fuzzy, python-format
-#| msgid ""
-#| "We're sorry, but we didn't expect this to happen. Our error reporting "
-#| "tool should have sent an email to us with some technical details. Please "
-#| "try again later. If the problem persists, see our <a "
-#| "href=\"%(problems_url)s\">problem reporting page</a>."
+#, python-format
 msgid ""
 "We're sorry, but we didn't expect this to happen. Our error reporting tool "
 "should have sent an email to us with some technical details. Please try "
@@ -347,7 +342,7 @@ msgstr "GProt"
 
 #: mafiasi/gprot/apps.py:11
 msgid "The GProt contains memory minutes of oral and written exams."
-msgstr "La mémoire contient GProt minutes d'examens oraux et écrits."
+msgstr "La mémoire contient des mémoires d'examens orales et écrites."
 
 #: mafiasi/gprot/forms.py:50 mafiasi/gprot/forms.py:79
 msgid "Selected examiner does not exist"
@@ -372,7 +367,7 @@ msgstr "Télécharger le PDF"
 #: mafiasi/gprot/management/commands/send_reminders.py:29
 #, python-format
 msgid "Reminder: Memory minutes for \"%(coursename)s\""
-msgstr "Rappel: Mémoire minutes pour \"%(coursename)s\""
+msgstr "Rappel: Mémoires d'examen pour \"%(coursename)s\""
 
 #: mafiasi/gprot/templates/admin/gprot/gprot/change_form.html:33
 msgid "Block this Gprot"
@@ -539,7 +534,7 @@ msgstr "non publié"
 
 #: mafiasi/gprot/templates/gprot/create.html:6
 msgid "Create memory minutes"
-msgstr "Créer minutes de mémoire"
+msgstr "Créer mémoires d'examen"
 
 #: mafiasi/gprot/templates/gprot/create.html:15
 #: mafiasi/gprot/templates/gprot/edit_metadata.html:17
@@ -555,8 +550,8 @@ msgid ""
 "Please take care to only upload <strong>memory</strong> minutes. This is not "
 "the place for photos of exams or similar."
 msgstr ""
-"Ne veuillez téléverser que les minutes de <strong>mémoire</strong>. Ce n'est "
-"pas le lieu pour les photos d'examens ou autres."
+"Ne veuillez téléverser que les <strong>mémoires</strong> d'examen. Ce n'est "
+"pas le lieu pour les photos d'examens etc."
 
 #: mafiasi/gprot/templates/gprot/create.html:33
 msgctxt "GProt format"
@@ -578,13 +573,13 @@ msgstr ""
 
 #: mafiasi/gprot/templates/gprot/delete.html:31
 msgid "Do you really want to delete these memory minutes?"
-msgstr " Voulez-vous vraiment supprimer ces minutes de mémoire? "
+msgstr "Voulez-vous vraiment supprimer cette mémoire d'examen?"
 
 #: mafiasi/gprot/templates/gprot/edit.html:6
 #: mafiasi/gprot/templates/gprot/edit_metadata.html:6
 #, python-format
 msgid "Memory minutes: %(course_name)s"
-msgstr "Minute de mémoire: %(course_name)s"
+msgstr "Mémoires d'examen: %(course_name)s"
 
 #: mafiasi/gprot/templates/gprot/edit.html:13
 msgid "Edit metadata"
@@ -653,13 +648,13 @@ msgid ""
 "the database? This will of course disable editing this memory minutes, since "
 "we no longer know who wrote it."
 msgstr ""
-" Voulez-vous vraiment supprimer votre association avec ces mémoire minutes "
-"de le base de données? Ce sera bien sûr désactiver l'édition de cette "
-"mémoire minutes, depuis we ne sais plus qui l'a écrit."
+"Voulez-vous vraiment supprimer votre association avec cette mémoire d'examen "
+"de le base de données? Vous ne pourriez plus modifier cette mémoire parce "
+"que l'on ne sait plus qui l'a écrite."
 
 #: mafiasi/gprot/templates/gprot/index.html:7
 msgid "Search for memory minutes"
-msgstr "Rechercher minutes de mémoire"
+msgstr "Rechercher mémoires d'examen"
 
 #: mafiasi/gprot/templates/gprot/index.html:24
 #: mafiasi/gprot/templates/gprot/index.html:108
@@ -667,8 +662,8 @@ msgid ""
 "Just enter the name of the course and/or examiner to see available memory "
 "minutes."
 msgstr ""
-"Il suffit d'entrer le nom du cours et / ou de l'examinateur de voir "
-"disponibles minutes de mémoire."
+"Il suffit d'entrer le nom du cours et / ou de l'examinateur pour voir les "
+"mémoires d'examen disponibles."
 
 #: mafiasi/gprot/templates/gprot/index.html:33
 #: mafiasi/gprot/templates/gprot/index.html:85
@@ -681,7 +676,7 @@ msgstr "Sauvegarder comme favori"
 
 #: mafiasi/gprot/templates/gprot/index.html:44
 msgid "Show memory minutes"
-msgstr "Afficher minutes de mémoire"
+msgstr "Afficher mémoires d'examen"
 
 #: mafiasi/gprot/templates/gprot/index.html:57
 #, python-format
@@ -691,11 +686,10 @@ msgid ""
 "would like to be informed when new memory minutes matching your query are "
 "published."
 msgstr ""
-" Désolé, il n'y a aucun publiés minutes de mémoire correspondant à votre "
+"Désolé, il n'y a aucune mémoire d'examen publiée correspondante à votre "
 "recherche. Vous pouvez configurer une <a "
-"href=\"%(notifications_url)s\">notification</a> si vous aurait souhaitez "
-"être tenu informé lorsque de nouvelles minutes de mémoire à votre requête "
-"sont publiés."
+"href=\"%(notifications_url)s\">notification</a> si vous souhaitez être tenu "
+"informé lorsque de nouvelles mémoires d'examen à votre requête sont publiées."
 
 #: mafiasi/gprot/templates/gprot/index.html:68
 msgid "Favorites"
@@ -703,11 +697,11 @@ msgstr "Favoris"
 
 #: mafiasi/gprot/templates/gprot/list_own.html:6
 msgid "List own memory minutes"
-msgstr "Inscrivez propres minutes de mémoire"
+msgstr "Voir propres mémoires d'examen"
 
 #: mafiasi/gprot/templates/gprot/list_own.html:18
 msgid "You have no memory minutes we know of! :-("
-msgstr "Vous ne avez pas de mémoire minutes que nous connaissons! :-("
+msgstr "Vous ne avez pas de mémoires d'examen que nous connaissons! :-("
 
 #: mafiasi/gprot/templates/gprot/list_own.html:20
 #: mafiasi/gprot/templates/gprot/menu.html:10
@@ -791,11 +785,11 @@ msgid ""
 "minutes matching your search are published. Please consider contributing "
 "memory minutes yourself, to help others in the same position.</p>"
 msgstr ""
-"<p> Vous cherchez minutes de mémoire pour un cours spécifique qui ne sont "
-"pas encore là? Il suffit d'ajouter le cours ci-dessous et nous vous "
-"informerons dès que de nouvelles minutes de mémoire correspondant à votre "
-"recherche sont publiés. Se il vous plaît envisager de contribuer minutes de "
-"mémoire vous-même, d'aider les autres dans la même position. </p>"
+"<p> Vous cherchez mémoires d'examen pour un cours spécifique qui n'est pas "
+"encore là? Il suffit d'ajouter le cours ci-dessous et nous vous informerons "
+"dès que de nouvelles mémoires correspondant à votre recherche sont publiés. "
+"Se il vous plaît contribuez des mémoires pour aider les autres dans la même "
+"position. </p>"
 
 #: mafiasi/gprot/templates/gprot/notifications.html:21
 msgid "Added"
@@ -826,9 +820,9 @@ msgid ""
 "once they are published, you will not be able to delete or unpublish them "
 "anymore."
 msgstr ""
-"Merci pour l'écriture et la publication de ces minutes de mémoire! Se il "
-"vous plaît noter que once qu'ils sont publiés, vous ne serez pas en mesure "
-"de supprimer ou dépublier les anymore."
+"Merci pour l'écriture et la publication de cette mémoire d'examen! Se il "
+"vous plaît noter que lorsqu'elle est publiés, vous ne pourrez plus la "
+"supprimer."
 
 #: mafiasi/gprot/templates/gprot/publish.html:38
 msgid ""
@@ -837,12 +831,11 @@ msgid ""
 "authorship will be kept confidential and will never be shown to others and "
 "you may remove the information at any time."
 msgstr ""
-"<strong> Gardez l'information de l'auteur. </strong> Cela vous permet "
-"d'éditer vos minutes de mémoire après l'édition et peut permettre à d'autres "
-"fonctions à l'avenir. Votre auteur sera gardée confidentielle et ne sera "
-"jamais montré à d'autres et vous pouvez supprimer les informations à tout "
-"moment.\n"
-"    "
+"<strong> Gardez l'information de l'auteur. </strong> Cela vous permet de "
+"modifier vos mémoires d'examen après la création et peut permettre à "
+"d'autres fonctions à l'avenir. Votre identité sera gardée confidentielle et "
+"ne sera jamais montré à d'autres et vous pouvez supprimer les informations à "
+"tout moment."
 
 #: mafiasi/gprot/templates/gprot/publish.html:50
 msgid ""
@@ -850,11 +843,9 @@ msgid ""
 "association with this memory minutes from the database. This will of course "
 "disable editing this memory minutes, since we no longer know who wrote it."
 msgstr ""
-"<strong> Forget informations de l'auteur. </strong> Ce sera supprimer votre "
-"association avec cette mémoire minutes de la base de données. Cela Bien sûr "
-"désactiver l'édition de ce mémoire minutes, puisque nous ne sommes plus "
-"savons qui l'a écrit.\n"
-"    "
+"<strong>Oublier informations de l'auteur.</strong> Cette action supprimera "
+"votre association avec cette mémoire d'examen de la base de données. Vous ne "
+"pourriez plus modifier la mémoire parce que l'on ne saura plus l'auteur."
 
 #: mafiasi/gprot/templates/gprot/reminder_email.txt:2
 #, python-format
@@ -874,19 +865,18 @@ msgid ""
 "Your Server-AG"
 msgstr ""
 "Salut à tous! \n"
-" \n"
-" Vous a demandé à être rappelé de la rédaction de minutes de mémoire \n"
-" for votre examen dans \n"
-" \"%(course_name)s\" \n"
-"aujourd'hui. Merci beaucoup pour cela! En écrivant minutes de mémoire vous \n"
-"de aidera beaucoup d'autres étudiants et de contribuer à l'appel \n"
-"of ce référentiel, ce qui augmente les chances que quelqu'un d'autre "
-"contribue minutes \n"
-"memory vous cherchez peut-être à l'avenir. \n"
+"\n"
+"Vous avez demandé d'être rappelé de la création de mémoire d'examen \n"
+"pour des examen dans \n"
+"\"%(course_name)s\" \n"
+"aujourd'hui. Merci beaucoup pour cela! En écrivant mémoires d'examen vous \n"
+"aiderez beaucoup d'autres étudiants\n"
+"ce qui augmente les chances que quelqu'un d'autre contribue des mémoires \n"
+"d'examen que vous cherchez. \n"
 " \n"
 "Cheers, \n"
 " \n"
-"Votre Serveur-AG"
+"Votre Server-AG"
 
 #: mafiasi/gprot/templates/gprot/reminders.html:12
 msgid ""
@@ -894,10 +884,10 @@ msgid ""
 "that you might forget writing them after your exam is over, you can add a "
 "reminder here and we will send you an email right after the exam.</p>"
 msgstr ""
-"<p> Si voulez contribuer mémoire minutes vous-même (ce qui est excellent!), "
-"Mais que vous vous inquiétez might oublier les écrire après votre examen est "
-"terminé, vous pouvez ajouter un rappel here et nous vous enverrons un e-mail "
-"à droite après le examen. </p>"
+"<p>Si vous voulez contribuer des mémoires d'examen vous-même (ce qui est "
+"excellent!) mais vous vous inquiétez que vous oublierez les écrire après "
+"votre examen est terminé, vous pouvez ajouter un rappel ici et nous vous "
+"enverrons un e-mail après l'examen.</p>"
 
 #: mafiasi/gprot/templates/gprot/reminders.html:52
 msgid "Add reminder"
@@ -910,7 +900,7 @@ msgid ""
 "Memory minutes: %(course_name)s\n"
 msgstr ""
 "\n"
-" Minutes de mémoire: %(course_name)s\n"
+" Mémoires d'examen: %(course_name)s\n"
 
 #: mafiasi/gprot/templates/gprot/view.html:17
 msgid "Download PDF"
@@ -962,7 +952,7 @@ msgstr "Seuls les fichiers PNG, JPEG et GIF sont autorisés."
 #: mafiasi/gprot/views.py:354
 #, python-format
 msgid "New memory minutes for \"%(coursename)s\""
-msgstr "Nouveaux minutes de mémoire pour \"%(coursename)s\""
+msgstr "Nouveaux mémoires d'examen pour \"%(coursename)s\""
 
 #: mafiasi/groups/forms.py:27
 #, python-format
@@ -1062,8 +1052,7 @@ msgstr ""
 "Acceptez une invitation ou créez un nouveau groupe et invitez d'autres à "
 "utiliser les fonctionnalités de %(project_name)s, pour exemple les "
 "etherpads, Nextcloud, calendriers de groupe et bitpolls de groupe. Veuillez "
-"regarder les groupes existants.\n"
-"      "
+"regarder les groupes existants."
 
 #: mafiasi/groups/templates/groups/invitations.html:16
 #: mafiasi/groups/templates/groups/show.html:74
@@ -1349,11 +1338,7 @@ msgstr ""
 "a>?"
 
 #: mafiasi/guests/templates/guests/username_exists.html:8
-#, fuzzy, python-format
-#| msgid ""
-#| "Sorry, an account with username %(username)s already exists. If this is "
-#| "not your account, please request another invitation with a different "
-#| "username.</a>"
+#, python-format
 msgid ""
 "Sorry, an account with username %(username)s already exists. If this is not "
 "your account, please request another invitation with a different username."
@@ -1390,11 +1375,11 @@ msgstr "Kanboard est un tableau kanban pour visualiser le progrès d'un projet."
 
 #: mafiasi/link_shortener/apps.py:11
 msgid "Link Shortener"
-msgstr ""
+msgstr "Link Shortener"
 
 #: mafiasi/link_shortener/apps.py:12
 msgid "The best URL shortening service near you"
-msgstr ""
+msgstr "Le meilleur service de réduction de liens à proximité"
 
 #: mafiasi/mailinglist/forms.py:18
 msgid "This email is already on the whitelist"
@@ -1937,8 +1922,6 @@ msgid "Change Email"
 msgstr "Modifier adresse é-mail"
 
 #: mafiasi/registration/templates/registration/account.html:83
-#, fuzzy
-#| msgid "Password"
 msgid "Update Password"
 msgstr "Mot de passe"
 
@@ -1948,18 +1931,15 @@ msgid ""
 "i>. We also support the usage of additional second-factor security which can "
 "also be configured there."
 msgstr ""
+"Afin de modifier votre mot de passe, rendez visite à notre <i>console de "
+"compte</i> centrale. On soutient également des méthodes de second facteur."
 
 #: mafiasi/registration/templates/registration/account.html:104
-#, fuzzy
-#| msgid "Invite guest"
 msgid "Invite Guests"
 msgstr "Inviter invité"
 
 #: mafiasi/registration/templates/registration/account.html:110
-#, fuzzy, python-format
-#| msgid ""
-#| "You want to use %(project_name)s with your friends? You can <a "
-#| "href=\"%(guests_url)s\">invite guests</a>."
+#, python-format
 msgid ""
 "You want to use %(project_name)s with your friends? You can <a "
 "href=\"%(guests_url)s\">invite guests</a>."
@@ -1968,10 +1948,8 @@ msgstr ""
 "href=\"%(guests_url)s\">inviter invités</a>."
 
 #: mafiasi/registration/templates/registration/account.html:118
-#, fuzzy
-#| msgid "Manage whitelist"
 msgid "Manage Guests"
-msgstr "Gérer la liste blanche"
+msgstr "Gérer les invités"
 
 #: mafiasi/registration/templates/registration/email_error.html:5
 msgid "Email address is invalid"
@@ -2033,12 +2011,6 @@ msgid "Registration with email address"
 msgstr "Inscription avec adresse e-mail"
 
 #: mafiasi/registration/templates/registration/request_account.html:54
-#, fuzzy
-#| msgid ""
-#| "Here, registration with specific email addresses is possible. Unless you "
-#| "have\n"
-#| "                one of the listed email addresses, you should register "
-#| "with your informatics account."
 msgid ""
 "Here, registration with specific email addresses is possible. Unless you "
 "have one of the listed email addresses, you should register with your "
@@ -2128,10 +2100,9 @@ msgid "Account creation at %s"
 msgstr "Création de compte à %s"
 
 #: mafiasi/registration/views.py:329
-#, fuzzy, python-format
-#| msgid "Account creation at %s"
+#, python-format
 msgid "Account exists at %s"
-msgstr "Création de compte à %s"
+msgstr "Compte existant à %s"
 
 #: mafiasi/registration/views.py:344
 msgid "Registration: Sending mail failed: {}"
@@ -2172,11 +2143,11 @@ msgstr "session d'été {0}"
 
 #: mafiasi/vault/apps.py:15
 msgid "Vault"
-msgstr ""
+msgstr "Vault"
 
 #: mafiasi/vault/apps.py:16
 msgid "Mafiasi hosted password manager"
-msgstr ""
+msgstr "Gestionnaire de mots de passe"
 
 #: mafiasi/vault/templates/vault/index.html:21
 msgid ""
@@ -2184,16 +2155,22 @@ msgid ""
 "operated by Mafiasi.<br> You can use it to store and manage your passwords. "
 "You can also share passwords with other users or groups."
 msgstr ""
+"Vault est un gestionnaire de mots de passe <i>Vaultwarden / Bitwarden</i> "
+"sur Mafiasi.<br> Vous pouvez l'utiliser pour mémoriser et gérer vos mots de "
+"passe. Vous pouvez également partages les mots de passe avec d'autres "
+"utilisateurs ou groupes."
 
 #: mafiasi/vault/templates/vault/index.html:28
 msgid ""
 "Note that Mafiasi has no access to any of your credentials because they are "
 "encrypted with a master password chosen by you."
 msgstr ""
+"Retenez que Mafiasi n'a pas d'accès à vos mots de passe parce qu'ils sont "
+"crypté avec un mot de passe principal choisi par vous."
 
 #: mafiasi/vault/templates/vault/index.html:37
 msgid "You do not currently have a vault account"
-msgstr ""
+msgstr "Vous n'avez pas encore de compte de Vault"
 
 #: mafiasi/vault/templates/vault/index.html:39
 #, python-format
@@ -2202,6 +2179,9 @@ msgid ""
 "will receive an e-mail at %(vault_email)s inviting you to register and set a "
 "password."
 msgstr ""
+"Utilisez le bouton ci-dessous pour créer un nouveau compte.<br> Ce faisant, "
+"vous recevrez un e-mail à %(vault_email)s vous invitant à vous enregistrer "
+"et à définir un mot de passe."
 
 #: mafiasi/vault/templates/vault/index.html:46
 #: mafiasi/vault/templates/vault/index.html:84
@@ -2209,6 +2189,8 @@ msgid ""
 "The password you choose to use with Vault should not be confused with your "
 "Mafiasi password. They are completely separate."
 msgstr ""
+"Le mot de passe que vous choisissez d'utiliser avec Vault n'a aucune "
+"associations à votre mot de passe Mafiasi. Ils sont totalement distincts."
 
 #: mafiasi/vault/templates/vault/index.html:49
 #: mafiasi/vault/templates/vault/index.html:87
@@ -2218,19 +2200,25 @@ msgid ""
 "group / organization memberships. Wel also regularly delete vault accounts "
 "with unknown email addresses."
 msgstr ""
+"Ne changez pas votre adresse mail. C'est ce qui lie le compte Vault à votre "
+"compte Mafiasi et nous l'utilisons pour synchroniser les groupes. On "
+"supprime également régulièrement les comptes Vault dont l'adresse "
+"électronique est inconnue."
 
 #: mafiasi/vault/templates/vault/index.html:61
 msgid "Your vault account is ready to go"
-msgstr ""
+msgstr "Votre compte Vault est prêt"
 
 #: mafiasi/vault/templates/vault/index.html:63
 #, python-format
 msgid "You can log in using <i>%(vault_email)s</i> as your email."
 msgstr ""
+"Vous pouvez vous connecter en utilisant <i>%(vault_email)s</i> comme adresse "
+"mail."
 
 #: mafiasi/vault/templates/vault/index.html:76
 msgid "Your vault account has been created but is not yet ready"
-msgstr ""
+msgstr "Votre compte Vault a été créé mais n'est pas encore prêt"
 
 #: mafiasi/vault/templates/vault/index.html:78
 #, python-format
@@ -2238,6 +2226,8 @@ msgid ""
 "An invitation email has been sent to %(vault_email)s. It includes a link "
 "which you need to click to complete the account creation."
 msgstr ""
+"Un courriel d'invitation a été envoyé à %(vault_email)s. Il contient un lien "
+"sur lequel vous devez cliquer pour terminer la création du compte."
 
 #: mafiasi/whiteboard/apps.py:11
 msgid "Whiteboard"
