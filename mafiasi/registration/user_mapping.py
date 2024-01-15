@@ -22,4 +22,5 @@ def update_user_from_token(user: MafiasiUser, id_token: IdToken) -> None:
     user.last_name = id_token.family_name
 
     if settings.OPENID_SYNC_SUPERUSER:
-        user.is_superuser = settings.OPENID_SUPERUSER_GROUP in id_token.groups
+        groups = getattr(id_token, "groups", [])
+        user.is_superuser = settings.OPENID_SUPERUSER_GROUP in groups
