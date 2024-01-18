@@ -10,6 +10,9 @@
 
 {% block content %}
 {% is_first_of_april as is_first_of_april_val %}
+{% if is_first_of_april_val %}
+    {% include "dashboard/mafiasi_purple.html" %}
+{% endif %}
 {% is_snowing as is_snowing_val %}
 <div class="row {% if is_first_of_april_val %}first-of-april{% endif %}">
     <div id="dashboard" class="col-md-8">

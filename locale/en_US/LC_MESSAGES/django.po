@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-12 17:28+0100\n"
-"PO-Revision-Date: 2024-01-12 17:06+0100\n"
-"Last-Translator: Timon Engelke <timon.engelke@uni-hamburg.de>\n"
+"POT-Creation-Date: 2024-01-18 22:43+0100\n"
+"PO-Revision-Date: 2024-01-18 22:42+0100\n"
+"Last-Translator: Markus Neblung <markus.neblung@uni-hamburg.de>\n"
 "Language-Team: \n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.4.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: mafiasi/base/middleware.py:18
 msgid ""
@@ -144,27 +144,48 @@ msgstr ""
 msgid "Dashboard"
 msgstr ""
 
-#: mafiasi/dashboard/templates/dashboard/index.html:17
+#: mafiasi/dashboard/templates/dashboard/index.html:20
 msgid "Services"
 msgstr ""
 
-#: mafiasi/dashboard/templates/dashboard/index.html:34
+#: mafiasi/dashboard/templates/dashboard/index.html:37
 msgid "Rearrange item"
 msgstr ""
 
-#: mafiasi/dashboard/templates/dashboard/index.html:42
+#: mafiasi/dashboard/templates/dashboard/index.html:45
 msgid "News and more"
 msgstr ""
 
-#: mafiasi/dashboard/templates/dashboard/index.html:58
+#: mafiasi/dashboard/templates/dashboard/index.html:61
 msgid "Wiki search"
 msgstr ""
 
-#: mafiasi/dashboard/templates/dashboard/index.html:65
+#: mafiasi/dashboard/templates/dashboard/index.html:68
 #: mafiasi/gprot/templates/gprot/menu.html:4
 #: mafiasi/pks/templates/pks/menu.html:4
 #: mafiasi/pks/templates/pks/search.html:5
 msgid "Search"
+msgstr ""
+
+#: mafiasi/dashboard/templates/dashboard/mafiasi_purple.html:8
+msgid ""
+"From today we offer <mark>Mafiasi Purple</mark> for ✨ only 42€ per month ✨ "
+"to finance the Server-AG! You can support us by subscribing to <mark>Mafiasi "
+"Purple</mark>."
+msgstr ""
+
+#: mafiasi/dashboard/templates/dashboard/mafiasi_purple.html:9
+msgid ""
+"For people who want to continue using Mafiasi for free, we are offering "
+"Mafiasi with advertising from today. The choice is yours!"
+msgstr ""
+
+#: mafiasi/dashboard/templates/dashboard/mafiasi_purple.html:12
+msgid "Continue with ads"
+msgstr ""
+
+#: mafiasi/dashboard/templates/dashboard/mafiasi_purple.html:15
+msgid "Book Mafiasi Purple"
 msgstr ""
 
 #: mafiasi/discourse/apps.py:11
