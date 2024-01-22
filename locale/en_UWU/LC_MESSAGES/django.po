@@ -22,7 +22,7 @@ msgstr ""
 
 #: mafiasi/base/templates/500.html:5
 msgid "Internal server error"
-msgstr "Internal server error"
+msgstr "Oopsie whoopsie! Something is very not working. qwq"
 
 #: mafiasi/base/templates/500.html:10
 #, fuzzy, python-format
@@ -82,7 +82,7 @@ msgstr "Pawprint"
 
 #: mafiasi/base/templates/base.html:96
 msgid "Data privacy statement"
-msgstr "Data privacy statement"
+msgstr "How me uses ur data"
 
 #: mafiasi/base/templates/base.html:98
 msgid "Technical info"
@@ -141,7 +141,7 @@ msgstr "Limit reached. Please wait until {}"
 msgid ""
 "'%(value)s' contains invalid characters. Only ASCII characters are allowed."
 msgstr ""
-"'%(value)s' contains invalid characters. Only ASCII characters are allowed."
+"'%(value)s' has scary chars. Me no like. Pls use only ASCII."
 
 #: mafiasi/base/validation.py:23
 msgid ""
@@ -151,7 +151,7 @@ msgstr "Me not like these scary chars. Pls use only ASCII."
 #: mafiasi/base/validation.py:27
 #, python-format
 msgid "Your password may only contain the following characters: %s"
-msgstr "Me not like these scary chars: %s"
+msgstr "Me not like these scary chars. Me likes: %s"
 
 #: mafiasi/bitpoll/apps.py:10
 msgid "BitPoll"
@@ -171,7 +171,7 @@ msgstr "Behold: my stuff! (●'◡'●)"
 
 #: mafiasi/dashboard/templates/dashboard/index.html:32
 msgid "Rearrange item"
-msgstr "Rearrange item"
+msgstr "Move thingy"
 
 #: mafiasi/dashboard/templates/dashboard/index.html:40
 msgid "News and more"
@@ -186,7 +186,7 @@ msgstr "Look up knowings"
 #: mafiasi/pks/templates/pks/menu.html:4 
 #: mafiasi/pks/templates/pks/search.html:5
 msgid "Search"
-msgstr "Search"
+msgstr "Looksies"
 
 #: mafiasi/discourse/apps.py:10
 msgid "Discourse"
@@ -210,7 +210,7 @@ msgstr "Work togetha with frens. Be strong!"
 #: mafiasi/etherpad/templates/etherpad/create_new_pad.html:27 
 #: mafiasi/etherpad/templates/etherpad/index.html:17
 msgid "Create group pad"
-msgstr "Create group pad"
+msgstr "make paw with frens"
 
 #: mafiasi/etherpad/templates/etherpad/create_new_pad.html:15 
 #: mafiasi/groups/templates/groups/show.html:120 
@@ -228,18 +228,18 @@ msgid ""
 "You can create a new group in the <a href=\"%(groups_link)s\">group "
 "management</a>."
 msgstr ""
-"You can create a new group in the <a href=\"%(groups_link)s\">group "
-"management</a>."
+"U can make more frens at <a href=\"%(groups_link)s\">frens "
+"settings</a>."
 
 #: mafiasi/etherpad/templates/etherpad/delete_pad.html:5 
 #: mafiasi/etherpad/templates/etherpad/delete_pad.html:19
 msgid "Delete group pad"
-msgstr "Delete group pad"
+msgstr "make frens paw go away"
 
 #: mafiasi/etherpad/templates/etherpad/delete_pad.html:15
 #, python-format
 msgid "Delete the Pad <b>%(pad)s</b> from group <b>%(group)s</b>?"
-msgstr "Delete the Pad <b>%(pad)s</b> from group <b>%(group)s</b>?"
+msgstr "Take away Paw <b>%(pad)s</b> from frens <b>%(group)s</b>?"
 
 #: mafiasi/etherpad/templates/etherpad/forbidden-notadmin.html:8
 #, python-format
@@ -247,8 +247,8 @@ msgid ""
 "You tried to administrate the group <b>%(group_name)s</b>. You are not admin "
 "in this group!"
 msgstr ""
-"You tried to administrate the group <b>%(group_name)s</b>. You are not admin "
-"in this group!"
+"U tried to be better then ur frens <b>%(group_name)s</b>. U is no chief "
+"for these frens!"
 
 #: mafiasi/etherpad/templates/etherpad/forbidden-notingroup.html:8
 #, python-format
@@ -256,8 +256,8 @@ msgid ""
 "You tried to access the group <b>%(group_name)s</b>. You aren't in this "
 "group!"
 msgstr ""
-"You tried to access the group <b>%(group_name)s</b>. You aren't in this "
-"group!"
+"U tried to access frens at <b>%(group_name)s</b>. They are no "
+"frens of u!"
 
 #: mafiasi/etherpad/templates/etherpad/index.html:5
 msgid "Etherpad overview"
@@ -265,7 +265,7 @@ msgstr "Pawprint list"
 
 #: mafiasi/etherpad/templates/etherpad/index.html:12
 msgid "Create new pad"
-msgstr "Create new pad"
+msgstr "Make new paw"
 
 #: mafiasi/etherpad/templates/etherpad/index.html:14
 #, python-format
@@ -275,18 +275,18 @@ msgid ""
 "the <a href=\"%(groups_link)s\">group management</a> you can create groups "
 "and invite others."
 msgstr ""
-"You can either create public pads, which everybody who knows their URL can "
-"access or group pads, which can only be accessed by members of a group. In "
-"the <a href=\"%(groups_link)s\">group management</a> you can create groups "
-"and invite others."
+"U cans either create public paws, anyone can see those if they know where to look. "
+"Or u cans create paw for frens, which only your frens can see. "
+"Under the <a href=\"%(groups_link)s\">frens settings</a> u can make new "
+"frens."
 
 #: mafiasi/etherpad/templates/etherpad/index.html:16
 msgid "Create public pad"
-msgstr "Create public pad"
+msgstr "Make new open paw"
 
 #: mafiasi/etherpad/templates/etherpad/index.html:21
 msgid "Protected group pads can only be created if you are logged in."
-msgstr "Protected group pads can only be created if you are logged in."
+msgstr "Me protects these paws! I only let u see, if I knows u!"
 
 #: mafiasi/etherpad/templates/etherpad/index.html:24
 msgid "Your pinned pads"
@@ -344,23 +344,23 @@ msgstr "Frens put memories of scary things here. Beware!"
 
 #: mafiasi/gprot/forms.py:49 mafiasi/gprot/forms.py:84
 msgid "Selected examiner does not exist"
-msgstr "Selected examiner does not exist"
+msgstr "The teachy person u chose does not be"
 
 #: mafiasi/gprot/forms.py:52 mafiasi/gprot/forms.py:76
 msgid "Selected course does not exist"
-msgstr "Selected course does not exist"
+msgstr "Me can't find the course u is searching"
 
 #: mafiasi/gprot/forms.py:54
 msgid "Invalid selection"
-msgstr "Invalid selection"
+msgstr "Me no like ur selection"
 
 #: mafiasi/gprot/forms.py:89 mafiasi/gprot/templates/gprot/create.html:35
 msgid "Write online"
-msgstr "Write online"
+msgstr "Scribble on the internet"
 
 #: mafiasi/gprot/forms.py:90 mafiasi/gprot/templates/gprot/create.html:36
 msgid "Upload PDF"
-msgstr "Upload PDF"
+msgstr "give me PawDF"
 
 #: mafiasi/gprot/management/commands/send_reminders.py:24
 #, python-format
@@ -405,7 +405,7 @@ msgstr "Delete"
 #: mafiasi/gprot/templates/gprot/forget.html:40 
 #: mafiasi/gprot/templates/gprot/view.html:38
 msgid "Forget authorship"
-msgstr "Forget authorship"
+msgstr "Make me forget u"
 
 #: mafiasi/gprot/templates/gprot/_basic_form.html:4
 msgid "Course:"
@@ -419,7 +419,7 @@ msgstr "New"
 
 #: mafiasi/gprot/templates/gprot/_basic_form.html:21
 msgid "Examiner:"
-msgstr "Examiner:"
+msgstr "Teachy person:"
 
 #: mafiasi/gprot/templates/gprot/_basic_form.html:38
 msgid "Exam date:"
@@ -482,7 +482,7 @@ msgstr "Short Name:"
 #: mafiasi/gprot/templates/gprot/reminders.html:23 
 #: mafiasi/gprot/templates/gprot/reminders.html:47
 msgid "Course"
-msgstr "Course"
+msgstr "Teachy subject"
 
 #: mafiasi/gprot/templates/gprot/_gprot_list.html:8 
 #: mafiasi/gprot/templates/gprot/delete.html:24 
@@ -502,7 +502,7 @@ msgstr "Exam date"
 #: mafiasi/gprot/templates/gprot/publish.html:16 
 #: mafiasi/gprot/templates/gprot/view.html:53
 msgid "Examiners"
-msgstr "Examiners"
+msgstr "Teachy persons"
 
 #: mafiasi/gprot/templates/gprot/_gprot_list.html:11
 msgid "Status"
@@ -516,23 +516,23 @@ msgstr "Labels"
 
 #: mafiasi/gprot/templates/gprot/_gprot_list.html:14
 msgid "PDF?"
-msgstr "PDF?"
+msgstr "PawDF?"
 
 #: mafiasi/gprot/templates/gprot/_gprot_list.html:25 
 #: mafiasi/gprot/templates/gprot/edit.html:16 
 #: mafiasi/gprot/templates/gprot/edit_metadata.html:8
 msgid "published"
-msgstr "published"
+msgstr "given to peOwOple"
 
 #: mafiasi/gprot/templates/gprot/_gprot_list.html:27 
 #: mafiasi/gprot/templates/gprot/edit.html:18 
 #: mafiasi/gprot/templates/gprot/edit_metadata.html:8
 msgid "unpublished"
-msgstr "unpublished"
+msgstr "is urs only"
 
 #: mafiasi/gprot/templates/gprot/create.html:6
 msgid "Create memory minutes"
-msgstr "Create memory minutes"
+msgstr "Tell your memories^^"
 
 #: mafiasi/gprot/templates/gprot/create.html:15
 #, fuzzy
@@ -560,8 +560,8 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"        Please take care to only upload <strong>memory</strong> minutes. "
-"This is not the place for photos of exams or similar.\n"
+"        Pls only share <strong>memories</strong>. "
+"This is no place for pics of exams or similar.\n"
 "    "
 
 #: mafiasi/gprot/templates/gprot/create.html:33
@@ -588,13 +588,13 @@ msgid ""
 "Do you really want to delete these memory minutes?\n"
 msgstr ""
 "\n"
-"Do you really want to delete these memory minutes?\n"
+"Does u really wants 2 take these from me?\n"
 
 #: mafiasi/gprot/templates/gprot/edit.html:6 
 #: mafiasi/gprot/templates/gprot/edit_metadata.html:6
 #, python-format
 msgid "Memory minutes: %(course_name)s"
-msgstr "Memory minutes: %(course_name)s"
+msgstr "Memories: %(course_name)s"
 
 #: mafiasi/gprot/templates/gprot/edit.html:13
 msgid "Edit metadata"
@@ -614,7 +614,7 @@ msgstr ""
 
 #: mafiasi/gprot/templates/gprot/edit.html:55
 msgid "Error:"
-msgstr "Error:"
+msgstr "Oopsie whoopsie:"
 
 #: mafiasi/gprot/templates/gprot/edit.html:59
 msgid "Select a file"
@@ -896,11 +896,10 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    <strong>Forget authorship information.</strong> This will delete your\n"
-"    association with this memory minutes from the database. This will\n"
-"    of course disable editing this memory minutes, since we no longer\n"
-"    know who wrote it.\n"
-"    "
+"    <strong>Make me forget u did this.</strong> This will delete ur\n"
+"    connection with these memories. No one cans edit these after\n"
+"    as me no longer rembers who wrote them.\n"
+
 
 #: mafiasi/gprot/templates/gprot/reminder_email.txt:2
 #, python-format
@@ -962,7 +961,7 @@ msgstr ""
 
 #: mafiasi/gprot/templates/gprot/view.html:17
 msgid "Download PDF"
-msgstr "Download PDF"
+msgstr "Download PawDF"
 
 #: mafiasi/gprot/templates/gprot/view.html:62
 msgid "Department"
@@ -984,32 +983,31 @@ msgstr "No document has been uploaded yet."
 
 #: mafiasi/gprot/views.py:179 mafiasi/gprot/views.py:280
 msgid "Only files up to {0} MB are allowed."
-msgstr "Only files up to {0} MB are allowed."
+msgstr "Me can only handle files up to {0} MB."
 
 #: mafiasi/gprot/views.py:183
 msgid "Only PDF files are allowed."
-msgstr "Only PDF files are allowed."
+msgstr "Me only likes PawDF files."
 
 #: mafiasi/gprot/views.py:185 mafiasi/gprot/views.py:287
 msgid "Please select a file to upload."
-msgstr "Please select a file to upload."
+msgstr "Pls choose file."
 
 #: mafiasi/gprot/views.py:217
 msgid ""
 "This file was blocked because it is an original exam. Please do not try to "
 "upload it again because we will get problems with the university."
 msgstr ""
-"This file was blocked because it is an original exam. Please do not try to "
-"upload it again because we will get problems with the university."
+"This looks like original exam. Pls don't do this. Uni will get angry at me."
 
 #: mafiasi/gprot/views.py:307
 msgid "Only PNG, JPEG and GIF files are allowed."
-msgstr "Only PNG, JPEG and GIF files are allowed."
+msgstr "Me only likes PNG, JPEG and GIF files."
 
 #: mafiasi/gprot/views.py:328
 #, python-format
 msgid "New memory minutes for \"%(coursename)s\""
-msgstr "New memory minutes for \"%(coursename)s\""
+msgstr "New memories for \"%(coursename)s\""
 
 #: mafiasi/groups/forms.py:26
 #, python-format
