@@ -899,6 +899,7 @@ msgstr ""
 "    <strong>Make me forget u did this.</strong> This will delete ur\n"
 "    connection with these memories. No one cans edit these after\n"
 "    as me no longer rembers who wrote them.\n"
+"    "
 
 
 #: mafiasi/gprot/templates/gprot/reminder_email.txt:2

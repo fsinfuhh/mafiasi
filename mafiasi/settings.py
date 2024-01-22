@@ -242,7 +242,7 @@ LANGUAGES = (
     ("de", "Deutsch"),
     ("en", "English"),
     ("fr", "Français"),
-    ("uwu", "UwU (English)"),
+    ("en-uwu", "UwU (English)"),
 )
 
 LOGGING = {
