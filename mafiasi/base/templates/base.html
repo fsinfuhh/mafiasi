@@ -104,14 +104,13 @@
                     <a href="{% url 'base_technical_info' %}">{% trans "Technical info" %}</a>
                     &middot;
                     <a href="{% url 'base_problems' %}">{% trans "Problems?" %}</a>
-                    &middot;
-                    <button name="language" value="de" class="btn-link" style="padding: 0;" type="submit">Deutsch</button>
-                    &middot;
-                    <button name="language" value="en" class="btn-link" style="padding: 0;" type="submit">English</button>
-                    &middot;
-                    <button name="language" value="fr" class="btn-link" style="padding: 0;" type="submit">Français</button>
-                    &middot;
-                    <button name="language" value="en-uwu" class="btn-link" style="padding: 0;" type="submit">UWU</button>
+                    {% get_available_languages as languages %}
+                    {% for lang in languages %}
+                        {% if lang.0 != "en-uwu" %}
+                        &middot;
+                        <button name="language" value="{{ lang.0 }}" class="btn-link" style="padding: 0;" type="submit">{{ lang.1 }}</button>
+                        {% endif %}
+                    {% endfor %}
                 </p>
             </form>
         </div>
