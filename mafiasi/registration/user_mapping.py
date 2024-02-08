@@ -1,6 +1,7 @@
 from typing import Any
 
 from django.conf import settings
+from simple_openid_connect.integrations.django.models import OpenidUser
 from simple_openid_connect.integrations.django.user_mapping import (
     FederatedUserData,
     UserMapper,
