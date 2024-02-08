@@ -24,8 +24,7 @@ OPENID_ISSUER = env.str("MAFIASI_OPENID_ISSUER", default="https://identity.mafia
 OPENID_CLIENT_ID = env.str("MAFIASI_OPENID_CLIENT_ID", default="mafiasi-dashboard")
 OPENID_CLIENT_SECRET = env.str("MAFIASI_OPENID_CLIENT_SECRET", required=True)
 OPENID_SCOPE = "openid profile email groups"
-OPENID_CREATE_USER_FUNC = "mafiasi.registration.user_mapping.create_user_from_token"
-OPENID_UPDATE_USER_FUNC = "mafiasi.registration.user_mapping.update_user_from_token"
+OPENID_USER_MAPPER = "mafiasi.registration.user_mapping.MafiasiUserMapper"
 
 KEYCLOAK_ACCOUNT_CONSOLE_URL = env.str(
     "MAFIASI_KEYCLOAK_ACCOUNT_CONSOLE_URL", default="https://identity.mafiasi.de/realms/mafiasi/account"
@@ -127,6 +126,7 @@ MIDDLEWARE = [
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "mafiasi.base.middleware.InvalidMailMiddleware",
+    "simple_openid_connect.integrations.django.middleware.TokenVerificationMiddleware",
 ]
 
 INSTALLED_APPS = [
