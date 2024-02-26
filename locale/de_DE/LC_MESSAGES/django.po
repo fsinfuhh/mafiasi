@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-12 16:48+0100\n"
+"POT-Creation-Date: 2024-02-26 19:24+0100\n"
 "PO-Revision-Date: 2024-01-12 16:56+0100\n"
 "Last-Translator: Timon Engelke <timon.engelke@uni-hamburg.de>\n"
 "Language-Team: \n"
@@ -87,6 +87,13 @@ msgstr "Probleme?"
 #: mafiasi/base/templates/base/licenses.html:4
 msgid "License information"
 msgstr "Lizenzinformationen"
+
+#: mafiasi/base/templates/base/login.html:8
+#, python-format
+msgid ""
+"You are authenticated as %(username)s, but are not authorized to access this "
+"page. Would you like to login to a different account?"
+msgstr ""
 
 #: mafiasi/base/templates/base/problems.html:7
 #, python-format
