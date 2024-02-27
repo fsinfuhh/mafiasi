@@ -7,7 +7,7 @@ RUN mkdir -p /usr/share/man/man1 /app/config
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt upgrade -y &&\
     apt install -y --no-install-recommends uwsgi uwsgi-plugin-python3 python3 python3-setuptools python3-pip gcc gettext \
-    libldap-2.4-2 libldap2-dev libsasl2-2 libsasl2-dev libgpgme11 libgpgme-dev python3-dev libgraphviz-dev graphviz libmagic-dev libjpeg-dev libjs-mathjax \
+    libldap-common libldap2-dev libsasl2-2 libsasl2-dev libgpgme11 libgpgme-dev python3-dev libgraphviz-dev graphviz libmagic-dev libjpeg-dev libjs-mathjax \
     make nginx supervisor &&\
     pip3 install --no-cache pipenv &&\
     update-alternatives --install /usr/bin/python python /usr/bin/python3 99
