@@ -14,7 +14,7 @@ RUN apt upgrade -y &&\
 ADD Pipfile /app/src/Pipfile
 ADD Pipfile.lock /app/src/Pipfile.lock
 WORKDIR /app/src
-RUN python -m pipenv install --system --deploy --ignore-pipfile --extra-pip-args="--break-system-packages"
+RUN pipenv install --system --deploy --ignore-pipfile --extra-pip-args="--break-system-packages"
 RUN pip3 install sentry-sdk --break-system-packages
 
 # add remaining sources
