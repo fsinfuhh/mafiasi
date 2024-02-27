@@ -21,7 +21,7 @@ networkx = "~=3.1"
 oauthlib = "~=3.2"
 psycopg2-binary = "~=2.9"
 # should be replaced once https://github.com/rshk/pygpgme/pull/12 is merged
-pygpgme = { git = "https://github.com/timonegk/pygpgme.git", branch = "patch-1" }
+pygpgme = { git = "https://github.com/timonegk/pygpgme.git", ref = "patch-1" }
 pygraphviz = "~=1.11"
 python-Levenshtein = "~=0.22"
 python-creole = "~=1.4"
