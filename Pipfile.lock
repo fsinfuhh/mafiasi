@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "cba8dcf9265082d03369579b5074f1c8aad586390f48a7be930c28191a45fd8f"
+            "sha256": "9091c7efdc6b627a9c00d43165c5abc1c09eeeba19b04fe7ead422f1a63c9923"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -798,8 +798,8 @@
             "version": "==2.16.3"
         },
         "pygpgme": {
-            "git": "https://github.com/JohnVictoryz/pygpgme.git",
-            "ref": "e697db06e4abc59e890bec2fd164dce3e24c6959"
+            "git": "https://github.com/timonegk/pygpgme.git",
+            "ref": "de2e739e56ca33bfde1c7c3ba0f62863863a5160"
         },
         "pygraphviz": {
             "hashes": [
