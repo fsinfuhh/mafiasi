@@ -23,3 +23,4 @@ class MafiasiAdmin(UserAdmin):
 
 admin.site.register(Yeargroup)
 admin.site.register(Mafiasi, MafiasiAdmin)
+admin.site.login_template = "base/login.html"
