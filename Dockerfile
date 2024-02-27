@@ -14,8 +14,10 @@ RUN apt upgrade -y &&\
 ADD Pipfile /app/src/Pipfile
 ADD Pipfile.lock /app/src/Pipfile.lock
 WORKDIR /app/src
-RUN pipenv install --system --deploy --ignore-pipfile --extra-pip-args="--break-system-packages"
-RUN pip3 install sentry-sdk --break-system-packages
+# delete file that marks root python package path as externally managed
+RUN rm /usr/lib/python3.11/EXTERNALLY-MANAGED
+RUN pipenv install --system --deploy --ignore-pipfile
+RUN pip3 install sentry-sdk
 
 # add remaining sources
 ADD . /app/src
