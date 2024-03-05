@@ -44,9 +44,6 @@ class Mafiasi(AbstractUser):
     real_email = models.EmailField(unique=True, null=True)
     new_password = None
 
-    # USED in contrib.auth to determine the mail address for thinks like password reset
-    EMAIL_FIELD = "real_email"
-
     REQUIRED_FIELDS = ["email", "real_email"]
 
     @property
