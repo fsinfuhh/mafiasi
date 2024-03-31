@@ -22,10 +22,15 @@ class SpecialDayMiddleware:
                 request.session["specialDay"] = "aprilfools"
                 option = random.randint(0, 1)
                 if option == 1:
-                    request.session["specialDayClasses"] += "first-of-april"
+                    request.session["specialDayClasses"] += " first-of-april"
                 elif option == 2:
                     translation.activate("en-uwu")
                     request.LANGUAGE_CODE = translation.get_language()
+
+            # winter season
+            if n.month == 12 and n.day >= 10:
+                request.session["specialDay"] = "winter"
+                request.session["specialDayClasses"] += " snowing"
 
         # call view
         response = self.get_response(request)

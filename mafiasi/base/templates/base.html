@@ -2,8 +2,6 @@
 {% load group_tags %}
 {% load settings_value %}
 {% load static %}
-{% load snow %}
-{% is_snowing as is_snowing_val %}
 {% value_from_settings BANNER_IMG as banner_img %}
 <!DOCTYPE html>
 <html>
@@ -24,7 +22,7 @@
     <script>
         if (localStorage.mafiasi_theme) document.documentElement.dataset.theme = localStorage.mafiasi_theme;
     </script>
-    {% if is_snowing_val %}
+    {% if request.session.specialDay == 'winter' %}
         <link rel="stylesheet" href="{% static 'css/snow.css' %}" />
     {% endif %}
 </head>
@@ -121,7 +119,7 @@
         </div>
     </div>
 
-    {% if is_snowing_val %}
+    {% if request.session.specialDay == 'winter' %}
         <canvas id="snow-canvas"></canvas>
         <script src="{% static 'js/snow.js' %}" type="module"></script>
     {% endif %}

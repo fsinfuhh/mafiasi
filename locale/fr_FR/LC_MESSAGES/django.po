@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-01 01:40+0200\n"
+"POT-Creation-Date: 2024-04-01 01:46+0200\n"
 "PO-Revision-Date: 2024-01-15 16:39+0100\n"
 "Last-Translator: Timon Engelke <timon.engelke@uni-hamburg.de>\n"
 "Language-Team: \n"
@@ -39,51 +39,51 @@ msgstr ""
 "problème persiste, consultez notre <a href=\"%(problems_url)s\"> page de "
 "rapports d'incidents </a>."
 
-#: mafiasi/base/templates/base.html:44
+#: mafiasi/base/templates/base.html:42
 msgid "Disable surprise"
 msgstr ""
 
-#: mafiasi/base/templates/base.html:54
+#: mafiasi/base/templates/base.html:52
 msgid "Groups"
 msgstr "Groupes"
 
-#: mafiasi/base/templates/base.html:62
+#: mafiasi/base/templates/base.html:60
 #: mafiasi/mailinglist/templates/mailinglist/show_list.html:46
 msgid "Settings"
 msgstr "Paramètres"
 
-#: mafiasi/base/templates/base.html:65
+#: mafiasi/base/templates/base.html:63
 #, python-format
 msgid "Logged in as %(username)s"
 msgstr "Connecté en tant que %(username)s"
 
-#: mafiasi/base/templates/base.html:68
+#: mafiasi/base/templates/base.html:66
 msgid "Logout"
 msgstr "Déconnecter"
 
-#: mafiasi/base/templates/base.html:74
+#: mafiasi/base/templates/base.html:72
 #: mafiasi/registration/templates/registration/request_account.html:38
 #: mafiasi/registration/templates/registration/request_account.html:77
 msgid "Register"
 msgstr "Enregistrez-Vous"
 
-#: mafiasi/base/templates/base.html:76
+#: mafiasi/base/templates/base.html:74
 msgid "Login"
 msgstr "Connectez-Vouz"
 
-#: mafiasi/base/templates/base.html:105
+#: mafiasi/base/templates/base.html:103
 msgid "Imprint"
 msgstr "Empreinte"
 
-#: mafiasi/base/templates/base.html:107
+#: mafiasi/base/templates/base.html:105
 msgid "Data privacy statement"
 msgstr "Politique de confidentialité"
 
-#: mafiasi/base/templates/base.html:109
+#: mafiasi/base/templates/base.html:107
 msgid "Technical info"
 msgstr "Information technique"
 
-#: mafiasi/base/templates/base.html:111
+#: mafiasi/base/templates/base.html:109
 #: mafiasi/base/templates/base/problems.html:4
 msgid "Problems?"
 msgstr "Problèmes?"
@@ -171,27 +171,27 @@ msgstr ""
 "Le BitPoll vous aide à trouver des dates communes pour les réunions "
 "facilement."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:6
+#: mafiasi/dashboard/templates/dashboard/index.html:5
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:15
+#: mafiasi/dashboard/templates/dashboard/index.html:13
 msgid "Services"
 msgstr "Services"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:32
+#: mafiasi/dashboard/templates/dashboard/index.html:30
 msgid "Rearrange item"
 msgstr "Réorganiser"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:40
+#: mafiasi/dashboard/templates/dashboard/index.html:38
 msgid "News and more"
 msgstr "Les nouvelles et plus"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:56
+#: mafiasi/dashboard/templates/dashboard/index.html:54
 msgid "Wiki search"
 msgstr "Recherche Wiki"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:63
+#: mafiasi/dashboard/templates/dashboard/index.html:61
 #: mafiasi/gprot/templates/gprot/menu.html:4
 #: mafiasi/pks/templates/pks/menu.html:4
 #: mafiasi/pks/templates/pks/search.html:5
