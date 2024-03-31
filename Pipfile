@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-Django = "~=4.1.12"    # can be upgraded once we have postgres >11 deployed
+Django = "~=5.0"
 Pillow = "~=10.0"
 PyPDF2 = "~=1.27"
 bleach = {extras = ["css"], version = "~=6.1"}
@@ -20,7 +20,8 @@ nameparser = "~=1.1"
 networkx = "~=3.1"
 oauthlib = "~=3.2"
 psycopg2-binary = "~=2.9"
-pygpgme = "~=0.3"
+# should be replaced once https://github.com/rshk/pygpgme/pull/12 is merged
+pygpgme = { git = "https://github.com/timonegk/pygpgme.git", ref = "patch-1" }
 pygraphviz = "~=1.11"
 python-Levenshtein = "~=0.22"
 python-creole = "~=1.4"
@@ -28,7 +29,7 @@ python-ldap = "~=3.4"
 python-magic = "~=0.4"
 raven = "~=6.10"
 requests = "~=2.31"
-simple-openid-connect = { version = "~=0.4.0", extras = ["django"] }
+simple-openid-connect = { version = "~=1.0.0", extras = ["django"] }
 
 [dev-packages]
 responses = "~=0.23"

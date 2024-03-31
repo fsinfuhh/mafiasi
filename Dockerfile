@@ -1,4 +1,4 @@
-FROM docker.io/debian:bullseye-slim
+FROM docker.io/debian:bookworm-slim
 
 # Install base system dependencies
 RUN apt update
@@ -7,18 +7,17 @@ RUN mkdir -p /usr/share/man/man1 /app/config
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt upgrade -y &&\
     apt install -y --no-install-recommends uwsgi uwsgi-plugin-python3 python3 python3-setuptools python3-pip gcc gettext \
-    libldap-2.4-2 libldap2-dev libsasl2-2 libsasl2-dev libgpgme11 libgpgme-dev python3-dev libgraphviz-dev graphviz libmagic-dev libjpeg-dev libjs-mathjax \
-    make nginx supervisor &&\
-    pip3 install --no-cache pipenv &&\
-    update-alternatives --install /usr/bin/python python /usr/bin/python3 99
+    libldap-common libldap2-dev libsasl2-2 libsasl2-dev libgpgme11 libgpgme-dev python3-dev libgraphviz-dev graphviz libmagic-dev libjpeg-dev libjs-mathjax \
+    make nginx supervisor pipenv python-is-python3 git
 
 # add Pipfile seperate from other sources to take advantage of build caching
 ADD Pipfile /app/src/Pipfile
 ADD Pipfile.lock /app/src/Pipfile.lock
 WORKDIR /app/src
-RUN python -m pipenv install --system --deploy --ignore-pipfile
+# delete file that marks root python package path as externally managed
+RUN rm /usr/lib/python3.11/EXTERNALLY-MANAGED
+RUN pipenv install --system --deploy --ignore-pipfile --verbose
 RUN pip3 install sentry-sdk
-
 
 # add remaining sources
 ADD . /app/src

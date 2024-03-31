@@ -7,7 +7,22 @@ on:
 jobs:
 
   check-pre-commit:
-    uses: fsinfuhh/workflows/.github/workflows/check_pre_commit.yml@main
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+          cache: pipenv
+      - name: install dependencies
+        run: pip install pre-commit pipenv
+      - name: install project dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y --no-install-recommends libgpgme-dev libsasl2-dev libldap2-dev libmagic-dev libjpeg-dev libgraphviz-dev gettext
+          pipenv sync --dev
+      - name: execute pre-commit check
+        run: pre-commit run --show-diff-on-failure --color=always --all-files
 
   test:
     runs-on: ubuntu-latest
