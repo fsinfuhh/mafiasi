@@ -12,7 +12,7 @@ class SpecialDayMiddleware:
 
         # first of april (april fools)
         if n.day == 1 and n.month == 4:
-            translation.activate('en-uwu')
+            translation.activate("en-uwu")
             request.LANGUAGE_CODE = translation.get_language()
 
         # call view
