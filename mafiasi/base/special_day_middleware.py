@@ -21,9 +21,9 @@ class SpecialDayMiddleware:
             if n.day == 1 and n.month == 4:
                 request.session["specialDay"] = "aprilfools"
                 option = random.randint(0, 1)
-                if option == 1:
+                if option == 0:
                     request.session["specialDayClasses"] += " first-of-april"
-                elif option == 2:
+                elif option == 1:
                     translation.activate("en-uwu")
                     request.LANGUAGE_CODE = translation.get_language()
 
