@@ -8,4 +8,12 @@ function toggleTheme() {
     document.documentElement.dataset.theme = theme
 }
 
-document.querySelector('#theme-toggle').addEventListener('click', toggleTheme)
+function disableSpecialDaySurprise() {
+    const tomorrow = new Date()
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    tomorrow.setHours(0, 0, 0);
+    document.cookie = `disable-specialday=True; path=/; expires=${tomorrow.toUTCString()}; Secure`;
+    window.location.reload()
+}
+
+document.querySelector('#specialday-off').addEventListener('click', disableSpecialDaySurprise)

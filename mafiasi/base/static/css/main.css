@@ -124,3 +124,7 @@ body {
 .panel-heading {
     cursor: pointer;
 }
+
+#specialday-off {
+    margin-top: 14px;
+}

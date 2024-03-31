@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% load static %}
-{% load first_of_april %}
 {% load snow %}
 
 {% block wtitle %}{% trans "Dashboard" %}{% endblock %}
@@ -9,9 +8,8 @@
 {% endblock %}
 
 {% block content %}
-{% is_first_of_april as is_first_of_april_val %}
 {% is_snowing as is_snowing_val %}
-<div class="row {% if is_first_of_april_val %}first-of-april{% endif %}">
+<div class="row {% if request.session.specialDay %}{{ request.session.specialDayClasses }}{% endif %}">
     <div id="dashboard" class="col-md-8">
         <h2>
             {% trans "Services" %}

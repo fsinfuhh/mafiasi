@@ -1,3 +1,5 @@
+import random
+
 from django.utils import translation
 from django.utils.timezone import get_current_timezone, localdate, now
 
@@ -7,13 +9,23 @@ class SpecialDayMiddleware:
         self.get_response = get_response
 
     def __call__(self, request):
+        request.session["specialDay"] = False
+        request.session["specialDayClasses"] = ""
+
         # get date in current timezone
         n = localdate(now(), get_current_timezone())
 
-        # first of april (april fools)
-        if n.day == 1 and n.month == 4:
-            translation.activate("en-uwu")
-            request.LANGUAGE_CODE = translation.get_language()
+        # check if user disabled special day surprises via cookie
+        if not request.COOKIES.get("disable-specialday", False):
+            # first of april (april fools)
+            if n.day == 1 and n.month == 4:
+                request.session["specialDay"] = "aprilfools"
+                option = random.randint(0, 1)
+                if option == 1:
+                    request.session["specialDayClasses"] += "first-of-april"
+                elif option == 2:
+                    translation.activate("en-uwu")
+                    request.LANGUAGE_CODE = translation.get_language()
 
         # call view
         response = self.get_response(request)
