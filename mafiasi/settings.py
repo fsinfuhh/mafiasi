@@ -101,7 +101,7 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 TIME_ZONE = "Europe/Berlin"
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "en-uwu"
 
 SECRET_KEY = env.str("MAFIASI_SECRET_KEY")
 
