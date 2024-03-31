@@ -101,7 +101,7 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 TIME_ZONE = "Europe/Berlin"
-LANGUAGE_CODE = "en-uwu"
+LANGUAGE_CODE = "en-us"
 
 SECRET_KEY = env.str("MAFIASI_SECRET_KEY")
 
@@ -126,6 +126,7 @@ MIDDLEWARE = [
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "mafiasi.base.middleware.InvalidMailMiddleware",
+    "mafiasi.base.special_day_middleware.SpecialDayMiddleware",
     "simple_openid_connect.integrations.django.middleware.TokenVerificationMiddleware",
 ]
 
