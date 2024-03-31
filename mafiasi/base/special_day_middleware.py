@@ -1,5 +1,5 @@
 from django.utils import translation
-from django.utils.timezone import now, localdate, get_current_timezone
+from django.utils.timezone import get_current_timezone, localdate, now
 
 
 class SpecialDayMiddleware:
