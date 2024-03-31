@@ -44,7 +44,7 @@ msgstr ""
 
 #: mafiasi/base/templates/base.html:42
 msgid "Disable surprise"
-msgstr ""
+msgstr "Me no like this mess ._."
 
 #: mafiasi/base/templates/base.html:52
 msgid "Groups"
