@@ -16,4 +16,12 @@ function disableSpecialFeature() {
     window.location.reload()
 }
 
-document.querySelector('#specialfeature-off').addEventListener('click', disableSpecialFeature)
+function enableSpecialFeature() {
+    document.cookie = `disable-special=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT; Secure`;
+    window.location.reload()
+}
+
+const specialOff = document.querySelector('#special-off');
+const specialOn = document.querySelector('#special-on');
+if(specialOff) specialOff.addEventListener('click', disableSpecialFeature)
+if(specialOn) specialOn.addEventListener('click', enableSpecialFeature)

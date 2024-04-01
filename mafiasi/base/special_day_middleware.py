@@ -17,7 +17,9 @@ class SpecialDayMiddleware:
         n = localdate(now(), get_current_timezone())
 
         # check if user disabled special day surprises via cookie
-        if not request.COOKIES.get("disable-special", False):
+        if request.COOKIES.get("disable-special", False):
+            request.session["specialFeature"] = "DISABLED"
+        else:
             # first of april (april fools)
             if n.day == 1 and n.month == 4:
                 request.session["specialDay"] = "April Fools"

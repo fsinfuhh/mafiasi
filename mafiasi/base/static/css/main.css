@@ -125,6 +125,6 @@ body {
     cursor: pointer;
 }
 
-#specialfeature-off {
+.special-toggle {
     margin-top: 14px;
 }

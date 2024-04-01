@@ -18,7 +18,7 @@
     {% block headJS %}
     {% endblock %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="{% static 'css/darkmode.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/darkmode.css' %}" preload/>
     <script>
         if (localStorage.mafiasi_theme) document.documentElement.dataset.theme = localStorage.mafiasi_theme;
     </script>
@@ -37,8 +37,12 @@
             {% endif %}
             <div class="container">
                 <a href="/" class="navbar-brand">{% value_from_settings PROJECT_BANNER %}</a>
-                {% if request.session.specialFeature %}
-                    <a class="btn btn-danger btn-xs" href="#" id="specialfeature-off">
+                {% if request.session.specialFeature == 'DISABLED' %}
+                    <a class="btn btn-success btn-xs special-toggle" href="#" id="special-on">
+                        <span class="glyphicon glyphicon-gift"></span>
+                    </a>
+                {% else %}
+                    <a class="btn btn-danger btn-xs special-toggle" href="#" id="special-off">
                         <span class="glyphicon glyphicon-gift"></span> {% trans "Disable surprise" %}
                     </a>
                 {% endif %}

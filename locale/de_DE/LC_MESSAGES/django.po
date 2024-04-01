@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-01 02:11+0200\n"
+"POT-Creation-Date: 2024-04-01 02:42+0200\n"
 "PO-Revision-Date: 2024-01-18 22:42+0100\n"
 "Last-Translator: Markus Neblung <markus.neblung@uni-hamburg.de>\n"
 "Language-Team: \n"
@@ -39,51 +39,51 @@ msgstr ""
 "Bitte versuche es später nochmal. Falls das Problem bestehen bleibt, schaue "
 "auf unsere <a href=\"%(problems_url)s\">Fehlermeldeseite</a>."
 
-#: mafiasi/base/templates/base.html:42
+#: mafiasi/base/templates/base.html:46
 msgid "Disable surprise"
 msgstr "Überraschung abschalten"
 
-#: mafiasi/base/templates/base.html:52
+#: mafiasi/base/templates/base.html:56
 msgid "Groups"
 msgstr "Gruppen"
 
-#: mafiasi/base/templates/base.html:60
+#: mafiasi/base/templates/base.html:64
 #: mafiasi/mailinglist/templates/mailinglist/show_list.html:46
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: mafiasi/base/templates/base.html:63
+#: mafiasi/base/templates/base.html:67
 #, python-format
 msgid "Logged in as %(username)s"
 msgstr "Angemeldet als %(username)s"
 
-#: mafiasi/base/templates/base.html:66
+#: mafiasi/base/templates/base.html:70
 msgid "Logout"
 msgstr "Abmelden"
 
-#: mafiasi/base/templates/base.html:72
+#: mafiasi/base/templates/base.html:76
 #: mafiasi/registration/templates/registration/request_account.html:38
 #: mafiasi/registration/templates/registration/request_account.html:77
 msgid "Register"
 msgstr "Registrieren"
 
-#: mafiasi/base/templates/base.html:74
+#: mafiasi/base/templates/base.html:78
 msgid "Login"
 msgstr "Login"
 
-#: mafiasi/base/templates/base.html:103
+#: mafiasi/base/templates/base.html:107
 msgid "Imprint"
 msgstr "Impressum"
 
-#: mafiasi/base/templates/base.html:105
+#: mafiasi/base/templates/base.html:109
 msgid "Data privacy statement"
 msgstr "Datenschutzerklärung"
 
-#: mafiasi/base/templates/base.html:107
+#: mafiasi/base/templates/base.html:111
 msgid "Technical info"
 msgstr "Technik"
 
-#: mafiasi/base/templates/base.html:109
+#: mafiasi/base/templates/base.html:113
 #: mafiasi/base/templates/base/problems.html:4
 msgid "Problems?"
 msgstr "Probleme?"
