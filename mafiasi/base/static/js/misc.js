@@ -17,6 +17,7 @@ function disableSpecialFeature() {
     document.cookie = `disable-special=True; path=/; expires=${tomorrow.toUTCString()}; Secure`;
     let url = new URL(location.href);
     url.searchParams.delete('specialFeature');
+    url.searchParams.delete('persistSpecialFeatureForThisSession');
     window.location.href = url
 }
 
