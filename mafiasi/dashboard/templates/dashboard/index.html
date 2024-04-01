@@ -1,21 +1,20 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% load static %}
-{% load first_of_april %}
-{% load snow %}
 
 {% block wtitle %}{% trans "Dashboard" %}{% endblock %}
 {% block heading %}
 {% endblock %}
 
 {% block content %}
-{% is_first_of_april as is_first_of_april_val %}
-{% is_snowing as is_snowing_val %}
-<div class="row {% if is_first_of_april_val %}first-of-april{% endif %}">
+{% if request.session.specialFeature == 'mafiasiPurple' %}
+    {% include "dashboard/mafiasi_purple.html" %}
+{% endif %}
+<div class="row {{ request.session.specialFeatureClasses }}">
     <div id="dashboard" class="col-md-8">
         <h2>
             {% trans "Services" %}
-            {% if is_snowing_val %}
+            {% if request.session.specialFeature == 'winter' %}
                 <img id="santa-hat-services-deco" src="{% static "img/santa-hat.png" %}" alt="santa-hat" />
             {% endif %}
         </h2>

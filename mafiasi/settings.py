@@ -126,6 +126,7 @@ MIDDLEWARE = [
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "mafiasi.base.middleware.InvalidMailMiddleware",
+    "mafiasi.base.special_day_middleware.SpecialDayMiddleware",
     "simple_openid_connect.integrations.django.middleware.TokenVerificationMiddleware",
 ]
 
@@ -242,6 +243,7 @@ LANGUAGES = (
     ("de", "Deutsch"),
     ("en", "English"),
     ("fr", "Français"),
+    ("en-uwu", "UwU (English)"),
 )
 
 LOGGING = {

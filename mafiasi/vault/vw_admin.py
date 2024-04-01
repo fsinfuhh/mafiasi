@@ -1,6 +1,7 @@
 """
 Implementation of a Vaultwarden admin API client
 """
+
 import enum
 from dataclasses import dataclass
 from typing import Any, List, Mapping, Optional, Type, TypedDict, TypeVar

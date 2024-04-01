@@ -2,8 +2,6 @@
 {% load group_tags %}
 {% load settings_value %}
 {% load static %}
-{% load snow %}
-{% is_snowing as is_snowing_val %}
 {% value_from_settings BANNER_IMG as banner_img %}
 <!DOCTYPE html>
 <html>
@@ -20,11 +18,11 @@
     {% block headJS %}
     {% endblock %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="{% static 'css/darkmode.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/darkmode.css' %}" preload/>
     <script>
         if (localStorage.mafiasi_theme) document.documentElement.dataset.theme = localStorage.mafiasi_theme;
     </script>
-    {% if is_snowing_val %}
+    {% if request.session.specialFeature == 'winter' %}
         <link rel="stylesheet" href="{% static 'css/snow.css' %}" />
     {% endif %}
 </head>
@@ -39,6 +37,15 @@
             {% endif %}
             <div class="container">
                 <a href="/" class="navbar-brand">{% value_from_settings PROJECT_BANNER %}</a>
+                {% if request.session.specialFeature == 'DISABLED' %}
+                    <a class="btn btn-success btn-xs special-toggle" href="#" id="special-on">
+                        <span class="glyphicon glyphicon-gift"></span>
+                    </a>
+                {% else %}
+                    <a class="btn btn-danger btn-xs special-toggle" href="#" id="special-off">
+                        <span class="glyphicon glyphicon-gift"></span> {% trans "Disable surprise" %}
+                    </a>
+                {% endif %}
                 <div class="pull-right">
                     <a class="btn btn-default btn-sm" href="#" id="theme-toggle">
                         <span class="glyphicon glyphicon-adjust"></span>
@@ -104,18 +111,19 @@
                     <a href="{% url 'base_technical_info' %}">{% trans "Technical info" %}</a>
                     &middot;
                     <a href="{% url 'base_problems' %}">{% trans "Problems?" %}</a>
-                    &middot;
-                    <button name="language" value="de" class="btn-link" style="padding: 0;" type="submit">Deutsch</button>
-                    &middot;
-                    <button name="language" value="en" class="btn-link" style="padding: 0;" type="submit">English</button>
-                    &middot;
-                    <button name="language" value="fr" class="btn-link" style="padding: 0;" type="submit">Français</button>
+                    {% get_available_languages as languages %}
+                    {% for lang in languages %}
+                        {% if lang.0 != "en-uwu" %}
+                        &middot;
+                        <button name="language" value="{{ lang.0 }}" class="btn-link" style="padding: 0;" type="submit">{{ lang.1 }}</button>
+                        {% endif %}
+                    {% endfor %}
                 </p>
             </form>
         </div>
     </div>
 
-    {% if is_snowing_val %}
+    {% if request.session.specialFeature == 'winter' %}
         <canvas id="snow-canvas"></canvas>
         <script src="{% static 'js/snow.js' %}" type="module"></script>
     {% endif %}
@@ -124,7 +132,7 @@
     <script src="{% static 'js/jquery-ui-1.12.1.custom.js' %}" type="text/javascript"></script>
     <script src="{% static 'js/common.js' %}" type="text/javascript"></script>
     <script src="{% static 'js/bootstrap.js' %}" type="text/javascript"></script>
-    <script src="{% static 'js/darkmode.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/misc.js' %}" type="text/javascript"></script>
     {% block js %}
     {% endblock js %}
 </body>

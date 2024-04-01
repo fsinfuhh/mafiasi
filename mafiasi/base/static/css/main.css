@@ -124,3 +124,7 @@ body {
 .panel-heading {
     cursor: pointer;
 }
+
+.special-toggle {
+    margin-top: 14px;
+}

@@ -3,16 +3,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-26 19:24+0100\n"
-"PO-Revision-Date: 2024-01-12 16:56+0100\n"
-"Last-Translator: Timon Engelke <timon.engelke@uni-hamburg.de>\n"
+"POT-Creation-Date: 2024-04-01 02:46+0200\n"
+"PO-Revision-Date: 2024-01-18 22:42+0100\n"
+"Last-Translator: Markus Neblung <markus.neblung@uni-hamburg.de>\n"
 "Language-Team: \n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: mafiasi/base/middleware.py:18
 msgid ""
@@ -39,47 +39,51 @@ msgstr ""
 "Bitte versuche es später nochmal. Falls das Problem bestehen bleibt, schaue "
 "auf unsere <a href=\"%(problems_url)s\">Fehlermeldeseite</a>."
 
-#: mafiasi/base/templates/base.html:49
+#: mafiasi/base/templates/base.html:46
+msgid "Disable surprise"
+msgstr "Überraschung abschalten"
+
+#: mafiasi/base/templates/base.html:56
 msgid "Groups"
 msgstr "Gruppen"
 
-#: mafiasi/base/templates/base.html:57
+#: mafiasi/base/templates/base.html:64
 #: mafiasi/mailinglist/templates/mailinglist/show_list.html:46
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: mafiasi/base/templates/base.html:60
+#: mafiasi/base/templates/base.html:67
 #, python-format
 msgid "Logged in as %(username)s"
 msgstr "Angemeldet als %(username)s"
 
-#: mafiasi/base/templates/base.html:63
+#: mafiasi/base/templates/base.html:70
 msgid "Logout"
 msgstr "Abmelden"
 
-#: mafiasi/base/templates/base.html:69
+#: mafiasi/base/templates/base.html:76
 #: mafiasi/registration/templates/registration/request_account.html:38
 #: mafiasi/registration/templates/registration/request_account.html:77
 msgid "Register"
 msgstr "Registrieren"
 
-#: mafiasi/base/templates/base.html:71
+#: mafiasi/base/templates/base.html:78
 msgid "Login"
 msgstr "Login"
 
-#: mafiasi/base/templates/base.html:100
+#: mafiasi/base/templates/base.html:107
 msgid "Imprint"
 msgstr "Impressum"
 
-#: mafiasi/base/templates/base.html:102
+#: mafiasi/base/templates/base.html:109
 msgid "Data privacy statement"
 msgstr "Datenschutzerklärung"
 
-#: mafiasi/base/templates/base.html:104
+#: mafiasi/base/templates/base.html:111
 msgid "Technical info"
 msgstr "Technik"
 
-#: mafiasi/base/templates/base.html:106
+#: mafiasi/base/templates/base.html:113
 #: mafiasi/base/templates/base/problems.html:4
 msgid "Problems?"
 msgstr "Probleme?"
@@ -161,32 +165,58 @@ msgstr "BitPoll"
 msgid "BitPoll helps you to find common dates for meetings easily."
 msgstr "Mit dem BitPoll kannst du einfach gemeinsame Termine finden."
 
-#: mafiasi/dashboard/templates/dashboard/index.html:7
+#: mafiasi/dashboard/templates/dashboard/index.html:5
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:17
+#: mafiasi/dashboard/templates/dashboard/index.html:16
 msgid "Services"
 msgstr "Dienste"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:34
+#: mafiasi/dashboard/templates/dashboard/index.html:33
 msgid "Rearrange item"
 msgstr "Dienst umordnen"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:42
+#: mafiasi/dashboard/templates/dashboard/index.html:41
 msgid "News and more"
 msgstr "Aktuelles und mehr"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:58
+#: mafiasi/dashboard/templates/dashboard/index.html:57
 msgid "Wiki search"
 msgstr "Wiki-Suche"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:65
+#: mafiasi/dashboard/templates/dashboard/index.html:64
 #: mafiasi/gprot/templates/gprot/menu.html:4
 #: mafiasi/pks/templates/pks/menu.html:4
 #: mafiasi/pks/templates/pks/search.html:5
 msgid "Search"
 msgstr "Suche"
+
+#: mafiasi/dashboard/templates/dashboard/mafiasi_purple.html:8
+msgid ""
+"From today we offer <mark>Mafiasi Purple</mark> for ✨ only 42€ per month ✨ "
+"to finance the Server-AG! You can support us by subscribing to <mark>Mafiasi "
+"Purple</mark>."
+msgstr ""
+"Ab heute bieten wir <mark>Mafiasi Purple</mark> für ✨ nur 42€ im Monat ✨ "
+"zur Finanzierung der Server-AG an! Du kannst uns unterstützen, indem du "
+"<mark>Mafiasi Purple</mark> abbonierst."
+
+#: mafiasi/dashboard/templates/dashboard/mafiasi_purple.html:9
+msgid ""
+"For people who want to continue using Mafiasi for free, we are offering "
+"Mafiasi with advertising from today. The choice is yours!"
+msgstr ""
+"Für Leute, die Mafiasi weiterhin kostenlos nutzen wollen, bieten wir Mafiasi "
+"ab heute mit Werbung an. Du hast die Wahl!"
+
+#: mafiasi/dashboard/templates/dashboard/mafiasi_purple.html:13
+msgid "Continue with ads"
+msgstr "Weiter mit Werbung"
+
+#: mafiasi/dashboard/templates/dashboard/mafiasi_purple.html:18
+msgid "Book Mafiasi Purple"
+msgstr "Mafiasi Purple buchen"
 
 #: mafiasi/discourse/apps.py:11
 msgid "Discourse"
