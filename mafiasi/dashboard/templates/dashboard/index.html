@@ -7,11 +7,14 @@
 {% endblock %}
 
 {% block content %}
-<div class="row {% if request.session.specialDay %}{{ request.session.specialDayClasses }}{% endif %}">
+{% if request.session.specialFeature == 'mafiasiPurple' %}
+    {% include "dashboard/mafiasi_purple.html" %}
+{% endif %}
+<div class="row {{ request.session.specialFeatureClasses }}">
     <div id="dashboard" class="col-md-8">
         <h2>
             {% trans "Services" %}
-            {% if request.session.specialDay == 'winter' %}
+            {% if request.session.specialFeature == 'winter' %}
                 <img id="santa-hat-services-deco" src="{% static "img/santa-hat.png" %}" alt="santa-hat" />
             {% endif %}
         </h2>

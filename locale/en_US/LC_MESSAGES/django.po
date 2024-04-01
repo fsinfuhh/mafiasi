@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-01 01:46+0200\n"
-"PO-Revision-Date: 2024-01-12 17:06+0100\n"
-"Last-Translator: Timon Engelke <timon.engelke@uni-hamburg.de>\n"
+"POT-Creation-Date: 2024-04-01 02:11+0200\n"
+"PO-Revision-Date: 2024-01-18 22:42+0100\n"
+"Last-Translator: Markus Neblung <markus.neblung@uni-hamburg.de>\n"
 "Language-Team: \n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
@@ -155,27 +155,48 @@ msgstr ""
 msgid "Dashboard"
 msgstr ""
 
-#: mafiasi/dashboard/templates/dashboard/index.html:13
+#: mafiasi/dashboard/templates/dashboard/index.html:16
 msgid "Services"
 msgstr ""
 
-#: mafiasi/dashboard/templates/dashboard/index.html:30
+#: mafiasi/dashboard/templates/dashboard/index.html:33
 msgid "Rearrange item"
 msgstr ""
 
-#: mafiasi/dashboard/templates/dashboard/index.html:38
+#: mafiasi/dashboard/templates/dashboard/index.html:41
 msgid "News and more"
 msgstr ""
 
-#: mafiasi/dashboard/templates/dashboard/index.html:54
+#: mafiasi/dashboard/templates/dashboard/index.html:57
 msgid "Wiki search"
 msgstr ""
 
-#: mafiasi/dashboard/templates/dashboard/index.html:61
+#: mafiasi/dashboard/templates/dashboard/index.html:64
 #: mafiasi/gprot/templates/gprot/menu.html:4
 #: mafiasi/pks/templates/pks/menu.html:4
 #: mafiasi/pks/templates/pks/search.html:5
 msgid "Search"
+msgstr ""
+
+#: mafiasi/dashboard/templates/dashboard/mafiasi_purple.html:8
+msgid ""
+"From today we offer <mark>Mafiasi Purple</mark> for ✨ only 42€ per month ✨ "
+"to finance the Server-AG! You can support us by subscribing to <mark>Mafiasi "
+"Purple</mark>."
+msgstr ""
+
+#: mafiasi/dashboard/templates/dashboard/mafiasi_purple.html:9
+msgid ""
+"For people who want to continue using Mafiasi for free, we are offering "
+"Mafiasi with advertising from today. The choice is yours!"
+msgstr ""
+
+#: mafiasi/dashboard/templates/dashboard/mafiasi_purple.html:12
+msgid "Continue with ads"
+msgstr ""
+
+#: mafiasi/dashboard/templates/dashboard/mafiasi_purple.html:15
+msgid "Book Mafiasi Purple"
 msgstr ""
 
 #: mafiasi/discourse/apps.py:11

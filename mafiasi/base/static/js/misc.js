@@ -8,12 +8,12 @@ function toggleTheme() {
     document.documentElement.dataset.theme = theme
 }
 
-function disableSpecialDaySurprise() {
+function disableSpecialFeature() {
     const tomorrow = new Date()
     tomorrow.setDate(tomorrow.getDate() + 1);
     tomorrow.setHours(0, 0, 0);
-    document.cookie = `disable-specialday=True; path=/; expires=${tomorrow.toUTCString()}; Secure`;
+    document.cookie = `disable-special=True; path=/; expires=${tomorrow.toUTCString()}; Secure`;
     window.location.reload()
 }
 
-document.querySelector('#specialday-off').addEventListener('click', disableSpecialDaySurprise)
+document.querySelector('#specialfeature-off').addEventListener('click', disableSpecialFeature)

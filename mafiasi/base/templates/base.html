@@ -22,7 +22,7 @@
     <script>
         if (localStorage.mafiasi_theme) document.documentElement.dataset.theme = localStorage.mafiasi_theme;
     </script>
-    {% if request.session.specialDay == 'winter' %}
+    {% if request.session.specialFeature == 'winter' %}
         <link rel="stylesheet" href="{% static 'css/snow.css' %}" />
     {% endif %}
 </head>
@@ -37,8 +37,8 @@
             {% endif %}
             <div class="container">
                 <a href="/" class="navbar-brand">{% value_from_settings PROJECT_BANNER %}</a>
-                {% if request.session.specialDay %}
-                    <a class="btn btn-danger btn-xs" href="#" id="specialday-off">
+                {% if request.session.specialFeature %}
+                    <a class="btn btn-danger btn-xs" href="#" id="specialfeature-off">
                         <span class="glyphicon glyphicon-gift"></span> {% trans "Disable surprise" %}
                     </a>
                 {% endif %}
@@ -119,7 +119,7 @@
         </div>
     </div>
 
-    {% if request.session.specialDay == 'winter' %}
+    {% if request.session.specialFeature == 'winter' %}
         <canvas id="snow-canvas"></canvas>
         <script src="{% static 'js/snow.js' %}" type="module"></script>
     {% endif %}

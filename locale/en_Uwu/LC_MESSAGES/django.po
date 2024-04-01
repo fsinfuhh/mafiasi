@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-01 01:46+0200\n"
+"POT-Creation-Date: 2024-04-01 02:11+0200\n"
 "PO-Revision-Date: 2024-01-09 22:14+0000\n"
 "Last-Translator: kritzl <kritzl@kritzl.dev>\n"
 "Language-Team: \n"
@@ -169,28 +169,51 @@ msgstr "Pawl is helps u find dates with frens :*"
 msgid "Dashboard"
 msgstr "Homi UwU"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:13
+#: mafiasi/dashboard/templates/dashboard/index.html:16
 msgid "Services"
 msgstr "Behold: my stuff! (●'◡'●)"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:30
+#: mafiasi/dashboard/templates/dashboard/index.html:33
 msgid "Rearrange item"
 msgstr "Move thingy"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:38
+#: mafiasi/dashboard/templates/dashboard/index.html:41
 msgid "News and more"
 msgstr "Meows and snacks"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:54
+#: mafiasi/dashboard/templates/dashboard/index.html:57
 msgid "Wiki search"
 msgstr "Look up knowings"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:61
+#: mafiasi/dashboard/templates/dashboard/index.html:64
 #: mafiasi/gprot/templates/gprot/menu.html:4
 #: mafiasi/pks/templates/pks/menu.html:4
 #: mafiasi/pks/templates/pks/search.html:5
 msgid "Search"
 msgstr "Looksies"
+
+#: mafiasi/dashboard/templates/dashboard/mafiasi_purple.html:8
+msgid ""
+"From today we offer <mark>Mafiasi Purple</mark> for ✨ only 42€ per month ✨ "
+"to finance the Server-AG! You can support us by subscribing to <mark>Mafiasi "
+"Purple</mark>."
+msgstr ""
+
+#: mafiasi/dashboard/templates/dashboard/mafiasi_purple.html:9
+msgid ""
+"For people who want to continue using Mafiasi for free, we are offering "
+"Mafiasi with advertising from today. The choice is yours!"
+msgstr ""
+
+#: mafiasi/dashboard/templates/dashboard/mafiasi_purple.html:12
+#, fuzzy
+#| msgid "Continue"
+msgid "Continue with ads"
+msgstr "Continue"
+
+#: mafiasi/dashboard/templates/dashboard/mafiasi_purple.html:15
+msgid "Book Mafiasi Purple"
+msgstr ""
 
 #: mafiasi/discourse/apps.py:11
 msgid "Discourse"
