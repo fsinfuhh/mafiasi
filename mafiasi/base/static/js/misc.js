@@ -8,6 +8,8 @@ function toggleTheme() {
     document.documentElement.dataset.theme = theme
 }
 
+document.querySelector('#theme-toggle').addEventListener('click', toggleTheme)
+
 function disableSpecialFeature() {
     const tomorrow = new Date()
     tomorrow.setDate(tomorrow.getDate() + 1);
