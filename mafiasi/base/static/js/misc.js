@@ -8,12 +8,17 @@ function toggleTheme() {
     document.documentElement.dataset.theme = theme
 }
 
+document.querySelector('#theme-toggle').addEventListener('click', toggleTheme)
+
 function disableSpecialFeature() {
     const tomorrow = new Date()
     tomorrow.setDate(tomorrow.getDate() + 1);
     tomorrow.setHours(0, 0, 0);
     document.cookie = `disable-special=True; path=/; expires=${tomorrow.toUTCString()}; Secure`;
-    window.location.reload()
+    let url = new URL(location.href);
+    url.searchParams.delete('specialFeature');
+    url.searchParams.delete('persistSpecialFeatureForThisSession');
+    window.location.href = url
 }
 
 function enableSpecialFeature() {
@@ -25,3 +30,11 @@ const specialOff = document.querySelector('#special-off');
 const specialOn = document.querySelector('#special-on');
 if(specialOff) specialOff.addEventListener('click', disableSpecialFeature)
 if(specialOn) specialOn.addEventListener('click', enableSpecialFeature)
+
+if("feature" in document.querySelector('html').dataset){
+    const feature = document.querySelector('html').dataset.feature
+    const url = new URL(location.href);
+    url.searchParams.set("specialFeature", feature);
+    url.searchParams.set("persistSpecialFeatureForThisSession", "featurePersisted" in document.querySelector('html').dataset ? 'true' : 'undefined');
+    history.pushState({}, "", url);
+}

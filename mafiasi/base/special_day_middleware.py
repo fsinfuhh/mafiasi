@@ -10,33 +10,65 @@ class SpecialDayMiddleware:
 
     def __call__(self, request):
         request.session["specialDay"] = False
-        request.session["specialFeature"] = False
         request.session["specialFeatureClasses"] = ""
+        request.session["specialFeatureDisabled"] = False
+        feature = ""
+
+        # check if user wants to persist feature for this session (or reset it)
+        if request.GET.get("persistSpecialFeatureForThisSession", "undefined") == "true":
+            request.session["specialFeaturePersist"] = True
+        elif request.GET.get("persistSpecialFeatureForThisSession", "undefined") == "false":
+            request.session["specialFeaturePersist"] = False
+
+        # reset feature if persist is not true
+        if not request.session.get("specialFeaturePersist", False):
+            request.session["specialFeature"] = False
 
         # get date in current timezone
         n = localdate(now(), get_current_timezone())
 
         # check if user disabled special day surprises via cookie
         if request.COOKIES.get("disable-special", False):
-            request.session["specialFeature"] = "DISABLED"
+            request.session["specialFeatureDisabled"] = True
+
+        # check if user enabled feature manually via GET parameter
+        elif request.GET.get("specialFeature", False):
+            feature = request.GET.get("specialFeature", False)
+
+        # check if feature is already set (if persisted and not reset above)
+        elif request.session["specialFeature"]:
+            feature = request.session["specialFeature"]
+
         else:
+            # check if it's a special day
+
             # first of april (april fools)
             if n.day == 1 and n.month == 4:
                 request.session["specialDay"] = "April Fools"
                 option = random.randint(0, 2)
                 if option == 0:
-                    request.session["specialFeature"] = "upsideDown"
-                    request.session["specialFeatureClasses"] += " first-of-april"
+                    feature = "upsideDown"
                 elif option == 1:
-                    request.session["specialFeature"] = "uwu"
-                    translation.activate("en-uwu")
-                    request.LANGUAGE_CODE = translation.get_language()
+                    feature = "uwu"
                 elif option == 2:
-                    request.session["specialFeature"] = "mafiasiPurple"
-
+                    feature = "mafiasiPurple"
             # winter season
             if n.month == 12 and n.day >= 10:
-                request.session["specialFeature"] = "winter"
+                feature = "winter"
+
+        # make sure session hold the current feature
+        request.session["specialFeature"] = feature
+
+        # handle feature
+        if feature == "upsideDown":
+            request.session["specialFeatureClasses"] += " first-of-april"
+        elif feature == "uwu":
+            translation.activate("en-uwu")
+            request.LANGUAGE_CODE = translation.get_language()
+        elif feature == "mafiasiPurple":
+            pass
+        elif feature == "winter":
+            pass
 
         # call view
         response = self.get_response(request)

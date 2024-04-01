@@ -4,7 +4,7 @@
 {% load static %}
 {% value_from_settings BANNER_IMG as banner_img %}
 <!DOCTYPE html>
-<html>
+<html {% if request.session.specialFeature %}data-feature="{{request.session.specialFeature}}"{% endif %}{% if request.session.specialFeaturePersist %}data-feature-persisted="true"{% endif %}>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>{% block wtitle %}{% endblock %} &middot; {% value_from_settings PROJECT_NAME %}</title>
@@ -37,11 +37,11 @@
             {% endif %}
             <div class="container">
                 <a href="/" class="navbar-brand">{% value_from_settings PROJECT_BANNER %}</a>
-                {% if request.session.specialFeature == 'DISABLED' %}
+                {% if request.session.specialFeatureDisabled %}
                     <a class="btn btn-success btn-xs special-toggle" href="#" id="special-on">
                         <span class="glyphicon glyphicon-gift"></span>
                     </a>
-                {% else %}
+                {% elif request.session.specialFeature %}
                     <a class="btn btn-danger btn-xs special-toggle" href="#" id="special-off">
                         <span class="glyphicon glyphicon-gift"></span> {% trans "Disable surprise" %}
                     </a>
