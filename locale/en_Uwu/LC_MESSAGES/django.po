@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-01 02:42+0200\n"
+"POT-Creation-Date: 2024-04-01 02:46+0200\n"
 "PO-Revision-Date: 2024-01-09 22:14+0000\n"
 "Last-Translator: kritzl <kritzl@kritzl.dev>\n"
 "Language-Team: \n"
@@ -205,13 +205,13 @@ msgid ""
 "Mafiasi with advertising from today. The choice is yours!"
 msgstr ""
 
-#: mafiasi/dashboard/templates/dashboard/mafiasi_purple.html:12
+#: mafiasi/dashboard/templates/dashboard/mafiasi_purple.html:13
 #, fuzzy
 #| msgid "Continue"
 msgid "Continue with ads"
 msgstr "Continue"
 
-#: mafiasi/dashboard/templates/dashboard/mafiasi_purple.html:15
+#: mafiasi/dashboard/templates/dashboard/mafiasi_purple.html:18
 msgid "Book Mafiasi Purple"
 msgstr ""
 

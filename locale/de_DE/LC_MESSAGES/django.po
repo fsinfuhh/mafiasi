@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-01 02:42+0200\n"
+"POT-Creation-Date: 2024-04-01 02:46+0200\n"
 "PO-Revision-Date: 2024-01-18 22:42+0100\n"
 "Last-Translator: Markus Neblung <markus.neblung@uni-hamburg.de>\n"
 "Language-Team: \n"
@@ -210,11 +210,11 @@ msgstr ""
 "Für Leute, die Mafiasi weiterhin kostenlos nutzen wollen, bieten wir Mafiasi "
 "ab heute mit Werbung an. Du hast die Wahl!"
 
-#: mafiasi/dashboard/templates/dashboard/mafiasi_purple.html:12
+#: mafiasi/dashboard/templates/dashboard/mafiasi_purple.html:13
 msgid "Continue with ads"
 msgstr "Weiter mit Werbung"
 
-#: mafiasi/dashboard/templates/dashboard/mafiasi_purple.html:15
+#: mafiasi/dashboard/templates/dashboard/mafiasi_purple.html:18
 msgid "Book Mafiasi Purple"
 msgstr "Mafiasi Purple buchen"
 

@@ -9,10 +9,14 @@
         {% trans "For people who want to continue using Mafiasi for free, we are offering Mafiasi with advertising from today. The choice is yours!" %}
         <div class="purple-content">
             <div class="purple-variant">
-                <button class="btn btn-primary btn-purple" onClick="closePopup()">{% trans "Continue with ads" %}</button>
+                <button class="btn btn-primary btn-purple" onClick="closePopup()">
+                    {% trans "Continue with ads" %}
+                </button>
             </div>
             <div class="purple-variant purple-content-devider">
-                <button class="btn btn-primary btn-purple" onClick="closePopup()">{% trans "Book Mafiasi Purple"%}</button>
+                <button class="btn btn-primary btn-purple" onClick="closePopup()">
+                    {% trans "Book Mafiasi Purple"%}
+                </button>
             </div>
         </div>
     </div>
@@ -95,25 +99,11 @@
         border: 4px solid var(--mafiasi-dark-purple);
     }
 
-    html:not[data-theme=light] .purple-container {
-        background: var(--mafiasi-dark-bg);
-        color: var(--mafiasi-dark-text-light);
-        border: 4px solid var(--mafiasi-dark-purple);
-    }
-
     html[data-theme=dark] .purple-title {
         color: var(--mafiasi-dark-purple);
     }
 
-    html:not[data-theme=light] .purple-title {
-        color: var(--mafiasi-dark-purple);
-    }
-
     html[data-theme=dark] .purple-content-devider {
-        border-left: 1px solid var(--mafiasi-dark-purple);
-    }
-
-    html:not[data-theme=light] .purple-content-devider {
         border-left: 1px solid var(--mafiasi-dark-purple);
     }
 
@@ -122,17 +112,33 @@
         border-color: var(--mafiasi-dark-purple) !important;
     }
 
-    html:not[data-theme=light] .btn-purple {
-        background-color: var(--mafiasi-dark-purple) !important;
-        border-color: var(--mafiasi-dark-purple) !important;
-    }
-
     html[data-theme=dark] mark {
         color: var(--mafiasi-dark-purple);
     }
 
-    html:not[data-theme=light] mark {
-        color: var(--mafiasi-dark-purple);
+    @media (prefers-color-scheme: dark) {
+        html:not([data-theme=light]) .purple-container {
+            background: var(--mafiasi-dark-bg);
+            color: var(--mafiasi-dark-text-light);
+            border: 4px solid var(--mafiasi-dark-purple);
+        }
+
+        html:not([data-theme=light]) .purple-title {
+            color: var(--mafiasi-dark-purple);
+        }
+
+        html:not([data-theme=light]) .purple-content-devider {
+            border-left: 1px solid var(--mafiasi-dark-purple);
+        }
+
+        html:not([data-theme=light]) .btn-purple {
+            background-color: var(--mafiasi-dark-purple) !important;
+            border-color: var(--mafiasi-dark-purple) !important;
+        }
+
+        html:not([data-theme=light]) mark {
+            color: var(--mafiasi-dark-purple);
+        }
     }
 
     @media screen and (max-width: 500px) {
@@ -151,9 +157,11 @@
             border-left: none;
         }
 
-        html:not[data-theme=light] .purple-content-devider {
-            border-top: 1px solid var(--mafiasi-dark-purple);
-            border-left: none;
+        @media (prefers-color-scheme: dark) {
+            html:not([data-theme=light]) .purple-content-devider {
+                border-top: 1px solid var(--mafiasi-dark-purple);
+                border-left: none;
+            }
         }
     }
 </style>
