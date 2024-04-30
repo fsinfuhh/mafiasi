@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-01 02:46+0200\n"
+"POT-Creation-Date: 2024-05-01 00:25+0200\n"
 "PO-Revision-Date: 2024-01-18 22:41+0100\n"
 "Last-Translator: Markus Neblung <markus.neblung@uni-hamburg.de>\n"
 "Language-Team: \n"
@@ -175,23 +175,23 @@ msgstr ""
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:16
+#: mafiasi/dashboard/templates/dashboard/index.html:18
 msgid "Services"
 msgstr "Services"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:33
+#: mafiasi/dashboard/templates/dashboard/index.html:35
 msgid "Rearrange item"
 msgstr "Réorganiser"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:41
+#: mafiasi/dashboard/templates/dashboard/index.html:43
 msgid "News and more"
 msgstr "Les nouvelles et plus"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:57
+#: mafiasi/dashboard/templates/dashboard/index.html:59
 msgid "Wiki search"
 msgstr "Recherche Wiki"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:64
+#: mafiasi/dashboard/templates/dashboard/index.html:66
 #: mafiasi/gprot/templates/gprot/menu.html:4
 #: mafiasi/pks/templates/pks/menu.html:4
 #: mafiasi/pks/templates/pks/search.html:5
@@ -224,6 +224,10 @@ msgstr "Continuer avec les annonces"
 #: mafiasi/dashboard/templates/dashboard/mafiasi_purple.html:18
 msgid "Book Mafiasi Purple"
 msgstr "Livre Mafiasi Purple"
+
+#: mafiasi/dashboard/templates/dashboard/may_day.html:10
+msgid "Server-Rooms are being occupied…"
+msgstr ""
 
 #: mafiasi/discourse/apps.py:11
 msgid "Discourse"
