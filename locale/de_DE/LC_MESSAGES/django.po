@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-01 02:46+0200\n"
-"PO-Revision-Date: 2024-01-18 22:42+0100\n"
+"POT-Creation-Date: 2024-05-01 00:25+0200\n"
+"PO-Revision-Date: 2024-05-01 00:26+0200\n"
 "Last-Translator: Markus Neblung <markus.neblung@uni-hamburg.de>\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: mafiasi/base/middleware.py:18
 msgid ""
@@ -169,23 +169,23 @@ msgstr "Mit dem BitPoll kannst du einfach gemeinsame Termine finden."
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:16
+#: mafiasi/dashboard/templates/dashboard/index.html:18
 msgid "Services"
 msgstr "Dienste"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:33
+#: mafiasi/dashboard/templates/dashboard/index.html:35
 msgid "Rearrange item"
 msgstr "Dienst umordnen"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:41
+#: mafiasi/dashboard/templates/dashboard/index.html:43
 msgid "News and more"
 msgstr "Aktuelles und mehr"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:57
+#: mafiasi/dashboard/templates/dashboard/index.html:59
 msgid "Wiki search"
 msgstr "Wiki-Suche"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:64
+#: mafiasi/dashboard/templates/dashboard/index.html:66
 #: mafiasi/gprot/templates/gprot/menu.html:4
 #: mafiasi/pks/templates/pks/menu.html:4
 #: mafiasi/pks/templates/pks/search.html:5
@@ -217,6 +217,10 @@ msgstr "Weiter mit Werbung"
 #: mafiasi/dashboard/templates/dashboard/mafiasi_purple.html:18
 msgid "Book Mafiasi Purple"
 msgstr "Mafiasi Purple buchen"
+
+#: mafiasi/dashboard/templates/dashboard/may_day.html:10
+msgid "Server-Rooms are being occupied…"
+msgstr "Serverräume werden besetzt…"
 
 #: mafiasi/discourse/apps.py:11
 msgid "Discourse"

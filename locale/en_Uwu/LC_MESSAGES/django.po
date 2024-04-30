@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-01 02:46+0200\n"
+"POT-Creation-Date: 2024-05-01 00:25+0200\n"
 "PO-Revision-Date: 2024-01-09 22:14+0000\n"
 "Last-Translator: kritzl <kritzl@kritzl.dev>\n"
 "Language-Team: \n"
@@ -169,23 +169,23 @@ msgstr "Pawl is helps u find dates with frens :*"
 msgid "Dashboard"
 msgstr "Homi UwU"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:16
+#: mafiasi/dashboard/templates/dashboard/index.html:18
 msgid "Services"
 msgstr "Behold: my stuff! (●'◡'●)"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:33
+#: mafiasi/dashboard/templates/dashboard/index.html:35
 msgid "Rearrange item"
 msgstr "Move thingy"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:41
+#: mafiasi/dashboard/templates/dashboard/index.html:43
 msgid "News and more"
 msgstr "Meows and snacks"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:57
+#: mafiasi/dashboard/templates/dashboard/index.html:59
 msgid "Wiki search"
 msgstr "Look up knowings"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:64
+#: mafiasi/dashboard/templates/dashboard/index.html:66
 #: mafiasi/gprot/templates/gprot/menu.html:4
 #: mafiasi/pks/templates/pks/menu.html:4
 #: mafiasi/pks/templates/pks/search.html:5
@@ -213,6 +213,10 @@ msgstr "Continue"
 
 #: mafiasi/dashboard/templates/dashboard/mafiasi_purple.html:18
 msgid "Book Mafiasi Purple"
+msgstr ""
+
+#: mafiasi/dashboard/templates/dashboard/may_day.html:10
+msgid "Server-Rooms are being occupied…"
 msgstr ""
 
 #: mafiasi/discourse/apps.py:11

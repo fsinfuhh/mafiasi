@@ -9,6 +9,8 @@
 {% block content %}
 {% if request.session.specialFeature == 'mafiasiPurple' %}
     {% include "dashboard/mafiasi_purple.html" %}
+{% elif request.session.specialFeature == 'mayDay' %}
+    {% include "dashboard/may_day.html" %}
 {% endif %}
 <div class="row {{ request.session.specialFeatureClasses }}">
     <div id="dashboard" class="col-md-8">
