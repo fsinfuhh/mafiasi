@@ -58,6 +58,9 @@ class SpecialDayMiddleware:
             # may day (tag der arbeit)
             if n.month == 5 and n.day == 1:
                 feature = "mayDay"
+            # pride month
+            if n.month == 6:
+                feature = "pride"
 
         # make sure session hold the current feature
         request.session["specialFeature"] = feature
@@ -72,6 +75,10 @@ class SpecialDayMiddleware:
             pass
         elif feature == "winter":
             pass
+        elif feature == "pride":
+            request.session["specialFeatureClasses"] += random.choice(
+                [" pride-pride", " pride-trans", " pride-bi", " pride-non-binary"]
+            )
 
         # call view
         response = self.get_response(request)
