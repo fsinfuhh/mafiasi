@@ -1,0 +1,33 @@
+.pride-pride #dashboard #dashboard-services-container .dashboard-service .service .panel-body .service-icon{
+    background: linear-gradient(180deg,
+        #FE000080 16.66%,
+        #FD8C0080 16.66%, 33.32%,
+        #FFE50080 33.32%, 49.98%,
+        #119F0B80 49.98%, 66.64%,
+        #0644B380 66.64%, 83.3%,
+        #C22EDC80 83.3%)
+}
+
+.pride-trans #dashboard #dashboard-services-container .dashboard-service .service .panel-body .service-icon{
+    background: linear-gradient(180deg,
+        #5BCEFA80 20%,
+        #F5A9B880 20%, 40%,
+        #FFFFFF80 40%, 60%,
+        #F5A9B880 60%, 80%,
+        #5BCEFA80 80%)
+}
+
+.pride-bi #dashboard #dashboard-services-container .dashboard-service .service .panel-body .service-icon{
+    background: linear-gradient(180deg,
+        #D6027080 40%,
+        #9B4F9680 40%, 60%,
+        #0038A880 60%)
+}
+
+.pride-non-binary #dashboard #dashboard-services-container .dashboard-service .service .panel-body .service-icon{
+    background: linear-gradient(180deg,
+        #FFF43080 25%,
+        #FFFFFF80 25%, 50%,
+        #9C59D180 50%, 75%,
+        #18181880 75%)
+}
