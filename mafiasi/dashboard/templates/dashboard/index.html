@@ -90,6 +90,9 @@
 {% if is_snowing_val %}
 <link rel="stylesheet" type="text/css" href="{% static "css/dashboard-christmas.css" %}">
 {% endif %}
+{% if request.session.specialFeature == 'pride' %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/pride.css' %}">
+{% endif %}
 {% endblock css %}
 {% block js %}
 <script src="{% static 'js/dashboard.js' %}" type="text/javascript"></script>
