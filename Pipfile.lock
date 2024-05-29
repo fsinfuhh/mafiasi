@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "03c1bd8e61bf360b9ac5ed023ceb4ea8544116f6fbe4ef05ab3b7d63b0b9f190"
+            "sha256": "5ce53742d9d1344dab7a8a5bdc6064358db6878f11dad355b39bc288c167dfa0"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -339,11 +339,11 @@
                 "django"
             ],
             "hashes": [
-                "sha256:1e549569a3de49c05f856f40bce86979e7d5ffbbc4398e7f338574c220189124",
-                "sha256:a76307b36fbe856bdca7ee9161e6c466fd7fcffc297109a118c59b54e27e30c9"
+                "sha256:069727a8f73d8ba8d033d3cd95c0da231d44f38f1da773bf076cef168d312ee8",
+                "sha256:e0bcfd41c718c07a7db422f9109e490746450da38793fe4ee197f397b9343435"
             ],
-            "markers": "python_version >= '3.6'",
-            "version": "==9.5.0"
+            "markers": "python_version >= '3.8'",
+            "version": "==11.0.0"
         },
         "etherpad-lite": {
             "hashes": [
