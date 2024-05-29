@@ -30,6 +30,7 @@ python-magic = "~=0.4"
 raven = "~=6.10"
 requests = "~=2.31"
 simple-openid-connect = { version = "~=1.0.0", extras = ["django"] }
+typing-extensions = "*"
 
 [dev-packages]
 responses = "~=0.23"
