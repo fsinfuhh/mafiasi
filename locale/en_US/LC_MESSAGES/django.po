@@ -31,51 +31,51 @@ msgid ""
 "href=\"%(problems_url)s\">problem reporting page</a>."
 msgstr ""
 
-#: mafiasi/base/templates/base.html:46
+#: mafiasi/base/templates/base.html:47
 msgid "Disable surprise"
 msgstr ""
 
-#: mafiasi/base/templates/base.html:56
+#: mafiasi/base/templates/base.html:57
 msgid "Groups"
 msgstr ""
 
-#: mafiasi/base/templates/base.html:64
+#: mafiasi/base/templates/base.html:65
 #: mafiasi/mailinglist/templates/mailinglist/show_list.html:46
 msgid "Settings"
 msgstr ""
 
-#: mafiasi/base/templates/base.html:67
+#: mafiasi/base/templates/base.html:68
 #, python-format
 msgid "Logged in as %(username)s"
 msgstr ""
 
-#: mafiasi/base/templates/base.html:70
+#: mafiasi/base/templates/base.html:71
 msgid "Logout"
 msgstr ""
 
-#: mafiasi/base/templates/base.html:76
+#: mafiasi/base/templates/base.html:77
 #: mafiasi/registration/templates/registration/request_account.html:38
 #: mafiasi/registration/templates/registration/request_account.html:77
 msgid "Register"
 msgstr ""
 
-#: mafiasi/base/templates/base.html:78
+#: mafiasi/base/templates/base.html:79
 msgid "Login"
 msgstr ""
 
-#: mafiasi/base/templates/base.html:107
+#: mafiasi/base/templates/base.html:108
 msgid "Imprint"
 msgstr ""
 
-#: mafiasi/base/templates/base.html:109
+#: mafiasi/base/templates/base.html:110
 msgid "Data privacy statement"
 msgstr ""
 
-#: mafiasi/base/templates/base.html:111
+#: mafiasi/base/templates/base.html:112
 msgid "Technical info"
 msgstr ""
 
-#: mafiasi/base/templates/base.html:113
+#: mafiasi/base/templates/base.html:114
 #: mafiasi/base/templates/base/problems.html:4
 msgid "Problems?"
 msgstr ""
@@ -113,10 +113,6 @@ msgstr ""
 
 #: mafiasi/base/templates/base/technical_info.html:70
 msgid "Listed in no particular order."
-msgstr ""
-
-#: mafiasi/base/templates/base_raw.html:7
-msgid "Mafiasi"
 msgstr ""
 
 #: mafiasi/base/tokenbucket.py:27
