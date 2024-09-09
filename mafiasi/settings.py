@@ -159,6 +159,7 @@ INSTALLED_APPS = [
         "mafiasi.etherpad",
         "mafiasi.bitpoll",
         "mafiasi.matrix" if env.bool("MAFIASI_ENABLE_MATRIX", True) else None,
+        "mafiasi.modulkompass" if env.bool("MAFIASI_ENABLE_MODULKOMPASS", True) else None,
         "mafiasi.git",
         "mafiasi.sogo",
         "mafiasi.tauschen" if env.bool("MAFIASI_ENABLE_TAUSCHEN", True) else None,
@@ -313,6 +314,7 @@ BITPOLL_URL = env.str("MAFIASI_BITPOLL_URL", "https://bitpoll.mafiasi.de")
 WHITEBOARD_URL = "https://spacedeck.mafiasi.de"
 KANBOARD_URL = "https://kanboard.mafiasi.de"
 MATRIX_URL = "https://matrix.mafiasi.de"
+MODULKOMPASS_URL = "https://modulkompass.mafiasi.de"
 LINK_SHORTENER_URL = "https://l.mafiasi.de"
 
 if REGISTER_ENABLED:

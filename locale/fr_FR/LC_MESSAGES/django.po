@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-01 00:25+0200\n"
-"PO-Revision-Date: 2024-01-18 22:41+0100\n"
+"POT-Creation-Date: 2024-09-03 23:48+0200\n"
+"PO-Revision-Date: 2024-09-03 23:54+0200\n"
 "Last-Translator: Markus Neblung <markus.neblung@uni-hamburg.de>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.4.4\n"
 
 #: mafiasi/base/middleware.py:18
 msgid ""
@@ -1567,6 +1567,18 @@ msgid "Matrix provides decentralized messaging and VoIP with E2E encryption."
 msgstr ""
 "Matrix fournit messagerie décentralisée et VoIP avec chiffrement de bout en "
 "bout."
+
+#: mafiasi/modulkompass/apps.py:11
+msgid "Modulkompass"
+msgstr "Modulkompass"
+
+#: mafiasi/modulkompass/apps.py:12
+msgid ""
+"Share your experiences with courses and look at the experiences of your "
+"fellow students."
+msgstr ""
+"Partage tes expériences avec les modules et consulte celles de tes camarades "
+"d'études."
 
 #: mafiasi/nextcloud/apps.py:11
 msgid "Nextcloud"
