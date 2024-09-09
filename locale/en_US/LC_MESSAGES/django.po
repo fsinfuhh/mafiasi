@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-24 21:29+0200\n"
+"POT-Creation-Date: 2024-09-03 23:48+0200\n"
 "PO-Revision-Date: 2024-01-18 22:42+0100\n"
 "Last-Translator: Markus Neblung <markus.neblung@uni-hamburg.de>\n"
 "Language-Team: \n"
@@ -1411,6 +1411,16 @@ msgstr ""
 
 #: mafiasi/matrix/apps.py:12
 msgid "Matrix provides decentralized messaging and VoIP with E2E encryption."
+msgstr ""
+
+#: mafiasi/modulkompass/apps.py:11
+msgid "Modulkompass"
+msgstr ""
+
+#: mafiasi/modulkompass/apps.py:12
+msgid ""
+"Share your experiences with courses and look at the experiences of your "
+"fellow students."
 msgstr ""
 
 #: mafiasi/nextcloud/apps.py:11
