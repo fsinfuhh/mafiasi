@@ -317,7 +317,7 @@ BITPOLL_URL = env.str("MAFIASI_BITPOLL_URL", "https://bitpoll.mafiasi.de")
 WHITEBOARD_URL = "https://spacedeck.mafiasi.de"
 KANBOARD_URL = "https://kanboard.mafiasi.de"
 MATRIX_URL = "https://matrix.mafiasi.de"
-MENSA_URL = "https://mensa.mafiasi.de"
+MENSA_URL = "https://mensa.mafiasi.de/app"
 MODULKOMPASS_URL = "https://modulkompass.mafiasi.de"
 LINK_SHORTENER_URL = "https://l.mafiasi.de"
 
