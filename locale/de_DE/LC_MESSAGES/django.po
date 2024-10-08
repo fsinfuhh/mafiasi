@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-03 23:48+0200\n"
+"POT-Creation-Date: 2024-10-08 09:35+0200\n"
 "PO-Revision-Date: 2024-09-03 23:52+0200\n"
 "Last-Translator: Markus Neblung <markus.neblung@uni-hamburg.de>\n"
 "Language-Team: \n"
@@ -1554,6 +1554,16 @@ msgid "Matrix provides decentralized messaging and VoIP with E2E encryption."
 msgstr ""
 "Matrix ermöglicht dezentrales Chatten und VoIP mit Ende-zu-Ende-"
 "Verschlüsselung."
+
+#: mafiasi/mensa/apps.py:11
+msgid "Mensa"
+msgstr "Mensa"
+
+#: mafiasi/mensa/apps.py:12
+msgid ""
+"Look at what is available in the canteens and filter according to diet, "
+"allergens, etc."
+msgstr "Schaue was es in den Mensen zu essen gibt und filtere nach Ernährungsweise, Allergenen usw."
 
 #: mafiasi/modulkompass/apps.py:11
 msgid "Modulkompass"
