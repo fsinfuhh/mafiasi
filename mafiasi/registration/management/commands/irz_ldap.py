@@ -12,8 +12,8 @@ class Command(BaseCommand):
 
     def add_arguments(self, parser: ArgumentParser):
         argg = parser.add_mutually_exclusive_group(required=True)
-        argg.add_argument("--group", nargs=1, help="Query for a group by gidNumber")
-        argg.add_argument("--user", nargs=1, help="Query for a user by uid")
+        argg.add_argument("--group", help="Query for a group by gidNumber")
+        argg.add_argument("--user", help="Query for a user by uid")
 
     def handle(self, *args, **options):
         if options["group"] is not None:
