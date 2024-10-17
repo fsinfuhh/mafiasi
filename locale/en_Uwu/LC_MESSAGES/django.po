@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-08 09:35+0200\n"
+"POT-Creation-Date: 2024-10-17 16:04+0200\n"
 "PO-Revision-Date: 2024-01-09 22:14+0000\n"
 "Last-Translator: kritzl <kritzl@kritzl.dev>\n"
 "Language-Team: \n"
@@ -1640,6 +1640,14 @@ msgstr "Meowtrix"
 
 #: mafiasi/matrix/apps.py:12
 msgid "Matrix provides decentralized messaging and VoIP with E2E encryption."
+msgstr "Hug frens. Virtually."
+
+#: mafiasi/mattermost/apps.py:11
+msgid "Chat"
+msgstr "Talksies"
+
+#: mafiasi/mattermost/apps.py:12
+msgid "An online team chat service"
 msgstr "Hug frens. Virtually."
 
 #: mafiasi/mensa/apps.py:11

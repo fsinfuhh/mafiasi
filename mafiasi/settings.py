@@ -158,6 +158,7 @@ INSTALLED_APPS = [
         "mafiasi.nextcloud",
         "mafiasi.etherpad",
         "mafiasi.bitpoll",
+        "mafiasi.mattermost" if env.bool("MAFIASI_ENABLE_MATTERMOST", False) else None,
         "mafiasi.matrix" if env.bool("MAFIASI_ENABLE_MATRIX", True) else None,
         "mafiasi.mensa" if env.bool("MAFIASI_ENABLE_MENSA", True) else None,
         "mafiasi.modulkompass" if env.bool("MAFIASI_ENABLE_MODULKOMPASS", True) else None,
@@ -316,6 +317,7 @@ FB18_URL = "https://archiv.mafiasi.de/forum/fb18"
 BITPOLL_URL = env.str("MAFIASI_BITPOLL_URL", "https://bitpoll.mafiasi.de")
 WHITEBOARD_URL = "https://spacedeck.mafiasi.de"
 KANBOARD_URL = "https://kanboard.mafiasi.de"
+MATTERMOST_URL = "https://mattermost.mafiasi.de"
 MATRIX_URL = "https://matrix.mafiasi.de"
 MENSA_URL = "https://mensa.mafiasi.de"
 MODULKOMPASS_URL = "https://modulkompass.mafiasi.de"
