@@ -2,6 +2,7 @@
 {% load group_tags %}
 {% load settings_value %}
 {% load static %}
+{% load stabile_message %}
 {% value_from_settings BANNER_IMG as banner_img %}
 {% value_from_settings FAVICON_PATH as favicon_path %}
 <!DOCTYPE html>
@@ -129,11 +130,16 @@
         <script src="{% static 'js/snow.js' %}" type="module"></script>
     {% endif %}
 
+    <aside id="stabile-message">
+        <span>{% stabile_message %}</span>
+    </aside>
+
     <script src="{% static 'js/jquery-2.0.3.js' %}" type="text/javascript"></script>
     <script src="{% static 'js/jquery-ui-1.12.1.custom.js' %}" type="text/javascript"></script>
     <script src="{% static 'js/common.js' %}" type="text/javascript"></script>
     <script src="{% static 'js/bootstrap.js' %}" type="text/javascript"></script>
     <script src="{% static 'js/misc.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/stabile_message.mjs' %}" type="module"></script>
     {% block js %}
     {% endblock js %}
 </body>
