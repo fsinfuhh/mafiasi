@@ -3,6 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
+
 "POT-Creation-Date: 2024-11-18 22:47+0100\n"
 "PO-Revision-Date: 2024-09-03 23:52+0200\n"
 "Last-Translator: Markus Neblung <markus.neblung@uni-hamburg.de>\n"
@@ -1554,6 +1555,14 @@ msgid "Matrix provides decentralized messaging and VoIP with E2E encryption."
 msgstr ""
 "Matrix ermöglicht dezentrales Chatten und VoIP mit Ende-zu-Ende-"
 "Verschlüsselung."
+
+#: mafiasi/mattermost/apps.py:11
+msgid "Chat"
+msgstr "Chat"
+
+#: mafiasi/mattermost/apps.py:12
+msgid "An online team chat service"
+msgstr "Mattermost ist ein Online-Chatservice für Teams"
 
 #: mafiasi/mensa/apps.py:11
 msgid "Mensa"

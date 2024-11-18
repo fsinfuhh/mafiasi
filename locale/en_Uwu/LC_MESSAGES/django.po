@@ -1642,6 +1642,14 @@ msgstr "Meowtrix"
 msgid "Matrix provides decentralized messaging and VoIP with E2E encryption."
 msgstr "Hug frens. Virtually."
 
+#: mafiasi/mattermost/apps.py:11
+msgid "Chat"
+msgstr "Talksies"
+
+#: mafiasi/mattermost/apps.py:12
+msgid "An online team chat service"
+msgstr "Hug frens. Virtually."
+
 #: mafiasi/mensa/apps.py:11
 msgid "Mensa"
 msgstr "Nomsies"

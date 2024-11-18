@@ -1413,6 +1413,14 @@ msgstr ""
 msgid "Matrix provides decentralized messaging and VoIP with E2E encryption."
 msgstr ""
 
+#: mafiasi/mattermost/apps.py:11
+msgid "Chat"
+msgstr "Chat"
+
+#: mafiasi/mattermost/apps.py:12
+msgid "An online team chat service"
+msgstr "An online team chat service"
+
 #: mafiasi/mensa/apps.py:11
 msgid "Mensa"
 msgstr "Canteen"
