@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-08 09:35+0200\n"
+"POT-Creation-Date: 2024-11-22 11:16+0100\n"
 "PO-Revision-Date: 2024-09-03 23:52+0200\n"
 "Last-Translator: Markus Neblung <markus.neblung@uni-hamburg.de>\n"
 "Language-Team: \n"
@@ -87,6 +87,10 @@ msgstr "Technik"
 #: mafiasi/base/templates/base/problems.html:4
 msgid "Problems?"
 msgstr "Probleme?"
+
+#: mafiasi/base/templates/base.html:123
+msgid "This service is not run by fascists"
+msgstr "Dieser Dienst wird nicht von Faschist*innen betrieben"
 
 #: mafiasi/base/templates/base/licenses.html:4
 msgid "License information"
@@ -1571,7 +1575,9 @@ msgstr "Mensa"
 msgid ""
 "Look at what is available in the canteens and filter according to diet, "
 "allergens, etc."
-msgstr "Schaue was es in den Mensen zu essen gibt und filtere nach Ernährungsweise, Allergenen usw."
+msgstr ""
+"Schaue was es in den Mensen zu essen gibt und filtere nach Ernährungsweise, "
+"Allergenen usw."
 
 #: mafiasi/modulkompass/apps.py:11
 msgid "Modulkompass"

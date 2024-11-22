@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-08 09:35+0200\n"
+"POT-Creation-Date: 2024-11-22 11:16+0100\n"
 "PO-Revision-Date: 2024-01-09 22:14+0000\n"
 "Last-Translator: kritzl <kritzl@kritzl.dev>\n"
 "Language-Team: \n"
@@ -90,6 +90,10 @@ msgstr "Complicated thingies"
 #: mafiasi/base/templates/base/problems.html:4
 msgid "Problems?"
 msgstr "Problems?"
+
+#: mafiasi/base/templates/base.html:123
+msgid "This service is not run by fascists"
+msgstr "This sevwis is not run by fascists! Nu-uh!"
 
 #: mafiasi/base/templates/base/licenses.html:4
 msgid "License information"
