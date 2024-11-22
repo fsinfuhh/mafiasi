@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-22 11:16+0100\n"
+"POT-Creation-Date: 2024-11-22 11:46+0100\n"
 "PO-Revision-Date: 2024-01-09 22:14+0000\n"
 "Last-Translator: kritzl <kritzl@kritzl.dev>\n"
 "Language-Team: \n"
@@ -94,6 +94,15 @@ msgstr "Problems?"
 #: mafiasi/base/templates/base.html:123
 msgid "This service is not run by fascists"
 msgstr "This sevwis is not run by fascists! Nu-uh!"
+
+#: mafiasi/base/templates/base.html:131
+msgid ""
+"There is no place for racism, queerophobia, anti-Semitism and discrimination "
+"in any form at mafiasi.de.<br> If you are affected, the <a href=\"mailto:fsr-"
+"vertraulich@informatik.uni-hamburg.de\">student council</a> and the "
+"university's <a href=\"https://www.uni-hamburg.de/antidiskriminierung.html\" "
+"rel=\"external\">anti-discrimination office</a> are there for you."
+msgstr ""
 
 #: mafiasi/base/templates/base/licenses.html:4
 msgid "License information"

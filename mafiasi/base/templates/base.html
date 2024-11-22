@@ -126,6 +126,15 @@
         </div>
     </div>
 
+    <aside id="politics-toast">
+        <span>
+            {% blocktranslate trimmed %}
+                There is no place for racism, queerophobia, anti-Semitism and discrimination in any form at mafiasi.de.<br>
+                If you are affected, the <a href="mailto:fsr-vertraulich@informatik.uni-hamburg.de">student council</a> and the university's <a href="https://www.uni-hamburg.de/antidiskriminierung.html" rel="external">anti-discrimination office</a> are there for you.
+            {% endblocktranslate %}
+        </span>
+    </aside>
+
     {% if request.session.specialFeature == 'winter' %}
         <canvas id="snow-canvas"></canvas>
         <script src="{% static 'js/snow.js' %}" type="module"></script>
@@ -136,6 +145,7 @@
     <script src="{% static 'js/common.js' %}" type="text/javascript"></script>
     <script src="{% static 'js/bootstrap.js' %}" type="text/javascript"></script>
     <script src="{% static 'js/misc.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/politics_toast.mjs' %}" type="module"></script>
     {% block js %}
     {% endblock js %}
 </body>
