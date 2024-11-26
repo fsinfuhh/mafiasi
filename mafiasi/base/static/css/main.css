@@ -81,6 +81,26 @@ body {
   border-radius: 10px;
 }
 
+#politics-toast {
+    position: fixed;
+    bottom: 1vw;
+    left: auto;
+    right: 1vw;
+    margin: 0;
+    max-width: 512px;
+    cursor: pointer;
+    user-select: none;
+
+    border: none;
+    padding: 10px 16px;
+    background: #23527c;
+    color: white;
+    border-radius: 4px;
+}
+#politics-toast a {
+    color: var(--mafiasi-dark-btn-primary);
+}
+
 /* ------- MISC -------*/
 .clickable {
     cursor: pointer;
