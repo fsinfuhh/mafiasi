@@ -101,6 +101,12 @@ body {
     color: var(--mafiasi-dark-btn-primary);
 }
 
+@media (max-width: 1200px) {
+    #politics-toast {
+        display: none
+    }
+}
+
 /* ------- MISC -------*/
 .clickable {
     cursor: pointer;
