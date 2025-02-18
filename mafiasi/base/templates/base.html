@@ -119,10 +119,21 @@
                         <button name="language" value="{{ lang.0 }}" class="btn-link" style="padding: 0;" type="submit">{{ lang.1 }}</button>
                         {% endif %}
                     {% endfor %}
+                    &middot;
+                    <span class="text-muted">{% trans "This service is not run by fascists" %}</span>
                 </p>
             </form>
         </div>
     </div>
+
+    <aside id="politics-toast">
+        <span>
+            {% blocktranslate trimmed %}
+                There is no place for discrimination in any way shape or form at mafiasi.de (cmp. <a href="gesetze-im-internet.de/englisch_gg/englisch_gg.html#p0027" rel="external">Art. 3 GG</a>).<br>
+                If you are affected, feel free to contact the <a href="mailto:fsr-vertraulich@informatik.uni-hamburg.de">student council</a> or the university's <a href="https://www.uni-hamburg.de/antidiskriminierung.html" rel="external">anti-discrimination office</a>.
+            {% endblocktranslate %}
+        </span>
+    </aside>
 
     {% if request.session.specialFeature == 'winter' %}
         <canvas id="snow-canvas"></canvas>
@@ -134,6 +145,7 @@
     <script src="{% static 'js/common.js' %}" type="text/javascript"></script>
     <script src="{% static 'js/bootstrap.js' %}" type="text/javascript"></script>
     <script src="{% static 'js/misc.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/politics_toast.mjs' %}" type="module"></script>
     {% block js %}
     {% endblock js %}
 </body>

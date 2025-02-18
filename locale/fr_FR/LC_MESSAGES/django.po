@@ -2,16 +2,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-08 09:35+0200\n"
-"PO-Revision-Date: 2024-09-03 23:54+0200\n"
-"Last-Translator: Markus Neblung <markus.neblung@uni-hamburg.de>\n"
+"POT-Creation-Date: 2025-02-17 15:08+0100\n"
+"PO-Revision-Date: 2024-11-26 16:57+0100\n"
+"Last-Translator: Timon Engelke <timon.engelke@uni-hamburg.de>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: mafiasi/base/middleware.py:18
 msgid ""
@@ -87,6 +87,35 @@ msgstr "Information technique"
 #: mafiasi/base/templates/base/problems.html:4
 msgid "Problems?"
 msgstr "Problèmes?"
+
+#: mafiasi/base/templates/base.html:123
+msgid "This service is not run by fascists"
+msgstr "Ce service n'est pas administré par des fascistes"
+
+#: mafiasi/base/templates/base.html:131
+#, fuzzy
+#| msgid ""
+#| "There is no place for racism, queerophobia, anti-Semitism and "
+#| "discrimination in any form at mafiasi.de.<br> If you are affected, the <a "
+#| "href=\"mailto:fsr-vertraulich@informatik.uni-hamburg.de\">student "
+#| "council</a> and the university's <a href=\"https://www.uni-hamburg.de/"
+#| "antidiskriminierung.html\" rel=\"external\">anti-discrimination office</"
+#| "a> are there for you."
+msgid ""
+"There is no place for discrimination in any way shape or form at mafiasi.de "
+"(cmp. <a href=\"gesetze-im-internet.de/englisch_gg/englisch_gg.html#p0027\" "
+"rel=\"external\">Art. 3 GG</a>).<br> If you are affected, feel free to "
+"contact the <a href=\"mailto:fsr-vertraulich@informatik.uni-hamburg."
+"de\">student council</a> or the university's <a href=\"https://www.uni-"
+"hamburg.de/antidiskriminierung.html\" rel=\"external\">anti-discrimination "
+"office</a>."
+msgstr ""
+"Le racisme, la queerophobie, l'antisémitisme et la discrimination sous "
+"toutes ses formes n'ont pas de place à mafiasi.de.<br>\n"
+"Si vous êtes concernés, le <a href=\"mailto:fsr-vertraulich@informatik.uni-"
+"hamburg.de\">conseil étudiant</a> et le <a href=\"https://www.uni-hamburg.de/"
+"antidiskriminierung.html\" rel=\"external\">bureau anti-discrimination</a> "
+"de l'université sont là pour vous."
 
 #: mafiasi/base/templates/base/licenses.html:4
 msgid "License information"
@@ -223,7 +252,7 @@ msgstr "Livre Mafiasi Purple"
 
 #: mafiasi/dashboard/templates/dashboard/may_day.html:10
 msgid "Server-Rooms are being occupied…"
-msgstr ""
+msgstr "Les salles de serveurs sont occupées..."
 
 #: mafiasi/discourse/apps.py:11
 msgid "Discourse"
@@ -1580,7 +1609,9 @@ msgstr "Cantine"
 msgid ""
 "Look at what is available in the canteens and filter according to diet, "
 "allergens, etc."
-msgstr "Regarde ce qu'il y a à manger dans les restaurants universitaires et filtre en fonction du régime alimentaire, des allergènes, etc."
+msgstr ""
+"Regarde ce qu'il y a à manger dans les restaurants universitaires et filtre "
+"en fonction du régime alimentaire, des allergènes, etc."
 
 #: mafiasi/modulkompass/apps.py:11
 msgid "Modulkompass"
@@ -2317,6 +2348,3 @@ msgid "In the wiki you will find important information regarding your studies."
 msgstr ""
 "Dans le wiki, vous trouverez des informations importantes concernant vos "
 "études."
-
-#~ msgid "Mafiasi"
-#~ msgstr "Mafiasi"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-08 09:35+0200\n"
+"POT-Creation-Date: 2025-02-17 15:08+0100\n"
 "PO-Revision-Date: 2024-01-09 22:14+0000\n"
 "Last-Translator: kritzl <kritzl@kritzl.dev>\n"
 "Language-Team: \n"
@@ -90,6 +90,21 @@ msgstr "Complicated thingies"
 #: mafiasi/base/templates/base/problems.html:4
 msgid "Problems?"
 msgstr "Problems?"
+
+#: mafiasi/base/templates/base.html:123
+msgid "This service is not run by fascists"
+msgstr "This sevwis is not run by fascists! Nu-uh!"
+
+#: mafiasi/base/templates/base.html:131
+msgid ""
+"There is no place for discrimination in any way shape or form at mafiasi.de "
+"(cmp. <a href=\"gesetze-im-internet.de/englisch_gg/englisch_gg.html#p0027\" "
+"rel=\"external\">Art. 3 GG</a>).<br> If you are affected, feel free to "
+"contact the <a href=\"mailto:fsr-vertraulich@informatik.uni-hamburg."
+"de\">student council</a> or the university's <a href=\"https://www.uni-"
+"hamburg.de/antidiskriminierung.html\" rel=\"external\">anti-discrimination "
+"office</a>."
+msgstr ""
 
 #: mafiasi/base/templates/base/licenses.html:4
 msgid "License information"
@@ -2388,123 +2403,3 @@ msgstr "Knowings"
 #: mafiasi/wiki/apps.py:12
 msgid "In the wiki you will find important information regarding your studies."
 msgstr "Knowings has many impawtant info! Pls read! :3"
-
-#~ msgid "Mafiasi"
-#~ msgstr "Mafiasi UwU"
-
-#, fuzzy
-#~| msgid ""
-#~| "\n"
-#~| "        This page needs javascript in order to function correctly.\n"
-#~| "        Please activate it before you proceed.\n"
-#~| "        "
-#~ msgid ""
-#~ "\n"
-#~ "            This page needs javascript in order to function correctly.\n"
-#~ "            Please activate it before you proceed.\n"
-#~ "        "
-#~ msgstr ""
-#~ "\n"
-#~ "        This page needs javascript in order to function correctly.\n"
-#~ "        Please activate it before you proceed.\n"
-#~ "        "
-
-#~ msgid "Mumble"
-#~ msgstr "Mumble"
-
-#~ msgid "You can use our mumble for voice chat with other fellow students."
-#~ msgstr "You can use our mumble for voice chat with other fellow students."
-
-#~ msgid ""
-#~ "Configure mumble as shown in the following image. Your password in Mumble "
-#~ "is the same as used here."
-#~ msgstr ""
-#~ "Configure mumble as shown in the following image. Your password in Mumble "
-#~ "is the same as used here."
-
-#~ msgid "Student association"
-#~ msgstr "Student association"
-
-#~ msgid "Did you forget your password?"
-#~ msgstr "Did you forget your password?"
-
-#~ msgid "Password reset complete"
-#~ msgstr "Password reset complete"
-
-#~ msgid "Your password has been set.  You may go ahead and log in now."
-#~ msgstr "Secret accepted! Use it?"
-
-#~ msgid "Log in"
-#~ msgstr "Get insides"
-
-#~ msgid "Password reset"
-#~ msgstr "Password reset"
-
-#~ msgid "Enter new password"
-#~ msgstr "Enter new password"
-
-#~ msgid ""
-#~ "Please enter your new password twice so we can verify you typed it in "
-#~ "correctly."
-#~ msgstr ""
-#~ "Please enter your new password twice so we can verify you typed it in "
-#~ "correctly."
-
-#~ msgid "New password:"
-#~ msgstr "New password:"
-
-#~ msgid "Change my password"
-#~ msgstr "Change my password"
-
-#~ msgid "Password reset unsuccessful"
-#~ msgstr "Password reset unsuccessful"
-
-#~ msgid ""
-#~ "The password reset link was invalid, possibly because it has already been "
-#~ "used.  Please request a new password reset."
-#~ msgstr ""
-#~ "The password reset link was invalid, possibly because it has already been "
-#~ "used.  Please request a new password reset."
-
-#~ msgid "Password reset successful"
-#~ msgstr "Password reset successful"
-
-#~ msgid ""
-#~ "We've emailed you instructions for setting your password to the email "
-#~ "address you submitted. You should be receiving it shortly."
-#~ msgstr ""
-#~ "We've emailed you instructions for setting your password to the email "
-#~ "address you submitted. You should be receiving it shortly."
-
-#, python-format
-#~ msgid ""
-#~ "You're receiving this email because you requested a password reset for "
-#~ "your user account at %(site_name)s."
-#~ msgstr ""
-#~ "You're receiving this email because you requested a password reset for "
-#~ "your user account at %(site_name)s."
-
-#~ msgid "Please go to the following page and choose a new password:"
-#~ msgstr "Please go to the following page and choose a new password:"
-
-#~ msgid "Your username, in case you've forgotten:"
-#~ msgstr "U wanted me to name u:"
-
-#~ msgid "Thanks for using our site!"
-#~ msgstr "Thanks for beings my fren! UwU"
-
-#~ msgid ""
-#~ "Forgotten your password? Enter your email address below, and we'll email "
-#~ "instructions for setting a new one."
-#~ msgstr ""
-#~ "Forgotten your password? Enter your email address below, and we'll email "
-#~ "instructions for setting a new one."
-
-#~ msgid "Email address:"
-#~ msgstr "Email address:"
-
-#~ msgid "Reset my password"
-#~ msgstr "Reset my password"
-
-#~ msgid "Password was changed."
-#~ msgstr "Password was changed."
