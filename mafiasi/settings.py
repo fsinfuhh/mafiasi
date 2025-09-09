@@ -85,10 +85,9 @@ if ENABLE_LDAP_REGISTRATION:
 
 REGISTER_ENABLED = env.bool("MAFIASI_ENABLE_REGISTRATION", True)
 PRIMARY_DOMAIN = "informatik.uni-hamburg.de"
-REGISTER_DOMAINS = ["informatik.uni-hamburg.de", "physnet.uni-hamburg.de", "hiforum.de"]
+REGISTER_DOMAINS = ["informatik.uni-hamburg.de", "physnet.uni-hamburg.de"]
 REGISTER_DOMAIN_MAPPING = {
     "physnet.uni-hamburg.de": "physnet",
-    "hiforum.de": "hiforum",
 }
 ACCOUNT_PATTERNS = {
     "informatik.uni-hamburg.de": r"\d?[a-z]+",
