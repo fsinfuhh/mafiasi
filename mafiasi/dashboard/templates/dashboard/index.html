@@ -13,6 +13,21 @@
     {% include "dashboard/may_day.html" %}
 {% endif %}
 <div class="row {{ request.session.specialFeatureClasses }}">
+    <div id="important_news" class="col-md-12">
+        {% for news in important_news %}
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+                {{ news.title }}
+            </div>
+            <div class="panel-body">
+                {{ news.render_teaser }}
+                {% if news.text %}
+                <a href="{% url 'dashboard_show_news' news.pk %}" class="pull-right">Mehr...</a>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+        </div>
     <div id="dashboard" class="col-md-8">
         <h2>
             {% trans "Services" %}
