@@ -99,6 +99,25 @@ $btn-text: (
         color: var(--mafiasi-dark-text-light);
     }
 
+    .panel-danger {
+      border-color: #801919;
+    }
+    .panel-danger > .panel-heading {
+      color: #f2dede;
+      background-color: #481c1c;
+      border-color: #801919;
+    }
+    .panel-danger > .panel-heading + .panel-collapse > .panel-body {
+      border-top-color: #801919;
+    }
+    .panel-danger > .panel-heading .badge {
+      color: #f2dede;
+      background-color: #481c1c;
+    }
+    .panel-danger > .panel-footer + .panel-collapse > .panel-body {
+      border-bottom-color: #801919;
+    }
+
     .modal {
         .modal-content {
             background-color: var(--mafiasi-dark-bg);

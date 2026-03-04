@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-28 15:04+0200\n"
+"POT-Creation-Date: 2026-03-04 10:29+0100\n"
 "PO-Revision-Date: 2024-11-26 16:57+0100\n"
 "Last-Translator: Timon Engelke <timon.engelke@uni-hamburg.de>\n"
 "Language-Team: \n"
@@ -103,12 +103,12 @@ msgstr "Ce service n'est pas administré par des fascistes"
 #| "a> are there for you."
 msgid ""
 "There is no place for discrimination in any way shape or form at mafiasi.de "
-"(cmp. <a href=\"https://www.gesetze-im-internet.de/englisch_gg/"
-"englisch_gg.html#p0027\" rel=\"external\">Art. 3 GG</a>).<br> If you are "
-"affected, feel free to contact the <a href=\"mailto:fsr-"
-"vertraulich@informatik.uni-hamburg.de\">student council</a> or the "
-"university's <a href=\"https://www.uni-hamburg.de/antidiskriminierung.html\" "
-"rel=\"external\">anti-discrimination office</a>."
+"(cmp. <a href=\"https://www.gesetze-im-internet.de/englisch_gg/englisch_gg."
+"html#p0027\" rel=\"external\">Art. 3 GG</a>).<br> If you are affected, feel "
+"free to contact the <a href=\"mailto:fsr-vertraulich@informatik.uni-hamburg."
+"de\">student council</a> or the university's <a href=\"https://www.uni-"
+"hamburg.de/antidiskriminierung.html\" rel=\"external\">anti-discrimination "
+"office</a>."
 msgstr ""
 "Le racisme, la queerophobie, l'antisémitisme et la discrimination sous "
 "toutes ses formes n'ont pas de place à mafiasi.de.<br>\n"
@@ -200,23 +200,23 @@ msgstr ""
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:18
+#: mafiasi/dashboard/templates/dashboard/index.html:33
 msgid "Services"
 msgstr "Services"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:35
+#: mafiasi/dashboard/templates/dashboard/index.html:50
 msgid "Rearrange item"
 msgstr "Réorganiser"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:43
+#: mafiasi/dashboard/templates/dashboard/index.html:58
 msgid "News and more"
 msgstr "Les nouvelles et plus"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:59
+#: mafiasi/dashboard/templates/dashboard/index.html:74
 msgid "Wiki search"
 msgstr "Recherche Wiki"
 
-#: mafiasi/dashboard/templates/dashboard/index.html:66
+#: mafiasi/dashboard/templates/dashboard/index.html:81
 #: mafiasi/gprot/templates/gprot/menu.html:4
 #: mafiasi/pks/templates/pks/menu.html:4
 #: mafiasi/pks/templates/pks/search.html:5
