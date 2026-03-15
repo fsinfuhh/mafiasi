@@ -338,7 +338,8 @@ def publish_gprot(request, gprot_pk):
             gprot.author = None
         gprot.published = True
         gprot.save()
-        notify_users(gprot, request)
+        if settings.SEND_MAILS:
+            notify_users(gprot, request)
         return redirect("gprot_view", gprot.pk)
 
     return render(request, "gprot/publish.html", {"gprot": gprot})
