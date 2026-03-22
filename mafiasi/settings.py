@@ -383,4 +383,4 @@ if SENTRY_DSN is not None:
         send_default_pii=True,
     )
 
-SEND_MAILS = env.bool("MAFIASI_MAIL_SEND", True)
+EMAIL_BACKEND = "django.core.mail.backends.dummy.EmailBackend"
