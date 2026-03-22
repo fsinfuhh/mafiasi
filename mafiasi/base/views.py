@@ -9,7 +9,7 @@ from mafiasi.base.autocomplete import autocomplete_users
 
 
 def imprint(request):
-    return HttpResponseRedirect(settings.IMPRINT_URL)
+    return TemplateResponse(request, "base/imprint.html")
 
 
 def data_privacy_statement(request):
