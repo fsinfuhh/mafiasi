@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-15 23:20+0100\n"
+"POT-Creation-Date: 2026-03-22 14:16+0100\n"
 "PO-Revision-Date: 2024-11-26 16:57+0100\n"
 "Last-Translator: Timon Engelke <timon.engelke@uni-hamburg.de>\n"
 "Language-Team: \n"
@@ -1019,7 +1019,7 @@ msgstr ""
 msgid "Only PNG, JPEG and GIF files are allowed."
 msgstr "Seuls les fichiers PNG, JPEG et GIF sont autorisés."
 
-#: mafiasi/gprot/views.py:355
+#: mafiasi/gprot/views.py:354
 #, python-format
 msgid "New memory minutes for \"%(coursename)s\""
 msgstr "Nouveaux mémoires d'examen pour \"%(coursename)s\""
