@@ -71,4 +71,3 @@ class Command(BaseCommand):
             usernames = authentik_ldap.members(record)
             users = Mafiasi.objects.filter(username__in=usernames)
             group.user_set.set(users)
-            
