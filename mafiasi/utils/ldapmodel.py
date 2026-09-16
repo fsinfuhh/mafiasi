@@ -182,7 +182,10 @@ class LdapModel(object, metaclass=LdapModelMeta):
         conn = connections[connection]
         try:
             print(ldap.SCOPE_BASE)
-            result = conn.search_s(dn, ldap.SCOPE_BASE)[0][1]
+            print(dn)
+            search = conn.search_s(dn, ldap.SCOPE_BASE)
+            print(search)
+            result = search[0][1]
         except ldap.NO_SUCH_OBJECT:
             raise cls.DoesNotExist(dn)
         instance = cls(result)
