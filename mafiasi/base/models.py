@@ -4,6 +4,7 @@ import os
 import re
 from contextlib import contextmanager
 from contextvars import ContextVar
+from types import SimpleNamespace
 
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser, Group
@@ -68,7 +69,20 @@ class Mafiasi(AbstractUser):
         self.new_password = new_password
 
     def get_ldapuser(self):
+        if not getattr(settings, "ENABLE_LDAP_AUTH_BACKEND", False) or "default" not in getattr(
+            settings, "LDAP_SERVERS", {}
+        ):
+            return SimpleNamespace(display_name=self._display_name_fallback())
         return LdapUser.lookup(self.username)
+
+    def _display_name_fallback(self):
+        if self.first_name and self.last_name:
+            return f"{self.first_name} {self.last_name}"
+        if self.first_name:
+            return self.first_name
+        if self.last_name:
+            return self.last_name
+        return self.username
 
 
 class LdapGroup(LdapModel):
