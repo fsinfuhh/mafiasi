@@ -1,4 +1,5 @@
 from copy import deepcopy
+from re import search
 
 import ldap
 from django.conf import settings
@@ -185,7 +186,9 @@ class LdapModel(object, metaclass=LdapModelMeta):
         try:
             print("SCOPE:", ldap.SCOPE_BASE)
             print("DN:", dn)
-            search = conn.search_s(dn, ldap.SCOPE_BASE)
+            search = conn.search_s(dn, ldap.SCOPE_BASE, ...)  # or whatever scope-0 search this is
+            if not search:
+                raise LdapNotFound(f"{cls.__name__} with key {key!r} not found")    
             print("Search:", search)
             result = search[0][1]
         except ldap.NO_SUCH_OBJECT:
