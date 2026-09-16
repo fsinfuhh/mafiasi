@@ -19,7 +19,7 @@ class MafiasiUserMapper(UserMapper):
 
     def handle_federated_userinfo(self, user_data: FederatedUserData) -> MafiasiUser:
         # if there is already a user with this username, we create the openid association if it does not exist yet
-        try:
+        """try:
             user = MafiasiUser.objects.get(username=user_data.preferred_username)
             OpenidUser.objects.get_or_create(
                 sub=user_data.sub,
@@ -31,5 +31,5 @@ class MafiasiUserMapper(UserMapper):
             # if the user does not exist, it should not be created and and error is raised
             raise AssertionError(
                 f"User {user_data.preferred_username} does not exist in local database even though users are only ever created from the dashboard"
-            )
+            )"""
         return super().handle_federated_userinfo(user_data)
