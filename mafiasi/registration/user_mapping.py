@@ -18,9 +18,6 @@ class MafiasiUserMapper(UserMapper):
             user.is_superuser = settings.OPENID_SUPERUSER_GROUP in groups
 
     def handle_federated_userinfo(self, user_data: FederatedUserData) -> MafiasiUser:
-<<<<<<< Updated upstream
-        return super().handle_federated_userinfo(user_data)
-=======
         user, created = MafiasiUser.objects.get_or_create(
             username=user_data.preferred_username,
             defaults={
@@ -44,4 +41,3 @@ class MafiasiUserMapper(UserMapper):
         self.automap_user_attrs(user, user_data)
         user.save()
         return user
->>>>>>> Stashed changes
