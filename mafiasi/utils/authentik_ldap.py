@@ -21,9 +21,7 @@ def _records(base_dn, filterstr, attrs):
     connection = connections["authentik"]
     result = connection.search_s(base_dn, ldap.SCOPE_SUBTREE, filterstr, attrs)
     return [
-        LdapRecord(dn, {name: _decode_values(values) for name, values in values.items()})
-        for dn, values in result
-        if dn
+        LdapRecord(dn, {name: _decode_values(values) for name, values in values.items()}) for dn, values in result if dn
     ]
 
 
