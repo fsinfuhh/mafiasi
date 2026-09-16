@@ -120,6 +120,8 @@ class LdapUser(LdapModel):
 def _change_user_cb(sender, instance, created, **kwargs):
     if _ldap_import_active.get():
         return
+    if not instance.username:
+        return
     try:
         ldap_user = LdapUser.lookup(instance.username)
     except LdapNotFound:
