@@ -2,6 +2,8 @@ import base64
 import hashlib
 import os
 import re
+from contextlib import contextmanager
+from contextvars import ContextVar
 
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser, Group
@@ -14,6 +16,16 @@ from mafiasi.base.validation import validate_ascii
 from mafiasi.utils.ldapmodel import LdapAttr, LdapModel, LdapNotFound
 
 LOCK_ID_LDAP_GROUP = -215652734
+_ldap_import_active = ContextVar("ldap_import_active", default=False)
+
+
+@contextmanager
+def ldap_import_context():
+    token = _ldap_import_active.set(True)
+    try:
+        yield
+    finally:
+        _ldap_import_active.reset(token)
 
 
 class YeargroupManager(models.Manager):
@@ -106,6 +118,8 @@ class LdapUser(LdapModel):
 
 
 def _change_user_cb(sender, instance, created, **kwargs):
+    if _ldap_import_active.get():
+        return
     try:
         ldap_user = LdapUser.lookup(instance.username)
     except LdapNotFound:
@@ -137,6 +151,8 @@ def _change_user_cb(sender, instance, created, **kwargs):
 
 
 def _change_group_cb(sender, instance, created, **kwargs):
+    if _ldap_import_active.get():
+        return
     try:
         ldap_group = LdapGroup.lookup(instance.name)
     except LdapNotFound:
