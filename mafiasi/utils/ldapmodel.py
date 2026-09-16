@@ -181,6 +181,7 @@ class LdapModel(object, metaclass=LdapModelMeta):
         dn = cls.lookup_dn.format(escape_dn_chars(value))
         conn = connections[connection]
         try:
+            print(ldap.SCOPE_BASE)
             result = conn.search_s(dn, ldap.SCOPE_BASE)[0][1]
         except ldap.NO_SUCH_OBJECT:
             raise cls.DoesNotExist(dn)
