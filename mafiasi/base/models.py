@@ -71,7 +71,7 @@ class LdapGroup(LdapModel):
 
 
 class LdapUser(LdapModel):
-    base_dn = "ou=People," + getattr(settings, "ROOT_DN", "cn=unused")
+    base_dn = "ou=users," + getattr(settings, "ROOT_DN", "cn=unused")
     lookup_dn = "uid={}," + base_dn
     primary_key = "username"
     object_classes = [b"person", b"inetOrgPerson", b"ownCloud"]
