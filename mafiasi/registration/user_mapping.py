@@ -34,14 +34,12 @@ class MafiasiUserMapper(UserMapper):
         openid_user = OpenidUser.objects.filter(user=user).first()
         if openid_user is None:
             openid_user = OpenidUser.objects.filter(sub=user_data.sub).first()
-            if openid_user is not None and openid_user.user_id != user.pk:
-                openid_user.user = user
-                openid_user.save(update_fields=["user"])
+            if openid_user is not None:
+                if openid_user.user_id != user.pk:
+                    openid_user.user = user
+                    openid_user.save(update_fields=["user"])
             else:
                 OpenidUser.objects.create(user=user, sub=user_data.sub)
-        elif openid_user.sub != user_data.sub:
-            openid_user.sub = user_data.sub
-            openid_user.save(update_fields=["sub"])
 
         self.automap_user_attrs(user, user_data)
         user.save()
