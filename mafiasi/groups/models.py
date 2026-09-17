@@ -9,7 +9,11 @@ from django.utils.translation import gettext_lazy as _
 
 from mafiasi.base.models import LOCK_ID_LDAP_GROUP, LdapGroup
 from mafiasi.base.utils import AdvisoryLock
-from mafiasi.utils.authentik_api import create_group, update_group_membership
+from mafiasi.utils.authentik_api import (
+    add_group_to_group,
+    create_group,
+    update_group_membership,
+)
 
 MIN_GROUPNAME_LENGTH = 3
 
@@ -108,6 +112,10 @@ class GroupInvitation(models.Model):
 _group_name_re = re.compile(r"^[a-zA-Z]([a-zA-Z0-9-]*)$")
 
 
+def _get_umbrella_group_name():
+    return "Staging" if bool(getattr(settings, "STAGING", False)) else "Mafiasi"
+
+
 def create_usergroup(user, name):
     if not _group_name_re.match(name):
         raise GroupError(_("Invalid group name."))
@@ -126,6 +134,9 @@ def create_usergroup(user, name):
 
     group_proxy = GroupProxy(group)
     group_proxy.add_member(user)
+
+    if getattr(settings, "AUTHENTIK_API_URL", ""):
+        add_group_to_group(name, _get_umbrella_group_name())
 
     group.properties.admins.add(user)
 

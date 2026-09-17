@@ -87,6 +87,20 @@ def create_group(name: str) -> dict[str, Any]:
     return _request("POST", "/api/v3/core/groups/", json=payload)
 
 
+def add_group_to_group(group_name: str, parent_group_name: str) -> dict[str, Any] | None:
+    group = find_group_by_name(group_name)
+    parent_group = find_group_by_name(parent_group_name)
+    if group is None or parent_group is None:
+        return group
+
+    parent_id = parent_group.get("pk") or parent_group.get("id")
+    group_id = group.get("pk") or group.get("id")
+    if parent_id is None or group_id is None:
+        return group
+
+    return _request("PATCH", f"/api/v3/core/groups/{group_id}/", json={"parent": parent_id})
+
+
 def update_group_membership(group_name: str, usernames: Iterable[str]) -> dict[str, Any] | None:
     group = find_group_by_name(group_name)
     if group is None:
