@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-16 22:38+0200\n"
+"POT-Creation-Date: 2026-09-17 15:05+0200\n"
 "PO-Revision-Date: 2024-11-26 16:57+0100\n"
 "Last-Translator: Timon Engelke <timon.engelke@uni-hamburg.de>\n"
 "Language-Team: \n"
@@ -103,12 +103,12 @@ msgstr "Ce service n'est pas administré par des fascistes"
 #| "a> are there for you."
 msgid ""
 "There is no place for discrimination in any way shape or form at mafiasi.de "
-"(cmp. <a href=\"https://www.gesetze-im-internet.de/englisch_gg/"
-"englisch_gg.html#p0027\" rel=\"external\">Art. 3 GG</a>).<br> If you are "
-"affected, feel free to contact the <a href=\"mailto:fsr-"
-"vertraulich@informatik.uni-hamburg.de\">student council</a> or the "
-"university's <a href=\"https://www.uni-hamburg.de/antidiskriminierung.html\" "
-"rel=\"external\">anti-discrimination office</a>."
+"(cmp. <a href=\"https://www.gesetze-im-internet.de/englisch_gg/englisch_gg."
+"html#p0027\" rel=\"external\">Art. 3 GG</a>).<br> If you are affected, feel "
+"free to contact the <a href=\"mailto:fsr-vertraulich@informatik.uni-hamburg."
+"de\">student council</a> or the university's <a href=\"https://www.uni-"
+"hamburg.de/antidiskriminierung.html\" rel=\"external\">anti-discrimination "
+"office</a>."
 msgstr ""
 "Le racisme, la queerophobie, l'antisémitisme et la discrimination sous "
 "toutes ses formes n'ont pas de place à mafiasi.de.<br>\n"
@@ -1029,7 +1029,7 @@ msgstr "Nouveaux mémoires d'examen pour \"%(coursename)s\""
 msgid "There is no user \"%s.\""
 msgstr "Il n'y a pas user \"%s.\""
 
-#: mafiasi/groups/models.py:77
+#: mafiasi/groups/models.py:86
 msgid ""
 "You are the sole group admin. Please terminate the group or appoint another "
 "group admin."
@@ -1037,15 +1037,15 @@ msgstr ""
 "Vous êtes le seul administrateur du groupe. Se il vous plaît résilier le "
 "groupe ou nommer un autre administrateur du groupe."
 
-#: mafiasi/groups/models.py:104
+#: mafiasi/groups/models.py:113
 msgid "Invalid group name."
 msgstr "Nom de groupe invalide."
 
-#: mafiasi/groups/models.py:107
+#: mafiasi/groups/models.py:116
 msgid "The group name must be at least {} characters"
 msgstr "Le nom du groupe doit être au moins {} caractères"
 
-#: mafiasi/groups/models.py:111
+#: mafiasi/groups/models.py:120
 msgid "Group does already exist."
 msgstr "Ce groupe déjà existe."
 

@@ -9,6 +9,7 @@ from django.utils.translation import gettext_lazy as _
 
 from mafiasi.base.models import LOCK_ID_LDAP_GROUP, LdapGroup
 from mafiasi.base.utils import AdvisoryLock
+from mafiasi.utils.authentik_api import create_group, update_group_membership
 
 MIN_GROUPNAME_LENGTH = 3
 
@@ -37,9 +38,13 @@ class GroupProxy(object):
     def add_member(self, user):
         group = self.group
         with AdvisoryLock(LOCK_ID_LDAP_GROUP, group.pk):
-            ldap_group = LdapGroup.lookup(group.name)
-            ldap_group.members.append(user.username)
-            ldap_group.save()
+            if getattr(settings, "AUTHENTIK_API_URL", ""):
+                current_members = [member.username for member in group.user_set.all()]
+                update_group_membership(group.name, [user.username] + current_members)
+            else:
+                ldap_group = LdapGroup.lookup(group.name)
+                ldap_group.members.append(user.username)
+                ldap_group.save()
             group.user_set.add(user)
 
     def remove_member(self, user, check_sole_admin=False):
@@ -48,12 +53,16 @@ class GroupProxy(object):
             if check_sole_admin:
                 self._raise_if_sole_admin(user)
             properties.admins.remove(user)
-            ldap_group = LdapGroup.lookup(self.group.name)
-            try:
-                ldap_group.members.remove(user.username)
-                ldap_group.save()
-            except ValueError:
-                pass
+            if getattr(settings, "AUTHENTIK_API_URL", ""):
+                remaining = [member.username for member in self.group.user_set.exclude(pk=user.pk).all()]
+                update_group_membership(self.group.name, remaining)
+            else:
+                ldap_group = LdapGroup.lookup(self.group.name)
+                try:
+                    ldap_group.members.remove(user.username)
+                    ldap_group.save()
+                except ValueError:
+                    pass
             self.group.user_set.remove(user)
 
     def grant_admin(self, user):
@@ -111,6 +120,9 @@ def create_usergroup(user, name):
         raise GroupError(_("Group does already exist."))
 
     group = Group.objects.create(name=name)
+
+    if getattr(settings, "AUTHENTIK_API_URL", ""):
+        create_group(name)
 
     group_proxy = GroupProxy(group)
     group_proxy.add_member(user)
