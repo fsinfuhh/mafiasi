@@ -49,7 +49,9 @@ def build_group_payload(name: str, users: Iterable[int] | None = None, parent: s
     if parent:
         parent_group = find_group_by_name(parent)
         if parent_group:
-            payload["parents"] = parent_group.get("pk")
+            parent_id = parent_group.get("pk") or parent_group.get("id")
+            if parent_id is not None:
+                payload["parents"] = [parent_id]
     if users is not None:
         payload["users"] = list(users)
     return payload
