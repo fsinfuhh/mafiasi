@@ -9,10 +9,7 @@ from django.utils.translation import gettext_lazy as _
 
 from mafiasi.base.models import LOCK_ID_LDAP_GROUP, LdapGroup
 from mafiasi.base.utils import AdvisoryLock
-from mafiasi.utils.authentik_api import (
-    create_group,
-    update_group_membership,
-)
+from mafiasi.utils.authentik_api import create_group, update_group_membership
 
 MIN_GROUPNAME_LENGTH = 3
 

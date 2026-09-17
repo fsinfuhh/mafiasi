@@ -86,9 +86,10 @@ def find_group_by_name(name: str) -> dict[str, Any] | None:
     return None
 
 
-def create_group(name: str, parent:str|None = None) -> dict[str, Any]:
+def create_group(name: str, parent: str | None = None) -> dict[str, Any]:
     payload = build_group_payload(name, parent=parent)
     return _request("POST", "/api/v3/core/groups/", json=payload)
+
 
 def update_group_membership(group_name: str, usernames: Iterable[str]) -> dict[str, Any] | None:
     group = find_group_by_name(group_name)
