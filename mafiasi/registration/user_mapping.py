@@ -15,7 +15,9 @@ class MafiasiUserMapper(UserMapper):
         super().automap_user_attrs(user, user_data)
         if settings.OPENID_SYNC_SUPERUSER:
             groups = getattr(user_data, "groups", [])
-            user.is_superuser = settings.OPENID_SUPERUSER_GROUP in groups
+            is_superuser = settings.OPENID_SUPERUSER_GROUP in groups
+            user.is_superuser = is_superuser
+            user.is_staff = is_superuser
 
     def handle_federated_userinfo(self, user_data: FederatedUserData) -> MafiasiUser:
         user, created = MafiasiUser.objects.get_or_create(
