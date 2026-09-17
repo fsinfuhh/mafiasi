@@ -44,8 +44,12 @@ def _request(method: str, path: str, **kwargs: Any) -> Any:
     raise RuntimeError(f"Authentik API request failed: {response.status_code} {response.text[:200]}")
 
 
-def build_group_payload(name: str, users: Iterable[int] | None = None) -> dict[str, Any]:
+def build_group_payload(name: str, users: Iterable[int] | None = None, parent: str | None = None) -> dict[str, Any]:
     payload: dict[str, Any] = {"name": name}
+    if parent:
+        parent_group = find_group_by_name(parent)
+        if parent_group:
+            payload["parents"] = parent_group.get("pk")
     if users is not None:
         payload["users"] = list(users)
     return payload
@@ -82,24 +86,9 @@ def find_group_by_name(name: str) -> dict[str, Any] | None:
     return None
 
 
-def create_group(name: str) -> dict[str, Any]:
-    payload = build_group_payload(name)
+def create_group(name: str, parent:str|None = None) -> dict[str, Any]:
+    payload = build_group_payload(name, parent=parent)
     return _request("POST", "/api/v3/core/groups/", json=payload)
-
-
-def add_group_to_group(group_name: str, parent_group_name: str) -> dict[str, Any] | None:
-    group = find_group_by_name(group_name)
-    parent_group = find_group_by_name(parent_group_name)
-    if group is None or parent_group is None:
-        return group
-
-    parent_id = parent_group.get("pk") or parent_group.get("id")
-    group_id = group.get("pk") or group.get("id")
-    if parent_id is None or group_id is None:
-        return group
-
-    return _request("PATCH", f"/api/v3/core/groups/{group_id}/", json={"parent": parent_id})
-
 
 def update_group_membership(group_name: str, usernames: Iterable[str]) -> dict[str, Any] | None:
     group = find_group_by_name(group_name)
@@ -112,14 +101,3 @@ def update_group_membership(group_name: str, usernames: Iterable[str]) -> dict[s
 
     user_ids = resolve_user_ids(usernames)
     return _request("PATCH", f"/api/v3/core/groups/{group_id}/", json={"users": user_ids})
-
-
-def _merge_group_users(existing_ids: Iterable[int], desired_ids: Iterable[int]) -> list[int]:
-    merged: list[int] = []
-    seen: set[int] = set()
-    for value in list(existing_ids) + list(desired_ids):
-        if value in seen:
-            continue
-        seen.add(value)
-        merged.append(value)
-    return merged
