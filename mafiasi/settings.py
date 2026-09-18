@@ -23,7 +23,7 @@ DATABASES = {
 OPENID_ISSUER = env.str("MAFIASI_OPENID_ISSUER", default="https://identity.mafiasi.de/realms/mafiasi")
 OPENID_CLIENT_ID = env.str("MAFIASI_OPENID_CLIENT_ID", default="mafiasi-dashboard")
 OPENID_CLIENT_SECRET = env.str("MAFIASI_OPENID_CLIENT_SECRET", required=True)
-OPENID_SCOPE = "openid profile email groups info"
+OPENID_SCOPE = "openid profile email groups info realmail"
 OPENID_USER_MAPPER = "mafiasi.registration.user_mapping.MafiasiUserMapper"
 
 KEYCLOAK_ACCOUNT_CONSOLE_URL = env.str(
