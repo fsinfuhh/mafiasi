@@ -9,7 +9,7 @@ from simple_openid_connect.integrations.django.user_mapping import (
 )
 
 from mafiasi.base.models import Mafiasi as MafiasiUser
-
+import re
 
 class MafiasiUserMapper(UserMapper):
     def map_user_attrs(self, user: MafiasiUser, user_data: FederatedUserData) -> None:
@@ -34,8 +34,10 @@ class MafiasiUserMapper(UserMapper):
             user.is_staff = is_superuser
 
     def handle_federated_userinfo(self, user_data: FederatedUserData) -> MafiasiUser:
+        username=user_data.username
+        username = re.sub(r"\s*\([^)]*\)$", "", username)
         user, created = MafiasiUser.objects.get_or_create(
-            username=user_data.fn or "",
+            username,
             defaults={"account": ""},
         )
 
