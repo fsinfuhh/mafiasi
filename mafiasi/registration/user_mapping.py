@@ -1,3 +1,4 @@
+import re
 from typing import Any
 
 from django.conf import settings
@@ -9,7 +10,7 @@ from simple_openid_connect.integrations.django.user_mapping import (
 )
 
 from mafiasi.base.models import Mafiasi as MafiasiUser
-import re
+
 
 class MafiasiUserMapper(UserMapper):
     def map_user_attrs(self, user: MafiasiUser, user_data: FederatedUserData) -> None:
