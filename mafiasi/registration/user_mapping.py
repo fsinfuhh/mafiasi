@@ -38,7 +38,7 @@ class MafiasiUserMapper(UserMapper):
         username = user_data.username
         username = re.sub(r"\s*\([^)]*\)$", "", username)
         user, created = MafiasiUser.objects.get_or_create(
-            username,
+            username=username,
             defaults={"account": ""},
         )
 
