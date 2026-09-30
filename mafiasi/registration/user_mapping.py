@@ -35,7 +35,7 @@ class MafiasiUserMapper(UserMapper):
             user.is_staff = is_superuser
 
     def handle_federated_userinfo(self, user_data: FederatedUserData) -> MafiasiUser:
-        username=user_data.username
+        username = user_data.username
         username = re.sub(r"\s*\([^)]*\)$", "", username)
         user, created = MafiasiUser.objects.get_or_create(
             username,
