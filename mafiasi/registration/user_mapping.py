@@ -35,7 +35,7 @@ class MafiasiUserMapper(UserMapper):
 
     def handle_federated_userinfo(self, user_data: FederatedUserData) -> MafiasiUser:
         user, created = MafiasiUser.objects.get_or_create(
-            username=user_data.username,
+            username=user_data.fn or "",
             defaults={"account": ""},
         )
 
