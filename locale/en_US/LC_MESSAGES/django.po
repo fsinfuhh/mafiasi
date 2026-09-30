@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-22 14:16+0100\n"
+"POT-Creation-Date: 2026-09-17 16:20+0200\n"
 "PO-Revision-Date: 2024-01-18 22:42+0100\n"
 "Last-Translator: Markus Neblung <markus.neblung@uni-hamburg.de>\n"
 "Language-Team: \n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.4.1\n"
 
-#: mafiasi/base/middleware.py:18
+#: mafiasi/base/middleware.py:24
 msgid ""
 "Your email address was automatically set to an invalid one. Please update "
 "your email address immediately."
@@ -899,21 +899,21 @@ msgstr ""
 msgid "There is no user \"%s.\""
 msgstr ""
 
-#: mafiasi/groups/models.py:77
+#: mafiasi/groups/models.py:86
 msgid ""
 "You are the sole group admin. Please terminate the group or appoint another "
 "group admin."
 msgstr ""
 
-#: mafiasi/groups/models.py:104
+#: mafiasi/groups/models.py:117
 msgid "Invalid group name."
 msgstr ""
 
-#: mafiasi/groups/models.py:107
+#: mafiasi/groups/models.py:120
 msgid "The group name must be at least {} characters"
 msgstr ""
 
-#: mafiasi/groups/models.py:111
+#: mafiasi/groups/models.py:124
 msgid "Group does already exist."
 msgstr ""
 

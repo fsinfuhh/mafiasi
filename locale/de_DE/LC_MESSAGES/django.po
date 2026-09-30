@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-22 14:16+0100\n"
+"POT-Creation-Date: 2026-09-17 16:20+0200\n"
 "PO-Revision-Date: 2025-07-28 15:05+0200\n"
 "Last-Translator: Markus Neblung <markus.neblung@uni-hamburg.de>\n"
 "Language-Team: \n"
@@ -14,7 +14,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.6\n"
 
-#: mafiasi/base/middleware.py:18
+#: mafiasi/base/middleware.py:24
 msgid ""
 "Your email address was automatically set to an invalid one. Please update "
 "your email address immediately."
@@ -1018,7 +1018,7 @@ msgstr "Neues Gedächtnisprotokoll für \"%(coursename)s\""
 msgid "There is no user \"%s.\""
 msgstr "Es gibt keinen Benutzer \"%s\"."
 
-#: mafiasi/groups/models.py:77
+#: mafiasi/groups/models.py:86
 msgid ""
 "You are the sole group admin. Please terminate the group or appoint another "
 "group admin."
@@ -1026,15 +1026,15 @@ msgstr ""
 "Du bist der einzige Gruppenadmin. Bitte schließe die Gruppe oder ernenne "
 "einen anderen Gruppenadmin."
 
-#: mafiasi/groups/models.py:104
+#: mafiasi/groups/models.py:117
 msgid "Invalid group name."
 msgstr "Ungültiger Gruppenname."
 
-#: mafiasi/groups/models.py:107
+#: mafiasi/groups/models.py:120
 msgid "The group name must be at least {} characters"
 msgstr "Der Gruppenname muss mindestens {} Zeichen lang sein"
 
-#: mafiasi/groups/models.py:111
+#: mafiasi/groups/models.py:124
 msgid "Group does already exist."
 msgstr "Gruppe existiert bereits."
 

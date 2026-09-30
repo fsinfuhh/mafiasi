@@ -23,7 +23,7 @@ DATABASES = {
 OPENID_ISSUER = env.str("MAFIASI_OPENID_ISSUER", default="https://identity.mafiasi.de/realms/mafiasi")
 OPENID_CLIENT_ID = env.str("MAFIASI_OPENID_CLIENT_ID", default="mafiasi-dashboard")
 OPENID_CLIENT_SECRET = env.str("MAFIASI_OPENID_CLIENT_SECRET", required=True)
-OPENID_SCOPE = "openid profile email groups"
+OPENID_SCOPE = "openid profile email groups info realmail"
 OPENID_USER_MAPPER = "mafiasi.registration.user_mapping.MafiasiUserMapper"
 
 KEYCLOAK_ACCOUNT_CONSOLE_URL = env.str(
@@ -58,6 +58,22 @@ if ENABLE_LDAP_AUTH_BACKEND:
     AUTH_LDAP_ALWAYS_UPDATE_USER = False
 
     ROOT_DN = env.str("MAFIASI_LDAP_ROOT_DN")
+
+ENABLE_AUTHENTIK_LDAP_SYNC = env.bool("MAFIASI_ENABLE_AUTHENTIK_LDAP_SYNC", default=False)
+AUTHENTIK_API_URL = env.str("MAFIASI_AUTHENTIK_API_URL", default="")
+AUTHENTIK_API_TOKEN = env.str("MAFIASI_AUTHENTIK_API_TOKEN", default="")
+AUTHENTIK_API_TIMEOUT = env.int("MAFIASI_AUTHENTIK_API_TIMEOUT", default=15)
+STAGING = env.bool("STAGING", default=False)
+
+if ENABLE_AUTHENTIK_LDAP_SYNC:
+    LDAP_SERVERS["authentik"] = {
+        "CA": env.str("MAFIASI_AUTHENTIK_LDAP_CA", default=""),
+        "URI": env.str("MAFIASI_AUTHENTIK_LDAP_URI"),
+        "BIND_DN": env.str("MAFIASI_AUTHENTIK_LDAP_BIND_DN"),
+        "BIND_PASSWORD": env.str("MAFIASI_AUTHENTIK_LDAP_BIND_PW"),
+    }
+    AUTHENTIK_LDAP_USER_BASE_DN = env.str("MAFIASI_AUTHENTIK_LDAP_USER_BASE_DN")
+    AUTHENTIK_LDAP_GROUP_BASE_DN = env.str("MAFIASI_AUTHENTIK_LDAP_GROUP_BASE_DN")
 
 ENABLE_LDAP_REGISTRATION = env.bool("MAFIASI_ENABLE_LDAP_REGISTRATION")
 if ENABLE_LDAP_REGISTRATION:

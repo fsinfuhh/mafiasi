@@ -11,7 +11,13 @@ class InvalidMailMiddleware:
 
     def __call__(self, request):
         if request.user.is_authenticated:
-            if Mafiasi.objects.get(username=request.user.username).real_email.endswith(settings.INVALID_MAIL_DOMAIN):
+            try:
+                user = Mafiasi.objects.get(username=request.user.username)
+            except Mafiasi.DoesNotExist:
+                return self.get_response(request)
+
+            real_email = user.real_email
+            if real_email and real_email.endswith(settings.INVALID_MAIL_DOMAIN):
                 messages.error(
                     request,
                     _(

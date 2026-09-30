@@ -1,4 +1,5 @@
 from copy import deepcopy
+from re import search
 
 import ldap
 from django.conf import settings
@@ -181,9 +182,14 @@ class LdapModel(object, metaclass=LdapModelMeta):
         dn = cls.lookup_dn.format(escape_dn_chars(value))
         conn = connections[connection]
         try:
-            result = conn.search_s(dn, ldap.SCOPE_BASE)[0][1]
+            search = conn.search_s(dn, ldap.SCOPE_BASE)
         except ldap.NO_SUCH_OBJECT:
             raise cls.DoesNotExist(dn)
+
+        if not search:
+            raise cls.DoesNotExist(dn)
+
+        result = search[0][1]
         instance = cls(result)
         instance._fetched = True
         return instance

@@ -2,6 +2,9 @@ import base64
 import hashlib
 import os
 import re
+from contextlib import contextmanager
+from contextvars import ContextVar
+from types import SimpleNamespace
 
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser, Group
@@ -14,6 +17,16 @@ from mafiasi.base.validation import validate_ascii
 from mafiasi.utils.ldapmodel import LdapAttr, LdapModel, LdapNotFound
 
 LOCK_ID_LDAP_GROUP = -215652734
+_ldap_import_active = ContextVar("ldap_import_active", default=False)
+
+
+@contextmanager
+def ldap_import_context():
+    token = _ldap_import_active.set(True)
+    try:
+        yield
+    finally:
+        _ldap_import_active.reset(token)
 
 
 class YeargroupManager(models.Manager):
@@ -56,7 +69,20 @@ class Mafiasi(AbstractUser):
         self.new_password = new_password
 
     def get_ldapuser(self):
+        if not getattr(settings, "ENABLE_LDAP_AUTH_BACKEND", False) or "default" not in getattr(
+            settings, "LDAP_SERVERS", {}
+        ):
+            return SimpleNamespace(display_name=self._display_name_fallback())
         return LdapUser.lookup(self.username)
+
+    def _display_name_fallback(self):
+        if self.first_name and self.last_name:
+            return f"{self.first_name} {self.last_name}"
+        if self.first_name:
+            return self.first_name
+        if self.last_name:
+            return self.last_name
+        return self.username
 
 
 class LdapGroup(LdapModel):
@@ -71,7 +97,7 @@ class LdapGroup(LdapModel):
 
 
 class LdapUser(LdapModel):
-    base_dn = "ou=People," + getattr(settings, "ROOT_DN", "cn=unused")
+    base_dn = "ou=users," + getattr(settings, "ROOT_DN", "cn=unused")
     lookup_dn = "uid={}," + base_dn
     primary_key = "username"
     object_classes = [b"person", b"inetOrgPerson", b"ownCloud"]
@@ -106,6 +132,10 @@ class LdapUser(LdapModel):
 
 
 def _change_user_cb(sender, instance, created, **kwargs):
+    if _ldap_import_active.get():
+        return
+    if not instance.username:
+        return
     try:
         ldap_user = LdapUser.lookup(instance.username)
     except LdapNotFound:
@@ -137,6 +167,8 @@ def _change_user_cb(sender, instance, created, **kwargs):
 
 
 def _change_group_cb(sender, instance, created, **kwargs):
+    if _ldap_import_active.get():
+        return
     try:
         ldap_group = LdapGroup.lookup(instance.name)
     except LdapNotFound:
