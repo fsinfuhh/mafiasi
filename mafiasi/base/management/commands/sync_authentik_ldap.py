@@ -59,6 +59,7 @@ class Command(BaseCommand):
                 "email": authentik_ldap.first(record, "mail"),
                 "first_name": authentik_ldap.first(record, "givenName"),
                 "last_name": authentik_ldap.first(record, "sn"),
+                "preferred_name": authentik_ldap.first(record, "preferred_username"),
             }
             user, created = Mafiasi.objects.get_or_create(username=username, defaults={"account": "", **defaults})
             if not created:

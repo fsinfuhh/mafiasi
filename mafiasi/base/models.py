@@ -52,6 +52,7 @@ class Yeargroup(models.Model):
 
 class Mafiasi(AbstractUser):
     account = models.CharField(max_length=64, validators=[validate_ascii])
+    preferred_name = models.CharField(max_length=64, blank=True)
     yeargroup = models.ForeignKey(Yeargroup, on_delete=models.CASCADE, blank=True, null=True)
     is_guest = models.BooleanField(default=False)
     real_email = models.EmailField(unique=True, null=True)
@@ -76,6 +77,8 @@ class Mafiasi(AbstractUser):
         return LdapUser.lookup(self.username)
 
     def _display_name_fallback(self):
+        if self.preferred_name:
+            return self.preferred_name
         if self.first_name and self.last_name:
             return f"{self.first_name} {self.last_name}"
         if self.first_name:
