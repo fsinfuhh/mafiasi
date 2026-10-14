@@ -4,9 +4,9 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-Django = "~=5.0"
-Pillow = "~=10.0"
-PyPDF2 = "~=1.27"
+Django = ">=5.2,<6.0"
+Pillow = ">=11.0,<13.0"
+PyPDF2 = ">=3.0,<4.0"
 bleach = {extras = ["css"], version = "~=6.1"}
 django-auth-ldap = "~=4.1"
 django-cors-headers = "~=4.1"
@@ -22,7 +22,7 @@ oauthlib = "~=3.2"
 psycopg2-binary = "~=2.9"
 # should be replaced once https://github.com/rshk/pygpgme/pull/12 is merged
 pygpgme = { git = "https://github.com/timonegk/pygpgme.git", ref = "patch-1" }
-pygraphviz = "~=1.11"
+pygraphviz = "~=2.0"
 python-Levenshtein = "~=0.22"
 python-creole = "~=1.4"
 python-ldap = "~=3.4"
