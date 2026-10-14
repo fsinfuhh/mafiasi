@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-14 11:32+0200\n"
+"POT-Creation-Date: 2026-10-14 16:29+0200\n"
 "PO-Revision-Date: 2024-11-26 16:57+0100\n"
 "Last-Translator: Timon Engelke <timon.engelke@uni-hamburg.de>\n"
 "Language-Team: \n"
@@ -103,12 +103,12 @@ msgstr "Ce service n'est pas administré par des fascistes"
 #| "a> are there for you."
 msgid ""
 "There is no place for discrimination in any way shape or form at mafiasi.de "
-"(cmp. <a href=\"https://www.gesetze-im-internet.de/englisch_gg/englisch_gg."
-"html#p0027\" rel=\"external\">Art. 3 GG</a>).<br> If you are affected, feel "
-"free to contact the <a href=\"mailto:fsr-vertraulich@informatik.uni-hamburg."
-"de\">student council</a> or the university's <a href=\"https://www.uni-"
-"hamburg.de/antidiskriminierung.html\" rel=\"external\">anti-discrimination "
-"office</a>."
+"(cmp. <a href=\"https://www.gesetze-im-internet.de/englisch_gg/"
+"englisch_gg.html#p0027\" rel=\"external\">Art. 3 GG</a>).<br> If you are "
+"affected, feel free to contact the <a href=\"mailto:fsr-"
+"vertraulich@informatik.uni-hamburg.de\">student council</a> or the "
+"university's <a href=\"https://www.uni-hamburg.de/antidiskriminierung.html\" "
+"rel=\"external\">anti-discrimination office</a>."
 msgstr ""
 "Le racisme, la queerophobie, l'antisémitisme et la discrimination sous "
 "toutes ses formes n'ont pas de place à mafiasi.de.<br>\n"
@@ -990,20 +990,20 @@ msgstr ""
 msgid "No document has been uploaded yet."
 msgstr "Aucun document n'a encore été téléchargé."
 
-#: mafiasi/gprot/views.py:203 mafiasi/gprot/views.py:310
+#: mafiasi/gprot/views.py:209 mafiasi/gprot/views.py:322
 #, python-brace-format
 msgid "Only files up to {0} MB are allowed."
 msgstr "Seuls les fichiers jusqu'à {0} Mo sont admis."
 
-#: mafiasi/gprot/views.py:205
+#: mafiasi/gprot/views.py:211
 msgid "Only PDF files are allowed."
 msgstr "Seuls les fichiers PDF sont autorisés."
 
-#: mafiasi/gprot/views.py:208 mafiasi/gprot/views.py:316
+#: mafiasi/gprot/views.py:214 mafiasi/gprot/views.py:328
 msgid "Please select a file to upload."
 msgstr "S'il vous plaît sélectionner un fichier à télécharger."
 
-#: mafiasi/gprot/views.py:223
+#: mafiasi/gprot/views.py:229
 msgid ""
 "This file was blocked because it is an original exam. Please do not try to "
 "upload it again because we will get problems with the university."
@@ -1012,11 +1012,11 @@ msgstr ""
 "pas essayer pas de le téléverser à nouveau afin d'éviter des problèmes avec "
 "l'université."
 
-#: mafiasi/gprot/views.py:314
+#: mafiasi/gprot/views.py:326
 msgid "Only PNG, JPEG and GIF files are allowed."
 msgstr "Seuls les fichiers PNG, JPEG et GIF sont autorisés."
 
-#: mafiasi/gprot/views.py:354
+#: mafiasi/gprot/views.py:367
 #, python-format
 msgid "New memory minutes for \"%(coursename)s\""
 msgstr "Nouveaux mémoires d'examen pour \"%(coursename)s\""

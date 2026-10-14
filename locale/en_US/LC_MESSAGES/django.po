@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-14 11:32+0200\n"
+"POT-Creation-Date: 2026-10-14 16:29+0200\n"
 "PO-Revision-Date: 2024-01-18 22:42+0100\n"
 "Last-Translator: Markus Neblung <markus.neblung@uni-hamburg.de>\n"
 "Language-Team: \n"
@@ -87,12 +87,12 @@ msgstr ""
 #: mafiasi/base/templates/base.html:131
 msgid ""
 "There is no place for discrimination in any way shape or form at mafiasi.de "
-"(cmp. <a href=\"https://www.gesetze-im-internet.de/englisch_gg/englisch_gg."
-"html#p0027\" rel=\"external\">Art. 3 GG</a>).<br> If you are affected, feel "
-"free to contact the <a href=\"mailto:fsr-vertraulich@informatik.uni-hamburg."
-"de\">student council</a> or the university's <a href=\"https://www.uni-"
-"hamburg.de/antidiskriminierung.html\" rel=\"external\">anti-discrimination "
-"office</a>."
+"(cmp. <a href=\"https://www.gesetze-im-internet.de/englisch_gg/"
+"englisch_gg.html#p0027\" rel=\"external\">Art. 3 GG</a>).<br> If you are "
+"affected, feel free to contact the <a href=\"mailto:fsr-"
+"vertraulich@informatik.uni-hamburg.de\">student council</a> or the "
+"university's <a href=\"https://www.uni-hamburg.de/antidiskriminierung.html\" "
+"rel=\"external\">anti-discrimination office</a>."
 msgstr ""
 
 #: mafiasi/base/templates/base/licenses.html:4
@@ -863,30 +863,30 @@ msgstr ""
 msgid "No document has been uploaded yet."
 msgstr ""
 
-#: mafiasi/gprot/views.py:203 mafiasi/gprot/views.py:310
+#: mafiasi/gprot/views.py:209 mafiasi/gprot/views.py:322
 #, python-brace-format
 msgid "Only files up to {0} MB are allowed."
 msgstr ""
 
-#: mafiasi/gprot/views.py:205
+#: mafiasi/gprot/views.py:211
 msgid "Only PDF files are allowed."
 msgstr ""
 
-#: mafiasi/gprot/views.py:208 mafiasi/gprot/views.py:316
+#: mafiasi/gprot/views.py:214 mafiasi/gprot/views.py:328
 msgid "Please select a file to upload."
 msgstr ""
 
-#: mafiasi/gprot/views.py:223
+#: mafiasi/gprot/views.py:229
 msgid ""
 "This file was blocked because it is an original exam. Please do not try to "
 "upload it again because we will get problems with the university."
 msgstr ""
 
-#: mafiasi/gprot/views.py:314
+#: mafiasi/gprot/views.py:326
 msgid "Only PNG, JPEG and GIF files are allowed."
 msgstr ""
 
-#: mafiasi/gprot/views.py:354
+#: mafiasi/gprot/views.py:367
 #, python-format
 msgid "New memory minutes for \"%(coursename)s\""
 msgstr ""
