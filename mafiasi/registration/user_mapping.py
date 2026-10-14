@@ -13,8 +13,12 @@ from mafiasi.base.models import Mafiasi as MafiasiUser
 
 
 class MafiasiUserMapper(UserMapper):
+    @staticmethod
+    def get_username(user_data: FederatedUserData) -> str:
+        return re.sub(r"\s*\([^)]*\)$", "", user_data.preferred_username)
+
     def map_user_attrs(self, user: MafiasiUser, user_data: FederatedUserData) -> None:
-        user.username = user_data.username
+        user.username = self.get_username(user_data)
         user.first_name = user_data.fn or ""
         user.last_name = user_data.sn or ""
         user.email = user_data.email or ""
@@ -35,8 +39,7 @@ class MafiasiUserMapper(UserMapper):
             user.is_staff = is_superuser
 
     def handle_federated_userinfo(self, user_data: FederatedUserData) -> MafiasiUser:
-        username = user_data.preferred_username
-        username = re.sub(r"\s*\([^)]*\)$", "", username)
+        username = self.get_username(user_data)
         user, created = MafiasiUser.objects.get_or_create(
             username=username,
             defaults={"account": ""},
