@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-14 16:29+0200\n"
+"POT-Creation-Date: 2026-10-14 16:52+0200\n"
 "PO-Revision-Date: 2024-01-09 22:14+0000\n"
 "Last-Translator: kritzl <kritzl@kritzl.dev>\n"
 "Language-Team: \n"
@@ -98,12 +98,12 @@ msgstr "This sevwis is not run by fascists! Nu-uh!"
 #: mafiasi/base/templates/base.html:131
 msgid ""
 "There is no place for discrimination in any way shape or form at mafiasi.de "
-"(cmp. <a href=\"https://www.gesetze-im-internet.de/englisch_gg/"
-"englisch_gg.html#p0027\" rel=\"external\">Art. 3 GG</a>).<br> If you are "
-"affected, feel free to contact the <a href=\"mailto:fsr-"
-"vertraulich@informatik.uni-hamburg.de\">student council</a> or the "
-"university's <a href=\"https://www.uni-hamburg.de/antidiskriminierung.html\" "
-"rel=\"external\">anti-discrimination office</a>."
+"(cmp. <a href=\"https://www.gesetze-im-internet.de/englisch_gg/englisch_gg."
+"html#p0027\" rel=\"external\">Art. 3 GG</a>).<br> If you are affected, feel "
+"free to contact the <a href=\"mailto:fsr-vertraulich@informatik.uni-hamburg."
+"de\">student council</a> or the university's <a href=\"https://www.uni-"
+"hamburg.de/antidiskriminierung.html\" rel=\"external\">anti-discrimination "
+"office</a>."
 msgstr ""
 
 #: mafiasi/base/templates/base/licenses.html:4
@@ -1365,13 +1365,13 @@ msgid "Username"
 msgstr "Username"
 
 #: mafiasi/guests/templates/guests/accept.html:16
-#: mafiasi/registration/forms.py:60 mafiasi/registration/forms.py:77
+#: mafiasi/registration/forms.py:61 mafiasi/registration/forms.py:78
 #: mafiasi/registration/templates/registration/create_account.html:17
 msgid "Password"
 msgstr "Password"
 
 #: mafiasi/guests/templates/guests/accept.html:25
-#: mafiasi/registration/forms.py:61
+#: mafiasi/registration/forms.py:62
 #: mafiasi/registration/templates/registration/create_account.html:26
 msgid "Password confirmation"
 msgstr "Password confirmation"
@@ -1689,35 +1689,35 @@ msgstr "NextclOwOd"
 msgid "Nextcloud enables you to sync and share your documents."
 msgstr "Here u puts snacks and shares with frens."
 
-#: mafiasi/registration/forms.py:24
+#: mafiasi/registration/forms.py:25
 msgid "That does not look like a valid account name."
 msgstr "That does not look like a valid account name."
 
-#: mafiasi/registration/forms.py:26
+#: mafiasi/registration/forms.py:27
 msgid "That does not look like a valid account name for {}."
 msgstr "That does not look like a valid account name for {}."
 
-#: mafiasi/registration/forms.py:54
+#: mafiasi/registration/forms.py:55
 msgid "Invalid domain"
 msgstr "Invalid domain"
 
-#: mafiasi/registration/forms.py:68
+#: mafiasi/registration/forms.py:69
 msgid "The two password fields didn't match."
 msgstr "The two password fields didn't match."
 
-#: mafiasi/registration/forms.py:83
+#: mafiasi/registration/forms.py:84
 msgid "Wrong password."
 msgstr "Wron secret!"
 
-#: mafiasi/registration/forms.py:116
+#: mafiasi/registration/forms.py:127
 msgid "This address is already associated with an account."
 msgstr "This address is already associated with an account."
 
-#: mafiasi/registration/forms.py:119
+#: mafiasi/registration/forms.py:130
 msgid "Group addresses cannot be used for this purpose."
 msgstr "Group addresses cannot be used for this purpose."
 
-#: mafiasi/registration/forms.py:121
+#: mafiasi/registration/forms.py:132
 msgid "Cloak adresses cannot be used for this purpose."
 msgstr "Cloak adresses cannot be used for this purpose."
 
