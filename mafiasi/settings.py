@@ -182,9 +182,7 @@ INSTALLED_APPS = [
         "mafiasi.tauschen" if env.bool("MAFIASI_ENABLE_TAUSCHEN", True) else None,
         "mafiasi.link_shortener" if env.bool("MAFIASI_ENABLE_LINK_SHORTENER", True) else None,
         "mafiasi.vault" if ENABLE_VAULT_INTEGRATION else None,
-        "mafiasi.pks" if env.bool("MAFIASI_ENABLE_PKS", True) else None,
         "mafiasi.kanboard" if env.bool("MAFIASI_ENABLE_KANBOARD", True) else None,
-        "mafiasi.whiteboard" if env.bool("MAFIASI_ENABLE_WHITEBOARD", True) else None,
         "mafiasi.discourse" if env.bool("MAFIASI_ENABLE_DISCOURSE", True) else None,
         "mafiasi.fb18" if env.bool("MAFIASI_ENABLE_FB18", True) else None,
         ###

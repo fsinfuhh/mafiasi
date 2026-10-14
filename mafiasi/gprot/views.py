@@ -80,7 +80,11 @@ def create_gprot(request):
             is_pdf = {"pdf": True, "html": False}[form.cleaned_data["type"]]
 
             gprot = GProt.objects.create(
-                course=course, exam_date=exam_date, is_pdf=is_pdf, content="", author=request.user
+                course=course,
+                exam_date=exam_date,
+                is_pdf=is_pdf,
+                content="",
+                author=request.user,
             )
             gprot.examiners.set(examiners)
             gprot.labels.set(labels)
@@ -128,6 +132,8 @@ def list_own_gprots(request):
 @login_required
 def edit_metadata(request, gprot_pk):
     gprot = get_object_or_404(GProt, pk=gprot_pk)
+    if gprot.author != request.user:
+        raise PermissionDenied("You are not the owner")
     if request.method == "POST":
         form = GProtBasicForm(request.POST)
         if form.is_valid():
@@ -236,7 +242,13 @@ def edit_gprot(request, gprot_pk):
                 return redirect("gprot_view", gprot.pk)
 
     return render(
-        request, "gprot/edit.html", {"gprot": gprot, "error": error, "attachment_csrf_token": get_csrf_token(request)}
+        request,
+        "gprot/edit.html",
+        {
+            "gprot": gprot,
+            "error": error,
+            "attachment_csrf_token": get_csrf_token(request),
+        },
     )
 
 
@@ -347,7 +359,8 @@ def publish_gprot(request, gprot_pk):
 def send_notification_email(gprot, notification, request):
     url = reverse("gprot_view", args=(gprot.pk,))
     email_content = render_to_string(
-        "gprot/notification_email.txt", {"notification": notification, "url": request.build_absolute_uri(url)}
+        "gprot/notification_email.txt",
+        {"notification": notification, "url": request.build_absolute_uri(url)},
     )
     try:
         send_mail(
@@ -401,7 +414,9 @@ def notifications(request):
             error = True
 
         if Notification.objects.filter(
-            course=notification.course, course_query=notification.course_query, user=notification.user
+            course=notification.course,
+            course_query=notification.course_query,
+            user=notification.user,
         ).exists():
             error = True
 
@@ -413,7 +428,11 @@ def notifications(request):
     return render(
         request,
         "gprot/notifications.html",
-        {"notifications": notifications, "autocomplete_course_json": json.dumps(autocomplete_courses), "error": error},
+        {
+            "notifications": notifications,
+            "autocomplete_course_json": json.dumps(autocomplete_courses),
+            "error": error,
+        },
     )
 
 
@@ -467,7 +486,11 @@ def reminders(request):
     return render(
         request,
         "gprot/reminders.html",
-        {"reminders": reminders, "autocomplete_course_json": json.dumps(autocomplete_courses), "error": error},
+        {
+            "reminders": reminders,
+            "autocomplete_course_json": json.dumps(autocomplete_courses),
+            "error": error,
+        },
     )
 
 

@@ -14,6 +14,7 @@ from django.utils.crypto import constant_time_compare
 
 from mafiasi.base.tokenbucket import TokenBucket  # noqa
 from mafiasi.base.validation import validate_ascii
+from mafiasi.utils.authentik_api import update_user
 from mafiasi.utils.ldapmodel import LdapAttr, LdapModel, LdapNotFound
 
 LOCK_ID_LDAP_GROUP = -215652734
@@ -52,6 +53,7 @@ class Yeargroup(models.Model):
 
 class Mafiasi(AbstractUser):
     account = models.CharField(max_length=64, validators=[validate_ascii])
+    preferred_name = models.CharField(max_length=64, blank=True)
     yeargroup = models.ForeignKey(Yeargroup, on_delete=models.CASCADE, blank=True, null=True)
     is_guest = models.BooleanField(default=False)
     real_email = models.EmailField(unique=True, null=True)
@@ -76,6 +78,8 @@ class Mafiasi(AbstractUser):
         return LdapUser.lookup(self.username)
 
     def _display_name_fallback(self):
+        if self.preferred_name:
+            return self.preferred_name
         if self.first_name and self.last_name:
             return f"{self.first_name} {self.last_name}"
         if self.first_name:
@@ -136,6 +140,17 @@ def _change_user_cb(sender, instance, created, **kwargs):
         return
     if not instance.username:
         return
+
+    if getattr(settings, "AUTHENTIK_API_URL", ""):
+        fields = {
+            "email": instance.email,
+            "name": instance.preferred_name or instance.get_full_name() or instance.username,
+        }
+        if instance.new_password:
+            fields["password"] = instance.new_password
+        update_user(instance.username, **fields)
+        return
+
     try:
         ldap_user = LdapUser.lookup(instance.username)
     except LdapNotFound:

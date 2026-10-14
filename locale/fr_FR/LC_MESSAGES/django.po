@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-17 16:20+0200\n"
+"POT-Creation-Date: 2026-10-14 16:52+0200\n"
 "PO-Revision-Date: 2024-11-26 16:57+0100\n"
 "Last-Translator: Timon Engelke <timon.engelke@uni-hamburg.de>\n"
 "Language-Team: \n"
@@ -218,8 +218,6 @@ msgstr "Recherche Wiki"
 
 #: mafiasi/dashboard/templates/dashboard/index.html:81
 #: mafiasi/gprot/templates/gprot/menu.html:4
-#: mafiasi/pks/templates/pks/menu.html:4
-#: mafiasi/pks/templates/pks/search.html:5
 msgid "Search"
 msgstr "Recherche"
 
@@ -284,7 +282,6 @@ msgstr "Créer pad de groupe"
 
 #: mafiasi/etherpad/templates/etherpad/create_new_pad.html:15
 #: mafiasi/groups/templates/groups/show.html:120
-#: mafiasi/pks/templates/pks/party_list.html:14
 msgid "Name"
 msgstr "Nom"
 
@@ -993,20 +990,20 @@ msgstr ""
 msgid "No document has been uploaded yet."
 msgstr "Aucun document n'a encore été téléchargé."
 
-#: mafiasi/gprot/views.py:203 mafiasi/gprot/views.py:310
+#: mafiasi/gprot/views.py:209 mafiasi/gprot/views.py:322
 #, python-brace-format
 msgid "Only files up to {0} MB are allowed."
 msgstr "Seuls les fichiers jusqu'à {0} Mo sont admis."
 
-#: mafiasi/gprot/views.py:205
+#: mafiasi/gprot/views.py:211
 msgid "Only PDF files are allowed."
 msgstr "Seuls les fichiers PDF sont autorisés."
 
-#: mafiasi/gprot/views.py:208 mafiasi/gprot/views.py:316
+#: mafiasi/gprot/views.py:214 mafiasi/gprot/views.py:328
 msgid "Please select a file to upload."
 msgstr "S'il vous plaît sélectionner un fichier à télécharger."
 
-#: mafiasi/gprot/views.py:223
+#: mafiasi/gprot/views.py:229
 msgid ""
 "This file was blocked because it is an original exam. Please do not try to "
 "upload it again because we will get problems with the university."
@@ -1015,11 +1012,11 @@ msgstr ""
 "pas essayer pas de le téléverser à nouveau afin d'éviter des problèmes avec "
 "l'université."
 
-#: mafiasi/gprot/views.py:314
+#: mafiasi/gprot/views.py:326
 msgid "Only PNG, JPEG and GIF files are allowed."
 msgstr "Seuls les fichiers PNG, JPEG et GIF sont autorisés."
 
-#: mafiasi/gprot/views.py:354
+#: mafiasi/gprot/views.py:367
 #, python-format
 msgid "New memory minutes for \"%(coursename)s\""
 msgstr "Nouveaux mémoires d'examen pour \"%(coursename)s\""
@@ -1126,7 +1123,6 @@ msgstr ""
 
 #: mafiasi/groups/templates/groups/invitations.html:16
 #: mafiasi/groups/templates/groups/show.html:74
-#: mafiasi/pks/templates/pks/party_list.html:15
 msgid "Date"
 msgstr "Date"
 
@@ -1301,13 +1297,13 @@ msgid "Username"
 msgstr "Nom d'utilisateur"
 
 #: mafiasi/guests/templates/guests/accept.html:16
-#: mafiasi/registration/forms.py:60 mafiasi/registration/forms.py:77
+#: mafiasi/registration/forms.py:61 mafiasi/registration/forms.py:78
 #: mafiasi/registration/templates/registration/create_account.html:17
 msgid "Password"
 msgstr "Mot de passe"
 
 #: mafiasi/guests/templates/guests/accept.html:25
-#: mafiasi/registration/forms.py:61
+#: mafiasi/registration/forms.py:62
 #: mafiasi/registration/templates/registration/create_account.html:26
 msgid "Password confirmation"
 msgstr "Confirmation mot de passe"
@@ -1633,364 +1629,35 @@ msgstr "Nextloud"
 msgid "Nextcloud enables you to sync and share your documents."
 msgstr "Nextcloud vous permet de synchroniser et de partager vos documents."
 
-#: mafiasi/pks/apps.py:10
-msgid "Keyserver"
-msgstr "Serveur de clés"
-
-#: mafiasi/pks/apps.py:11
-msgid ""
-"You can find your fellow students' OpenPGP keys on our public keyserver."
-msgstr ""
-"Vous pouvez trouver les clés OpenPGP de vos camarades sur notre serveur de "
-"clés publiques."
-
-#: mafiasi/pks/forms.py:17
-msgid "No valid OpenPGP keys."
-msgstr "Pas de clés OpenPGP valide."
-
-#: mafiasi/pks/templates/pks/all_keys.html:4
-#: mafiasi/pks/templates/pks/menu.html:10
-msgid "All keys"
-msgstr "Toutes les touches"
-
-#: mafiasi/pks/templates/pks/all_keys.html:5
-msgid "All keys on the keyserver"
-msgstr "Toutes les touches sur le serveur de clés"
-
-#: mafiasi/pks/templates/pks/graph.html:5
-#: mafiasi/pks/templates/pks/menu.html:13
-msgid "Trust graph"
-msgstr "Graphe de fiducie"
-
-#: mafiasi/pks/templates/pks/graph.html:18
-msgid "You can drag the blue selector at the upper left to scroll."
-msgstr ""
-"Vous pouvez faire glisser le sélecteur bleu en haut à gauche pour faire "
-"défiler."
-
-#: mafiasi/pks/templates/pks/graph.html:19
-msgid "Click on a node to highlight its connections."
-msgstr "Cliquez sur un nœud pour mettre en évidence ses connexions."
-
-#: mafiasi/pks/templates/pks/graph.html:22
-#, python-format
-msgid "Return to party <a href=\"%(party_url)s\">%(party_name)s</a>."
-msgstr "Retour à partie <a href=\"%(party_url)s\">%(party_name)s</a>."
-
-#: mafiasi/pks/templates/pks/keylist.html:9
-msgid "Key ID"
-msgstr "Key ID"
-
-#: mafiasi/pks/templates/pks/keylist.html:10
-#: mafiasi/pks/templates/pks/show_key.html:19
-msgid "Size"
-msgstr "Taille"
-
-#: mafiasi/pks/templates/pks/keylist.html:11
-#: mafiasi/pks/templates/pks/show_key.html:23
-msgid "Created"
-msgstr "Créer"
-
-#: mafiasi/pks/templates/pks/keylist.html:12
-#: mafiasi/pks/templates/pks/show_key.html:27
-msgid "Expires"
-msgstr "Expire"
-
-#: mafiasi/pks/templates/pks/keylist.html:13
-#: mafiasi/pks/templates/pks/show_key.html:37
-msgid "User identities"
-msgstr "Identités de l'utilisateur"
-
-#: mafiasi/pks/templates/pks/keylist.html:14
-#: mafiasi/pks/templates/pks/show_key.html:31
-msgid "Fingerprint"
-msgstr "Empreinte digitale"
-
-#: mafiasi/pks/templates/pks/menu.html:7
-#: mafiasi/pks/templates/pks/my_keys.html:4
-msgid "My keys"
-msgstr "Mes clés"
-
-#: mafiasi/pks/templates/pks/menu.html:16
-#: mafiasi/pks/templates/pks/party_list.html:4
-msgid "Parties"
-msgstr "Parties"
-
-#: mafiasi/pks/templates/pks/menu.html:21
-#, python-format
-msgid "Key: %(keyid)s"
-msgstr "Key: %(keyid)s"
-
-#: mafiasi/pks/templates/pks/menu.html:27
-#: mafiasi/pks/templates/pks/my_keys.html:32
-msgid "Upload own keys"
-msgstr "Téléchargez touches propres"
-
-#: mafiasi/pks/templates/pks/menu.html:32
-#: mafiasi/pks/templates/pks/party_keys.html:5
-msgid "Party:"
-msgstr "Partie:"
-
-#: mafiasi/pks/templates/pks/menu.html:37
-msgid "Participate:"
-msgstr "Participer:"
-
-#: mafiasi/pks/templates/pks/menu.html:42
-msgid "Trust graph:"
-msgstr "Graphe confiance:"
-
-#: mafiasi/pks/templates/pks/my_keys.html:15
-msgid "Unassign"
-msgstr "Unassign"
-
-#: mafiasi/pks/templates/pks/my_keys.html:18
-msgid "You have no keys assigned to you."
-msgstr "Vous ne avez pas les clés qui vous sont attribuées."
-
-#: mafiasi/pks/templates/pks/my_keys.html:25
-msgid "Keyid:"
-msgstr "Keyid:"
-
-#: mafiasi/pks/templates/pks/my_keys.html:29
-msgid "Assign key to me"
-msgstr "Attribuer clé pour moi"
-
-#: mafiasi/pks/templates/pks/my_keys.html:35
-msgid ""
-"Tip: You can type your name or email into the keyid field for autocompletion."
-msgstr ""
-"Indication: Vous pouvez taper votre nom ou email dans le champ keyid pour "
-"l'auto-complétion."
-
-#: mafiasi/pks/templates/pks/party_keys.html:4
-msgid "Keysigning Party:"
-msgstr "Parti signature de clés:"
-
-#: mafiasi/pks/templates/pks/party_keys.html:13
-msgid "Download all participating keys"
-msgstr "Télécharger tous les participants clés"
-
-#: mafiasi/pks/templates/pks/party_keys.html:14
-msgid "Show trust graph for this party"
-msgstr "Afficher la confiance graphique pour ce parti"
-
-#: mafiasi/pks/templates/pks/party_keys.html:15
-msgid "Show missing signatures"
-msgstr "Afficher signatures manquantes"
-
-#: mafiasi/pks/templates/pks/party_keys.html:18
-msgid "Participating keys"
-msgstr "Touches participants"
-
-#: mafiasi/pks/templates/pks/party_keys.html:19
-msgid ""
-"You can select the keys you have verified and find commands to sign these "
-"keys at the bottom of this page."
-msgstr ""
-"Vous pouvez sélectionner les touches que vous avez vérifié et trouver des "
-"commandes à signer ces touches au bas de cette page."
-
-#: mafiasi/pks/templates/pks/party_keys.html:28
-msgid "Commands to sign selected keys"
-msgstr "Commandes de signer clés sélectionnées"
-
-#: mafiasi/pks/templates/pks/party_keys.html:29
-msgid "Using caff"
-msgstr "Utilisation caff"
-
-#: mafiasi/pks/templates/pks/party_keys.html:33
-msgid "Using only GnuPG"
-msgstr "En utilisant seulement GnuPG"
-
-#: mafiasi/pks/templates/pks/party_keys.html:34
-msgid "Ask for confirmation for each key."
-msgstr "Demander confirmation pour chaque touche."
-
-#: mafiasi/pks/templates/pks/party_list.html:16
-msgid "Key submission until"
-msgstr "Présentation touche jusqu'à ce que"
-
-#: mafiasi/pks/templates/pks/party_list.html:17
-#: mafiasi/pks/templates/pks/party_list.html:28
-#: mafiasi/pks/templates/pks/party_participate.html:5
-#: mafiasi/pks/templates/pks/party_participate.html:19
-msgid "Participate"
-msgstr "Participer"
-
-#: mafiasi/pks/templates/pks/party_list.html:28
-msgid "Change keys"
-msgstr "Changer des clés"
-
-#: mafiasi/pks/templates/pks/party_missing_signatures.html:4
-#: mafiasi/pks/templates/pks/party_missing_signatures.html:5
-msgid "Missing signatures:"
-msgstr "Les signatures manquantes:"
-
-#: mafiasi/pks/templates/pks/party_missing_signatures.html:12
-msgid "Keys missing my signatures"
-msgstr "Les clés qui manquantes mes signatures"
-
-#: mafiasi/pks/templates/pks/party_missing_signatures.html:17
-#: mafiasi/pks/templates/pks/party_missing_signatures.html:45
-msgid "User"
-msgstr "Utilisateur"
-
-#: mafiasi/pks/templates/pks/party_missing_signatures.html:18
-#: mafiasi/pks/templates/pks/party_missing_signatures.html:46
-msgid "Key missing signature"
-msgstr "Signature clé manquante"
-
-#: mafiasi/pks/templates/pks/party_missing_signatures.html:19
-msgid "From my key"
-msgstr "De ma clé"
-
-#: mafiasi/pks/templates/pks/party_missing_signatures.html:37
-msgid "None! Thank you for signing all other keys."
-msgstr "Aucun! Merci de signer toutes les autres touches."
-
-#: mafiasi/pks/templates/pks/party_missing_signatures.html:40
-msgid "Signatures missing on my key"
-msgstr "Signatures manquante sur ma clé"
-
-#: mafiasi/pks/templates/pks/party_missing_signatures.html:47
-msgid "From other key"
-msgstr "D'autre clé"
-
-#: mafiasi/pks/templates/pks/party_missing_signatures.html:65
-msgid "None! Everybody signed your keys."
-msgstr "Aucun! Tout le monde a signé vos clés."
-
-#: mafiasi/pks/templates/pks/party_participate.html:12
-msgid "Please select the keys you want to be signed by others."
-msgstr ""
-"S'il vous plaît sélectionner les touches que vous souhaitez être signé par "
-"d'autres."
-
-#: mafiasi/pks/templates/pks/party_participate.html:17
-#, python-format
-msgid "Missing a key? <a href=\"%(my_keys_url)s\">Manage your keys</a>."
-msgstr "Manquer une clé? <a href=\"%(my_keys_url)s\"> Gérer vos clés </a>."
-
-#: mafiasi/pks/templates/pks/search.html:4
-msgid "Key search"
-msgstr "Recherche des clé"
-
-#: mafiasi/pks/templates/pks/search.html:15
-msgid "You can also search using the HKP interface:"
-msgstr "Vous pouvez également rechercher l'aide de l'interface HKP:"
-
-#: mafiasi/pks/templates/pks/search.html:16
-msgid "search term"
-msgstr "terme de recherche"
-
-#: mafiasi/pks/templates/pks/search_form.html:9
-msgid "Search key"
-msgstr "Recherche clé"
-
-#: mafiasi/pks/templates/pks/search_result.html:7
-#, python-format
-msgid "Search result for \"%(search_term)s\""
-msgstr "Résultat de la recherche de \"%(search_term)s\""
-
-#: mafiasi/pks/templates/pks/show_key.html:8
-#, python-format
-msgid "Key details for 0x%(keyid)s"
-msgstr "Détails sur les touches pour 0x%(keyid)s"
-
-#: mafiasi/pks/templates/pks/show_key.html:15
-msgid "Key information"
-msgstr "Informations clés"
-
-#: mafiasi/pks/templates/pks/show_key.html:49
-msgid "Key"
-msgstr "Clé"
-
-#: mafiasi/pks/templates/pks/show_key.html:50
-msgid "Show as plain text"
-msgstr "Afficher sous forme de texte"
-
-#: mafiasi/pks/templates/pks/upload_keys.html:6
-msgid "Add own OpenPGP key"
-msgstr "Ajouter propre clé OpenPGP"
-
-#: mafiasi/pks/templates/pks/upload_keys.html:17
-msgid "Insert one or more OpenPGP keys into the following field:"
-msgstr "Insérez une ou plusieurs clés OpenPGP dans le champ suivant:"
-
-#: mafiasi/pks/templates/pks/upload_keys.html:27
-msgid "Add keys"
-msgstr "Ajouter des clés"
-
-#: mafiasi/pks/templatetags/pks.py:17
-msgid "Revoked."
-msgstr "Révoqué."
-
-#: mafiasi/pks/templatetags/pks.py:20
-msgid "Never."
-msgstr "Jamais."
-
-#: mafiasi/pks/templatetags/pks.py:24
-#, python-brace-format
-msgid "Expired at {0}"
-msgstr "Expiré à {0}"
-
-#: mafiasi/pks/views.py:61
-msgid "Could not find the given keyid."
-msgstr "Impossible de trouver le keyid donné."
-
-#: mafiasi/pks/views.py:64
-msgid "Could not find a valid subkey."
-msgstr "Impossible de trouver un sous-clé valide."
-
-#: mafiasi/pks/views.py:69
-msgid "Key was successfully assigned to you."
-msgstr "Clé a été assigné avec succès à vous."
-
-#: mafiasi/pks/views.py:71
-msgid "Key was already assigned to you"
-msgstr "Clé a déjà été attribué à vous"
-
-#: mafiasi/pks/views.py:162
-msgid "Sorry, submission period is over."
-msgstr "Désolé, période de soumission est terminée."
-
-#: mafiasi/pks/views.py:192
-msgid "Successfully submitted keys to party."
-msgstr "Été transmis avec succès clés pour faire la fête."
-
-#: mafiasi/pks/views.py:195
-msgid "Not participating in this keysigning party."
-msgstr "Ne participe pas à cette signature de clés."
-
-#: mafiasi/registration/forms.py:24
+#: mafiasi/registration/forms.py:25
 msgid "That does not look like a valid account name."
 msgstr "Ça ne ressemble pas un compte informatique."
 
-#: mafiasi/registration/forms.py:26
+#: mafiasi/registration/forms.py:27
 msgid "That does not look like a valid account name for {}."
 msgstr "Ça ne ressemble pas une adresse e-mail de l'informatique pour {}."
 
-#: mafiasi/registration/forms.py:54
+#: mafiasi/registration/forms.py:55
 msgid "Invalid domain"
 msgstr "Domaine non valide"
 
-#: mafiasi/registration/forms.py:68
+#: mafiasi/registration/forms.py:69
 msgid "The two password fields didn't match."
 msgstr "Les deux case de mot de passe ne correspondent pas."
 
-#: mafiasi/registration/forms.py:83
+#: mafiasi/registration/forms.py:84
 msgid "Wrong password."
 msgstr "Mot de passe incorrect."
 
-#: mafiasi/registration/forms.py:116
+#: mafiasi/registration/forms.py:127
 msgid "This address is already associated with an account."
 msgstr "Il existe déjà un compte avec cet e-mail."
 
-#: mafiasi/registration/forms.py:119
+#: mafiasi/registration/forms.py:130
 msgid "Group addresses cannot be used for this purpose."
 msgstr "Les adresses de groupe ne peuvent pas être utilisées ici."
 
-#: mafiasi/registration/forms.py:121
+#: mafiasi/registration/forms.py:132
 msgid "Cloak adresses cannot be used for this purpose."
 msgstr "Les adresses masquées ne peuvent pas être utilisées ici."
 
@@ -2331,14 +1998,6 @@ msgstr ""
 "Un courriel d'invitation a été envoyé à %(vault_email)s. Il contient un lien "
 "sur lequel vous devez cliquer pour terminer la création du compte."
 
-#: mafiasi/whiteboard/apps.py:11
-msgid "Whiteboard"
-msgstr "Whiteboard"
-
-#: mafiasi/whiteboard/apps.py:12
-msgid "Spacedeck Open is a collaborative whiteboard."
-msgstr "Spacedeck Open est un tableau blanc interactif est collaboratif."
-
 #: mafiasi/wiki/apps.py:11
 msgid "Wiki"
 msgstr "Wiki"
@@ -2348,3 +2007,249 @@ msgid "In the wiki you will find important information regarding your studies."
 msgstr ""
 "Dans le wiki, vous trouverez des informations importantes concernant vos "
 "études."
+
+#~ msgid "Keyserver"
+#~ msgstr "Serveur de clés"
+
+#~ msgid ""
+#~ "You can find your fellow students' OpenPGP keys on our public keyserver."
+#~ msgstr ""
+#~ "Vous pouvez trouver les clés OpenPGP de vos camarades sur notre serveur "
+#~ "de clés publiques."
+
+#~ msgid "No valid OpenPGP keys."
+#~ msgstr "Pas de clés OpenPGP valide."
+
+#~ msgid "All keys"
+#~ msgstr "Toutes les touches"
+
+#~ msgid "All keys on the keyserver"
+#~ msgstr "Toutes les touches sur le serveur de clés"
+
+#~ msgid "Trust graph"
+#~ msgstr "Graphe de fiducie"
+
+#~ msgid "You can drag the blue selector at the upper left to scroll."
+#~ msgstr ""
+#~ "Vous pouvez faire glisser le sélecteur bleu en haut à gauche pour faire "
+#~ "défiler."
+
+#~ msgid "Click on a node to highlight its connections."
+#~ msgstr "Cliquez sur un nœud pour mettre en évidence ses connexions."
+
+#, python-format
+#~ msgid "Return to party <a href=\"%(party_url)s\">%(party_name)s</a>."
+#~ msgstr "Retour à partie <a href=\"%(party_url)s\">%(party_name)s</a>."
+
+#~ msgid "Key ID"
+#~ msgstr "Key ID"
+
+#~ msgid "Size"
+#~ msgstr "Taille"
+
+#~ msgid "Created"
+#~ msgstr "Créer"
+
+#~ msgid "Expires"
+#~ msgstr "Expire"
+
+#~ msgid "User identities"
+#~ msgstr "Identités de l'utilisateur"
+
+#~ msgid "Fingerprint"
+#~ msgstr "Empreinte digitale"
+
+#~ msgid "My keys"
+#~ msgstr "Mes clés"
+
+#~ msgid "Parties"
+#~ msgstr "Parties"
+
+#, python-format
+#~ msgid "Key: %(keyid)s"
+#~ msgstr "Key: %(keyid)s"
+
+#~ msgid "Upload own keys"
+#~ msgstr "Téléchargez touches propres"
+
+#~ msgid "Party:"
+#~ msgstr "Partie:"
+
+#~ msgid "Participate:"
+#~ msgstr "Participer:"
+
+#~ msgid "Trust graph:"
+#~ msgstr "Graphe confiance:"
+
+#~ msgid "Unassign"
+#~ msgstr "Unassign"
+
+#~ msgid "You have no keys assigned to you."
+#~ msgstr "Vous ne avez pas les clés qui vous sont attribuées."
+
+#~ msgid "Keyid:"
+#~ msgstr "Keyid:"
+
+#~ msgid "Assign key to me"
+#~ msgstr "Attribuer clé pour moi"
+
+#~ msgid ""
+#~ "Tip: You can type your name or email into the keyid field for "
+#~ "autocompletion."
+#~ msgstr ""
+#~ "Indication: Vous pouvez taper votre nom ou email dans le champ keyid pour "
+#~ "l'auto-complétion."
+
+#~ msgid "Keysigning Party:"
+#~ msgstr "Parti signature de clés:"
+
+#~ msgid "Download all participating keys"
+#~ msgstr "Télécharger tous les participants clés"
+
+#~ msgid "Show trust graph for this party"
+#~ msgstr "Afficher la confiance graphique pour ce parti"
+
+#~ msgid "Show missing signatures"
+#~ msgstr "Afficher signatures manquantes"
+
+#~ msgid "Participating keys"
+#~ msgstr "Touches participants"
+
+#~ msgid ""
+#~ "You can select the keys you have verified and find commands to sign these "
+#~ "keys at the bottom of this page."
+#~ msgstr ""
+#~ "Vous pouvez sélectionner les touches que vous avez vérifié et trouver des "
+#~ "commandes à signer ces touches au bas de cette page."
+
+#~ msgid "Commands to sign selected keys"
+#~ msgstr "Commandes de signer clés sélectionnées"
+
+#~ msgid "Using caff"
+#~ msgstr "Utilisation caff"
+
+#~ msgid "Using only GnuPG"
+#~ msgstr "En utilisant seulement GnuPG"
+
+#~ msgid "Ask for confirmation for each key."
+#~ msgstr "Demander confirmation pour chaque touche."
+
+#~ msgid "Key submission until"
+#~ msgstr "Présentation touche jusqu'à ce que"
+
+#~ msgid "Participate"
+#~ msgstr "Participer"
+
+#~ msgid "Change keys"
+#~ msgstr "Changer des clés"
+
+#~ msgid "Missing signatures:"
+#~ msgstr "Les signatures manquantes:"
+
+#~ msgid "Keys missing my signatures"
+#~ msgstr "Les clés qui manquantes mes signatures"
+
+#~ msgid "User"
+#~ msgstr "Utilisateur"
+
+#~ msgid "Key missing signature"
+#~ msgstr "Signature clé manquante"
+
+#~ msgid "From my key"
+#~ msgstr "De ma clé"
+
+#~ msgid "None! Thank you for signing all other keys."
+#~ msgstr "Aucun! Merci de signer toutes les autres touches."
+
+#~ msgid "Signatures missing on my key"
+#~ msgstr "Signatures manquante sur ma clé"
+
+#~ msgid "From other key"
+#~ msgstr "D'autre clé"
+
+#~ msgid "None! Everybody signed your keys."
+#~ msgstr "Aucun! Tout le monde a signé vos clés."
+
+#~ msgid "Please select the keys you want to be signed by others."
+#~ msgstr ""
+#~ "S'il vous plaît sélectionner les touches que vous souhaitez être signé "
+#~ "par d'autres."
+
+#, python-format
+#~ msgid "Missing a key? <a href=\"%(my_keys_url)s\">Manage your keys</a>."
+#~ msgstr "Manquer une clé? <a href=\"%(my_keys_url)s\"> Gérer vos clés </a>."
+
+#~ msgid "Key search"
+#~ msgstr "Recherche des clé"
+
+#~ msgid "You can also search using the HKP interface:"
+#~ msgstr "Vous pouvez également rechercher l'aide de l'interface HKP:"
+
+#~ msgid "search term"
+#~ msgstr "terme de recherche"
+
+#~ msgid "Search key"
+#~ msgstr "Recherche clé"
+
+#, python-format
+#~ msgid "Search result for \"%(search_term)s\""
+#~ msgstr "Résultat de la recherche de \"%(search_term)s\""
+
+#, python-format
+#~ msgid "Key details for 0x%(keyid)s"
+#~ msgstr "Détails sur les touches pour 0x%(keyid)s"
+
+#~ msgid "Key information"
+#~ msgstr "Informations clés"
+
+#~ msgid "Key"
+#~ msgstr "Clé"
+
+#~ msgid "Show as plain text"
+#~ msgstr "Afficher sous forme de texte"
+
+#~ msgid "Add own OpenPGP key"
+#~ msgstr "Ajouter propre clé OpenPGP"
+
+#~ msgid "Insert one or more OpenPGP keys into the following field:"
+#~ msgstr "Insérez une ou plusieurs clés OpenPGP dans le champ suivant:"
+
+#~ msgid "Add keys"
+#~ msgstr "Ajouter des clés"
+
+#~ msgid "Revoked."
+#~ msgstr "Révoqué."
+
+#~ msgid "Never."
+#~ msgstr "Jamais."
+
+#, python-brace-format
+#~ msgid "Expired at {0}"
+#~ msgstr "Expiré à {0}"
+
+#~ msgid "Could not find the given keyid."
+#~ msgstr "Impossible de trouver le keyid donné."
+
+#~ msgid "Could not find a valid subkey."
+#~ msgstr "Impossible de trouver un sous-clé valide."
+
+#~ msgid "Key was successfully assigned to you."
+#~ msgstr "Clé a été assigné avec succès à vous."
+
+#~ msgid "Key was already assigned to you"
+#~ msgstr "Clé a déjà été attribué à vous"
+
+#~ msgid "Sorry, submission period is over."
+#~ msgstr "Désolé, période de soumission est terminée."
+
+#~ msgid "Successfully submitted keys to party."
+#~ msgstr "Été transmis avec succès clés pour faire la fête."
+
+#~ msgid "Not participating in this keysigning party."
+#~ msgstr "Ne participe pas à cette signature de clés."
+
+#~ msgid "Whiteboard"
+#~ msgstr "Whiteboard"
+
+#~ msgid "Spacedeck Open is a collaborative whiteboard."
+#~ msgstr "Spacedeck Open est un tableau blanc interactif est collaboratif."

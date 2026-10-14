@@ -1,0 +1,1 @@
+podman build . -t mafiasi-dashboard && podman run -it --net=host -v $(realpath .):/app/src/ --env-file .env.dev mafiasi-dashboard /app/src/manage.py runserver

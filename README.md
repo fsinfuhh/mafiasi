@@ -52,5 +52,5 @@ Afterwards, a webserver can be brought up with either of the following commands:
 
 # in a podman container
 podman build . -t mafiasi-dashboard
-podman run -it --net=host -v (realpath .):/app/src/ --env-file .env.dev mafiasi-dashboard /app/src/manage.py runserver
+podman run -it --net=host -v $(realpath .):/app/src/ --env-file .env.dev mafiasi-dashboard /app/src/manage.py runserver
 ```

@@ -16,10 +16,13 @@ def get_authentik_api_token() -> str:
 
 
 def _api_session() -> requests.Session:
-    session = requests.Session()
     token = get_authentik_api_token()
-    if token:
-        session.headers.update({"Authorization": f"Bearer {token}", "Accept": "application/json"})
+    if not token:
+        raise RuntimeError("Authentik API token is not configured")
+
+    session = requests.Session()
+    session.headers["Authorization"] = f"Bearer {token}"
+    session.headers["Accept"] = "application/json"
     return session
 
 
@@ -74,6 +77,29 @@ def resolve_user_ids(usernames: Iterable[str]) -> list[int]:
                     ids.append(item_id)
                 break
     return ids
+
+
+def find_user_by_username(username: str) -> dict[str, Any] | None:
+    result = _request("GET", "/api/v3/core/users/", params={"username": username})
+    if isinstance(result, dict):
+        items = result.get("results", [])
+    else:
+        items = result or []
+    for item in items:
+        if item.get("username") == username:
+            return item
+    return None
+
+
+def update_user(username: str, **fields: Any) -> dict[str, Any] | None:
+    user = find_user_by_username(username)
+    if user is None:
+        raise RuntimeError(f"Authentik user not found: {username}")
+
+    user_id = user.get("pk") or user.get("id")
+    if user_id is None:
+        raise RuntimeError(f"Authentik user has no ID: {username}")
+    return _request("PATCH", f"/api/v3/core/users/{user_id}/", json=fields)
 
 
 def find_group_by_name(name: str) -> dict[str, Any] | None:

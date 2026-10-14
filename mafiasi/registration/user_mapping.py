@@ -1,3 +1,4 @@
+import re
 from typing import Any
 
 from django.conf import settings
@@ -12,12 +13,17 @@ from mafiasi.base.models import Mafiasi as MafiasiUser
 
 
 class MafiasiUserMapper(UserMapper):
+    @staticmethod
+    def get_username(user_data: FederatedUserData) -> str:
+        return re.sub(r"\s*\([^)]*\)$", "", user_data.preferred_username)
+
     def map_user_attrs(self, user: MafiasiUser, user_data: FederatedUserData) -> None:
-        user.username = user_data.username
+        user.username = self.get_username(user_data)
         user.first_name = user_data.fn or ""
         user.last_name = user_data.sn or ""
         user.email = user_data.email or ""
         user.real_email = user_data.realmail or None
+        user.preferred_name = user_data.display_name or ""
 
     def sync_group_memberships(self, user: MafiasiUser, groups: list[str]) -> None:
         local_groups = [Group.objects.get_or_create(name=group_name)[0] for group_name in groups if group_name]
@@ -34,8 +40,9 @@ class MafiasiUserMapper(UserMapper):
             user.is_staff = is_superuser
 
     def handle_federated_userinfo(self, user_data: FederatedUserData) -> MafiasiUser:
+        username = self.get_username(user_data)
         user, created = MafiasiUser.objects.get_or_create(
-            username=user_data.username,
+            username=username,
             defaults={"account": ""},
         )
 
