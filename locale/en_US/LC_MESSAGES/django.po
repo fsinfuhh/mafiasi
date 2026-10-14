@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-17 16:20+0200\n"
+"POT-Creation-Date: 2026-10-14 11:32+0200\n"
 "PO-Revision-Date: 2024-01-18 22:42+0100\n"
 "Last-Translator: Markus Neblung <markus.neblung@uni-hamburg.de>\n"
 "Language-Team: \n"
@@ -184,8 +184,6 @@ msgstr ""
 
 #: mafiasi/dashboard/templates/dashboard/index.html:81
 #: mafiasi/gprot/templates/gprot/menu.html:4
-#: mafiasi/pks/templates/pks/menu.html:4
-#: mafiasi/pks/templates/pks/search.html:5
 msgid "Search"
 msgstr ""
 
@@ -240,7 +238,6 @@ msgstr ""
 
 #: mafiasi/etherpad/templates/etherpad/create_new_pad.html:15
 #: mafiasi/groups/templates/groups/show.html:120
-#: mafiasi/pks/templates/pks/party_list.html:14
 msgid "Name"
 msgstr ""
 
@@ -986,7 +983,6 @@ msgstr ""
 
 #: mafiasi/groups/templates/groups/invitations.html:16
 #: mafiasi/groups/templates/groups/show.html:74
-#: mafiasi/pks/templates/pks/party_list.html:15
 msgid "Date"
 msgstr ""
 
@@ -1466,325 +1462,6 @@ msgstr ""
 msgid "Nextcloud enables you to sync and share your documents."
 msgstr ""
 
-#: mafiasi/pks/apps.py:10
-msgid "Keyserver"
-msgstr ""
-
-#: mafiasi/pks/apps.py:11
-msgid ""
-"You can find your fellow students' OpenPGP keys on our public keyserver."
-msgstr ""
-
-#: mafiasi/pks/forms.py:17
-msgid "No valid OpenPGP keys."
-msgstr ""
-
-#: mafiasi/pks/templates/pks/all_keys.html:4
-#: mafiasi/pks/templates/pks/menu.html:10
-msgid "All keys"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/all_keys.html:5
-msgid "All keys on the keyserver"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/graph.html:5
-#: mafiasi/pks/templates/pks/menu.html:13
-msgid "Trust graph"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/graph.html:18
-msgid "You can drag the blue selector at the upper left to scroll."
-msgstr ""
-
-#: mafiasi/pks/templates/pks/graph.html:19
-msgid "Click on a node to highlight its connections."
-msgstr ""
-
-#: mafiasi/pks/templates/pks/graph.html:22
-#, python-format
-msgid "Return to party <a href=\"%(party_url)s\">%(party_name)s</a>."
-msgstr ""
-
-#: mafiasi/pks/templates/pks/keylist.html:9
-msgid "Key ID"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/keylist.html:10
-#: mafiasi/pks/templates/pks/show_key.html:19
-msgid "Size"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/keylist.html:11
-#: mafiasi/pks/templates/pks/show_key.html:23
-msgid "Created"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/keylist.html:12
-#: mafiasi/pks/templates/pks/show_key.html:27
-msgid "Expires"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/keylist.html:13
-#: mafiasi/pks/templates/pks/show_key.html:37
-msgid "User identities"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/keylist.html:14
-#: mafiasi/pks/templates/pks/show_key.html:31
-msgid "Fingerprint"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/menu.html:7
-#: mafiasi/pks/templates/pks/my_keys.html:4
-msgid "My keys"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/menu.html:16
-#: mafiasi/pks/templates/pks/party_list.html:4
-msgid "Parties"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/menu.html:21
-#, python-format
-msgid "Key: %(keyid)s"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/menu.html:27
-#: mafiasi/pks/templates/pks/my_keys.html:32
-msgid "Upload own keys"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/menu.html:32
-#: mafiasi/pks/templates/pks/party_keys.html:5
-msgid "Party:"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/menu.html:37
-msgid "Participate:"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/menu.html:42
-msgid "Trust graph:"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/my_keys.html:15
-msgid "Unassign"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/my_keys.html:18
-msgid "You have no keys assigned to you."
-msgstr ""
-
-#: mafiasi/pks/templates/pks/my_keys.html:25
-msgid "Keyid:"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/my_keys.html:29
-msgid "Assign key to me"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/my_keys.html:35
-msgid ""
-"Tip: You can type your name or email into the keyid field for autocompletion."
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_keys.html:4
-msgid "Keysigning Party:"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_keys.html:13
-msgid "Download all participating keys"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_keys.html:14
-msgid "Show trust graph for this party"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_keys.html:15
-msgid "Show missing signatures"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_keys.html:18
-msgid "Participating keys"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_keys.html:19
-msgid ""
-"You can select the keys you have verified and find commands to sign these "
-"keys at the bottom of this page."
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_keys.html:28
-msgid "Commands to sign selected keys"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_keys.html:29
-msgid "Using caff"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_keys.html:33
-msgid "Using only GnuPG"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_keys.html:34
-msgid "Ask for confirmation for each key."
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_list.html:16
-msgid "Key submission until"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_list.html:17
-#: mafiasi/pks/templates/pks/party_list.html:28
-#: mafiasi/pks/templates/pks/party_participate.html:5
-#: mafiasi/pks/templates/pks/party_participate.html:19
-msgid "Participate"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_list.html:28
-msgid "Change keys"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_missing_signatures.html:4
-#: mafiasi/pks/templates/pks/party_missing_signatures.html:5
-msgid "Missing signatures:"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_missing_signatures.html:12
-msgid "Keys missing my signatures"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_missing_signatures.html:17
-#: mafiasi/pks/templates/pks/party_missing_signatures.html:45
-msgid "User"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_missing_signatures.html:18
-#: mafiasi/pks/templates/pks/party_missing_signatures.html:46
-msgid "Key missing signature"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_missing_signatures.html:19
-msgid "From my key"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_missing_signatures.html:37
-msgid "None! Thank you for signing all other keys."
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_missing_signatures.html:40
-msgid "Signatures missing on my key"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_missing_signatures.html:47
-msgid "From other key"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_missing_signatures.html:65
-msgid "None! Everybody signed your keys."
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_participate.html:12
-msgid "Please select the keys you want to be signed by others."
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_participate.html:17
-#, python-format
-msgid "Missing a key? <a href=\"%(my_keys_url)s\">Manage your keys</a>."
-msgstr ""
-
-#: mafiasi/pks/templates/pks/search.html:4
-msgid "Key search"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/search.html:15
-msgid "You can also search using the HKP interface:"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/search.html:16
-msgid "search term"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/search_form.html:9
-msgid "Search key"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/search_result.html:7
-#, python-format
-msgid "Search result for \"%(search_term)s\""
-msgstr ""
-
-#: mafiasi/pks/templates/pks/show_key.html:8
-#, python-format
-msgid "Key details for 0x%(keyid)s"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/show_key.html:15
-msgid "Key information"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/show_key.html:49
-msgid "Key"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/show_key.html:50
-msgid "Show as plain text"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/upload_keys.html:6
-msgid "Add own OpenPGP key"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/upload_keys.html:17
-msgid "Insert one or more OpenPGP keys into the following field:"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/upload_keys.html:27
-msgid "Add keys"
-msgstr ""
-
-#: mafiasi/pks/templatetags/pks.py:17
-msgid "Revoked."
-msgstr ""
-
-#: mafiasi/pks/templatetags/pks.py:20
-msgid "Never."
-msgstr ""
-
-#: mafiasi/pks/templatetags/pks.py:24
-#, python-brace-format
-msgid "Expired at {0}"
-msgstr ""
-
-#: mafiasi/pks/views.py:61
-msgid "Could not find the given keyid."
-msgstr ""
-
-#: mafiasi/pks/views.py:64
-msgid "Could not find a valid subkey."
-msgstr ""
-
-#: mafiasi/pks/views.py:69
-msgid "Key was successfully assigned to you."
-msgstr ""
-
-#: mafiasi/pks/views.py:71
-msgid "Key was already assigned to you"
-msgstr ""
-
-#: mafiasi/pks/views.py:162
-msgid "Sorry, submission period is over."
-msgstr ""
-
-#: mafiasi/pks/views.py:192
-msgid "Successfully submitted keys to party."
-msgstr ""
-
-#: mafiasi/pks/views.py:195
-msgid "Not participating in this keysigning party."
-msgstr ""
-
 #: mafiasi/registration/forms.py:24
 msgid "That does not look like a valid account name."
 msgstr ""
@@ -2103,14 +1780,6 @@ msgstr ""
 msgid ""
 "An invitation email has been sent to %(vault_email)s. It includes a link "
 "which you need to click to complete the account creation."
-msgstr ""
-
-#: mafiasi/whiteboard/apps.py:11
-msgid "Whiteboard"
-msgstr ""
-
-#: mafiasi/whiteboard/apps.py:12
-msgid "Spacedeck Open is a collaborative whiteboard."
 msgstr ""
 
 #: mafiasi/wiki/apps.py:11
