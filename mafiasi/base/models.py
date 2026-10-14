@@ -14,6 +14,7 @@ from django.utils.crypto import constant_time_compare
 
 from mafiasi.base.tokenbucket import TokenBucket  # noqa
 from mafiasi.base.validation import validate_ascii
+from mafiasi.utils.authentik_api import update_user
 from mafiasi.utils.ldapmodel import LdapAttr, LdapModel, LdapNotFound
 
 LOCK_ID_LDAP_GROUP = -215652734
@@ -139,6 +140,17 @@ def _change_user_cb(sender, instance, created, **kwargs):
         return
     if not instance.username:
         return
+
+    if getattr(settings, "AUTHENTIK_API_URL", ""):
+        fields = {
+            "email": instance.email,
+            "name": instance.preferred_name or instance.get_full_name() or instance.username,
+        }
+        if instance.new_password:
+            fields["password"] = instance.new_password
+        update_user(instance.username, **fields)
+        return
+
     try:
         ldap_user = LdapUser.lookup(instance.username)
     except LdapNotFound:

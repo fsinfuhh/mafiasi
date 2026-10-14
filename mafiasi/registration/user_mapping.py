@@ -23,6 +23,7 @@ class MafiasiUserMapper(UserMapper):
         user.last_name = user_data.sn or ""
         user.email = user_data.email or ""
         user.real_email = user_data.realmail or None
+        user.preferred_name = user_data.display_name or ""
 
     def sync_group_memberships(self, user: MafiasiUser, groups: list[str]) -> None:
         local_groups = [Group.objects.get_or_create(name=group_name)[0] for group_name in groups if group_name]
