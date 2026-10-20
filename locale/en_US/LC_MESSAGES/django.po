@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-14 16:52+0200\n"
+"POT-Creation-Date: 2026-10-20 14:53+0200\n"
 "PO-Revision-Date: 2024-01-18 22:42+0100\n"
 "Last-Translator: Markus Neblung <markus.neblung@uni-hamburg.de>\n"
 "Language-Team: \n"
@@ -1691,6 +1691,16 @@ msgstr ""
 msgid ""
 "Manage and share your calendars and address book, sync them to all your "
 "devices."
+msgstr ""
+
+#: mafiasi/tasks/apps.py:11
+msgid "Tasks"
+msgstr ""
+
+#: mafiasi/tasks/apps.py:13
+msgid ""
+"Tasks is a task management platform that allows you to organize your tasks "
+"and projects with groups and boards."
 msgstr ""
 
 #: mafiasi/tauschen/apps.py:11
