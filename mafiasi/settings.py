@@ -182,11 +182,8 @@ INSTALLED_APPS = [
         "mafiasi.tauschen" if env.bool("MAFIASI_ENABLE_TAUSCHEN", True) else None,
         "mafiasi.link_shortener" if env.bool("MAFIASI_ENABLE_LINK_SHORTENER", True) else None,
         "mafiasi.vault" if ENABLE_VAULT_INTEGRATION else None,
-        "mafiasi.kanboard" if env.bool("MAFIASI_ENABLE_KANBOARD", True) else None,
         "mafiasi.tasks" if env.bool("MAFIASI_ENABLE_TASKS", True) else None,
         "mafiasi.drinks" if env.bool("MAFIASI_ENABLE_DRINKS", True) else None,
-        "mafiasi.discourse" if env.bool("MAFIASI_ENABLE_DISCOURSE", True) else None,
-        "mafiasi.fb18" if env.bool("MAFIASI_ENABLE_FB18", True) else None,
         ###
         "django.contrib.admin",
         "django.contrib.admindocs",

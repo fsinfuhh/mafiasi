@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-22 16:46+0200\n"
+"POT-Creation-Date: 2026-10-22 17:03+0200\n"
 "PO-Revision-Date: 2026-10-22 16:49+0200\n"
 "Last-Translator: Timon Engelke <timon.engelke@uni-hamburg.de>\n"
 "Language-Team: \n"
@@ -103,12 +103,12 @@ msgstr "Ce service n'est pas administré par des fascistes"
 #| "a> are there for you."
 msgid ""
 "There is no place for discrimination in any way shape or form at mafiasi.de "
-"(cmp. <a href=\"https://www.gesetze-im-internet.de/englisch_gg/"
-"englisch_gg.html#p0027\" rel=\"external\">Art. 3 GG</a>).<br> If you are "
-"affected, feel free to contact the <a href=\"mailto:fsr-"
-"vertraulich@informatik.uni-hamburg.de\">student council</a> or the "
-"university's <a href=\"https://www.uni-hamburg.de/antidiskriminierung.html\" "
-"rel=\"external\">anti-discrimination office</a>."
+"(cmp. <a href=\"https://www.gesetze-im-internet.de/englisch_gg/englisch_gg."
+"html#p0027\" rel=\"external\">Art. 3 GG</a>).<br> If you are affected, feel "
+"free to contact the <a href=\"mailto:fsr-vertraulich@informatik.uni-hamburg."
+"de\">student council</a> or the university's <a href=\"https://www.uni-"
+"hamburg.de/antidiskriminierung.html\" rel=\"external\">anti-discrimination "
+"office</a>."
 msgstr ""
 "Le racisme, la queerophobie, l'antisémitisme et la discrimination sous "
 "toutes ses formes n'ont pas de place à mafiasi.de.<br>\n"
@@ -252,23 +252,11 @@ msgstr "Livre Mafiasi Purple"
 msgid "Server-Rooms are being occupied…"
 msgstr "Les salles de serveurs sont occupées..."
 
-#: mafiasi/discourse/apps.py:11
-msgid "Discourse"
-msgstr "Discourse"
-
-#: mafiasi/discourse/apps.py:12
-msgid ""
-"Discourse is our forum for questions and discussions with your fellow "
-"students."
-msgstr ""
-"Le discours est notre forum pour les questions et discussions avec vos "
-"collègues étudiants."
-
 #: mafiasi/drinks/apps.py:11
 msgid "Drinks"
 msgstr ""
 
-#: mafiasi/drinks/apps.py:13
+#: mafiasi/drinks/apps.py:12
 msgid "You can use Drinks to buy drinks in the c.t.."
 msgstr ""
 "Vous pouvez  utilisez ce service pour acheter des boissons  dans le c.t.."
@@ -393,16 +381,6 @@ msgstr "PAD: %(pad_name)s"
 #: mafiasi/etherpad/templates/etherpad/pad.html:18
 msgid "Hide navigation bars"
 msgstr "Masquer les barres de navigation"
-
-#: mafiasi/fb18/apps.py:11
-msgid "FB18"
-msgstr "FB18"
-
-#: mafiasi/fb18/apps.py:12
-msgid ""
-"FB18 is our deprecated bulletin board, which is kept here as an archive."
-msgstr ""
-"FB18 est notre babillard obsolète, qui est conservé ici comme une archive."
 
 #: mafiasi/git/apps.py:11
 msgid "Repositories"
@@ -1438,16 +1416,6 @@ msgstr "mails d'invitation"
 msgid "Invitation mail was resent."
 msgstr "Invitation courrier était renvoyé."
 
-#: mafiasi/kanboard/apps.py:11
-msgid "Kanboard"
-msgstr "Kanboard"
-
-#: mafiasi/kanboard/apps.py:13
-msgid ""
-"Kanboard is a kanban project management tool that you can use to track the "
-"progress of your projects."
-msgstr "Kanboard est un tableau kanban pour visualiser le progrès d'un projet."
-
 #: mafiasi/link_shortener/apps.py:11
 msgid "Link Shortener"
 msgstr "Link Shortener"
@@ -2027,6 +1995,33 @@ msgid "In the wiki you will find important information regarding your studies."
 msgstr ""
 "Dans le wiki, vous trouverez des informations importantes concernant vos "
 "études."
+
+#~ msgid "Discourse"
+#~ msgstr "Discourse"
+
+#~ msgid ""
+#~ "Discourse is our forum for questions and discussions with your fellow "
+#~ "students."
+#~ msgstr ""
+#~ "Le discours est notre forum pour les questions et discussions avec vos "
+#~ "collègues étudiants."
+
+#~ msgid "FB18"
+#~ msgstr "FB18"
+
+#~ msgid ""
+#~ "FB18 is our deprecated bulletin board, which is kept here as an archive."
+#~ msgstr ""
+#~ "FB18 est notre babillard obsolète, qui est conservé ici comme une archive."
+
+#~ msgid "Kanboard"
+#~ msgstr "Kanboard"
+
+#~ msgid ""
+#~ "Kanboard is a kanban project management tool that you can use to track "
+#~ "the progress of your projects."
+#~ msgstr ""
+#~ "Kanboard est un tableau kanban pour visualiser le progrès d'un projet."
 
 #~ msgid "Keyserver"
 #~ msgstr "Serveur de clés"
