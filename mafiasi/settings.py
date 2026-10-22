@@ -184,6 +184,7 @@ INSTALLED_APPS = [
         "mafiasi.vault" if ENABLE_VAULT_INTEGRATION else None,
         "mafiasi.kanboard" if env.bool("MAFIASI_ENABLE_KANBOARD", True) else None,
         "mafiasi.tasks" if env.bool("MAFIASI_ENABLE_TASKS", True) else None,
+        "mafiasi.drinks" if env.bool("MAFIASI_ENABLE_DRINKS", True) else None,
         "mafiasi.discourse" if env.bool("MAFIASI_ENABLE_DISCOURSE", True) else None,
         "mafiasi.fb18" if env.bool("MAFIASI_ENABLE_FB18", True) else None,
         ###
@@ -337,6 +338,7 @@ MENSA_URL = "https://mensa.mafiasi.de"
 MODULKOMPASS_URL = "https://modulkompass.mafiasi.de"
 LINK_SHORTENER_URL = "https://l.mafiasi.de"
 TASKS_URL = "https://tasks.mafiasi.de"
+DRINKS_URL = "https://drinks.mafiasi.de"
 
 if REGISTER_ENABLED:
     PKS_COMMUNITY_DOMAINS = REGISTER_DOMAINS + ["studium.uni-hamburg.de"]

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-20 14:53+0200\n"
+"POT-Creation-Date: 2026-10-22 16:46+0200\n"
 "PO-Revision-Date: 2024-01-18 22:42+0100\n"
 "Last-Translator: Markus Neblung <markus.neblung@uni-hamburg.de>\n"
 "Language-Team: \n"
@@ -220,6 +220,14 @@ msgstr ""
 msgid ""
 "Discourse is our forum for questions and discussions with your fellow "
 "students."
+msgstr ""
+
+#: mafiasi/drinks/apps.py:11
+msgid "Drinks"
+msgstr ""
+
+#: mafiasi/drinks/apps.py:13
+msgid "You can use Drinks to buy drinks in the c.t.."
 msgstr ""
 
 #: mafiasi/etherpad/apps.py:10
