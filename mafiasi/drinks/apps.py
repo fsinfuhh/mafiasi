@@ -9,8 +9,6 @@ class DrinksConfig(BaseService):
     name = "mafiasi.drinks"
     verbose_name = "Drinks"
     title = _("Drinks")
-    description = _(
-        "You can use Drinks to buy drinks in the c.t.."
-    )
+    description = _("You can use Drinks to buy drinks in the c.t..")
     link = settings.DRINKS_URL
     image = "img/services/mensa.svg"
