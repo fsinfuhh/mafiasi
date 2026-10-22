@@ -11,4 +11,4 @@ class DrinksConfig(BaseService):
     title = _("Drinks")
     description = _("You can use Drinks to buy drinks in the c.t..")
     link = settings.DRINKS_URL
-    image = "img/services/mensa.svg"
+    image = "img/services/drinks.svg"
