@@ -320,7 +320,7 @@ GPROT_IMAGE_MAX_SIZE = 1
 GPROT_PDF_MAX_SIZE = 5
 
 IMPRINT_URL = "https://wiki.mafiasi.de/Fachschaft_Informatik:Impressum"
-WIKI_URL = "https://www2.informatik.uni-hamburg.de/Fachschaft/wiki/"
+WIKI_URL = "https://wiki.mafiasi.de/"
 SOGO_URL = env.str("MAFIASI_SOGO_URL", "https://sogo.mafiasi.de")
 GIT_URL = env.str("MAFIASI_GIT_URL", "https://git.mafiasi.de")
 TAUSCHEN_URL = "https://tauschen.mafiasi.de"
