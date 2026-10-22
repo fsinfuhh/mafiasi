@@ -170,6 +170,8 @@ INSTALLED_APPS = [
         ### dashboard apps
         "mafiasi.wiki" if env.bool("MAFIASI_ENABLE_WIKI", True) else None,
         "mafiasi.gprot" if env.bool("MAFIASI_ENABLE_GPROT", True) else None,
+        "mafiasi.tasks" if env.bool("MAFIASI_ENABLE_TASKS", True) else None,
+        "mafiasi.drinks" if env.bool("MAFIASI_ENABLE_DRINKS", True) else None,
         "mafiasi.nextcloud",
         "mafiasi.etherpad",
         "mafiasi.bitpoll",
@@ -182,9 +184,6 @@ INSTALLED_APPS = [
         "mafiasi.tauschen" if env.bool("MAFIASI_ENABLE_TAUSCHEN", True) else None,
         "mafiasi.link_shortener" if env.bool("MAFIASI_ENABLE_LINK_SHORTENER", True) else None,
         "mafiasi.vault" if ENABLE_VAULT_INTEGRATION else None,
-        "mafiasi.kanboard" if env.bool("MAFIASI_ENABLE_KANBOARD", True) else None,
-        "mafiasi.discourse" if env.bool("MAFIASI_ENABLE_DISCOURSE", True) else None,
-        "mafiasi.fb18" if env.bool("MAFIASI_ENABLE_FB18", True) else None,
         ###
         "django.contrib.admin",
         "django.contrib.admindocs",
@@ -319,22 +318,21 @@ GPROT_IMAGE_MAX_SIZE = 1
 GPROT_PDF_MAX_SIZE = 5
 
 IMPRINT_URL = "https://wiki.mafiasi.de/Fachschaft_Informatik:Impressum"
-WIKI_URL = "https://www2.informatik.uni-hamburg.de/Fachschaft/wiki/"
+WIKI_URL = "https://wiki.mafiasi.de/"
 SOGO_URL = env.str("MAFIASI_SOGO_URL", "https://sogo.mafiasi.de")
 GIT_URL = env.str("MAFIASI_GIT_URL", "https://git.mafiasi.de")
 TAUSCHEN_URL = "https://tauschen.mafiasi.de"
 NEXTCLOUD_URL = env.str("MAFIASI_NEXTCLOUD_URL", "https://cloud.mafiasi.de")
 JITSI_URL = "https://conference.mafiasi.de"
-DISCOURSE_URL = "https://archiv.mafiasi.de/forum/discourse"
-FB18_URL = "https://archiv.mafiasi.de/forum/fb18"
 BITPOLL_URL = env.str("MAFIASI_BITPOLL_URL", "https://bitpoll.mafiasi.de")
 WHITEBOARD_URL = "https://spacedeck.mafiasi.de"
-KANBOARD_URL = "https://kanboard.mafiasi.de"
 MATTERMOST_URL = env.str("MAFIASI_MATTERMOST_URL", "https://mattermost.mafiasi.de")
 MATRIX_URL = "https://matrix.mafiasi.de"
 MENSA_URL = "https://mensa.mafiasi.de"
 MODULKOMPASS_URL = "https://modulkompass.mafiasi.de"
 LINK_SHORTENER_URL = "https://l.mafiasi.de"
+TASKS_URL = "https://tasks.mafiasi.de"
+DRINKS_URL = "https://drinks.mafiasi.de"
 
 if REGISTER_ENABLED:
     PKS_COMMUNITY_DOMAINS = REGISTER_DOMAINS + ["studium.uni-hamburg.de"]
