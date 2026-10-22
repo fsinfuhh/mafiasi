@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-22 17:03+0200\n"
-"PO-Revision-Date: 2024-01-09 22:14+0000\n"
+"PO-Revision-Date: 2026-10-22 18:03+0200\n"
 "Last-Translator: kritzl <kritzl@kritzl.dev>\n"
 "Language-Team: \n"
 "Language: uwu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.10\n"
 
 #: mafiasi/base/middleware.py:24
 msgid ""
@@ -98,12 +98,12 @@ msgstr "This sevwis is not run by fascists! Nu-uh!"
 #: mafiasi/base/templates/base.html:131
 msgid ""
 "There is no place for discrimination in any way shape or form at mafiasi.de "
-"(cmp. <a href=\"https://www.gesetze-im-internet.de/englisch_gg/englisch_gg."
-"html#p0027\" rel=\"external\">Art. 3 GG</a>).<br> If you are affected, feel "
-"free to contact the <a href=\"mailto:fsr-vertraulich@informatik.uni-hamburg."
-"de\">student council</a> or the university's <a href=\"https://www.uni-"
-"hamburg.de/antidiskriminierung.html\" rel=\"external\">anti-discrimination "
-"office</a>."
+"(cmp. <a href=\"https://www.gesetze-im-internet.de/englisch_gg/"
+"englisch_gg.html#p0027\" rel=\"external\">Art. 3 GG</a>).<br> If you are "
+"affected, feel free to contact the <a href=\"mailto:fsr-"
+"vertraulich@informatik.uni-hamburg.de\">student council</a> or the "
+"university's <a href=\"https://www.uni-hamburg.de/antidiskriminierung.html\" "
+"rel=\"external\">anti-discrimination office</a>."
 msgstr ""
 
 #: mafiasi/base/templates/base/licenses.html:4
@@ -230,11 +230,11 @@ msgstr ""
 
 #: mafiasi/drinks/apps.py:11
 msgid "Drinks"
-msgstr ""
+msgstr "Drinkies ._."
 
 #: mafiasi/drinks/apps.py:12
 msgid "You can use Drinks to buy drinks in the c.t.."
-msgstr ""
+msgstr "Buy your water bowl here."
 
 #: mafiasi/etherpad/apps.py:10
 msgid "Etherpad"
@@ -1950,13 +1950,13 @@ msgstr ""
 
 #: mafiasi/tasks/apps.py:11
 msgid "Tasks"
-msgstr ""
+msgstr "Doings"
 
 #: mafiasi/tasks/apps.py:13
 msgid ""
 "Tasks is a task management platform that allows you to organize your tasks "
 "and projects with groups and boards."
-msgstr ""
+msgstr "Write your doings here and feel productive."
 
 #: mafiasi/tauschen/apps.py:11
 msgid "Mafiasi Tauschen"
