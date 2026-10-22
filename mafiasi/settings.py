@@ -170,6 +170,8 @@ INSTALLED_APPS = [
         ### dashboard apps
         "mafiasi.wiki" if env.bool("MAFIASI_ENABLE_WIKI", True) else None,
         "mafiasi.gprot" if env.bool("MAFIASI_ENABLE_GPROT", True) else None,
+        "mafiasi.tasks" if env.bool("MAFIASI_ENABLE_TASKS", True) else None,
+        "mafiasi.drinks" if env.bool("MAFIASI_ENABLE_DRINKS", True) else None,
         "mafiasi.nextcloud",
         "mafiasi.etherpad",
         "mafiasi.bitpoll",
@@ -182,8 +184,6 @@ INSTALLED_APPS = [
         "mafiasi.tauschen" if env.bool("MAFIASI_ENABLE_TAUSCHEN", True) else None,
         "mafiasi.link_shortener" if env.bool("MAFIASI_ENABLE_LINK_SHORTENER", True) else None,
         "mafiasi.vault" if ENABLE_VAULT_INTEGRATION else None,
-        "mafiasi.tasks" if env.bool("MAFIASI_ENABLE_TASKS", True) else None,
-        "mafiasi.drinks" if env.bool("MAFIASI_ENABLE_DRINKS", True) else None,
         ###
         "django.contrib.admin",
         "django.contrib.admindocs",
