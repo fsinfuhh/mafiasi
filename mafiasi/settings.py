@@ -348,6 +348,7 @@ EMAIL_ADDRESSES_PASSWORD = env.str("MAFIASI_EMAIL_ADDRESSES_PASSWORD")
 
 TEAM_EMAIL = env.str("MAFIASI_TEAM_EMAIL", "ag-server@informatik.uni-hamburg.de")
 EMAIL_HOST = env.str("MAFIASI_EMAIL_HOST")
+EMAIL_PORT = env.int("MAFIASI_EMAIL_PORT", 25)
 DEFAULT_FROM_EMAIL = env.str("MAFIASI_DEFAULT_FROM_EMAIL", "Mafiasi.de <ag-server@informatik.uni-hamburg.de>")
 SERVER_EMAIL = DEFAULT_FROM_EMAIL
 EMAIL_SUBJECT_PREFIX = env.str("MAFIASI_EMAIL_SUBJECT_PREFIX", "[mafiasi.de] ")
@@ -395,4 +396,4 @@ if SENTRY_DSN is not None:
         send_default_pii=True,
     )
 
-EMAIL_BACKEND = "django.core.mail.backends.dummy.EmailBackend"
+EMAIL_BACKEND = env.str("MAFIASI_EMAIL_BACKEND", "django.core.mail.backends.smtp.EmailBackend")
