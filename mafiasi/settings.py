@@ -174,6 +174,7 @@ INSTALLED_APPS = [
         "mafiasi.drinks" if env.bool("MAFIASI_ENABLE_DRINKS", True) else None,
         "mafiasi.nextcloud",
         "mafiasi.etherpad",
+        "mafiasi.overleaf",
         "mafiasi.bitpoll",
         "mafiasi.mattermost" if env.bool("MAFIASI_ENABLE_MATTERMOST", False) else None,
         "mafiasi.matrix" if env.bool("MAFIASI_ENABLE_MATRIX", True) else None,
@@ -333,6 +334,7 @@ MODULKOMPASS_URL = "https://modulkompass.mafiasi.de"
 LINK_SHORTENER_URL = "https://l.mafiasi.de"
 TASKS_URL = "https://tasks.mafiasi.de"
 DRINKS_URL = "https://drinks.mafiasi.de"
+OVERLEAF_URL = env.str("MAFIASI_OVERLEAF_URL", "https://tex.mafiasi.de")
 
 if REGISTER_ENABLED:
     PKS_COMMUNITY_DOMAINS = REGISTER_DOMAINS + ["studium.uni-hamburg.de"]

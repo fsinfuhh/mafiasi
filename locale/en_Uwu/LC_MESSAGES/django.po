@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-22 17:03+0200\n"
+"POT-Creation-Date: 2026-11-05 18:10+0100\n"
 "PO-Revision-Date: 2026-10-22 18:03+0200\n"
 "Last-Translator: kritzl <kritzl@kritzl.dev>\n"
 "Language-Team: \n"
@@ -98,12 +98,12 @@ msgstr "This sevwis is not run by fascists! Nu-uh!"
 #: mafiasi/base/templates/base.html:131
 msgid ""
 "There is no place for discrimination in any way shape or form at mafiasi.de "
-"(cmp. <a href=\"https://www.gesetze-im-internet.de/englisch_gg/"
-"englisch_gg.html#p0027\" rel=\"external\">Art. 3 GG</a>).<br> If you are "
-"affected, feel free to contact the <a href=\"mailto:fsr-"
-"vertraulich@informatik.uni-hamburg.de\">student council</a> or the "
-"university's <a href=\"https://www.uni-hamburg.de/antidiskriminierung.html\" "
-"rel=\"external\">anti-discrimination office</a>."
+"(cmp. <a href=\"https://www.gesetze-im-internet.de/englisch_gg/englisch_gg."
+"html#p0027\" rel=\"external\">Art. 3 GG</a>).<br> If you are affected, feel "
+"free to contact the <a href=\"mailto:fsr-vertraulich@informatik.uni-hamburg."
+"de\">student council</a> or the university's <a href=\"https://www.uni-"
+"hamburg.de/antidiskriminierung.html\" rel=\"external\">anti-discrimination "
+"office</a>."
 msgstr ""
 
 #: mafiasi/base/templates/base/licenses.html:4
@@ -1667,6 +1667,18 @@ msgstr "NextclOwOd"
 #: mafiasi/nextcloud/apps.py:12
 msgid "Nextcloud enables you to sync and share your documents."
 msgstr "Here u puts snacks and shares with frens."
+
+#: mafiasi/overleaf/apps.py:12
+#, fuzzy
+#| msgid "Overview"
+msgid "Overleaf"
+msgstr "Overview"
+
+#: mafiasi/overleaf/apps.py:13
+msgid ""
+"Overleaf is a collaborative LaTeX editor, with features from the premium "
+"version."
+msgstr ""
 
 #: mafiasi/registration/forms.py:25
 msgid "That does not look like a valid account name."
