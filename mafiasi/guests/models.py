@@ -9,7 +9,6 @@ from django.urls import reverse
 from django.utils import timezone
 
 from mafiasi.base.tokenbucket import TokenBucket
-from mafiasi.registration.models import create_mafiasi_account
 
 INVITATION_MAX_TOKENS = 20
 INVITATION_FILL_RATE = 1.0 / (3 * 60)
@@ -25,17 +24,6 @@ class Invitation(models.Model):
 
     def __str__(self):
         return self.username
-
-    def accept_with_password(self, password):
-        username = self.username + settings.GUEST_EXTENSION
-        mafiasi = create_mafiasi_account(
-            username=username, email=self.email, first_name=self.first_name, last_name=self.last_name, is_guest=True
-        )
-        mafiasi.set_password(password)
-        mafiasi.save()
-        Guest.objects.create(guest_user=mafiasi, invited_by=self.invited_by, date_invited=self.date_invited)
-        self.delete()
-        return mafiasi
 
     def send_email(self, request):
         token = signing.dumps(self.pk)
