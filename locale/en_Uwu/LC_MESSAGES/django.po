@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-05 18:10+0100\n"
+"POT-Creation-Date: 2026-11-05 18:20+0100\n"
 "PO-Revision-Date: 2026-10-22 18:03+0200\n"
 "Last-Translator: kritzl <kritzl@kritzl.dev>\n"
 "Language-Team: \n"
@@ -1668,13 +1668,13 @@ msgstr "NextclOwOd"
 msgid "Nextcloud enables you to sync and share your documents."
 msgstr "Here u puts snacks and shares with frens."
 
-#: mafiasi/overleaf/apps.py:12
+#: mafiasi/overleaf/apps.py:11
 #, fuzzy
 #| msgid "Overview"
 msgid "Overleaf"
 msgstr "Overview"
 
-#: mafiasi/overleaf/apps.py:13
+#: mafiasi/overleaf/apps.py:12
 msgid ""
 "Overleaf is a collaborative LaTeX editor, with features from the premium "
 "version."

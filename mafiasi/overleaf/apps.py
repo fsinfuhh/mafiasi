@@ -4,7 +4,6 @@ from django.utils.translation import gettext_lazy as _
 from mafiasi.base.base_apps import BaseService
 
 
-
 class OverleafConfig(BaseService):
     default = True
     name = "mafiasi.overleaf"
