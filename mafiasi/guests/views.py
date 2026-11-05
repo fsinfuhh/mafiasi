@@ -1,36 +1,24 @@
 # coding=utf-8
 
 
-from smtplib import SMTPRecipientsRefused
-
 import requests
 from authFun import create_invitation, delete_invitation, invitation_exists
 from django.conf import settings
 from django.contrib import messages
-from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import Group
-from django.core import signing
 from django.core.exceptions import PermissionDenied
-from django.core.mail import send_mail
 from django.db import transaction
 from django.shortcuts import get_object_or_404, redirect, render
-from django.template.loader import render_to_string
 from django.utils.translation import gettext_lazy as _
 
-from mafiasi.base.models import Mafiasi
-from mafiasi.groups.models import GroupProxy
 from mafiasi.guests.forms import InvitationForm
 from mafiasi.guests.models import Guest, Invitation, get_invitation_bucket
-from mafiasi.registration.forms import PasswordForm
-
-from .authFun import AuthentikUserError
 
 
 @login_required
 def index(request):
     if request.user.is_guest:
-        return redirect("guests_invited_by")
+        raise PermissionDenied()
 
     invitations = Invitation.objects.select_related().filter(invited_by=request.user).order_by("-date_invited")
     guests = Guest.objects.select_related().filter(invited_by=request.user).order_by("guest_user__username")
@@ -44,7 +32,7 @@ def index(request):
 @login_required
 def invite(request):
     if request.user.is_guest:
-        return redirect("guest_invited_by")
+        raise PermissionDenied()
 
     if request.method == "POST":
         form = InvitationForm(request.POST, user=request.user)
@@ -54,13 +42,15 @@ def invite(request):
                     invitation = form.save(commit=False)
                     invitation.invited_by = request.user
                     invitation.save()
-                    create_invitation(
-                        username=invitation.username,
+                    inv = create_invitation(
+                        username=invitation.username + settings.GUEST_EXTENSION,
                         first_name=invitation.first_name,
                         last_name=invitation.last_name,
                         email=invitation.email,
                     )
-            except (AuthentikUserError, requests.RequestException):
+                invitation.authentik_pk = inv["pk"]
+                invitation.save(update_fields=["authentik_pk"])
+            except requests.RequestException:
                 form.add_error(None, _("Could not create the account right now, please try again."))
             else:
                 invitation.send_email(request)
@@ -87,7 +77,12 @@ def invitation_action(request):
         if invitation.invited_by != request.user:
             raise PermissionDenied()
         if "withdraw" in request.POST:
-            delete_invitation(invitation.username)
+            if invitation.authentik_pk:
+                try:
+                    delete_invitation(str(invitation.authentik_pk))
+                except requests.RequestException:
+                    messages.error(request, _("Could not withdraw the invitation right now, please try again."))
+                    return redirect("guests_index")
             invitation.delete()
             messages.success(request, _("Invitation was withdrawn."))
         elif "resend" in request.POST:

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-05 13:09+0100\n"
+"POT-Creation-Date: 2026-11-05 13:33+0100\n"
 "PO-Revision-Date: 2026-10-22 17:22+0200\n"
 "Last-Translator: Markus Neblung <markus.neblung@uni-hamburg.de>\n"
 "Language-Team: \n"
@@ -1352,31 +1352,37 @@ msgstr ""
 "nicht dein Account ist, kannst du mit einem anderen Nutzernamen eine erneute "
 "Einladung anfordern."
 
-#: mafiasi/guests/views.py:64
+#: mafiasi/guests/views.py:54
 msgid "Could not create the account right now, please try again."
 msgstr "Account konnte nicht erstellt werden, probiers gerne später erneut"
 
-#: mafiasi/guests/views.py:67
+#: mafiasi/guests/views.py:57
 msgid "{} was successfully invited."
 msgstr "{} wurde erfolgreich eingeladen."
 
-#: mafiasi/guests/views.py:92
+#: mafiasi/guests/views.py:84
+#, fuzzy
+#| msgid "Could not create the account right now, please try again."
+msgid "Could not withdraw the invitation right now, please try again."
+msgstr "Account konnte nicht erstellt werden, probiers gerne später erneut"
+
+#: mafiasi/guests/views.py:87
 msgid "Invitation was withdrawn."
 msgstr "Einladung wurde zurückgezogen."
 
-#: mafiasi/guests/views.py:96
+#: mafiasi/guests/views.py:91
 msgid "This invitation was already used or expired."
 msgstr "Die Einladung wurde bereits verwendet oder ist abgelaufen"
 
-#: mafiasi/guests/views.py:99
+#: mafiasi/guests/views.py:94
 msgid "Could not resend right now, please try again."
 msgstr "Erneutes senden fehlgeschlagen, probiers gerne später erneut"
 
-#: mafiasi/guests/views.py:101
+#: mafiasi/guests/views.py:96
 msgid "invitation mails"
 msgstr "Einladungsmails"
 
-#: mafiasi/guests/views.py:108
+#: mafiasi/guests/views.py:103
 msgid "Invitation mail was resent."
 msgstr "Einladungsmail wurde erneut versandt."
 

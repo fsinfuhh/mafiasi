@@ -1,20 +1,20 @@
 from smtplib import SMTPRecipientsRefused
 
 from django.conf import settings
-from django.core import signing
 from django.core.mail import send_mail
 from django.db import models
 from django.template.loader import render_to_string
-from django.urls import reverse
 from django.utils import timezone
 
 from mafiasi.base.tokenbucket import TokenBucket
+from mafiasi.guests.authFun import build_invite_link
 
 INVITATION_MAX_TOKENS = 20
 INVITATION_FILL_RATE = 1.0 / (3 * 60)
 
 
 class Invitation(models.Model):
+    authentik_pk = models.UUIDField(null=True, blank=True, unique=True)
     username = models.CharField(max_length=30 - len(settings.GUEST_EXTENSION), unique=True)
     email = models.EmailField()
     first_name = models.CharField(max_length=30)
@@ -26,9 +26,7 @@ class Invitation(models.Model):
         return self.username
 
     def send_email(self, request):
-        token = signing.dumps(self.pk)
-        url_path = reverse("guests_accept", args=(token,))
-        activation_link = request.build_absolute_uri(url_path)
+        activation_link = build_invite_link(str(self.authentik_pk))
         email_content = render_to_string(
             "guests/invitation_mail.txt", {"invitation": self, "activation_link": activation_link}
         )
