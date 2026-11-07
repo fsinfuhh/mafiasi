@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-05 18:20+0100\n"
+"POT-Creation-Date: 2026-11-07 16:52+0100\n"
 "PO-Revision-Date: 2026-10-22 16:49+0200\n"
 "Last-Translator: Timon Engelke <timon.engelke@uni-hamburg.de>\n"
 "Language-Team: \n"
@@ -1260,8 +1260,8 @@ msgstr "Nom d'utilisateur doit être au moins trois caractères."
 msgid "This name is not available."
 msgstr "Ce nom n'est pas disponible."
 
-#: mafiasi/guests/forms.py:38 mafiasi/guests/forms.py:53
-msgid "Can't verify the username right now, please try again."
+#: mafiasi/guests/forms.py:38
+msgid "Can't verify the username right now, please try again later."
 msgstr ""
 
 #: mafiasi/guests/forms.py:47
@@ -1273,6 +1273,10 @@ msgstr ""
 #: mafiasi/guests/forms.py:51
 msgid "There is already an account with that email."
 msgstr "Il existe déjà un compte avec cet e-mail."
+
+#: mafiasi/guests/forms.py:53
+msgid "Can't verify the email right now, please try again later."
+msgstr ""
 
 #: mafiasi/guests/forms.py:61
 msgid "invitations"
@@ -1366,35 +1370,35 @@ msgstr ""
 "n'est pas votre compte, veuillez demander une autre invitation avec un nom "
 "d'utilisateur différent."
 
-#: mafiasi/guests/views.py:54
-msgid "Could not create the account right now, please try again."
+#: mafiasi/guests/views.py:55
+msgid "Could not create the account right now, please try again later."
 msgstr ""
 
-#: mafiasi/guests/views.py:57
+#: mafiasi/guests/views.py:58
 msgid "{} was successfully invited."
 msgstr "{} a été invité avec succès."
 
-#: mafiasi/guests/views.py:84
-msgid "Could not withdraw the invitation right now, please try again."
+#: mafiasi/guests/views.py:85
+msgid "Could not withdraw the invitation right now, please try again later."
 msgstr ""
 
-#: mafiasi/guests/views.py:87
+#: mafiasi/guests/views.py:88
 msgid "Invitation was withdrawn."
 msgstr "L'invitation a été retirée."
 
-#: mafiasi/guests/views.py:91
+#: mafiasi/guests/views.py:92
 msgid "This invitation was already used or expired."
 msgstr ""
 
-#: mafiasi/guests/views.py:94
-msgid "Could not resend right now, please try again."
+#: mafiasi/guests/views.py:95
+msgid "Could not resend right now, please try again later."
 msgstr ""
 
-#: mafiasi/guests/views.py:96
+#: mafiasi/guests/views.py:97
 msgid "invitation mails"
 msgstr "mails d'invitation"
 
-#: mafiasi/guests/views.py:103
+#: mafiasi/guests/views.py:104
 msgid "Invitation mail was resent."
 msgstr "Invitation courrier était renvoyé."
 

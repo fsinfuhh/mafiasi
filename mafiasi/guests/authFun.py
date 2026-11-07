@@ -4,35 +4,26 @@ from datetime import datetime, timedelta, timezone
 
 import requests
 from django.conf import settings
-from ldap3 import SUBTREE, Connection, Server
-from ldap3.utils.conv import escape_filter_chars
 
 
-def _ldap_exists(attr: str, value: str) -> bool:
-    server = Server(settings.MAFIASI_LDAP_URI, connect_timeout=5)
-    with Connection(
-        server,
-        user=settings.MAFIASI_LDAP_BIND_DN,
-        password=settings.MAFIASI_LDAP_BIND_PW,
-        auto_bind=True,
-        receive_timeout=10,
-    ) as conn:
-        conn.search(
-            search_base=settings.MAFIASI_LDAP_BASE_DN,
-            search_filter=f"(&(objectClass=user)({attr}={escape_filter_chars(value)}))",
-            search_scope=SUBTREE,
-            attributes=[attr],
-            size_limit=1,
-        )
-        return len(conn.entries) > 0
+def _user_exists(**filters) -> bool:
+    r = requests.get(
+        f"{_api()}/core/users/",
+        headers=_headers(),
+        params={**filters, "page_size": 1},
+        timeout=10,
+    )
+    r.raise_for_status()
+    return len(r.json()["results"]) > 0
 
 
 def uid_exists(uid: str) -> bool:
-    return _ldap_exists("uid", uid)
+    return _user_exists(username=uid)
 
 
+# Isnt checked for invites, done in auth finally
 def mail_exists(mail: str) -> bool:
-    return _ldap_exists("mail", mail)
+    return _user_exists(email=mail)
 
 
 def _api() -> str:
@@ -40,7 +31,7 @@ def _api() -> str:
 
 
 def _headers() -> dict:
-    return {"Authorization": f"Bearer {settings.MAFIASI_AUTHENTIK_API_TOKEN}"}
+    return {"Authorization": f"Bearer {settings.AUTHENTIK_API_TOKEN}"}
 
 
 def create_invitation(*, username, first_name, last_name, email) -> dict:
@@ -70,7 +61,7 @@ def create_invitation(*, username, first_name, last_name, email) -> dict:
 
 
 def build_invite_link(pk: str) -> str:
-    base = settings.MAFIASI_OPENID_ISSUER.split("/application/")[0]
+    base = settings.OPENID_ISSUER.split("/application/")[0]
     return f"{base}/if/flow/guest-enrollment/?itoken={pk}"
 
 

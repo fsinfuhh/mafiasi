@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-05 18:20+0100\n"
+"POT-Creation-Date: 2026-11-07 16:52+0100\n"
 "PO-Revision-Date: 2026-11-05 18:12+0100\n"
 "Last-Translator: Markus Neblung <markus.neblung@uni-hamburg.de>\n"
 "Language-Team: \n"
@@ -95,12 +95,12 @@ msgstr "Dieser Dienst wird nicht von Faschist*innen betrieben"
 #: mafiasi/base/templates/base.html:131
 msgid ""
 "There is no place for discrimination in any way shape or form at mafiasi.de "
-"(cmp. <a href=\"https://www.gesetze-im-internet.de/englisch_gg/englisch_gg."
-"html#p0027\" rel=\"external\">Art. 3 GG</a>).<br> If you are affected, feel "
-"free to contact the <a href=\"mailto:fsr-vertraulich@informatik.uni-hamburg."
-"de\">student council</a> or the university's <a href=\"https://www.uni-"
-"hamburg.de/antidiskriminierung.html\" rel=\"external\">anti-discrimination "
-"office</a>."
+"(cmp. <a href=\"https://www.gesetze-im-internet.de/englisch_gg/"
+"englisch_gg.html#p0027\" rel=\"external\">Art. 3 GG</a>).<br> If you are "
+"affected, feel free to contact the <a href=\"mailto:fsr-"
+"vertraulich@informatik.uni-hamburg.de\">student council</a> or the "
+"university's <a href=\"https://www.uni-hamburg.de/antidiskriminierung.html\" "
+"rel=\"external\">anti-discrimination office</a>."
 msgstr ""
 "Auf Mafiasi.de ist kein Platz für Diskriminierung und Menschenfeindlichkeit "
 "in jeder Form (vgl. <a href=\"https://www.gesetze-im-internet.de/englisch_gg/"
@@ -1246,9 +1246,9 @@ msgstr "Der Benutzername muss mindestens 3 Zeichen lang sein."
 msgid "This name is not available."
 msgstr "Dieser Name ist nicht verfügbar."
 
-#: mafiasi/guests/forms.py:38 mafiasi/guests/forms.py:53
-msgid "Can't verify the username right now, please try again."
-msgstr ""
+#: mafiasi/guests/forms.py:38
+msgid "Can't verify the username right now, please try again later."
+msgstr "Erneutes senden fehlgeschlagen, probiers gerne später erneut"
 
 #: mafiasi/guests/forms.py:47
 msgid "The guest can use this email address to register a normal user account."
@@ -1259,6 +1259,10 @@ msgstr ""
 #: mafiasi/guests/forms.py:51
 msgid "There is already an account with that email."
 msgstr "Es existiert bereits ein Account mit dieser E-Mail-Adresse."
+
+#: mafiasi/guests/forms.py:53
+msgid "Can't verify the email right now, please try again later."
+msgstr "Erneutes senden fehlgeschlagen, probiers gerne später erneut"
 
 #: mafiasi/guests/forms.py:61
 msgid "invitations"
@@ -1352,37 +1356,39 @@ msgstr ""
 "nicht dein Account ist, kannst du mit einem anderen Nutzernamen eine erneute "
 "Einladung anfordern."
 
-#: mafiasi/guests/views.py:54
-msgid "Could not create the account right now, please try again."
+#: mafiasi/guests/views.py:55
+#, fuzzy
+#| msgid "Could not create the account right now, please try again."
+msgid "Could not create the account right now, please try again later."
 msgstr "Account konnte nicht erstellt werden, probiers gerne später erneut"
 
-#: mafiasi/guests/views.py:57
+#: mafiasi/guests/views.py:58
 msgid "{} was successfully invited."
 msgstr "{} wurde erfolgreich eingeladen."
 
-#: mafiasi/guests/views.py:84
+#: mafiasi/guests/views.py:85
 #, fuzzy
 #| msgid "Could not create the account right now, please try again."
-msgid "Could not withdraw the invitation right now, please try again."
+msgid "Could not withdraw the invitation right now, please try again later."
 msgstr "Account konnte nicht erstellt werden, probiers gerne später erneut"
 
-#: mafiasi/guests/views.py:87
+#: mafiasi/guests/views.py:88
 msgid "Invitation was withdrawn."
 msgstr "Einladung wurde zurückgezogen."
 
-#: mafiasi/guests/views.py:91
+#: mafiasi/guests/views.py:92
 msgid "This invitation was already used or expired."
 msgstr "Die Einladung wurde bereits verwendet oder ist abgelaufen"
 
-#: mafiasi/guests/views.py:94
-msgid "Could not resend right now, please try again."
+#: mafiasi/guests/views.py:95
+msgid "Could not resend right now, please try again later."
 msgstr "Erneutes senden fehlgeschlagen, probiers gerne später erneut"
 
-#: mafiasi/guests/views.py:96
+#: mafiasi/guests/views.py:97
 msgid "invitation mails"
 msgstr "Einladungsmails"
 
-#: mafiasi/guests/views.py:103
+#: mafiasi/guests/views.py:104
 msgid "Invitation mail was resent."
 msgstr "Einladungsmail wurde erneut versandt."
 

@@ -2,8 +2,8 @@ import re
 
 from django import forms
 from django.conf import settings
+from django.contrib.sites import requests
 from django.utils.translation import gettext as _
-from ldap3.core.exceptions import LDAPException
 
 from mafiasi.guests.models import Invitation, get_invitation_bucket
 
@@ -34,8 +34,8 @@ class InvitationForm(forms.ModelForm):
         try:
             if uid_exists(full_uid):
                 raise forms.ValidationError(_("This name is not available."))
-        except LDAPException:
-            raise forms.ValidationError(_("Can't verify the username right now, please try again."))
+        except requests.RequestException:
+            raise forms.ValidationError(_("Can't verify the username right now, please try again later."))
 
         return username
 
@@ -49,8 +49,8 @@ class InvitationForm(forms.ModelForm):
         try:
             if mail_exists(email):
                 raise forms.ValidationError(_("There is already an account with that email."))
-        except LDAPException:
-            raise forms.ValidationError(_("Can't verify the username right now, please try again."))
+        except requests.RequestException:
+            raise forms.ValidationError(_("Can't verify the email right now, please try again later."))
 
         return email
 

@@ -21,9 +21,6 @@ Hi {{ invitation.first_name }} {{ invitation.last_name }}!
 
 Use the following link to create your account:
 {{ activation_link }}
-{% if add_link %}
 
-Instruction on the usage can be found here: {{ add_link }}
-{% endif %}
 {% endblock %}
 {% endautoescape %}
