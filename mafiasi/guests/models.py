@@ -7,10 +7,14 @@ from django.template.loader import render_to_string
 from django.utils import timezone
 
 from mafiasi.base.tokenbucket import TokenBucket
-from mafiasi.guests.authFun import build_invite_link
 
 INVITATION_MAX_TOKENS = 20
 INVITATION_FILL_RATE = 1.0 / (3 * 60)
+
+
+def build_invite_link(pk: str) -> str:
+    base = settings.OPENID_ISSUER.split("/application/")[0]
+    return f"{base}/if/flow/guest-enrollment/?itoken={pk}"
 
 
 class Invitation(models.Model):
@@ -19,7 +23,7 @@ class Invitation(models.Model):
     email = models.EmailField()
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
-    invited_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="sent_invitations")
+    invited_by = models.CharField(max_length=30)
     date_invited = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
@@ -36,15 +40,6 @@ class Invitation(models.Model):
             send_mail(subject, email_content, None, [self.email])
         except SMTPRecipientsRefused:
             pass  # FIXME: Inform the user
-
-
-class Guest(models.Model):
-    guest_user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    invited_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="invited_guests")
-    date_invited = models.DateTimeField(default=timezone.now)
-
-    def __str__(self):
-        return self.guest_user.username
 
 
 def get_invitation_bucket(user, whatfor):
