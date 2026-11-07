@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-07 16:52+0100\n"
+"POT-Creation-Date: 2026-11-07 19:41+0100\n"
 "PO-Revision-Date: 2026-11-05 18:12+0100\n"
 "Last-Translator: Markus Neblung <markus.neblung@uni-hamburg.de>\n"
 "Language-Team: \n"
@@ -841,7 +841,7 @@ msgstr "Hinzugefügt am"
 #: mafiasi/gprot/templates/gprot/reminders.html:24
 #: mafiasi/groups/templates/groups/invitations.html:19
 #: mafiasi/groups/templates/groups/show.html:122
-#: mafiasi/guests/templates/guests/index.html:16
+#: mafiasi/guests/templates/guests/index.html:18
 msgid "Actions"
 msgstr "Aktionen"
 
@@ -1053,7 +1053,7 @@ msgstr "Erstellen"
 #: mafiasi/groups/templates/groups/groups_base.html:15
 #: mafiasi/groups/templates/groups/invitations.html:5
 #: mafiasi/groups/templates/groups/show.html:67
-#: mafiasi/guests/templates/guests/index.html:5
+#: mafiasi/guests/templates/guests/index.html:6
 msgid "Invitations"
 msgstr "Einladungen"
 
@@ -1172,7 +1172,7 @@ msgid "Invitee"
 msgstr "Eingeladener"
 
 #: mafiasi/groups/templates/groups/show.html:87
-#: mafiasi/guests/templates/guests/index.html:30
+#: mafiasi/guests/templates/guests/index.html:32
 msgid "Withdraw"
 msgstr "Zurückziehen"
 
@@ -1284,47 +1284,47 @@ msgstr ""
 "lautet: %(username)s. Hast du dein <a "
 "href=\"%(password_reset_url)s\">Passwort vergessen?</a>"
 
-#: mafiasi/guests/templates/guests/index.html:8
+#: mafiasi/guests/templates/guests/index.html:10
 msgid "Open invitations"
 msgstr "Offene Einladungen"
 
-#: mafiasi/guests/templates/guests/index.html:13
-#: mafiasi/guests/templates/guests/index.html:47
+#: mafiasi/guests/templates/guests/index.html:15
+#: mafiasi/guests/templates/guests/index.html:50
 #: mafiasi/guests/templates/guests/invite.html:15
 #: mafiasi/registration/templates/registration/create_account.html:13
 msgid "Username"
 msgstr "Benutzername"
 
-#: mafiasi/guests/templates/guests/index.html:14
-#: mafiasi/guests/templates/guests/index.html:48
+#: mafiasi/guests/templates/guests/index.html:16
+#: mafiasi/guests/templates/guests/index.html:51
 msgid "Full name"
 msgstr "Voller Name"
 
-#: mafiasi/guests/templates/guests/index.html:15
+#: mafiasi/guests/templates/guests/index.html:17
 #: mafiasi/guests/templates/guests/invite.html:35
 #: mafiasi/registration/templates/registration/account.html:54
 msgid "Email"
 msgstr "E-Mail"
 
-#: mafiasi/guests/templates/guests/index.html:29
+#: mafiasi/guests/templates/guests/index.html:31
 msgid "Resend mail"
 msgstr "E-Mail nochmal senden"
 
-#: mafiasi/guests/templates/guests/index.html:38
+#: mafiasi/guests/templates/guests/index.html:40
 msgid "You have no open invitations."
 msgstr "Du hast keine offenen Einladungen."
 
-#: mafiasi/guests/templates/guests/index.html:40
+#: mafiasi/guests/templates/guests/index.html:43
 #: mafiasi/guests/templates/guests/invite.html:6
 #: mafiasi/guests/templates/guests/invite.html:53
 msgid "Invite guest"
 msgstr "Gast einladen"
 
-#: mafiasi/guests/templates/guests/index.html:42
+#: mafiasi/guests/templates/guests/index.html:45
 msgid "Your guests"
 msgstr "Deine Gäste"
 
-#: mafiasi/guests/templates/guests/index.html:61
+#: mafiasi/guests/templates/guests/index.html:64
 msgid "You have no guests."
 msgstr "Du hast keine Gäste."
 
@@ -1356,39 +1356,49 @@ msgstr ""
 "nicht dein Account ist, kannst du mit einem anderen Nutzernamen eine erneute "
 "Einladung anfordern."
 
-#: mafiasi/guests/views.py:55
+#: mafiasi/guests/views.py:45
+msgid ""
+"You have reached the maximum number of invitations and guests. You can "
+"withdraw some invitations to invite new guests."
+msgstr "Du hast das Maximum an Einladungen und Gästen erreicht, du hast aber noch offene Einladungen die du löschen kannst "
+
+#: mafiasi/guests/views.py:49
+msgid "You have reached the maximum number of Guests you can invite."
+msgstr "Du hast das Maximum der Gäste erreicht"
+
+#: mafiasi/guests/views.py:69
 #, fuzzy
 #| msgid "Could not create the account right now, please try again."
 msgid "Could not create the account right now, please try again later."
 msgstr "Account konnte nicht erstellt werden, probiers gerne später erneut"
 
-#: mafiasi/guests/views.py:58
+#: mafiasi/guests/views.py:72
 msgid "{} was successfully invited."
 msgstr "{} wurde erfolgreich eingeladen."
 
-#: mafiasi/guests/views.py:85
+#: mafiasi/guests/views.py:97
 #, fuzzy
 #| msgid "Could not create the account right now, please try again."
 msgid "Could not withdraw the invitation right now, please try again later."
 msgstr "Account konnte nicht erstellt werden, probiers gerne später erneut"
 
-#: mafiasi/guests/views.py:88
+#: mafiasi/guests/views.py:100
 msgid "Invitation was withdrawn."
 msgstr "Einladung wurde zurückgezogen."
 
-#: mafiasi/guests/views.py:92
+#: mafiasi/guests/views.py:104
 msgid "This invitation was already used or expired."
 msgstr "Die Einladung wurde bereits verwendet oder ist abgelaufen"
 
-#: mafiasi/guests/views.py:95
+#: mafiasi/guests/views.py:107
 msgid "Could not resend right now, please try again later."
 msgstr "Erneutes senden fehlgeschlagen, probiers gerne später erneut"
 
-#: mafiasi/guests/views.py:97
+#: mafiasi/guests/views.py:109
 msgid "invitation mails"
 msgstr "Einladungsmails"
 
-#: mafiasi/guests/views.py:104
+#: mafiasi/guests/views.py:116
 msgid "Invitation mail was resent."
 msgstr "Einladungsmail wurde erneut versandt."
 

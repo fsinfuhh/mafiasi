@@ -1,8 +1,8 @@
 import re
 
+import requests
 from django import forms
 from django.conf import settings
-from django.contrib.sites import requests
 from django.utils.translation import gettext as _
 
 from mafiasi.guests.models import Invitation, get_invitation_bucket

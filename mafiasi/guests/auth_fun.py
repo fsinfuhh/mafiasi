@@ -1,4 +1,5 @@
 # auth_fun.py
+import json
 import secrets
 from datetime import UTC, datetime, timedelta
 
@@ -46,7 +47,7 @@ def uid_exists(uid: str) -> bool:
 
 # Isnt checked for invites, done in auth finally
 def mail_exists(mail: str) -> bool:
-    return _user_exists(email=mail)
+    return _user_exists(attributes=json.dumps({"realmail": mail}))
 
 
 def get_authentik_pk(username: str) -> int:
