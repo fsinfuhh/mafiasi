@@ -8,6 +8,26 @@ from django.db import transaction
 
 from mafiasi.guests.models import Invitation
 
+INIVITATION_LIMIT = 10
+
+
+def check_invite_limit(user) -> dict:
+    """Compare a user's invited_users + open_invitations against a fixed limit."""
+    user_pk = get_authentik_pk(user.username)
+    r = requests.get(f"{_api()}/core/users/{user_pk}/", headers=_headers(), timeout=10)
+    r.raise_for_status()
+    attributes = r.json().get("attributes") or {}
+
+    invited_count = len(attributes.get("invited_users") or [])
+    open_count = len(attributes.get("open_invitations") or [])
+
+    used = invited_count + open_count
+    return {
+        "invited_users": invited_count,
+        "open_invitations": open_count,
+        "allowed": used < INIVITATION_LIMIT,
+    }
+
 
 def _user_exists(**filters) -> bool:
     r = requests.get(

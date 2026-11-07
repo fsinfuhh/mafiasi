@@ -10,7 +10,7 @@ from django.utils.translation import gettext_lazy as _
 from mafiasi.guests.forms import InvitationForm
 from mafiasi.guests.models import Invitation, get_invitation_bucket
 
-from .auth_fun import create_invitation, delete_invitation, getOpenInvitations, invitation_exists
+from .auth_fun import check_invite_limit, create_invitation, delete_invitation, getOpenInvitations, invitation_exists
 
 
 @login_required
@@ -30,6 +30,17 @@ def index(request):
 def invite(request):
     if request.user.is_guest:
         raise PermissionDenied()
+    status = check_invite_limit(request.user)
+    if not status["allowed"]:
+        if status["open_invitations"] > 0:
+            messages.error(
+                request,
+                _(
+                    "You have reached the maximum number of invitations and guests. You can withdraw some invitations to invite new guests."
+                ),
+            )
+        messages.error(request, _("You have reached the maximum number of Guests you can invite."))
+        return redirect("guests_index")
     if request.method == "POST":
         form = InvitationForm(request.POST, user=request.user)
         if form.is_valid():

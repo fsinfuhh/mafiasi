@@ -7,7 +7,7 @@ from django.utils.translation import gettext as _
 
 from mafiasi.guests.models import Invitation, get_invitation_bucket
 
-from .authFun import mail_exists, uid_exists
+from .auth_fun import mail_exists, uid_exists
 
 _username_re = re.compile(r"^[a-z][a-z0-9.\-]+$")
 
