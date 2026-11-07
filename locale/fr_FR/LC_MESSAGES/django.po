@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-05 13:33+0100\n"
+"POT-Creation-Date: 2026-11-05 18:20+0100\n"
 "PO-Revision-Date: 2026-10-22 16:49+0200\n"
 "Last-Translator: Timon Engelke <timon.engelke@uni-hamburg.de>\n"
 "Language-Team: \n"
@@ -1587,6 +1587,18 @@ msgstr "Nextloud"
 #: mafiasi/nextcloud/apps.py:12
 msgid "Nextcloud enables you to sync and share your documents."
 msgstr "Nextcloud vous permet de synchroniser et de partager vos documents."
+
+#: mafiasi/overleaf/apps.py:11
+#, fuzzy
+#| msgid "Overview"
+msgid "Overleaf"
+msgstr "Vue d'ensemble"
+
+#: mafiasi/overleaf/apps.py:12
+msgid ""
+"Overleaf is a collaborative LaTeX editor, with features from the premium "
+"version."
+msgstr ""
 
 #: mafiasi/registration/forms.py:25
 msgid "That does not look like a valid account name."
