@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-07 19:41+0100\n"
+"POT-Creation-Date: 2026-11-08 15:33+0100\n"
 "PO-Revision-Date: 2026-10-22 16:49+0200\n"
 "Last-Translator: Timon Engelke <timon.engelke@uni-hamburg.de>\n"
 "Language-Team: \n"
@@ -853,7 +853,7 @@ msgstr "Ajouté"
 #: mafiasi/gprot/templates/gprot/reminders.html:24
 #: mafiasi/groups/templates/groups/invitations.html:19
 #: mafiasi/groups/templates/groups/show.html:122
-#: mafiasi/guests/templates/guests/index.html:18
+#: mafiasi/guests/templates/guests/index.html:19
 msgid "Actions"
 msgstr "Actes"
 
@@ -1186,7 +1186,7 @@ msgid "Invitee"
 msgstr "Invité"
 
 #: mafiasi/groups/templates/groups/show.html:87
-#: mafiasi/guests/templates/guests/index.html:32
+#: mafiasi/guests/templates/guests/index.html:40
 msgid "Withdraw"
 msgstr "Retirer"
 
@@ -1282,8 +1282,11 @@ msgstr ""
 msgid "invitations"
 msgstr "invitations"
 
+#: mafiasi/guests/models.py:46
+msgid "Sending the invitation email failed, please try again later"
+msgstr ""
+
 #: mafiasi/guests/templates/guests/has_account.html:4
-#: mafiasi/guests/templates/guests/username_exists.html:4
 msgid "Account already exists"
 msgstr "Compte existe déjà"
 
@@ -1303,42 +1306,46 @@ msgid "Open invitations"
 msgstr "Des invitations ouvertes"
 
 #: mafiasi/guests/templates/guests/index.html:15
-#: mafiasi/guests/templates/guests/index.html:50
-#: mafiasi/guests/templates/guests/invite.html:15
+#: mafiasi/guests/templates/guests/index.html:58
+#: mafiasi/guests/templates/guests/invite.html:17
 #: mafiasi/registration/templates/registration/create_account.html:13
 msgid "Username"
 msgstr "Nom d'utilisateur"
 
 #: mafiasi/guests/templates/guests/index.html:16
-#: mafiasi/guests/templates/guests/index.html:51
+#: mafiasi/guests/templates/guests/index.html:59
 msgid "Full name"
 msgstr "Nom et prénom"
 
 #: mafiasi/guests/templates/guests/index.html:17
-#: mafiasi/guests/templates/guests/invite.html:35
+#: mafiasi/guests/templates/guests/invite.html:37
 #: mafiasi/registration/templates/registration/account.html:54
 msgid "Email"
 msgstr "Èmail"
 
-#: mafiasi/guests/templates/guests/index.html:31
+#: mafiasi/guests/templates/guests/index.html:18
+msgid "id"
+msgstr ""
+
+#: mafiasi/guests/templates/guests/index.html:39
 msgid "Resend mail"
 msgstr "Renvoi du mail"
 
-#: mafiasi/guests/templates/guests/index.html:40
+#: mafiasi/guests/templates/guests/index.html:48
 msgid "You have no open invitations."
 msgstr "Vous ne avez pas d'invitations ouvertes."
 
-#: mafiasi/guests/templates/guests/index.html:43
-#: mafiasi/guests/templates/guests/invite.html:6
-#: mafiasi/guests/templates/guests/invite.html:53
+#: mafiasi/guests/templates/guests/index.html:51
+#: mafiasi/guests/templates/guests/invite.html:7
+#: mafiasi/guests/templates/guests/invite.html:56
 msgid "Invite guest"
 msgstr "Inviter invité"
 
-#: mafiasi/guests/templates/guests/index.html:45
+#: mafiasi/guests/templates/guests/index.html:53
 msgid "Your guests"
 msgstr "Vos invités"
 
-#: mafiasi/guests/templates/guests/index.html:64
+#: mafiasi/guests/templates/guests/index.html:72
 msgid "You have no guests."
 msgstr "Vous ne avez pas invités."
 
@@ -1350,25 +1357,15 @@ msgstr "Invitation retiré"
 msgid "This invitation has been withdrawn or is no longer valid."
 msgstr "Cette invitation a été retirée ou ne est plus valide."
 
-#: mafiasi/guests/templates/guests/invite.html:46
+#: mafiasi/guests/templates/guests/invite.html:48
 #: mafiasi/registration/templates/registration/require_info_other.html:20
 msgid "First name"
 msgstr "Prénom"
 
-#: mafiasi/guests/templates/guests/invite.html:50
+#: mafiasi/guests/templates/guests/invite.html:52
 #: mafiasi/registration/templates/registration/require_info_other.html:24
 msgid "Last name"
 msgstr "Nom de famille"
-
-#: mafiasi/guests/templates/guests/username_exists.html:8
-#, python-format
-msgid ""
-"Sorry, an account with username %(username)s already exists. If this is not "
-"your account, please request another invitation with a different username."
-msgstr ""
-"Désolé, un compte avec le nom d'utilisateur %(username)s existe déjà. Si ce "
-"n'est pas votre compte, veuillez demander une autre invitation avec un nom "
-"d'utilisateur différent."
 
 #: mafiasi/guests/views.py:45
 msgid ""
@@ -1379,37 +1376,36 @@ msgstr ""
 #: mafiasi/guests/views.py:49
 msgid "You have reached the maximum number of Guests you can invite."
 msgstr ""
-""
 
-#: mafiasi/guests/views.py:69
+#: mafiasi/guests/views.py:68
 msgid "Could not create the account right now, please try again later."
 msgstr ""
 
-#: mafiasi/guests/views.py:72
+#: mafiasi/guests/views.py:71
 msgid "{} was successfully invited."
 msgstr "{} a été invité avec succès."
 
-#: mafiasi/guests/views.py:97
+#: mafiasi/guests/views.py:92
 msgid "Could not withdraw the invitation right now, please try again later."
 msgstr ""
 
-#: mafiasi/guests/views.py:100
+#: mafiasi/guests/views.py:95
 msgid "Invitation was withdrawn."
 msgstr "L'invitation a été retirée."
 
-#: mafiasi/guests/views.py:104
+#: mafiasi/guests/views.py:99
 msgid "This invitation was already used or expired."
 msgstr ""
 
-#: mafiasi/guests/views.py:107
+#: mafiasi/guests/views.py:102
 msgid "Could not resend right now, please try again later."
 msgstr ""
 
-#: mafiasi/guests/views.py:109
+#: mafiasi/guests/views.py:104
 msgid "invitation mails"
 msgstr "mails d'invitation"
 
-#: mafiasi/guests/views.py:116
+#: mafiasi/guests/views.py:111
 msgid "Invitation mail was resent."
 msgstr "Invitation courrier était renvoyé."
 
@@ -2021,6 +2017,16 @@ msgid "In the wiki you will find important information regarding your studies."
 msgstr ""
 "Dans le wiki, vous trouverez des informations importantes concernant vos "
 "études."
+
+#, python-format
+#~ msgid ""
+#~ "Sorry, an account with username %(username)s already exists. If this is "
+#~ "not your account, please request another invitation with a different "
+#~ "username."
+#~ msgstr ""
+#~ "Désolé, un compte avec le nom d'utilisateur %(username)s existe déjà. Si "
+#~ "ce n'est pas votre compte, veuillez demander une autre invitation avec un "
+#~ "nom d'utilisateur différent."
 
 #~ msgid "Hello "
 #~ msgstr "Bonjour "

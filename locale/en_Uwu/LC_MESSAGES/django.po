@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-07 19:41+0100\n"
+"POT-Creation-Date: 2026-11-08 15:33+0100\n"
 "PO-Revision-Date: 2026-10-22 18:03+0200\n"
 "Last-Translator: kritzl <kritzl@kritzl.dev>\n"
 "Language-Team: \n"
@@ -875,7 +875,7 @@ msgstr "I'll let you know since"
 #: mafiasi/gprot/templates/gprot/reminders.html:24
 #: mafiasi/groups/templates/groups/invitations.html:19
 #: mafiasi/groups/templates/groups/show.html:122
-#: mafiasi/guests/templates/guests/index.html:18
+#: mafiasi/guests/templates/guests/index.html:19
 msgid "Actions"
 msgstr "do thingies"
 
@@ -1258,7 +1258,7 @@ msgid "Invitee"
 msgstr "Invitee"
 
 #: mafiasi/groups/templates/groups/show.html:87
-#: mafiasi/guests/templates/guests/index.html:32
+#: mafiasi/guests/templates/guests/index.html:40
 msgid "Withdraw"
 msgstr "Withdraw"
 
@@ -1356,8 +1356,11 @@ msgstr "Oh no Problem with wesending, pwease try later"
 msgid "invitations"
 msgstr "invitations"
 
+#: mafiasi/guests/models.py:46
+msgid "Sending the invitation email failed, please try again later"
+msgstr "Oh no Problem with maili, pwease try later"
+
 #: mafiasi/guests/templates/guests/has_account.html:4
-#: mafiasi/guests/templates/guests/username_exists.html:4
 msgid "Account already exists"
 msgstr "I already know you!"
 
@@ -1377,44 +1380,48 @@ msgid "Open invitations"
 msgstr "Open invitations"
 
 #: mafiasi/guests/templates/guests/index.html:15
-#: mafiasi/guests/templates/guests/index.html:50
-#: mafiasi/guests/templates/guests/invite.html:15
+#: mafiasi/guests/templates/guests/index.html:58
+#: mafiasi/guests/templates/guests/invite.html:17
 #: mafiasi/registration/templates/registration/create_account.html:13
 msgid "Username"
 msgstr "Username"
 
 #: mafiasi/guests/templates/guests/index.html:16
-#: mafiasi/guests/templates/guests/index.html:51
+#: mafiasi/guests/templates/guests/index.html:59
 msgid "Full name"
 msgstr "Full name"
 
 #: mafiasi/guests/templates/guests/index.html:17
-#: mafiasi/guests/templates/guests/invite.html:35
+#: mafiasi/guests/templates/guests/invite.html:37
 #: mafiasi/registration/templates/registration/account.html:54
 msgid "Email"
 msgstr "Email"
 
-#: mafiasi/guests/templates/guests/index.html:31
+#: mafiasi/guests/templates/guests/index.html:18
+msgid "id"
+msgstr ""
+
+#: mafiasi/guests/templates/guests/index.html:39
 msgid "Resend mail"
 msgstr "Resend mail"
 
-#: mafiasi/guests/templates/guests/index.html:40
+#: mafiasi/guests/templates/guests/index.html:48
 msgid "You have no open invitations."
 msgstr "You have no open invitations."
 
-#: mafiasi/guests/templates/guests/index.html:43
-#: mafiasi/guests/templates/guests/invite.html:6
-#: mafiasi/guests/templates/guests/invite.html:53
+#: mafiasi/guests/templates/guests/index.html:51
+#: mafiasi/guests/templates/guests/invite.html:7
+#: mafiasi/guests/templates/guests/invite.html:56
 msgid "Invite guest"
-msgstr "Invite guest"
+msgstr "Invite frend"
 
-#: mafiasi/guests/templates/guests/index.html:45
+#: mafiasi/guests/templates/guests/index.html:53
 msgid "Your guests"
 msgstr "Ur invited frens"
 
-#: mafiasi/guests/templates/guests/index.html:64
+#: mafiasi/guests/templates/guests/index.html:72
 msgid "You have no guests."
-msgstr "You have no guests."
+msgstr "You have no invited frends."
 
 #: mafiasi/guests/templates/guests/invitation_withdrawn.html:4
 msgid "Invitation withdrawn"
@@ -1424,29 +1431,15 @@ msgstr "Invitation withdrawn"
 msgid "This invitation has been withdrawn or is no longer valid."
 msgstr "This invitation has been withdrawn or is no longer valid."
 
-#: mafiasi/guests/templates/guests/invite.html:46
+#: mafiasi/guests/templates/guests/invite.html:48
 #: mafiasi/registration/templates/registration/require_info_other.html:20
 msgid "First name"
 msgstr "First name"
 
-#: mafiasi/guests/templates/guests/invite.html:50
+#: mafiasi/guests/templates/guests/invite.html:52
 #: mafiasi/registration/templates/registration/require_info_other.html:24
 msgid "Last name"
 msgstr "Last name"
-
-#: mafiasi/guests/templates/guests/username_exists.html:8
-#, fuzzy, python-format
-#| msgid ""
-#| "Sorry, an account with username %(username)s already exists. If this is "
-#| "not your account, please request another invitation with a different "
-#| "username.</a>"
-msgid ""
-"Sorry, an account with username %(username)s already exists. If this is not "
-"your account, please request another invitation with a different username."
-msgstr ""
-"Sorry, an account with username %(username)s already exists. If this is not "
-"your account, please request another invitation with a different username.</"
-"a>"
 
 #: mafiasi/guests/views.py:45
 msgid ""
@@ -1458,41 +1451,41 @@ msgstr "No more frens invities, but yu cans delete frens invities"
 msgid "You have reached the maximum number of Guests you can invite."
 msgstr "No more frens allowed :("
 
-#: mafiasi/guests/views.py:69
+#: mafiasi/guests/views.py:68
 #, fuzzy
 #| msgid "Could not create the account right now, please try again."
 msgid "Could not create the account right now, please try again later."
 msgstr "Oh no Problem with cweation, pwease try later"
 
-#: mafiasi/guests/views.py:72
+#: mafiasi/guests/views.py:71
 msgid "{} was successfully invited."
 msgstr "{} was successfuwwy invited."
 
-#: mafiasi/guests/views.py:97
+#: mafiasi/guests/views.py:92
 #, fuzzy
 #| msgid "Could not create the account right now, please try again."
 msgid "Could not withdraw the invitation right now, please try again later."
 msgstr "Oh no Problem with cweation, pwease try later"
 
-#: mafiasi/guests/views.py:100
+#: mafiasi/guests/views.py:95
 msgid "Invitation was withdrawn."
 msgstr "Invitation was withdrawn."
 
-#: mafiasi/guests/views.py:104
+#: mafiasi/guests/views.py:99
 msgid "This invitation was already used or expired."
 msgstr "Inviti was used or is to old"
 
-#: mafiasi/guests/views.py:107
+#: mafiasi/guests/views.py:102
 #, fuzzy
 #| msgid "Could not resend right now, please try again."
 msgid "Could not resend right now, please try again later."
 msgstr "Oh no Problem with wesending, pwease try later"
 
-#: mafiasi/guests/views.py:109
+#: mafiasi/guests/views.py:104
 msgid "invitation mails"
 msgstr "invitation mails"
 
-#: mafiasi/guests/views.py:116
+#: mafiasi/guests/views.py:111
 msgid "Invitation mail was resent."
 msgstr "Invitation mail was resent."
 
@@ -2094,6 +2087,16 @@ msgstr "Knowings"
 #: mafiasi/wiki/apps.py:12
 msgid "In the wiki you will find important information regarding your studies."
 msgstr "Knowings has many impawtant info! Pls read! :3"
+
+#, python-format
+#~ msgid ""
+#~ "Sorry, an account with username %(username)s already exists. If this is "
+#~ "not your account, please request another invitation with a different "
+#~ "username."
+#~ msgstr ""
+#~ "Sorry, an account with username %(username)s already exists. If this is "
+#~ "not your account, please request another invitation with a different "
+#~ "username."
 
 #~ msgid "Hello "
 #~ msgstr "Heya "

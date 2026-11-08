@@ -15,21 +15,29 @@
           <th>{% trans "Username" %}</th>
           <th>{% trans "Full name" %}</th>
           <th>{% trans "Email" %}</th>
+          <th>{% trans "id" %}</th>
           <th>{% trans "Actions" %}</th>
         </tr>
       </thead>
       <tbody>
         {% for invitation in invitations %}
           <tr>
-            <td>{{ invitation.username }}{{ guest_extension }}</td>
+            <td>{{ invitation.username }}</td>
             <td>{{ invitation.first_name }} {{ invitation.last_name }}</td>
             <td>{{ invitation.email }}</td>
+            <td>
+              <button type="button"
+                      name="copy"
+                      class="btn btn-default"
+                      onclick="navigator.clipboard.writeText('{{ invitation.authentik_pk }}'); const t = this.textContent; this.textContent = 'Copied!';
+                 setTimeout(() => this.textContent = t, 3000)">Copy ID</button>
+            </td>
             <td>
               <form method="post" action="{% url 'guests_invitation_action' %}">
                 {% csrf_token %}
                 <input type="hidden" name="invitation_pk" value="{{ invitation.pk }}" />
-                <button name="resend" class="btn btn-default">{% trans "Resend mail" %}</button>
-                <button name="withdraw" class="btn btn-warning">{% trans "Withdraw" %}</button>
+                <button type="button" name="resend" class="btn btn-default">{% trans "Resend mail" %}</button>
+                <button type="button" name="withdraw" class="btn btn-warning">{% trans "Withdraw" %}</button>
               </form>
             </td>
           </tr>

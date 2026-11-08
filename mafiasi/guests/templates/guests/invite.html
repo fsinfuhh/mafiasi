@@ -2,54 +2,58 @@
 {% load i18n %}
 {% load widget_tweaks %}
 {% load settings_value %}
-
-{% block wtitle %}{% block ptitle %}{% trans "Invite guest" %}{% endblock %}{% endblock %}
-
+{% block wtitle %}
+    {% block ptitle %}
+        {% trans "Invite guest" %}
+    {% endblock %}
+{% endblock %}
 {% block content %}
-<form method="post" style="width:55%;">
-{% csrf_token %}
-{% if form.non_field_errors %}
-<div class="alert alert-warning" role="alert">{{ form.non_field_errors }}</div>
-{% endif %}
-<div class="form-group{% if form.username.errors %} has-error{% endif %}">
-    <label class="control-label">{% trans "Username" %}</label>
-    <div class="input-group">
-        {% render_field form.username class+="form-control" %}
-        {% if guest_extension %}
-            <span class="input-group-addon">{{ guest_extension }}</span>
+    <form method="post" style="width:55%;">
+        {% csrf_token %}
+        {% if form.non_field_errors %}
+            <div class="alert alert-warning" role="alert">{{ form.non_field_errors }}</div>
         {% endif %}
-    </div>
-    <div class="help-block">
-    {% value_from_settings GUEST_INVITE_HINT as guest_hint %}
-    {% if guest_hint %}
-        {% trans guest_hint %}
-    {% endif %}
-    {% if form.username.errors %}
-    <ul>
-    {% for error in form.username.errors %}<li>{{ error }}</li>{% endfor %}
-    </ul>
-    {% endif %}
-    </div>
-</div>
-<div class="form-group{% if form.email.errors %} has-error{% endif %}">
-    <label class="control-label">{% trans "Email" %}</label>
-    {% render_field form.email class+="form-control" %}
-    {% if form.email.errors %}
-    <div class="help-block">
-    {% if form.email.errors %}
-    {% for error in form.email.errors %}{{ error }} {% endfor %}
-    {% endif %}
-    </div>
-    {% endif %}
-</div>
-<div class="form-group{% if form.first_name.errors %} has-error{% endif %}">
-    <label class="control-label">{% trans "First name" %}</label>
-    {% render_field form.first_name class+="form-control" %}
-</div>
-<div class="form-group{% if form.last_name.errors %} has-error{% endif %}">
-    <label class="control-label">{% trans "Last name" %}</label>
-    {% render_field form.last_name class+="form-control" %}
-</div>
-<p><button class="btn btn-primary">{% trans "Invite guest" %}</button></p>
-</form>
+        <div class="form-group{% if form.username.errors %} has-error{% endif %}">
+            <label class="control-label">{% trans "Username" %}</label>
+            <div class="input-group">
+                {% render_field form.username class+="form-control" %}
+                {% if guest_extension %}
+                    <span class="input-group-addon">{{ guest_extension }}</span>
+                {% endif %}
+            </div>
+            <div class="help-block">
+                {% value_from_settings GUEST_INVITE_HINT as guest_hint %}
+                {% if guest_hint %}
+                    {% trans guest_hint %}
+                {% endif %}
+                {% if form.username.errors %}
+                    <ul>
+                        {% for error in form.username.errors %}<li>{{ error }}</li>{% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+        </div>
+        <div class="form-group{% if form.email.errors %} has-error{% endif %}">
+            <label class="control-label">{% trans "Email" %}</label>
+            {% render_field form.email class+="form-control" %}
+            {% if form.email.errors %}
+                <div class="help-block">
+                    {% if form.email.errors %}
+                        {% for error in form.email.errors %}{{ error }}{% endfor %}
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
+        <div class="form-group{% if form.first_name.errors %} has-error{% endif %}">
+            <label class="control-label">{% trans "First name" %}</label>
+            {% render_field form.first_name class+="form-control" %}
+        </div>
+        <div class="form-group{% if form.last_name.errors %} has-error{% endif %}">
+            <label class="control-label">{% trans "Last name" %}</label>
+            {% render_field form.last_name class+="form-control" %}
+        </div>
+        <p>
+            <button type="button" class="btn btn-primary">{% trans "Invite guest" %}</button>
+        </p>
+    </form>
 {% endblock %}

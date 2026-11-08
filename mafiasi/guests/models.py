@@ -1,10 +1,12 @@
 from smtplib import SMTPRecipientsRefused
 
 from django.conf import settings
+from django.contrib import messages
 from django.core.mail import send_mail
 from django.db import models
 from django.template.loader import render_to_string
 from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
 
 from mafiasi.base.tokenbucket import TokenBucket
 
@@ -19,7 +21,7 @@ def build_invite_link(pk: str) -> str:
 
 class Invitation(models.Model):
     authentik_pk = models.UUIDField(null=True, blank=True, unique=True)
-    username = models.CharField(max_length=30 - len(settings.GUEST_EXTENSION), unique=True)
+    username = models.CharField(max_length=30)
     email = models.EmailField()
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
@@ -38,8 +40,11 @@ class Invitation(models.Model):
         subject = settings.EMAIL_SUBJECT_PREFIX + subject_de + "Invitation to " + settings.PROJECT_NAME
         try:
             send_mail(subject, email_content, None, [self.email])
-        except SMTPRecipientsRefused:
-            pass  # FIXME: Inform the user
+        except (SMTPRecipientsRefused, ConnectionRefusedError):
+            messages.error(
+                request,
+                _("Sending the invitation email failed, please try again later"),
+            )
 
 
 def get_invitation_bucket(user, whatfor):
