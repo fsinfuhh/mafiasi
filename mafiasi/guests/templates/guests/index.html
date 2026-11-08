@@ -36,8 +36,8 @@
               <form method="post" action="{% url 'guests_invitation_action' %}">
                 {% csrf_token %}
                 <input type="hidden" name="invitation_pk" value="{{ invitation.pk }}" />
-                <button type="button" name="resend" class="btn btn-default">{% trans "Resend mail" %}</button>
-                <button type="button" name="withdraw" class="btn btn-warning">{% trans "Withdraw" %}</button>
+                <button type="submit" name="resend" class="btn btn-default">{% trans "Resend mail" %}</button>
+                <button type="submit" name="withdraw" class="btn btn-warning">{% trans "Withdraw" %}</button>
               </form>
             </td>
           </tr>
