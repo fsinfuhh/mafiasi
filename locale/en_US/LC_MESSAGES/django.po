@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-05 18:20+0100\n"
+"POT-Creation-Date: 2026-11-08 15:33+0100\n"
 "PO-Revision-Date: 2024-01-18 22:42+0100\n"
 "Last-Translator: Markus Neblung <markus.neblung@uni-hamburg.de>\n"
 "Language-Team: \n"
@@ -87,12 +87,12 @@ msgstr ""
 #: mafiasi/base/templates/base.html:131
 msgid ""
 "There is no place for discrimination in any way shape or form at mafiasi.de "
-"(cmp. <a href=\"https://www.gesetze-im-internet.de/englisch_gg/englisch_gg."
-"html#p0027\" rel=\"external\">Art. 3 GG</a>).<br> If you are affected, feel "
-"free to contact the <a href=\"mailto:fsr-vertraulich@informatik.uni-hamburg."
-"de\">student council</a> or the university's <a href=\"https://www.uni-"
-"hamburg.de/antidiskriminierung.html\" rel=\"external\">anti-discrimination "
-"office</a>."
+"(cmp. <a href=\"https://www.gesetze-im-internet.de/englisch_gg/"
+"englisch_gg.html#p0027\" rel=\"external\">Art. 3 GG</a>).<br> If you are "
+"affected, feel free to contact the <a href=\"mailto:fsr-"
+"vertraulich@informatik.uni-hamburg.de\">student council</a> or the "
+"university's <a href=\"https://www.uni-hamburg.de/antidiskriminierung.html\" "
+"rel=\"external\">anti-discrimination office</a>."
 msgstr ""
 
 #: mafiasi/base/templates/base/licenses.html:4
@@ -761,7 +761,7 @@ msgstr ""
 #: mafiasi/gprot/templates/gprot/reminders.html:24
 #: mafiasi/groups/templates/groups/invitations.html:19
 #: mafiasi/groups/templates/groups/show.html:122
-#: mafiasi/guests/templates/guests/index.html:16
+#: mafiasi/guests/templates/guests/index.html:19
 msgid "Actions"
 msgstr ""
 
@@ -931,12 +931,11 @@ msgstr ""
 #: mafiasi/groups/templates/groups/groups_base.html:15
 #: mafiasi/groups/templates/groups/invitations.html:5
 #: mafiasi/groups/templates/groups/show.html:67
-#: mafiasi/guests/templates/guests/index.html:5
+#: mafiasi/guests/templates/guests/index.html:6
 msgid "Invitations"
 msgstr ""
 
 #: mafiasi/groups/templates/groups/groups_base.html:27
-#: mafiasi/guests/templates/guests/accept.html:5
 msgid "Accept invitation"
 msgstr ""
 
@@ -1045,7 +1044,7 @@ msgid "Invitee"
 msgstr ""
 
 #: mafiasi/groups/templates/groups/show.html:87
-#: mafiasi/guests/templates/guests/index.html:30
+#: mafiasi/guests/templates/guests/index.html:40
 msgid "Withdraw"
 msgstr ""
 
@@ -1106,60 +1105,43 @@ msgstr ""
 msgid "Invitation was sent."
 msgstr ""
 
-#: mafiasi/guests/forms.py:25
+#: mafiasi/guests/forms.py:27
 msgid "Username must be alphanumeric and start with a letter."
 msgstr ""
 
-#: mafiasi/guests/forms.py:28
+#: mafiasi/guests/forms.py:30
 msgid "Username must be at least 3 characters long."
 msgstr ""
 
-#: mafiasi/guests/forms.py:31
+#: mafiasi/guests/forms.py:36
 msgid "This name is not available."
 msgstr ""
 
-#: mafiasi/guests/forms.py:40
+#: mafiasi/guests/forms.py:38
+msgid "Can't verify the username right now, please try again later."
+msgstr ""
+
+#: mafiasi/guests/forms.py:47
 msgid "The guest can use this email address to register a normal user account."
 msgstr ""
 
-#: mafiasi/guests/forms.py:43
+#: mafiasi/guests/forms.py:51
 msgid "There is already an account with that email."
 msgstr ""
 
-#: mafiasi/guests/forms.py:49
+#: mafiasi/guests/forms.py:53
+msgid "Can't verify the email right now, please try again later."
+msgstr ""
+
+#: mafiasi/guests/forms.py:61
 msgid "invitations"
 msgstr ""
 
-#: mafiasi/guests/templates/guests/accept.html:11
-#: mafiasi/guests/templates/guests/index.html:13
-#: mafiasi/guests/templates/guests/index.html:47
-#: mafiasi/guests/templates/guests/invite.html:15
-#: mafiasi/registration/templates/registration/create_account.html:13
-msgid "Username"
-msgstr ""
-
-#: mafiasi/guests/templates/guests/accept.html:16
-#: mafiasi/registration/forms.py:61 mafiasi/registration/forms.py:78
-#: mafiasi/registration/templates/registration/create_account.html:17
-msgid "Password"
-msgstr ""
-
-#: mafiasi/guests/templates/guests/accept.html:25
-#: mafiasi/registration/forms.py:62
-#: mafiasi/registration/templates/registration/create_account.html:26
-msgid "Password confirmation"
-msgstr ""
-
-#: mafiasi/guests/templates/guests/accept.html:34
-#: mafiasi/registration/templates/registration/create_account.html:5
-#: mafiasi/registration/templates/registration/create_account.html:36
-#: mafiasi/registration/templates/registration/require_info.html:37
-#: mafiasi/registration/templates/registration/require_info_other.html:28
-msgid "Create account"
+#: mafiasi/guests/models.py:46
+msgid "Sending the invitation email failed, please try again later"
 msgstr ""
 
 #: mafiasi/guests/templates/guests/has_account.html:4
-#: mafiasi/guests/templates/guests/username_exists.html:4
 msgid "Account already exists"
 msgstr ""
 
@@ -1171,40 +1153,51 @@ msgid ""
 "password?</a>"
 msgstr ""
 
-#: mafiasi/guests/templates/guests/index.html:8
+#: mafiasi/guests/templates/guests/index.html:10
 msgid "Open invitations"
 msgstr ""
 
-#: mafiasi/guests/templates/guests/index.html:14
-#: mafiasi/guests/templates/guests/index.html:48
+#: mafiasi/guests/templates/guests/index.html:15
+#: mafiasi/guests/templates/guests/index.html:58
+#: mafiasi/guests/templates/guests/invite.html:17
+#: mafiasi/registration/templates/registration/create_account.html:13
+msgid "Username"
+msgstr ""
+
+#: mafiasi/guests/templates/guests/index.html:16
+#: mafiasi/guests/templates/guests/index.html:59
 msgid "Full name"
 msgstr ""
 
-#: mafiasi/guests/templates/guests/index.html:15
-#: mafiasi/guests/templates/guests/invite.html:35
+#: mafiasi/guests/templates/guests/index.html:17
+#: mafiasi/guests/templates/guests/invite.html:37
 #: mafiasi/registration/templates/registration/account.html:54
 msgid "Email"
 msgstr ""
 
-#: mafiasi/guests/templates/guests/index.html:29
+#: mafiasi/guests/templates/guests/index.html:18
+msgid "id"
+msgstr ""
+
+#: mafiasi/guests/templates/guests/index.html:39
 msgid "Resend mail"
 msgstr ""
 
-#: mafiasi/guests/templates/guests/index.html:38
+#: mafiasi/guests/templates/guests/index.html:48
 msgid "You have no open invitations."
 msgstr ""
 
-#: mafiasi/guests/templates/guests/index.html:40
-#: mafiasi/guests/templates/guests/invite.html:6
-#: mafiasi/guests/templates/guests/invite.html:53
+#: mafiasi/guests/templates/guests/index.html:51
+#: mafiasi/guests/templates/guests/invite.html:7
+#: mafiasi/guests/templates/guests/invite.html:56
 msgid "Invite guest"
 msgstr ""
 
-#: mafiasi/guests/templates/guests/index.html:42
+#: mafiasi/guests/templates/guests/index.html:53
 msgid "Your guests"
 msgstr ""
 
-#: mafiasi/guests/templates/guests/index.html:61
+#: mafiasi/guests/templates/guests/index.html:72
 msgid "You have no guests."
 msgstr ""
 
@@ -1216,50 +1209,55 @@ msgstr ""
 msgid "This invitation has been withdrawn or is no longer valid."
 msgstr ""
 
-#: mafiasi/guests/templates/guests/invite.html:46
+#: mafiasi/guests/templates/guests/invite.html:48
 #: mafiasi/registration/templates/registration/require_info_other.html:20
 msgid "First name"
 msgstr ""
 
-#: mafiasi/guests/templates/guests/invite.html:50
+#: mafiasi/guests/templates/guests/invite.html:52
 #: mafiasi/registration/templates/registration/require_info_other.html:24
 msgid "Last name"
 msgstr ""
 
-#: mafiasi/guests/templates/guests/invited_by.html:4
-msgid "Hello "
-msgstr ""
-
-#: mafiasi/guests/templates/guests/invited_by.html:7
-#, python-format
-msgid "You were invited by %(full_name)s (%(username)s)."
-msgstr ""
-
-#: mafiasi/guests/templates/guests/invited_by.html:10
-#, python-format
-msgid "How about visiting <a href=\"%(dashboard_url)s\">the dashboard</a>?"
-msgstr ""
-
-#: mafiasi/guests/templates/guests/username_exists.html:8
-#, python-format
+#: mafiasi/guests/views.py:45
 msgid ""
-"Sorry, an account with username %(username)s already exists. If this is not "
-"your account, please request another invitation with a different username."
+"You have reached the maximum number of invitations and guests. You can "
+"withdraw some invitations to invite new guests."
 msgstr ""
 
-#: mafiasi/guests/views.py:51
+#: mafiasi/guests/views.py:49
+msgid "You have reached the maximum number of Guests you can invite."
+msgstr ""
+
+#: mafiasi/guests/views.py:68
+msgid "Could not create the account right now, please try again later."
+msgstr ""
+
+#: mafiasi/guests/views.py:71
 msgid "{} was successfully invited."
 msgstr ""
 
-#: mafiasi/guests/views.py:75
+#: mafiasi/guests/views.py:92
+msgid "Could not withdraw the invitation right now, please try again later."
+msgstr ""
+
+#: mafiasi/guests/views.py:95
 msgid "Invitation was withdrawn."
 msgstr ""
 
-#: mafiasi/guests/views.py:77
+#: mafiasi/guests/views.py:99
+msgid "This invitation was already used or expired."
+msgstr ""
+
+#: mafiasi/guests/views.py:102
+msgid "Could not resend right now, please try again later."
+msgstr ""
+
+#: mafiasi/guests/views.py:104
 msgid "invitation mails"
 msgstr ""
 
-#: mafiasi/guests/views.py:84
+#: mafiasi/guests/views.py:111
 msgid "Invitation mail was resent."
 msgstr ""
 
@@ -1463,6 +1461,16 @@ msgstr ""
 msgid "Invalid domain"
 msgstr ""
 
+#: mafiasi/registration/forms.py:61 mafiasi/registration/forms.py:78
+#: mafiasi/registration/templates/registration/create_account.html:17
+msgid "Password"
+msgstr ""
+
+#: mafiasi/registration/forms.py:62
+#: mafiasi/registration/templates/registration/create_account.html:26
+msgid "Password confirmation"
+msgstr ""
+
 #: mafiasi/registration/forms.py:69
 msgid "The two password fields didn't match."
 msgstr ""
@@ -1534,6 +1542,13 @@ msgstr ""
 
 #: mafiasi/registration/templates/registration/account.html:118
 msgid "Manage Guests"
+msgstr ""
+
+#: mafiasi/registration/templates/registration/create_account.html:5
+#: mafiasi/registration/templates/registration/create_account.html:36
+#: mafiasi/registration/templates/registration/require_info.html:37
+#: mafiasi/registration/templates/registration/require_info_other.html:28
+msgid "Create account"
 msgstr ""
 
 #: mafiasi/registration/templates/registration/email_error.html:5
