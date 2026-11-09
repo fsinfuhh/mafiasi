@@ -9,10 +9,7 @@ Hallo {{ invitation.first_name }} {{ invitation.last_name }}!
 
 Benutze den folgenden Link um einen Account zu erstellen:
 {{ activation_link }}
-{% if add_link %}
 
-Unter {{ add_link }} gibt es eine weiterführende Anleitung.
-{% endif %}
 {% endblock %}
 {% block content_en %}{% value_from_settings GUEST_INVITE_INSTRUCTION_LINK as add_link %}
 Hi {{ invitation.first_name }} {{ invitation.last_name }}!
