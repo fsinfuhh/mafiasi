@@ -8,7 +8,7 @@
     {% endblock %}
 {% endblock %}
 {% block content %}
-    <form method="post" style="width:55%;">
+    <form method="post" id="invite-guest-form" style="width:55%;">
         {% csrf_token %}
         {% if form.non_field_errors %}
             <div class="alert alert-warning" role="alert">{{ form.non_field_errors }}</div>
@@ -37,11 +37,7 @@
             <label class="control-label">{% trans "Email" %}</label>
             {% render_field form.email class+="form-control" %}
             {% if form.email.errors %}
-                <div class="help-block">
-                    {% if form.email.errors %}
-                        {% for error in form.email.errors %}{{ error }}{% endfor %}
-                    {% endif %}
-                </div>
+                <div class="help-block">{% for error in form.email.errors %}{{ error }}{% endfor %}</div>
             {% endif %}
         </div>
         <div class="form-group{% if form.first_name.errors %} has-error{% endif %}">
@@ -53,7 +49,20 @@
             {% render_field form.last_name class+="form-control" %}
         </div>
         <p>
-            <button type="submit" class="btn btn-primary">{% trans "Invite guest" %}</button>
+            <button type="submit" class="btn btn-primary" id="invite-guest-submit">{% trans "Invite guest" %}</button>
         </p>
     </form>
+    <script>
+    (function () {
+        var form = document.getElementById("invite-guest-form");
+        var btn = document.getElementById("invite-guest-submit");
+
+        form.addEventListener("submit", function () {
+            setTimeout(function () { btn.disabled = true; }, 0);
+        });
+        window.addEventListener("pageshow", function (e) {
+            if (e.persisted) btn.disabled = false;
+        });
+    })();
+    </script>
 {% endblock %}
