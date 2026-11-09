@@ -239,7 +239,7 @@ def get_open_invitations(username: str) -> list[Invitation]:
                 authentik_pk=pk,
                 defaults={
                     "username": data.get("username", ""),
-                    "email": data.get("email", "")[:100],  # is realmail
+                    "email": data.get("realmail", "")[:100],
                     "first_name": data.get("fn", "")[:30],
                     "last_name": (data.get("sn") or data.get("cn", ""))[:30],
                     "invited_by": username,

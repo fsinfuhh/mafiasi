@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-08 15:33+0100\n"
+"POT-Creation-Date: 2026-11-09 15:14+0100\n"
 "PO-Revision-Date: 2026-11-05 18:12+0100\n"
 "Last-Translator: Markus Neblung <markus.neblung@uni-hamburg.de>\n"
 "Language-Team: \n"
@@ -1270,7 +1270,8 @@ msgstr "Einladungen"
 
 #: mafiasi/guests/models.py:46
 msgid "Sending the invitation email failed, please try again later"
-msgstr "Die Einladungsmail konnte nicht gesendet werden, probiers gerne später erneut"
+msgstr ""
+"Die Einladungsmail konnte nicht gesendet werden, probiers gerne später erneut"
 
 #: mafiasi/guests/templates/guests/has_account.html:4
 msgid "Account already exists"
@@ -1323,7 +1324,7 @@ msgstr "Du hast keine offenen Einladungen."
 
 #: mafiasi/guests/templates/guests/index.html:51
 #: mafiasi/guests/templates/guests/invite.html:7
-#: mafiasi/guests/templates/guests/invite.html:56
+#: mafiasi/guests/templates/guests/invite.html:52
 msgid "Invite guest"
 msgstr "Gast einladen"
 
@@ -1343,12 +1344,12 @@ msgstr "Einladung wurde zurückgezogen"
 msgid "This invitation has been withdrawn or is no longer valid."
 msgstr "Diese Einladung wurde zurückgezogen oder ist nicht mehr gültig."
 
-#: mafiasi/guests/templates/guests/invite.html:48
+#: mafiasi/guests/templates/guests/invite.html:44
 #: mafiasi/registration/templates/registration/require_info_other.html:20
 msgid "First name"
 msgstr "Vorname"
 
-#: mafiasi/guests/templates/guests/invite.html:52
+#: mafiasi/guests/templates/guests/invite.html:48
 #: mafiasi/registration/templates/registration/require_info_other.html:24
 msgid "Last name"
 msgstr "Nachname"
