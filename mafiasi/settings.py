@@ -5,7 +5,7 @@ from pathlib import Path
 from environs import Env
 
 env = Env()
-env.read_env(env.path("MAFIASI_ENV_FILE", default=".env"))
+env.read_env(env.path("MAFIASI_ENV_FILE", default=Path(".env")))
 
 BASE_DIR = Path(__file__).parent.parent
 
