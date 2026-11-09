@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "88e8e7824b3a391037e237c880218dc11ebc8c74f262e51ace5169025e191fca"
+            "sha256": "30c5f517dbe16d57aba1f4d7b3d32fd69773c8a22dd47ae0bd21d4a1226490f1"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -468,12 +468,12 @@
         },
         "django-oauth-toolkit": {
             "hashes": [
-                "sha256:4931d6bf64b6aee32a42f989f218769d1876f3daa53c6bf883d8ab793fb302ee",
-                "sha256:8975eaf697413a8d54208ee068bc5ad6d1ed76f1df84e4882fbb25e7e6966e1b"
+                "sha256:c47f2a70e83bade0a47a5e9b20e86030d8ed9c0a8f10ec4ed30446cad7291f2d",
+                "sha256:c4de73c0765eed55a99ea0fa8433b20664dcc1f43930149cff569abed166c5c2"
             ],
             "index": "pypi",
-            "markers": "python_version >= '3.8'",
-            "version": "==2.4.0"
+            "markers": "python_version >= '3.10'",
+            "version": "==3.4.1"
         },
         "django-widget-tweaks": {
             "hashes": [
@@ -1099,13 +1099,6 @@
             "index": "pypi",
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4'",
             "version": "==0.4.27"
-        },
-        "pytz": {
-            "hashes": [
-                "sha256:3b0fc2727707663d6e517936f444fd8a8b240f1fc32f4bf7ee03274245945284",
-                "sha256:7fed3fee8fd6bd4a2b7b75a8d56021d0624127bf69bd5691f115db929ac570b3"
-            ],
-            "version": "==2026.6"
         },
         "rapidfuzz": {
             "hashes": [
