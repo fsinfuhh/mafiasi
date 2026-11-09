@@ -5,7 +5,7 @@
 {% block content_de %}{% value_from_settings GUEST_INVITE_INSTRUCTION_LINK as add_link %}
 Hallo {{ invitation.first_name }} {{ invitation.last_name }}!
 
-{{ invitation.invited_by.get_full_name }} ({{ invitation.invited_by.username }}) hat dich zu {% value_from_settings PROJECT_NAME %} eingeladen!
+{{ invitation.invited_by }} hat dich zu {% value_from_settings PROJECT_NAME %} eingeladen!
 
 Benutze den folgenden Link um einen Account zu erstellen:
 {{ activation_link }}
@@ -17,7 +17,7 @@ Unter {{ add_link }} gibt es eine weiterführende Anleitung.
 {% block content_en %}{% value_from_settings GUEST_INVITE_INSTRUCTION_LINK as add_link %}
 Hi {{ invitation.first_name }} {{ invitation.last_name }}!
 
-{{ invitation.invited_by.get_full_name }} ({{ invitation.invited_by.username }}) invited you to use the services at {% value_from_settings PROJECT_NAME %}!
+{{ invitation.invited_by }} invited you to use the services at {% value_from_settings PROJECT_NAME %}!
 
 Use the following link to create your account:
 {{ activation_link }}
