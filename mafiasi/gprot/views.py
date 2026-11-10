@@ -20,8 +20,8 @@ from django.utils.crypto import constant_time_compare
 from django.utils.translation import gettext as _
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
-from fuzzywuzzy import fuzz
 from PyPDF2 import PdfFileMerger
+from rapidfuzz import fuzz
 from raven.contrib.django.raven_compat.models import client
 
 from mafiasi.gprot.forms import GProtBasicForm, GProtCreateForm, GProtSearchForm
