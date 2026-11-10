@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "5aff8c5d48cd6a9c98a86d2097aea68516c7f956c3dccb7f28201c84586746d7"
+            "sha256": "3996bfa2e888ae5ef95ad48a65546e8cd0789d08f952346c0fab905d5617681f"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -16,6 +16,15 @@
         ]
     },
     "default": {
+        "aiosmtpd": {
+            "hashes": [
+                "sha256:5a811826e1a5a06c25ebc3e6c4a704613eb9a1bcf6b78428fbe865f4f6c9a4b8",
+                "sha256:72c99179ba5aa9ae0abbda6994668239b64a5ce054471955fe75f581d2592475"
+            ],
+            "index": "pypi",
+            "markers": "python_version >= '3.8'",
+            "version": "==1.4.6"
+        },
         "annotated-types": {
             "hashes": [
                 "sha256:13b2beaad985e05e2d6407ee4c4f35590b11f8d693a258a561055cac8f64cab7",
@@ -31,6 +40,22 @@
             ],
             "markers": "python_version >= '3.11'",
             "version": "==3.13.0"
+        },
+        "atpublic": {
+            "hashes": [
+                "sha256:449c3c4f0c74df79749d6fe225ba55e2a2fce34b303f0329211e4d6989ed6f6e",
+                "sha256:61ea62d8445d2aaa83b6dffaa3d90f99fcec10e16683ee9b13792cdcdafa0966"
+            ],
+            "markers": "python_version >= '3.11'",
+            "version": "==9.0.0"
+        },
+        "attrs": {
+            "hashes": [
+                "sha256:c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309",
+                "sha256:d03ceb89cb322a8fd706d4fb91940737b6642aa36998fe130a9bc96c985eff32"
+            ],
+            "markers": "python_version >= '3.9'",
+            "version": "==26.1.0"
         },
         "bleach": {
             "extras": [
@@ -541,17 +566,6 @@
             ],
             "markers": "python_version >= '3.9'",
             "version": "==1.6.1"
-        },
-        "ldap3": {
-            "hashes": [
-                "sha256:2bc966556fc4d4fa9f445a1c31dc484ee81d44a51ab0e2d0fd05b62cac75daa6",
-                "sha256:5630d1383e09ba94839e253e013f1aa1a2cf7a547628ba1265cb7b9a844b5687",
-                "sha256:5869596fc4948797020d3f03b7939da938778a0f9e2009f7a072ccf92b8e8d70",
-                "sha256:5ab7febc00689181375de40c396dcad4f2659cd260fc5e94c508b6d77c17e9d5",
-                "sha256:f3e7fc4718e3f09dda568b57100095e0ce58633bcabbed8667ce3f8fbaa4229f"
-            ],
-            "index": "pypi",
-            "version": "==2.9.1"
         },
         "levenshtein": {
             "hashes": [
