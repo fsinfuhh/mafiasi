@@ -1,11 +1,11 @@
 from datetime import date
 from smtplib import SMTPException
 
+import sentry_sdk
 from django.core.mail import send_mail
-from django.core.management.base import BaseCommand, CommandError
+from django.core.management.base import BaseCommand
 from django.template.loader import render_to_string
 from django.utils.translation import gettext as _
-from raven.contrib.django.raven_compat.models import client
 
 from mafiasi.gprot.models import Reminder
 
@@ -35,4 +35,4 @@ class Command(BaseCommand):
                 )
                 reminder.delete()
             except SMTPException:
-                client.captureException()
+                sentry_sdk.capture_exception()

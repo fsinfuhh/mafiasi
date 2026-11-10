@@ -6,7 +6,7 @@ name = "pypi"
 [packages]
 Django = ">=5.2,<6.0"
 Pillow = ">=12.0,<13.0"
-pypdf = "~=7.0"
+pypdf = "~=7.0"#
 bleach = {extras = ["css"], version = "~=6.1"}
 django-auth-ldap = "~=4.1"
 django-cors-headers = "~=4.1"
@@ -24,7 +24,7 @@ pygraphviz = "~=2.0" #
 python-creole = "~=1.4"
 python-ldap = "~=3.4" #
 python-magic = "~=0.4"
-raven = "~=6.10"
+sentry-sdk = "~=2.74" #
 requests = "~=2.31"
 simple-openid-connect = { version = "~=2.5", extras = ["django"] } #
 typing-extensions = "*"

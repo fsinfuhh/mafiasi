@@ -7,6 +7,7 @@ from smtplib import SMTPException
 from urllib.parse import parse_qs, urlparse
 
 import magic
+import sentry_sdk
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
@@ -22,7 +23,6 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 from pypdf import PdfWriter
 from rapidfuzz import fuzz
-from raven.contrib.django.raven_compat.models import client
 
 from mafiasi.gprot.forms import GProtBasicForm, GProtCreateForm, GProtSearchForm
 from mafiasi.gprot.models import (
@@ -370,7 +370,7 @@ def send_notification_email(gprot, notification, request):
             [notification.user.email],
         )
     except SMTPException:
-        client.captureException()
+        sentry_sdk.capture_exception()
 
 
 def notify_users(gprot, request):
