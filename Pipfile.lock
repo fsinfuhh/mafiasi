@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "3996bfa2e888ae5ef95ad48a65546e8cd0789d08f952346c0fab905d5617681f"
+            "sha256": "90cbac1174c5bdbad9e0105ef5579efbbf703a4828da4e82b9a11cb8f885cbc5"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -18,12 +18,12 @@
     "default": {
         "aiosmtpd": {
             "hashes": [
-                "sha256:5a811826e1a5a06c25ebc3e6c4a704613eb9a1bcf6b78428fbe865f4f6c9a4b8",
-                "sha256:72c99179ba5aa9ae0abbda6994668239b64a5ce054471955fe75f581d2592475"
+                "sha256:2ad917d0e01050ab02ae4d5746ebaf2d7ac9807021d962dcaa8168f9732dd612",
+                "sha256:c232aff2d2d41a1b41db7dbb52d7c6f3d939affcd4722e79e650c7d113316695"
             ],
             "index": "pypi",
-            "markers": "python_version >= '3.8'",
-            "version": "==1.4.6"
+            "markers": "python_version ~= '3.6'",
+            "version": "==1.4.0"
         },
         "annotated-types": {
             "hashes": [
@@ -1043,11 +1043,6 @@
             ],
             "markers": "python_version >= '3.10'",
             "version": "==2.50.4"
-        },
-        "pygpgme": {
-            "git": "https://github.com/timonegk/pygpgme.git",
-            "markers": "python_version >= '3.9'",
-            "ref": "50891c23a5bd093b0ce966540498bb0dc48d03f5"
         },
         "pygraphviz": {
             "hashes": [

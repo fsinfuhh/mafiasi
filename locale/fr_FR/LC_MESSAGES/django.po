@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-09 15:14+0100\n"
+"POT-Creation-Date: 2026-11-10 09:08+0100\n"
 "PO-Revision-Date: 2026-10-22 16:49+0200\n"
 "Last-Translator: Timon Engelke <timon.engelke@uni-hamburg.de>\n"
 "Language-Team: \n"
@@ -117,7 +117,7 @@ msgstr ""
 "antidiskriminierung.html\" rel=\"external\">bureau anti-discrimination</a> "
 "de l'université sont là pour vous."
 
-#: mafiasi/base/templates/base/licenses.html:4
+#: mafiasi/base/templates/base/licenses.html:5
 msgid "License information"
 msgstr "Informations sur la licence"
 
@@ -142,15 +142,15 @@ msgstr ""
 "suffit d'écrire un courriel à <strong><a href=\"mailto:"
 "%(team_email)s\">%(team_email)s </a></strong> et décrire votre problème.</p>"
 
-#: mafiasi/base/templates/base/technical_info.html:4
+#: mafiasi/base/templates/base/technical_info.html:5
 msgid "Technical Info"
 msgstr "Infos techniques"
 
-#: mafiasi/base/templates/base/technical_info.html:8
+#: mafiasi/base/templates/base/technical_info.html:10
 msgid "License overview of third-party components"
 msgstr "Aperçu des licences des composants tiers"
 
-#: mafiasi/base/templates/base/technical_info.html:11
+#: mafiasi/base/templates/base/technical_info.html:12
 msgid "This site uses the following software/components:"
 msgstr "Ce site utilise les logiciels / composants suivants:"
 
