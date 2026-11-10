@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "a5cb2e306738b8792eef74cb5b18b58d1f8362d1dd7832be50072dcd577eb0fb"
+            "sha256": "6a905f7f011e19a3cd77df96f8dea18dd3983c1a3ae250675c20843aadbc329c"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -960,14 +960,14 @@
             "markers": "python_version >= '3.10'",
             "version": "==2.0.4"
         },
-        "pypdf2": {
+        "pypdf": {
             "hashes": [
-                "sha256:a74408f69ba6271f71b9352ef4ed03dc53a31aa404d29b5d31f53bfecfee1440",
-                "sha256:d16e4205cfee272fbdc0568b68d82be796540b1537508cef59388f839c191928"
+                "sha256:061aa78dec270854c912dde80c6bc060486fa955399d643da27ea30afeb6571b",
+                "sha256:112a2c7cbabefd8dfe498f7a13977e575e762d58cdb0d832acb8886922602c6f"
             ],
             "index": "pypi",
-            "markers": "python_version >= '3.6'",
-            "version": "==3.0.1"
+            "markers": "python_version >= '3.10'",
+            "version": "==7.0.0"
         },
         "python-creole": {
             "hashes": [

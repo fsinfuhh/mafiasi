@@ -5,8 +5,8 @@ name = "pypi"
 
 [packages]
 Django = ">=5.2,<6.0"
-Pillow = ">=11.0,<13.0"
-PyPDF2 = ">=3.0,<4.0"
+Pillow = ">=12.0,<13.0"
+pypdf = "~=7.0"
 bleach = {extras = ["css"], version = "~=6.1"}
 django-auth-ldap = "~=4.1"
 django-cors-headers = "~=4.1"
@@ -15,7 +15,7 @@ django-oauth-toolkit = "~=3.4"
 django-widget-tweaks = "~=1.5"
 environs = { version = "~=15.0", extras = ["django"] }
 etherpad_lite = "~=0.5"
-rapidfuzz = "~=3.0"
+rapidfuzz = "~=3.0" #
 nameparser = "~=1.1"
 networkx = "~=3.1"
 oauthlib = "~=3.3" #
@@ -32,7 +32,7 @@ aiosmtpd = "1.4" #
 
 [dev-packages]
 responses = "~=0.23"
-pytest = "~=9.0"
+pytest = "~=9.0" #
 pytest-django = "*"
 pytest-env = "*"
 freezegun = "*"
