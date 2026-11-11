@@ -23,13 +23,13 @@ python-creole = "~=1.4" #
 python-ldap = "~=3.4" #
 python-magic = "~=0.4"
 sentry-sdk = "~=2.74" #
-requests = "~=2.31"
+requests = "~=2.34" # 
 simple-openid-connect = { version = "~=2.5", extras = ["django"] } #
 typing-extensions = "*"
 aiosmtpd = "1.4" #
 
 [dev-packages]
-responses = "~=0.23"
+responses = "~=0.26" #
 pytest = "~=9.0" #
 pytest-django = "*"
 pytest-env = "*"
