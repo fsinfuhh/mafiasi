@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "5dc9dc612586c439496f2f0bb15da06f79de62cf4960e4e892d5c0ba26b73886"
+            "sha256": "f2fa622c9f28eb22412f704feb375f251990902d5fb5d327a056d416bbec4bd2"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -576,15 +576,6 @@
             "markers": "python_version >= '3.10'",
             "version": "==1.4.0"
         },
-        "networkx": {
-            "hashes": [
-                "sha256:26b7c357accc0c8cde558ad486283728b65b6a95d85ee1cd66bafab4c8168509",
-                "sha256:d47fbf302e7d9cbbb9e2555a0d267983d2aa476bac30e90dfbe5669bd57f3762"
-            ],
-            "index": "pypi",
-            "markers": "python_version >= '3.11' and python_full_version != '3.14.1'",
-            "version": "==3.6.1"
-        },
         "oauthlib": {
             "hashes": [
                 "sha256:0f0f8aa759826a193cf66c12ea1af1637f87b9b4622d46e866952bb022e538c9",
@@ -962,12 +953,12 @@
         },
         "pypdf": {
             "hashes": [
-                "sha256:061aa78dec270854c912dde80c6bc060486fa955399d643da27ea30afeb6571b",
-                "sha256:112a2c7cbabefd8dfe498f7a13977e575e762d58cdb0d832acb8886922602c6f"
+                "sha256:0a78bb99efb41e9088260e9a8e5da134a5cbb9a322014744177bf29b5267ea6d",
+                "sha256:6131b764b046282357037309e7ef2a1b7679d4a5c53eed3db2bfbf7c673ddc2b"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.10'",
-            "version": "==7.0.0"
+            "version": "==7.0.1"
         },
         "python-creole": {
             "hashes": [
