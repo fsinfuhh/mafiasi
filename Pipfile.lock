@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "b9dfedc6ad13e89e945b3acfbbbd2788f768a628b41870cdcd3579b2c0ed9b6f"
+            "sha256": "a3d6bf8ea7fa1bffc92dd9ccb8702d929e9f30478caeafa9981b2037ea06da2f"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -459,12 +459,12 @@
         },
         "django-auth-ldap": {
             "hashes": [
-                "sha256:4b4b944f3c28bce362f33fb6e8db68429ed8fd8f12f0c0c4b1a4344a7ef225ce",
-                "sha256:604250938ddc9fda619f247c7a59b0b2f06e53a7d3f46a156f28aa30dd71a738"
+                "sha256:66740dbfba0f41ea6c030bc53974787cbc2f27ed1f3796ebf9fe0cbc9917605e",
+                "sha256:8a8e38add49be404e885e94216ff8e7611e11e55bf6cb6576c3b560a6a25dc20"
             ],
             "index": "pypi",
-            "markers": "python_version >= '3.8'",
-            "version": "==4.8.0"
+            "markers": "python_version >= '3.11'",
+            "version": "==5.4.0"
         },
         "django-cache-url": {
             "hashes": [
@@ -481,15 +481,6 @@
             "index": "pypi",
             "markers": "python_version >= '3.9'",
             "version": "==4.9.0"
-        },
-        "django-ldapdb": {
-            "hashes": [
-                "sha256:2daee828a7eb1ce6ad0634ce5311339d77c08128829e575ff14d62a46771b86a",
-                "sha256:5ea333c3130abbb86f8629766370a7f490878706469fce4e5008e41fb566392a"
-            ],
-            "index": "pypi",
-            "markers": "python_version >= '3.6'",
-            "version": "==1.5.1"
         },
         "django-oauth-toolkit": {
             "hashes": [
