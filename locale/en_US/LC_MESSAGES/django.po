@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-10 09:08+0100\n"
+"POT-Creation-Date: 2026-11-12 12:53+0100\n"
 "PO-Revision-Date: 2024-01-18 22:42+0100\n"
 "Last-Translator: Markus Neblung <markus.neblung@uni-hamburg.de>\n"
 "Language-Team: \n"
@@ -126,7 +126,7 @@ msgstr ""
 msgid "This site uses the following software/components:"
 msgstr ""
 
-#: mafiasi/base/templates/base/technical_info.html:70
+#: mafiasi/base/templates/base/technical_info.html:68
 msgid "Listed in no particular order."
 msgstr ""
 
@@ -1660,30 +1660,30 @@ msgstr ""
 msgid "Sorry, but the provided token is invalid."
 msgstr ""
 
-#: mafiasi/registration/views.py:232
+#: mafiasi/registration/views.py:230
 msgid "Your nickname is now {}."
 msgstr ""
 
-#: mafiasi/registration/views.py:270
+#: mafiasi/registration/views.py:268
 msgid "Your email address has been changed."
 msgstr ""
 
-#: mafiasi/registration/views.py:292
+#: mafiasi/registration/views.py:290
 #, python-format
 msgid "Verify this address for %s"
 msgstr ""
 
-#: mafiasi/registration/views.py:314
+#: mafiasi/registration/views.py:312
 #, python-format
 msgid "Account creation at %s"
 msgstr ""
 
-#: mafiasi/registration/views.py:329
+#: mafiasi/registration/views.py:327
 #, python-format
 msgid "Account exists at %s"
 msgstr ""
 
-#: mafiasi/registration/views.py:344
+#: mafiasi/registration/views.py:342
 msgid "Registration: Sending mail failed: {}"
 msgstr ""
 

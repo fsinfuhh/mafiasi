@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-10 09:08+0100\n"
+"POT-Creation-Date: 2026-11-12 12:53+0100\n"
 "PO-Revision-Date: 2026-10-22 16:49+0200\n"
 "Last-Translator: Timon Engelke <timon.engelke@uni-hamburg.de>\n"
 "Language-Team: \n"
@@ -154,7 +154,7 @@ msgstr "Aperçu des licences des composants tiers"
 msgid "This site uses the following software/components:"
 msgstr "Ce site utilise les logiciels / composants suivants:"
 
-#: mafiasi/base/templates/base/technical_info.html:70
+#: mafiasi/base/templates/base/technical_info.html:68
 msgid "Listed in no particular order."
 msgstr "Inscrite dans aucun ordre particulier."
 
@@ -1849,30 +1849,30 @@ msgstr "Jeton non valide"
 msgid "Sorry, but the provided token is invalid."
 msgstr "Désolé, mais le jeton fourni ne est pas valide."
 
-#: mafiasi/registration/views.py:232
+#: mafiasi/registration/views.py:230
 msgid "Your nickname is now {}."
 msgstr "Votre nom est {}."
 
-#: mafiasi/registration/views.py:270
+#: mafiasi/registration/views.py:268
 msgid "Your email address has been changed."
 msgstr "Votre adresse é-mail a été modifiée."
 
-#: mafiasi/registration/views.py:292
+#: mafiasi/registration/views.py:290
 #, python-format
 msgid "Verify this address for %s"
 msgstr "Vérifiez cette adresse pour %s"
 
-#: mafiasi/registration/views.py:314
+#: mafiasi/registration/views.py:312
 #, python-format
 msgid "Account creation at %s"
 msgstr "Création de compte à %s"
 
-#: mafiasi/registration/views.py:329
+#: mafiasi/registration/views.py:327
 #, python-format
 msgid "Account exists at %s"
 msgstr "Compte existant à %s"
 
-#: mafiasi/registration/views.py:344
+#: mafiasi/registration/views.py:342
 msgid "Registration: Sending mail failed: {}"
 msgstr "Enregistrement : L'envoi du courrier a échoué: {}"
 
