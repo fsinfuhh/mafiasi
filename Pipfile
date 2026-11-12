@@ -12,6 +12,7 @@ django-auth-ldap = "~=4.1"
 django-cors-headers = "~=4.1"
 django-ldapdb = "~=1.5"
 django-oauth-toolkit = "~=3.4"
+django-widget-tweaks = "~=1.5"
 environs = { version = "~=15.2", extras = ["django"] } #
 etherpad_lite = "~=0.5"
 rapidfuzz = "~=3.0" #
