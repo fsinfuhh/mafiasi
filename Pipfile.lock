@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "133ca0c2c9c4e87cf1d270de520c36d11c99655157c1abade0015dc804ce0b46"
+            "sha256": "399f7165ce651d6c402629d2c17a17a5f8439326faad2067f318785a30920c2a"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -499,15 +499,6 @@
             "index": "pypi",
             "markers": "python_version >= '3.10'",
             "version": "==3.4.1"
-        },
-        "django-widget-tweaks": {
-            "hashes": [
-                "sha256:084acc9eeb5a3208f2670522de6284287973e54d54488ce6d402f4b99bc5f452",
-                "sha256:3f5080f8365740fc1c14607498c975cbfed896dd0c40e1b563095716ee31e3b5"
-            ],
-            "index": "pypi",
-            "markers": "python_version >= '3.9'",
-            "version": "==1.5.1"
         },
         "docutils": {
             "hashes": [
@@ -1106,12 +1097,12 @@
         },
         "sentry-sdk": {
             "hashes": [
-                "sha256:40b205af015649df3ec9986e057ce24ce85956bee3fb75efa72c93aa7036bdff",
-                "sha256:dd91d75aacaef636006b579ac3ddb2fdbc9dce35f00f4b353b6b1b110c6b256a"
+                "sha256:9a10e97de2cbd42ad7e4a6e02a0d5af19de9811eb02445077d41ba14c08e170c",
+                "sha256:c38ac2d4b2435c11da821e173bb9d9088c98f41ae92f559ce0e424170a8e1a29"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.6'",
-            "version": "==2.74.0"
+            "version": "==2.75.0"
         },
         "simple-openid-connect": {
             "extras": [
