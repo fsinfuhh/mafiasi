@@ -5,31 +5,31 @@ name = "pypi"
 
 [packages]
 Django = ">=5.2,<6.0"
-Pillow = ">=12.0,<13.0" # bereits recht neu aber neuster ist 13
-pypdf = "~=7.0"#
-bleach = {extras = ["css"], version = "~=6.1"} # Fine im Moment, aber keine weiterentwicklung da es auf html5lib basiert was depricated ist
-django-auth-ldap = "~=5.4" #
-django-cors-headers = "~=4.9" #
+Pillow = ">=12.0,<13.0"
+pypdf = "~=7.0"
+bleach = {extras = ["css"], version = "~=6.1"}
+django-auth-ldap = "~=5.4"
+django-cors-headers = "~=4.9"
 django-oauth-toolkit = "~=3.4"
 django-widget-tweaks = "~=1.5"
-environs = { version = "~=15.2", extras = ["django"] } #
+environs = { version = "~=15.2", extras = ["django"] }
 etherpad_lite = "~=0.5"
-rapidfuzz = "~=3.0" #
-oauthlib = "~=3.3" #
-psycopg2-binary = "~=2.9"#
-pygraphviz = "~=2.0" #
-python-creole = "~=1.4" #
-python-ldap = "~=3.4" #
+rapidfuzz = "~=3.0"
+oauthlib = "~=3.3"
+psycopg2-binary = "~=2.9"
+pygraphviz = "~=2.0"
+python-creole = "~=1.4"
+python-ldap = "~=3.4"
 python-magic = "~=0.4"
-sentry-sdk = "~=2.74" #
-requests = "~=2.34" #
-simple-openid-connect = { version = "~=2.5", extras = ["django"] } #
+sentry-sdk = "~=2.74"
+requests = "~=2.34"
+simple-openid-connect = { version = "~=2.5", extras = ["django"] }
 typing-extensions = "*"
-aiosmtpd = "1.4" #
+aiosmtpd = "1.4"
 
 [dev-packages]
-responses = "~=0.26" #
-pytest = "~=9.0" #
+responses = "~=0.26"
+pytest = "~=9.0"
 pytest-django = "*"
 pytest-env = "*"
 freezegun = "*"
@@ -37,4 +37,4 @@ black = "*"
 isort = "*"
 
 [requires]
-python_version = "3.14" #
+python_version = "3.14"

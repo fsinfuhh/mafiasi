@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-12 12:53+0100\n"
+"POT-Creation-Date: 2026-11-12 16:25+0100\n"
 "PO-Revision-Date: 2026-10-22 16:49+0200\n"
 "Last-Translator: Timon Engelke <timon.engelke@uni-hamburg.de>\n"
 "Language-Team: \n"
@@ -154,7 +154,7 @@ msgstr "Aperçu des licences des composants tiers"
 msgid "This site uses the following software/components:"
 msgstr "Ce site utilise les logiciels / composants suivants:"
 
-#: mafiasi/base/templates/base/technical_info.html:68
+#: mafiasi/base/templates/base/technical_info.html:67
 msgid "Listed in no particular order."
 msgstr "Inscrite dans aucun ordre particulier."
 

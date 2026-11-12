@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-12 12:53+0100\n"
+"POT-Creation-Date: 2026-11-12 16:25+0100\n"
 "PO-Revision-Date: 2026-10-22 18:03+0200\n"
 "Last-Translator: kritzl <kritzl@kritzl.dev>\n"
 "Language-Team: \n"
@@ -140,7 +140,7 @@ msgstr "License overview of third-party components"
 msgid "This site uses the following software/components:"
 msgstr "This site uses the following software/components:"
 
-#: mafiasi/base/templates/base/technical_info.html:68
+#: mafiasi/base/templates/base/technical_info.html:67
 msgid "Listed in no particular order."
 msgstr "Listed in no particular order."
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-12 12:53+0100\n"
+"POT-Creation-Date: 2026-11-12 16:25+0100\n"
 "PO-Revision-Date: 2026-11-05 18:12+0100\n"
 "Last-Translator: Markus Neblung <markus.neblung@uni-hamburg.de>\n"
 "Language-Team: \n"
@@ -146,7 +146,7 @@ msgstr "Übersicht der Lizenzen von Fremd-Komponenten"
 msgid "This site uses the following software/components:"
 msgstr "Diese Seite benutzt folgende Software/Komponenten:"
 
-#: mafiasi/base/templates/base/technical_info.html:68
+#: mafiasi/base/templates/base/technical_info.html:67
 msgid "Listed in no particular order."
 msgstr "In willkürlicher Reihenfolge aufgelistet."
 
