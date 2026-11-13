@@ -59,7 +59,10 @@ class Mailinglist(models.Model):
         # Inform the sender about moderation
         message = self._build_moderation_mail("sender", [email_obj["From"]], modmail, email_data, None)
         message.connection = connection
-        message.send(fail_silently=True)
+        try:
+            message.send(fail_silently=True)
+        except ValueError as e:
+            logger.exception(f"Skipping malformed email due to invalid content: {e}")
 
         return modmail
 
