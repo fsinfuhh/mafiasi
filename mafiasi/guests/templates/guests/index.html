@@ -30,7 +30,7 @@
                       name="copy"
                       class="btn btn-default"
                       onclick="navigator.clipboard.writeText('{{ invitation.authentik_pk }}'); const t = this.textContent; this.textContent = 'Copied!';
-                 setTimeout(() => this.textContent = t, 3000)">Copy ID</button>
+                 setTimeout(() => this.textContent = t, 3000)">{% trans "Copy Token" %}</button>
             </td>
             <td>
               <form method="post" action="{% url 'guests_invitation_action' %}">
