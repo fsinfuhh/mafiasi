@@ -107,8 +107,8 @@ def create_invitation(*, inviter_uid: str, username, first_name, last_name, emai
         "POST",
         "/stages/invitation/invitations/",
         json={
-            "name": f"guest-{slug}-{secrets.token_hex(3)}",
-            "single_use": True,
+            "name": f"{slug}-invited-by-{inviter_uid}",
+            "single_use": False,  # has to be deleted by flow
             "expires": (datetime.now(UTC) + timedelta(days=INVITATION_VALID_DAYS)).isoformat(),
             "flow": flow_pk,
             "fixed_data": {
