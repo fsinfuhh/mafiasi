@@ -36,4 +36,5 @@ jobs:
     secrets: inherit
     with:
       app_path: k8s/apps/mafiasi/${{ needs.determine-app-path.outputs.app-path }}
-      image_name: ${{ needs.build-container.outputs.image_name }}:${{ needs.build-container.outputs.image_digest }}
+      image_name: ${{ needs.build-container.outputs.image_name }}
+      new_digest: ${{ needs.build-container.outputs.image_digest }}
