@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from mafiasi.guests.models import Guest, Invitation
+from mafiasi.guests.models import Invitation
 
 
 class InvitationAdmin(admin.ModelAdmin):
@@ -12,4 +12,3 @@ class GuestAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Invitation, InvitationAdmin)
-admin.site.register(Guest, GuestAdmin)

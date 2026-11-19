@@ -31,6 +31,7 @@ raven = "~=6.10"
 requests = "~=2.31"
 simple-openid-connect = { version = "~=1.0.0", extras = ["django"] }
 typing-extensions = "*"
+ldap3 = "*"
 
 [dev-packages]
 responses = "~=0.23"

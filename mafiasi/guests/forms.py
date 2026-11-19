@@ -1,11 +1,13 @@
 import re
 
+import requests
 from django import forms
 from django.conf import settings
 from django.utils.translation import gettext as _
 
-from mafiasi.base.models import Mafiasi
 from mafiasi.guests.models import Invitation, get_invitation_bucket
+
+from .auth_fun import mail_exists, uid_exists
 
 _username_re = re.compile(r"^[a-z][a-z0-9.\-]+$")
 
@@ -17,18 +19,23 @@ class InvitationForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         self.user = kwargs.pop("user")
-        super(InvitationForm, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
     def clean_username(self):
         username = self.cleaned_data["username"]
-        if _username_re.match(username) is None:
+        if _username_re.fullmatch(username) is None:
             raise forms.ValidationError(_("Username must be alphanumeric and start with a letter."))
 
         if len(username) < 3:
             raise forms.ValidationError(_("Username must be at least 3 characters long."))
 
-        if Mafiasi.objects.filter(username=username + settings.GUEST_EXTENSION).count():
-            raise forms.ValidationError(_("This name is not available."))
+        full_uid = username + settings.GUEST_EXTENSION
+
+        try:
+            if uid_exists(full_uid):
+                raise forms.ValidationError(_("This name is not available."))
+        except requests.RequestException:
+            raise forms.ValidationError(_("Can't verify the username right now, please try again later."))
 
         return username
 
@@ -37,15 +44,20 @@ class InvitationForm(forms.ModelForm):
 
         domain = email.rsplit("@", 1)[1]
         if domain in settings.REGISTER_DOMAINS:
-            raise forms.ValidationError(_("The guest can use this email address to register a " "normal user account."))
+            raise forms.ValidationError(_("The guest can use this email address to register a normal user account."))
 
-        if Mafiasi.objects.filter(real_email=email).count():
-            raise forms.ValidationError(_("There is already an account with that email."))
+        try:
+            if mail_exists(email):
+                raise forms.ValidationError(_("There is already an account with that email."))
+        except requests.RequestException:
+            raise forms.ValidationError(_("Can't verify the email right now, please try again later."))
 
         return email
 
     def clean(self):
-        cleaned_data = super(InvitationForm, self).clean()
+        cleaned_data = super().clean()
+        if self.errors:
+            return cleaned_data
         bucket = get_invitation_bucket(self.user, _("invitations"))
         try:
             bucket.consume(1)
