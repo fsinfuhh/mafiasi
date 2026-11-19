@@ -15,7 +15,6 @@ from django.template.response import TemplateResponse
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from django.views.decorators.http import require_POST
-from nameparser import HumanName
 
 from mafiasi.base.models import Mafiasi, Yeargroup
 from mafiasi.registration.forms import (
@@ -51,8 +50,7 @@ def request_account(request):
                 if group_slug is None:
                     # this should not happen because all groups used in the LDAP should also exist there
                     raise AssertionError(
-                        f'The yeargroup {user["gid"]} was referenced in the IRZ LDAP '
-                        "but does not actually exist there."
+                        f"The yeargroup {user['gid']} was referenced in the IRZ LDAP but does not actually exist there."
                     )
 
                 try:
@@ -190,7 +188,7 @@ def create_account(request, info_token):
                 # Get information from IRZ LDAP
                 user = get_irz_ldap_entry(uid=info["account"])
                 email = user["email"]
-                name_parsed = HumanName(user["name"])
+                name_parsed = user["name"]  # registration not used anymore removing dependency on nameparser
                 first_name = name_parsed.first
                 last_name = name_parsed.last
             else:

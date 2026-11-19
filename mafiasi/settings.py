@@ -1,11 +1,9 @@
-import os.path
-import subprocess
 from pathlib import Path
 
 from environs import Env
 
 env = Env()
-env.read_env(env.path("MAFIASI_ENV_FILE", default=".env"))
+env.read_env(env.path("MAFIASI_ENV_FILE", default=Path(".env")))
 
 BASE_DIR = Path(__file__).parent.parent
 
@@ -222,7 +220,6 @@ TEMPLATE_ALLOWABLE_SETTINGS_VALUES = [
     "GUEST_INVITE_HINT",
     "USER_LOGIN_HINT",
     "GUEST_INVITE_INSTRUCTION_LINK",
-    "RAVEN_PUBLIC_DSN",
     "VAULT_URL",
     "KEYCLOAK_ACCOUNT_CONSOLE_URL",
 ]

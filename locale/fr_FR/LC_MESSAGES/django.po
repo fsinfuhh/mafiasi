@@ -117,7 +117,7 @@ msgstr ""
 "antidiskriminierung.html\" rel=\"external\">bureau anti-discrimination</a> "
 "de l'université sont là pour vous."
 
-#: mafiasi/base/templates/base/licenses.html:4
+#: mafiasi/base/templates/base/licenses.html:5
 msgid "License information"
 msgstr "Informations sur la licence"
 
@@ -142,19 +142,19 @@ msgstr ""
 "suffit d'écrire un courriel à <strong><a href=\"mailto:"
 "%(team_email)s\">%(team_email)s </a></strong> et décrire votre problème.</p>"
 
-#: mafiasi/base/templates/base/technical_info.html:4
+#: mafiasi/base/templates/base/technical_info.html:5
 msgid "Technical Info"
 msgstr "Infos techniques"
 
-#: mafiasi/base/templates/base/technical_info.html:8
+#: mafiasi/base/templates/base/technical_info.html:10
 msgid "License overview of third-party components"
 msgstr "Aperçu des licences des composants tiers"
 
-#: mafiasi/base/templates/base/technical_info.html:11
+#: mafiasi/base/templates/base/technical_info.html:12
 msgid "This site uses the following software/components:"
 msgstr "Ce site utilise les logiciels / composants suivants:"
 
-#: mafiasi/base/templates/base/technical_info.html:70
+#: mafiasi/base/templates/base/technical_info.html:67
 msgid "Listed in no particular order."
 msgstr "Inscrite dans aucun ordre particulier."
 
@@ -1852,30 +1852,30 @@ msgstr "Jeton non valide"
 msgid "Sorry, but the provided token is invalid."
 msgstr "Désolé, mais le jeton fourni ne est pas valide."
 
-#: mafiasi/registration/views.py:232
+#: mafiasi/registration/views.py:230
 msgid "Your nickname is now {}."
 msgstr "Votre nom est {}."
 
-#: mafiasi/registration/views.py:270
+#: mafiasi/registration/views.py:268
 msgid "Your email address has been changed."
 msgstr "Votre adresse é-mail a été modifiée."
 
-#: mafiasi/registration/views.py:292
+#: mafiasi/registration/views.py:290
 #, python-format
 msgid "Verify this address for %s"
 msgstr "Vérifiez cette adresse pour %s"
 
-#: mafiasi/registration/views.py:314
+#: mafiasi/registration/views.py:312
 #, python-format
 msgid "Account creation at %s"
 msgstr "Création de compte à %s"
 
-#: mafiasi/registration/views.py:329
+#: mafiasi/registration/views.py:327
 #, python-format
 msgid "Account exists at %s"
 msgstr "Compte existant à %s"
 
-#: mafiasi/registration/views.py:344
+#: mafiasi/registration/views.py:342
 msgid "Registration: Sending mail failed: {}"
 msgstr "Enregistrement : L'envoi du courrier a échoué: {}"
 

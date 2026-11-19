@@ -7,6 +7,7 @@ from smtplib import SMTPException
 from urllib.parse import parse_qs, urlparse
 
 import magic
+import sentry_sdk
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
@@ -20,9 +21,8 @@ from django.utils.crypto import constant_time_compare
 from django.utils.translation import gettext as _
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
-from fuzzywuzzy import fuzz
-from PyPDF2 import PdfFileMerger
-from raven.contrib.django.raven_compat.models import client
+from pypdf import PdfWriter
+from rapidfuzz import fuzz
 
 from mafiasi.gprot.forms import GProtBasicForm, GProtCreateForm, GProtSearchForm
 from mafiasi.gprot.models import (
@@ -176,21 +176,21 @@ def _clean_pdf_metadata(gprot):
     )
 
     # Merging only one file cleans metadata
-    merger = PdfFileMerger()
+    writer = PdfWriter()
 
     # Django file fields aren't context managers :/
     gprot.content_pdf.open("rb")
-    merger.append(gprot.content_pdf)
+    writer.append(gprot.content_pdf)
     gprot.content_pdf.close()
 
-    merger.addMetadata(
+    writer.add_metadata(
         {
             "/Title": title,
         }
     )
 
     gprot.content_pdf.open("rb+")
-    merger.write(gprot.content_pdf)
+    writer.write(gprot.content_pdf)
     gprot.content_pdf.close()
 
 
@@ -370,7 +370,7 @@ def send_notification_email(gprot, notification, request):
             [notification.user.email],
         )
     except SMTPException:
-        client.captureException()
+        sentry_sdk.capture_exception()
 
 
 def notify_users(gprot, request):

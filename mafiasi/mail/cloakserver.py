@@ -14,14 +14,9 @@ from . import customsmtpd
 logger = logging.getLogger("mailcloak")
 
 
-class CloakServer(customsmtpd.RaisingSMTPServer):
+class CloakServer(customsmtpd.RaisingHandler):
     def process_message(self, peer, mailfrom, rcpttos, data, **kwargs):
-        if self._decode_data:
-            parser = Parser()
-            message = parser.parsestr(data)
-        else:
-            parser = BytesParser()
-            message = parser.parsebytes(data)
+        message = BytesParser().parsebytes(data)
 
         rcptto_addresses = [addr[1].lower() for addr in getaddresses(rcpttos)]
         cloaks = self.get_cloaks(rcptto_addresses)
