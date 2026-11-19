@@ -4,7 +4,7 @@ import socket
 from base64 import b64decode, b64encode
 from email.header import decode_header, make_header
 from email.parser import Parser
-from email.utils import formataddr, parseaddr
+from email.utils import parseaddr
 
 from django.conf import settings
 from django.contrib.auth.models import Group
@@ -103,25 +103,10 @@ class Mailinglist(models.Model):
             "Errors-To",
             "X-BeenThere",
             "X-Original-To",
-            "X-Sender",
         )
         for header in del_headers:
             del email_obj[header]
         list_addr = self.get_address()
-
-        orig_from = email_obj.get("From")
-        if orig_from:
-            decoded_from = str(make_header(decode_header(orig_from)))
-            display_name, from_addr = parseaddr(decoded_from)
-            if from_addr and not from_addr.lower().endswith(f"@{settings.MAILINGLIST_DOMAIN.lower()}"):
-                label = f"{display_name} via {self.group.name}" if display_name else f"via {self.group.name}"
-                del email_obj["From"]
-                email_obj["From"] = formataddr((label, list_addr))
-
-        # Remove existing DKIM on forward
-        while "DKIM-Signature" in email_obj:
-            del email_obj["DKIM-Signature"]
-
         email_obj["Sender"] = list_addr
         email_obj["List-Id"] = list_addr
         email_obj["List-Post"] = "<mailto:{}>".format(list_addr)
