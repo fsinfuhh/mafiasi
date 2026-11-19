@@ -2,6 +2,7 @@ import logging
 import smtplib
 import socket
 from base64 import b64decode, b64encode
+from email.header import decode_header, make_header
 from email.parser import Parser
 from email.utils import parseaddr
 
@@ -59,7 +60,10 @@ class Mailinglist(models.Model):
         # Inform the sender about moderation
         message = self._build_moderation_mail("sender", [email_obj["From"]], modmail, email_data, None)
         message.connection = connection
-        message.send(fail_silently=True)
+        try:
+            message.send(fail_silently=True)
+        except ValueError as e:
+            logger.exception(f"Skipping malformed email due to invalid content: {e}")
 
         return modmail
 
@@ -184,7 +188,7 @@ class ModeratedMail(models.Model):
     def sender(self):
         email_obj = self.get_email()
         try:
-            return email_obj["From"]
+            return str(make_header(decode_header(email_obj["From"])))
         except KeyError:
             return ""
 

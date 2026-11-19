@@ -1401,6 +1401,10 @@ msgstr "Email"
 msgid "id"
 msgstr ""
 
+#: mafiasi/guests/templates/guests/index.html:33
+msgid "Copy Token"
+msgstr "Cwopi Toki"
+
 #: mafiasi/guests/templates/guests/index.html:39
 msgid "Resend mail"
 msgstr "Resend mail"
