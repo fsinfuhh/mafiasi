@@ -3,6 +3,7 @@ Implementation of a Vaultwarden admin API client
 """
 
 import enum
+import logging
 from dataclasses import dataclass
 from typing import Any, List, Mapping, Optional, Type, TypedDict, TypeVar
 
@@ -11,6 +12,7 @@ from django.conf import settings
 from django.utils.timezone import datetime
 
 Self = TypeVar("Self")
+logger = logging.getLogger("vault_vw_admin")
 
 
 @dataclass(frozen=True)
@@ -77,6 +79,9 @@ class VwAdminClient:
             data={"token": self.admin_token},
             headers={"Content-Type": "application/x-www-form-urlencoded"},
         )
+        if response.status_code == 429:
+            logger.warning("Vaultwarden admin login rate limited (429)")
+            return False
         response.raise_for_status()
 
     def ensure_authentication(self):
