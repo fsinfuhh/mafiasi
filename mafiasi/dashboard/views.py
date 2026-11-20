@@ -9,7 +9,8 @@ from mafiasi.dashboard.models import News, Panel
 
 
 def index(request):
-    news_list = News.objects.filter(frontpage=True, published=True).order_by("-created_at")
+    news_list = News.objects.filter(frontpage=True, published=True, important=False).order_by("-created_at")
+    important_news = News.objects.filter(frontpage=True, published=True, important=True).order_by("-created_at")
     panel_list = Panel.objects.filter(shown=True).order_by("position")
     service_list = [i for i in apps.get_app_configs() if isinstance(i, BaseService)]
 
@@ -18,6 +19,7 @@ def index(request):
         "dashboard/index.html",
         {
             "news_list": news_list,
+            "important_news": important_news,
             "panel_list": panel_list,
             "wiki_search_url": settings.WIKI_URL,
             "services": service_list,

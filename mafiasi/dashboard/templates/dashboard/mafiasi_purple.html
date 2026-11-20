@@ -1,0 +1,167 @@
+{% load i18n %}
+
+<div class="purple-blur" id="purplePopup">
+    <div class="purple-container">
+        <div class="purple-title">
+            <div>Mafiasi Purple</div>
+        </div>
+        {% trans "From today we offer <mark>Mafiasi Purple</mark> for ✨ only 42€ per month ✨ to finance the Server-AG! You can support us by subscribing to <mark>Mafiasi Purple</mark>." %}<br>
+        {% trans "For people who want to continue using Mafiasi for free, we are offering Mafiasi with advertising from today. The choice is yours!" %}
+        <div class="purple-content">
+            <div class="purple-variant">
+                <button class="btn btn-primary btn-purple" onClick="closePopup()">
+                    {% trans "Continue with ads" %}
+                </button>
+            </div>
+            <div class="purple-variant purple-content-devider">
+                <button class="btn btn-primary btn-purple" onClick="closePopup()">
+                    {% trans "Book Mafiasi Purple"%}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const closePopup = () => {
+        document.getElementById('purplePopup').classList.add('purple-hidden')
+    }
+</script>
+
+<style>
+    :root {
+        --mafiasi-purple: rgb(153, 3, 153);
+        --mafiasi-dark-purple: rgb(248, 35, 248);
+    }
+
+    .purple-blur {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 10000;
+        background-color: #00000080;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .purple-container {
+        width: min(90%, 600px);
+        padding: 2rem;
+        border: 4px solid var(--mafiasi-purple);
+        border-radius: 1rem;
+        background: white;
+    }
+
+    .purple-title {
+        color: var(--mafiasi-purple);
+        display: flex;
+        justify-content: center;
+        font-size: 3rem;
+    }
+
+    .purple-content {
+        margin-top: 2rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .purple-content-devider {
+        border-left: 1px solid var(--mafiasi-purple);
+    }
+
+    .purple-variant {
+        padding: 2rem;
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+    }
+
+    .btn-purple {
+        background-color: var(--mafiasi-purple) !important;
+        border-color: var(--mafiasi-purple) !important;
+    }
+
+    .purple-hidden {
+        display: none;
+    }
+
+    mark {
+        color: var(--mafiasi-purple);
+        background: none;
+    }
+
+    html[data-theme=dark] .purple-container {
+        background: var(--mafiasi-dark-bg);
+        color: var(--mafiasi-dark-text-light);
+        border: 4px solid var(--mafiasi-dark-purple);
+    }
+
+    html[data-theme=dark] .purple-title {
+        color: var(--mafiasi-dark-purple);
+    }
+
+    html[data-theme=dark] .purple-content-devider {
+        border-left: 1px solid var(--mafiasi-dark-purple);
+    }
+
+    html[data-theme=dark] .btn-purple {
+        background-color: var(--mafiasi-dark-purple) !important;
+        border-color: var(--mafiasi-dark-purple) !important;
+    }
+
+    html[data-theme=dark] mark {
+        color: var(--mafiasi-dark-purple);
+    }
+
+    @media (prefers-color-scheme: dark) {
+        html:not([data-theme=light]) .purple-container {
+            background: var(--mafiasi-dark-bg);
+            color: var(--mafiasi-dark-text-light);
+            border: 4px solid var(--mafiasi-dark-purple);
+        }
+
+        html:not([data-theme=light]) .purple-title {
+            color: var(--mafiasi-dark-purple);
+        }
+
+        html:not([data-theme=light]) .purple-content-devider {
+            border-left: 1px solid var(--mafiasi-dark-purple);
+        }
+
+        html:not([data-theme=light]) .btn-purple {
+            background-color: var(--mafiasi-dark-purple) !important;
+            border-color: var(--mafiasi-dark-purple) !important;
+        }
+
+        html:not([data-theme=light]) mark {
+            color: var(--mafiasi-dark-purple);
+        }
+    }
+
+    @media screen and (max-width: 500px) {
+        .purple-content {
+            grid-template-rows: 1fr 1fr;
+            grid-template-columns: none;
+        }
+
+        .purple-content-devider {
+            border-top: 1px solid var(--mafiasi-purple);
+            border-left: none;
+        }
+
+        html[data-theme=dark] .purple-content-devider {
+            border-top: 1px solid var(--mafiasi-dark-purple);
+            border-left: none;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            html:not([data-theme=light]) .purple-content-devider {
+                border-top: 1px solid var(--mafiasi-dark-purple);
+                border-left: none;
+            }
+        }
+    }
+</style>

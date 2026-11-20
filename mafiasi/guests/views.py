@@ -1,34 +1,30 @@
-# coding=utf-8
-
-
-from smtplib import SMTPRecipientsRefused
-
+import requests
 from django.conf import settings
 from django.contrib import messages
-from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import Group
-from django.core import signing
 from django.core.exceptions import PermissionDenied
-from django.core.mail import send_mail
+from django.db import transaction
 from django.shortcuts import get_object_or_404, redirect, render
-from django.template.loader import render_to_string
 from django.utils.translation import gettext_lazy as _
 
-from mafiasi.base.models import Mafiasi
-from mafiasi.groups.models import GroupProxy
 from mafiasi.guests.forms import InvitationForm
-from mafiasi.guests.models import Guest, Invitation, get_invitation_bucket
-from mafiasi.registration.forms import PasswordForm
+from mafiasi.guests.models import Invitation, get_invitation_bucket
+
+from .auth_fun import (
+    check_invite_limit,
+    create_invitation,
+    delete_invitation,
+    getOpenInvitations,
+    invitation_exists,
+)
 
 
 @login_required
 def index(request):
-    if request.user.is_guest:
-        return redirect("guests_invited_by")
-
-    invitations = Invitation.objects.select_related().filter(invited_by=request.user).order_by("-date_invited")
-    guests = Guest.objects.select_related().filter(invited_by=request.user).order_by("guest_user__username")
+    if request.user.is_guest or request.user.username.endswith(settings.GUEST_EXTENSION):
+        raise PermissionDenied()
+    invitations = getOpenInvitations(request.user.username)
+    guests = []
     return render(
         request,
         "guests/index.html",
@@ -38,18 +34,41 @@ def index(request):
 
 @login_required
 def invite(request):
-    if request.user.is_guest:
-        return redirect("guest_invited_by")
-
+    if request.user.is_guest or request.user.username.endswith(settings.GUEST_EXTENSION):
+        raise PermissionDenied()
+    status = check_invite_limit(request.user.username)
+    if not status["allowed"]:
+        if status["open_invitations"] > 0:
+            messages.error(
+                request,
+                _(
+                    "You have reached the maximum number of invitations and guests. You can withdraw some invitations to invite new guests."
+                ),
+            )
+            return redirect("guests_index")
+        messages.error(request, _("You have reached the maximum number of Guests you can invite."))
+        return redirect("guests_index")
     if request.method == "POST":
         form = InvitationForm(request.POST, user=request.user)
         if form.is_valid():
-            invitation = form.save(commit=False)
-            invitation.invited_by = request.user
-            invitation.save()
-            invitation.send_email(request)
-            msg = _("{} was successfully invited.").format(invitation.username)
-            messages.success(request, msg)
+            try:
+                with transaction.atomic():
+                    invitation = form.save(commit=False)
+                    invitation.invited_by = request.user.username
+                    inv = create_invitation(
+                        inviter_uid=request.user.username,
+                        username=invitation.username + settings.GUEST_EXTENSION,
+                        first_name=invitation.first_name,
+                        last_name=invitation.last_name,
+                        email=invitation.email,
+                    )
+                    invitation.authentik_pk = inv["pk"]
+                    invitation.save()  # one save, inside the transaction
+            except requests.RequestException:
+                form.add_error(None, _("Could not create the account right now, please try again later."))
+            else:
+                invitation.send_email(request)
+                messages.success(request, _("{} was successfully invited.").format(invitation.username))
             return redirect("guests_index")
     else:
         form = InvitationForm(user=request.user)
@@ -66,14 +85,22 @@ def invite(request):
 @login_required
 def invitation_action(request):
     invitation_pk = request.POST.get("invitation_pk")
-    invitation = get_object_or_404(Invitation, pk=invitation_pk)
+    invitation = get_object_or_404(Invitation, pk=invitation_pk, invited_by=request.user.username)
     if request.method == "POST":
-        if invitation.invited_by != request.user:
-            raise PermissionDenied()
         if "withdraw" in request.POST:
+            if invitation.authentik_pk and not delete_invitation(str(invitation.authentik_pk), request.user.username):
+                messages.error(request, _("Could not withdraw the invitation right now, please try again later."))
+                return redirect("guests_index")
             invitation.delete()
             messages.success(request, _("Invitation was withdrawn."))
         elif "resend" in request.POST:
+            try:
+                if not invitation_exists(str(invitation.authentik_pk)):
+                    messages.error(request, _("This invitation was already used or expired."))
+                    return redirect("guests_index")
+            except requests.RequestException:
+                messages.error(request, _("Could not resend right now, please try again later."))
+                return redirect("guests_index")
             bucket = get_invitation_bucket(request.user, _("invitation mails"))
             try:
                 bucket.consume(1)
@@ -83,91 +110,3 @@ def invitation_action(request):
                 invitation.send_email(request)
                 messages.success(request, _("Invitation mail was resent."))
     return redirect("guests_index")
-
-
-@login_required
-def show_invited_by(request):
-    if not request.user.is_guest:
-        return redirect("guests_index")
-
-    guest = Guest.objects.get(guest_user=request.user)
-    return render(
-        request,
-        "guests/invited_by.html",
-        {
-            "guest": guest,
-            "user": request.user,
-        },
-    )
-
-
-def accept(request, invitation_token):
-    if request.user.is_authenticated:
-        return redirect("guests_index")
-
-    try:
-        invitation_pk = signing.loads(invitation_token)
-    except signing.BadSignature:
-        raise PermissionDenied
-
-    try:
-        invitation = Invitation.objects.get(pk=invitation_pk)
-    except Invitation.DoesNotExist:
-        return render(request, "guests/invitation_withdrawn.html")
-
-    if Mafiasi.objects.filter(username=invitation.username + ".guest").count():
-        return render(
-            request,
-            "guests/username_exists.html",
-            {
-                "username": invitation.username,
-            },
-        )
-
-    try:
-        existing_account = Mafiasi.objects.get(email=invitation.email)
-        return render(request, "guests/has_account.html", {"existing_account": existing_account})
-    except Mafiasi.DoesNotExist:
-        pass
-
-    if request.method == "POST":
-        form = PasswordForm(request.POST)
-        if form.is_valid():
-            password = form.cleaned_data["password1"]
-            mafiasi = invitation.accept_with_password(password)
-            mafiasi.backend = "django.contrib.auth.backends.ModelBackend"
-            if settings.DEFAULT_GUEST_GROUP:
-                group = get_object_or_404(Group, name=settings.DEFAULT_GUEST_GROUP)
-                group_proxy = GroupProxy(group)
-                group_proxy.add_member(mafiasi)
-            if settings.GUEST_ACCEPT_INVITATION_MAIL:
-                email_content = render_to_string(
-                    "guests/invitation_accepted_mail.txt",
-                    {
-                        "invitation": invitation,
-                    },
-                )
-                subject_de = (
-                    "Angenommen: Einladung zu " + settings.PROJECT_NAME + " / " if settings.MAIL_INCLUDE_GERMAN else ""
-                )
-                subject = (
-                    settings.EMAIL_SUBJECT_PREFIX + subject_de + "Accepted: Invitation to " + settings.PROJECT_NAME
-                )
-                try:
-                    send_mail(subject, email_content, None, [invitation.invited_by.email])
-                except SMTPRecipientsRefused:
-                    pass  # bestätigungsmail ist nicht so wichtig
-            login(request, mafiasi)
-            return redirect("guests_invited_by")
-    else:
-        form = PasswordForm()
-
-    return render(
-        request,
-        "guests/accept.html",
-        {
-            "invitation": invitation,
-            "form": form,
-            "guest_extension": settings.GUEST_EXTENSION,
-        },
-    )

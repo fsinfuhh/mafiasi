@@ -37,8 +37,8 @@ class GProtSearchForm(forms.Form):
         examiner_groups = Teacher.objects.as_grouped_choices()
         course_groups = Course.objects.as_grouped_choices()
 
-        self.fields["search"].choices = [modify_examiners(e) for e in examiner_groups] + [
-            modify_courses(c) for c in course_groups
+        self.fields["search"].choices = [modify_courses(c) for c in course_groups] + [
+            modify_examiners(e) for e in examiner_groups
         ]
 
     def clean_search(self):
