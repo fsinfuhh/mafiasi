@@ -3,6 +3,7 @@ DJANGO_SETTINGS_MODULE = "mafiasi.settings"
 env = [
     "MAFIASI_ENV_FILE=.env.test"
 ]
+addopts = "--ignore=db-data --ignore=dev_db"
 
 [tool.black]
 line-length = 120
