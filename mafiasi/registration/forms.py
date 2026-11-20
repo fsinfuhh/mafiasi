@@ -5,6 +5,7 @@ from django.utils.translation import gettext_lazy as _
 
 from mafiasi import settings
 from mafiasi.base.models import Mafiasi, Yeargroup
+from mafiasi.utils.authentik_api import update_user
 
 
 class PrimaryRegisterForm(forms.Form):
@@ -87,17 +88,27 @@ class CheckPasswordForm(forms.Form):
 class NickChangeForm(forms.Form):
     def __init__(self, user, *args, **kwargs):
         self.user = user
-        ldap_user = user.get_ldapuser()
-        nickname = re.sub(r"(.+)\s\((.+)\)$", r"\1", ldap_user.display_name)
+        if getattr(settings, "AUTHENTIK_API_URL", ""):
+            nickname = re.sub(r"(.+)\s\((.+)\)$", r"\1", user.preferred_name).strip()
+        else:
+            ldap_user = user.get_ldapuser()
+            nickname = re.sub(r"(.+)\s\((.+)\)$", r"\1", ldap_user.display_name).strip()
         kwargs["initial"] = {"nickname": nickname}
         super(NickChangeForm, self).__init__(*args, **kwargs)
 
     nickname = forms.CharField(max_length=20)
 
     def save(self):
-        ldap_user = self.user.get_ldapuser()
-        ldap_user.display_name = "{} ({})".format(self.cleaned_data["nickname"], self.user.username)
-        ldap_user.save()
+        nickname = self.cleaned_data["nickname"]
+        if getattr(settings, "AUTHENTIK_API_URL", ""):
+            display_name = "{} ({})".format(nickname, self.user.username)
+            update_user(self.user.username, name=display_name)
+            self.user.preferred_name = display_name
+            self.user.save(update_fields=["preferred_name"])
+        else:
+            ldap_user = self.user.get_ldapuser()
+            ldap_user.display_name = "{} ({})".format(nickname, self.user.username)
+            ldap_user.save()
 
 
 class EmailChangeForm(forms.Form):

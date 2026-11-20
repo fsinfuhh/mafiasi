@@ -23,7 +23,7 @@ DATABASES = {
 OPENID_ISSUER = env.str("MAFIASI_OPENID_ISSUER", default="https://identity.mafiasi.de/realms/mafiasi")
 OPENID_CLIENT_ID = env.str("MAFIASI_OPENID_CLIENT_ID", default="mafiasi-dashboard")
 OPENID_CLIENT_SECRET = env.str("MAFIASI_OPENID_CLIENT_SECRET", required=True)
-OPENID_SCOPE = "openid profile email groups"
+OPENID_SCOPE = "openid profile email groups info realmail"
 OPENID_USER_MAPPER = "mafiasi.registration.user_mapping.MafiasiUserMapper"
 
 KEYCLOAK_ACCOUNT_CONSOLE_URL = env.str(
@@ -59,6 +59,22 @@ if ENABLE_LDAP_AUTH_BACKEND:
 
     ROOT_DN = env.str("MAFIASI_LDAP_ROOT_DN")
 
+ENABLE_AUTHENTIK_LDAP_SYNC = env.bool("MAFIASI_ENABLE_AUTHENTIK_LDAP_SYNC", default=False)
+AUTHENTIK_API_URL = env.str("MAFIASI_AUTHENTIK_API_URL", default="")
+AUTHENTIK_API_TOKEN = env.str("MAFIASI_AUTHENTIK_API_TOKEN", default="")
+AUTHENTIK_API_TIMEOUT = env.int("MAFIASI_AUTHENTIK_API_TIMEOUT", default=15)
+STAGING = env.bool("STAGING", default=False)
+
+if ENABLE_AUTHENTIK_LDAP_SYNC:
+    LDAP_SERVERS["authentik"] = {
+        "CA": env.str("MAFIASI_AUTHENTIK_LDAP_CA", default=""),
+        "URI": env.str("MAFIASI_AUTHENTIK_LDAP_URI"),
+        "BIND_DN": env.str("MAFIASI_AUTHENTIK_LDAP_BIND_DN"),
+        "BIND_PASSWORD": env.str("MAFIASI_AUTHENTIK_LDAP_BIND_PW"),
+    }
+    AUTHENTIK_LDAP_USER_BASE_DN = env.str("MAFIASI_AUTHENTIK_LDAP_USER_BASE_DN")
+    AUTHENTIK_LDAP_GROUP_BASE_DN = env.str("MAFIASI_AUTHENTIK_LDAP_GROUP_BASE_DN")
+
 ENABLE_LDAP_REGISTRATION = env.bool("MAFIASI_ENABLE_LDAP_REGISTRATION")
 if ENABLE_LDAP_REGISTRATION:
     LDAP_SERVERS["registration"] = {
@@ -83,12 +99,11 @@ if ENABLE_LDAP_REGISTRATION:
         ["name"],
     )
 
-REGISTER_ENABLED = True
+REGISTER_ENABLED = env.bool("MAFIASI_ENABLE_REGISTRATION", True)
 PRIMARY_DOMAIN = "informatik.uni-hamburg.de"
-REGISTER_DOMAINS = ["informatik.uni-hamburg.de", "physnet.uni-hamburg.de", "hiforum.de"]
+REGISTER_DOMAINS = ["informatik.uni-hamburg.de", "physnet.uni-hamburg.de"]
 REGISTER_DOMAIN_MAPPING = {
     "physnet.uni-hamburg.de": "physnet",
-    "hiforum.de": "hiforum",
 }
 ACCOUNT_PATTERNS = {
     "informatik.uni-hamburg.de": r"\d?[a-z]+",
@@ -150,25 +165,26 @@ INSTALLED_APPS = [
         "mafiasi.guests",
         "mafiasi.registration",
         "mafiasi.mail",
-        "mafiasi.mailinglist",
-        "mafiasi.teaching",
+        "mafiasi.mailinglist" if env.bool("MAFIASI_ENABLE_MAILINGLIST", True) else None,
+        "mafiasi.teaching" if env.bool("MAFIASI_ENABLE_GPROT", True) else None,
         ### dashboard apps
-        "mafiasi.wiki",
-        "mafiasi.gprot",
+        "mafiasi.wiki" if env.bool("MAFIASI_ENABLE_WIKI", True) else None,
+        "mafiasi.gprot" if env.bool("MAFIASI_ENABLE_GPROT", True) else None,
+        "mafiasi.tasks" if env.bool("MAFIASI_ENABLE_TASKS", True) else None,
+        "mafiasi.drinks" if env.bool("MAFIASI_ENABLE_DRINKS", True) else None,
         "mafiasi.nextcloud",
         "mafiasi.etherpad",
+        "mafiasi.overleaf",
         "mafiasi.bitpoll",
-        "mafiasi.matrix",
+        "mafiasi.mattermost" if env.bool("MAFIASI_ENABLE_MATTERMOST", False) else None,
+        "mafiasi.matrix" if env.bool("MAFIASI_ENABLE_MATRIX", True) else None,
+        "mafiasi.mensa" if env.bool("MAFIASI_ENABLE_MENSA", True) else None,
+        "mafiasi.modulkompass" if env.bool("MAFIASI_ENABLE_MODULKOMPASS", True) else None,
         "mafiasi.git",
         "mafiasi.sogo",
-        "mafiasi.tauschen",
-        "mafiasi.link_shortener",
+        "mafiasi.tauschen" if env.bool("MAFIASI_ENABLE_TAUSCHEN", True) else None,
+        "mafiasi.link_shortener" if env.bool("MAFIASI_ENABLE_LINK_SHORTENER", True) else None,
         "mafiasi.vault" if ENABLE_VAULT_INTEGRATION else None,
-        "mafiasi.pks",
-        "mafiasi.kanboard",
-        "mafiasi.whiteboard",
-        "mafiasi.discourse",
-        "mafiasi.fb18",
         ###
         "django.contrib.admin",
         "django.contrib.admindocs",
@@ -202,6 +218,7 @@ TEMPLATE_ALLOWABLE_SETTINGS_VALUES = [
     "MAIL_GREETING_DE",
     "MAIL_GREETING_EN",
     "BANNER_IMG",
+    "FAVICON_PATH",
     "GUEST_INVITE_HINT",
     "USER_LOGIN_HINT",
     "GUEST_INVITE_INSTRUCTION_LINK",
@@ -225,7 +242,10 @@ AUTH_USER_MODEL = "base.Mafiasi"
 LOGIN_URL = "simple_openid_connect:login"
 LOGIN_REDIRECT_URL = "dashboard_index"
 LOGOUT_REDIRECT_URL = "dashboard_index"
-USER_LOGIN_HINT = "Note: For our account names we use two digits for year (e.g. <strong>13doe</strong> instead of 3doe)"
+USER_LOGIN_HINT = env.str(
+    "MAFIASI_USER_LOGIN_HINT",
+    "Note: For our account names we use two digits for year (e.g. <strong>13doe</strong> instead of 3doe)",
+)
 
 from django.contrib.messages import constants as message_constants
 
@@ -280,16 +300,17 @@ AUTH_PASSWORD_VALIDATORS = [
 if ENABLE_EP_INTEGRATION:
     DATABASES["etherpad"] = env.dj_db_url("MAFIASI_DB_ETHERPAD", default="sqlite://:memory:")
     ETHERPAD_API_KEY = env.str("MAFIASI_EP_API_KEY")
-    ETHERPAD_URL = "https://ep.mafiasi.de"
-    EP_COOKIE_DOMAIN = ".mafiasi.de"
+    ETHERPAD_URL = env.str("MAFIASI_EP_URL", "https://ep.mafiasi.de")
+    EP_COOKIE_DOMAIN = env.str("MAFIASI_EP_COOKIE_DOMAIN", ".mafiasi.de")
 
 if ENABLE_VAULT_INTEGRATION:
     VAULT_URL = env.str("MAFIASI_VAULT_URL", default="https://vault.mafiasi.de")
     VAULT_ADMIN_TOKEN = env.str("MAFIASI_VAULT_ADMIN_TOKEN")
 
 PROJECT_NAME = env.str("MAFIASI_PROJECT_NAME", default="mafiasi.de")
-PROJECT_BANNER = "Mafiasi Hub"
-BANNER_IMG = ""
+PROJECT_BANNER = env.str("MAFIASI_PROJECT_BANNER", "Mafiasi Hub")
+BANNER_IMG = env.str("MAFIASI_BANNER_IMG", "")
+FAVICON_PATH = env.str("MAFIASI_FAVICON_PATH", "img/favicon.ico")
 
 HKP_URL = "hkps://mafiasi.de"
 
@@ -298,20 +319,22 @@ GPROT_IMAGE_MAX_SIZE = 1
 GPROT_PDF_MAX_SIZE = 5
 
 IMPRINT_URL = "https://wiki.mafiasi.de/Fachschaft_Informatik:Impressum"
-WIKI_URL = "https://www2.informatik.uni-hamburg.de/Fachschaft/wiki/"
-SOGO_URL = "https://sogo.mafiasi.de"
-GIT_URL = "https://git.mafiasi.de"
+WIKI_URL = "https://wiki.mafiasi.de/"
+SOGO_URL = env.str("MAFIASI_SOGO_URL", "https://sogo.mafiasi.de")
+GIT_URL = env.str("MAFIASI_GIT_URL", "https://git.mafiasi.de")
 TAUSCHEN_URL = "https://tauschen.mafiasi.de"
-NEXTCLOUD_URL = "https://cloud.mafiasi.de"
+NEXTCLOUD_URL = env.str("MAFIASI_NEXTCLOUD_URL", "https://cloud.mafiasi.de")
 JITSI_URL = "https://conference.mafiasi.de"
-DISCOURSE_URL = "https://archiv.mafiasi.de/forum/discourse"
-FB18_URL = "https://archiv.mafiasi.de/forum/fb18"
-WIKI_URL = "https://wiki.mafiasi.de"
-BITPOLL_URL = "https://bitpoll.mafiasi.de"
+BITPOLL_URL = env.str("MAFIASI_BITPOLL_URL", "https://bitpoll.mafiasi.de")
 WHITEBOARD_URL = "https://spacedeck.mafiasi.de"
-KANBOARD_URL = "https://kanboard.mafiasi.de"
+MATTERMOST_URL = env.str("MAFIASI_MATTERMOST_URL", "https://mattermost.mafiasi.de")
 MATRIX_URL = "https://matrix.mafiasi.de"
+MENSA_URL = "https://mensa.mafiasi.de"
+MODULKOMPASS_URL = "https://modulkompass.mafiasi.de"
 LINK_SHORTENER_URL = "https://l.mafiasi.de"
+TASKS_URL = "https://tasks.mafiasi.de"
+DRINKS_URL = "https://drinks.mafiasi.de"
+OVERLEAF_URL = env.str("MAFIASI_OVERLEAF_URL", "https://tex.mafiasi.de")
 
 if REGISTER_ENABLED:
     PKS_COMMUNITY_DOMAINS = REGISTER_DOMAINS + ["studium.uni-hamburg.de"]
@@ -320,35 +343,41 @@ else:
 
 MAILINGLIST_DOMAIN = "group.mafiasi.de"
 MAILINGLIST_SERVER = ("0.0.0.0", 2522)
-MAILCLOAK_DOMAIN = "cloak.mafiasi.de"
+MAILCLOAK_DOMAIN = env.str("MAFIASI_MAILCLOAK_DOMAIN", "cloak.mafiasi.de")
 MAILCLOAK_SERVER = ("0.0.0.0", 2523)
 VALID_EMAIL_ADDRESSES = ["postmaster@mafiasi.de"]
 EMAIL_ADDRESSES_PASSWORD = env.str("MAFIASI_EMAIL_ADDRESSES_PASSWORD")
 
-TEAM_EMAIL = "ag-server@informatik.uni-hamburg.de"
+TEAM_EMAIL = env.str("MAFIASI_TEAM_EMAIL", "ag-server@informatik.uni-hamburg.de")
 EMAIL_HOST = env.str("MAFIASI_EMAIL_HOST")
-DEFAULT_FROM_EMAIL = "Mafiasi.de <ag-server@informatik.uni-hamburg.de>"
+EMAIL_PORT = env.int("MAFIASI_EMAIL_PORT", 25)
+DEFAULT_FROM_EMAIL = env.str("MAFIASI_DEFAULT_FROM_EMAIL", "Mafiasi.de <ag-server@informatik.uni-hamburg.de>")
 SERVER_EMAIL = DEFAULT_FROM_EMAIL
-EMAIL_SUBJECT_PREFIX = "[mafiasi.de] "
-MAIL_SIGNATURE = "mafiasi.de-Team"
+EMAIL_SUBJECT_PREFIX = env.str("MAFIASI_EMAIL_SUBJECT_PREFIX", "[mafiasi.de] ")
+MAIL_SIGNATURE = env.str("MAFIASI_MAIL_SIGNATURE", "mafiasi.de-Team")
 
-MAIL_GREETING_EN = """
+MAIL_GREETING_EN = env.str(
+    "MAFIASI_MAIL_GREETING_EN",
+    """
 Best regards,
 
-Your Server-AG"""
+Your Server-AG""",
+)
 
 MAIL_GREETING_DE = """
 Grüße,
 
 Deine Server-AG"""
 
-MAIL_INCLUDE_GERMAN = True
+MAIL_INCLUDE_GERMAN = env.bool("MAFIASI_MAIL_INCLUDE_GERMAN", True)
 INVALID_MAIL_DOMAIN = "invalid.invalid"
 
-GUEST_EXTENSION = ".guest"
-DEFAULT_GUEST_GROUP = ""
-GUEST_INVITE_HINT = "Must start with a letter and only contain alphanumeric characters. Lowercase only."
-GUEST_ACCEPT_INVITATION_MAIL = False
+GUEST_EXTENSION = env.str("MAFIASI_GUEST_EXTENSION", ".guest")
+DEFAULT_GUEST_GROUP = env.str("MAFIASI_DEFAULT_GUEST_GROUP", "")
+GUEST_INVITE_HINT = env.str(
+    "MAFIASI_GUEST_INVITE_HINT", "Must start with a letter and only contain alphanumeric characters. Lowercase only."
+)
+GUEST_ACCEPT_INVITATION_MAIL = env.bool("MAFIASI_GUEST_ACCEPT_INVITATION_MAIL", False)
 
 GUEST_INVITE_INSTRUCTION_LINK = "https://dash.crossmodal-learning.org/static_redir/instruction"
 
@@ -368,3 +397,5 @@ if SENTRY_DSN is not None:
         # django.contrib.auth) you may enable sending PII data.
         send_default_pii=True,
     )
+
+EMAIL_BACKEND = env.str("MAFIASI_EMAIL_BACKEND", "django.core.mail.backends.smtp.EmailBackend")

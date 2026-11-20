@@ -13,6 +13,7 @@ class News(models.Model):
     created_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     frontpage = models.BooleanField(db_index=True, default=False)
     published = models.BooleanField(default=False)
+    important = models.BooleanField(default=False)
 
     class Meta(object):
         verbose_name = "news"

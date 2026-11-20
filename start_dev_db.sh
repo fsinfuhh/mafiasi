@@ -16,4 +16,4 @@ exec docker run \
     -v $STORE_DIR:/var/lib/postgresql/data \
     -p 5432:5432 \
     $@ \
-    docker.io/postgres
+    docker.io/postgres:15

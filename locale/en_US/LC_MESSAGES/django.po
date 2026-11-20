@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mafiasi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-01 02:46+0200\n"
+"POT-Creation-Date: 2026-11-17 16:55+0100\n"
 "PO-Revision-Date: 2024-01-18 22:42+0100\n"
 "Last-Translator: Markus Neblung <markus.neblung@uni-hamburg.de>\n"
 "Language-Team: \n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.4.1\n"
 
-#: mafiasi/base/middleware.py:18
+#: mafiasi/base/middleware.py:24
 msgid ""
 "Your email address was automatically set to an invalid one. Please update "
 "your email address immediately."
@@ -31,53 +31,68 @@ msgid ""
 "href=\"%(problems_url)s\">problem reporting page</a>."
 msgstr ""
 
-#: mafiasi/base/templates/base.html:46
+#: mafiasi/base/templates/base.html:47
 msgid "Disable surprise"
 msgstr ""
 
-#: mafiasi/base/templates/base.html:56
+#: mafiasi/base/templates/base.html:57
 msgid "Groups"
 msgstr ""
 
-#: mafiasi/base/templates/base.html:64
+#: mafiasi/base/templates/base.html:65
 #: mafiasi/mailinglist/templates/mailinglist/show_list.html:46
 msgid "Settings"
 msgstr ""
 
-#: mafiasi/base/templates/base.html:67
+#: mafiasi/base/templates/base.html:68
 #, python-format
 msgid "Logged in as %(username)s"
 msgstr ""
 
-#: mafiasi/base/templates/base.html:70
+#: mafiasi/base/templates/base.html:71
 msgid "Logout"
 msgstr ""
 
-#: mafiasi/base/templates/base.html:76
+#: mafiasi/base/templates/base.html:77
 #: mafiasi/registration/templates/registration/request_account.html:38
 #: mafiasi/registration/templates/registration/request_account.html:77
 msgid "Register"
 msgstr ""
 
-#: mafiasi/base/templates/base.html:78
+#: mafiasi/base/templates/base.html:79
 msgid "Login"
 msgstr ""
 
-#: mafiasi/base/templates/base.html:107
+#: mafiasi/base/templates/base.html:108
 msgid "Imprint"
 msgstr ""
 
-#: mafiasi/base/templates/base.html:109
+#: mafiasi/base/templates/base.html:110
 msgid "Data privacy statement"
 msgstr ""
 
-#: mafiasi/base/templates/base.html:111
+#: mafiasi/base/templates/base.html:112
 msgid "Technical info"
 msgstr ""
 
-#: mafiasi/base/templates/base.html:113
+#: mafiasi/base/templates/base.html:114
 #: mafiasi/base/templates/base/problems.html:4
 msgid "Problems?"
+msgstr ""
+
+#: mafiasi/base/templates/base.html:123
+msgid "This service is not run by fascists"
+msgstr ""
+
+#: mafiasi/base/templates/base.html:131
+msgid ""
+"There is no place for discrimination in any way shape or form at mafiasi.de "
+"(cmp. <a href=\"https://www.gesetze-im-internet.de/englisch_gg/"
+"englisch_gg.html#p0027\" rel=\"external\">Art. 3 GG</a>).<br> If you are "
+"affected, feel free to contact the <a href=\"mailto:fsr-"
+"vertraulich@informatik.uni-hamburg.de\">student council</a> or the "
+"university's <a href=\"https://www.uni-hamburg.de/antidiskriminierung.html\" "
+"rel=\"external\">anti-discrimination office</a>."
 msgstr ""
 
 #: mafiasi/base/templates/base/licenses.html:4
@@ -113,10 +128,6 @@ msgstr ""
 
 #: mafiasi/base/templates/base/technical_info.html:70
 msgid "Listed in no particular order."
-msgstr ""
-
-#: mafiasi/base/templates/base_raw.html:7
-msgid "Mafiasi"
 msgstr ""
 
 #: mafiasi/base/tokenbucket.py:27
@@ -155,26 +166,24 @@ msgstr ""
 msgid "Dashboard"
 msgstr ""
 
-#: mafiasi/dashboard/templates/dashboard/index.html:16
+#: mafiasi/dashboard/templates/dashboard/index.html:33
 msgid "Services"
 msgstr ""
 
-#: mafiasi/dashboard/templates/dashboard/index.html:33
+#: mafiasi/dashboard/templates/dashboard/index.html:50
 msgid "Rearrange item"
 msgstr ""
 
-#: mafiasi/dashboard/templates/dashboard/index.html:41
+#: mafiasi/dashboard/templates/dashboard/index.html:58
 msgid "News and more"
 msgstr ""
 
-#: mafiasi/dashboard/templates/dashboard/index.html:57
+#: mafiasi/dashboard/templates/dashboard/index.html:74
 msgid "Wiki search"
 msgstr ""
 
-#: mafiasi/dashboard/templates/dashboard/index.html:64
+#: mafiasi/dashboard/templates/dashboard/index.html:81
 #: mafiasi/gprot/templates/gprot/menu.html:4
-#: mafiasi/pks/templates/pks/menu.html:4
-#: mafiasi/pks/templates/pks/search.html:5
 msgid "Search"
 msgstr ""
 
@@ -199,14 +208,16 @@ msgstr ""
 msgid "Book Mafiasi Purple"
 msgstr ""
 
-#: mafiasi/discourse/apps.py:11
-msgid "Discourse"
+#: mafiasi/dashboard/templates/dashboard/may_day.html:10
+msgid "Server-Rooms are being occupied…"
 msgstr ""
 
-#: mafiasi/discourse/apps.py:12
-msgid ""
-"Discourse is our forum for questions and discussions with your fellow "
-"students."
+#: mafiasi/drinks/apps.py:11
+msgid "Drinks"
+msgstr ""
+
+#: mafiasi/drinks/apps.py:12
+msgid "You can use Drinks to buy drinks in the c.t.."
 msgstr ""
 
 #: mafiasi/etherpad/apps.py:10
@@ -225,7 +236,6 @@ msgstr ""
 
 #: mafiasi/etherpad/templates/etherpad/create_new_pad.html:15
 #: mafiasi/groups/templates/groups/show.html:120
-#: mafiasi/pks/templates/pks/party_list.html:14
 msgid "Name"
 msgstr ""
 
@@ -316,15 +326,6 @@ msgstr ""
 
 #: mafiasi/etherpad/templates/etherpad/pad.html:18
 msgid "Hide navigation bars"
-msgstr ""
-
-#: mafiasi/fb18/apps.py:11
-msgid "FB18"
-msgstr ""
-
-#: mafiasi/fb18/apps.py:12
-msgid ""
-"FB18 is our deprecated bulletin board, which is kept here as an archive."
 msgstr ""
 
 #: mafiasi/git/apps.py:11
@@ -760,7 +761,7 @@ msgstr ""
 #: mafiasi/gprot/templates/gprot/reminders.html:24
 #: mafiasi/groups/templates/groups/invitations.html:19
 #: mafiasi/groups/templates/groups/show.html:122
-#: mafiasi/guests/templates/guests/index.html:16
+#: mafiasi/guests/templates/guests/index.html:19
 msgid "Actions"
 msgstr ""
 
@@ -851,30 +852,30 @@ msgstr ""
 msgid "No document has been uploaded yet."
 msgstr ""
 
-#: mafiasi/gprot/views.py:203 mafiasi/gprot/views.py:310
+#: mafiasi/gprot/views.py:209 mafiasi/gprot/views.py:322
 #, python-brace-format
 msgid "Only files up to {0} MB are allowed."
 msgstr ""
 
-#: mafiasi/gprot/views.py:205
+#: mafiasi/gprot/views.py:211
 msgid "Only PDF files are allowed."
 msgstr ""
 
-#: mafiasi/gprot/views.py:208 mafiasi/gprot/views.py:316
+#: mafiasi/gprot/views.py:214 mafiasi/gprot/views.py:328
 msgid "Please select a file to upload."
 msgstr ""
 
-#: mafiasi/gprot/views.py:223
+#: mafiasi/gprot/views.py:229
 msgid ""
 "This file was blocked because it is an original exam. Please do not try to "
 "upload it again because we will get problems with the university."
 msgstr ""
 
-#: mafiasi/gprot/views.py:314
+#: mafiasi/gprot/views.py:326
 msgid "Only PNG, JPEG and GIF files are allowed."
 msgstr ""
 
-#: mafiasi/gprot/views.py:354
+#: mafiasi/gprot/views.py:367
 #, python-format
 msgid "New memory minutes for \"%(coursename)s\""
 msgstr ""
@@ -884,21 +885,21 @@ msgstr ""
 msgid "There is no user \"%s.\""
 msgstr ""
 
-#: mafiasi/groups/models.py:77
+#: mafiasi/groups/models.py:86
 msgid ""
 "You are the sole group admin. Please terminate the group or appoint another "
 "group admin."
 msgstr ""
 
-#: mafiasi/groups/models.py:104
+#: mafiasi/groups/models.py:117
 msgid "Invalid group name."
 msgstr ""
 
-#: mafiasi/groups/models.py:107
+#: mafiasi/groups/models.py:120
 msgid "The group name must be at least {} characters"
 msgstr ""
 
-#: mafiasi/groups/models.py:111
+#: mafiasi/groups/models.py:124
 msgid "Group does already exist."
 msgstr ""
 
@@ -930,12 +931,11 @@ msgstr ""
 #: mafiasi/groups/templates/groups/groups_base.html:15
 #: mafiasi/groups/templates/groups/invitations.html:5
 #: mafiasi/groups/templates/groups/show.html:67
-#: mafiasi/guests/templates/guests/index.html:5
+#: mafiasi/guests/templates/guests/index.html:6
 msgid "Invitations"
 msgstr ""
 
 #: mafiasi/groups/templates/groups/groups_base.html:27
-#: mafiasi/guests/templates/guests/accept.html:5
 msgid "Accept invitation"
 msgstr ""
 
@@ -971,7 +971,6 @@ msgstr ""
 
 #: mafiasi/groups/templates/groups/invitations.html:16
 #: mafiasi/groups/templates/groups/show.html:74
-#: mafiasi/pks/templates/pks/party_list.html:15
 msgid "Date"
 msgstr ""
 
@@ -1045,7 +1044,7 @@ msgid "Invitee"
 msgstr ""
 
 #: mafiasi/groups/templates/groups/show.html:87
-#: mafiasi/guests/templates/guests/index.html:30
+#: mafiasi/guests/templates/guests/index.html:40
 msgid "Withdraw"
 msgstr ""
 
@@ -1106,60 +1105,43 @@ msgstr ""
 msgid "Invitation was sent."
 msgstr ""
 
-#: mafiasi/guests/forms.py:25
+#: mafiasi/guests/forms.py:27
 msgid "Username must be alphanumeric and start with a letter."
 msgstr ""
 
-#: mafiasi/guests/forms.py:28
+#: mafiasi/guests/forms.py:30
 msgid "Username must be at least 3 characters long."
 msgstr ""
 
-#: mafiasi/guests/forms.py:31
+#: mafiasi/guests/forms.py:36
 msgid "This name is not available."
 msgstr ""
 
-#: mafiasi/guests/forms.py:40
+#: mafiasi/guests/forms.py:38
+msgid "Can't verify the username right now, please try again later."
+msgstr ""
+
+#: mafiasi/guests/forms.py:47
 msgid "The guest can use this email address to register a normal user account."
 msgstr ""
 
-#: mafiasi/guests/forms.py:43
+#: mafiasi/guests/forms.py:51
 msgid "There is already an account with that email."
 msgstr ""
 
-#: mafiasi/guests/forms.py:49
+#: mafiasi/guests/forms.py:53
+msgid "Can't verify the email right now, please try again later."
+msgstr ""
+
+#: mafiasi/guests/forms.py:61
 msgid "invitations"
 msgstr ""
 
-#: mafiasi/guests/templates/guests/accept.html:11
-#: mafiasi/guests/templates/guests/index.html:13
-#: mafiasi/guests/templates/guests/index.html:47
-#: mafiasi/guests/templates/guests/invite.html:15
-#: mafiasi/registration/templates/registration/create_account.html:13
-msgid "Username"
-msgstr ""
-
-#: mafiasi/guests/templates/guests/accept.html:16
-#: mafiasi/registration/forms.py:60 mafiasi/registration/forms.py:77
-#: mafiasi/registration/templates/registration/create_account.html:17
-msgid "Password"
-msgstr ""
-
-#: mafiasi/guests/templates/guests/accept.html:25
-#: mafiasi/registration/forms.py:61
-#: mafiasi/registration/templates/registration/create_account.html:26
-msgid "Password confirmation"
-msgstr ""
-
-#: mafiasi/guests/templates/guests/accept.html:34
-#: mafiasi/registration/templates/registration/create_account.html:5
-#: mafiasi/registration/templates/registration/create_account.html:36
-#: mafiasi/registration/templates/registration/require_info.html:37
-#: mafiasi/registration/templates/registration/require_info_other.html:28
-msgid "Create account"
+#: mafiasi/guests/models.py:46
+msgid "Sending the invitation email failed, please try again later"
 msgstr ""
 
 #: mafiasi/guests/templates/guests/has_account.html:4
-#: mafiasi/guests/templates/guests/username_exists.html:4
 msgid "Account already exists"
 msgstr ""
 
@@ -1171,40 +1153,55 @@ msgid ""
 "password?</a>"
 msgstr ""
 
-#: mafiasi/guests/templates/guests/index.html:8
+#: mafiasi/guests/templates/guests/index.html:10
 msgid "Open invitations"
 msgstr ""
 
-#: mafiasi/guests/templates/guests/index.html:14
-#: mafiasi/guests/templates/guests/index.html:48
+#: mafiasi/guests/templates/guests/index.html:15
+#: mafiasi/guests/templates/guests/index.html:58
+#: mafiasi/guests/templates/guests/invite.html:17
+#: mafiasi/registration/templates/registration/create_account.html:13
+msgid "Username"
+msgstr ""
+
+#: mafiasi/guests/templates/guests/index.html:16
+#: mafiasi/guests/templates/guests/index.html:59
 msgid "Full name"
 msgstr ""
 
-#: mafiasi/guests/templates/guests/index.html:15
-#: mafiasi/guests/templates/guests/invite.html:35
+#: mafiasi/guests/templates/guests/index.html:17
+#: mafiasi/guests/templates/guests/invite.html:37
 #: mafiasi/registration/templates/registration/account.html:54
 msgid "Email"
 msgstr ""
 
-#: mafiasi/guests/templates/guests/index.html:29
+#: mafiasi/guests/templates/guests/index.html:18
+msgid "id"
+msgstr ""
+
+#: mafiasi/guests/templates/guests/index.html:33
+msgid "Copy Token"
+msgstr ""
+
+#: mafiasi/guests/templates/guests/index.html:39
 msgid "Resend mail"
 msgstr ""
 
-#: mafiasi/guests/templates/guests/index.html:38
+#: mafiasi/guests/templates/guests/index.html:48
 msgid "You have no open invitations."
 msgstr ""
 
-#: mafiasi/guests/templates/guests/index.html:40
-#: mafiasi/guests/templates/guests/invite.html:6
-#: mafiasi/guests/templates/guests/invite.html:53
+#: mafiasi/guests/templates/guests/index.html:51
+#: mafiasi/guests/templates/guests/invite.html:7
+#: mafiasi/guests/templates/guests/invite.html:52
 msgid "Invite guest"
 msgstr ""
 
-#: mafiasi/guests/templates/guests/index.html:42
+#: mafiasi/guests/templates/guests/index.html:53
 msgid "Your guests"
 msgstr ""
 
-#: mafiasi/guests/templates/guests/index.html:61
+#: mafiasi/guests/templates/guests/index.html:72
 msgid "You have no guests."
 msgstr ""
 
@@ -1216,61 +1213,56 @@ msgstr ""
 msgid "This invitation has been withdrawn or is no longer valid."
 msgstr ""
 
-#: mafiasi/guests/templates/guests/invite.html:46
+#: mafiasi/guests/templates/guests/invite.html:44
 #: mafiasi/registration/templates/registration/require_info_other.html:20
 msgid "First name"
 msgstr ""
 
-#: mafiasi/guests/templates/guests/invite.html:50
+#: mafiasi/guests/templates/guests/invite.html:48
 #: mafiasi/registration/templates/registration/require_info_other.html:24
 msgid "Last name"
 msgstr ""
 
-#: mafiasi/guests/templates/guests/invited_by.html:4
-msgid "Hello "
-msgstr ""
-
-#: mafiasi/guests/templates/guests/invited_by.html:7
-#, python-format
-msgid "You were invited by %(full_name)s (%(username)s)."
-msgstr ""
-
-#: mafiasi/guests/templates/guests/invited_by.html:10
-#, python-format
-msgid "How about visiting <a href=\"%(dashboard_url)s\">the dashboard</a>?"
-msgstr ""
-
-#: mafiasi/guests/templates/guests/username_exists.html:8
-#, python-format
+#: mafiasi/guests/views.py:45
 msgid ""
-"Sorry, an account with username %(username)s already exists. If this is not "
-"your account, please request another invitation with a different username."
+"You have reached the maximum number of invitations and guests. You can "
+"withdraw some invitations to invite new guests."
 msgstr ""
 
-#: mafiasi/guests/views.py:51
+#: mafiasi/guests/views.py:49
+msgid "You have reached the maximum number of Guests you can invite."
+msgstr ""
+
+#: mafiasi/guests/views.py:68
+msgid "Could not create the account right now, please try again later."
+msgstr ""
+
+#: mafiasi/guests/views.py:71
 msgid "{} was successfully invited."
 msgstr ""
 
-#: mafiasi/guests/views.py:75
+#: mafiasi/guests/views.py:92
+msgid "Could not withdraw the invitation right now, please try again later."
+msgstr ""
+
+#: mafiasi/guests/views.py:95
 msgid "Invitation was withdrawn."
 msgstr ""
 
-#: mafiasi/guests/views.py:77
+#: mafiasi/guests/views.py:99
+msgid "This invitation was already used or expired."
+msgstr ""
+
+#: mafiasi/guests/views.py:102
+msgid "Could not resend right now, please try again later."
+msgstr ""
+
+#: mafiasi/guests/views.py:104
 msgid "invitation mails"
 msgstr ""
 
-#: mafiasi/guests/views.py:84
+#: mafiasi/guests/views.py:111
 msgid "Invitation mail was resent."
-msgstr ""
-
-#: mafiasi/kanboard/apps.py:11
-msgid "Kanboard"
-msgstr ""
-
-#: mafiasi/kanboard/apps.py:13
-msgid ""
-"Kanboard is a kanban project management tool that you can use to track the "
-"progress of your projects."
 msgstr ""
 
 #: mafiasi/link_shortener/apps.py:11
@@ -1413,6 +1405,36 @@ msgstr ""
 msgid "Matrix provides decentralized messaging and VoIP with E2E encryption."
 msgstr ""
 
+#: mafiasi/mattermost/apps.py:11
+msgid "Chat"
+msgstr "Chat"
+
+#: mafiasi/mattermost/apps.py:12
+msgid "An online team chat service"
+msgstr "An online team chat service"
+
+#: mafiasi/mensa/apps.py:11
+msgid "Mensa"
+msgstr "Canteen"
+
+#: mafiasi/mensa/apps.py:12
+msgid ""
+"Look at what is available in the canteens and filter according to diet, "
+"allergens, etc."
+msgstr ""
+"Look at what is available in the canteens and filter according to diet, "
+"allergens, etc."
+
+#: mafiasi/modulkompass/apps.py:11
+msgid "Modulkompass"
+msgstr ""
+
+#: mafiasi/modulkompass/apps.py:12
+msgid ""
+"Share your experiences with courses and look at the experiences of your "
+"fellow students."
+msgstr ""
+
 #: mafiasi/nextcloud/apps.py:11
 msgid "Nextcloud"
 msgstr ""
@@ -1421,354 +1443,55 @@ msgstr ""
 msgid "Nextcloud enables you to sync and share your documents."
 msgstr ""
 
-#: mafiasi/pks/apps.py:10
-msgid "Keyserver"
+#: mafiasi/overleaf/apps.py:11
+msgid "Overleaf"
 msgstr ""
 
-#: mafiasi/pks/apps.py:11
+#: mafiasi/overleaf/apps.py:12
 msgid ""
-"You can find your fellow students' OpenPGP keys on our public keyserver."
+"Overleaf is a collaborative LaTeX editor, with features from the premium "
+"version."
 msgstr ""
 
-#: mafiasi/pks/forms.py:17
-msgid "No valid OpenPGP keys."
-msgstr ""
-
-#: mafiasi/pks/templates/pks/all_keys.html:4
-#: mafiasi/pks/templates/pks/menu.html:10
-msgid "All keys"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/all_keys.html:5
-msgid "All keys on the keyserver"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/graph.html:5
-#: mafiasi/pks/templates/pks/menu.html:13
-msgid "Trust graph"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/graph.html:18
-msgid "You can drag the blue selector at the upper left to scroll."
-msgstr ""
-
-#: mafiasi/pks/templates/pks/graph.html:19
-msgid "Click on a node to highlight its connections."
-msgstr ""
-
-#: mafiasi/pks/templates/pks/graph.html:22
-#, python-format
-msgid "Return to party <a href=\"%(party_url)s\">%(party_name)s</a>."
-msgstr ""
-
-#: mafiasi/pks/templates/pks/keylist.html:9
-msgid "Key ID"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/keylist.html:10
-#: mafiasi/pks/templates/pks/show_key.html:19
-msgid "Size"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/keylist.html:11
-#: mafiasi/pks/templates/pks/show_key.html:23
-msgid "Created"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/keylist.html:12
-#: mafiasi/pks/templates/pks/show_key.html:27
-msgid "Expires"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/keylist.html:13
-#: mafiasi/pks/templates/pks/show_key.html:37
-msgid "User identities"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/keylist.html:14
-#: mafiasi/pks/templates/pks/show_key.html:31
-msgid "Fingerprint"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/menu.html:7
-#: mafiasi/pks/templates/pks/my_keys.html:4
-msgid "My keys"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/menu.html:16
-#: mafiasi/pks/templates/pks/party_list.html:4
-msgid "Parties"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/menu.html:21
-#, python-format
-msgid "Key: %(keyid)s"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/menu.html:27
-#: mafiasi/pks/templates/pks/my_keys.html:32
-msgid "Upload own keys"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/menu.html:32
-#: mafiasi/pks/templates/pks/party_keys.html:5
-msgid "Party:"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/menu.html:37
-msgid "Participate:"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/menu.html:42
-msgid "Trust graph:"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/my_keys.html:15
-msgid "Unassign"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/my_keys.html:18
-msgid "You have no keys assigned to you."
-msgstr ""
-
-#: mafiasi/pks/templates/pks/my_keys.html:25
-msgid "Keyid:"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/my_keys.html:29
-msgid "Assign key to me"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/my_keys.html:35
-msgid ""
-"Tip: You can type your name or email into the keyid field for autocompletion."
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_keys.html:4
-msgid "Keysigning Party:"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_keys.html:13
-msgid "Download all participating keys"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_keys.html:14
-msgid "Show trust graph for this party"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_keys.html:15
-msgid "Show missing signatures"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_keys.html:18
-msgid "Participating keys"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_keys.html:19
-msgid ""
-"You can select the keys you have verified and find commands to sign these "
-"keys at the bottom of this page."
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_keys.html:28
-msgid "Commands to sign selected keys"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_keys.html:29
-msgid "Using caff"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_keys.html:33
-msgid "Using only GnuPG"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_keys.html:34
-msgid "Ask for confirmation for each key."
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_list.html:16
-msgid "Key submission until"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_list.html:17
-#: mafiasi/pks/templates/pks/party_list.html:28
-#: mafiasi/pks/templates/pks/party_participate.html:5
-#: mafiasi/pks/templates/pks/party_participate.html:19
-msgid "Participate"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_list.html:28
-msgid "Change keys"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_missing_signatures.html:4
-#: mafiasi/pks/templates/pks/party_missing_signatures.html:5
-msgid "Missing signatures:"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_missing_signatures.html:12
-msgid "Keys missing my signatures"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_missing_signatures.html:17
-#: mafiasi/pks/templates/pks/party_missing_signatures.html:45
-msgid "User"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_missing_signatures.html:18
-#: mafiasi/pks/templates/pks/party_missing_signatures.html:46
-msgid "Key missing signature"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_missing_signatures.html:19
-msgid "From my key"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_missing_signatures.html:37
-msgid "None! Thank you for signing all other keys."
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_missing_signatures.html:40
-msgid "Signatures missing on my key"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_missing_signatures.html:47
-msgid "From other key"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_missing_signatures.html:65
-msgid "None! Everybody signed your keys."
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_participate.html:12
-msgid "Please select the keys you want to be signed by others."
-msgstr ""
-
-#: mafiasi/pks/templates/pks/party_participate.html:17
-#, python-format
-msgid "Missing a key? <a href=\"%(my_keys_url)s\">Manage your keys</a>."
-msgstr ""
-
-#: mafiasi/pks/templates/pks/search.html:4
-msgid "Key search"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/search.html:15
-msgid "You can also search using the HKP interface:"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/search.html:16
-msgid "search term"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/search_form.html:9
-msgid "Search key"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/search_result.html:7
-#, python-format
-msgid "Search result for \"%(search_term)s\""
-msgstr ""
-
-#: mafiasi/pks/templates/pks/show_key.html:8
-#, python-format
-msgid "Key details for 0x%(keyid)s"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/show_key.html:15
-msgid "Key information"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/show_key.html:49
-msgid "Key"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/show_key.html:50
-msgid "Show as plain text"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/upload_keys.html:6
-msgid "Add own OpenPGP key"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/upload_keys.html:17
-msgid "Insert one or more OpenPGP keys into the following field:"
-msgstr ""
-
-#: mafiasi/pks/templates/pks/upload_keys.html:27
-msgid "Add keys"
-msgstr ""
-
-#: mafiasi/pks/templatetags/pks.py:17
-msgid "Revoked."
-msgstr ""
-
-#: mafiasi/pks/templatetags/pks.py:20
-msgid "Never."
-msgstr ""
-
-#: mafiasi/pks/templatetags/pks.py:24
-#, python-brace-format
-msgid "Expired at {0}"
-msgstr ""
-
-#: mafiasi/pks/views.py:61
-msgid "Could not find the given keyid."
-msgstr ""
-
-#: mafiasi/pks/views.py:64
-msgid "Could not find a valid subkey."
-msgstr ""
-
-#: mafiasi/pks/views.py:69
-msgid "Key was successfully assigned to you."
-msgstr ""
-
-#: mafiasi/pks/views.py:71
-msgid "Key was already assigned to you"
-msgstr ""
-
-#: mafiasi/pks/views.py:162
-msgid "Sorry, submission period is over."
-msgstr ""
-
-#: mafiasi/pks/views.py:192
-msgid "Successfully submitted keys to party."
-msgstr ""
-
-#: mafiasi/pks/views.py:195
-msgid "Not participating in this keysigning party."
-msgstr ""
-
-#: mafiasi/registration/forms.py:24
+#: mafiasi/registration/forms.py:25
 msgid "That does not look like a valid account name."
 msgstr ""
 
-#: mafiasi/registration/forms.py:26
+#: mafiasi/registration/forms.py:27
 msgid "That does not look like a valid account name for {}."
 msgstr ""
 
-#: mafiasi/registration/forms.py:54
+#: mafiasi/registration/forms.py:55
 msgid "Invalid domain"
 msgstr ""
 
-#: mafiasi/registration/forms.py:68
+#: mafiasi/registration/forms.py:61 mafiasi/registration/forms.py:78
+#: mafiasi/registration/templates/registration/create_account.html:17
+msgid "Password"
+msgstr ""
+
+#: mafiasi/registration/forms.py:62
+#: mafiasi/registration/templates/registration/create_account.html:26
+msgid "Password confirmation"
+msgstr ""
+
+#: mafiasi/registration/forms.py:69
 msgid "The two password fields didn't match."
 msgstr ""
 
-#: mafiasi/registration/forms.py:83
+#: mafiasi/registration/forms.py:84
 msgid "Wrong password."
 msgstr ""
 
-#: mafiasi/registration/forms.py:116
+#: mafiasi/registration/forms.py:127
 msgid "This address is already associated with an account."
 msgstr ""
 
-#: mafiasi/registration/forms.py:119
+#: mafiasi/registration/forms.py:130
 msgid "Group addresses cannot be used for this purpose."
 msgstr ""
 
-#: mafiasi/registration/forms.py:121
+#: mafiasi/registration/forms.py:132
 msgid "Cloak adresses cannot be used for this purpose."
 msgstr ""
 
@@ -1823,6 +1546,13 @@ msgstr ""
 
 #: mafiasi/registration/templates/registration/account.html:118
 msgid "Manage Guests"
+msgstr ""
+
+#: mafiasi/registration/templates/registration/create_account.html:5
+#: mafiasi/registration/templates/registration/create_account.html:36
+#: mafiasi/registration/templates/registration/require_info.html:37
+#: mafiasi/registration/templates/registration/require_info_other.html:28
+msgid "Create account"
 msgstr ""
 
 #: mafiasi/registration/templates/registration/email_error.html:5
@@ -1971,6 +1701,16 @@ msgid ""
 "devices."
 msgstr ""
 
+#: mafiasi/tasks/apps.py:11
+msgid "Tasks"
+msgstr ""
+
+#: mafiasi/tasks/apps.py:13
+msgid ""
+"Tasks is a task management platform that allows you to organize your tasks "
+"and projects with groups and boards."
+msgstr ""
+
 #: mafiasi/tauschen/apps.py:11
 msgid "Mafiasi Tauschen"
 msgstr ""
@@ -2058,14 +1798,6 @@ msgstr ""
 msgid ""
 "An invitation email has been sent to %(vault_email)s. It includes a link "
 "which you need to click to complete the account creation."
-msgstr ""
-
-#: mafiasi/whiteboard/apps.py:11
-msgid "Whiteboard"
-msgstr ""
-
-#: mafiasi/whiteboard/apps.py:12
-msgid "Spacedeck Open is a collaborative whiteboard."
 msgstr ""
 
 #: mafiasi/wiki/apps.py:11

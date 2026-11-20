@@ -21,8 +21,8 @@ class VwOrganization:
     @classmethod
     def from_obj(cls: Type[Self], obj: Mapping[str, Any]) -> Self:
         return cls(
-            enabled=obj["Enabled"],
-            name=obj["Name"],
+            enabled=obj["enabled"],
+            name=obj["name"],
         )
 
 
@@ -45,12 +45,12 @@ class VwUser:
     @classmethod
     def from_obj(cls: Type[Self], obj: Mapping[str, Any]) -> Self:
         return cls(
-            created_at=datetime.fromisoformat(obj["CreatedAt"]) if "CreatedAt" in obj.keys() else None,
-            name=obj["Name"],
-            email=obj["Email"],
-            email_verified=obj["EmailVerified"],
-            organizations=[VwOrganization.from_obj(obj) for obj in obj["Organizations"]],
-            status=obj["_Status"],
+            created_at=datetime.fromisoformat(obj["createdAt"]) if "createdAt" in obj.keys() else None,
+            name=obj["name"],
+            email=obj["email"],
+            email_verified=obj["emailVerified"],
+            organizations=[VwOrganization.from_obj(obj) for obj in obj["organizations"]],
+            status=obj["_status"],
         )
 
 
