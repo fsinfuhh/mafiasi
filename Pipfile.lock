@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "cb9b4bcfe71cc6b6123b038520cf9ec66cbd299c95664e547b60c5f0c6d1be30"
+            "sha256": "7990be157f00cb52a56bda0dfee40e803744ff9b87934cbdf56ea2ceaf329c0e"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -560,12 +560,12 @@
         },
         "oauthlib": {
             "hashes": [
-                "sha256:0f0f8aa759826a193cf66c12ea1af1637f87b9b4622d46e866952bb022e538c9",
-                "sha256:88119c938d2b8fb88561af5f6ee0eec8cc8d552b7bb1f712743136eb7523b7a1"
+                "sha256:3d73febdb6faa00f277c81fb04be7b7586fb96fc3b7f0b9c772dada69a25ede7",
+                "sha256:498a298876e996301950a5b053d12c31628bb7b895db03666430c69ce182eb61"
             ],
             "index": "pypi",
-            "markers": "python_version >= '3.8'",
-            "version": "==3.3.1"
+            "markers": "python_version >= '3.9'",
+            "version": "==4.0.1"
         },
         "orderedmultidict": {
             "hashes": [

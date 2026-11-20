@@ -14,7 +14,7 @@ django-widget-tweaks = "~=1.5"
 environs = { version = "~=15.2", extras = ["django"] }
 etherpad_lite = "~=0.5"
 rapidfuzz = "~=3.0"
-oauthlib = "~=3.3"
+oauthlib = ">=3.3,<5" # only used by django-oauth-toolkit
 psycopg2-binary = "~=2.9"
 pygraphviz = "~=2.0"
 python-creole = "~=1.4"
