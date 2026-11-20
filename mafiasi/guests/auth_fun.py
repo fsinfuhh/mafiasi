@@ -1,7 +1,6 @@
 # auth_fun.py
 import json
 import logging
-import secrets
 from datetime import UTC, datetime, timedelta
 
 import requests
@@ -10,7 +9,7 @@ from django.db import transaction
 
 from mafiasi.guests.models import Invitation
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger("authentik_functions")
 
 INVITATION_LIMIT = 10
 INVITATION_VALID_DAYS = 7
